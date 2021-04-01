@@ -1,6 +1,6 @@
 {
-  "name": "xsltdev.ru",
-  "version": "3.1.1",
+  "name": "hcdev.ru",
+  "version": "1.0.0",
   "description": "Site with web documentations",
   "dependencies": {},
   "devDependencies": {
@@ -14,10 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xsltdev/xsltdev.ru.git"
+    "url": "git+https://github.com/xsltdev/hcdev.ru.git"
   },
   "bugs": {
-    "url": "https://github.com/xsltdev/xsltdev.ru/issues"
+    "url": "https://github.com/xsltdev/hcdev.ru/issues"
   },
-  "homepage": "https://xsltdev.ru/"
+  "homepage": "https://hcdev.ru/"
 }
