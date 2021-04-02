@@ -5,28 +5,30 @@ hide:
   - toc # Hide table of contents
 ---
 
-# Справочники
+# Справочник HTML и CSS
 
 <div class="layout layout2" markdown="1">
 
 <div class="cell" markdown="1">
 
-[![HTML](html.svg){: style="height:64px;width:64px;vertical-align:middle;"}](/html/)
+**[![HTML](html.svg){: style="height:16px;width:16px;vertical-align:middle;"} HTML](/html/)**
+: Справочник по тегам HTML с примерами кода.
 
-### [HTML](/html/)
-
-- [MIME-типы](/html/list-mime-types/)
+[MIME-типы](/html/list-mime-types/)
+: Типы данных, которые могут быть переданы посредством сети интернет с применением стандарта MIME
 
 </div>
 
 <div class="cell" markdown="1">
 
-[![CSS](css.svg){: style="height:64px;width:64px;vertical-align:middle;"}](/css/)
+**[![CSS](css.svg){: style="height:16px;width:16px;vertical-align:middle;"} CSS](/css/)**
+: Справочник свойств CSS с примерами кода
 
-### [CSS](/css/)
+[Flexbox](/flex/flex-1/)
+: Flexbox предоставляет иной подход к созданию пользовательского интерфейса, который отличается от табличной или блочной верстки
 
-- [Flexbox](/flex/flex-1/)
-- [Grid Layout](/grid/grid-1/)
+[Grid Layout](/grid/grid-1/)
+: Grid Layout представляет гибкий подход к компоновке элементов
 
 </div>
 
@@ -34,12 +36,12 @@ hide:
 
 !!!abstract "Справочники"
 
-    **[XSLT](https://xsltdev.ru)** &nbsp;&nbsp;&nbsp;
+    [XSLT](https://xsltdev.ru) &nbsp;&nbsp;&nbsp;
     [![Angular](angular.svg){: style="height:16px;width:16px;vertical-align:middle;"} Angular](https://angdev.ru/) &nbsp;&nbsp;&nbsp;
     [![React](react.svg){: style="height:16px;width:16px;vertical-align:middle;"} React](https://reactdev.ru/) &nbsp;&nbsp;&nbsp;
     [![Node.js](nodejs.svg){: style="height:16px;width:16px;vertical-align:middle;"} Node.js](https://nodejsdev.ru/) &nbsp;&nbsp;&nbsp;
-    [![HTML](html.svg){: style="height:16px;width:16px;vertical-align:middle;"} HTML](https://hcdev.ru/html/) &nbsp;&nbsp;&nbsp;
-    [![CSS](css.svg){: style="height:16px;width:16px;vertical-align:middle;"} CSS](https://hcdev.ru/css/)
+    **[![HTML](html.svg){: style="height:16px;width:16px;vertical-align:middle;"} HTML](https://hcdev.ru/html/)** &nbsp;&nbsp;&nbsp;
+    **[![CSS](css.svg){: style="height:16px;width:16px;vertical-align:middle;"} CSS](https://hcdev.ru/css/)**
 
 <!--
 Планы
