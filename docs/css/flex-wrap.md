@@ -114,13 +114,13 @@ Safari до версии 9 поддерживает свойство `-webkit-fl
   <body>
     <ul class="flex-container">
       <li class="flex-item">
-        <img src="image/aquaria1.jpg" alt="" />
+        <img src="/css/aquaria1.jpg" alt="" />
       </li>
       <li class="flex-item">
-        <img src="image/aquaria2.jpg" alt="" />
+        <img src="/css/aquaria2.jpg" alt="" />
       </li>
       <li class="flex-item">
-        <img src="image/aquaria3.jpg" alt="" />
+        <img src="/css/aquaria3.jpg" alt="" />
       </li>
     </ul>
   </body>
