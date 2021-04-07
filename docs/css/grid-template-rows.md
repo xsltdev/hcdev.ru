@@ -187,7 +187,7 @@ grid-template-rows: none;
 ## См. также
 
 - Связанные свойства [grid-template-columns](grid-template-columns.md), [grid-template-areas](grid-template-areas.md), [grid-template](grid-template.md)
-- [Руководство по Grid](/grid/grid-1.md)
+- [Руководство по Grid](/grid/)
 
 ## Ссылки
 

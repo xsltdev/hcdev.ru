@@ -113,4 +113,4 @@ grid-column-end: unset;
 
 ## См. также
 
-- [Руководство по Grid Layout](/grid/grid-1.md)
+- [Руководство по Grid Layout](/grid/)

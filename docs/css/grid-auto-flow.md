@@ -169,7 +169,7 @@ CSS
 
 Так как мы установили `grid-auto-flow` в `row`, наша сетка будет выглядеть как на изображении ниже. Обратите внимание на то, как три элемента которые мы не расположили (item-b, item-c и item-d) перетекают через пустые строки:
 
-![CSS Grid Auto Flow Row](/workspace/uploads/css/grid-auto-flow-row.png)
+![CSS Grid Auto Flow Row](grid-auto-flow-row.png)
 
 Если вместо этого мы установим свойство `grid-auto-flow` в `column`, элементы `item-b`, `item-c` и `item-d` будут перетекать сквозь колонки:
 
@@ -186,4 +186,4 @@ CSS
 
 ## См. также
 
-- [Руководство по Grid Layout](/grid/grid-1.md)
+- [Руководство по Grid Layout](/grid/)

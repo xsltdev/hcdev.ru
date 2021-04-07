@@ -324,7 +324,7 @@ grid-row-end: `auto`;
 ## См. также
 
 - Связанные свойства [`grid-row-start`](grid-row-start.md), [`grid-row-end`](grid-row-end.md), [`grid-column`](grid-column.md), [`grid-column-start`](grid-column-start.md), [`grid-column-end`](grid-column-end.md)
-- [Руководство по Grid](/grid/grid-1.md)
+- [Руководство по Grid](/grid/)
 
 ## Ссылки
 

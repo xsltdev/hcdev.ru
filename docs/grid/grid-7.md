@@ -103,4 +103,4 @@
 
 ## См. также
 
-- [z-index](/css/z-index.md)
+- [z-index](/css/z-index/)

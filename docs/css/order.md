@@ -166,5 +166,5 @@ order: unset;
 
 ## См. также
 
-- [Руководство по Flexbox](/flex/flex-1.md)
-- [Руководство по Grid Layout](/grid/grid-1.md)
+- [Руководство по Flexbox](/flex/)
+- [Руководство по Grid Layout](/grid/)

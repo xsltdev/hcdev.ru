@@ -164,4 +164,4 @@ flex-grow: 1;
 
 ## См. также
 
-- [Руководство по Flexbox](/flex/flex-1.md)
+- [Руководство по Flexbox](/flex/)

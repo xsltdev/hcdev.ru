@@ -79,6 +79,6 @@
 
 ## См. также
 
-- [grid-gap](/css/grid-gap.md)
-- [grid-column-gap](/css/grid-column-gap.md)
-- [grid-row-gap](/css/grid-row-gap.md)
+- [grid-gap](/css/grid-gap/)
+- [grid-column-gap](/css/grid-column-gap/)
+- [grid-row-gap](/css/grid-row-gap/)

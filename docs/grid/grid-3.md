@@ -80,4 +80,4 @@ grid: grid-template-rows / grid-template-columns;
 
 ## См. также
 
-- [grid](/css/grid.md)
+- [grid](/css/grid/)

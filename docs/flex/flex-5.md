@@ -102,4 +102,4 @@
 
 ## См. также
 
-- [justify-content](/css/justify-content.md)
+- [justify-content](/css/justify-content/)

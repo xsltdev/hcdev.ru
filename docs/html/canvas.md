@@ -51,40 +51,42 @@ description: Тег canvas (от англ. canvas - холст) создаёт �
     <meta charset="utf-8" />
     <script>
       window.onload = function () {
-        var drawingCanvas = document.getElementById('smile')
+        var drawingCanvas = document.getElementById(
+          'smile'
+        );
         if (drawingCanvas && drawingCanvas.getContext) {
-          var context = drawingCanvas.getContext('2d')
+          var context = drawingCanvas.getContext('2d');
           // Рисуем окружность
-          context.strokeStyle = '#000'
-          context.fillStyle = '#fc0'
-          context.beginPath()
-          context.arc(100, 100, 50, 0, Math.PI * 2, true)
-          context.closePath()
-          context.stroke()
-          context.fill()
+          context.strokeStyle = '#000';
+          context.fillStyle = '#fc0';
+          context.beginPath();
+          context.arc(100, 100, 50, 0, Math.PI * 2, true);
+          context.closePath();
+          context.stroke();
+          context.fill();
           // Рисуем левый глаз
-          context.fillStyle = '#fff'
-          context.beginPath()
-          context.arc(84, 90, 8, 0, Math.PI * 2, true)
-          context.closePath()
-          context.stroke()
-          context.fill()
+          context.fillStyle = '#fff';
+          context.beginPath();
+          context.arc(84, 90, 8, 0, Math.PI * 2, true);
+          context.closePath();
+          context.stroke();
+          context.fill();
           // Рисуем правый глаз
-          context.beginPath()
-          context.arc(116, 90, 8, 0, Math.PI * 2, true)
-          context.closePath()
-          context.stroke()
-          context.fill()
+          context.beginPath();
+          context.arc(116, 90, 8, 0, Math.PI * 2, true);
+          context.closePath();
+          context.stroke();
+          context.fill();
           // Рисуем рот
-          context.beginPath()
-          context.moveTo(70, 115)
-          context.quadraticCurveTo(100, 130, 130, 115)
-          context.quadraticCurveTo(100, 150, 70, 115)
-          context.closePath()
-          context.stroke()
-          context.fill()
+          context.beginPath();
+          context.moveTo(70, 115);
+          context.quadraticCurveTo(100, 130, 130, 115);
+          context.quadraticCurveTo(100, 150, 70, 115);
+          context.closePath();
+          context.stroke();
+          context.fill();
         }
-      }
+      };
     </script>
   </head>
   <body>
@@ -97,7 +99,7 @@ description: Тег canvas (от англ. canvas - холст) создаёт �
 
 ## См. также
 
-- [Свойства и методы Canvas 2D](/javascript/canvas/)
+- [Свойства и методы Canvas 2D](https://scriptdev.ru/webapi/canvas/)
 
 ## Ссылки
 

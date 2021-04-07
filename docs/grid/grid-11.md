@@ -161,5 +161,5 @@ grid-template-areas:
 
 ## См. также
 
-- [grid-template-areas](/css/grid-template-areas.md)
-- [grid-area](/css/grid-area.md)
+- [grid-template-areas](/css/grid-template-areas/)
+- [grid-area](/css/grid-area/)

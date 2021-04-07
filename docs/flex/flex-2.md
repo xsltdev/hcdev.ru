@@ -123,4 +123,4 @@ Flex-элементы во flex-контейнере могут иметь оп�
 
 ## См. также
 
-- [flex-direction](/css/flex-direction.md)
+- [flex-direction](/css/flex-direction/)

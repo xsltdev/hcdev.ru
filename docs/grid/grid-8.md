@@ -172,5 +172,5 @@
 
 ## См. также
 
-- [grid-auto-flow](/css/grid-auto-flow.md)
-- [order](/css/order.md)
+- [grid-auto-flow](/css/grid-auto-flow/)
+- [order](/css/order/)

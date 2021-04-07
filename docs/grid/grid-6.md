@@ -163,10 +163,10 @@ grid-area: row-start / column-start / row-end / column-end;
 
 ## См. также
 
-- [grid-row](/css/grid-row.md)
-- [grid-column](/css/grid-column.md)
-- [grid-area](/css/grid-area.md)
-- [grid-row-start](/css/grid-row-start.md)
-- [grid-row-end](/css/grid-row-end.md)
-- [grid-column-start](/css/grid-column-start.md)
-- [grid-column-end](/css/grid-column-end.md)
+- [grid-row](/css/grid-row/)
+- [grid-column](/css/grid-column/)
+- [grid-area](/css/grid-area/)
+- [grid-row-start](/css/grid-row-start/)
+- [grid-row-end](/css/grid-row-end/)
+- [grid-column-start](/css/grid-column-start/)
+- [grid-column-end](/css/grid-column-end/)

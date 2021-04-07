@@ -170,4 +170,4 @@ CSS
 
 - Свойство [`row-gap`](row-gap.md)
 - Свойство [`column-gap`](column-gap.md)
-- [Руководство по Grid Layout](/grid/grid-1.md)
+- [Руководство по Grid Layout](/grid/)

@@ -168,4 +168,4 @@
 
 ## См. также
 
-- [flex-wrap](/css/flex-wrap.md)
+- [flex-wrap](/css/flex-wrap/)

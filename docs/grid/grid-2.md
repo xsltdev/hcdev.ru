@@ -2,8 +2,8 @@
 
 Грид образует сетку из строк и столбцов, на пересечении которых образуются ячейки. И для установки строк и столбцов в Grid Layout использовать следующие свойства CSS3:
 
-- [`grid-template-columns`](/css/grid-template-columns.md): настраивает столбцы
-- [`grid-template-rows`](/css/grid-template-rows.md): настраивает строки
+- [`grid-template-columns`](/css/grid-template-columns/): настраивает столбцы
+- [`grid-template-rows`](/css/grid-template-rows/): настраивает строки
 
 ## Столбцы
 
@@ -145,5 +145,5 @@ grid-template-columns: 8em 7em 8em;
 
 ## См. также
 
-- [grid-template-columns](/css/grid-template-columns.md)
-- [grid-template-rows](/css/grid-template-rows.md)
+- [grid-template-columns](/css/grid-template-columns/)
+- [grid-template-rows](/css/grid-template-rows/)
