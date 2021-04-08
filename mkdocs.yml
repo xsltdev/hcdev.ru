@@ -13,8 +13,18 @@ theme:
     include_search_page: false
     search_index_only: true
     palette:
-        primary: red
-        accent: red
+        - scheme: default
+          primary: red
+          accent: red
+          toggle:
+              icon: material/toggle-switch-off-outline
+              name: Переключиться на темную тему
+        - scheme: slate
+          primary: red
+          accent: red
+          toggle:
+              icon: material/toggle-switch
+              name: Переключиться на светлую тему
     language: ru
     features:
         - navigation.tabs
