@@ -7,19 +7,11 @@ hide:
 
 # Справочник HTML и CSS
 
-<div class="layout layout2" markdown="1">
-
-<div class="cell" markdown="1">
-
 **[![HTML](html.svg){: style="height:16px;width:16px;vertical-align:middle;"} HTML](/html/)**
 : Справочник по тегам HTML с примерами кода.
 
 [MIME-типы](/html/list-mime-types/)
 : Типы данных, которые могут быть переданы посредством сети интернет с применением стандарта MIME
-
-</div>
-
-<div class="cell" markdown="1">
 
 **[![CSS](css.svg){: style="height:16px;width:16px;vertical-align:middle;"} CSS](/css/)**
 : Справочник свойств CSS с примерами кода
@@ -29,10 +21,6 @@ hide:
 
 [Grid Layout](/grid/)
 : Grid Layout представляет гибкий подход к компоновке элементов
-
-</div>
-
-</div>
 
 !!!abstract "Справочники"
 
