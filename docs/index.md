@@ -10,9 +10,6 @@ hide:
 **[![HTML](html.svg){: style="height:16px;width:16px;vertical-align:middle;"} HTML](/html/)**
 : Справочник по тегам HTML с примерами кода.
 
-[MIME-типы](/html/list-mime-types/)
-: Типы данных, которые могут быть переданы посредством сети интернет с применением стандарта MIME
-
 **[![CSS](css.svg){: style="height:16px;width:16px;vertical-align:middle;"} CSS](/css/)**
 : Справочник свойств CSS с примерами кода
 
