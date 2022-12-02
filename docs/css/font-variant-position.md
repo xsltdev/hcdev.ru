@@ -1,5 +1,5 @@
 ---
-description:
+description: CSS-свойство font-variant-position управляет использованием альтернативных глифов меньшего размера, расположенных как надстрочный или подстрочный индекс.
 ---
 <!-- TODO: -->
 # font-variant-position

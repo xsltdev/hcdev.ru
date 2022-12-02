@@ -1,5 +1,5 @@
 ---
-description:
+description: CSS-свойство box-decoration-break указывает, как должны отображаться фрагменты элемента, разбитые на несколько строк, столбцов или страниц.
 ---
 <!-- TODO: -->
 # box-decoration-break

@@ -1,5 +1,5 @@
 ---
-description:
+description: Свойство CSS mask-border-mode указывает режим наложения, используемый в границе маски.
 ---
 <!-- TODO: -->
 # mask-border-mode

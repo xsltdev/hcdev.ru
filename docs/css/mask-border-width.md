@@ -1,5 +1,5 @@
 ---
-description:
+description: Свойство CSS mask-border-width устанавливает ширину границы маски элемента.
 ---
 <!-- TODO: -->
 # mask-border-width

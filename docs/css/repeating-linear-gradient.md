@@ -1,5 +1,5 @@
 ---
-description:
+description: Функция CSS Repeating-Linear-Gradient() создает изображение, состоящее из повторяющихся линейных градиентов.
 ---
 <!-- TODO: -->
 # repeating-linear-gradient()

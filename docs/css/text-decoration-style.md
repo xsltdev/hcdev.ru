@@ -1,5 +1,5 @@
 ---
-description:
+description: CSS-свойство text-decoration-style задает стиль линий, заданных text-decoration-line. Стиль применяется ко всем строкам, заданным с помощью text-decoration-line.
 ---
 <!-- TODO: -->
 # text-decoration-style

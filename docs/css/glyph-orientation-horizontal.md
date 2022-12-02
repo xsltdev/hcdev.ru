@@ -1,5 +1,5 @@
 ---
-description:
+description: Атрибут glyph-orientation-horizontal влияет на величину, на которую текущая позиция текста смещается при отображении каждого глифа.
 ---
 <!-- TODO: -->
 # glyph-orientation-horizontal

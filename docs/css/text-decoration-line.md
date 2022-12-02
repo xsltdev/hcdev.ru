@@ -1,5 +1,5 @@
 ---
-description:
+description: Свойство CSS text-decoration-line задает вид оформления, используемого для текста в элементе, например подчеркивание или надчеркивание.
 ---
 <!-- TODO: -->
 # text-decoration-line

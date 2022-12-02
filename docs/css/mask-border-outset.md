@@ -1,5 +1,5 @@
 ---
-description:
+description: CSS-свойство mask-border-outset определяет расстояние, на которое граница маски элемента отстоит от его рамки.
 ---
 <!-- TODO: -->
 # mask-border-outset

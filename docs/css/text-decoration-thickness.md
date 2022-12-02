@@ -1,5 +1,5 @@
 ---
-description:
+description: CSS-свойство text-decoration-thickness задает толщину обводки декоративной линии, которая используется в тексте в элементе, например сквозная линия, подчеркивание или надчеркивание.
 ---
 <!-- TODO: -->
 # text-decoration-thickness

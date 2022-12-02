@@ -1,5 +1,5 @@
 ---
-description:
+description: CSS-свойство object-position определяет выравнивание содержимого выбранного замененного элемента в поле элемента.
 ---
 <!-- TODO: -->
 # object-position

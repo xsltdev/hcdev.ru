@@ -1,5 +1,5 @@
 ---
-description:
+description: Свойство CSS mask-border-source устанавливает исходное изображение, используемое для создания границы маски элемента.
 ---
 <!-- TODO: -->
 # mask-border-source

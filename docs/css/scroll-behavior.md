@@ -1,5 +1,5 @@
 ---
-description:
+description: Свойство CSS scroll-behavior задает поведение поля прокрутки, когда прокрутка активируется API-интерфейсами навигации или прокрутки CSSOM.
 ---
 <!-- TODO: -->
 # scroll-behavior

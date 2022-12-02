@@ -1,5 +1,5 @@
 ---
-description:
+description: CSS-свойство font-variant-east-asian управляет использованием альтернативных глифов для восточноазиатских шрифтов, таких как японский и китайский.
 ---
 <!-- TODO: -->
 # font-variant-east-asian

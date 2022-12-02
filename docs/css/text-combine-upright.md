@@ -1,5 +1,5 @@
 ---
-description:
+description: CSS-свойство text-combine-upright устанавливает комбинацию символов в пробел одного символа.
 ---
 <!-- TODO: -->
 # text-combine-upright

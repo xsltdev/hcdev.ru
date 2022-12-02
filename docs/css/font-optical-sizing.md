@@ -1,5 +1,5 @@
 ---
-description:
+description: Свойство CSS font-optical-sizing определяет, оптимизирован ли рендеринг текста для просмотра в разных размерах.
 ---
 
 # font-optical-sizing

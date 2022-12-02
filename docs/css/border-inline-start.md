@@ -1,5 +1,5 @@
 ---
-description:
+description: Свойство CSS border-inline-start — это сокращенное свойство для установки значений отдельных логических свойств границы inline-start в одном месте таблицы стилей.
 ---
 <!-- TODO: -->
 # border-inline-start

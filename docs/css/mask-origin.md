@@ -1,5 +1,5 @@
 ---
-description:
+description: Свойство CSS mask-origin устанавливает источник маски.
 ---
 <!-- TODO: -->
 # mask-origin

@@ -1,5 +1,5 @@
 ---
-description:
+description: Свойство CSS text-decoration-color задает цвет украшений, добавляемых к тексту строкой text-decoration.
 ---
 <!-- TODO: -->
 # text-decoration-color

@@ -1,5 +1,5 @@
 ---
-description:
+description: Функция CSS Repeating-Radial-Gradient() создает изображение, состоящее из повторяющихся градиентов, исходящих из исходной точки.
 ---
 <!-- TODO: -->
 # repeating-radial-gradient()

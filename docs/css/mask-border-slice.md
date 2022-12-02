@@ -1,5 +1,5 @@
 ---
-description:
+description: Свойство CSS mask-border-slice делит изображение, заданное источником mask-border-source, на области. Эти области используются для формирования компонентов границы маски элемента.
 ---
 <!-- TODO: -->
 # mask-border-slice

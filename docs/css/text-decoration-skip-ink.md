@@ -1,5 +1,5 @@
 ---
-description:
+description: CSS-свойство text-decoration-skip-ink указывает, как надчеркивания и подчеркивания рисуются, когда они проходят над надстрочными и подстрочными элементами глифа.
 ---
 
 # text-decoration-skip-ink

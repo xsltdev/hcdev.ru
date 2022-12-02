@@ -1,5 +1,5 @@
 ---
-description:
+description: Свойство CSS shape-image-threshold задает пороговое значение альфа-канала, используемое для извлечения формы с использованием изображения в качестве значения для shape-outside.
 ---
 <!-- TODO: -->
 # shape-image-threshold

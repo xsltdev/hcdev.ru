@@ -1,5 +1,5 @@
 ---
-description:
+description: CSS-свойство text-underline-position указывает положение подчеркивания, которое задается с помощью значения подчеркивания свойства text-decoration.
 ---
 <!-- TODO: -->
 # text-underline-position

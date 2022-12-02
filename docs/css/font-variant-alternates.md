@@ -1,5 +1,5 @@
 ---
-description:
+description: CSS-свойство font-variant-alternates управляет использованием альтернативных глифов. На эти альтернативные глифы можно ссылаться по альтернативным именам, определенным в @font-feature-values.
 ---
 
 # font-variant-alternates

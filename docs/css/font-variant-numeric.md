@@ -1,5 +1,5 @@
 ---
-description:
+description: CSS-свойство font-variant-numeric управляет использованием альтернативных глифов для чисел, дробей и порядковых маркеров.
 ---
 <!-- TODO: -->
 # font-variant-numeric

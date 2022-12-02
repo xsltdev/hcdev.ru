@@ -1,5 +1,5 @@
 ---
-description:
+description: Свойство CSS shape-margin задает поле для фигуры CSS, созданной с помощью shape-outside.
 ---
 <!-- TODO: -->
 # shape-margin

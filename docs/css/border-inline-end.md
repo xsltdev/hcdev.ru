@@ -1,5 +1,5 @@
 ---
-description:
+description: Свойство CSS border-inline-end — это сокращенное свойство для установки значений отдельных логических свойств границы inline-end в одном месте таблицы стилей.
 ---
 <!-- TODO: -->
 # border-inline-end

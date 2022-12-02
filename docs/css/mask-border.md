@@ -1,5 +1,5 @@
 ---
-description:
+description: Сокращенное свойство CSS mask-border позволяет создать маску по краю границы элемента.
 ---
 <!-- TODO: -->
 # mask-border

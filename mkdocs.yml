@@ -66,6 +66,7 @@ plugins:
               - en
     - awesome-pages
     - section-index
+    - social
 
 extra_javascript:
     - 'https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js'

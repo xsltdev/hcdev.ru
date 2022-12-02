@@ -1,5 +1,5 @@
 ---
-description:
+description: CSS-свойство image-orientation задает независимую от макета коррекцию ориентации изображения.
 ---
 <!-- TODO: -->
 # image-orientation
