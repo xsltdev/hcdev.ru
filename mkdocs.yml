@@ -2,7 +2,7 @@ site_name: HTML и CSS
 site_url: https://hcdev.ru/
 site_description: Справочник web-разработчика с примерами кода - HTML, CSS
 site_author: hcdev.ru
-copyright: (C) 2021, Справочник разработчика HTML и CSS с примерами кода
+copyright: (C) 2021-2023, Справочник разработчика HTML и CSS с примерами кода
 
 repo_name: 'Справочник на Github'
 repo_url: 'https://github.com/xsltdev/hcdev.ru'
