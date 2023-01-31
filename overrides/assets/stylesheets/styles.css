@@ -159,8 +159,6 @@ h3 {
 .md-tabs__list li:last-child {
 	font-weight: 700;
 	color: black;
-	font-style: italic;
-	text-transform: lowercase;
 	position: absolute;
 	right: 0;
 	padding-left: 24px;

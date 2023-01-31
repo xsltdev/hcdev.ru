@@ -56,7 +56,7 @@ markdown_extensions:
           emoji_index: !!python/name:materialx.emoji.twemoji
           emoji_generator: !!python/name:materialx.emoji.to_svg
     - pymdownx.tabbed:
-        alternate_style: true
+          alternate_style: true
     - pymdownx.superfences
 
 plugins:
@@ -72,4 +72,4 @@ extra_javascript:
     - 'https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js'
 
 extra_css:
-    - '/assets/stylesheets/styles.css'
+    - '/assets/stylesheets/styles.css?2'
