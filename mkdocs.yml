@@ -72,4 +72,4 @@ extra_javascript:
     - 'https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js'
 
 extra_css:
-    - '/assets/stylesheets/styles.css?2'
+    - '/assets/stylesheets/styles.css?3'
