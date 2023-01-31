@@ -2,5 +2,5 @@ User-agent: *
 Allow: /
 Clean-param: query
 
-Host: https://xsltdev.ru/
-Sitemap: https://xsltdev.ru/sitemap.xml
+Host: https://hcdev.ru/
+Sitemap: https://hcdev.ru/sitemap.xml
