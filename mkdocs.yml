@@ -29,6 +29,8 @@ theme:
     features:
         - navigation.tabs
         - navigation.tracking
+        - navigation.top
+        - content.action.edit
     favicon: html.svg
     logo: html.svg
 
@@ -90,4 +92,4 @@ extra_javascript:
     - 'https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js'
 
 extra_css:
-    - '/assets/stylesheets/styles.css?3'
+    - '/assets/stylesheets/styles.css?4'
