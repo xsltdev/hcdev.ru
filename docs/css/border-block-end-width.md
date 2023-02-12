@@ -1,8 +1,10 @@
 ---
 description: Свойство CSS border-block-end-width определяет ширину логической границы блока элемента, которая сопоставляется с шириной физической границы в зависимости от режима записи элемента, направления и ориентации текста.
 ---
-<!-- TODO: -->
+
 # border-block-end-width
+
+Свойство **`border-block-end-width`** определяет ширину логической границы блока элемента, которая сопоставляется с шириной физической границы в зависимости от режима записи элемента, направления и ориентации текста. Он соответствует свойству `border-top-width`, `border-right-width`, `border-bottom-width` или `border-left-width` в зависимости от значений, определенных для режима письма, направления и ориентации текста.
 
 ??? info "Логические границы"
 
@@ -42,20 +44,32 @@ description: Свойство CSS border-block-end-width определяет ш
 ## Синтаксис
 
 ```css
+/* <'border-width'> values */
+border-block-end-width: 5px;
+border-block-end-width: thick;
 
+/* Global values */
+border-block-end-width: inherit;
+border-block-end-width: initial;
+border-block-end-width: revert;
+border-block-end-width: revert-layer;
+border-block-end-width: unset;
 ```
 
 ## Значения
 
+`<ширина>`
+: The width of the border. See border-width.
+
 ## Определение
 
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
+|                      |                                                               |
+| -------------------- | ------------------------------------------------------------- |
+| Начальное значение   | `medium`                                                      |
+| Применяется ко       | всем элементам                                                |
+| Наследуется          | нет                                                           |
+| Вычисленное значение | абсолютная длина; `0`, если стиль границы `none` или `hidden` |
+| Тип анимации         | длина                                                         |
 
 ## Поддержка браузерами
 
@@ -63,7 +77,21 @@ description: Свойство CSS border-block-end-width определяет ш
 
 ## Примеры
 
+```css
+div {
+  background-color: yellow;
+  width: 120px;
+  height: 120px;
+}
+
+.exampleText {
+  writing-mode: vertical-lr;
+  border: 1px solid blue;
+  border-block-end-width: 5px;
+}
+```
+
 ## Ссылки
 
 - Свойство [`border-block-end-width`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-end-width) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-width) <sup><small>Spec (англ.)</small></sup>

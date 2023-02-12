@@ -23,6 +23,7 @@ description: Тег nav (от англ. navigation — навигация) за�
     - [h4](h4.md)
     - [h5](h5.md)
     - [h6](h6.md)
+    - [hgroup](hgroup.md)
     - [main](main.md)
     - **nav**
     - [section](section.md)

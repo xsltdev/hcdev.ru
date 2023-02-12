@@ -25,6 +25,7 @@ description: Тег main (от англ. main - основной) предназ
     - [h4](h4.md)
     - [h5](h5.md)
     - [h6](h6.md)
+    - [hgroup](hgroup.md)
     - **main**
     - [nav](nav.md)
     - [section](section.md)

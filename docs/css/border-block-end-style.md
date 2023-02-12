@@ -1,8 +1,10 @@
 ---
-description: Свойство CSS border-block-end-style определяет стиль границы логического конца блока элемента, который сопоставляется с физическим стилем границы в зависимости от режима письма элемента, направления и ориентации текста.
+description: Свойство border-block-end-style определяет стиль границы логического конца блока элемента, который сопоставляется с физическим стилем границы в зависимости от режима письма элемента, направления и ориентации текста.
 ---
-<!-- TODO: -->
+
 # border-block-end-style
+
+Свойство **`border-block-end-style`** определяет стиль границы логического конца блока элемента, который сопоставляется с физическим стилем границы в зависимости от режима письма элемента, направления и ориентации текста. Он соответствует свойству `border-top-style`, `border-right-style`, `border-bottom-style` или `border-left-style` в зависимости от значений, определенных для режима письма, направления и ориентации текста.
 
 ??? info "Логические границы"
 
@@ -42,18 +44,33 @@ description: Свойство CSS border-block-end-style определяет с
 ## Синтаксис
 
 ```css
+/* <'border-style'> values */
+border-block-end-style: dashed;
+border-block-end-style: dotted;
+border-block-end-style: groove;
 
+/* Global values */
+border-block-end-style: inherit;
+border-block-end-style: initial;
+border-block-end-style: revert;
+border-block-end-style: revert-layer;
+border-block-end-style: unset;
 ```
 
+Связанными свойствами являются `border-block-start-style`, `border-inline-start-style` и `border-inline-end-style`, которые определяют другие стили границы элемента.
+
 ## Значения
+
+`<стиль границы>`
+: Стиль линии границы.
 
 ## Определение
 
 |                      |                |
 | -------------------- | -------------- |
-| Начальное значение   | ``             |
+| Начальное значение   | `none`         |
 | Применяется ко       | всем элементам |
-| Наследуется          | да             |
+| Наследуется          | нет            |
 | Вычисленное значение | как определено |
 | Тип анимации         | дискретный     |
 
@@ -63,7 +80,21 @@ description: Свойство CSS border-block-end-style определяет с
 
 ## Примеры
 
+```css
+div {
+  background-color: yellow;
+  width: 120px;
+  height: 120px;
+}
+
+.exampleText {
+  writing-mode: vertical-lr;
+  border: 5px solid blue;
+  border-block-end-style: dashed;
+}
+```
+
 ## Ссылки
 
 - Свойство [`border-block-end-style`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-end-style) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-style) <sup><small>Spec (англ.)</small></sup>

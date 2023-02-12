@@ -1,3 +1,7 @@
+---
+description: Свойство align-items также выравнивает элементы, но уже по поперечной оси
+---
+
 # Выравнивание элементов. align-items и align-self
 
 ## Свойство align-items

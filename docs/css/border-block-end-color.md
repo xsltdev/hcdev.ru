@@ -1,7 +1,7 @@
 ---
 description: Свойство border-block-end-color определяет цвет границы логического конца блока элемента, который отображается на физический цвет границы в зависимости от режима письма элемента, направленности и ориентации текста
 ---
-<!-- TODO: -->
+
 # border-block-end-color
 
 Свойство **`border-block-end-color`** определяет цвет границы логического конца блока элемента, который отображается на физический цвет границы в зависимости от режима письма элемента, направленности и ориентации текста.
@@ -47,26 +47,52 @@ description: Свойство border-block-end-color определяет цве
 
 ```css
 border-block-end-color: yellow;
-border-block-end-color: #F5F6F7;
+border-block-end-color: #f5f6f7;
+
+/* Global values */
+border-block-end-color: inherit;
+border-block-end-color: initial;
+border-block-end-color: revert;
+border-block-end-color: revert-layer;
+border-block-end-color: unset;
 ```
 
+Связанными свойствами являются `border-block-start-color`, `border-inline-start-color` и `border-inline-end-color`, которые определяют другие цвета границ элемента.
+
 ## Значения
+
+`<цвет>`
+: Цвет границы.
 
 ## Определение
 
 |                      |                |
 | -------------------- | -------------- |
-| Начальное значение   | `currentcolor`             |
+| Начальное значение   | `currentcolor` |
 | Применяется ко       | всем элементам |
-| Наследуется          | нет             |
+| Наследуется          | нет            |
 | Вычисленное значение | как определено |
-| Тип анимации         | как цвет     |
+| Тип анимации         | как цвет       |
 
 ## Поддержка браузерами
 
 <p class="ciu_embed" data-feature="mdn-css__properties__border-block-end-color" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Примеры
+
+```css
+div {
+  background-color: yellow;
+  width: 120px;
+  height: 120px;
+}
+
+.exampleText {
+  writing-mode: vertical-lr;
+  border: 10px solid blue;
+  border-block-end-color: red;
+}
+```
 
 ## Ссылки
 

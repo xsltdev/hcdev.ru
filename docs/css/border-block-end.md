@@ -1,8 +1,16 @@
 ---
 description: Свойство CSS border-block-end — это сокращенное свойство для установки отдельных значений свойства границы логического конца блока в одном месте таблицы стилей.
 ---
-<!-- TODO: -->
+
 # border-block-end
+
+Свойство `border-block-end` — это сокращенное свойство для установки отдельных значений свойства границы логического конца блока в одном месте таблицы стилей.
+
+Это свойство является сокращением для следующих свойств CSS:
+
+- `border-block-end-color`
+- `border-block-end-style`
+- `border-block-end-width`
 
 ??? info "Логические границы"
 
@@ -42,20 +50,42 @@ description: Свойство CSS border-block-end — это сокращенн
 ## Синтаксис
 
 ```css
+border-block-end: 1px;
+border-block-end: 2px dotted;
+border-block-end: medium dashed blue;
 
+/* Global values */
+border-block-end: inherit;
+border-block-end: initial;
+border-block-end: revert;
+border-block-end: revert-layer;
+border-block-end: unset;
 ```
+
+`border-block-end` можно использовать для установки значений для одного или нескольких из `border-block-end-width`, `border-block-end-style` и `border-block-end-color`. Физическая граница, на которую он сопоставляется, зависит от режима записи элемента, его направления и ориентации текста. Он соответствует свойству `border-top`, `border-right`, `border-bottom` или `border-left` в зависимости от значений, определенных для режима письма, направления и ориентации текста.
+
+Связанные свойства — это `border-block-start`, `border-inline-start` и `border-inline-end`, которые определяют другие границы элемента.
 
 ## Значения
 
+`border-block-end` определяется одним или несколькими из следующих элементов в любом порядке:
+
+`<ширин границ>`
+: Ширина границы.
+
+`<стиль границы>`
+: Стиль линии границы.
+
+`<цвет>`
+: Цвет границы.
+
 ## Определение
 
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
+|                    |                                                                                                |
+| ------------------ | ---------------------------------------------------------------------------------------------- |
+| Начальное значение | `border-top-width: medium`<br />`border-top-style: none`<br />`border-top-color: currentcolor` |
+| Применяется ко     | всем элементам                                                                                 |
+| Наследуется        | нет                                                                                            |
 
 ## Поддержка браузерами
 
@@ -63,7 +93,20 @@ description: Свойство CSS border-block-end — это сокращенн
 
 ## Примеры
 
+```css
+div {
+  background-color: yellow;
+  width: 120px;
+  height: 120px;
+}
+
+.exampleText {
+  writing-mode: vertical-rl;
+  border-block-end: 5px dashed blue;
+}
+```
+
 ## Ссылки
 
 - Свойство [`border-block-end`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-end) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-shorthands) <sup><small>Spec (англ.)</small></sup>

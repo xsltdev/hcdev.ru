@@ -1,8 +1,10 @@
 ---
 description: Свойство CSS border-block-start-style определяет стиль начальной границы логического блока элемента, который сопоставляется с физическим стилем границы в зависимости от режима письма элемента, направления и ориентации текста.
 ---
-<!-- TODO: -->
+
 # border-block-start-style
+
+Свойство `border-block-start-style` определяет стиль начальной границы логического блока элемента, который сопоставляется с физическим стилем границы в зависимости от режима письма элемента, направления и ориентации текста. Он соответствует свойству `border-top-style`, `border-right-style`, `border-bottom-style` или `border-left-style` в зависимости от значений, определенных `writing-mode`, `direction` и `text-orientation`.
 
 ??? info "Логические границы"
 
@@ -42,18 +44,33 @@ description: Свойство CSS border-block-start-style определяет 
 ## Синтаксис
 
 ```css
+/* <'border-style'> values */
+border-block-start-style: dashed;
+border-block-start-style: dotted;
+border-block-start-style: groove;
 
+/* Global values */
+border-block-start-style: inherit;
+border-block-start-style: initial;
+border-block-start-style: revert;
+border-block-start-style: revert-layer;
+border-block-start-style: unset;
 ```
 
+Связанными свойствами являются `border-block-end-style`, `border-inline-start-style` и `border-inline-end-style`, которые определяют другие стили границы элемента.
+
 ## Значения
+
+`<стиль границы>`
+: Стиль линии границы.
 
 ## Определение
 
 |                      |                |
 | -------------------- | -------------- |
-| Начальное значение   | ``             |
+| Начальное значение   | `none`         |
 | Применяется ко       | всем элементам |
-| Наследуется          | да             |
+| Наследуется          | нет            |
 | Вычисленное значение | как определено |
 | Тип анимации         | дискретный     |
 
@@ -63,7 +80,21 @@ description: Свойство CSS border-block-start-style определяет 
 
 ## Примеры
 
+```css
+div {
+  background-color: yellow;
+  width: 120px;
+  height: 120px;
+}
+
+.exampleText {
+  writing-mode: vertical-lr;
+  border: 5px solid blue;
+  border-block-start-style: dashed;
+}
+```
+
 ## Ссылки
 
 - Свойство [`border-block-start-style`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-start-style) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-style) <sup><small>Spec (англ.)</small></sup>

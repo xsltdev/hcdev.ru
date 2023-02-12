@@ -30,6 +30,7 @@ description: Тег address (от англ. address - адрес) предназ
     - [h4](h4.md)
     - [h5](h5.md)
     - [h6](h6.md)
+    - [hgroup](hgroup.md)
     - [main](main.md)
     - [nav](nav.md)
     - [section](section.md)
