@@ -30,6 +30,7 @@ theme:
         - navigation.tabs
         - navigation.tracking
         - navigation.top
+        - navigation.indexes
         - content.action.edit
     favicon: html.svg
     logo: html.svg
@@ -85,8 +86,8 @@ plugins:
               - ru
               - en
     - awesome-pages
-    - section-index
-    - social
+#     - section-index
+#    - social
 
 extra_javascript:
     - 'https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js'
