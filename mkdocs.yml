@@ -86,8 +86,7 @@ plugins:
               - ru
               - en
     - awesome-pages
-#     - section-index
-#    - social
+    - social
 
 extra_javascript:
     - 'https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js'

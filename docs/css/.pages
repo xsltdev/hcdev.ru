@@ -1,23 +1,102 @@
 title: CSS
 nav:
     - index.md
-    - active.md
-    - after.md
+    - important.md
+    - "@-правила":
+        - charset.md
+        - counter-style.md
+        - document.md
+        - font-face.md
+        - font-feature-values.md
+        - keyframes.md
+        - import.md
+        - media.md
+        - namespace.md
+        - page.md
+        - supports.md
+        - viewport.md
+    - ":-классы":
+        - active.md
+        - any-link.md
+        - blank.md
+        - checked.md
+        - current.md
+        - default.md
+        - defined.md
+        - dir.md
+        - disabled.md
+        - empty.md
+        - enabled.md
+        - first.md
+        - first-child.md
+        - first-of-type.md
+        - focus.md
+        - focus-visible.md
+        - focus-within.md
+        - fullscreen.md
+        - future.md
+        - has.md
+        - hover.md
+        - in-range.md
+        - indeterminate.md
+        - invalid.md
+        - is.md
+        - lang.md
+        - last-child.md
+        - last-of-type.md
+        - left-pseudo-class.md
+        - link.md
+        - not.md
+        - nth-child.md
+        - nth-last-child.md
+        - nth-last-of-type.md
+        - nth-of-type.md
+        - only-child.md
+        - only-of-type.md
+        - optional.md
+        - out-of-range.md
+        - past.md
+        - placeholder-shown.md
+        - read-only.md
+        - read-write.md
+        - required.md
+        - right-pseudo-class.md
+        - root.md
+        - scope.md
+        - target.md
+        - valid.md
+        - visited.md
+        - where.md
+    - "::-элементы":
+        - after.md
+        - backdrop.md
+        - before.md
+        - first-letter.md
+        - first-line.md
+        - placeholder.md
+        - selection.md
+    - "функции()":
+        - conic-gradient.md
+        - cross-fade.md
+        - element.md
+        - image.md
+        - linear-gradient.md
+        - radial-gradient.md
+        - repeating-conic-gradient.md
+        - repeating-linear-gradient.md
+        - repeating-radial-gradient.md
+        - url.md
     - "align-*":
         - ... | align-*.md
     - "animation-*":
         - animation.md
         - ... | animation-*.md
-    - any-link.md
     - appearance.md
-    - backdrop.md
     - backdrop-filter.md
     - backface-visibility.md
     - "background-*":
         - background.md
         - ... | background-*.md
-    - before.md
-    - blank.md
     - block-size.md
     - "border-*":
         - border.md
@@ -29,8 +108,6 @@ nav:
         - ... | break-*.md
     - caption-side.md
     - caret-color.md
-    - charset.md
-    - checked.md
     - clear.md
     - clip-path.md
     - clip.md
@@ -39,82 +116,42 @@ nav:
     - "column-*":
         - ... | column-*.md
     - columns.md
-    - conic-gradient.md
     - content.md
     - counter-increment.md
     - counter-reset.md
-    - counter-style.md
-    - cross-fade.md
-    - current.md
     - cursor.md
-    - default.md
-    - defined.md
-    - dir.md
     - direction.md
-    - disabled.md
     - display.md
-    - document.md
-    - element.md
     - empty-cells.md
-    - empty.md
-    - enabled.md
     - filter.md
-    - first-child.md
-    - first-letter.md
-    - first-line.md
-    - first-of-type.md
-    - first.md
     - "flex-*":
         - flex.md
         - ... | flex-*.md
     - float.md
-    - focus-visible.md
-    - focus-within.md
-    - focus.md
-    - font-face.md
-    - font-feature-values.md
     - "font-*":
         - font.md
         - ... | font-*.md
-    - fullscreen.md
-    - future.md
     - gap.md
     - glyph-orientation-horizontal.md
     - "grid-*":
         - grid.md
         - ... | grid-*.md
     - hanging-punctuation.md
-    - has.md
     - height.md
-    - hover.md
     - hyphens.md
     - "image-*":
-        - image.md
         - ... | image-*.md
-    - import.md
-    - important.md
-    - in-range.md
-    - indeterminate.md
     - inline-size.md
     - "inset-*":
         - inset.md
         - ... | inset-*.md
-    - invalid.md
-    - is.md
     - isolation.md
     - "justify-*":
         - ... | justify-*.md
-    - keyframes.md
-    - lang.md
-    - last-child.md
-    - last-of-type.md
-    - left-pseudo-class.md
     - left.md
     - letter-spacing.md
     - line-break.md
     - line-height.md
-    - linear-gradient.md
-    - link.md
     - "list-style-*":
         - list-style.md
         - ... | list-style-*.md
@@ -126,25 +163,14 @@ nav:
         - ... | mask-*.md
     - "max-*":
         - ... | max-*.md
-    - media.md
     - "min-*":
         - ... | min-*.md
     - mix-blend-mode.md
-    - namespace.md
-    - not.md
-    - nth-child.md
-    - nth-last-child.md
-    - nth-last-of-type.md
-    - nth-of-type.md
     - object-fit.md
     - object-position.md
-    - only-child.md
-    - only-of-type.md
     - opacity.md
-    - optional.md
     - order.md
     - orphans.md
-    - out-of-range.md
     - "outline-*":
         - outline.md
         - ... | outline-*.md
@@ -154,41 +180,24 @@ nav:
     - "padding-*":
         - padding.md
         - ... | padding-*.md
-    - page.md
     - "page-*":
         - ... | page-*.md
     - paint-order.md
-    - past.md
     - perspective-origin.md
     - perspective.md
     - "place-*":
         - ... | place-*.md
-    - placeholder-shown.md
-    - placeholder.md
     - pointer-events.md
     - position.md
     - quotes.md
-    - radial-gradient.md
-    - read-only.md
-    - read-write.md
-    - repeating-conic-gradient.md
-    - repeating-linear-gradient.md
-    - repeating-radial-gradient.md
-    - required.md
     - resize.md
-    - right-pseudo-class.md
     - right.md
-    - root.md
     - row-gap.md
-    - scope.md
     - scroll-behavior.md
-    - selection.md
     - "shape-*":
         - ... | shape-*.md
-    - supports.md
     - tab-size.md
     - table-layout.md
-    - target.md
     - "text-*":
         - ... | text-*.md
     - top.md
@@ -200,14 +209,9 @@ nav:
         - transition.md
         - ... | transition-*.md
     - unicode-bidi.md
-    - url.md
     - user-select.md
-    - valid.md
     - vertical-align.md
-    - viewport.md
     - visibility.md
-    - visited.md
-    - where.md
     - white-space.md
     - widows.md
     - width.md
