@@ -6,7 +6,7 @@ description: Универсальное свойство border позволяе
 
 Универсальное свойство **`border`** позволяет одновременно установить толщину, стиль и цвет границы вокруг элемента.
 
-<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+<iframe class="interactive is-default-height" height="220" src="https://interactive-examples.mdn.mozilla.net/pages/css/border.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 Значения могут идти в любом порядке, разделяясь пробелом, браузер сам определит, какое из них соответствует нужному свойству. Для установки границы только на определённых сторонах элемента, воспользуйтесь свойствами [`border-top`](border-top.md), [`border-bottom`](border-bottom.md), [`border-left`](border-left.md), [`border-right`](border-right.md).
 
