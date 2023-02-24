@@ -12,6 +12,10 @@ description: Свойство CSS border-block-end — это сокращенн
 - `border-block-end-style`
 - `border-block-end-width`
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-block-end.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Логические границы"
 
     <div class="col3" markdown="1">

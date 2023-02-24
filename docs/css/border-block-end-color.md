@@ -8,6 +8,10 @@ description: Свойство border-block-end-color определяет цве
 
 Он соответствует свойству [`border-top-color`](border-top-color.md), [`border-right-color`](border-right-color.md), [`border-bottom-color`](border-bottom-color.md) или [`border-left-color`](border-left-color.md) в зависимости от значений, определенных для [режима письма](writing-mode.md), [направления](direction.md) и [ориентации текста](text-orientation.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-block-end-color.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Логические границы"
 
     <div class="col3" markdown="1">

@@ -6,6 +6,10 @@ description: Свойство border-bottom-style устанавливает с�
 
 Свойство **`border-bottom-style`** устанавливает стиль границы внизу элемента.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-bottom-style.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">
@@ -64,8 +68,12 @@ border-bottom-style: outset;
 /* Global values */
 border-bottom-style: inherit;
 border-bottom-style: initial;
+border-bottom-style: revert;
+border-bottom-style: revert-layer;
 border-bottom-style: unset;
 ```
+
+Свойство `border-bottom-style` указывается как одно ключевое слово, выбранное из доступных для свойства `border-style`.
 
 ## Значения
 
@@ -109,7 +117,7 @@ border-bottom-style: unset;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#border-bottom-style)
+- [CSS Backgrounds and Borders Module Level 3](https://w3c.github.io/csswg-drafts/css-backgrounds/#border-style)
 - [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#border-style-properties)
 
 ## Описание и примеры

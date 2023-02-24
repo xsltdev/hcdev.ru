@@ -6,6 +6,12 @@ description: Свойство align-content задаёт тип выравнив
 
 Свойство **`align-content`** задаёт тип выравнивания строк внутри флекс-контейнера по поперечной оси при наличии свободного пространства.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/align-content.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Это свойство не влияет на однострочные flex-контейнеры (т. е. с `flex-wrap: nowrap`).
+
 ??? info "Flexbox и выравнивание"
 
     <div class="col3" markdown="1">

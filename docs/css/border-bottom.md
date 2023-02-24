@@ -8,6 +8,26 @@ description: Свойство border-bottom позволяет одноврем�
 
 Значения могут идти в любом порядке, разделяясь пробелом, браузер сам определит, какое из них соответствует нужному свойству.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-bottom.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Как и все сокращённые свойства, `border-bottom` устанавливает значения всех свойств, которые он может установить, даже если они не указаны. Для тех свойств, которые не указаны оно устанавливает значения по умолчанию. Это означает, что ...
+
+```css
+border-bottom-style: dotted;
+border-bottom: thick green;
+```
+
+... это то же самое, что ...
+
+```css
+border-bottom-style: dotted;
+border-bottom: none thick green;
+```
+
+... и значение `border-bottom-style`, указанное перед `border-bottom` игнорируется. Поскольку значением по умолчанию для `border-bottom-style` является `none`, то без указания `border-style` граница не будет показана.
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">
@@ -54,6 +74,13 @@ description: Свойство border-bottom позволяет одноврем�
 border-bottom: 1px;
 border-bottom: 2px dotted;
 border-bottom: medium dashed blue;
+
+/* Global values */
+border-bottom: inherit;
+border-bottom: initial;
+border-bottom: revert;
+border-bottom: revert-layer;
+border-bottom: unset;
 ```
 
 ## Значения
@@ -70,7 +97,7 @@ border-bottom: medium dashed blue;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#border-bottom)
+- [CSS Backgrounds and Borders Module Level 3](https://w3c.github.io/csswg-drafts/css-backgrounds/#border-shorthands)
 - [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#propdef-border-bottom)
 - [CSS Level 1](http://www.w3.org/TR/CSS1/#border-bottom)
 
@@ -117,3 +144,7 @@ border-bottom: medium dashed blue;
   </body>
 </html>
 ```
+
+## Ссылки
+
+- Свойство [`border-bottom`](https://developer.mozilla.org/ru/docs/Web/CSS/border-bottom) <sup><small>MDN (рус.)</small></sup>

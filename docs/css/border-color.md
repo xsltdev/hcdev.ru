@@ -8,6 +8,19 @@ description: Свойство border-color устанавливает цвет �
 
 Свойство позволяет задать цвет границы сразу для всех сторон элемента или только для указанных.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-color.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Каждую сторону можно установить по отдельности, используя `border-top-color`, `border-right-color`, `border-bottom-color` и `border-left-color`; или с использованием режима записи `border-block-start-color`, `border-block-end-color`, `border-inline-start-color` и `border-inline-end-color`.
+
+Это свойство является сокращением для следующих свойств CSS:
+
+- `border-bottom-color`
+- `border-left-color`
+- `border-right-color`
+- `border-top-color`
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">
@@ -51,19 +64,24 @@ description: Свойство border-color устанавливает цвет �
 ## Синтаксис
 
 ```css
-/* border-color: color */ /* the color applies to all sides */
+/* <color> values */
 border-color: red;
 
-/* border-color: top&bottom right&left */
+/* top and bottom | left and right */
 border-color: red #f015ca;
 
-/* border-color: top right&left bottom */
-border-color: red yellow green;
+/* top | left and right | bottom */
+border-color: red rgb(240, 30, 50, 0.7) green;
 
-/* border-color: top right bottom left */
+/* top | right | bottom | left */
 border-color: red yellow green blue;
 
+/* Global values */
 border-color: inherit;
+border-color: initial;
+border-color: revert;
+border-color: revert-layer;
+border-color: unset;
 ```
 
 ## Значения
@@ -95,7 +113,8 @@ border-color: inherit;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#border-color)
+- [CSS Backgrounds and Borders Module Level 3](https://w3c.github.io/csswg-drafts/css-backgrounds/#border-color)
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#logical-shorthand-keyword)
 - [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#border-color-properties)
 - [CSS Level 1](http://www.w3.org/TR/CSS1/#border-color)
 

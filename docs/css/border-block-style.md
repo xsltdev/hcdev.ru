@@ -1,8 +1,16 @@
 ---
 description: Свойство CSS border-block-style определяет стиль границ логического блока элемента, который сопоставляется с физическим стилем границы в зависимости от режима письма элемента, направления и ориентации текста.
 ---
-<!-- TODO: -->
+
 # border-block-style
+
+Свойство **`border-block-style`** определяет стиль границ логического блока элемента, который сопоставляется с физическим стилем границы в зависимости от режима письма элемента, направления и ориентации текста. Он соответствует свойствам `border-top-style` и `border-bottom-style` или `border-left-style` и `border-right-style` в зависимости от значений, определенных для режима письма, направления и ориентации текста.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-block-style.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Стиль границы в другом измерении может быть установлен с помощью `border-inline-style`, который устанавливает `border-inline-start-style` и `border-inline-end-style`.
 
 ??? info "Логические границы"
 
@@ -42,20 +50,23 @@ description: Свойство CSS border-block-style определяет сти
 ## Синтаксис
 
 ```css
+/* <'border-style'> values */
+border-block-style: dashed;
+border-block-style: dotted;
+border-block-style: groove;
 
+/* Global values */
+border-block-style: inherit;
+border-block-style: initial;
+border-block-style: revert;
+border-block-style: revert-layer;
+border-block-style: unset;
 ```
 
 ## Значения
 
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
+`<'border-style'>`
+: Стиль линии границы.
 
 ## Поддержка браузерами
 
@@ -63,7 +74,31 @@ description: Свойство CSS border-block-style определяет сти
 
 ## Примеры
 
+=== HTML
+
+    ```html
+    <div>
+    	<p class="exampleText">Example text</p>
+    </div>
+    ```
+
+=== CSS
+
+    ```css
+    div {
+    	background-color: yellow;
+    	width: 120px;
+    	height: 120px;
+    }
+
+    .exampleText {
+    	writing-mode: vertical-lr;
+    	border: 5px solid blue;
+    	border-block-style: dashed;
+    }
+    ```
+
 ## Ссылки
 
 - Свойство [`border-block-style`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-style) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#propdef-border-block-style) <sup><small>Spec (англ.)</small></sup>

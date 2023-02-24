@@ -6,6 +6,10 @@ description: Свойство background-blend-mode описывает то, к�
 
 Свойство **`background-blend-mode`** описывает то, как фоновое изображение элемента должно накладываться на фоны других элементов.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/background-blend-mode.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">

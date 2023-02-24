@@ -1,8 +1,16 @@
 ---
 description: Свойство CSS border-block-width определяет ширину границ логического блока элемента, которая сопоставляется с шириной физической границы в зависимости от режима записи элемента, направления и ориентации текста.
 ---
-<!-- TODO: -->
+
 # border-block-width
+
+Свойство **`border-block-width`** определяет ширину границ логического блока элемента, которая сопоставляется с шириной физической границы в зависимости от режима записи элемента, направления и ориентации текста. Он соответствует свойствам `border-top-width` и `border-bottom-width` или `border-left-width` и `border-right-width` в зависимости от значений, определенных для режима письма, направления и ориентации текста.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-block-width.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Ширина границы в другом измерении может быть установлена ​​с помощью свойства `border-inline-width`, которое устанавливает значение свойства `border-inline-start-width` и `border-inline-end-width`.
 
 ??? info "Логические границы"
 
@@ -42,20 +50,22 @@ description: Свойство CSS border-block-width определяет шир
 ## Синтаксис
 
 ```css
+/* <'border-width'> values */
+border-block-width: 5px;
+border-block-width: thick;
 
+/* Global values */
+border-block-width: inherit;
+border-block-width: initial;
+border-block-width: revert;
+border-block-width: revert-layer;
+border-block-width: unset;
 ```
 
 ## Значения
 
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
+`<'border-width'>`
+: Ширина границы.
 
 ## Поддержка браузерами
 
@@ -63,7 +73,31 @@ description: Свойство CSS border-block-width определяет шир
 
 ## Примеры
 
+=== HTML
+
+    ```html
+    <div>
+    	<p class="exampleText">Example text</p>
+    </div>
+    ```
+
+=== CSS
+
+    ```css
+    div {
+    	background-color: yellow;
+    	width: 120px;
+    	height: 120px;
+    }
+
+    .exampleText {
+    	writing-mode: vertical-lr;
+    	border: 1px solid blue;
+    	border-block-width: 5px;
+    }
+    ```
+
 ## Ссылки
 
 - Свойство [`border-block-width`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-width) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#propdef-border-block-width) <sup><small>Spec (англ.)</small></sup>

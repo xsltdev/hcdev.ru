@@ -8,6 +8,18 @@ description: Свойство border-image используется для от�
 
 Толщина рамки задаётся свойством [`border`](border.md), при этом если указано `border: 0`, то рамка не выводится. При других значениях `border` рисунок всегда имеет приоритет. Фон, если он задан через свойство [`background`](background.md), отображается под рамкой.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-image.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Это свойство является сокращением для следующих свойств CSS:
+
+- `border-image-outset`
+- `border-image-repeat`
+- `border-image-slice`
+- `border-image-source`
+- `border-image-width`
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">
@@ -51,10 +63,28 @@ description: Свойство border-image используется для от�
 ## Синтаксис
 
 ```css
-/* image-source | height | width | repeat */
-border-image: url('/images/border.png') 30 30 repeat;
-border-image: url('/images/border.png') 30 30 stretch;
+/* source | slice */
+border-image: linear-gradient(red, blue) 27;
+
+/* source | slice | repeat */
+border-image: url('/images/border.png') 27 space;
+
+/* source | slice | width */
+border-image: linear-gradient(red, blue) 27 / 35px;
+
+/* source | slice | width | outset | repeat */
+border-image: url('/images/border.png') 27 23 / 50px 30px /
+  1rem round space;
+
+/* Global values */
+border-image: inherit;
+border-image: initial;
+border-image: revert;
+border-image: revert-layer;
+border-image: unset;
 ```
+
+Для свойства `border-image` может быть указано от одного до пяти значений, перечисленных ниже.
 
 ## Значения
 
@@ -121,7 +151,7 @@ border-image: none;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#border-image)
+- [CSS Backgrounds and Borders Module Level 3](https://w3c.github.io/csswg-drafts/css-backgrounds/#the-border-image)
 
 ## Поддержка браузерами
 

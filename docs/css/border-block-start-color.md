@@ -6,6 +6,10 @@ description: Свойство CSS border-block-start-color определяет 
 
 Свойство **`border-block-start-color`** определяет цвет логической границы начала блока элемента, который сопоставляется с цветом физической границы в зависимости от режима письма элемента, направления и ориентации текста. Он соответствует свойству `border-top-color`, `border-right-color`, `border-bottom-color` или `border-left-color` в зависимости от значений, определенных `writing-mode`, `direction` и `text-orientation`.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-block-start-color.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Логические границы"
 
     <div class="col3" markdown="1">

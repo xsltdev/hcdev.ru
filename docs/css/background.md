@@ -6,6 +6,10 @@ description: Универсальное свойство background позвол
 
 Универсальное свойство **`background`** позволяет установить одновременно до пяти характеристик фона. Значения могут идти в любом порядке, браузер сам определит, какое из них соответствует нужному свойству. Для подробного ознакомления смотрите информацию о каждом свойстве отдельно. Допустимо также указывать параметры сразу нескольких фонов, перечисляя их через запятую.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/background.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">

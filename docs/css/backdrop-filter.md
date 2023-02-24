@@ -6,6 +6,10 @@ description: Свойство backdrop-filter позволяет вам испо
 
 Свойство **`backdrop-filter`** позволяет вам использовать визуальные эффекты - такие как размытие или смещение цвета фона - за элементом. Так как это применяется ко всему за элементом, чтобы увидеть эффект, вы должны сделать элемент или его фон по крайней мере частично прозрачными.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/backdrop-filter.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Изображения, фильтры, композиция"
 
     <div class="col3" markdown="1">

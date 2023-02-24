@@ -8,6 +8,16 @@ description: Свойство border-bottom-left-radius устанавливае
 
 Если рамка не задана, то скругление также происходит и с фоном.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-bottom-left-radius.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Скругление может быть кругом или эллипсом, или, если одно из значений равно `0`, скругление не выполняется, а угол является квадратным.
+
+![border-bottom-left-radius](border-bottom-left-radius.png)
+
+Фон, будучи изображением или цветом, обрезается по границе, даже скругленной; точное местоположение обрезки определяется значением свойства [`background-clip`](background-clip.md).
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">
@@ -56,15 +66,26 @@ description: Свойство border-bottom-left-radius устанавливае
 border-bottom-left-radius: 3px;
 
 /* Percentage values */
-border-bottom-left-radius: 20%; /* corner of a circle if box is a square or else corner of a rectangle */
-border-bottom-left-radius: 20% 20%; /* same as above */ /* 20% of horizontal(width) and vertical(height) */
-border-bottom-left-radius: 20% 10%; /* 20% of horizontal(width) and 10% of vertical(height) */
 
-/* the corner is an ellipsis */
+/* circle if box is a square or ellipse if box is a rectangle */
+border-bottom-left-radius: 20%;
+
+/* same as above: 20% of horizontal(width) and vertical(height) */
+border-bottom-left-radius: 20% 20%;
+
+/* 20% of horizontal(width) and 10% of vertical(height) */
+border-bottom-left-radius: 20% 10%;
+
+/* the corner is an ellipse */
 /* border-bottom-left-radius: horizontal vertical */
 border-bottom-left-radius: 0.5em 1em;
 
+/* Global values */
 border-bottom-left-radius: inherit;
+border-bottom-left-radius: initial;
+border-bottom-left-radius: revert;
+border-bottom-left-radius: revert-layer;
+border-bottom-left-radius: unset;
 ```
 
 ## Значения
@@ -85,7 +106,7 @@ border-bottom-left-radius: 0;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#border-bottom-left-radius)
+- [CSS Backgrounds and Borders Module Level 3](https://w3c.github.io/csswg-drafts/css-backgrounds/#border-radius)
 
 ## Поддержка браузерами
 

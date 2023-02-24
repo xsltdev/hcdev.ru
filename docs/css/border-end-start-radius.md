@@ -8,6 +8,12 @@ description: Свойство CSS border-end-start-radius определяет �
 
 Это свойство влияет на угол между блочной и начальной сторонами элемента. Например, в режиме записи `horizontal-tb` с направлением `ltr` это соответствует свойству [`border-bottom-left-radius`](border-bottom-left-radius.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-end-start-radius.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Это свойство влияет на угол между блочной и начальной сторонами элемента. Например, в режиме записи `horizontal-tb` с направлением `ltr` это соответствует свойству `border-bottom-left-radius`.
+
 ??? info "Логические границы"
 
     <div class="col3" markdown="1">

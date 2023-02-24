@@ -4,7 +4,13 @@ description: Свойство border-image-outset описывает, наско
 
 # border-image-outset
 
-Свойство **`border-image-outset`** описывает, насколько область граничного изображения выходит за пределы элемента.
+Свойство **`border-image-outset`** задает расстояние, на которое изображение рамки элемента отстоит от его границы.
+
+Части граничного изображения, отображаемые за пределами рамки элемента с параметром `border-image-outset`, не вызывают переполнение полос прокрутки и не захватывают события мыши.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-image-outset.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Фон"
 
@@ -49,19 +55,27 @@ description: Свойство border-image-outset описывает, наско
 ## Синтаксис
 
 ```css
-/* border-image-outset: sides */
+/* <length> value */
+border-image-outset: 1rem;
+
+/* <number> value */
 border-image-outset: 1.5;
 
-/* border-image-outset: vertical horizontal */
+/* top and bottom | left and right */
 border-image-outset: 1 1.2;
 
-/* border-image-outset: top horizontal bottom */
+/* top | left and right | bottom */
 border-image-outset: 30px 2 45px;
 
-/* border-image-outset: top right bottom left */
+/* top | right | bottom | left */
 border-image-outset: 7px 12px 14px 5px;
 
+/* Global values */
 border-image-outset: inherit;
+border-image-outset: initial;
+border-image-outset: revert;
+border-image-outset: revert-layer;
+border-image-outset: unset;
 ```
 
 ## Значения
@@ -74,7 +88,7 @@ border-image-outset: 0;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](https://drafts.csswg.org/css-backgrounds-3/#border-image-outset)
+- [CSS Backgrounds and Borders Module Level 3](https://w3c.github.io/csswg-drafts/css-backgrounds/#the-border-image-outset)
 
 ## Поддержка браузерами
 

@@ -8,6 +8,10 @@ description: Свойство animation-duration задаёт время в се
 
 Можно указать несколько значений, перечисляя их через запятую. Отрицательные значения и значения без указания единиц времени (`s` или `ms`) недопустимы и будут игнорироваться.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/animation-duration.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Переходы и Анимации"
 
     <div class="col3" markdown="1">

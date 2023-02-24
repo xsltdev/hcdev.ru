@@ -6,6 +6,10 @@ description: Свойство align-self выравнивает флекс-эл�
 
 Свойство **`align-self`** выравнивает флекс-элементы текущей строки, переписывая значение [`align-items`](/css/align-items/). Если у какого-либо flex-элемента [`margin`](margin.md) в поперечной оси выставлен в `auto`, то `align-self` игнорируется.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/align-self.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Flexbox и выравнивание"
 
     <div class="col3" markdown="1">

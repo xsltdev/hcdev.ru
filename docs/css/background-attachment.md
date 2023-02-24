@@ -8,6 +8,10 @@ description: Свойство background-attachment устанавливает, 
 
 Изображение может быть зафиксировано и оставаться неподвижным, либо перемещаться совместно с документом. Можно указать несколько значений для ряда фоновых изображений, перечисляя значения через запятую.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/background-attachment.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">

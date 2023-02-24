@@ -6,6 +6,10 @@ description: Свойство border-block - это сокращенное св�
 
 Свойство **`border-block`** - это сокращенное свойство для установки значений свойств границы отдельного логического блока.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-block.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Логические границы"
 
     <div class="col3" markdown="1">

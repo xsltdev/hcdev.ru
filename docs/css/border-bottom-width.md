@@ -6,6 +6,10 @@ description: Свойство border-bottom-width устанавливает т�
 
 Свойство **`border-bottom-width`** устанавливает толщину границы внизу элемента.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-bottom-width.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">
@@ -62,6 +66,8 @@ border-bottom-width: 6px;
 /* Global keywords */
 border-bottom-width: inherit;
 border-bottom-width: initial;
+border-bottom-width: revert;
+border-bottom-width: revert-layer;
 border-bottom-width: unset;
 ```
 
@@ -79,7 +85,7 @@ border-bottom-width: medium;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#the-border-width)
+- [CSS Backgrounds and Borders Module Level 3](https://w3c.github.io/csswg-drafts/css-backgrounds/#the-border-width)
 - [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#border-width-properties)
 
 ## Описание и примеры

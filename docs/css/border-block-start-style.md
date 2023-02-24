@@ -6,6 +6,10 @@ description: Свойство CSS border-block-start-style определяет 
 
 Свойство `border-block-start-style` определяет стиль начальной границы логического блока элемента, который сопоставляется с физическим стилем границы в зависимости от режима письма элемента, направления и ориентации текста. Он соответствует свойству `border-top-style`, `border-right-style`, `border-bottom-style` или `border-left-style` в зависимости от значений, определенных `writing-mode`, `direction` и `text-orientation`.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-block-start-style.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Логические границы"
 
     <div class="col3" markdown="1">

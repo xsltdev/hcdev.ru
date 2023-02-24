@@ -12,6 +12,14 @@ description: Свойство border-collapse устанавливает, как
 
 ![Рис. 1а. Общие рамки ячеек таблицы](css_border-collapse_1b.png)
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-collapse.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Когда ячейки свернуты, значение `inset` в `border-style` ведет себя как `groove`, а `outset` ведет себя как `ridge`.
+
+Когда ячейки разделены, расстояние между ячейками определяется свойством `border-spacing`.
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">
@@ -90,6 +98,8 @@ border-collapse: separate;
 /* Global values */
 border-collapse: inherit;
 border-collapse: initial;
+border-collapse: revert;
+border-collapse: revert-layer;
 border-collapse: unset;
 ```
 
@@ -111,7 +121,7 @@ border-collapse: separate;
 
 ## Спецификации
 
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/tables.html#borders)
+- [Cascading Style Sheets Level 2 Revision 2 (CSS 2.2) Specification](https://w3c.github.io/csswg-drafts/css2/#propdef-border-collapse)
 
 ## Описание и примеры
 

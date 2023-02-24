@@ -8,6 +8,10 @@ description: Свойство background-origin определяет облас�
 
 Это свойство не применяется, когда значение [`background-attachment`](background-attachment.md) задано как `fixed`.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/background-origin.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">

@@ -8,6 +8,10 @@ description: Свойство border-image-repeat определяет, как �
 
 Оно имеет синтаксис с одним значением, которое описывает поведение всех сторон, и двухзначный синтаксис, который устанавливает разные значение для горизонтального и вертикального поведения.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-image-repeat.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">
@@ -51,17 +55,27 @@ description: Свойство border-image-repeat определяет, как �
 ## Синтаксис
 
 ```css
-/* border-image-repeat: type */
+/* Keyword value */
 border-image-repeat: stretch;
+border-image-repeat: repeat;
+border-image-repeat: round;
+border-image-repeat: space;
 
-/* border-image-repeat: horizontal vertical */
+/* top and bottom | left and right */
 border-image-repeat: round stretch;
 
 /* Global values */
 border-image-repeat: inherit;
 border-image-repeat: initial;
+border-image-repeat: revert;
+border-image-repeat: revert-layer;
 border-image-repeat: unset;
 ```
+
+Свойство `border-image-repeat` может быть указано с использованием одного или двух значений, выбранных из списка значений ниже.
+
+- Когда указано _одно_ значение, оно применяет одинаковое поведение ко всем **четырем сторонам**.
+- Когда указаны _два_ значения, первое применяется к **верху, середине и низу**, второе — к **левому и правому** краю.
 
 ## Значения
 
@@ -82,7 +96,7 @@ border-image-repeat: stretch;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](https://drafts.csswg.org/css-backgrounds-3/#border-image-repeat)
+- [CSS Backgrounds and Borders Module Level 3](https://w3c.github.io/csswg-drafts/css-backgrounds/#the-border-image-repeat)
 
 ## Поддержка браузерами
 

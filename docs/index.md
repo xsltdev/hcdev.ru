@@ -40,4 +40,6 @@ hide:
 - [Git](https://github.com/progit/progit2-ru)
 
 - [MDN](https://github.com/mdn/translated-content/tree/main/files/ru/web)
+
+- [Вопросы к собесам](https://github.com/YauhenKavalchuk/interview-questions)
 -->

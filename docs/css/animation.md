@@ -6,6 +6,10 @@ description: Универсальное свойство animation, задаёт
 
 Универсальное свойство **`animation`**, задаёт сразу несколько параметров анимации.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/animation.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Переходы и Анимации"
 
     <div class="col3" markdown="1">
@@ -73,7 +77,7 @@ animation-play-state: running;
 
 ## Спецификации
 
-- [CSS Animations](http://dev.w3.org/csswg/css-animations/#animation)
+- [CSS Animations Level 1](https://w3c.github.io/csswg-drafts/css-animations/#animation)
 
 ## Поддержка браузерами
 

@@ -6,6 +6,10 @@ description: Свойство animation-play-state определяет прои
 
 Свойство **`animation-play-state`** определяет проигрывается анимация или стоит на паузе.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/animation-play-state.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Переходы и Анимации"
 
     <div class="col3" markdown="1">

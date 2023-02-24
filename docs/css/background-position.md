@@ -8,6 +8,10 @@ description: Свойство background-position задаёт начально�
 
 Допустимо указывать несколько значений для каждого фона, перечисляя значения через запятую.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/background-position.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">

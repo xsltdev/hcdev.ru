@@ -8,6 +8,10 @@ description: Свойство border-block-color определяет цвет �
 
 Он соответствует свойству [border-top-color](border-top-color.md) и [border-bottom-color](border-bottom-color.md) или [border-right-color](border-right-color.md) и [border-left-color](border-left-color.md) в зависимости от значений, определенных для [режима письма](writing-mode.md), [направления](direction.md) и [ориентации текста](text-orientation.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-block-color.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Логические границы"
 
     <div class="col3" markdown="1">
@@ -47,7 +51,7 @@ description: Свойство border-block-color определяет цвет �
 
 ```css
 border-block-color: yellow;
-border-block-color: #F5F6F7;
+border-block-color: #f5f6f7;
 ```
 
 ## Значения
@@ -57,11 +61,11 @@ border-block-color: #F5F6F7;
 
 ## Определение
 
-|                      |                | 
+|                      |                |
 | -------------------- | -------------- |
-| Начальное значение   | `currentcolor`             |
+| Начальное значение   | `currentcolor` |
 | Применяется ко       | всем элементам |
-| Наследуется          | нет             |
+| Наследуется          | нет            |
 | Вычисленное значение | как определено |
 | Тип анимации         | дискретный     |
 
@@ -87,7 +91,7 @@ border-block-color: #F5F6F7;
       width: 120px;
       height: 120px;
     }
-    
+
     .exampleText {
       writing-mode: vertical-lr;
       border: 10px solid blue;

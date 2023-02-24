@@ -6,6 +6,10 @@ description: Свойство border-block-end-style определяет сти
 
 Свойство **`border-block-end-style`** определяет стиль границы логического конца блока элемента, который сопоставляется с физическим стилем границы в зависимости от режима письма элемента, направления и ориентации текста. Он соответствует свойству `border-top-style`, `border-right-style`, `border-bottom-style` или `border-left-style` в зависимости от значений, определенных для режима письма, направления и ориентации текста.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-block-end-style.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Логические границы"
 
     <div class="col3" markdown="1">

@@ -8,6 +8,12 @@ description: Свойство CSS border-end-end-radius определяет л�
 
 Это свойство влияет на угол между блочной и встроенной сторонами элемента. Например, в режиме записи `horizontal-tb` с направлением `ltr` это соответствует свойству [`border-bottom-right-radius`](border-bottom-right-radius.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-end-end-radius.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Это свойство влияет на угол между блочной и встроенной сторонами элемента. Например, в режиме записи `horizontal-tb` с направлением `ltr` это соответствует свойству `border-bottom-right-radius`.
+
 ??? info "Логические границы"
 
     <div class="col3" markdown="1">

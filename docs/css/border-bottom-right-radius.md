@@ -8,6 +8,16 @@ description: Свойство border-bottom-right-radius устанавлива�
 
 Если рамка не задана, то скругление также происходит и с фоном.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-bottom-right-radius.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Скругление может быть кругом или эллипсом, или, если одно из значений равно `0`, скругление не выполняется, а угол является квадратным.
+
+![border-bottom-right-radius](border-bottom-right-radius.png)
+
+Фон, будучи изображением или цветом, обрезается по границе, даже скругленной; точное местоположение обрезки определяется значением свойства [`background-clip`](background-clip.md).
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">
@@ -60,11 +70,16 @@ border-bottom-right-radius: 20%; /* corner of a circle if box is a square or els
 border-bottom-right-radius: 20% 20%; /* same as above */ /* 20% of horizontal(width) and vertical(height) */
 border-bottom-right-radius: 20% 10%; /* 20% of horizontal(width) and 10% of vertical(height) */
 
-/*The corner is an ellipsis */
+/*The corner is an ellipse */
 /* border-bottom-right-radius: horizontal vertical */
 border-bottom-right-radius: 0.5em 1em;
 
+/* Global values */
 border-bottom-right-radius: inherit;
+border-bottom-right-radius: initial;
+border-bottom-right-radius: revert;
+border-bottom-right-radius: revert-layer;
+border-bottom-right-radius: unset;
 ```
 
 ## Значения
@@ -85,7 +100,7 @@ border-bottom-right-radius: 0;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#border-bottom-right-radius)
+- [CSS Backgrounds and Borders Module Level 3](https://w3c.github.io/csswg-drafts/css-backgrounds/#border-radius)
 
 ## Поддержка браузерами
 

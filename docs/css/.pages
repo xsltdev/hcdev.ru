@@ -86,8 +86,10 @@ nav:
         - repeating-linear-gradient.md
         - repeating-radial-gradient.md
         - url.md
+    - accent-color.md
     - "align-*":
         - ... | align-*.md
+    - all.md
     - "animation-*":
         - animation.md
         - ... | animation-*.md

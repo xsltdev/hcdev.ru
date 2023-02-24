@@ -6,6 +6,10 @@ description: Свойство align-items выравнивает флекс-эл
 
 Свойство **`align-items`** выравнивает флекс-элементы внутри контейнера в перпендикулярном направлении.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/align-items.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Flexbox и выравнивание"
 
     <div class="col3" markdown="1">

@@ -8,6 +8,10 @@ description: Свойство -moz-appearance используется в Gecko 
 
 Свойство `-webkit-appearance` используется в браузерах WebKit-based (например, Safari) и Blink-based (например, Chrome, Opera) для того же эффекта. Заметьте, что Firefox и Edge также поддерживают `-webkit-appearance`, для обеспечения совместимости.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/appearance.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Интерфейс"
 
     <div class="col3" markdown="1">

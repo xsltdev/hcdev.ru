@@ -6,6 +6,10 @@ description: Свойство CSS border-block-end-width определяет ш
 
 Свойство **`border-block-end-width`** определяет ширину логической границы блока элемента, которая сопоставляется с шириной физической границы в зависимости от режима записи элемента, направления и ориентации текста. Он соответствует свойству `border-top-width`, `border-right-width`, `border-bottom-width` или `border-left-width` в зависимости от значений, определенных для режима письма, направления и ориентации текста.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-block-end-width.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Логические границы"
 
     <div class="col3" markdown="1">
