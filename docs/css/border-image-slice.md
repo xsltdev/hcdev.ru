@@ -130,7 +130,7 @@ border-image-slice: 100%;
 
 ![border-diamonds](border-diamonds.png)
 
-=== HTML
+=== "HTML"
 
     ```html
     <div class="wrapper">
@@ -156,7 +156,7 @@ border-image-slice: 100%;
     </ul>
     ```
 
-=== CSS
+=== "CSS"
 
     ```css
     .wrapper {
@@ -180,7 +180,7 @@ border-image-slice: 100%;
     }
     ```
 
-=== JavaScript
+=== "JavaScript"
 
     ```js
     const widthSlider = document.getElementById('width');
