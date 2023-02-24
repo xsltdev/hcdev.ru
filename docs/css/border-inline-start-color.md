@@ -1,8 +1,14 @@
 ---
 description: Свойство CSS border-inline-start-color определяет цвет логической встроенной начальной границы элемента, который сопоставляется с физическим цветом границы в зависимости от режима письма элемента, направления и ориентации текста.
 ---
-<!-- TODO: -->
+
 # border-inline-start-color
+
+Свойство `border-inline-start-color` определяет цвет логической встроенной начальной границы элемента, который сопоставляется с физическим цветом границы в зависимости от режима письма элемента, направления и ориентации текста. Он соответствует свойству `border-top-color`, `border-right-color`, `border-bottom-color` или `border-left-color` в зависимости от значений, определенных для режима письма, направления и ориентации текста.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-inline-start-color.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Логические границы"
 
@@ -42,20 +48,23 @@ description: Свойство CSS border-inline-start-color определяет
 ## Синтаксис
 
 ```css
+border-inline-start-color: red;
+border-inline-start-color: #ee4141;
 
+/* Global values */
+border-inline-start-color: inherit;
+border-inline-start-color: initial;
+border-inline-start-color: revert;
+border-inline-start-color: revert-layer;
+border-inline-start-color: unset;
 ```
+
+Связанными свойствами являются `border-block-start-color`, `border-block-end-color` и `border-inline-end-color`, которые определяют другие цвета границ элемента.
 
 ## Значения
 
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
+`<'color'>`
+: Цвет границы.
 
 ## Поддержка браузерами
 
@@ -63,7 +72,31 @@ description: Свойство CSS border-inline-start-color определяет
 
 ## Примеры
 
+HTML
+
+```html
+<div>
+  <p class="exampleText">Example text</p>
+</div>
+```
+
+CSS
+
+```css
+div {
+  background-color: yellow;
+  width: 120px;
+  height: 120px;
+}
+
+.exampleText {
+  writing-mode: vertical-lr;
+  border: 10px solid blue;
+  border-inline-start-color: red;
+}
+```
+
 ## Ссылки
 
 - Свойство [`border-inline-start-color`](https://developer.mozilla.org/ru/docs/Web/CSS/border-inline-start-color) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-color) <sup><small>Spec (англ.)</small></sup>

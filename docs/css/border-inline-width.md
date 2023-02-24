@@ -1,8 +1,18 @@
 ---
 description: Свойство CSS border-inline-width определяет ширину логических встроенных границ элемента, которая сопоставляется с шириной физической границы в зависимости от режима записи элемента, направления и ориентации текста.
 ---
-<!-- TODO: -->
+
 # border-inline-width
+
+Свойство **`border-inline-width`** определяет ширину логических встроенных границ элемента, которая сопоставляется с шириной физической границы в зависимости от режима записи элемента, направления и ориентации текста.
+
+Он соответствует свойствам `border-top-width` и `border-bottom-width` или `border-left-width` и `border-right-width` в зависимости от значений, определенных для режима письма, направления и ориентации текста.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-inline-width.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Ширина границы в другом измерении может быть установлена ​​с помощью `border-block-width`, которая устанавливает `border-block-start-width` и `border-block-end-width`.
 
 ??? info "Логические границы"
 
@@ -42,20 +52,23 @@ description: Свойство CSS border-inline-width определяет ши�
 ## Синтаксис
 
 ```css
+/* <'border-width'> values */
+border-inline-width: 5px 10px;
+border-inline-width: 5px;
+border-inline-width: thick;
 
+/* Global values */
+border-inline-width: inherit;
+border-inline-width: initial;
+border-inline-width: revert;
+border-inline-width: revert-layer;
+border-inline-width: unset;
 ```
 
 ## Значения
 
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
+`<'border-width'>`
+: Ширина границы.
 
 ## Поддержка браузерами
 
@@ -63,7 +76,31 @@ description: Свойство CSS border-inline-width определяет ши�
 
 ## Примеры
 
+HTML
+
+```html
+<div>
+  <p class="exampleText">Example text</p>
+</div>
+```
+
+CSS
+
+```css
+div {
+  background-color: yellow;
+  width: 120px;
+  height: 120px;
+}
+
+.exampleText {
+  writing-mode: vertical-lr;
+  border: 1px solid blue;
+  border-inline-width: 5px 10px;
+}
+```
+
 ## Ссылки
 
 - Свойство [`border-inline-width`](https://developer.mozilla.org/ru/docs/Web/CSS/border-inline-width) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#propdef-border-inline-width) <sup><small>Spec (англ.)</small></sup>

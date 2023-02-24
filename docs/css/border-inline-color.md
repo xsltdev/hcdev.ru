@@ -1,8 +1,16 @@
 ---
 description: Свойство CSS border-inline-color определяет цвет логических встроенных границ элемента, который сопоставляется с физическим цветом границы в зависимости от режима письма элемента, направления и ориентации текста.
 ---
-<!-- TODO: -->
+
 # border-inline-color
+
+Свойство **`border-inline-color`** определяет цвет логических встроенных границ элемента, который сопоставляется с физическим цветом границы в зависимости от режима письма элемента, направления и ориентации текста. Он соответствует свойствам `border-top-color` и `border-bottom-color` или `border-right-color` и `border-left-color` в зависимости от значений, определенных для режима письма, направления и ориентации текста.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-inline-color.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Цвет границы в другом измерении может быть установлен с помощью `border-block-color`, который устанавливает `border-block-start-color` и `border-block-end-color`.
 
 ??? info "Логические границы"
 
@@ -42,20 +50,21 @@ description: Свойство CSS border-inline-color определяет цв�
 ## Синтаксис
 
 ```css
+border-inline-color: yellow;
+border-inline-color: #f5f6f7;
 
+/* Global values */
+border-inline-color: inherit;
+border-inline-color: initial;
+border-inline-color: revert;
+border-inline-color: revert-layer;
+border-inline-color: unset;
 ```
 
 ## Значения
 
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
+`<'color'>`
+: Цвет границы.
 
 ## Поддержка браузерами
 
@@ -63,7 +72,31 @@ description: Свойство CSS border-inline-color определяет цв�
 
 ## Примеры
 
+HTML
+
+```html
+<div>
+  <p class="exampleText">Example text</p>
+</div>
+```
+
+CSS
+
+```css
+div {
+  background-color: yellow;
+  width: 120px;
+  height: 120px;
+}
+
+.exampleText {
+  writing-mode: vertical-lr;
+  border: 10px solid blue;
+  border-inline-color: red;
+}
+```
+
 ## Ссылки
 
 - Свойство [`border-inline-color`](https://developer.mozilla.org/ru/docs/Web/CSS/border-inline-color) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#propdef-border-inline-color) <sup><small>Spec (англ.)</small></sup>

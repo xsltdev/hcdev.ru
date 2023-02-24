@@ -8,6 +8,12 @@ description: Свойство border-image-source определяет изоб�
 
 Если это свойство установлено в `none`, вместо него используется стиль, определяемый [`border-style`](border-style.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-image-source.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Свойство `border-image-slice` используется для разделения исходного изображения на области, которые затем динамически применяются к конечному изображению границы.
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">
@@ -51,22 +57,28 @@ description: Свойство border-image-source определяет изоб�
 ## Синтаксис
 
 ```css
-/* no border-image, use the specified border-style */
+/* Keyword value */
 border-image-source: none;
 
-/* the image.jpg is used as image */
+/* <image> values */
 border-image-source: url(image.jpg);
-
-/* a gradient is used as image */
 border-image-source: linear-gradient(to top, red, yellow);
 
 /* Global values */
 border-image-source: inherit;
 border-image-source: initial;
+border-image-source: revert;
+border-image-source: revert-layer;
 border-image-source: unset;
 ```
 
 ## Значения
+
+`none`
+: Изображение границы не используется. Вместо этого отображается внешний вид, определенный бордюром.
+
+`<image>`
+: Ссылка на изображение для границы.
 
 Значение по-умолчанию:
 
@@ -76,7 +88,7 @@ border-image-source: none;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](https://drafts.csswg.org/css-backgrounds-3/#border-image-source)
+- [CSS Backgrounds and Borders Module Level 3](https://w3c.github.io/csswg-drafts/css-backgrounds/#the-border-image-source)
 
 ## Поддержка браузерами
 

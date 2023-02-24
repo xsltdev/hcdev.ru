@@ -1,8 +1,18 @@
 ---
 description: Свойство CSS border-inline-style определяет стиль логических встроенных границ элемента, который сопоставляется с физическим стилем границы в зависимости от режима письма элемента, направления и ориентации текста.
 ---
-<!-- TODO: -->
+
 # border-inline-style
+
+Свойство **`border-inline-style`** определяет стиль логических встроенных границ элемента, который сопоставляется с физическим стилем границы в зависимости от режима письма элемента, направления и ориентации текста.
+
+Он соответствует свойствам `border-top-style` и `border-bottom-style` или `border-left-style` и `border-right-style` в зависимости от значений, определенных для режима письма, направления и ориентации текста.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-inline-style.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Стиль границы в другом измерении может быть установлен с помощью стиля границы блока, который устанавливает стиль начала блока границы и стиль конца блока границы.
 
 ??? info "Логические границы"
 
@@ -42,20 +52,23 @@ description: Свойство CSS border-inline-style определяет ст�
 ## Синтаксис
 
 ```css
+/* <'border-style'> values */
+border-inline-style: dashed;
+border-inline-style: dotted;
+border-inline-style: groove;
 
+/* Global values */
+border-inline-style: inherit;
+border-inline-style: initial;
+border-inline-style: revert;
+border-inline-style: revert-layer;
+border-inline-style: unset;
 ```
 
 ## Значения
 
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
+`<'border-style'>`
+: Стиль линии границы.
 
 ## Поддержка браузерами
 
@@ -63,7 +76,31 @@ description: Свойство CSS border-inline-style определяет ст�
 
 ## Примеры
 
+HTML
+
+```html
+<div>
+  <p class="exampleText">Example text</p>
+</div>
+```
+
+CSS
+
+```css
+div {
+  background-color: yellow;
+  width: 120px;
+  height: 120px;
+}
+
+.exampleText {
+  writing-mode: vertical-lr;
+  border: 5px solid blue;
+  border-inline-style: dashed;
+}
+```
+
 ## Ссылки
 
 - Свойство [`border-inline-style`](https://developer.mozilla.org/ru/docs/Web/CSS/border-inline-style) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#propdef-border-inline-style) <sup><small>Spec (англ.)</small></sup>

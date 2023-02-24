@@ -1,8 +1,14 @@
 ---
 description: Свойство CSS border-inline-end-style определяет стиль логической встроенной конечной границы элемента, который сопоставляется с физическим стилем границы в зависимости от режима письма элемента, направления и ориентации текста.
 ---
-<!-- TODO: -->
+
 # border-inline-end-style
+
+Свойство **`border-inline-end-style`** определяет стиль логической встроенной конечной границы элемента, который сопоставляется с физическим стилем границы в зависимости от режима письма элемента, направления и ориентации текста. Он соответствует свойству `border-top-style`, `border-right-style`, `border-bottom-style` или `border-left-style` в зависимости от значений, определенных для режима письма, направления и ориентации текста.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-inline-end-style.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Логические границы"
 
@@ -42,20 +48,25 @@ description: Свойство CSS border-inline-end-style определяет �
 ## Синтаксис
 
 ```css
+/* <'border-style'> values */
+border-inline-end-style: dashed;
+border-inline-end-style: dotted;
+border-inline-end-style: groove;
 
+/* Global values */
+border-inline-end-style: inherit;
+border-inline-end-style: initial;
+border-inline-end-style: revert;
+border-inline-end-style: revert-layer;
+border-inline-end-style: unset;
 ```
+
+Связанными свойствами являются `border-block-start-style`, `border-block-end-style` и `border-inline-start-style`, которые определяют другие стили границы элемента.
 
 ## Значения
 
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
+`<'border-style'>`
+: Стиль линии границы.
 
 ## Поддержка браузерами
 
@@ -63,7 +74,31 @@ description: Свойство CSS border-inline-end-style определяет �
 
 ## Примеры
 
+HTML
+
+```html
+<div>
+  <p class="exampleText">Example text</p>
+</div>
+```
+
+CSS
+
+```css
+div {
+  background-color: yellow;
+  width: 120px;
+  height: 120px;
+}
+
+.exampleText {
+  writing-mode: vertical-lr;
+  border: 5px solid blue;
+  border-inline-end-style: dashed;
+}
+```
+
 ## Ссылки
 
 - Свойство [`border-inline-end-style`](https://developer.mozilla.org/ru/docs/Web/CSS/border-inline-end-style) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-style) <sup><small>Spec (англ.)</small></sup>

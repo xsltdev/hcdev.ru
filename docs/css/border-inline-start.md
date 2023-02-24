@@ -1,8 +1,20 @@
 ---
 description: Свойство CSS border-inline-start — это сокращенное свойство для установки значений отдельных логических свойств границы inline-start в одном месте таблицы стилей.
 ---
-<!-- TODO: -->
+
 # border-inline-start
+
+Свойство **`border-inline-start`** — это сокращенное свойство для установки значений отдельных логических свойств границы `inline-start` в одном месте таблицы стилей.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-inline-start.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Это свойство является сокращением для следующих свойств CSS:
+
+- `border-inline-start-color`
+- `border-inline-start-style`
+- `border-inline-start-width`
 
 ??? info "Логические границы"
 
@@ -42,20 +54,34 @@ description: Свойство CSS border-inline-start — это сокраще�
 ## Синтаксис
 
 ```css
+border-inline-start: 1px;
+border-inline-start: 2px dotted;
+border-inline-start: medium dashed green;
 
+/* Global values */
+border-inline-start: inherit;
+border-inline-start: initial;
+border-inline-start: revert;
+border-inline-start: revert-layer;
+border-inline-start: unset;
 ```
+
+Физическая граница, на которую сопоставляется `border-inline-start`, зависит от режима записи элемента, направленности и ориентации текста. Он соответствует свойству `border-top`, `border-right`, `border-bottom` или `border-left` в зависимости от значений, определенных для режима письма, направления и ориентации текста.
+
+Связанные свойства — это `border-block-start`, `border-block-end` и `border-inline-end`, которые определяют другие границы элемента.
 
 ## Значения
 
-## Определение
+`border-inline-start` указывается одним или несколькими из следующих элементов в любом порядке:
 
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
+`<'border-width'>`
+: Ширина границы.
+
+`<'border-style'>`
+: Стиль линии границы.
+
+`<'color'>`
+: Цвет границы.
 
 ## Поддержка браузерами
 
@@ -63,7 +89,30 @@ description: Свойство CSS border-inline-start — это сокраще�
 
 ## Примеры
 
+HTML
+
+```html
+<div>
+  <p class="exampleText">Example text</p>
+</div>
+```
+
+CSS
+
+```css
+div {
+  background-color: yellow;
+  width: 120px;
+  height: 120px;
+}
+
+.exampleText {
+  writing-mode: vertical-rl;
+  border-inline-start: 5px dashed blue;
+}
+```
+
 ## Ссылки
 
 - Свойство [`border-inline-start`](https://developer.mozilla.org/ru/docs/Web/CSS/border-inline-start) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-shorthands) <sup><small>Spec (англ.)</small></sup>

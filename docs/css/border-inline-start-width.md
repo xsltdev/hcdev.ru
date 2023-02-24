@@ -1,8 +1,16 @@
 ---
 description: CSS-свойство border-inline-start-width определяет ширину логической границы inline-start элемента, которая сопоставляется с шириной физической границы в зависимости от режима записи элемента, направления и ориентации текста.
 ---
-<!-- TODO: -->
+
 # border-inline-start-width
+
+Свойство **`border-inline-start-width`** определяет ширину логической границы `inline-start` элемента, которая сопоставляется с шириной физической границы в зависимости от режима записи элемента, направления и ориентации текста.
+
+Он соответствует свойству `border-top-width`, `border-right-width`, `border-bottom-width` или `border-left-width` в зависимости от значений, определенных для режима письма, направления и ориентации текста.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-inline-start-width.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Логические границы"
 
@@ -42,20 +50,24 @@ description: CSS-свойство border-inline-start-width определяет
 ## Синтаксис
 
 ```css
+/* <'border-width'> values */
+border-inline-start-width: 5px;
+border-inline-start-width: thick;
 
+/* Global values */
+border-inline-start-width: inherit;
+border-inline-start-width: initial;
+border-inline-start-width: revert;
+border-inline-start-width: revert-layer;
+border-inline-start-width: unset;
 ```
+
+Связанные свойства — это `border-block-start-width`, `border-block-end-width` и `border-inline-end-width`, которые определяют другую ширину границы элемента.
 
 ## Значения
 
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
+`<'border-width'>`
+: Ширина границы.
 
 ## Поддержка браузерами
 
@@ -63,7 +75,31 @@ description: CSS-свойство border-inline-start-width определяет
 
 ## Примеры
 
+HTML
+
+```html
+<div>
+  <p class="exampleText">Example text</p>
+</div>
+```
+
+CSS
+
+```css
+div {
+  background-color: yellow;
+  width: 120px;
+  height: 120px;
+}
+
+.exampleText {
+  writing-mode: vertical-lr;
+  border: 1px solid blue;
+  border-inline-start-width: 5px;
+}
+```
+
 ## Ссылки
 
 - Свойство [`border-inline-start-width`](https://developer.mozilla.org/ru/docs/Web/CSS/border-inline-start-width) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-width) <sup><small>Spec (англ.)</small></sup>
