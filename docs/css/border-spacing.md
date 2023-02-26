@@ -8,6 +8,10 @@ description: Свойство border-spacing задаёт расстояние �
 
 `border-spacing` не работает в случае, когда для таблицы установлено свойство [`border-collapse`](border-collapse.md) со значением `collapse`.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-spacing.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Колонки и таблицы"
 
     <div class="col3" markdown="1">

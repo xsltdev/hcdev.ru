@@ -13,6 +13,10 @@ description: CSS-свойство break-after определяет, как до�
 1. Если любое из трех рассматриваемых значений является значением принудительного разрыва (`always`, `left`, `right`, `page`, `column` или `region`), оно имеет приоритет. Если более одного из них является таким разрывом, берется один из элементов, который появляется последним в потоке (т. е. значение `break-before` имеет приоритет над значением `break-after`, которое само по себе имеет приоритет над значением `break-inside`).
 2. Если какое-либо из трех рассматриваемых значений является значением избегания разрыва (`avoid`, `avoid-page`, `avoid-region` или `avoid-column`), такой разрыв не будет применен в этой точке.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/break-after.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Фрагментация"
 
     <div class="col3" markdown="1">
@@ -130,11 +134,6 @@ break-after: unset;
 - [CSS Fragmentation Module Level 3](https://drafts.csswg.org/css-break-3/#break-between)
 - [CSS Regions Module Level 1](https://drafts.csswg.org/css-regions-1/#region-flow-break)
 - [CSS Multi-column Layout Module](https://drafts.csswg.org/css-multicol-1/#break-before-break-after-break-inside)
-
-<!-- ## См. также
-
-- [`break-before`](break-before.md)
-- [`break-inside`](break-inside.md) -->
 
 ## Ссылки
 

@@ -8,6 +8,10 @@ description: Свойство caption-side определяет положени
 
 Свойство `caption-side` выводит заголовок до или после таблицы, а выравнивание текста по правому или левому краю устанавливается через свойство [`text-align`](text-align.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/caption-side.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Колонки и таблицы"
 
     <div class="col3" markdown="1">

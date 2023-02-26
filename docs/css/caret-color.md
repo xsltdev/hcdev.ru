@@ -6,6 +6,10 @@ description: Свойство caret-color задает цвет текстово
 
 Свойство **`caret-color`** задает цвет текстового курсора в полях ввода, например, [`input`](/html/input/) или [`textarea`](/html/textarea/).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/caret-color.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Интерфейс"
 
     <div class="col3" markdown="1">
@@ -31,13 +35,20 @@ description: Свойство caret-color задает цвет текстово
 /* Keyword values */
 caret-color: auto;
 caret-color: transparent;
-caret-color: currentColor;
+caret-color: currentcolor;
 
 /* <color> values */
 caret-color: red;
 caret-color: #5729e9;
-caret-color: rgb(0, 200, 0);
-caret-color: hsla(228, 4%, 24%, 0.8);
+caret-color: rgb(0 200 0);
+caret-color: hsl(228deg 4% 24% / 0.8);
+
+/* Global values */
+caret-color: inherit;
+caret-color: initial;
+caret-color: revert;
+caret-color: revert-layer;
+caret-color: unset;
 ```
 
 ## Значения

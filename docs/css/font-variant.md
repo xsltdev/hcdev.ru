@@ -45,8 +45,8 @@ description: Свойство font-variant определяет, как нужн
     <div class="col3" markdown="1">
 
     - [color](color.md)
-    - [color-adjust](color-adjust.md)
     - [opacity](opacity.md)
+    - [print-color-adjust](print-color-adjust.md)
 
     </div>
 

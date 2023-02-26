@@ -6,6 +6,10 @@ description: Свойство column-gap задаёт расстояние ме�
 
 Свойство **`column-gap`** задаёт расстояние между колонками в многоколоночном тексте.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/column-gap.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Flexbox и выравнивание"
 
     <div class="col3" markdown="1">

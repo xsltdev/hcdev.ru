@@ -8,6 +8,10 @@ description: Свойство column-rule-color в многоколоночно�
 
 Если такой цвет явно не указан, то цвет текста в колонках и цвет линий между ними совпадает.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/column-rule-color.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Колонки и таблицы"
 
     <div class="col3" markdown="1">

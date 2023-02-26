@@ -6,6 +6,10 @@ description: Свойство border-left-color задаёт цвет грани
 
 Свойство **`border-left-color`** задаёт цвет границы слева от элемента.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-left-color.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">

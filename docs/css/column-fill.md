@@ -6,6 +6,10 @@ description: Свойство column-fill определяет, как конт�
 
 Свойство **`column-fill`** определяет, как контент должен распределяться внутри колонок.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/column-fill.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Колонки и таблицы"
 
     <div class="col3" markdown="1">
@@ -40,10 +44,13 @@ description: Свойство column-fill определяет, как конт�
 /* Keyword values */
 column-fill: auto;
 column-fill: balance;
+column-fill: balance-all;
 
 /* Global values */
 column-fill: inherit;
 column-fill: initial;
+column-fill: revert;
+column-fill: revert-layer;
 column-fill: unset;
 ```
 

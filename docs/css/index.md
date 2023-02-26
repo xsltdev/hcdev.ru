@@ -441,9 +441,11 @@ description: Справочник свойств CSS с примерами ко�
 
 <div class="col3" markdown="1">
 
+- [aspect-ratio](aspect-ratio.md)
 - [color](color.md)
-- [color-adjust](color-adjust.md)
+- [color-scheme](color-scheme.md)
 - [opacity](opacity.md)
+- [print-color-adjust](print-color-adjust.md)
 
 </div>
 

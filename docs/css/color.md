@@ -6,6 +6,10 @@ description: Свойство color определяет цвет текста �
 
 Свойство **`color`** определяет цвет текста элемента.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/color.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Шрифт и Цвет"
 
     <div class="col3" markdown="1">
@@ -43,8 +47,8 @@ description: Свойство color определяет цвет текста �
     <div class="col3" markdown="1">
 
     - **color**
-    - [color-adjust](color-adjust.md)
     - [opacity](opacity.md)
+    - [print-color-adjust](print-color-adjust.md)
 
     </div>
 
@@ -71,16 +75,29 @@ color: rgb(34, 12, 64, 0.6);
 color: rgba(34, 12, 64, 0.6);
 color: rgb(34 12 64 / 0.6);
 color: rgba(34 12 64 / 0.3);
+color: rgb(34 12 64 / 60%);
+color: rgba(34.6 12 64 / 30%);
 
 /* <hsl()> values */
 color: hsl(30, 100%, 50%, 0.6);
 color: hsla(30, 100%, 50%, 0.6);
 color: hsl(30 100% 50% / 0.6);
 color: hsla(30 100% 50% / 0.6);
+color: hsl(30 100% 50% / 60%);
+color: hsla(30.2 100% 50% / 60%);
+
+/* <hwb()> values */
+color: hwb(90 10% 10%);
+color: hwb(90 10% 10% / 0.5);
+color: hwb(90deg 10% 10%);
+color: hwb(1.5708rad 60% 0%);
+color: hwb(0.25turn 0% 40% / 50%);
 
 /* Global values */
 color: inherit;
 color: initial;
+color: revert;
+color: revert-layer;
 color: unset;
 ```
 
@@ -98,6 +115,7 @@ color: unset;
 
 ## Спецификации
 
+- [CSS Color Module Level 4](https://w3c.github.io/csswg-drafts/css-color/#the-color-property)
 - [CSS Transitions](http://dev.w3.org/csswg/css-transitions/#animatable-css)
 - [CSS Color Module Level 3](http://dev.w3.org/csswg/css3-color/#color)
 - [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/colors.html#colors)

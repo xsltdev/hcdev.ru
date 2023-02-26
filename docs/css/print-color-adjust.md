@@ -1,10 +1,10 @@
 ---
-description: Свойство color-adjust устанавливает, что может сделать пользовательский агент, чтобы оптимизировать внешний вид элемента на устройстве вывода
+description: Свойство print-color-adjust устанавливает, что может сделать пользовательский агент, чтобы оптимизировать внешний вид элемента на устройстве вывода
 ---
 
-# color-adjust
+# print-color-adjust
 
-Свойство **`color-adjust`** устанавливает, что может сделать пользовательский агент, чтобы оптимизировать внешний вид элемента на устройстве вывода.
+Свойство **`print-color-adjust`** устанавливает, что может сделать пользовательский агент, чтобы оптимизировать внешний вид элемента на устройстве вывода.
 
 По умолчанию браузеру разрешено вносить любые изменения во внешний вид элемента, который он считает необходимым и разумным, учитывая тип и возможности устройства вывода.
 
@@ -45,7 +45,7 @@ description: Свойство color-adjust устанавливает, что м
     <div class="col3" markdown="1">
 
     - [color](color.md)
-    - **color-adjust**
+    - **print-color-adjust**
     - [opacity](opacity.md)
 
     </div>
@@ -53,8 +53,8 @@ description: Свойство color-adjust устанавливает, что м
 ## Синтаксис
 
 ```css
-color-adjust: economy;
-color-adjust: exact;
+print-color-adjust: economy;
+print-color-adjust: exact;
 ```
 
 ## Значения
@@ -88,7 +88,7 @@ color-adjust: exact;
       display: flex;
       align-items: center;
       justify-content: center;
-      color-adjust: exact;
+      print-color-adjust: exact;
     }
     ```
 
@@ -102,8 +102,8 @@ color-adjust: exact;
 
 === "Результат"
 
-    ![color-adjust](color-adjust.png)
+    ![print-color-adjust](print-color-adjust.png)
 
 ## Ссылки
 
-- [color-adjust](https://developer.mozilla.org/ru/docs/Web/CSS/color-adjust) <sup><small>MDN (рус.)</small></sup>
+- [print-color-adjust](https://developer.mozilla.org/en-US/docs/Web/CSS/print-color-adjust) <sup><small>MDN (анг.)</small></sup>

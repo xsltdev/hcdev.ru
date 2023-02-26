@@ -1,8 +1,16 @@
 ---
 description: Свойство CSS border-start-start-radius определяет логический радиус границы элемента, который сопоставляется с физическим радиусом границы, зависящим от режима письма, направления и ориентации текста элемента.
 ---
-<!-- TODO: -->
+
 # border-start-start-radius
+
+Свойство **`border-start-start-radius`** определяет логический радиус границы элемента, который сопоставляется с физическим радиусом границы, зависящим от `writing-mode`, `direction` и `text-orientation`. Это полезно при создании стилей для работы независимо от ориентации текста и режима письма.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-start-start-radius.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Это свойство влияет на угол между блочной и встроенной сторонами элемента. Например, в режиме записи `horizontal-tb` с направлением `ltr` это соответствует свойству `border-top-left-radius`.
 
 ??? info "Логические границы"
 
@@ -42,20 +50,26 @@ description: Свойство CSS border-start-start-radius определяет
 ## Синтаксис
 
 ```css
+/* <length> values */
+/* With one value the corner will be a circle */
+border-start-start-radius: 10px;
+border-start-start-radius: 1em;
 
+/* With two values the corner will be an ellipse */
+border-start-start-radius: 1em 2em;
+
+/* Global values */
+border-start-start-radius: inherit;
+border-start-start-radius: initial;
+border-start-start-radius: revert;
+border-start-start-radius: revert-layer;
+border-start-start-radius: unset;
 ```
 
 ## Значения
 
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
+`<length-percentage>`
+: Обозначает размер радиуса окружности или большой и малой полуосей эллипса. Абсолютная длина может быть выражена в любых единицах, разрешенных типом данных CSS `<length>`. Проценты по горизонтальной оси относятся к ширине блока, проценты по вертикальной оси относятся к высоте блока. Отрицательные значения недействительны.
 
 ## Поддержка браузерами
 
@@ -63,7 +77,33 @@ description: Свойство CSS border-start-start-radius определяет
 
 ## Примеры
 
+HTML
+
+```html
+<div>
+  <p class="exampleText">Example</p>
+</div>
+```
+
+CSS
+
+```css
+div {
+  background-color: rebeccapurple;
+  width: 120px;
+  height: 120px;
+  border-start-start-radius: 10px;
+}
+
+.exampleText {
+  writing-mode: vertical-rl;
+  padding: 10px;
+  background-color: #fff;
+  border-start-start-radius: 10px;
+}
+```
+
 ## Ссылки
 
 - Свойство [`border-start-start-radius`](https://developer.mozilla.org/ru/docs/Web/CSS/border-start-start-radius) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-radius-properties) <sup><small>Spec (англ.)</small></sup>

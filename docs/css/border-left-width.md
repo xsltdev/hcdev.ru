@@ -6,6 +6,10 @@ description: Свойство border-left-width устанавливает то�
 
 Свойство **`border-left-width`** устанавливает толщину границы слева от элемента.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/border-left-width.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Фон"
 
     <div class="col3" markdown="1">

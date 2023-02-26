@@ -1,7 +1,9 @@
 ---
 description: CSS-свойство font-variation-settings обеспечивает низкоуровневое управление переменными характеристиками шрифта, указывая четырехбуквенные имена осей характеристик, которые вы хотите изменить, вместе с их значениями.
 ---
+
 <!-- TODO: -->
+
 # font-variation-settings
 
 ??? info "Шрифт и Цвет"
@@ -41,7 +43,7 @@ description: CSS-свойство font-variation-settings обеспечивае
     <div class="col3" markdown="1">
 
     - [color](color.md)
-    - [color-adjust](color-adjust.md)
     - [opacity](opacity.md)
+    - [print-color-adjust](print-color-adjust.md)
 
     </div>

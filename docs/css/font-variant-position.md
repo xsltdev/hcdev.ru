@@ -1,7 +1,9 @@
 ---
 description: CSS-свойство font-variant-position управляет использованием альтернативных глифов меньшего размера, расположенных как надстрочный или подстрочный индекс.
 ---
+
 <!-- TODO: -->
+
 # font-variant-position
 
 ??? info "Шрифт и Цвет"
@@ -41,7 +43,7 @@ description: CSS-свойство font-variant-position управляет ис�
     <div class="col3" markdown="1">
 
     - [color](color.md)
-    - [color-adjust](color-adjust.md)
     - [opacity](opacity.md)
+    - [print-color-adjust](print-color-adjust.md)
 
     </div>

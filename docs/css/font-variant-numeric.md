@@ -1,7 +1,9 @@
 ---
 description: CSS-свойство font-variant-numeric управляет использованием альтернативных глифов для чисел, дробей и порядковых маркеров.
 ---
+
 <!-- TODO: -->
+
 # font-variant-numeric
 
 ??? info "Шрифт и Цвет"
@@ -41,7 +43,7 @@ description: CSS-свойство font-variant-numeric управляет исп
     <div class="col3" markdown="1">
 
     - [color](color.md)
-    - [color-adjust](color-adjust.md)
     - [opacity](opacity.md)
+    - [print-color-adjust](print-color-adjust.md)
 
     </div>

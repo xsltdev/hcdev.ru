@@ -6,6 +6,10 @@ description: Свойство column-count определяет количест
 
 Свойство **`column-count`** определяет количество колонок в многоколоночном тексте.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/column-count.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Колонки и таблицы"
 
     <div class="col3" markdown="1">

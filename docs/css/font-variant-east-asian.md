@@ -1,7 +1,9 @@
 ---
 description: CSS-свойство font-variant-east-asian управляет использованием альтернативных глифов для восточноазиатских шрифтов, таких как японский и китайский.
 ---
+
 <!-- TODO: -->
+
 # font-variant-east-asian
 
 ??? info "Шрифт и Цвет"
@@ -41,8 +43,8 @@ description: CSS-свойство font-variant-east-asian управляет и�
     <div class="col3" markdown="1">
 
     - [color](color.md)
-    - [color-adjust](color-adjust.md)
     - [opacity](opacity.md)
+    - [print-color-adjust](print-color-adjust.md)
 
     </div>
 

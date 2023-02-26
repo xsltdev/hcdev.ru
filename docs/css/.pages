@@ -94,6 +94,7 @@ nav:
         - animation.md
         - ... | animation-*.md
     - appearance.md
+    - aspect-ratio.md
     - backdrop-filter.md
     - backface-visibility.md
     - "background-*":
@@ -113,8 +114,8 @@ nav:
     - clear.md
     - clip-path.md
     - clip.md
-    - color-adjust.md
     - color.md
+    - color-scheme.md
     - "column-*":
         - ... | column-*.md
     - columns.md
@@ -191,6 +192,7 @@ nav:
         - ... | place-*.md
     - pointer-events.md
     - position.md
+    - print-color-adjust.md
     - quotes.md
     - resize.md
     - right.md

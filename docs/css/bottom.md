@@ -14,6 +14,10 @@ description: Свойство bottom устанавливает положени
 
 ![Рис. 2. Значение bottom относительно родителя](css_bottom_2.png)
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/bottom.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Позиционирование"
 
     <div class="col3" markdown="1">
@@ -46,6 +50,8 @@ bottom: auto;
 /* Global values */
 bottom: inherit;
 bottom: initial;
+bottom: revert;
+bottom: revert-layer;
 bottom: unset;
 ```
 

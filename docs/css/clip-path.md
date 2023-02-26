@@ -10,6 +10,10 @@ description: Свойство clip-path создает ограниченную 
 
 Свойство `clip-path` заменило устаревшее свойство [`clip`](clip.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/clip-path.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Маски и Фигуры"
 
     <div class="col3" markdown="1">
@@ -49,29 +53,35 @@ description: Свойство clip-path создает ограниченную 
 /* Keyword values */
 clip-path: none;
 
-/* Image values */
-clip-path: url('resources.svg#c1');
+/* <clip-source> values */
+clip-path: url(resources.svg#c1);
 
-/* Box values */
-clip-path: fill-box;
-clip-path: stroke-box;
-clip-path: view-box;
+/* <geometry-box> values */
 clip-path: margin-box;
 clip-path: border-box;
 clip-path: padding-box;
 clip-path: content-box;
+clip-path: fill-box;
+clip-path: stroke-box;
+clip-path: view-box;
 
-/* Geometry values */
+/* <basic-shape> values */
 clip-path: inset(100px 50px);
 clip-path: circle(50px at 0 100px);
+clip-path: ellipse(50px 60px at 0 10% 20%);
 clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+clip-path: path(
+  'M0.5,1 C0.5,1,0,0.7,0,0.3 A0.25,0.25,1,1,1,0.5,0.3 A0.25,0.25,1,1,1,1,0.3 C1,0.7,0.5,1,0.5,1 Z'
+);
 
-/* Box and geometry values combined */
+/* Box and shape values combined */
 clip-path: padding-box circle(50px at 0 100px);
 
 /* Global values */
 clip-path: inherit;
 clip-path: initial;
+clip-path: revert;
+clip-path: revert-layer;
 clip-path: unset;
 ```
 

@@ -45,8 +45,8 @@ description: Свойство opacity определяет уровень про
     <div class="col3" markdown="1">
 
     - [color](color.md)
-    - [color-adjust](color-adjust.md)
     - **opacity**
+    - [print-color-adjust](print-color-adjust.md)
 
     </div>
 

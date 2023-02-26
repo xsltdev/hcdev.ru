@@ -8,6 +8,10 @@ description: Свойство clear устанавливает, с какой с
 
 Если задано обтекание элемента с помощью свойства [`float`](float.md), то `clear` отменяет его действие для указанных сторон.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/clear.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Позиционирование"
 
     <div class="col3" markdown="1">
@@ -38,6 +42,8 @@ clear: inline-end;
 /* Global values */
 clear: inherit;
 clear: initial;
+clear: revert;
+clear: revert-layer;
 clear: unset;
 ```
 
