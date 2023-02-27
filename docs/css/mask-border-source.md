@@ -1,8 +1,12 @@
 ---
 description: Свойство CSS mask-border-source устанавливает исходное изображение, используемое для создания границы маски элемента.
 ---
-<!-- TODO: -->
+
 # mask-border-source
+
+Свойство **`mask-border-source`** устанавливает исходное изображение, используемое для создания границы маски элемента.
+
+Свойство `mask-border-slice` используется для разделения исходного изображения на области, которые затем динамически применяются к конечной границе маски.
 
 ??? info "Маски и Фигуры"
 
@@ -40,28 +44,22 @@ description: Свойство CSS mask-border-source устанавливает 
 ## Синтаксис
 
 ```css
+/* Keyword value */
+mask-border-source: none;
 
+/* <image> values */
+mask-border-source: url(image.jpg);
+mask-border-source: linear-gradient(to top, red, yellow);
+
+/* Global values */
+mask-border-source: inherit;
+mask-border-source: initial;
+mask-border-source: revert;
+mask-border-source: revert-layer;
+mask-border-source: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
-
-## Поддержка браузерами
-
-https://caniuse.bitsofco.de/
-
-## Примеры
 
 ## Ссылки
 
 - Свойство [`mask-border-source`](https://developer.mozilla.org/ru/docs/Web/CSS/mask-border-source) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking/#the-mask-border-source) <sup><small>Spec (англ.)</small></sup>

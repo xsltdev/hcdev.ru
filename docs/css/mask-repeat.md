@@ -1,8 +1,10 @@
 ---
 description: CSS-свойство mask-repeat определяет, как повторяются изображения маски. Изображение маски может повторяться по горизонтальной оси, вертикальной оси, обеим осям или вообще не повторяться.
 ---
-<!-- TODO: -->
+
 # mask-repeat
+
+Свойство **`mask-repeat`** определяет, как повторяются изображения маски. Изображение маски может повторяться по горизонтальной оси, вертикальной оси, обеим осям или вообще не повторяться.
 
 ??? info "Маски и Фигуры"
 
@@ -40,28 +42,39 @@ description: CSS-свойство mask-repeat определяет, как по�
 ## Синтаксис
 
 ```css
+/* One-value syntax */
+mask-repeat: repeat-x;
+mask-repeat: repeat-y;
+mask-repeat: repeat;
+mask-repeat: space;
+mask-repeat: round;
+mask-repeat: no-repeat;
 
+/* Two-value syntax: horizontal | vertical */
+mask-repeat: repeat space;
+mask-repeat: repeat repeat;
+mask-repeat: round space;
+mask-repeat: no-repeat round;
+
+/* Multiple values */
+mask-repeat: space round, no-repeat;
+mask-repeat: round repeat, space, repeat-x;
+
+/* Global values */
+mask-repeat: inherit;
+mask-repeat: initial;
+mask-repeat: revert;
+mask-repeat: revert-layer;
+mask-repeat: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
 
 ## Поддержка браузерами
 
-https://caniuse.bitsofco.de/
-
-## Примеры
+<p class="ciu_embed" data-feature="mdn-css__properties__mask-repeat" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+<p>Data on support for the mdn-css__properties__mask-repeat feature across the major browsers</p>
+</p>
 
 ## Ссылки
 
 - Свойство [`mask-repeat`](https://developer.mozilla.org/ru/docs/Web/CSS/mask-repeat) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking/#the-mask-repeat) <sup><small>Spec (англ.)</small></sup>

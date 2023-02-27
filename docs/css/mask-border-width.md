@@ -1,8 +1,10 @@
 ---
 description: Свойство CSS mask-border-width устанавливает ширину границы маски элемента.
 ---
-<!-- TODO: -->
+
 # mask-border-width
+
+Свойство **`mask-border-width`** устанавливает ширину границы маски элемента.
 
 ??? info "Маски и Фигуры"
 
@@ -40,28 +42,36 @@ description: Свойство CSS mask-border-width устанавливает �
 ## Синтаксис
 
 ```css
+/* Keyword value */
+mask-border-width: auto;
 
+/* <length> value */
+mask-border-width: 1rem;
+
+/* <percentage> value */
+mask-border-width: 25%;
+
+/* <number> value */
+mask-border-width: 3;
+
+/* top and bottom | left and right */
+mask-border-width: 2em 3em;
+
+/* top | left and right | bottom */
+mask-border-width: 5% 15% 10%;
+
+/* top | right | bottom | left */
+mask-border-width: 5% 2em 10% auto;
+
+/* Global values */
+mask-border-width: inherit;
+mask-border-width: initial;
+mask-border-width: revert;
+mask-border-width: revert-layer;
+mask-border-width: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
-
-## Поддержка браузерами
-
-https://caniuse.bitsofco.de/
-
-## Примеры
 
 ## Ссылки
 
 - Свойство [`mask-border-width`](https://developer.mozilla.org/ru/docs/Web/CSS/mask-border-width) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking/#the-mask-border-width) <sup><small>Spec (англ.)</small></sup>

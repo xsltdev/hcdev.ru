@@ -1,8 +1,19 @@
 ---
 description: Сокращенное свойство CSS margin-inline — это сокращенное свойство, которое определяет как логические встроенные начальные, так и конечные поля элемента, которые сопоставляются с физическими полями в зависимости от режима записи элемента, направления и ориентации текста.
 ---
-<!-- TODO: -->
+
 # margin-inline
+
+Сокращенное свойство **`margin-inline`** — это сокращенное свойство, которое определяет как логические встроенные начальные, так и конечные поля элемента, которые сопоставляются с физическими полями в зависимости от режима записи элемента, направления и ориентации текста.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/margin-inline.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Это свойство является сокращением для следующих свойств CSS:
+
+- [`margin-inline-start`](margin-inline-start.md)
+- [`margin-inline-end`](margin-inline-end.md)
 
 ??? info "Логические блоки"
 
@@ -38,28 +49,30 @@ description: Сокращенное свойство CSS margin-inline — эт�
 ## Синтаксис
 
 ```css
+/* <length> values */
+margin-inline: 10px 20px; /* An absolute length */
+margin-inline: 1em 2em; /* relative to the text size */
+margin-inline: 5% 2%; /* relative to the nearest block container's width */
+margin-inline: 10px; /* sets both start and end values */
 
+/* Keyword values */
+margin-inline: auto;
+
+/* Global values */
+margin-inline: inherit;
+margin-inline: initial;
+margin-inline: revert;
+margin-inline: revert-layer;
+margin-inline: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
 
 ## Поддержка браузерами
 
-https://caniuse.bitsofco.de/
-
-## Примеры
+<p class="ciu_embed" data-feature="mdn-css__properties__margin-inline" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+<p>Data on support for the mdn-css__properties__margin-inline feature across the major browsers</p>
+</p>
 
 ## Ссылки
 
 - Свойство [`margin-inline`](https://developer.mozilla.org/ru/docs/Web/CSS/margin-inline) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#propdef-margin-inline) <sup><small>Spec (англ.)</small></sup>

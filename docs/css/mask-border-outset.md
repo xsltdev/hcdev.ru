@@ -1,8 +1,10 @@
 ---
 description: CSS-свойство mask-border-outset определяет расстояние, на которое граница маски элемента отстоит от его рамки.
 ---
-<!-- TODO: -->
+
 # mask-border-outset
+
+Свойство **`mask-border-outset`** определяет расстояние, на которое граница маски элемента отстоит от его рамки.
 
 ??? info "Маски и Фигуры"
 
@@ -40,28 +42,30 @@ description: CSS-свойство mask-border-outset определяет рас
 ## Синтаксис
 
 ```css
+/* <length> value */
+mask-border-outset: 1rem;
 
+/* <number> value */
+mask-border-outset: 1.5;
+
+/* top and bottom | left and right */
+mask-border-outset: 1 1.2;
+
+/* top | left and right | bottom */
+mask-border-outset: 30px 2 45px;
+
+/* top | right | bottom | left */
+mask-border-outset: 7px 12px 14px 5px;
+
+/* Global values */
+mask-border-outset: inherit;
+mask-border-outset: initial;
+mask-border-outset: revert;
+mask-border-outset: revert-layer;
+mask-border-outset: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
-
-## Поддержка браузерами
-
-https://caniuse.bitsofco.de/
-
-## Примеры
 
 ## Ссылки
 
 - Свойство [`mask-border-outset`](https://developer.mozilla.org/ru/docs/Web/CSS/mask-border-outset) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking/#the-mask-border-outset) <sup><small>Spec (англ.)</small></sup>

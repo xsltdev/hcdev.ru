@@ -1,8 +1,10 @@
 ---
 description: Свойство CSS mask-origin устанавливает источник маски.
 ---
-<!-- TODO: -->
+
 # mask-origin
+
+Свойство **`mask-origin`** устанавливает источник маски.
 
 ??? info "Маски и Фигуры"
 
@@ -40,28 +42,39 @@ description: Свойство CSS mask-origin устанавливает ист�
 ## Синтаксис
 
 ```css
+/* Keyword values */
+mask-origin: content-box;
+mask-origin: padding-box;
+mask-origin: border-box;
+mask-origin: margin-box;
+mask-origin: fill-box;
+mask-origin: stroke-box;
+mask-origin: view-box;
 
+/* Multiple values */
+mask-origin: padding-box, content-box;
+mask-origin: view-box, fill-box, border-box;
+
+/* Non-standard keyword values */
+-webkit-mask-origin: content;
+-webkit-mask-origin: padding;
+-webkit-mask-origin: border;
+
+/* Global values */
+mask-origin: inherit;
+mask-origin: initial;
+mask-origin: revert;
+mask-origin: revert-layer;
+mask-origin: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
 
 ## Поддержка браузерами
 
-https://caniuse.bitsofco.de/
-
-## Примеры
+<p class="ciu_embed" data-feature="mdn-css__properties__mask-origin" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+<p>Data on support for the mdn-css__properties__mask-origin feature across the major browsers</p>
+</p>
 
 ## Ссылки
 
 - Свойство [`mask-origin`](https://developer.mozilla.org/ru/docs/Web/CSS/mask-origin) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking/#the-mask-origin) <sup><small>Spec (англ.)</small></sup>

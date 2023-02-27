@@ -1,8 +1,10 @@
 ---
 description: Свойство CSS mask-position устанавливает начальную позицию относительно слоя положения маски, заданного параметром mask-origin, для каждого определенного изображения маски.
 ---
-<!-- TODO: -->
+
 # mask-position
+
+Свойство **`mask-position`** устанавливает начальную позицию относительно слоя положения маски, заданного параметром `mask-origin`, для каждого определенного изображения маски.
 
 ??? info "Маски и Фигуры"
 
@@ -40,28 +42,37 @@ description: Свойство CSS mask-position устанавливает на�
 ## Синтаксис
 
 ```css
+/* Keyword values */
+mask-position: top;
+mask-position: bottom;
+mask-position: left;
+mask-position: right;
+mask-position: center;
 
+/* <position> values */
+mask-position: 25% 75%;
+mask-position: 0px 0px;
+mask-position: 10% 8em;
+
+/* Multiple values */
+mask-position: top right;
+mask-position: 1rem 1rem, center;
+
+/* Global values */
+mask-position: inherit;
+mask-position: initial;
+mask-position: revert;
+mask-position: revert-layer;
+mask-position: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
 
 ## Поддержка браузерами
 
-https://caniuse.bitsofco.de/
-
-## Примеры
+<p class="ciu_embed" data-feature="mdn-css__properties__mask-position" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+<p>Data on support for the mdn-css__properties__mask-position feature across the major browsers</p>
+</p>
 
 ## Ссылки
 
 - Свойство [`mask-position`](https://developer.mozilla.org/ru/docs/Web/CSS/mask-position) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking/#the-mask-position) <sup><small>Spec (англ.)</small></sup>

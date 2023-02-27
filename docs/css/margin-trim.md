@@ -53,12 +53,18 @@ description: Свойство margin-trim позволяет контейнер�
 
 ```css
 margin-trim: none;
-margin-trim: in-flow;
-margin-trim: all;
+margin-trim: block;
+margin-trim: block-start;
+margin-trim: block-end;
+margin-trim: inline;
+margin-trim: inline-start;
+margin-trim: inline-end;
 
 /* Global values */
 margin-trim: inherit;
 margin-trim: initial;
+margin-trim: revert;
+margin-trim: revert-layer;
 margin-trim: unset;
 ```
 
@@ -85,4 +91,6 @@ margin-trim: unset;
 
 ## Поддержка браузерами
 
-Не поддерживается браузерами.
+<p class="ciu_embed" data-feature="mdn-css__properties__margin-trim" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+<p>Data on support for the mdn-css__properties__margin-trim feature across the major browsers</p>
+</p>

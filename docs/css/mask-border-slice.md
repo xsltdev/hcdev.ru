@@ -1,8 +1,10 @@
 ---
 description: Свойство CSS mask-border-slice делит изображение, заданное источником mask-border-source, на области. Эти области используются для формирования компонентов границы маски элемента.
 ---
-<!-- TODO: -->
+
 # mask-border-slice
+
+Свойство **`mask-border-slice`** делит изображение, заданное источником [`mask-border-source`](mask-border-source.md), на области. Эти области используются для формирования компонентов границы маски элемента.
 
 ??? info "Маски и Фигуры"
 
@@ -40,28 +42,30 @@ description: Свойство CSS mask-border-slice делит изображе�
 ## Синтаксис
 
 ```css
+/* All sides */
+mask-border-slice: 30%;
 
+/* top and bottom | left and right */
+mask-border-slice: 10% 30%;
+
+/* top | left and right | bottom */
+mask-border-slice: 30 30% 45;
+
+/* top | right | bottom | left */
+mask-border-slice: 7 12 14 5;
+
+/* Using the `fill` keyword */
+mask-border-slice: 10% fill 7 12;
+
+/* Global values */
+mask-border-slice: inherit;
+mask-border-slice: initial;
+mask-border-slice: revert;
+mask-border-slice: revert-layer;
+mask-border-slice: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
-
-## Поддержка браузерами
-
-https://caniuse.bitsofco.de/
-
-## Примеры
 
 ## Ссылки
 
 - Свойство [`mask-border-slice`](https://developer.mozilla.org/ru/docs/Web/CSS/mask-border-slice) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking/#the-mask-border-slice) <sup><small>Spec (англ.)</small></sup>

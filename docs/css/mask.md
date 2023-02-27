@@ -98,7 +98,7 @@ mask-composite: add;
 
 ## Спецификации
 
-- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking-1/#the-mask)
+- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking/#the-mask)
 - [Scalable Vector Graphics (SVG) 1.1 (Second Edition)](http://www.w3.org/TR/SVG11/masking.html#MaskProperty)
 
 ## Поддержка браузерами

@@ -1,8 +1,10 @@
 ---
 description: CSS-свойство mask-border-repeat задает способ корректировки краевых областей исходного изображения в соответствии с размерами границы маски элемента.
 ---
-<!-- TODO: -->
+
 # mask-border-repeat
+
+Свойство **`mask-border-repeat`** задает способ корректировки краевых областей исходного изображения в соответствии с размерами границы маски элемента.
 
 ??? info "Маски и Фигуры"
 
@@ -40,28 +42,24 @@ description: CSS-свойство mask-border-repeat задает способ �
 ## Синтаксис
 
 ```css
+/* Keyword value */
+mask-border-repeat: stretch;
+mask-border-repeat: repeat;
+mask-border-repeat: round;
+mask-border-repeat: space;
 
+/* top and bottom | left and right */
+mask-border-repeat: round stretch;
+
+/* Global values */
+mask-border-repeat: inherit;
+mask-border-repeat: initial;
+mask-border-repeat: revert;
+mask-border-repeat: revert-layer;
+mask-border-repeat: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
-
-## Поддержка браузерами
-
-https://caniuse.bitsofco.de/
-
-## Примеры
 
 ## Ссылки
 
 - Свойство [`mask-border-repeat`](https://developer.mozilla.org/ru/docs/Web/CSS/mask-border-repeat) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking/#the-mask-border-repeat) <sup><small>Spec (англ.)</small></sup>

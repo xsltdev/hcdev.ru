@@ -1,8 +1,10 @@
 ---
 description: Свойство CSS типа маски определяет, используется ли элемент SVG mask в качестве яркости или альфа-маски. Это относится к самому элементу mask.
 ---
-<!-- TODO: -->
+
 # mask-type
+
+Свойство **`mask-type`** определяет, используется ли элемент SVG `<mask>` в качестве яркости или альфа-маски. Это относится к самому элементу `<mask>`.
 
 ??? info "Маски и Фигуры"
 
@@ -40,28 +42,25 @@ description: Свойство CSS типа маски определяет, ис
 ## Синтаксис
 
 ```css
+/* Keyword values */
+mask-type: luminance;
+mask-type: alpha;
 
+/* Global values */
+mask-type: inherit;
+mask-type: initial;
+mask-type: revert;
+mask-type: revert-layer;
+mask-type: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
 
 ## Поддержка браузерами
 
-https://caniuse.bitsofco.de/
-
-## Примеры
+<p class="ciu_embed" data-feature="mdn-css__properties__mask-type" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+<p>Data on support for the mdn-css__properties__mask-type feature across the major browsers</p>
+</p>
 
 ## Ссылки
 
 - Свойство [`mask-type`](https://developer.mozilla.org/ru/docs/Web/CSS/mask-type) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking/#the-mask-type) <sup><small>Spec (англ.)</small></sup>

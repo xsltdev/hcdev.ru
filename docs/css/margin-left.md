@@ -10,6 +10,10 @@ description: Свойство margin-left устанавливает велич�
 
 ![Рис. 1. Отступ от левого края элемента](css_margin-left_1.png)
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/margin-left.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Блоки"
 
     <div class="col3" markdown="1">

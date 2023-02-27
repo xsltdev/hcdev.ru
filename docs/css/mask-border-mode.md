@@ -1,8 +1,10 @@
 ---
 description: Свойство CSS mask-border-mode указывает режим наложения, используемый в границе маски.
 ---
-<!-- TODO: -->
+
 # mask-border-mode
+
+Свойство **`mask-border-mode`** указывает режим наложения, используемый в границе маски.
 
 ??? info "Маски и Фигуры"
 
@@ -40,28 +42,19 @@ description: Свойство CSS mask-border-mode указывает режим
 ## Синтаксис
 
 ```css
+/* Keyword values */
+mask-border-mode: luminance;
+mask-border-mode: alpha;
 
+/* Global values */
+mask-border-mode: inherit;
+mask-border-mode: initial;
+mask-border-mode: revert;
+mask-border-mode: revert-layer;
+mask-border-mode: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
-
-## Поддержка браузерами
-
-https://caniuse.bitsofco.de/
-
-## Примеры
 
 ## Ссылки
 
 - Свойство [`mask-border-mode`](https://developer.mozilla.org/ru/docs/Web/CSS/mask-border-mode) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking-1/#the-mask-border-mode) <sup><small>Spec (англ.)</small></sup>

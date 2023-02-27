@@ -1,8 +1,10 @@
 ---
 description: CSS-свойство mask-mode устанавливает, будет ли ссылка на маску, определенная в mask-image, рассматриваться как яркостная или альфа-маска.
 ---
-<!-- TODO: -->
+
 # mask-mode
+
+Свойство **`mask-mode`** устанавливает, будет ли ссылка на маску, определенная в `mask-image`, рассматриваться как яркостная или альфа-маска.
 
 ??? info "Маски и Фигуры"
 
@@ -40,28 +42,29 @@ description: CSS-свойство mask-mode устанавливает, буде
 ## Синтаксис
 
 ```css
+/* Keyword values */
+mask-mode: alpha;
+mask-mode: luminance;
+mask-mode: match-source;
 
+/* Multiple values */
+mask-mode: alpha, match-source;
+
+/* Global values */
+mask-mode: inherit;
+mask-mode: initial;
+mask-mode: revert;
+mask-mode: revert-layer;
+mask-mode: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
 
 ## Поддержка браузерами
 
-https://caniuse.bitsofco.de/
-
-## Примеры
+<p class="ciu_embed" data-feature="mdn-css__properties__mask-mode" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+<p>Data on support for the mdn-css__properties__mask-mode feature across the major browsers</p>
+</p>
 
 ## Ссылки
 
 - Свойство [`mask-mode`](https://developer.mozilla.org/ru/docs/Web/CSS/mask-mode) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking/#the-mask-mode) <sup><small>Spec (англ.)</small></sup>
