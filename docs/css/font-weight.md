@@ -8,6 +8,10 @@ description: Свойство font-weight устанавливает насыщ�
 
 Значение указывается в виде чисел от `100` до `900` с шагом `100` или с помощью заданных ключевых слов.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/font-weight.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Шрифт и Цвет"
 
     <div class="col3" markdown="1">
@@ -65,10 +69,10 @@ font-weight: bolder;
 font-weight: 100;
 font-weight: 200;
 font-weight: 300;
-font-weight: 400;
+font-weight: 400; /* normal */
 font-weight: 500;
 font-weight: 600;
-font-weight: 700;
+font-weight: 700; /* bold */
 font-weight: 800;
 font-weight: 900;
 
@@ -104,6 +108,7 @@ font-weight: normal;
 
 ## Спецификации
 
+- [CSS Fonts Module Level 4](https://w3c.github.io/csswg-drafts/css-fonts/#font-weight-prop)
 - [CSS Fonts Module Level 3](http://dev.w3.org/csswg/css3-fonts/#font-weight-prop)
 - [CSS Transitions](http://dev.w3.org/csswg/css-transitions/#animatable-css)
 - [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/fonts.html#propdef-font-weight)

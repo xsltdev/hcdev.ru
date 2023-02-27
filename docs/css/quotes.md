@@ -14,6 +14,7 @@ description: Свойство quotes устанавливает тип кавы�
 
     - [counter-increment](counter-increment.md)
     - [counter-reset](counter-reset.md)
+    - [counter-set](counter-set.md)
     - [list-style-image](list-style-image.md)
     - [list-style-type](list-style-type.md)
     - [list-style-position](list-style-position.md)

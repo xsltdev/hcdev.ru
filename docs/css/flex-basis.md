@@ -8,6 +8,10 @@ description: Свойство flex-basis определяет основу фл�
 
 Похоже на свойства [`width`](width.md) и [`height`](height.md), к которым добавляется содержимое элемента.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/flex-basis.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Flexbox и выравнивание"
 
     <div class="col3" markdown="1">

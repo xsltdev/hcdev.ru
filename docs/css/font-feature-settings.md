@@ -10,6 +10,10 @@ description: Свойство font-feature-settings позволяет вам у
 
 Свойство `font-feature-settings` является низкоуровневой функцией, предназначенной для обработки особых случаев, когда нет другого способа включить или получить доступ к функции шрифтов OpenType. В частности, это свойство CSS не должно использоваться для включения строчной капители (small caps).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/font-feature-settings.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Шрифт и Цвет"
 
     <div class="col3" markdown="1">

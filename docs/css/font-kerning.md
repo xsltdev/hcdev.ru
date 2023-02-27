@@ -12,6 +12,10 @@ description: Свойство font-kerning управляет кернингом
 
 ![Рис. 1. Текст без кернинга и с ним](font-kerning.png)
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/font-kerning.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Шрифт и Цвет"
 
     <div class="col3" markdown="1">

@@ -6,6 +6,10 @@ description: Свойство flex-flow является сокращённым 
 
 Свойство **`flex-flow`** является сокращённым свойством для отдельных свойств [`flex-direction`](flex-direction.md) и [`flex-wrap`](flex-wrap.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/flex-flow.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Flexbox и выравнивание"
 
     <div class="col3" markdown="1">

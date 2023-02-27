@@ -16,6 +16,10 @@ direction: Свойство empty-cells задаёт отображение гр
 
 Добавление неразрывного пробела `&nbsp`; воспринимается как видимое содержание, т. е. ячейка уже будет непустой.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/empty-cells.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Колонки и таблицы"
 
     <div class="col3" markdown="1">

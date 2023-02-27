@@ -8,12 +8,17 @@ description: Свойство content позволяет вставлять ге
 
 Применяется совместно с псевдоэлементами `::after` и `::before`, они соответственно указывают отображать новое содержимое после или до элемента, к которому добавляются.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/content.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Списки, счетчики, генерируемый контент"
 
     <div class="col3" markdown="1">
 
     - [counter-increment](counter-increment.md)
     - [counter-reset](counter-reset.md)
+    - [counter-set](counter-set.md)
     - [list-style-image](list-style-image.md)
     - [list-style-type](list-style-type.md)
     - [list-style-position](list-style-position.md)
@@ -35,15 +40,32 @@ description: Свойство content позволяет вставлять ге
 content: normal;
 content: none;
 
-/* <string> value, non-latin characters must be encoded */
+/* <image> values */
+content: url('http://www.example.com/test.png');
+content: linear-gradient(#e66465, #9198e5);
+content: image-set('image1x.png' 1x, 'image2x.png' 2x);
+
+/* alt text for generated content, added in the Level 3 specification */
+content: url('http://www.example.com/test.png') /
+  'This is the alt text';
+
+/* <string> value */
 content: 'prefix';
 
-/* <url> value */
-content: url('http://www.example.com/test.png');
+/* list of content values */
+content: 'prefix' url('http://www.example.com/test.png');
+content: 'prefix' url('http://www.example.com/test.png')
+  'suffix' / 'This is some alt text';
 
-/* <counter> values */
+/* <counter> values, optionally with <list-style-type> */
 content: counter(chapter_counter);
+content: counter(chapter_counter, upper-roman);
 content: counters(section_counter, '.');
+content: counters(
+  section_counter,
+  '.',
+  decimal-leading-zero
+);
 
 /* attr() value linked to the HTML attribute value */
 content: attr(value string);
@@ -54,13 +76,14 @@ content: close-quote;
 content: no-open-quote;
 content: no-close-quote;
 
-/* Except for normal and none, several values */
-/* can be used simultaneously */
-content: open-quote chapter_counter;
+/* Except for normal and none, several values can be used simultaneously */
+content: open-quote counter(chapter_counter);
 
 /* Global values */
 content: inherit;
 content: initial;
+content: revert;
+content: revert-layer;
 content: unset;
 ```
 

@@ -1,7 +1,9 @@
 ---
 description: CSS-функция image() определяет image аналогично функции url(), но с дополнительными функциями, включая указание направленности изображения, отображение только части этого изображения, определенной медиа-фрагментом, и указание сплошного цвета.
 ---
+
 <!-- TODO: -->
+
 # image()
 
 ??? info "Изображения, фильтры, композиция"
@@ -46,6 +48,22 @@ description: CSS-функция image() определяет image аналог�
 
     </div>
 
+    <div class="col3" markdown="1">
+
+    - [contain](contain.md)
+    - [contain-intrinsic-block-size](contain-intrinsic-block-size.md)
+    - [contain-intrinsic-height](contain-intrinsic-height.md)
+    - [contain-intrinsic-inline-size](contain-intrinsic-inline-size.md)
+    - [contain-intrinsic-size](contain-intrinsic-size.md)
+    - [contain-intrinsic-width](contain-intrinsic-width.md)
+    - [container](container.md)
+    - [container-name](container-name.md)
+    - [container-type](container-type.md)
+    - [@container](container-at-rule.md)
+    - [content-visibility](content-visibility.md)
+
+    </div>
+
 ## Синтаксис
 
 ```css
@@ -72,5 +90,5 @@ https://caniuse.bitsofco.de/
 
 ## Ссылки
 
-- Свойство [`image()`](https://developer.mozilla.org/ru/docs/Web/CSS/image()) <sup><small>MDN (рус.)</small></sup>
+- Свойство [`image()`](<https://developer.mozilla.org/ru/docs/Web/CSS/image()>) <sup><small>MDN (рус.)</small></sup>
 - []() <sup><small>Spec (англ.)</small></sup>

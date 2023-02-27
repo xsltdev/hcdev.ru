@@ -2,9 +2,15 @@
 description: CSS-свойство font-variant-ligatures определяет, какие лигатуры и контекстные формы используются в текстовом содержимом элементов, к которым оно применяется. Это приводит к более согласованным формам в результирующем тексте.
 ---
 
-<!-- TODO: -->
-
 # font-variant-ligatures
+
+Свойство **`font-variant-ligatures`** определяет, какие лигатуры и контекстные формы используются в текстовом содержимом элементов, к которым оно применяется.
+
+Это приводит к более согласованным формам в результирующем тексте.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/font-variant-ligatures.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Шрифт и Цвет"
 
@@ -48,6 +54,33 @@ description: CSS-свойство font-variant-ligatures определяет, �
 
     </div>
 
+## Синтаксис
+
+```css
+/* Keyword values */
+font-variant-ligatures: normal;
+font-variant-ligatures: none;
+font-variant-ligatures: common-ligatures; /* <common-lig-values> */
+font-variant-ligatures: no-common-ligatures; /* <common-lig-values> */
+font-variant-ligatures: discretionary-ligatures; /* <discretionary-lig-values> */
+font-variant-ligatures: no-discretionary-ligatures; /* <discretionary-lig-values> */
+font-variant-ligatures: historical-ligatures; /* <historical-lig-values> */
+font-variant-ligatures: no-historical-ligatures; /* <historical-lig-values> */
+font-variant-ligatures: contextual; /* <contextual-alt-values> */
+font-variant-ligatures: no-contextual; /* <contextual-alt-values> */
+
+/* Global values */
+font-variant-ligatures: inherit;
+font-variant-ligatures: initial;
+font-variant-ligatures: revert;
+font-variant-ligatures: revert-layer;
+font-variant-ligatures: unset;
+```
+
 ## Поддержка браузерами
 
 <p class="ciu_embed" data-feature="mdn-css__properties__font-variant-ligatures" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
+
+## Спецификация
+
+- [CSS Fonts Module Level 4](https://w3c.github.io/csswg-drafts/css-fonts/#font-variant-ligatures-prop)

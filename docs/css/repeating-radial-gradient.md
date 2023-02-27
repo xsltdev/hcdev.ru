@@ -1,7 +1,9 @@
 ---
 description: Функция CSS Repeating-Radial-Gradient() создает изображение, состоящее из повторяющихся градиентов, исходящих из исходной точки.
 ---
+
 <!-- TODO: -->
+
 # repeating-radial-gradient()
 
 ??? info "Изображения, фильтры, композиция"
@@ -46,6 +48,22 @@ description: Функция CSS Repeating-Radial-Gradient() создает из�
 
     </div>
 
+    <div class="col3" markdown="1">
+
+    - [contain](contain.md)
+    - [contain-intrinsic-block-size](contain-intrinsic-block-size.md)
+    - [contain-intrinsic-height](contain-intrinsic-height.md)
+    - [contain-intrinsic-inline-size](contain-intrinsic-inline-size.md)
+    - [contain-intrinsic-size](contain-intrinsic-size.md)
+    - [contain-intrinsic-width](contain-intrinsic-width.md)
+    - [container](container.md)
+    - [container-name](container-name.md)
+    - [container-type](container-type.md)
+    - [@container](container-at-rule.md)
+    - [content-visibility](content-visibility.md)
+
+    </div>
+
 ## Синтаксис
 
 ```css
@@ -72,5 +90,5 @@ https://caniuse.bitsofco.de/
 
 ## Ссылки
 
-- Свойство [`repeating-radial-gradient()`](https://developer.mozilla.org/ru/docs/Web/CSS/repeating-radial-gradient()) <sup><small>MDN (рус.)</small></sup>
+- Свойство [`repeating-radial-gradient()`](<https://developer.mozilla.org/ru/docs/Web/CSS/repeating-radial-gradient()>) <sup><small>MDN (рус.)</small></sup>
 - []() <sup><small>Spec (англ.)</small></sup>

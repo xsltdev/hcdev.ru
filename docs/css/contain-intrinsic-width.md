@@ -1,10 +1,10 @@
 ---
-description: Функция CSS Repeating-conic-gradient() создает изображение, состоящее из повторяющегося градиента (а не одного градиента) с цветовыми переходами, вращающимися вокруг центральной точки (а не исходящими от центра).
+description: Свойство CSS contains-intrinsic-width задает ширину элемента, которую браузер будет использовать для макета, когда элемент подлежит ограничению размера.
 ---
 
-<!-- TODO: -->
+# contain-intrinsic-width
 
-# repeating-conic-gradient()
+Свойство **`contains-intrinsic-width`** задает ширину элемента, которую браузер будет использовать для макета, когда элемент подлежит ограничению размера.
 
 ??? info "Изображения, фильтры, композиция"
 
@@ -25,7 +25,7 @@ description: Функция CSS Repeating-conic-gradient() создает изо
     - [repeating-linear-gradient()](repeating-linear-gradient.md)
     - [repeating-radial-gradient()](repeating-radial-gradient.md)
     - [conic-gradient()](conic-gradient.md)
-    - **repeating-conic-gradient()**
+    - [repeating-conic-gradient()](repeating-conic-gradient.md)
     - [url()](url.md)
     - [element()](element.md)
     - [image()](image.md)
@@ -44,7 +44,7 @@ description: Функция CSS Repeating-conic-gradient() создает изо
 
     - [background-blend-mode](background-blend-mode.md)
     - [isolation](isolation.md)
-    - [mix-blend-mode](mix-blend-mode.md)
+    - **mix-blend-mode**
 
     </div>
 
@@ -55,7 +55,7 @@ description: Функция CSS Repeating-conic-gradient() создает изо
     - [contain-intrinsic-height](contain-intrinsic-height.md)
     - [contain-intrinsic-inline-size](contain-intrinsic-inline-size.md)
     - [contain-intrinsic-size](contain-intrinsic-size.md)
-    - [contain-intrinsic-width](contain-intrinsic-width.md)
+    - **contain-intrinsic-width**
     - [container](container.md)
     - [container-name](container-name.md)
     - [container-type](container-type.md)
@@ -67,28 +67,24 @@ description: Функция CSS Repeating-conic-gradient() создает изо
 ## Синтаксис
 
 ```css
+/* Keyword values */
+contain-intrinsic-width: none;
 
+/* <length> values */
+contain-intrinsic-width: 1000px;
+contain-intrinsic-width: 10rem;
+
+/* auto <length> */
+contain-intrinsic-width: auto 300px;
+
+/* Global values */
+contain-intrinsic-width: inherit;
+contain-intrinsic-width: initial;
+contain-intrinsic-width: revert;
+contain-intrinsic-width: revert-layer;
+contain-intrinsic-width: unset;
 ```
 
-## Значения
+## Спецификация
 
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
-
-## Поддержка браузерами
-
-https://caniuse.bitsofco.de/
-
-## Примеры
-
-## Ссылки
-
-- Свойство [`repeating-conic-gradient()`](<https://developer.mozilla.org/ru/docs/Web/CSS/repeating-conic-gradient()>) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Box Sizing Module Level 4](https://w3c.github.io/csswg-drafts/css-sizing-4/#propdef-contain-intrinsic-width)

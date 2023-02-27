@@ -6,6 +6,10 @@ description: Свойство font универсальное свойство, 
 
 Свойство **`font`** универсальное свойство, которое позволяет одновременно задать несколько характеристик шрифта и текста.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/font.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Шрифт и Цвет"
 
     <div class="col3" markdown="1">

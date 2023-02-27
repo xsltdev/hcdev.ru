@@ -2,9 +2,11 @@
 description: CSS-свойство font-variant-position управляет использованием альтернативных глифов меньшего размера, расположенных как надстрочный или подстрочный индекс.
 ---
 
-<!-- TODO: -->
-
 # font-variant-position
+
+Свойство **`font-variant-position`** управляет использованием альтернативных глифов меньшего размера, расположенных как надстрочный или подстрочный индекс.
+
+Глифы располагаются относительно базовой линии шрифта, которая остается неизменной. Эти глифы обычно используются в элементах `<sub>` и `<sup>`.
 
 ??? info "Шрифт и Цвет"
 
@@ -47,3 +49,23 @@ description: CSS-свойство font-variant-position управляет ис�
     - [print-color-adjust](print-color-adjust.md)
 
     </div>
+
+## Синтаксис
+
+```css
+/* Keyword values */
+font-variant-position: normal;
+font-variant-position: sub;
+font-variant-position: super;
+
+/* Global values */
+font-variant-position: inherit;
+font-variant-position: initial;
+font-variant-position: revert;
+font-variant-position: revert-layer;
+font-variant-position: unset;
+```
+
+## Спецификация
+
+- [CSS Fonts Module Level 4](https://w3c.github.io/csswg-drafts/css-fonts/#font-variant-position-prop)

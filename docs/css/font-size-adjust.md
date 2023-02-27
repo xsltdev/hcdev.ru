@@ -59,12 +59,17 @@ description: Свойство font-size-adjust указывает, что раз
 font-size-adjust: none;
 
 /* Use a font size that makes lowercase
-letters half the specified font size */
+   letters half the specified font size */
 font-size-adjust: 0.5;
+
+/* Two values - added in the Level 5 spec */
+font-size-adjust: ex-height 0.5;
 
 /* Global values */
 font-size-adjust: inherit;
 font-size-adjust: initial;
+font-size-adjust: revert;
+font-size-adjust: revert-layer;
 font-size-adjust: unset;
 ```
 

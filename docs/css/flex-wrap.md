@@ -8,6 +8,10 @@ description: Свойство flex-wrap указывает, следует ли 
 
 Если перенос строк допускается, то свойство также позволяет контролировать направление, в котором выкладываются строки.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/flex-wrap.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Flexbox и выравнивание"
 
     <div class="col3" markdown="1">

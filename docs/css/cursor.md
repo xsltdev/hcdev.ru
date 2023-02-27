@@ -8,6 +8,10 @@ description: Свойство cursor устанавливает форму ку�
 
 Вид курсора зависит от операционной системы и установленных параметров.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/cursor.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Интерфейс"
 
     <div class="col3" markdown="1">
@@ -30,17 +34,28 @@ description: Свойство cursor устанавливает форму ку�
 ## Синтаксис
 
 ```css
-/* Keyword value only */
-cursor: pointer;
+/* Keyword value */
 cursor: auto;
+cursor: pointer;
+/* … */
+cursor: zoom-out;
 
-/* Using URL and coordinates */
-cursor: url('cursor1.png') 4 12, auto;
-cursor: url('cursor2.png') 2 2, pointer;
+/* URL with mandatory keyword fallback */
+cursor: url(hand.cur), pointer;
+
+/* URL and coordinates, with mandatory keyword fallback */
+cursor: url(cursor_1.png) 4 12, auto;
+cursor: url(cursor_2.png) 2 2, pointer;
+
+/* URLs and fallback URLs (some with coordinates), with mandatory keyword fallback */
+cursor: url(cursor_1.svg) 4 5, url(cursor_2.svg), /* … ,*/
+    url(cursor_n.cur) 5 5, progress;
 
 /* Global values */
 cursor: inherit;
 cursor: initial;
+cursor: revert;
+cursor: revert-layer;
 cursor: unset;
 ```
 

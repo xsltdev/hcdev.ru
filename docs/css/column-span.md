@@ -8,6 +8,10 @@ description: Свойство column-span определяет, как долж�
 
 Это свойство обычно применяют для заголовков текста или изображений, которые не должны разбиваться на колонки.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/column-span.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Колонки и таблицы"
 
     <div class="col3" markdown="1">

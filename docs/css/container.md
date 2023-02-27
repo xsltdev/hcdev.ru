@@ -1,10 +1,10 @@
 ---
-description: Функция CSS Repeating-conic-gradient() создает изображение, состоящее из повторяющегося градиента (а не одного градиента) с цветовыми переходами, вращающимися вокруг центральной точки (а не исходящими от центра).
+description: Сокращенное свойство CSS container устанавливает элемент в качестве контейнера запроса и указывает имя или имя контекста включения, используемого в запросе контейнера.
 ---
 
-<!-- TODO: -->
+# container
 
-# repeating-conic-gradient()
+Сокращенное свойство **`container`** устанавливает элемент в качестве контейнера запроса и указывает имя или имя контекста включения, используемого в запросе контейнера.
 
 ??? info "Изображения, фильтры, композиция"
 
@@ -25,7 +25,7 @@ description: Функция CSS Repeating-conic-gradient() создает изо
     - [repeating-linear-gradient()](repeating-linear-gradient.md)
     - [repeating-radial-gradient()](repeating-radial-gradient.md)
     - [conic-gradient()](conic-gradient.md)
-    - **repeating-conic-gradient()**
+    - [repeating-conic-gradient()](repeating-conic-gradient.md)
     - [url()](url.md)
     - [element()](element.md)
     - [image()](image.md)
@@ -56,7 +56,7 @@ description: Функция CSS Repeating-conic-gradient() создает изо
     - [contain-intrinsic-inline-size](contain-intrinsic-inline-size.md)
     - [contain-intrinsic-size](contain-intrinsic-size.md)
     - [contain-intrinsic-width](contain-intrinsic-width.md)
-    - [container](container.md)
+    - **container**
     - [container-name](container-name.md)
     - [container-type](container-type.md)
     - [@container](container-at-rule.md)
@@ -67,28 +67,17 @@ description: Функция CSS Repeating-conic-gradient() создает изо
 ## Синтаксис
 
 ```css
-
+container: <container-name> / <container-type>;
 ```
 
 ## Значения
 
-## Определение
+`<container-name>`
+: Имя с учетом регистра для контекста включения. Дополнительные сведения о синтаксисе описаны на странице свойств [`container-name`](container-name.md).
 
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
+`<container-type>`
+: Тип контекста содержания. Дополнительные сведения о синтаксисе описаны на странице свойств [`container-type`](container-type.md).
 
-## Поддержка браузерами
+## Спецификации
 
-https://caniuse.bitsofco.de/
-
-## Примеры
-
-## Ссылки
-
-- Свойство [`repeating-conic-gradient()`](<https://developer.mozilla.org/ru/docs/Web/CSS/repeating-conic-gradient()>) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Containment Module Level 3](https://w3c.github.io/csswg-drafts/css-contain-3/#container-shorthand)

@@ -6,6 +6,10 @@ description: Свойство font-stretch устанавливает узкое
 
 Свойство **`font-stretch`** устанавливает узкое, нормальное или широкое начертание шрифта, что позволяет уплотнять или расширять текст.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/font-stretch.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Шрифт и Цвет"
 
     <div class="col3" markdown="1">
@@ -62,9 +66,16 @@ font-stretch: expanded;
 font-stretch: extra-expanded;
 font-stretch: ultra-expanded;
 
+/* Percentage values */
+font-stretch: 50%;
+font-stretch: 100%;
+font-stretch: 200%;
+
 /* Global values */
 font-stretch: inherit;
 font-stretch: initial;
+font-stretch: revert;
+font-stretch: revert-layer;
 font-stretch: unset;
 ```
 

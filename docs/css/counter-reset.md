@@ -8,12 +8,17 @@ description: Свойство counter-reset устанавливает пере�
 
 Такой счётчик может выводиться с помощью свойства [`content`](content.md) и псевдоэлементов `::after` и `::before`.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/counter-reset.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Списки, счетчики, генерируемый контент"
 
     <div class="col3" markdown="1">
 
     - [counter-increment](counter-increment.md)
     - **counter-reset**
+    - [counter-set](counter-set.md)
     - [list-style-image](list-style-image.md)
     - [list-style-type](list-style-type.md)
     - [list-style-position](list-style-position.md)

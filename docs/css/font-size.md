@@ -16,6 +16,10 @@ description: Свойство font-size определяет размер шри
 
 ![Рис. 1. Размер шрифта](css_font-size_1.png)
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/font-size.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Шрифт и Цвет"
 
     <div class="col3" markdown="1">

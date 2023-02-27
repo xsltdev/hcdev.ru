@@ -18,6 +18,7 @@ description: Справочник свойств CSS с примерами ко�
 <div class="col3" markdown="1">
 
 - [@charset](charset.md)
+- [@container](container-at-rule.md)
 - [@import](import.md)
 - [@namespace](namespace.md)
 - [@media](media.md)
@@ -501,6 +502,22 @@ description: Справочник свойств CSS с примерами ко�
 - [background-blend-mode](background-blend-mode.md)
 - [isolation](isolation.md)
 - [mix-blend-mode](mix-blend-mode.md)
+
+</div>
+
+<div class="col3" markdown="1">
+
+- [contain](contain.md)
+- [contain-intrinsic-block-size](contain-intrinsic-block-size.md)
+- [contain-intrinsic-height](contain-intrinsic-height.md)
+- [contain-intrinsic-inline-size](contain-intrinsic-inline-size.md)
+- [contain-intrinsic-size](contain-intrinsic-size.md)
+- [contain-intrinsic-width](contain-intrinsic-width.md)
+- [container](container.md)
+- [container-name](container-name.md)
+- [container-type](container-type.md)
+- [@container](container-at-rule.md)
+- [content-visibility](content-visibility.md)
 
 </div>
 

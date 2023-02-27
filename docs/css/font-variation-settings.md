@@ -2,9 +2,13 @@
 description: CSS-свойство font-variation-settings обеспечивает низкоуровневое управление переменными характеристиками шрифта, указывая четырехбуквенные имена осей характеристик, которые вы хотите изменить, вместе с их значениями.
 ---
 
-<!-- TODO: -->
-
 # font-variation-settings
+
+Свойство **`font-variation-settings`** обеспечивает низкоуровневое управление переменными характеристиками шрифта, указывая четырехбуквенные имена осей характеристик, которые вы хотите изменить, вместе с их значениями.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/font-variation-settings.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Шрифт и Цвет"
 
@@ -47,3 +51,24 @@ description: CSS-свойство font-variation-settings обеспечивае
     - [print-color-adjust](print-color-adjust.md)
 
     </div>
+
+## Синтаксис
+
+```css
+/* Use the default settings */
+font-variation-settings: normal;
+
+/* Set values for variable font axis names */
+font-variation-settings: 'XHGT' 0.7;
+
+/* Global values */
+font-variation-settings: inherit;
+font-variation-settings: initial;
+font-variation-settings: revert;
+font-variation-settings: revert-layer;
+font-variation-settings: unset;
+```
+
+## Спецификация
+
+- [CSS Fonts Module Level 4](https://w3c.github.io/csswg-drafts/css-fonts/#font-variation-settings-def)

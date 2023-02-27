@@ -4,6 +4,7 @@ nav:
     - important.md
     - "@-правила":
         - charset.md
+        - container-at-rule.md
         - counter-style.md
         - document.md
         - font-face.md
@@ -119,7 +120,14 @@ nav:
     - "column-*":
         - ... | column-*.md
     - columns.md
+    - "contain-*":
+        - contain.md
+        - ... | contain-*.md
+    - "container-*":
+        - container.md
+        - ... | container-*.md
     - content.md
+    - content-visibility.md
     - counter-increment.md
     - counter-reset.md
     - cursor.md

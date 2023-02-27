@@ -8,6 +8,10 @@ description: Свойство filter предназначено для прим�
 
 Обычно используется для изображений, чтобы размыть их, увеличить контрастность, преобразовать в чёрно-белую картинку и др.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/filter.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Изображения, фильтры, композиция"
 
     <div class="col3" markdown="1">
@@ -47,6 +51,22 @@ description: Свойство filter предназначено для прим�
     - [background-blend-mode](background-blend-mode.md)
     - [isolation](isolation.md)
     - [mix-blend-mode](mix-blend-mode.md)
+
+    </div>
+
+    <div class="col3" markdown="1">
+
+    - [contain](contain.md)
+    - [contain-intrinsic-block-size](contain-intrinsic-block-size.md)
+    - [contain-intrinsic-height](contain-intrinsic-height.md)
+    - [contain-intrinsic-inline-size](contain-intrinsic-inline-size.md)
+    - [contain-intrinsic-size](contain-intrinsic-size.md)
+    - [contain-intrinsic-width](contain-intrinsic-width.md)
+    - [container](container.md)
+    - [container-name](container-name.md)
+    - [container-type](container-type.md)
+    - [@container](container-at-rule.md)
+    - [content-visibility](content-visibility.md)
 
     </div>
 

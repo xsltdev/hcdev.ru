@@ -2,9 +2,13 @@
 description: CSS-свойство font-variant-east-asian управляет использованием альтернативных глифов для восточноазиатских шрифтов, таких как японский и китайский.
 ---
 
-<!-- TODO: -->
-
 # font-variant-east-asian
+
+Свойство **`font-variant-east-asian`** управляет использованием альтернативных глифов для восточноазиатских шрифтов, таких как японский и китайский.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/font-variant-east-asian.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Шрифт и Цвет"
 
@@ -47,6 +51,33 @@ description: CSS-свойство font-variant-east-asian управляет и�
     - [print-color-adjust](print-color-adjust.md)
 
     </div>
+
+## Синтаксис
+
+```css
+font-variant-east-asian: normal;
+font-variant-east-asian: ruby;
+font-variant-east-asian: jis78; /* <east-asian-variant-values> */
+font-variant-east-asian: jis83; /* <east-asian-variant-values> */
+font-variant-east-asian: jis90; /* <east-asian-variant-values> */
+font-variant-east-asian: jis04; /* <east-asian-variant-values> */
+font-variant-east-asian: simplified; /* <east-asian-variant-values> */
+font-variant-east-asian: traditional; /* <east-asian-variant-values> */
+font-variant-east-asian: full-width; /* <east-asian-width-values> */
+font-variant-east-asian: proportional-width; /* <east-asian-width-values> */
+font-variant-east-asian: ruby full-width jis83;
+
+/* Global values */
+font-variant-east-asian: inherit;
+font-variant-east-asian: initial;
+font-variant-east-asian: revert;
+font-variant-east-asian: revert-layer;
+font-variant-east-asian: unset;
+```
+
+## Спецификация
+
+- [CSS Fonts Module Level 4](https://w3c.github.io/csswg-drafts/css-fonts/#font-variant-east-asian-prop)
 
 ## Поддержка браузерами
 

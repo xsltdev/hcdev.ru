@@ -8,6 +8,10 @@ description: Свойство column-width задаёт оптимальную �
 
 Реальная ширина колонки может быть больше введённого значения, сокращение указанной ширины приводит к отмене нескольких колонок, текст при этом выстраивается в одну колонку.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/column-width.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Колонки и таблицы"
 
     <div class="col3" markdown="1">
