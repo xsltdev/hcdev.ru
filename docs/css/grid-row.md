@@ -6,6 +6,10 @@ description: CSS свойство grid-row определяет с какой с
 
 CSS свойство **`grid-row`** определяет с какой строки в макете сетки будет начинаться элемент, сколько строк будет занимать элемент, или на какой строке завершится элемент в макете сетки. Является сокращенным свойством для свойств [`grid-row-start`](grid-row-start.md) и [`grid-row-end`](grid-row-end.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/grid-row.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Grid Layout"
 
     <div class="col3" markdown="1">

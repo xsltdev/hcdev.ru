@@ -1,5 +1,5 @@
 ---
-description:
+description: Логическое свойство contains-intrinsic-block-size определяет размер блока элемента, который браузер может использовать для макета, когда элемент подлежит ограничению размера
 ---
 
 # contain-intrinsic-block-size
@@ -46,7 +46,7 @@ description:
 
     - [background-blend-mode](background-blend-mode.md)
     - [isolation](isolation.md)
-    - **mix-blend-mode**
+    - [mix-blend-mode](mix-blend-mode.md)
 
     </div>
 

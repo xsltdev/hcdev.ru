@@ -8,6 +8,10 @@ description: Свойство grid-area даёт название элемент
 
 Свойство **`grid-area`** является сокращенным свойством для [`grid-row-start`](grid-row-start.md), [`grid-column-start`](grid-column-start.md), [`grid-row-end`](grid-row-end.md) и [`grid-column-end`](grid-column-end.md), определяя размер и расположение элемента сетки.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/grid-area.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Grid Layout"
 
     <div class="col3" markdown="1">

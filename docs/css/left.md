@@ -18,6 +18,10 @@ description: Свойство left для позиционированного �
 
 ![Рис. 3. Значение свойства left относительно родителя](css_left_3.png)
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/left.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Позиционирование"
 
     <div class="col3" markdown="1">
@@ -70,6 +74,7 @@ left: auto;
 
 ## Спецификации
 
+- [CSS Positioned Layout Module Level 3](https://w3c.github.io/csswg-drafts/css-position/#insets)
 - [CSS Transitions](http://dev.w3.org/csswg/css-transitions/#animatable-css)
 - [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visuren.html#propdef-left)
 

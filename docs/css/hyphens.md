@@ -6,7 +6,11 @@ description: Свойство hyphens сообщает браузеру, как 
 
 Свойство **`hyphens`** сообщает браузеру, как расставлять переносы слов в блоке текста.
 
-Словарь переносов хранится в браузере и подключается только при наличии атрибута `lang` с кодом языка. Так, для русского языка следует добавить `lang="ru"` к элементу [`<html>`](/html/html/) или непосредственно к абзацу текста.
+Словарь переносов хранится в браузере и подключается только при наличии атрибута `lang` с кодом языка. Так, для русского языка следует добавить `lang="ru"` к элементу [`<html>`](../html/html.md) или непосредственно к абзацу текста.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/hyphens.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Текст"
 

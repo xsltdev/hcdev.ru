@@ -6,6 +6,10 @@ description: Универсальное свойство list-style позвол
 
 Универсальное свойство **`list-style`** позволяет одновременно задать стиль маркера, его положение, а также изображение, которое будет использоваться в качестве маркера списка.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/list-style.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Списки, счетчики, генерируемый контент"
 
     <div class="col3" markdown="1">

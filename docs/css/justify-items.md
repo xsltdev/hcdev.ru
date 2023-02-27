@@ -6,6 +6,10 @@ description: Свойство justify-items определяет justify-self п
 
 Свойство **`justify-items`** определяет [`justify-self`](justify-self.md) по умолчанию для всех элементов блока, предоставляя им способ выравнивания по умолчанию для каждого блока вдоль соответствующей оси.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/justify-items.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Flexbox и выравнивание"
 
     <div class="col3" markdown="1">
@@ -128,7 +132,7 @@ justify-items: unset;
 
 ## Спецификации
 
-- [CSS Box Alignment Module Level 3](https://drafts.csswg.org/css-align-3/#propdef-justify-items)
+- [CSS Box Alignment Module Level 3](https://w3c.github.io/csswg-drafts/css-align/#justify-items-property)
 
 ## Поддержка браузерами
 

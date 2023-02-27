@@ -6,6 +6,10 @@ description: Свойство justify-self устанавливает спосо
 
 Свойство **`justify-self`** устанавливает способ выравнивания элемента внутри его контейнера вдоль inline оси.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/justify-self.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Flexbox и выравнивание"
 
     <div class="col3" markdown="1">

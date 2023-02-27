@@ -6,6 +6,10 @@ description: Свойство line-break устанавливает способ
 
 Свойство **`line-break`** устанавливает способ разрыва строки текста на китайском, японском или корейском (CJK) при работе с пунктуацией и символами.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/line-break.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текст"
 
     <div class="col3" markdown="1">

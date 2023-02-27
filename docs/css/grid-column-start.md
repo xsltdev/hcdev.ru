@@ -6,6 +6,10 @@ description: Свойство grid-column-start определяет место�
 
 Свойство **`grid-column-start`** определяет местоположение в сетке ссылаясь на конкретные линии. `grid-column-start` / `grid-row-start` — это линия с которой начинается элемент.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/grid-column-start.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Grid Layout"
 
     <div class="col3" markdown="1">

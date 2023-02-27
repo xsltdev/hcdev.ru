@@ -6,6 +6,10 @@ description: Свойство grid-template-rows определяет строк
 
 Свойство **`grid-template-rows`** определяет строки сетки с помощью списка значений разделённого пробелами. Значения представляют из себя размер трека, а пробелы между ними представляют линии сетки.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/grid-template-columns.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Grid Layout"
 
     <div class="col3" markdown="1">

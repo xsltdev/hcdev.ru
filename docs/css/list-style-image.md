@@ -8,6 +8,10 @@ description: Свойство list-style-image устанавливает адр
 
 Это свойство наследуется, поэтому для отдельных элементов списка для восстановления маркера используется значение `none`.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/list-style-image.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Списки, счетчики, генерируемый контент"
 
     <div class="col3" markdown="1">

@@ -6,6 +6,10 @@ description: Свойство grid-column — это сокращение для
 
 Свойство **`grid-column`** — это сокращение для [`grid-column-start`](grid-column-start.md) + [`grid-column-end`](grid-column-end.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/grid-column.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Grid Layout"
 
     <div class="col3" markdown="1">

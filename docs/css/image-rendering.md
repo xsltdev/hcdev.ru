@@ -6,6 +6,10 @@ description: Свойство image-rendering сообщает браузеру,
 
 Свойство **`image-rendering`** сообщает браузеру, каким алгоритмом интерполировать изображение при масштабировании его размеров или изменении масштаба в параметрах браузера.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/image-rendering.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Изображения, фильтры, композиция"
 
     <div class="col3" markdown="1">
@@ -105,7 +109,7 @@ image-rendering: auto;
 
 ## Спецификации
 
-- [CSS Image Values and Replaced Content Module Level 3](http://dev.w3.org/csswg/css3-images/#the-image-rendering)
+- [CSS Images Module Level 3](https://w3c.github.io/csswg-drafts/css-images/#the-image-rendering)
 
 ## Описание и примеры
 

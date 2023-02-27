@@ -8,6 +8,10 @@ description: Свойство inline-size определяет горизонт�
 
 Если режим записи ориентирован вертикально, значение `inline-size` относится к высоте элемента; в противном случае это относится к ширине элемента. Связанное свойство - это [`block-size`](block-size.md), который определяет другой размер элемента.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/inline-size.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Логические размеры"
 
     <div class="col3" markdown="1">

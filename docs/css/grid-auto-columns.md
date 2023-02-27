@@ -6,6 +6,10 @@ description: Свойство grid-auto-columns определяет разме�
 
 Свойство **`grid-auto-columns`** определяет размер любых автоматически созданных треков (иначе говоря, неявных треков). Неявные треки создаются при явном позиционировании столбцов и строк (через [`grid-template-rows`](grid-template-rows.md)/[`grid-template-columns`](grid-template-columns.md)), которые находятся за пределами заданной сетки.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/grid-auto-columns.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Grid Layout"
 
     <div class="col3" markdown="1">

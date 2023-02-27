@@ -2,9 +2,13 @@
 description: CSS-свойство image-orientation задает независимую от макета коррекцию ориентации изображения.
 ---
 
-<!-- TODO: -->
-
 # image-orientation
+
+Свойство **`image-orientation`** задает независимую от макета коррекцию ориентации изображения.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/image-orientation.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Изображения, фильтры, композиция"
 
@@ -67,28 +71,41 @@ description: CSS-свойство image-orientation задает независ�
 ## Синтаксис
 
 ```css
+/* keyword values */
+image-orientation: none;
+image-orientation: from-image; /* Use EXIF data from the image */
 
+/* Global values */
+image-orientation: inherit;
+image-orientation: initial;
+image-orientation: revert;
+image-orientation: revert-layer;
+image-orientation: unset;
 ```
 
 ## Значения
 
-## Определение
+`none`
+: Не применяет никакого дополнительного поворота изображения; изображение ориентировано в соответствии с кодировкой или в соответствии с другими значениями свойств CSS.
 
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
+`from-image`
+: Начальное значение по умолчанию. Информация EXIF, содержащаяся в изображении, используется для соответствующего поворота изображения.
+
+!!!warning ""
+
+    `image-orientation: none;` не отменяет ориентацию изображений незащищенного происхождения, закодированную их информацией EXIF, из соображений безопасности.
 
 ## Поддержка браузерами
 
-https://caniuse.bitsofco.de/
-
-## Примеры
+<p class="ciu_embed" data-feature="css-image-orientation" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+<picture>
+<source type="image/webp" srcset="https://caniuse.bitsofco.de/image/css-image-orientation.webp">
+<source type="image/png" srcset="https://caniuse.bitsofco.de/image/css-image-orientation.png">
+<img src="https://caniuse.bitsofco.de/image/css-image-orientation.jpg" alt="Data on support for the css-image-orientation feature across the major browsers from caniuse.com">
+</picture>
+</p>
 
 ## Ссылки
 
 - Свойство [`image-orientation`](https://developer.mozilla.org/ru/docs/Web/CSS/image-orientation) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Images Module Level 3](https://w3c.github.io/csswg-drafts/css-images/#the-image-orientation) <sup><small>Spec (англ.)</small></sup>

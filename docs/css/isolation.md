@@ -8,6 +8,10 @@ description: Свойство isolation определяет, должен ли 
 
 Это особенно полезно в сочетании с [`background-blend-mode`](background-blend-mode.md), которые только смешивают фон в заданном контексте стекирования: он позволяет изолировать группы элементов от их более глубокого фона и смешать их фоновый цвет вместе.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/isolation.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Изображения, фильтры, композиция"
 
     <div class="col3" markdown="1">
@@ -97,6 +101,7 @@ isolation: auto;
 
 ## Спецификации
 
+- [Compositing and Blending Level 2](https://drafts.fxtf.org/compositing/#isolation)
 - [Compositing and Blending Level 1](https://drafts.fxtf.org/compositing-1/#isolation)
 
 ## Описание и примеры

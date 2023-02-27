@@ -6,6 +6,10 @@ description: Свойство inset определяет логический б
 
 Свойство **`inset`** определяет логический блок и встроенные начальное и конечное смещения элемента, которые отображают физическое смещение, зависящее от способа записи, направления и ориентации текста. Оно соответствует свойствам [`top`](top.md) и [`bottom`](bottom.md), или [`right`](right.md) и [`left`](left.md), в зависимости от значений, определенных для [`writing-mode`](writing-mode.md), [`direction`](direction.md), и [`text-orientation`](text-orientation.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/inset.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Логическое позиционирование"
 
     <div class="col3" markdown="1">

@@ -10,6 +10,10 @@ description: Свойство list-style-position определяет, как �
 
 ![Рис. 2. Значение inside](css_list-style-position_2.png)
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/list-style-position.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Списки, счетчики, генерируемый контент"
 
     <div class="col3" markdown="1">

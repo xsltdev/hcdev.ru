@@ -8,6 +8,10 @@ description: Свойство list-style-type изменяет вид марке
 
 Это свойство используется только в случае, когда значение `list-style-image` установлено как none. Маркеры различаются для маркированного списка (элемент [`<ul>`](/html/ul/)) и нумерованного (элемент [`<ol>`](/html/ol/)).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/list-style-type.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Списки, счетчики, генерируемый контент"
 
     <div class="col3" markdown="1">

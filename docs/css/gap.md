@@ -6,6 +6,10 @@ description: Свойство gap устанавливает промежутк�
 
 Свойство **`gap`** устанавливает промежутки между строками и столбцами сетки. Это сокращение для [`row-gap`](row-gap.md) и [`column-gap`](column-gap.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/gap.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Flexbox и выравнивание"
 
     <div class="col3" markdown="1">
