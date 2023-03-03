@@ -6,6 +6,10 @@ description: Свойство overflow-x управляет отображени
 
 Свойство **`overflow-x`** управляет отображением содержания блочного элемента по горизонтали, если контент целиком не помещается и выходит за область справа или слева от блока.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/overflow-x.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Блоки"
 
     <div class="col3" markdown="1">
@@ -52,21 +56,18 @@ description: Свойство overflow-x управляет отображени
 ## Синтаксис
 
 ```css
-/* Content is not clipped */
+/* Keyword values */
 overflow-x: visible;
-
-/* Content is clipped, with no scrollbars */
 overflow-x: hidden;
-
-/* Content is clipped, with scrollbars */
+overflow-x: clip;
 overflow-x: scroll;
-
-/* Let the browser decide */
 overflow-x: auto;
 
 /* Global values */
 overflow-x: inherit;
 overflow-x: initial;
+overflow-x: revert;
+overflow-x: revert-layer;
 overflow-x: unset;
 ```
 

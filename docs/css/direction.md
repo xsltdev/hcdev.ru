@@ -26,7 +26,6 @@ direction: Свойство direction предназначено для сайт
     <div class="col3" markdown="1">
 
     - **direction**
-    - [glyph-orientation-horizontal](glyph-orientation-horizontal.md)
     - [text-combine-upright](text-combine-upright.md)
     - [text-orientation](text-orientation.md)
     - [unicode-bidi](unicode-bidi.md)

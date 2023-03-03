@@ -6,6 +6,10 @@ description: Свойство overflow-wrap применяется к встро
 
 Свойство **`overflow-wrap`** применяется к встроенным элементам, определяя, должен ли браузер вставлять разрывы строк в неразрывную строку, чтобы текст не переполнял ее строку.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/overflow-wrap.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текст"
 
     <div class="col3" markdown="1">

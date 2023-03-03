@@ -89,9 +89,7 @@ animation-direction: normal;
 
 ## Поддержка браузерами
 
-<p class="ciu_embed" data-feature="css-animation" data-periods="future_1,current,past_1,past_2">
-  <a href="http://caniuse.com/#feat=css-animation">Can I Use css-animation?</a> Data on support for the css-animation feature across the major browsers from caniuse.com.
-</p>
+<p class="ciu_embed" data-feature="css-animation" data-periods="future_1,current,past_1,past_2"></p>
 
 ## Описание и примеры
 

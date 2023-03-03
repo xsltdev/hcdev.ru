@@ -2,9 +2,15 @@
 description: CSS-свойство object-position определяет выравнивание содержимого выбранного замененного элемента в поле элемента.
 ---
 
-<!-- TODO: -->
-
 # object-position
+
+Свойство **`object-position`** определяет выравнивание содержимого выбранного замененного элемента в поле элемента. Области поля, которые не покрыты объектом замененного элемента, будут отображать фон элемента.
+
+Вы можете настроить, как внутренний размер объекта замененного элемента (т. е. его естественный размер) корректируется, чтобы он помещался в поле элемента, используя свойство [`object-fit`](object-fit.md).
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/object-position.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Изображения, фильтры, композиция"
 
@@ -67,28 +73,39 @@ description: CSS-свойство object-position определяет выра�
 ## Синтаксис
 
 ```css
+/* Keyword values */
+object-position: top;
+object-position: bottom;
+object-position: left;
+object-position: right;
+object-position: center;
 
+/* <percentage> values */
+object-position: 25% 75%;
+
+/* <length> values */
+object-position: 0 0;
+object-position: 1cm 2cm;
+object-position: 10ch 8em;
+
+/* Edge offsets values */
+object-position: bottom 10px right 20px;
+object-position: right 3em bottom 10px;
+object-position: top 0 right 10px;
+
+/* Global values */
+object-position: inherit;
+object-position: initial;
+object-position: revert;
+object-position: revert-layer;
+object-position: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
 
 ## Поддержка браузерами
 
-https://caniuse.bitsofco.de/
-
-## Примеры
+<p class="ciu_embed" data-feature="mdn-css__properties__object-position" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Ссылки
 
 - Свойство [`object-position`](https://developer.mozilla.org/ru/docs/Web/CSS/object-position) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Images Module Level 3](https://w3c.github.io/csswg-drafts/css-images/#the-object-position) <sup><small>Spec (англ.)</small></sup>

@@ -12,6 +12,10 @@ description: Свойство min-width устанавливает минима�
 
 Если значение ширины (`width`) меньше значения `min-width`, то ширина элемента принимается равной `min-width`.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/min-width.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Блоки"
 
     <div class="col3" markdown="1">

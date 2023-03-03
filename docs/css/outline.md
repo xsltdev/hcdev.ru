@@ -8,6 +8,10 @@ description: Универсальное свойство outline, одновре
 
 В отличие от линии, задаваемой через [`border`](border.md), свойство `outline` не влияет на положение блока и его ширину. Также нельзя задать параметры линии на отдельных сторонах элемента, `outline` применяется сразу ко всем четырём сторонам.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/outline.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Интерфейс"
 
     <div class="col3" markdown="1">
@@ -30,12 +34,23 @@ description: Универсальное свойство outline, одновре
 ## Синтаксис
 
 ```css
-/* width | style | color */
-outline: 1px solid white;
+/* style */
+outline: solid;
+
+/* color | style */
+outline: #f66 dashed;
+
+/* style | width */
+outline: inset thick;
+
+/* color | style | width */
+outline: green solid 3px;
 
 /* Global values */
 outline: inherit;
 outline: initial;
+outline: revert;
+outline: revert-layer;
 outline: unset;
 ```
 

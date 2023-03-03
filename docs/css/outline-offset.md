@@ -6,6 +6,10 @@ description: Свойство outline-offset устанавливает расс
 
 Свойство **`outline-offset`** устанавливает расстояние между рамкой, созданной с помощью свойства [`outline`](outline.md), и краем или границей элемента добавленной через [`border`](border.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/outline-offset.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Интерфейс"
 
     <div class="col3" markdown="1">

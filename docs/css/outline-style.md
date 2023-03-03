@@ -8,6 +8,10 @@ description: Свойство outline-style устанавливает стил�
 
 В отличие от линии, задаваемой через [`border`](border.md), линия через `outline` отображается вокруг элемента, не влияя на ширину блока или его положение.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/outline-style.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Интерфейс"
 
     <div class="col3" markdown="1">

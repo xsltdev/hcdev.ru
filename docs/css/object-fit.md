@@ -8,6 +8,10 @@ description: Свойство object-fit управляет соотношени
 
 Свойство `object-fit` может сохранять исходные пропорции элемента или наоборот, искажать пропорции, в угоду соблюдения размеров.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/object-fit.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Изображения, фильтры, композиция"
 
     <div class="col3" markdown="1">
@@ -69,7 +73,18 @@ description: Свойство object-fit управляет соотношени
 ## Синтаксис
 
 ```css
-object-fit: fill | contain | cover | none;
+object-fit: contain;
+object-fit: cover;
+object-fit: fill;
+object-fit: none;
+object-fit: scale-down;
+
+/* Global values */
+object-fit: inherit;
+object-fit: initial;
+object-fit: revert;
+object-fit: revert-layer;
+object-fit: unset;
 ```
 
 ## Значения
@@ -85,6 +100,9 @@ object-fit: fill | contain | cover | none;
 
 `none`
 : Сохраняются исходные пропорции элемента, установленные значения ширины или высоты не влияют на содержимое.
+
+`scale-down`
+: Содержимое имеет такой размер, как если бы не было указано `none` или `contains`, в зависимости от того, что привело бы к меньшему размеру конкретного объекта.
 
 Влияние разных значений на фотографии продемонстрировано на рис. 1. Был использован следующий стиль.
 

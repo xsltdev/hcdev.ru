@@ -8,6 +8,10 @@ description: Свойство opacity определяет уровень про
 
 При частичной или полной прозрачности через элемент проступает фоновый рисунок или другие элементы, расположенные ниже полупрозрачного объекта.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/opacity.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Шрифт и Цвет"
 
     <div class="col3" markdown="1">
@@ -53,7 +57,15 @@ description: Свойство opacity определяет уровень про
 ## Синтаксис
 
 ```css
-opacity: число;
+opacity: 0.9;
+opacity: 90%;
+
+/* Global values */
+opacity: inherit;
+opacity: initial;
+opacity: revert;
+opacity: revert-layer;
+opacity: unset;
 ```
 
 ## Значения

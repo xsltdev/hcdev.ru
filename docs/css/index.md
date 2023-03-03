@@ -313,7 +313,7 @@ description: Справочник свойств CSS с примерами ко�
 
 </div>
 
-## Переходы и Анимации
+## Переходы, Анимации и Перемещения
 
 <div class="col3" markdown="1">
 
@@ -342,6 +342,17 @@ description: Справочник свойств CSS с примерами ко�
 - [transition-duration](transition-duration.md)
 - [transition-property](transition-property.md)
 - [transition-timing-function](transition-timing-function.md)
+
+</div>
+
+<div class="col3" markdown="1">
+
+- [offset](offset.md)
+- [offset-anchor](offset-anchor.md)
+- [offset-distance](offset-distance.md)
+- [offset-path](offset-path.md)
+- [offset-position](offset-position.md)
+- [offset-rotate](offset-rotate.md)
 
 </div>
 
@@ -455,7 +466,6 @@ description: Справочник свойств CSS с примерами ко�
 <div class="col3" markdown="1">
 
 - [direction](direction.md)
-- [glyph-orientation-horizontal](glyph-orientation-horizontal.md)
 - [text-combine-upright](text-combine-upright.md)
 - [text-orientation](text-orientation.md)
 - [unicode-bidi](unicode-bidi.md)

@@ -10,6 +10,10 @@ description: Свойство outline-width определяет толщину 
 
 Чтобы `outline-width` работал, необходимо установить у свойства [`outline-style`](outline-style.md) любое значение кроме `none`.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/outline-width.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Интерфейс"
 
     <div class="col3" markdown="1">
@@ -43,6 +47,10 @@ outline-width: 0.1em;
 
 /* Global values */
 outline-width: inherit;
+outline-width: initial;
+outline-width: revert;
+outline-width: revert-layer;
+outline-width: unset;
 ```
 
 ## Значения

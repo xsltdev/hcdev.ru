@@ -6,6 +6,10 @@ description: Свойство overflow-y управляет отображени
 
 Свойство **`overflow-y`** управляет отображением содержания блочного элемента по вертикали, если контент целиком не помещается и выходит за область сверху или снизу от блока.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/overflow-y.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Блоки"
 
     <div class="col3" markdown="1">
@@ -52,21 +56,18 @@ description: Свойство overflow-y управляет отображени
 ## Синтаксис
 
 ```css
-/* Content is not clipped */
+/* Keyword values */
 overflow-y: visible;
-
-/* Content is clipped, with no scrollbars */
 overflow-y: hidden;
-
-/* Content is clipped, with scrollbars */
+overflow-y: clip;
 overflow-y: scroll;
-
-/* Let the browser decide */
 overflow-y: auto;
 
 /* Global values */
 overflow-y: inherit;
 overflow-y: initial;
+overflow-y: revert;
+overflow-y: revert-layer;
 overflow-y: unset;
 ```
 

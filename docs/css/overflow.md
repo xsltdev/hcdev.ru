@@ -6,6 +6,10 @@ description: Свойство overflow управляет отображение
 
 Свойство **`overflow`** управляет отображением содержания блочного элемента, если оно целиком не помещается и выходит за область заданных размеров.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/overflow.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Блоки"
 
     <div class="col3" markdown="1">
@@ -52,21 +56,19 @@ description: Свойство overflow управляет отображение
 ## Синтаксис
 
 ```css
-/* Content is not clipped */
+/* Keyword values */
 overflow: visible;
-
-/* Content is clipped, with no scrollbars */
 overflow: hidden;
-
-/* Content is clipped, with scrollbars */
+overflow: clip;
 overflow: scroll;
-
-/* Let the browser decide */
 overflow: auto;
+overflow: hidden visible;
 
 /* Global values */
 overflow: inherit;
 overflow: initial;
+overflow: revert;
+overflow: revert-layer;
 overflow: unset;
 ```
 

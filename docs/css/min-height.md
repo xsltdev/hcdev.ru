@@ -10,6 +10,10 @@ description: Свойство min-height задаёт минимальную в�
 
 Если значение высоты (`height`) меньше значения `min-height`, то высота элемента принимается равной `min-height`.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/min-height.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Блоки"
 
     <div class="col3" markdown="1">

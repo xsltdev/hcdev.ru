@@ -52,9 +52,7 @@ element::after {
 
 ## Поддержка браузерами
 
-<p class="ciu_embed" data-feature="css-gencontent" data-periods="future_1,current,past_1,past_2">
-  <a href="http://caniuse.com/#feat=css-gencontent">Can I Use css-gencontent?</a> Data on support for the css-gencontent feature across the major browsers from caniuse.com.
-</p>
+<p class="ciu_embed" data-feature="css-gencontent" data-periods="future_1,current,past_1,past_2"></p>
 
 ## Примеры
 

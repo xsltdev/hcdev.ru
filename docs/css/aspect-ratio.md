@@ -38,9 +38,7 @@ aspect-ratio: unset;
 
 ## Поддержка браузерами
 
-<p class="ciu_embed" data-feature="mdn-css__properties__aspect-ratio" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
-<p>Data on support for the mdn-css__properties__aspect-ratio feature across the major browsers</p>
-</p>
+<p class="ciu_embed" data-feature="mdn-css__properties__aspect-ratio" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Ссылки
 

@@ -1,8 +1,14 @@
 ---
 description: CSS-свойство padding-block-end определяет отступ конца логического блока элемента, который сопоставляется с физическим отступом в зависимости от режима записи элемента, направления и ориентации текста.
 ---
-<!-- TODO: -->
+
 # padding-block-end
+
+Свойство **`padding-block-end`** определяет отступ конца логического блока элемента, который сопоставляется с физическим отступом в зависимости от режима записи элемента, направления и ориентации текста.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/padding-block-end.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Логические блоки"
 
@@ -38,28 +44,26 @@ description: CSS-свойство padding-block-end определяет отс�
 ## Синтаксис
 
 ```css
+/* <length> values */
+padding-block-end: 10px; /* An absolute length */
+padding-block-end: 1em; /* A length relative to the text size */
 
+/* <percentage> value */
+padding-block-end: 5%; /* A padding relative to the block container's width */
+
+/* Global values */
+padding-block-end: inherit;
+padding-block-end: initial;
+padding-block-end: revert;
+padding-block-end: revert-layer;
+padding-block-end: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
 
 ## Поддержка браузерами
 
-https://caniuse.bitsofco.de/
-
-## Примеры
+<p class="ciu_embed" data-feature="mdn-css__properties__padding-block-end" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Ссылки
 
 - Свойство [`padding-block-end`](https://developer.mozilla.org/ru/docs/Web/CSS/padding-block-end) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#padding-properties) <sup><small>Spec (англ.)</small></sup>

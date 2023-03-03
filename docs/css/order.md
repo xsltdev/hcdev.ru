@@ -8,6 +8,10 @@ description: Свойство order определяет порядок выво
 
 Элементы располагаются согласно значениям свойства `order` от меньшего к большему. При равных значениях `order` элементы выводятся в том порядке, в каком они появляются в исходном коде.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/order.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Flexbox и выравнивание"
 
     <div class="col3" markdown="1">

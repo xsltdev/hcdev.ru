@@ -8,6 +8,10 @@ description: Свойство max-block-size определяет максима
 
 Максимальная длина другого размера указывается с помощью свойства `max-inline-size`.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/max-block-size.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Логические размеры"
 
     <div class="col3" markdown="1">

@@ -87,6 +87,7 @@ nav:
         - repeating-linear-gradient.md
         - repeating-radial-gradient.md
         - url.md
+        - var.md
     - accent-color.md
     - "align-*":
         - ... | align-*.md
@@ -128,8 +129,8 @@ nav:
         - ... | container-*.md
     - content.md
     - content-visibility.md
-    - counter-increment.md
-    - counter-reset.md
+    - "counter-*":
+        - ... | counter-*.md
     - cursor.md
     - direction.md
     - display.md
@@ -143,7 +144,6 @@ nav:
         - font.md
         - ... | font-*.md
     - gap.md
-    - glyph-orientation-horizontal.md
     - "grid-*":
         - grid.md
         - ... | grid-*.md
@@ -179,6 +179,9 @@ nav:
     - mix-blend-mode.md
     - object-fit.md
     - object-position.md
+    - "offset-*":
+        - offset.md
+        - ... | offset-*.md
     - opacity.md
     - order.md
     - orphans.md
@@ -188,6 +191,9 @@ nav:
     - "overflow-*":
         - overflow.md
         - ... | overflow-*.md
+    - "overscroll-*":
+        - overscroll-behavior.md
+        - ... | overscroll-behavior-*.md
     - "padding-*":
         - padding.md
         - ... | padding-*.md

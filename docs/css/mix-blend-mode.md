@@ -6,6 +6,10 @@ description: Свойство mix-blend-mode опреляет режим сме�
 
 Свойство **`mix-blend-mode`** опреляет режим смешивания цветов выбранного элемента с низлежащими слоями.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/mix-blend-mode.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Изображения, фильтры, композиция"
 
     <div class="col3" markdown="1">

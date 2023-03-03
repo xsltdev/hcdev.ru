@@ -62,9 +62,7 @@ margin-block-end: unset;
 
 ## Поддержка браузерами
 
-<p class="ciu_embed" data-feature="mdn-css__properties__margin-block-end" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
-<p>Data on support for the mdn-css__properties__margin-block-end feature across the major browsers</p>
-</p>
+<p class="ciu_embed" data-feature="mdn-css__properties__margin-block-end" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Ссылки
 
