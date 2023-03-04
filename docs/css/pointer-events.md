@@ -8,6 +8,10 @@ description: Свойство pointer-events позволяет управлят
 
 Часто применяется для того, чтобы в сложной компоновке можно было взаимодействовать с нижележащими элементами, игнорируя вышележащие.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/pointer-events.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Pointer Events"
 
     <div class="col3" markdown="1">
@@ -53,13 +57,12 @@ pointer-events: unset;
 
 ## Спецификации
 
+- [Scalable Vector Graphics (SVG) 2](https://svgwg.org/svg2-draft/interact.html#PointerEventsProperty)
 - [Scalable Vector Graphics (SVG) 1.1 (Second Edition)](http://www.w3.org/TR/SVG11/interact.html#PointerEventsProperty)
 
 ## Поддержка браузерами
 
-<p class="ciu_embed" data-feature="pointer-events" data-periods="future_1,current,past_1,past_2">
-  <a href="http://caniuse.com/#feat=pointer-events">Can I Use pointer-events?</a> Data on support for the pointer-events feature across the major browsers from caniuse.com.
-</p>
+<p class="ciu_embed" data-feature="pointer-events" data-periods="future_1,current,past_1,past_2"></p>
 
 ## Описание и примеры
 

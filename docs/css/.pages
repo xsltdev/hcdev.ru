@@ -210,8 +210,13 @@ nav:
     - quotes.md
     - resize.md
     - right.md
+    - rotate.md
     - row-gap.md
-    - scroll-behavior.md
+    - scale.md
+    - "scroll-*":
+        - ... | scroll-*.md
+    - "scrollbar-*":
+        - ... | scrollbar-*.md
     - "shape-*":
         - ... | shape-*.md
     - tab-size.md

@@ -1,0 +1,1 @@
+# scroll-padding-inline-end

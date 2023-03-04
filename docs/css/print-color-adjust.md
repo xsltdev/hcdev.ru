@@ -55,6 +55,13 @@ description: Свойство print-color-adjust устанавливает, ч�
 ```css
 print-color-adjust: economy;
 print-color-adjust: exact;
+
+/* Global values */
+print-color-adjust: inherit;
+print-color-adjust: initial;
+print-color-adjust: revert;
+print-color-adjust: revert-layer;
+print-color-adjust: unset;
 ```
 
 ## Значения
@@ -67,7 +74,7 @@ print-color-adjust: exact;
 
 ## Спецификация
 
-- [CSS Color Adjustment Module Level 1](https://drafts.csswg.org/css-color-adjust-1/#propdef-color-adjust)
+- [CSS Color Adjustment Module Level 1](https://w3c.github.io/csswg-drafts/css-color-adjust/#propdef-print-color-adjust)
 
 ## Пример
 

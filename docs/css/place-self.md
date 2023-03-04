@@ -6,6 +6,10 @@ description: Свойство place-self - это сокращенное сво�
 
 Свойство **`place-self`** - это сокращенное свойство, устанавливающее свойства [`align-self`](align-self.md) и [`justify-self`](justify-self.md). Если второе значение отсутствует, для него используется первое значение.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/place-self.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Flexbox и выравнивание"
 
     <div class="col3" markdown="1">
@@ -76,19 +80,13 @@ place-self: unset;
 
 ## Спецификации
 
-- [CSS Box Alignment Module Level 3](https://drafts.csswg.org/css-align-3/#place-self-property)
+- [CSS Box Alignment Module Level 3](https://w3c.github.io/csswg-drafts/css-align/#place-self-property)
 
 ## Поддержка браузерами
 
-Поддержка в флексах:
+<p class="ciu_embed" data-feature="mdn-css__properties__place-self__flex_context" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-- Chrome 59+
-- Firefox 45+
-
-Поддержка в гридах:
-
-- Chrome 59+
-- Firefox 45+
+<p class="ciu_embed" data-feature="mdn-css__properties__place-self__grid_context" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## См. также
 

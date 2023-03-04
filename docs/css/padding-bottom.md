@@ -10,6 +10,10 @@ description: Свойство padding-bottom устанавливает знач
 
 ![Рис. 1. Поле снизу от текста](css_padding-bottom_1.png)
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/padding-bottom.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Блоки"
 
     <div class="col3" markdown="1">
@@ -80,9 +84,14 @@ padding-bottom: unset;
 
 ## Спецификации
 
+- [CSS Box Model Module Level 3](https://w3c.github.io/csswg-drafts/css-box/#padding-physical)
 - [CSS Basic Box Model](http://dev.w3.org/csswg/css3-box/#the-padding)
 - [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#padding-properties)
 - [CSS Level 1](http://www.w3.org/TR/CSS1/#padding-bottom)
+
+## Поддержка браузерами
+
+<p class="ciu_embed" data-feature="mdn-css__properties__padding-bottom" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Описание и примеры
 

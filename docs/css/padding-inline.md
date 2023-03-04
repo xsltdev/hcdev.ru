@@ -1,8 +1,19 @@
 ---
 description: Сокращенное свойство CSS padding-inline определяет логическое встроенное начальное и конечное заполнение элемента, которое сопоставляется с физическими свойствами заполнения в зависимости от режима записи элемента, направления и ориентации текста.
 ---
-<!-- TODO: -->
+
 # padding-inline
+
+Сокращенное свойство **`padding-inline`** определяет логическое встроенное начальное и конечное заполнение элемента, которое сопоставляется с физическими свойствами заполнения в зависимости от режима записи элемента, направления и ориентации текста.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/padding-inline.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Это свойство является сокращением для следующих свойств CSS:
+
+- [`padding-inline-end`](padding-inline-end.md)
+- [`padding-inline-start`](padding-inline-start.md)
 
 ??? info "Логические блоки"
 
@@ -38,28 +49,26 @@ description: Сокращенное свойство CSS padding-inline опре
 ## Синтаксис
 
 ```css
+/* <length> values */
+padding-inline: 10px 20px; /* An absolute length */
+padding-inline: 1em 2em; /* relative to the text size */
+padding-inline: 10px; /* sets both start and end values */
 
+/* <percentage> values */
+padding-inline: 5% 2%; /* relative to the nearest block container's width */
+
+/* Global values */
+padding-inline: inherit;
+padding-inline: initial;
+padding-inline: revert;
+padding-inline: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
 
 ## Поддержка браузерами
 
-https://caniuse.bitsofco.de/
-
-## Примеры
+<p class="ciu_embed" data-feature="mdn-css__properties__padding-inline" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Ссылки
 
 - Свойство [`padding-inline`](https://developer.mozilla.org/ru/docs/Web/CSS/padding-inline) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#propdef-padding-inline) <sup><small>Spec (англ.)</small></sup>

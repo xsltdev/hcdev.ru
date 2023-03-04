@@ -8,6 +8,10 @@ description: Свойство perspective-origin определяет позиц
 
 Свойства `perspective-origin` и `perspective` прикрепляются к родительскому элементу дочернего элемента, преобразованного в трехмерном пространстве, в отличие от функции преобразования `perspective()`, которая размещается на преобразованном элементе.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/perspective-origin.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Трансформации"
 
     <div class="col3" markdown="1">
@@ -15,6 +19,8 @@ description: Свойство perspective-origin определяет позиц
     - [backface-visibility](backface-visibility.md)
     - [perspective](perspective.md)
     - **perspective-origin**
+    - [rotate](rotate.md)
+    - [scale](scale.md)
     - [transform](transform.md)
     - [transform-box](transform-box.md)
     - [transform-origin](transform-origin.md)
@@ -59,7 +65,11 @@ perspective-origin: unset;
 
 ## Спецификация
 
-- [CSS Transforms Level 2](https://drafts.csswg.org/css-transforms-2/#perspective-origin-property)
+- [CSS Transforms Module Level 2](https://w3c.github.io/csswg-drafts/css-transforms-2/#perspective-origin-property)
+
+## Поддержка браузерами
+
+<p class="ciu_embed" data-feature="mdn-css__properties__perspective-origin" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Пример
 

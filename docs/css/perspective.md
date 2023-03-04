@@ -12,6 +12,10 @@ description: Свойство perspective определяет расcтояни
 
 При использовании данного свойства со значениями отличными от `0` или `none` создается новый stacking context.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/perspective.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Трансформации"
 
     <div class="col3" markdown="1">
@@ -19,6 +23,8 @@ description: Свойство perspective определяет расcтояни
     - [backface-visibility](backface-visibility.md)
     - **perspective**
     - [perspective-origin](perspective-origin.md)
+    - [rotate](rotate.md)
+    - [scale](scale.md)
     - [transform](transform.md)
     - [transform-box](transform-box.md)
     - [transform-origin](transform-origin.md)
@@ -52,7 +58,11 @@ perspective: unset;
 
 ## Спецификация
 
-- [CSS Transforms Level 2](https://drafts.csswg.org/css-transforms-2/#perspective-property)
+- [CSS Transforms Module Level 2](https://w3c.github.io/csswg-drafts/css-transforms-2/#perspective-property)
+
+## Поддержка браузерами
+
+<p class="ciu_embed" data-feature="mdn-css__properties__perspective" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Пример
 

@@ -4,7 +4,15 @@ description: Свойство page-break-before добавляет разрыв 
 
 # page-break-before
 
+!!!warning "Предупреждение"
+
+    Это свойство было заменено свойством [`break-before`](break-before.md).
+
 Свойство **`page-break-before`** добавляет разрыв страницы при печати документа перед заданным элементом.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/page-break-before.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Страницы"
 
@@ -67,14 +75,13 @@ page-break-before: unset;
 
 ## Спецификации
 
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#page)
 - [CSS Paged Media Module Level 3](http://dev.w3.org/csswg/css3-page/#page-break-before)
 - [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/page.html#propdef-page-break-before)
 
 ## Поддержка браузерами
 
-<p class="ciu_embed" data-feature="css-page-break" data-periods="future_1,current,past_1,past_2">
-  <a href="http://caniuse.com/#feat=css-page-break">Can I Use css-page-break?</a> Data on support for the css-page-break feature across the major browsers from caniuse.com.
-</p>
+<p class="ciu_embed" data-feature="css-page-break" data-periods="future_1,current,past_1,past_2"></p>
 
 ## Описание и примеры
 

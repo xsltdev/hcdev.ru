@@ -4,7 +4,15 @@ description: Свойство page-break-inside разрешает или зап
 
 # page-break-inside
 
+!!!warning "Предупреждение"
+
+    Это свойство было заменено свойством [`break-inside`](break-inside.md).
+
 Свойство **`page-break-inside`** разрешает или запрещает разрыв страницы внутри элемента при печати.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/page-break-inside.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Страницы"
 

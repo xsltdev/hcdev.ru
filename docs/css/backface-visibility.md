@@ -17,6 +17,8 @@ description: Свойство backface-visibility определяет, пока
     - **backface-visibility**
     - [perspective](perspective.md)
     - [perspective-origin](perspective-origin.md)
+    - [rotate](rotate.md)
+    - [scale](scale.md)
     - [transform](transform.md)
     - [transform-box](transform-box.md)
     - [transform-origin](transform-origin.md)

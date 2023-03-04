@@ -1,8 +1,14 @@
 ---
 description: Свойство CSS padding-inline-end определяет логическое встроенное заполнение конца элемента, которое сопоставляется с физическим дополнением в зависимости от режима записи элемента, направления и ориентации текста.
 ---
-<!-- TODO: -->
+
 # padding-inline-end
+
+Свойство **`padding-inline-end`** определяет логическое встроенное заполнение конца элемента, которое сопоставляется с физическим дополнением в зависимости от режима записи элемента, направления и ориентации текста.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/padding-inline-end.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Логические блоки"
 
@@ -38,28 +44,26 @@ description: Свойство CSS padding-inline-end определяет лог
 ## Синтаксис
 
 ```css
+/* <length> values */
+padding-inline-end: 10px; /* An absolute length */
+padding-inline-end: 1em; /* A length relative to the text size */
 
+/* <percentage> value */
+padding-inline-end: 5%; /* A padding relative to the block container's width */
+
+/* Global values */
+padding-inline-end: inherit;
+padding-inline-end: initial;
+padding-inline-end: revert;
+padding-inline-end: revert-layer;
+padding-inline-end: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
 
 ## Поддержка браузерами
 
-https://caniuse.bitsofco.de/
-
-## Примеры
+<p class="ciu_embed" data-feature="mdn-css__properties__padding-inline-end" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Ссылки
 
 - Свойство [`padding-inline-end`](https://developer.mozilla.org/ru/docs/Web/CSS/padding-inline-end) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#padding-properties) <sup><small>Spec (англ.)</small></sup>

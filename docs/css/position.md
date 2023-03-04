@@ -6,6 +6,10 @@ description: Свойство position устанавливает способ �
 
 Свойство **`position`** устанавливает способ позиционирования элемента относительно окна браузера или других объектов на веб-странице.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/position.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Позиционирование"
 
     <div class="col3" markdown="1">
@@ -25,7 +29,6 @@ description: Свойство position устанавливает способ �
 ## Синтаксис
 
 ```css
-/* Keyword values */
 position: static;
 position: relative;
 position: absolute;
@@ -35,6 +38,8 @@ position: sticky;
 /* Global values */
 position: inherit;
 position: initial;
+position: revert;
+position: revert-layer;
 position: unset;
 ```
 
@@ -65,22 +70,18 @@ position: unset;
 
 ## Спецификации
 
+- [CSS Positioned Layout Module Level 3](https://w3c.github.io/csswg-drafts/css-position/#position-property)
 - [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visuren.html#propdef-position)
-- [CSS Positioned Layout Module Level 3](http://dev.w3.org/csswg/css-position-3/#position-property)
 
 ## Поддержка браузерами
 
 `position: fixed`:
 
-<p class="ciu_embed" data-feature="css-fixed" data-periods="future_1,current,past_1,past_2">
-  <a href="http://caniuse.com/#feat=css-fixed">Can I Use css-fixed?</a> Data on support for the css-fixed feature across the major browsers from caniuse.com.
-</p>
+<p class="ciu_embed" data-feature="css-fixed" data-periods="future_1,current,past_1,past_2"></p>
 
 `position: sticky`:
 
-<p class="ciu_embed" data-feature="css-sticky" data-periods="future_1,current,past_1,past_2">
-  <a href="http://caniuse.com/#feat=css-sticky">Can I Use css-sticky?</a> Data on support for the css-sticky feature across the major browsers from caniuse.com.
-</p>
+<p class="ciu_embed" data-feature="css-sticky" data-periods="future_1,current,past_1,past_2"></p>
 
 ## Описание и примеры
 

@@ -13,6 +13,8 @@ description: Свойство transform трансформирует элеме�
     - [backface-visibility](backface-visibility.md)
     - [perspective](perspective.md)
     - [perspective-origin](perspective-origin.md)
+    - [rotate](rotate.md)
+    - [scale](scale.md)
     - **transform**
     - [transform-box](transform-box.md)
     - [transform-origin](transform-origin.md)

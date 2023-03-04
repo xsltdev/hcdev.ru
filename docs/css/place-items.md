@@ -6,6 +6,10 @@ description: Сокращенное свойство place-items устанав�
 
 Сокращенное свойство **`place-items`** устанавливает свойства [`align-items`](align-items.md) и [`justify-items`](justify-items.md) соответственно. Если второе значение не установлено, для него также используется первое значение.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/place-items.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Flexbox и выравнивание"
 
     <div class="col3" markdown="1">
@@ -74,12 +78,13 @@ place-items: unset;
 
 ## Спецификации
 
-- [CSS Box Alignment Module Level 3](https://drafts.csswg.org/css-align-3/#place-items-property)
+- [CSS Box Alignment Module Level 3](https://w3c.github.io/csswg-drafts/css-align/#place-items-property)
 
 ## Поддержка браузерами
 
-- Chrome 59+
-- Firefox 45+
+<p class="ciu_embed" data-feature="mdn-css__properties__place-items__flex_context" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
+
+<p class="ciu_embed" data-feature="mdn-css__properties__place-items__grid_context" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Описание и примеры
 
@@ -87,7 +92,8 @@ place-items: unset;
 #container {
   height: 200px;
   width: 240px;
-  place-items: center; /* You can change this value by selecting another option in the list */
+  /* You can change this value by selecting another option in the list */
+  place-items: center;
   background-color: #8c8c8c;
 }
 

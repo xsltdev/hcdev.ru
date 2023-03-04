@@ -8,6 +8,10 @@ description: Свойство place-content является сокращени�
 
 Первое значение - это значение свойства `align-content`, второе - значение `justify-content`.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/place-content.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Flexbox и выравнивание"
 
     <div class="col3" markdown="1">
@@ -81,10 +85,9 @@ place-content: unset;
 
 ## Поддержка браузерами
 
-- Chrome 59+
-- Firefox 53+
-- Safari
-- Android 59+
+<p class="ciu_embed" data-feature="mdn-css__properties__place-content__flex_context" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
+
+<p class="ciu_embed" data-feature="mdn-css__properties__place-content__grid_context" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Описание и примеры
 

@@ -6,6 +6,10 @@ description: Свойство row-gap устанавливает расстоя�
 
 Свойство **`row-gap`** устанавливает расстояние между строками сетки элемента.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/row-gap.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Flexbox и выравнивание"
 
     <div class="col3" markdown="1">
@@ -53,6 +57,8 @@ row-gap: 10%;
 /* Global values */
 row-gap: inherit;
 row-gap: initial;
+row-gap: revert;
+row-gap: revert-layer;
 row-gap: unset;
 ```
 
@@ -64,20 +70,17 @@ row-gap: unset;
 
 ## Спецификации
 
-- [CSS Box Alignment Module Level 3](https://drafts.csswg.org/css-align-3/#propdef-row-gap)
+- [CSS Box Alignment Module Level 3](https://w3c.github.io/csswg-drafts/css-align/#column-row-gap)
 
 ## Поддержка браузерами
 
 Поддержка в флексах:
 
-- Firefox 63+
+<p class="ciu_embed" data-feature="mdn-css__properties__row-gap__flex_context" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">s</p>
 
 Поддержка в гридах:
 
-- Chrome 66+
-- Edge 16+
-- Firefox 61+
-- Safari 10.1+
+<p class="ciu_embed" data-feature="mdn-css__properties__row-gap__grid_context" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Описание и примеры
 

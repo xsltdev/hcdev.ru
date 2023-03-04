@@ -14,6 +14,10 @@ description: Свойство right для позиционированного 
 
 [Рис. 2. Значение свойства right относительно родителя](css_right_2.png)
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/right.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Позиционирование"
 
     <div class="col3" markdown="1">
@@ -46,6 +50,8 @@ right: auto;
 /* Global values */
 right: inherit;
 right: initial;
+right: revert;
+right: revert-layer;
 right: unset;
 ```
 
@@ -62,7 +68,12 @@ right: unset;
 
 ## Спецификации
 
+- [CSS Positioned Layout Module Level 3](https://w3c.github.io/csswg-drafts/css-position/#insets)
 - [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visuren.html#propdef-right)
+
+## Поддержка браузерами
+
+<p class="ciu_embed" data-feature="mdn-css__properties__right" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Описание и примеры
 

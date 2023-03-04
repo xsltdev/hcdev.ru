@@ -6,6 +6,10 @@ description: Свойство resize указывает, можно ли пол�
 
 Свойство **`resize`** указывает, можно ли пользователю изменять размеры текстового поля.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/resize.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Интерфейс"
 
     <div class="col3" markdown="1">
@@ -39,7 +43,9 @@ resize: inline;
 /* Global values */
 resize: inherit;
 resize: initial;
-resize: unset;
+resize: revert;
+resize: revert-layer;
+resize: unset;s
 ```
 
 ## Значения
@@ -66,13 +72,12 @@ resize: unset;
 
 ## Спецификации
 
+- [CSS Basic User Interface Module Level 4](https://w3c.github.io/csswg-drafts/css-ui/#resize)
 - [CSS Basic User Interface Module Level 3](http://dev.w3.org/csswg/css3-ui/#resize)
 
 ## Поддержка браузерами
 
-<p class="ciu_embed" data-feature="css-resize" data-periods="future_1,current,past_1,past_2">
-  <a href="http://caniuse.com/#feat=css-resize">Can I Use css-resize?</a> Data on support for the css-resize feature across the major browsers from caniuse.com.
-</p>
+<p class="ciu_embed" data-feature="css-resize" data-periods="future_1,current,past_1,past_2"></p>
 
 ## Описание и примеры
 

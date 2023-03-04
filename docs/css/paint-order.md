@@ -56,22 +56,22 @@ description: Свойство paint-order позволяет вам контро
 ## Синтаксис
 
 ```css
-/* Нормальный */
+/* Normal */
 paint-order: normal;
 
-/* Единичное значение */
+/* Single values */
+paint-order: stroke; /* draw the stroke first, then fill and markers */
+paint-order: markers; /* draw the markers first, then fill and stroke */
 
-/* отрисовывает сначала обводку, затем заливку и маркеры */
-paint-order: stroke;
-/* отрисовывает сначала маркеры, затем заливку и обводку */
-paint-order: markers;
+/* Multiple values */
+paint-order: stroke fill; /* draw the stroke first, then the fill, then the markers */
+paint-order: markers stroke fill; /* draw markers, then stroke, then fill */
 
-/* Множественные значения */
-
-/* отрисовывает сначала обводку, затем заливку, затем маркеры */
-paint-order: stroke fill;
-/* отрисовывает маркеры, затем обводку, затем заливку */
-paint-order: markers stroke fill;
+/* Global values */
+paint-order: inherit;
+paint-order: initial;
+paint-order: revert;
+paint-order: unset;
 ```
 
 Если значение не указано, значением по умолчанию является следующий порядок `fill`, `stroke`, `markers`.
@@ -89,6 +89,10 @@ paint-order: markers stroke fill;
 ## Спецификация
 
 - [Scalable Vector Graphics (SVG) 2](https://svgwg.org/svg2-draft/painting.html#PaintOrder)
+
+## Поддержка браузерами
+
+<p class="ciu_embed" data-feature="mdn-css__properties__paint-order" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Пример
 
