@@ -6,6 +6,10 @@ description: Свойство text-emphasis-style устанавливает в�
 
 Свойство **`text-emphasis-style`** устанавливает внешний вид меток выделения.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/text-emphasis-style.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текст"
 
     <div class="col3" markdown="1">

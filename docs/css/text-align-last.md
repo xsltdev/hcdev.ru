@@ -6,6 +6,10 @@ description: Свойство text-align-last задаёт выравниван�
 
 Свойство **`text-align-last`** задаёт выравнивание последней строки текста, когда свойство [`text-align`](text-align.md) установлено как `justify`.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/text-align-last.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текст"
 
     <div class="col3" markdown="1">
@@ -103,13 +107,11 @@ Firefox до версии 49 поддерживает свойство `-moz-tex
 
 ## Спецификации
 
-- [CSS Text Level 3](http://dev.w3.org/csswg/css3-text/#text-align-last)
+- [CSS Text Module Level 3](https://w3c.github.io/csswg-drafts/css-text/#text-align-last-property)
 
 ## Поддержка браузерами
 
-<p class="ciu_embed" data-feature="css-text-align-last" data-periods="future_1,current,past_1,past_2">
-  <a href="http://caniuse.com/#feat=css-text-align-last">Can I Use css-text-align-last?</a> Data on support for the css-text-align-last feature across the major browsers from caniuse.com.
-</p>
+<p class="ciu_embed" data-feature="css-text-align-last" data-periods="future_1,current,past_1,past_2"></p>
 
 ## Описание и примеры
 

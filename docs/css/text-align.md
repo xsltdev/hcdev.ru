@@ -4,7 +4,13 @@ description: Свойство text-align определяет горизонта
 
 # text-align
 
-Свойство **`text-align`** определяет горизонтальное выравнивание текста в пределах элемента.
+Свойство **`text-align`** задает горизонтальное выравнивание содержимого встроенного уровня внутри блочного элемента или поля ячейки таблицы.
+
+Это означает, что он работает как [`vertical-align`](vertical-align.md), но в горизонтальном направлении.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/text-align.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Текст"
 
@@ -57,14 +63,18 @@ description: Свойство text-align определяет горизонта
 
 ```css
 /* Keyword values */
+text-align: start;
+text-align: end;
 text-align: left;
 text-align: right;
 text-align: center;
 text-align: justify;
 text-align: justify-all;
-text-align: start;
-text-align: end;
 text-align: match-parent;
+
+/* Character-based alignment in a table column */
+text-align: '.';
+text-align: '.' center;
 
 /* Block alignment values (Non-standard syntax) */
 text-align: -moz-center;
@@ -73,6 +83,8 @@ text-align: -webkit-center;
 /* Global values */
 text-align: inherit;
 text-align: initial;
+text-align: revert;
+text-align: revert-layer;
 text-align: unset;
 ```
 
@@ -102,7 +114,8 @@ text-align: unset;
 
 ## Спецификации
 
-- [CSS Text Level 3](https://drafts.csswg.org/css-text-3/#text-align-property)
+- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#text-align)
+- [CSS Text Module Level 3](https://w3c.github.io/csswg-drafts/css-text/#text-align-property)
 - [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/text.html#alignment-prop)
 - [CSS Level 1](http://www.w3.org/TR/CSS1/#text-align)
 
@@ -110,9 +123,7 @@ text-align: unset;
 
 `text-align: justify`:
 
-<p class="ciu_embed" data-feature="css-text-justify" data-periods="future_1,current,past_1,past_2">
-  <a href="http://caniuse.com/#feat=css-text-justify">Can I Use css-text-justify?</a> Data on support for the css-text-justify feature across the major browsers from caniuse.com.
-</p>
+<p class="ciu_embed" data-feature="css-text-justify" data-periods="future_1,current,past_1,past_2"></p>
 
 ## Описание и примеры
 

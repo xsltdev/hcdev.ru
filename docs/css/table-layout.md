@@ -6,6 +6,10 @@ description: Свойство table-layout определяет, как брау
 
 Свойство **`table-layout`** определяет, как браузер должен вычислять ширину ячеек таблицы, основываясь на её содержимом.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/table-layout.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Колонки и таблицы"
 
     <div class="col3" markdown="1">
@@ -44,6 +48,8 @@ table-layout: fixed;
 /* Global values */
 table-layout: inherit;
 table-layout: initial;
+table-layout: revert;
+table-layout: revert-layer;
 table-layout: unset;
 ```
 
@@ -61,7 +67,12 @@ table-layout: unset;
 
 ## Спецификации
 
+- [Cascading Style Sheets Level 2 Revision 2 (CSS 2.2) Specification](https://w3c.github.io/csswg-drafts/css2/#width-layout)
 - [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/tables.html#width-layout)
+
+## Поддержка браузерами
+
+<p class="ciu_embed" data-feature="mdn-css__properties__table-layout" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Описание и примеры
 

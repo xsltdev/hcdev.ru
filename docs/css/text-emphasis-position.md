@@ -6,6 +6,10 @@ description: Свойство text-emphasis-position устанавливает,
 
 Свойство **`text-emphasis-position`** устанавливает, где отображаются метки выделения. Как и в ruby тексте, если места для меток выделения недостаточно, высота строки увеличивается.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/text-emphasis-position.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текст"
 
     <div class="col3" markdown="1">

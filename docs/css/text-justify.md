@@ -60,7 +60,14 @@ text-justify: none;
 text-justify: auto;
 text-justify: inter-word;
 text-justify: inter-character;
-text-justify: distribute; /* Устаревшее значение */
+text-justify: distribute; /* Deprecated value */
+
+/* Global values */
+text-justify: inherit;
+text-justify: initial;
+text-justify: revert;
+text-justify: revert-layer;
+text-justify: unset;
 ```
 
 ## Значения

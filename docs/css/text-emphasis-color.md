@@ -6,6 +6,10 @@ description: Свойство text-emphasis-color устанавливает ц�
 
 Свойство **`text-emphasis-color`** устанавливает цвет меток выделения. Это значение также можно установить с помощью свойства [`text-emphasis`](text-emphasis.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/text-emphasis-color.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текст"
 
     <div class="col3" markdown="1">

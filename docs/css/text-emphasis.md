@@ -6,6 +6,10 @@ description: Свойство text-emphasis для выделения текст
 
 Свойство **`text-emphasis`** для выделения текста применяет к тексту метки выделения (кроме пробелов и управляющих символов).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/text-emphasis.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текст"
 
     <div class="col3" markdown="1">
@@ -115,7 +119,7 @@ text-emphasis: unset;
 
 ## Спецификация
 
-- [CSS Text Decoration Module Level 3](https://drafts.csswg.org/css-text-decor-3/#text-emphasis-property)
+- [CSS Text Decoration Module Level 3](https://w3c.github.io/csswg-drafts/css-text-decor/#text-emphasis-property)
 
 ## Пример
 

@@ -1,8 +1,16 @@
 ---
 description: Свойство CSS text-decoration-line задает вид оформления, используемого для текста в элементе, например подчеркивание или надчеркивание.
 ---
-<!-- TODO: -->
+
 # text-decoration-line
+
+Свойство **`text-decoration-line`** задает вид оформления, используемого для текста в элементе, например подчеркивание или надчеркивание.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/text-decoration-line.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+При одновременной настройке нескольких свойств `line-decoration` может оказаться более удобным вместо этого использовать сокращенное свойство [`text-decoration`](text-decoration.md).
 
 ??? info "Текст"
 
@@ -50,3 +58,33 @@ description: Свойство CSS text-decoration-line задает вид оф�
     - [word-spacing](word-spacing.md)
 
     </div>
+
+## Синтаксис
+
+```css
+/* Single keyword */
+text-decoration-line: none;
+text-decoration-line: underline;
+text-decoration-line: overline;
+text-decoration-line: line-through;
+text-decoration-line: blink;
+
+/* Multiple keywords */
+text-decoration-line: underline overline; /* Two decoration lines */
+text-decoration-line: overline underline line-through; /* Multiple decoration lines */
+
+/* Global values */
+text-decoration-line: inherit;
+text-decoration-line: initial;
+text-decoration-line: revert;
+text-decoration-line: revert-layer;
+text-decoration-line: unset;
+```
+
+## Спецификация
+
+- [CSS Text Decoration Module Level 3](https://w3c.github.io/csswg-drafts/css-text-decor/#text-decoration-line-property)
+
+## Поддержка браузерами
+
+<p class="ciu_embed" data-feature="mdn-css__properties__text-decoration-line" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>

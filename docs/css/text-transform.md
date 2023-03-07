@@ -8,6 +8,10 @@ description: Свойство text-transform управляет преобраз
 
 Когда значение отлично от `none`, регистр исходного текста будет изменён.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/text-transform.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текст"
 
     <div class="col3" markdown="1">
@@ -59,15 +63,18 @@ description: Свойство text-transform управляет преобраз
 
 ```css
 /* Keyword values */
+text-transform: none;
 text-transform: capitalize;
 text-transform: uppercase;
 text-transform: lowercase;
-text-transform: none;
 text-transform: full-width;
+text-transform: full-size-kana;
 
 /* Global values */
 text-transform: inherit;
 text-transform: initial;
+text-transform: revert;
+text-transform: revert-layer;
 text-transform: unset;
 ```
 
@@ -84,6 +91,12 @@ text-transform: unset;
 
 `none`
 : Не меняет регистр символов.
+
+`full-width`
+: Это ключевое слово, которое заставляет писать символы — в основном идеограммы и латинские буквы — внутри квадрата, что позволяет выравнивать их в обычных восточноазиатских шрифтах (например, китайском или японском).
+
+`full-size-kana`
+: Обычно используемое для текста аннотаций [`<ruby>`](/html/ruby/), это ключевое слово преобразует все мелкие символы кана в эквивалентные полноразмерные символы кана, чтобы компенсировать проблемы с читаемостью при небольших размерах шрифта, обычно используемых в ruby.
 
 Значение по-умолчанию:
 

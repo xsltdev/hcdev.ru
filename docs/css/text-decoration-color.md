@@ -1,8 +1,18 @@
 ---
 description: Свойство CSS text-decoration-color задает цвет украшений, добавляемых к тексту строкой text-decoration.
 ---
-<!-- TODO: -->
+
 # text-decoration-color
+
+Свойство **`text-decoration-color`** задает цвет украшений, добавляемых к тексту строкой [`text-decoration`](text-decoration.md).
+
+Цвет применяется к украшениям, таким как подчеркивание, надчеркивание, зачеркивание и волнистые линии, подобные тем, которые используются для обозначения орфографических ошибок, в пределах значения свойства.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/text-decoration-color.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+CSS не предоставляет прямого механизма для указания уникального цвета для каждого типа линии. Тем не менее, этого эффекта можно добиться путем вложения элементов, применения к каждому элементу разного типа линии (с помощью свойства [`text-decoration-line`](text-decoration-line.md)) и указания цвета линии (с помощью `text-decoration-color`) для каждого элемента.
 
 ??? info "Текст"
 
@@ -50,3 +60,29 @@ description: Свойство CSS text-decoration-color задает цвет у
     - [word-spacing](word-spacing.md)
 
     </div>
+
+## Синтаксис
+
+```css
+/* <color> values */
+text-decoration-color: currentcolor;
+text-decoration-color: red;
+text-decoration-color: #00ff00;
+text-decoration-color: rgba(255, 128, 128, 0.5);
+text-decoration-color: transparent;
+
+/* Global values */
+text-decoration-color: inherit;
+text-decoration-color: initial;
+text-decoration-color: revert;
+text-decoration-color: revert-layer;
+text-decoration-color: unset;
+```
+
+## Спецификация
+
+- [CSS Text Decoration Module Level 3](https://w3c.github.io/csswg-drafts/css-text-decor/#text-decoration-color-property)
+
+## Поддержка браузерами
+
+<p class="ciu_embed" data-feature="mdn-css__properties__text-decoration-color" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>

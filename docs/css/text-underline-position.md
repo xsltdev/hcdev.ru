@@ -1,8 +1,14 @@
 ---
 description: CSS-свойство text-underline-position указывает положение подчеркивания, которое задается с помощью значения подчеркивания свойства text-decoration.
 ---
-<!-- TODO: -->
+
 # text-underline-position
+
+Свойство **`text-underline-position`** указывает положение подчеркивания, которое задается с помощью значения подчеркивания свойства [`text-decoration`](text-decoration.md).
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/text-underline-position.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Текст"
 
@@ -50,3 +56,32 @@ description: CSS-свойство text-underline-position указывает п�
     - [word-spacing](word-spacing.md)
 
     </div>
+
+## Синтаксис
+
+```css
+/* Single keyword */
+text-underline-position: auto;
+text-underline-position: under;
+text-underline-position: left;
+text-underline-position: right;
+
+/* Multiple keywords */
+text-underline-position: under left;
+text-underline-position: right under;
+
+/* Global values */
+text-underline-position: inherit;
+text-underline-position: initial;
+text-underline-position: revert;
+text-underline-position: revert-layer;
+text-underline-position: unset;
+```
+
+## Спецификация
+
+- [CSS Text Decoration Module Level 3](https://w3c.github.io/csswg-drafts/css-text-decor/#text-underline-position-property)
+
+## Поддержка браузерами
+
+<p class="ciu_embed" data-feature="mdn-css__properties__text-underline-position" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>

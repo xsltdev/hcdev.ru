@@ -1,8 +1,14 @@
 ---
 description: Свойство CSS shape-image-threshold задает пороговое значение альфа-канала, используемое для извлечения формы с использованием изображения в качестве значения для shape-outside.
 ---
-<!-- TODO: -->
+
 # shape-image-threshold
+
+Свойство **`shape-image-threshold`** задает пороговое значение альфа-канала, используемое для извлечения формы с использованием изображения в качестве значения для [`shape-outside`](shape-outside.md).
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/shape-image-threshold.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Маски и Фигуры"
 
@@ -40,28 +46,22 @@ description: Свойство CSS shape-image-threshold задает порог�
 ## Синтаксис
 
 ```css
+/* <number> value */
+shape-image-threshold: 0.7;
 
+/* Global values */
+shape-image-threshold: inherit;
+shape-image-threshold: initial;
+shape-image-threshold: revert;
+shape-image-threshold: revert-layer;
+shape-image-threshold: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
 
 ## Поддержка браузерами
 
-https://caniuse.bitsofco.de/
-
-## Примеры
+<p class="ciu_embed" data-feature="mdn-css__properties__shape-image-threshold" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Ссылки
 
 - Свойство [`shape-image-threshold`](https://developer.mozilla.org/ru/docs/Web/CSS/shape-image-threshold) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Shapes Module Level 1](https://w3c.github.io/csswg-drafts/css-shapes/#shape-image-threshold-property) <sup><small>Spec (англ.)</small></sup>

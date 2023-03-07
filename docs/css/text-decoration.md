@@ -6,6 +6,10 @@ description: Свойство text-decoration добавляет оформле�
 
 Сокращенное свойство **`text-decoration`** устанавливает внешний вид декоративных линий в тексте. Это сокращение для [`text-decoration-line`](text-decoration-line.md), [`text-decoration-color`](text-decoration-color.md), [`text-decoration-style`](text-decoration-style.md) и [`text-decoration-thickness`](text-decoration-thickness.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/text-decoration.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текст"
 
     <div class="col3" markdown="1">
@@ -187,6 +191,6 @@ text-decoration: unset;
 
 - Свойство [`text-decoration`](https://developer.mozilla.org/ru/docs/Web/CSS/text-decoration) <sup><small>MDN (рус.)</small></sup>
 - [CSS Text Decoration Module Level 4](https://drafts.csswg.org/css-text-decor-4/) <sup><small>Спецификация (eng.)</small></sup>
-- [CSS Text Decoration Level 3](https://drafts.csswg.org/css-text-decor-3/#text-decoration-property) <sup><small>Спецификация (eng.)</small></sup>
+- [CSS Text Decoration Module Level 3](https://w3c.github.io/csswg-drafts/css-text-decor/#text-decoration-property) <sup><small>Спецификация (eng.)</small></sup>
 - [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/text.html#lining-striking-props) <sup><small>Спецификация (eng.)</small></sup>
 - [CSS Level 1](http://www.w3.org/TR/CSS1/#text-decoration) <sup><small>Спецификация (eng.)</small></sup>

@@ -1,8 +1,16 @@
 ---
 description: Свойство CSS shape-margin задает поле для фигуры CSS, созданной с помощью shape-outside.
 ---
-<!-- TODO: -->
+
 # shape-margin
+
+Свойство **`shape-margin`** задает поле для фигуры CSS, созданной с помощью [`shape-outside`](shape-outside.md).
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/shape-margin.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Поле позволяет настроить расстояние между краями фигуры (плавающий элемент) и окружающим содержимым.
 
 ??? info "Маски и Фигуры"
 
@@ -40,28 +48,26 @@ description: Свойство CSS shape-margin задает поле для фи
 ## Синтаксис
 
 ```css
+/* <length> values */
+shape-margin: 10px;
+shape-margin: 20mm;
 
+/* <percentage> value */
+shape-margin: 60%;
+
+/* Global values */
+shape-margin: inherit;
+shape-margin: initial;
+shape-margin: revert;
+shape-margin: revert-layer;
+shape-margin: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
 
 ## Поддержка браузерами
 
-https://caniuse.bitsofco.de/
-
-## Примеры
+<p class="ciu_embed" data-feature="mdn-css__properties__shape-margin" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Ссылки
 
 - Свойство [`shape-margin`](https://developer.mozilla.org/ru/docs/Web/CSS/shape-margin) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Shapes Module Level 1](https://w3c.github.io/csswg-drafts/css-shapes/#shape-margin-property) <sup><small>Spec (англ.)</small></sup>

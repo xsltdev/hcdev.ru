@@ -1,8 +1,18 @@
 ---
 description: CSS-свойство text-decoration-style задает стиль линий, заданных text-decoration-line. Стиль применяется ко всем строкам, заданным с помощью text-decoration-line.
 ---
-<!-- TODO: -->
+
 # text-decoration-style
+
+Свойство **`text-decoration-style`** задает стиль линий, заданных [`text-decoration-line`](text-decoration-line.md). Стиль применяется ко всем строкам, заданным с помощью `text-decoration-line`.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/text-decoration-style.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
+Если указанное украшение имеет определенное семантическое значение, например сквозная строка, означающая, что какой-то текст был удален, авторам рекомендуется обозначать это значение с помощью тега HTML, например [`<del>`](/html/del/) или [`<s>`](/html/s/). Поскольку в некоторых случаях браузеры могут отключать стилизацию, смысловое значение в такой ситуации не исчезнет.
+
+При одновременной настройке нескольких свойств `line-decoration` может оказаться более удобным вместо этого использовать сокращенное свойство [`text-decoration`](text-decoration.md).
 
 ??? info "Текст"
 
@@ -50,3 +60,29 @@ description: CSS-свойство text-decoration-style задает стиль 
     - [word-spacing](word-spacing.md)
 
     </div>
+
+## Синтаксис
+
+```css
+/* Keyword values */
+text-decoration-style: solid;
+text-decoration-style: double;
+text-decoration-style: dotted;
+text-decoration-style: dashed;
+text-decoration-style: wavy;
+
+/* Global values */
+text-decoration-style: inherit;
+text-decoration-style: initial;
+text-decoration-style: revert;
+text-decoration-style: revert-layer;
+text-decoration-style: unset;
+```
+
+## Спецификация
+
+- [CSS Text Decoration Module Level 3](https://w3c.github.io/csswg-drafts/css-text-decor/#text-decoration-style-property)
+
+## Поддержка браузерами
+
+<p class="ciu_embed" data-feature="mdn-css__properties__text-decoration-style" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>

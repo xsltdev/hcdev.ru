@@ -6,6 +6,10 @@ description: Свойство tab-size используется для наст�
 
 Свойство **`tab-size`** используется для настройки ширины символа табуляции (`U+0009`).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/tab-size.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текст"
 
     <div class="col3" markdown="1">
@@ -67,6 +71,8 @@ tab-size: 2em;
 /* Глобальные значения */
 tab-size: inherit;
 tab-size: initial;
+tab-size: revert;
+tab-size: revert-layer;
 tab-size: unset;
 ```
 
@@ -80,7 +86,11 @@ tab-size: unset;
 
 ## Спецификация
 
-- [CSS Text Module Level 3](https://drafts.csswg.org/css-text-3/#tab-size-property)
+- [CSS Text Module Level 3](https://w3c.github.io/csswg-drafts/css-text/#tab-size-property)
+
+## Поддержка браузерами
+
+<p class="ciu_embed" data-feature="mdn-css__properties__tab-size" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Пример
 

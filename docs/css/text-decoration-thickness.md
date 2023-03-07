@@ -1,8 +1,18 @@
 ---
 description: CSS-свойство text-decoration-thickness задает толщину обводки декоративной линии, которая используется в тексте в элементе, например сквозная линия, подчеркивание или надчеркивание.
 ---
-<!-- TODO: -->
+
 # text-decoration-thickness
+
+Свойство **`text-decoration-thickness`** задает толщину обводки декоративной линии, которая используется в тексте в элементе, например сквозная линия, подчеркивание или надчеркивание.
+
+!!!note ""
+
+    Раньше свойство называлось `text-decoration-width`, но в 2019 году оно было обновлено до `text-decoration-thickness`.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/text-decoration-thickness.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Текст"
 
@@ -50,3 +60,33 @@ description: CSS-свойство text-decoration-thickness задает тол�
     - [word-spacing](word-spacing.md)
 
     </div>
+
+## Синтаксис
+
+```css
+/* Single keyword */
+text-decoration-thickness: auto;
+text-decoration-thickness: from-font;
+
+/* length */
+text-decoration-thickness: 0.1em;
+text-decoration-thickness: 3px;
+
+/* percentage */
+text-decoration-thickness: 10%;
+
+/* Global values */
+text-decoration-thickness: inherit;
+text-decoration-thickness: initial;
+text-decoration-thickness: revert;
+text-decoration-thickness: revert-layer;
+text-decoration-thickness: unset;
+```
+
+## Спецификация
+
+- [CSS Text Decoration Module Level 4](https://w3c.github.io/csswg-drafts/css-text-decor-4/#text-decoration-width-property)
+
+## Поддержка браузерами
+
+<p class="ciu_embed" data-feature="mdn-css__properties__text-decoration-thickness" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>

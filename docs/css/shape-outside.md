@@ -1,8 +1,16 @@
 ---
 description: Свойство CSS shape-outside определяет форму, которая может быть непрямоугольной, вокруг которой должно оборачиваться соседнее встроенное содержимое.
 ---
-<!-- TODO: -->
+
 # shape-outside
+
+Свойство **`shape-outside`** определяет форму, которая может быть непрямоугольной, вокруг которой должно оборачиваться соседнее встроенное содержимое.
+
+По умолчанию встроенный контент обтекает поле поля; `shape-outside` предоставляет способ настройки этого обтекания, что позволяет обтекать текст вокруг сложных объектов, а не простых блоков.
+
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/shape-outside.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Маски и Фигуры"
 
@@ -40,28 +48,45 @@ description: Свойство CSS shape-outside определяет форму,
 ## Синтаксис
 
 ```css
+/* Keyword values */
+shape-outside: none;
+shape-outside: margin-box;
+shape-outside: content-box;
+shape-outside: border-box;
+shape-outside: padding-box;
 
+/* Function values */
+shape-outside: circle();
+shape-outside: ellipse();
+shape-outside: inset(10px 10px 10px 10px);
+shape-outside: polygon(10px 10px, 20px 20px, 30px 30px);
+shape-outside: path(
+  'M0.5,1 C0.5,1,0,0.7,0,0.3 A0.25,0.25,1,1,1,0.5,0.3 A0.25,0.25,1,1,1,1,0.3 C1,0.7,0.5,1,0.5,1 Z'
+);
+
+/* <url> value */
+shape-outside: url(image.png);
+
+/* <gradient> value */
+shape-outside: linear-gradient(
+  45deg,
+  rgba(255, 255, 255, 0) 150px,
+  red 150px
+);
+
+/* Global values */
+shape-outside: inherit;
+shape-outside: initial;
+shape-outside: revert;
+shape-outside: revert-layer;
+shape-outside: unset;
 ```
-
-## Значения
-
-## Определение
-
-|                      |                |
-| -------------------- | -------------- |
-| Начальное значение   | ``             |
-| Применяется ко       | всем элементам |
-| Наследуется          | да             |
-| Вычисленное значение | как определено |
-| Тип анимации         | дискретный     |
 
 ## Поддержка браузерами
 
-https://caniuse.bitsofco.de/
-
-## Примеры
+<p class="ciu_embed" data-feature="mdn-css__properties__shape-outside" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ## Ссылки
 
 - Свойство [`shape-outside`](https://developer.mozilla.org/ru/docs/Web/CSS/shape-outside) <sup><small>MDN (рус.)</small></sup>
-- []() <sup><small>Spec (англ.)</small></sup>
+- [CSS Shapes Module Level 1](https://w3c.github.io/csswg-drafts/css-shapes/#shape-outside-property) <sup><small>Spec (англ.)</small></sup>

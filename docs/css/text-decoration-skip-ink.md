@@ -6,6 +6,10 @@ description: CSS-свойство text-decoration-skip-ink указывает, �
 
 Свойство **`text-decoration-skip-ink`** определяет способ рисования надстрочных и нижних подчеркиваний при прохождении над верхними и нижними элементами глифов.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/text-decoration-skip-ink.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текст"
 
     <div class="col3" markdown="1">
@@ -62,9 +66,11 @@ text-decoration-skip-ink: auto;
 text-decoration-skip-ink: all;
 
 /* Global keywords */
-text-decoration-skip: inherit;
-text-decoration-skip: initial;
-text-decoration-skip: unset;
+text-decoration-skip-ink: inherit;
+text-decoration-skip-ink: initial;
+text-decoration-skip-ink: revert;
+text-decoration-skip-ink: revert-layer;
+text-decoration-skip-ink: unset;
 ```
 
 ## Значения
@@ -145,4 +151,4 @@ text-decoration-skip: unset;
 ## Ссылки
 
 - Свойство [`text-decoration-skip-ink`](https://developer.mozilla.org/ru/docs/Web/CSS/text-decoration-skip-ink) <sup><small>MDN (рус.)</small></sup>
-- [CSS Text Decoration Module Level 4](https://drafts.csswg.org/css-text-decor-4/#text-decoration-skip-ink-property) <sup><small>Спецификация (eng.)</small></sup>
+- [CSS Text Decoration Module Level 4](https://w3c.github.io/csswg-drafts/css-text-decor-4/#text-decoration-skip-ink-property) <sup><small>Спецификация (eng.)</small></sup>

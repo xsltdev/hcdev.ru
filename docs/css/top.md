@@ -12,6 +12,10 @@ description: Свойство top для позиционированного э
 
 ![Рис. 2. Значение top относительно родителя](css_top_2.png)
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/top.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Позиционирование"
 
     <div class="col3" markdown="1">
@@ -60,6 +64,7 @@ top: unset;
 
 ## Спецификации
 
+- [CSS Positioned Layout Module Level 3](https://w3c.github.io/csswg-drafts/css-position/#insets)
 - [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visuren.html#propdef-top)
 
 ## Пример

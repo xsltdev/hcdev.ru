@@ -8,6 +8,10 @@ description: Свойство text-shadow добавляет тень к тек�
 
 Свойство `text-shadow` может работать совместно с псевдоэлементами [`::first-letter`](first-letter.md) и [`::first-line`](first-line.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/text-shadow.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текст"
 
     <div class="col3" markdown="1">
