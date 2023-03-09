@@ -10,6 +10,10 @@ description: Свойство transition-duration задаёт время в с�
 
 Можно указать несколько значений, перечисляя их через запятую. Каждое значение применяется к свойствам, заданным через [`transition-property`](transition-property.md).
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/transition-duration.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Переходы и Анимации"
 
     <div class="col3" markdown="1">

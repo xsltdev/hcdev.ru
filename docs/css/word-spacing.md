@@ -8,6 +8,10 @@ description: Свойство word-spacing устанавливает интер
 
 Если для текста задано выравнивание через [`text-align`](text-align.md) со значением `justify` (выравнивание по ширине), то интервал между словами будет установлен принудительно, но не меньше значения, указанного через `word-spacing`.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/word-spacing.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текст"
 
     <div class="col3" markdown="1">

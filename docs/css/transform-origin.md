@@ -6,6 +6,10 @@ description: Свойство transform-origin устанавливает коо
 
 Свойство **`transform-origin`** устанавливает координаты точки, относительно которой будет происходить трансформация элемента.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/transform-origin.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Трансформации"
 
     <div class="col3" markdown="1">
@@ -56,6 +60,8 @@ transform-origin: bottom right 2cm;
 /* Global values */
 transform-origin: inherit;
 transform-origin: initial;
+transform-origin: revert;
+transform-origin: revert-layer;
 transform-origin: unset;
 ```
 
@@ -113,6 +119,12 @@ CSS Transform 3D:
 </p>
 
 ## Описание и примеры
+
+Пример 1:
+
+<iframe class="sample-code-frame" title="A demonstration of various transform values sample" id="frame_a_demonstration_of_various_transform_values" height="1350" src="https://yari-demos.prod.mdn.mozit.cloud/en-US/docs/Web/CSS/transform-origin/_sample_.a_demonstration_of_various_transform_values.html" loading="lazy"></iframe>
+
+Пример 2:
 
 ```html
 <!DOCTYPE html>

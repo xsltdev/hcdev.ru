@@ -8,6 +8,10 @@ description: Свойство CSS write-mode определяет, будут л
 
 Свойство определяет направление потока блока, в каком направлении складываются контейнеры уровня блока и направление в котором инлайновый контент находится в родительском блоке. Также свойство `writing-mode` определяет порядок контента блочного уровня.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/writing-mode.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Режимы письма"
 
     <div class="col3" markdown="1">

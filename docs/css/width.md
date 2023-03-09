@@ -10,6 +10,10 @@ description: Свойство width устанавливает ширину бл
 
 Браузеры неодинаково работают с шириной, результат отображения зависит от используемого `<!DOCTYPE>`.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/width.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Блоки"
 
     <div class="col3" markdown="1">

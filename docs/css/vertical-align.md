@@ -6,6 +6,10 @@ description: Свойство vertical-align выравнивает элемен
 
 Свойство **`vertical-align`** выравнивает элемент по вертикали относительно своего родителя, окружающего текста или ячейки таблицы.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/vertical-align.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Колонки и таблицы"
 
     <div class="col3" markdown="1">

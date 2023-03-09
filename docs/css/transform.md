@@ -6,6 +6,10 @@ description: Свойство transform трансформирует элеме�
 
 Свойство **`transform`** трансформирует элемент, в частности, позволяет его масштабировать, вращать, сдвигать, наклонять, а также комбинировать виды трансформаций.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/transform.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Трансформации"
 
     <div class="col3" markdown="1">
@@ -74,6 +78,8 @@ transform: translateX(10px) rotate(10deg) translateY(5px);
 /* Global values */
 transform: inherit;
 transform: initial;
+transform: revert;
+transform: revert-layer;
 transform: unset;
 ```
 
@@ -161,21 +167,18 @@ transform: unset;
 
 ## Спецификации
 
-- [CSS Transforms Level 1](http://dev.w3.org/csswg/css-transforms/#transform)
+- [CSS Transforms Module Level 2](https://w3c.github.io/csswg-drafts/css-transforms-2/#transform-functions)
+- [CSS Transforms Module Level 1](https://w3c.github.io/csswg-drafts/css-transforms/#transform-property)
 
 ## Поддержка браузерами
 
 CSS Transform 2D:
 
-<p class="ciu_embed" data-feature="transforms2d" data-periods="future_1,current,past_1,past_2">
-  <a href="http://caniuse.com/#feat=transforms2d">Can I Use transforms2d?</a> Data on support for the transforms2d feature across the major browsers from caniuse.com.
-</p>
+<p class="ciu_embed" data-feature="transforms2d" data-periods="future_1,current,past_1,past_2"></p>
 
 CSS Transform 3D:
 
-<p class="ciu_embed" data-feature="transforms3d" data-periods="future_1,current,past_1,past_2">
-  <a href="http://caniuse.com/#feat=transforms3d">Can I Use transforms3d?</a> Data on support for the transforms3d feature across the major browsers from caniuse.com.
-</p>
+<p class="ciu_embed" data-feature="transforms3d" data-periods="future_1,current,past_1,past_2"></p>
 
 ## Описание и примеры
 

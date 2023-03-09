@@ -6,6 +6,10 @@ description: Свойство transition-property устанавливает и�
 
 Свойство **`transition-property`** устанавливает имя стилевого свойства, значение которого будет отслеживаться для создания эффекта перехода.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/transition-property.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Переходы и Анимации"
 
     <div class="col3" markdown="1">

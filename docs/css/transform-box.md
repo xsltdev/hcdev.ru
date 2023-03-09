@@ -26,13 +26,17 @@ description: Свойство transform-box определяет поле мак
 
 ```css
 /* Keyword values */
+transform-box: content-box;
 transform-box: border-box;
 transform-box: fill-box;
+transform-box: stroke-box;
 transform-box: view-box;
 
 /* Global values */
 transform-box: inherit;
 transform-box: initial;
+transform-box: revert;
+transform-box: revert-layer;
 transform-box: unset;
 ```
 
@@ -40,18 +44,24 @@ transform-box: unset;
 
 Значение по-умолчанию: `border-box`
 
+`content-box`
+: Блок содержимого используется в качестве справочного блока. Поле ссылки `<table>` — это граничное поле его обертки таблицы, а не его табличное поле.
+
 `border-box`
 : Используется border.
 
 `fill-box`
-: Ограничительная рамка объекта используется в качестве справочной.
+: Ограничивающая рамка объекта используется в качестве эталонной рамки.
+
+`stroke-box`
+: Ограничивающая рамка штриха используется в качестве эталонной рамки.
 
 `view-box`
 : Используется ближайший SVG viewport.
 
 ## Спецификация
 
-- [CSS Transforms Level 1](https://drafts.csswg.org/css-transforms/#transform-box)
+- [CSS Transforms Module Level 1](https://w3c.github.io/csswg-drafts/css-transforms/#transform-box)
 
 ## См. также
 

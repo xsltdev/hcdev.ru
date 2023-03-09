@@ -8,6 +8,10 @@ description: Свойство user-select управляет поведение�
 
 Обычно применяется для интерактивных элементов, на которые можно щёлкать, например, вкладки, и для которых выделение текста нежелательно.
 
+## Демо
+
+<iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/user-select.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Интерфейс"
 
     <div class="col3" markdown="1">
