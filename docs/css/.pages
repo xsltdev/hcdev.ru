@@ -231,6 +231,7 @@ nav:
     - "transition-*":
         - transition.md
         - ... | transition-*.md
+    - translate.md
     - unicode-bidi.md
     - user-select.md
     - vertical-align.md
@@ -238,6 +239,7 @@ nav:
     - white-space.md
     - widows.md
     - width.md
+    - will-change.md
     - word-break.md
     - word-spacing.md
     - writing-mode.md
