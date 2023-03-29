@@ -51,31 +51,23 @@ description: Сокращенное свойство CSS mask-border позво�
 ## Синтаксис
 
 ```css
-/* Keyword values */
-mask: none;
+mask-border: url("border-mask.png") 25;
 
-/* Image values */
-mask: url(mask.png); /* Pixel image used as mask */
-mask: url(masks.svg#star); /* Element within SVG graphic used as mask */
+/* source | slice | repeat */
+mask-border: url("border-mask.png") 25 space;
 
-/* Combined values */
-mask: url(masks.svg#star) luminance; /* Element within SVG graphic used as luminance mask */
-mask: url(masks.svg#star) 40px 20px; /* Element within SVG graphic used as mask positioned 40px from the top and 20px from the left */
-mask: url(masks.svg#star) 0 0/50px 50px; /* Element within SVG graphic used as mask with a width and height of 50px */
-mask: url(masks.svg#star) repeat-x; /* Element within SVG graphic used as horizontally repeated mask */
-mask: url(masks.svg#star) stroke-box; /* Element within SVG graphic used as mask extending to the box enclosed by the stroke */
-mask: url(masks.svg#star) exclude; /* Element within SVG graphic used as mask and combined with background using non-overlapping parts */
+/* source | slice | width */
+mask-border: url("border-mask.png") 25 / 35px;
+
+/* source | slice | width | outset | repeat | mode */
+mask-border: url("border-mask.png") 25 / 35px / 12px space alpha;
 
 /* Global values */
-mask: inherit;
-mask: initial;
-mask: revert;
-mask: revert-layer;
-mask: unset;
-
-/* Multiple masks */
-mask: url(masks.svg#star) left / 16px repeat-y, /* Element within SVG graphic is used as a mask on the left-hand side with a width of 16px */
-    url(masks.svg#circle) right / 16px repeat-y; /* Element within SVG graphic is used as a mask on the right-hand side with a width of 16px */
+mask-border: inherit;
+mask-border: initial;
+mask-border: revert;
+mask-border: revert-layer;
+mask-border: unset;
 ```
 
 ## Ссылки
