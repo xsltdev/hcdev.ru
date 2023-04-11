@@ -5,19 +5,40 @@ hide:
   - toc # Hide table of contents
 ---
 
-# Справочник HTML и CSS
+# [![HTML](html.svg){: style="height:64px;width:64px;vertical-align:middle;"} HTML](/html/) и [![CSS](css.svg){: style="height:64px;width:64px;vertical-align:middle;"} CSS](/css/) справочник
 
-**[![HTML](html.svg){: style="height:16px;width:16px;vertical-align:middle;"} HTML](/html/)**
-: Справочник по тегам HTML с примерами кода.
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); grid-column-gap: 30px; place-items: stretch;" markdown>
 
-**[![CSS](css.svg){: style="height:16px;width:16px;vertical-align:middle;"} CSS](/css/)**
-: Справочник свойств CSS с примерами кода
+**[![HTML](html.svg){: style="height:16px;width:16px;vertical-align:middle;"} HTML](/html/)** — язык гипертекстовой разметки документов для просмотра в браузере.<br />
+**[![CSS](css.svg){: style="height:16px;width:16px;vertical-align:middle;"} CSS](/css/)** — язык декорирования и описания внешнего вида веб-страницы.
 
-[Flexbox](/flex/)
-: Flexbox предоставляет иной подход к созданию пользовательского интерфейса, который отличается от табличной или блочной верстки
+!!! danger "Справочник HTML"
 
-[Grid Layout](/grid/)
-: Grid Layout представляет гибкий подход к компоновке элементов
+    Справочник по тегам **HTML** с примерами кода.
+
+    [HTML](/html){ .md-button }
+
+!!! danger "Справочник CSS"
+
+    Справочник свойств **CSS** с примерами кода
+
+    [CSS](/css/){ .md-button }
+
+!!! danger "Flexbox Layout"
+
+    **Flexbox** предоставляет иной подход к созданию пользовательского интерфейса, который отличается от табличной или блочной верстки
+
+    [Flexbox](/flex/){ .md-button }
+
+!!! danger "Grid Layout"
+
+    **Grid** Layout представляет гибкий подход к компоновке элементов
+
+    [Grid Layout](/grid/){ .md-button }
+
+</div>
+
+---
 
 !!!abstract "Справочники"
 
