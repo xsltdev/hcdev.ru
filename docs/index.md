@@ -18,19 +18,19 @@ hide:
 
     [HTML](/html){ .md-button }
 
-!!! danger "Справочник CSS"
+!!! note "Справочник CSS"
 
     Справочник свойств **CSS** с примерами кода
 
     [CSS](/css/){ .md-button }
 
-!!! danger "Flexbox Layout"
+!!! quote "Flexbox Layout"
 
     **Flexbox** предоставляет иной подход к созданию пользовательского интерфейса, который отличается от табличной или блочной верстки
 
     [Flexbox](/flex/){ .md-button }
 
-!!! danger "Grid Layout"
+!!! quote "Grid Layout"
 
     **Grid** Layout представляет гибкий подход к компоновке элементов
 
