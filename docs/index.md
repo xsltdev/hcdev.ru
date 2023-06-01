@@ -1,40 +1,47 @@
 ---
 title: Главная
 hide:
-  - navigation # Hide navigation
-  - toc # Hide table of contents
+    - navigation # Hide navigation
+    - toc # Hide table of contents
 ---
 
-# [![HTML](html.svg){: style="height:64px;width:64px;vertical-align:middle;"} HTML](/html/) и [![CSS](css.svg){: style="height:64px;width:64px;vertical-align:middle;"} CSS](/css/) справочник
+# [![HTML](html.svg){: style="height:42px;width:42px;vertical-align:middle;"} HTML](/html/) и [![CSS](css.svg){: style="height:42px;width:42px;vertical-align:middle;"} CSS](/css/) справочник
 
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); grid-column-gap: 30px; place-items: stretch;" markdown>
+**[HTML](/html/)** — язык гипертекстовой разметки документов для просмотра в браузере.
 
-**[![HTML](html.svg){: style="height:16px;width:16px;vertical-align:middle;"} HTML](/html/)** — язык гипертекстовой разметки документов для просмотра в браузере.<br />
-**[![CSS](css.svg){: style="height:16px;width:16px;vertical-align:middle;"} CSS](/css/)** — язык декорирования и описания внешнего вида веб-страницы.
+**[CSS](/css/)** — язык декорирования и описания внешнего вида веб-страницы.
 
-!!! danger "Справочник HTML"
+<div class="grid cards" style="margin-top: 1.6em" markdown>
 
-    Справочник по тегам **HTML** с примерами кода.
+-   :simple-html5:{ .lg .middle } **HTML**
 
-    [HTML](/html){ .md-button }
+    ***
 
-!!! note "Справочник CSS"
+    Справочник HTML тегов
 
-    Справочник свойств **CSS** с примерами кода
+    **[:octicons-arrow-right-24: HTML](/html/)**
 
-    [CSS](/css/){ .md-button }
+    [:octicons-arrow-right-24: Глобальные атрибуты](/html/uni-attr/)
 
-!!! quote "Flexbox Layout"
+    [:octicons-arrow-right-24: MIME-типы](/html/list-mime-types/)
 
-    **Flexbox** предоставляет иной подход к созданию пользовательского интерфейса, который отличается от табличной или блочной верстки
+-   :simple-css3:{ .lg .middle } **CSS**
 
-    [Flexbox](/flex/){ .md-button }
+    ***
 
-!!! quote "Grid Layout"
+    Справочник свойств CSS
 
-    **Grid** Layout представляет гибкий подход к компоновке элементов
+    **[:octicons-arrow-right-24: CSS](/css/)**
 
-    [Grid Layout](/grid/){ .md-button }
+-   :material-grid:{ .lg .middle } **Вёрстка**
+
+    ***
+
+    Нативные системы вёрстки
+
+    [:octicons-arrow-right-24: Flexbox](/flex/)
+
+    [:octicons-arrow-right-24: Grid Layout](/grid/)
 
 </div>
 
