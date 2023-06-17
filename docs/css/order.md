@@ -8,6 +8,8 @@ description: Свойство order определяет порядок выво
 
 Элементы располагаются согласно значениям свойства `order` от меньшего к большему. При равных значениях `order` элементы выводятся в том порядке, в каком они появляются в исходном коде.
 
+Поскольку `order` предназначен только для воздействия на _визуальный порядок_ элементов, а не на их логический порядок или порядок вкладок, `order` не должен использоваться для невизуальных медиа, таких как речь.
+
 ## Демо
 
 <iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/order.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
@@ -54,38 +56,83 @@ order: -5;
 /* Global values */
 order: inherit;
 order: initial;
+order: revert;
+order: revert-layer;
 order: unset;
 ```
 
 ## Значения
 
-Значение по-умолчанию: `0`
-
-Наследуется: нет
-
-Применяется к флекс-элементам
-
-Анимируется: да
+|                       |                                                                                                      |
+| --------------------- | ---------------------------------------------------------------------------------------------------- |
+| Значение по-умолчанию | `0`                                                                                                  |
+| Наследуется           | нет                                                                                                  |
+| Применяется           | Элементы flex, элементы grid и абсолютно позиционированные дочерние элементы контейнеров flex и grid |
+| Анимируется           | да                                                                                                   |
 
 В качестве значения принимается любое целое число, включая отрицательные числа и ноль.
 
-### Примечание
+## Проблемы доступности
 
-- Safari до версии 9 поддерживает свойство `-webkit-order`.
+Использование свойства `order` создаст несоответствие между визуальным представлением содержимого и порядком DOM. Это негативно скажется на пользователях со слабым зрением, осуществляющих навигацию с помощью вспомогательных технологий, таких как устройство чтения с экрана. Если визуальный (css) порядок важен, то пользователи скринридеров не будут иметь доступа к правильному порядку чтения.
 
 ## Спецификации
 
-- [CSS Flexible Box Layout Module](https://www.w3.org/TR/css-flexbox/#propdef-order)
+-   [CSS Display Module Level 3](https://drafts.csswg.org/css-display/#order-property)
+-   [CSS Flexible Box Layout Module](https://www.w3.org/TR/css-flexbox/#propdef-order)
 
 ## Поддержка браузерами
 
-<p class="ciu_embed" data-feature="flexbox" data-periods="future_1,current,past_1,past_2">
-  <a href="http://caniuse.com/#feat=flexbox">Can I Use flexbox?</a> Data on support for the flexbox feature across the major browsers from caniuse.com.
-</p>
+<p class="ciu_embed" data-feature="mdn-css__properties__order" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-## Описание и примеры
+## Примеры
+
+Примеры использования CSS свойства `order`:
+
+### Пример 1
 
 === "HTML"
+
+    ```html
+    <header>…</header>
+    <main>
+    	<article>Article</article>
+    	<nav>Nav</nav>
+    	<aside>Aside</aside>
+    </main>
+    <footer>…</footer>
+    ```
+
+=== "CSS"
+
+    ```css
+    main {
+    	display: flex;
+    	text-align: center;
+    }
+    main > article {
+    	flex: 1;
+    	order: 2;
+    }
+    main > nav {
+    	width: 200px;
+    	order: 1;
+    }
+    main > aside {
+    	width: 200px;
+    	order: 3;
+    }
+    ```
+
+=== "Результат"
+
+    <iframe class="sample-code-frame" title="Ordering items in a flex container sample" id="frame_ordering_items_in_a_flex_container" src="https://live-samples.mdn.mozilla.net/en-US/docs/Web/CSS/order/_sample_.ordering_items_in_a_flex_container.html" loading="lazy" width="100%"></iframe>
+
+### Пример 2
+
+=== "HTML"
+
+    <div markdown style="max-height: 400px; overflow-y: auto;">
 
     ```html
     <!DOCTYPE html>
@@ -137,6 +184,8 @@ order: unset;
     </html>
     ```
 
+    </div>
+
 === "Результат"
 
     <style>
@@ -170,5 +219,6 @@ order: unset;
 
 ## См. также
 
-- [Руководство по Flexbox](/flex/)
-- [Руководство по Grid Layout](/grid/)
+-   [Руководство по Flexbox](/flex/)
+-   [Руководство по Grid Layout](/grid/)
+-   [https://developer.mozilla.org/docs/Web/CSS/order](https://developer.mozilla.org/docs/Web/CSS/order)
