@@ -49,7 +49,7 @@ cursor: url(cursor_2.png) 2 2, pointer;
 
 /* URLs and fallback URLs (some with coordinates), with mandatory keyword fallback */
 cursor: url(cursor_1.svg) 4 5, url(cursor_2.svg), /* … ,*/
-    url(cursor_n.cur) 5 5, progress;
+        url(cursor_n.cur) 5 5, progress;
 
 /* Global values */
 cursor: inherit;
@@ -72,46 +72,42 @@ cursor: unset;
 
 Остальные допустимые значения приведены в табл. 1.
 
-<table markdown="1">
-<caption> Табл. 1. Вид курсора</caption>
-<thead>
-<tr><th>Вид</th><th>Значение</th><th>Тест</th><th>Пример</th></tr>
-</thead>
-<tbody>
-<tr><td>![default](default.png)</td><td>default</td><td style="CURSOR: default"></td><td>P {cursor: default}</td></tr>
-<tr><td>![context-menu](context-menu.png)</td><td>context-menu</td><td style="CURSOR: context-menu"></td><td>P {cursor: context-menu}</td></tr>
-<tr><td>![help](help.png)</td><td>help</td><td style="CURSOR: help"></td><td>P {cursor: help}</td></tr>
-<tr><td>![pointer](pointer.png)</td><td>pointer</td><td style="CURSOR: pointer"></td><td>P {cursor: pointer}</td></tr>
-<tr><td>![progress](progress.png)</td><td>progress</td><td style="CURSOR: progress"></td><td>P {cursor: progress}</td></tr>
-<tr><td>![wait](wait.png)</td><td>wait</td><td style="CURSOR: wait"></td><td>P {cursor: wait}</td></tr>
-<tr><td>![cell](cell.png)</td><td>cell</td><td style="CURSOR: cell"></td><td>P {cursor: cell}</td></tr>
-<tr><td>![crosshair](crosshair.png)</td><td>crosshair</td><td style="CURSOR: crosshair"></td><td>P {cursor: crosshair}</td></tr>
-<tr><td>![text](text.png)</td><td>text</td><td style="CURSOR: text"></td><td>P {cursor: text}</td></tr>
-<tr><td>![vertical-text](vertical-text.png)</td><td>vertical-text</td><td style="CURSOR: vertical-text"></td><td>P {cursor: vertical-text}</td></tr>
-<tr><td>![alias](alias.png)</td><td>alias</td><td style="CURSOR: alias"></td><td>P {cursor: alias}</td></tr>
-<tr><td>![copy](copy.png)</td><td>copy</td><td style="CURSOR: copy"></td><td>P {cursor: copy}</td></tr>
-<tr><td>![move](move.png)</td><td>move</td><td style="CURSOR: move"></td><td>P {cursor: move}</td></tr>
-<tr><td>![no-drop](no-drop.png)</td><td>no-drop</td><td style="CURSOR: no-drop"></td><td>P {cursor: no-drop}</td></tr>
-<tr><td>![not-allowed](not-allowed.png)</td><td>not-allowed</td><td style="CURSOR: not-allowed"></td><td>P {cursor: not-allowed}</td></tr>
-<tr><td>![all-scroll](all-scroll.png)</td><td>all-scroll</td><td style="CURSOR: all-scroll"></td><td>P {cursor: all-scroll}</td></tr>
-<tr><td>![col-resize](col-resize.png)</td><td>col-resize</td><td style="CURSOR: col-resize"></td><td>P {cursor: col-resize}</td></tr>
-<tr><td>![row-resize](row-resize.png)</td><td>row-resize</td><td style="CURSOR: row-resize"></td><td>P {cursor: row-resize}</td></tr>
-<tr><td>![n-resize](n-resize.png)</td><td>n-resize</td><td style="CURSOR: n-resize"></td><td>P {cursor: n-resize}</td></tr>
-<tr><td>![ne-resize](ne-resize.png)</td><td>ne-resize</td><td style="CURSOR: ne-resize"></td><td>P {cursor: ne-resize}</td></tr>
-<tr><td>![e-resize](e-resize.png)</td><td>e-resize</td><td style="CURSOR:e-resize"></td><td>P {cursor: e-resize}</td></tr>
-<tr><td>![se-resize](se-resize.png)</td><td>se-resize</td><td style="CURSOR: se-resize"></td><td>P {cursor: se-resize}</td></tr>
-<tr><td>![s-resize](s-resize.png)</td><td>s-resize</td><td style="CURSOR: s-resize"></td><td>P {cursor: s-resize}</td></tr>
-<tr><td>![sw-resize](sw-resize.png)</td><td>sw-resize</td><td style="CURSOR: sw-resize"></td><td>P {cursor: sw-resize}</td></tr>
-<tr><td>![w-resize](w-resize.png)</td><td>w-resize</td><td style="CURSOR: w-resize"></td><td>P {cursor: w-resize}</td></tr>
-<tr><td>![nw-resize](nw-resize.png)</td><td>nw-resize</td><td style="CURSOR: nw-resize"></td><td>P {cursor: nw-resize}</td></tr>
-<tr><td>![nesw-resize](nesw-resize.png)</td><td>nesw-resize</td><td style="CURSOR: nesw-resize"></td><td>P {cursor: nesw-resize}</td></tr>
-<tr><td>![nwse-resize](nwse-resize.png)</td><td>nwse-resize</td><td style="CURSOR: nwse-resize"></td><td>P {cursor: nwse-resize}</td></tr>
-<tr><td>![zoom-in](zoom-in.png)</td><td>zoom-in</td><td style="CURSOR: zoom-in"></td><td>P {cursor: zoom-in}</td></tr>
-<tr><td>![zoom-out](zoom-out.png)</td><td>zoom-out</td><td style="CURSOR: zoom-out"></td><td>P {cursor: zoom-out}</td></tr>
-<tr><td>![grab](grab.png)</td><td>grab</td><td style="CURSOR: grab;cursor:-webkit-grab"></td><td>P {cursor: grab}</td></tr>
-<tr><td>![grabbing](grabbing.png)</td><td>grabbing</td><td style="CURSOR: grabbing;cursor:-webkit-grabbing"></td><td>P {cursor: grabbing}</td></tr>
-</tbody>
-</table>
+Табл. 1. Вид курсора
+
+| Вид                                                                  | Значение        |
+| -------------------------------------------------------------------- | --------------- |
+| ![default](default.png){: style="cursor: default"}                   | `default`       |
+| ![context-menu](context-menu.png){: style="cursor: context-menu"}    | `context-menu`  |
+| ![help](help.png){: style="cursor: help"}                            | `help`          |
+| ![pointer](pointer.png){: style="cursor: pointer"}                   | `pointer`       |
+| ![progress](progress.png){: style="cursor: progress"}                | `progress`      |
+| ![wait](wait.png){: style="cursor: wait"}                            | `wait`          |
+| ![cell](cell.png){: style="cursor: cell"}                            | `cell`          |
+| ![crosshair](crosshair.png){: style="cursor: crosshair"}             | `crosshair`     |
+| ![text](text.png){: style="cursor: text"}                            | `text`          |
+| ![vertical-text](vertical-text.png){: style="cursor: vertical-text"} | `vertical-text` |
+| ![alias](alias.png){: style="cursor: alias"}                         | `alias`         |
+| ![copy](copy.png){: style="cursor: copy"}                            | `copy`          |
+| ![move](move.png){: style="cursor: move"}                            | `move`          |
+| ![no-drop](no-drop.png){: style="cursor: no-drop"}                   | `no-drop`       |
+| ![not-allowed](not-allowed.png){: style="cursor: not-allowed"}       | `not-allowed`   |
+| ![all-scroll](all-scroll.png){: style="cursor: all-scroll"}          | `all-scroll`    |
+| ![col-resize](col-resize.png){: style="cursor: col-resize"}          | `col-resize`    |
+| ![row-resize](row-resize.png){: style="cursor: row-resize"}          | `row-resize`    |
+| ![n-resize](n-resize.png){: style="cursor: n-resize"}                | `n-resize`      |
+| ![ne-resize](ne-resize.png){: style="cursor: ne-resize"}             | `ne-resize`     |
+| ![e-resize](e-resize.png){: style="cursor: e-resize"}                | `e-resize`      |
+| ![se-resize](se-resize.png){: style="cursor: se-resize"}             | `se-resize`     |
+| ![s-resize](s-resize.png){: style="cursor: s-resize"}                | `s-resize`      |
+| ![sw-resize](sw-resize.png){: style="cursor: sw-resize"}             | `sw-resize`     |
+| ![w-resize](w-resize.png){: style="cursor: w-resize"}                | `w-resize`      |
+| ![nw-resize](nw-resize.png){: style="cursor: nw-resize"}             | `nw-resize`     |
+| ![nesw-resize](nesw-resize.png){: style="cursor: nesw-resize"}       | `nesw-resize`   |
+| ![nwse-resize](nwse-resize.png){: style="cursor: nwse-resize"}       | `nwse-resize`   |
+| ![zoom-in](zoom-in.png){: style="cursor: zoom-in"}                   | `zoom-in`       |
+| ![zoom-out](zoom-out.png){: style="cursor: zoom-out"}                | `zoom-out`      |
+| ![grab](grab.png){: style="cursor: grab"}                            | `grab`          |
+| ![grabbing](grabbing.png){: style="cursor: grabbing"}                | `grabbing`      |
 
 В зависимости от операционной системы и её настроек вид курсора может отличаться от приведённых в таблице.
 
@@ -147,8 +143,9 @@ cursor: auto;
 
 ## Спецификации
 
-- [CSS Basic User Interface Module Level 3](http://dev.w3.org/csswg/css3-ui/#cursor)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/ui.html#cursor-propsy)
+-   [CSS Basic User Interface Module Level 4](https://drafts.csswg.org/css-ui/#cursor)
+-   [CSS Basic User Interface Module Level 3](https://drafts.csswg.org/css-ui-3/#cursor)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/ui.html#cursor-propsy)
 
 ## Поддержка браузерами
 
@@ -166,34 +163,19 @@ cursor: auto;
 
 ### Пример 1
 
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>cursor</title>
-    <style>
-      .cross {
-        cursor: crosshair;
-      }
-      .help {
-        cursor: help;
-      }
-    </style>
-  </head>
-  <body>
-    <p class="cross">
-      На этом тексте курсор мыши примет вид перекрестья.
-    </p>
-    <p>
-      <a href="page/help.html" class="help">СПРАВКА 1</a
-      ><br />
-      <a href="page/help.html" class="help">СПРАВКА 2</a
-      ><br />
-      <a href="page/help.html" class="help">СПРАВКА 3</a>
-    </p>
-  </body>
-</html>
+```css
+.foo {
+    cursor: crosshair;
+}
+
+.bar {
+    cursor: zoom-in;
+}
+
+/* A fallback keyword value is required when using a URL */
+.baz {
+    cursor: url('hyper.cur'), auto;
+}
 ```
 
 ### Пример 2
@@ -201,26 +183,63 @@ cursor: auto;
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>cursor</title>
-    <style>
-      a {
-        cursor: url('cursor/sniper.cur'), pointer;
-      }
-    </style>
-  </head>
-  <body>
-    <p>Обычный текст</p>
-    <p>
-      <a href="page/1.html">Ссылка 1</a>
-      <a href="page/2.html">Ссылка 2</a>
-      <a href="page/3.html">Ссылка 3</a>
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>cursor</title>
+        <style>
+            .cross {
+                cursor: crosshair;
+            }
+            .help {
+                cursor: help;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="cross">
+            На этом тексте курсор мыши примет вид
+            перекрестья.
+        </p>
+        <p>
+            <a href="page/help.html" class="help"
+                >СПРАВКА 1</a
+            ><br />
+            <a href="page/help.html" class="help"
+                >СПРАВКА 2</a
+            ><br />
+            <a href="page/help.html" class="help"
+                >СПРАВКА 3</a
+            >
+        </p>
+    </body>
+</html>
+```
+
+### Пример 3
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>cursor</title>
+        <style>
+            a {
+                cursor: url('cursor/sniper.cur'), pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Обычный текст</p>
+        <p>
+            <a href="page/1.html">Ссылка 1</a>
+            <a href="page/2.html">Ссылка 2</a>
+            <a href="page/3.html">Ссылка 3</a>
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Свойство [cursor](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor) на сайте MDN
+-   Свойство [cursor](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor) на сайте MDN
