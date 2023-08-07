@@ -8,11 +8,11 @@ description: Свойство right для позиционированного 
 
 Отсчёт координат зависит от значения свойства [`position`](position.md). Если оно равно `absolute`, в качестве родителя выступает окно браузера и положение элемента определяется от его правого края (рис. 1). В случае значения `relative`, `right` отсчитывается от правого края исходного положения элемента.
 
-[Рис. 1. Значение свойства right относительно окна браузера](css_right_1.png)
+![Рис. 1. Значение свойства right относительно окна браузера](css_right_1.png)
 
 Если для родительского элемента задано `position: relative`, то абсолютное позиционирование дочерних элементов определяет их положение от правого края родителя (рис. 2).
 
-[Рис. 2. Значение свойства right относительно родителя](css_right_2.png)
+![Рис. 2. Значение свойства right относительно родителя](css_right_2.png)
 
 ## Демо
 
@@ -68,8 +68,8 @@ right: unset;
 
 ## Спецификации
 
-- [CSS Positioned Layout Module Level 3](https://w3c.github.io/csswg-drafts/css-position/#insets)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visuren.html#propdef-right)
+-   [CSS Positioned Layout Module Level 3](https://w3c.github.io/csswg-drafts/css-position/#insets)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visuren.html#propdef-right)
 
 ## Поддержка браузерами
 
@@ -80,42 +80,42 @@ right: unset;
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>right</title>
-    <style>
-      .leftcol {
-        position: absolute; /* Абсолютное позиционирование */
-        top: 20px; /* Положение от верхнего края */
-        left: 10px; /* Положение от левого края */
-        width: 100px; /* Ширина блока */
-        background: #fc3; /* Цвет фона */
-        border: 1px solid #000; /* Параметры рамки */
-        padding: 10px; /* Поля вокруг текста */
-      }
-      .centercol {
-        position: relative; /* Относительное позиционирование */
-        background: maroon; /* Цвет фона */
-        padding: 10px; /* Поля вокруг текста */
-        color: white; /* Цвет текста */
-        border: 1px solid #000; /* Параметры рамки */
-        margin: 20px 240px 0 140px; /* Отступы вокруг блока */
-      }
-      .rightcol {
-        position: absolute; /* Абсолютное позиционирование */
-        top: 20px; /* Положение от верхнего края */
-        right: 10px; /* Положение от правого края */
-        width: 200px; /* Ширина блока */
-        background: #ccc; /* Цвет фона */
-        border: 1px solid black; /* Параметры рамки */
-        padding: 10px; /* Поля вокруг текста */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="leftcol">Колонка 1</div>
-    <div class="centercol">Колонка 2</div>
-    <div class="rightcol">Колонка 3</div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>right</title>
+        <style>
+            .leftcol {
+                position: absolute; /* Абсолютное позиционирование */
+                top: 20px; /* Положение от верхнего края */
+                left: 10px; /* Положение от левого края */
+                width: 100px; /* Ширина блока */
+                background: #fc3; /* Цвет фона */
+                border: 1px solid #000; /* Параметры рамки */
+                padding: 10px; /* Поля вокруг текста */
+            }
+            .centercol {
+                position: relative; /* Относительное позиционирование */
+                background: maroon; /* Цвет фона */
+                padding: 10px; /* Поля вокруг текста */
+                color: white; /* Цвет текста */
+                border: 1px solid #000; /* Параметры рамки */
+                margin: 20px 240px 0 140px; /* Отступы вокруг блока */
+            }
+            .rightcol {
+                position: absolute; /* Абсолютное позиционирование */
+                top: 20px; /* Положение от верхнего края */
+                right: 10px; /* Положение от правого края */
+                width: 200px; /* Ширина блока */
+                background: #ccc; /* Цвет фона */
+                border: 1px solid black; /* Параметры рамки */
+                padding: 10px; /* Поля вокруг текста */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="leftcol">Колонка 1</div>
+        <div class="centercol">Колонка 2</div>
+        <div class="rightcol">Колонка 3</div>
+    </body>
 </html>
 ```
