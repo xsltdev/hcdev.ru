@@ -14,11 +14,11 @@ description: Свойство border-image используется для от�
 
 Это свойство является сокращением для следующих свойств CSS:
 
-- `border-image-outset`
-- `border-image-repeat`
-- `border-image-slice`
-- `border-image-source`
-- `border-image-width`
+-   `border-image-outset`
+-   `border-image-repeat`
+-   `border-image-slice`
+-   `border-image-source`
+-   `border-image-width`
 
 ??? info "Фон"
 
@@ -74,7 +74,7 @@ border-image: linear-gradient(red, blue) 27 / 35px;
 
 /* source | slice | width | outset | repeat */
 border-image: url('/images/border.png') 27 23 / 50px 30px /
-  1rem round space;
+    1rem round space;
 
 /* Global values */
 border-image: inherit;
@@ -151,7 +151,7 @@ border-image: none;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](https://w3c.github.io/csswg-drafts/css-backgrounds/#the-border-image)
+-   [CSS Backgrounds and Borders Module Level 3](https://w3c.github.io/csswg-drafts/css-backgrounds/#the-border-image)
 
 ## Поддержка браузерами
 
@@ -164,29 +164,30 @@ border-image: none;
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>border-image</title>
-    <style>
-      div {
-        border: 30px solid #40c4c8;
-        padding: 20px;
-        border-image: url(/example/image/bg-image.png) 30
-          round round;
-      }
-    </style>
-  </head>
-  <body>
-    <div>
-      Витраж представляет собой композицию сделанную из
-      множества цветных стекол обрамлённых проволокой и
-      наиболее эффектно смотрится при прохождении через него
-      солнечного или искусственного света.
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>border-image</title>
+        <style>
+            div {
+                border: 30px solid #40c4c8;
+                padding: 20px;
+                border-image: url(/example/image/bg-image.png)
+                    30 round round;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            Витраж представляет собой композицию сделанную
+            из множества цветных стекол обрамлённых
+            проволокой и наиболее эффектно смотрится при
+            прохождении через него солнечного или
+            искусственного света.
+        </div>
+    </body>
 </html>
 ```
 
 ### Ссылки
 
-- [генератор кода border-image](http://border-image.com/)
+-   [генератор кода border-image](https://border-image.com/)

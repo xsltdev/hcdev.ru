@@ -70,59 +70,57 @@ animation-iteration-count: 1;
 
 ## Спецификации
 
-- [CSS Animations](http://dev.w3.org/csswg/css-animations/#animation-iteration-count)
+-   [CSS Animations](http://dev.w3.org/csswg/css-animations/#animation-iteration-count)
 
 ## Поддержка браузерами
 
-<p class="ciu_embed" data-feature="css-animation" data-periods="future_1,current,past_1,past_2">
-  <a href="http://caniuse.com/#feat=css-animation">Can I Use css-animation?</a> Data on support for the css-animation feature across the major browsers from caniuse.com.
-</p>
+<p class="ciu_embed" data-feature="css-animation" data-periods="future_1,current,past_1,past_2"></p>
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>animation-iteration-count</title>
-    <style>
-      .blink {
-        -webkit-animation: blink 1s;
-        -webkit-animation-iteration-count: infinite;
-        animation: blink 1s;
-        animation-iteration-count: infinite;
-      }
-      @-webkit-keyframes blink {
-        0% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-      @keyframes blink {
-        0% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="blink">
-      Мигающий текст привлекает к себе внимание, не правда
-      ли.
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>animation-iteration-count</title>
+        <style>
+            .blink {
+                -webkit-animation: blink 1s;
+                -webkit-animation-iteration-count: infinite;
+                animation: blink 1s;
+                animation-iteration-count: infinite;
+            }
+            @-webkit-keyframes blink {
+                0% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+            @keyframes blink {
+                0% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="blink">
+            Мигающий текст привлекает к себе внимание, не
+            правда ли.
+        </div>
+    </body>
 </html>
 ```
 
@@ -130,6 +128,6 @@ animation-iteration-count: 1;
 
 ### Примечание
 
-- Chrome, Safari и Android поддерживают свойство `-webkit-animation-iteration-count`.
-- Opera до версии 12.10 поддерживает свойство `-o-animation-iteration-count`.
-- Firefox до версии 16 поддерживает свойство `-moz-animation-iteration-count`.
+-   Chrome, Safari и Android поддерживают свойство `-webkit-animation-iteration-count`.
+-   Opera до версии 12.10 поддерживает свойство `-o-animation-iteration-count`.
+-   Firefox до версии 16 поддерживает свойство `-moz-animation-iteration-count`.

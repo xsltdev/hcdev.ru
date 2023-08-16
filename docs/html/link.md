@@ -24,7 +24,7 @@ description: Тег link (от англ. link - ссылка, связь) уст
 
 ```html
 <head>
-  <link href="<адрес>" />
+    <link href="<адрес>" />
 </head>
 ```
 
@@ -152,8 +152,8 @@ description: Тег link (от англ. link - ссылка, связь) уст
 ```html
 <link rel="icon" sizes="<ширина>X<высота>" />
 <link
-  rel="icon"
-  sizes="<ширина1>X<высота1> <ширина2>X<высота2>* | any"
+    rel="icon"
+    sizes="<ширина1>X<высота1> <ширина2>X<высота2>* | any"
 />
 ```
 
@@ -185,39 +185,39 @@ description: Тег link (от англ. link - ссылка, связь) уст
 
 ## Спецификации
 
-- [Preload](https://w3c.github.io/preload/), определение `<link rel="preload">`
-- [Subresource Integrity](https://w3c.github.io/webappsec/specs/subresourceintegrity/#htmlscriptelement), определение атрибута `integrity`
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-link-element)
-- [HTML 5](http://www.w3.org/TR/html5/document-metadata.html#the-link-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/links.html#h-12.3)
-- [Resource Hints](http://www.w3.org/TR/resource-hints/#prefetch), определение `dns-prefetch`, `preconnect`, `prefetch` и `prerender`
+-   [Preload](https://w3c.github.io/preload/), определение `<link rel="preload">`
+-   [Subresource Integrity](https://w3c.github.io/webappsec/specs/subresourceintegrity/#htmlscriptelement), определение атрибута `integrity`
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-link-element)
+-   [HTML 5](http://www.w3.org/TR/html5/document-metadata.html#the-link-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/links.html#h-12.3)
+-   [Resource Hints](http://www.w3.org/TR/resource-hints/#prefetch), определение `dns-prefetch`, `preconnect`, `prefetch` и `prerender`
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>LINK</title>
-    <link rel="stylesheet" href="ie.css" />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="Статьи с сайта xsltdev.ru"
-      href="http://xsltdev.ru/rss.xml"
-    />
-    <link
-      rel="shortcut icon"
-      href="http://xsltdev.ru/favicon.ico"
-    />
-  </head>
-  <body>
-    <p>...</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>LINK</title>
+        <link rel="stylesheet" href="ie.css" />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="Статьи с сайта xsltdev.ru"
+            href="https://xsltdev.ru/rss.xml"
+        />
+        <link
+            rel="shortcut icon"
+            href="https://xsltdev.ru/favicon.ico"
+        />
+    </head>
+    <body>
+        <p>...</p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<link>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/link) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<link>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/link) <sup><small>MDN (рус.)</small></sup>

@@ -62,39 +62,40 @@ description: Тег small (от англ. small — маленький) испо
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-small-element)
-- [HTML 5](http://www.w3.org/TR/html5/semantics.html#the-small-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401//present/graphics.html#edef-SMALL)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-small-element)
+-   [HTML 5](http://www.w3.org/TR/html5/semantics.html#the-small-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/present/graphics.html#edef-SMALL)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-  <head>
-    <meta
-      http-equiv="Content-Type"
-      content="text/html; charset=utf-8"
-    />
-    <title>SMALL</title>
-  </head>
-  <body>
-    <p>
-      <big><big>Большая кошка</big></big>
-    </p>
-    <p>
-      Из семейства кошачьих самая большая кошка это совсем
-      не
-      <small>лев</small>, как можно было бы подумать исходя
-      из титула «царя зверей». А уссурийский тигр, вес
-      которого достигает 300 килограмм. Тигр уступает по
-      <small>размерам</small> и <small>весу</small> только
-      другому наземному хищнику, белому медведю.
-    </p>
-  </body>
+    <head>
+        <meta
+            http-equiv="Content-Type"
+            content="text/html; charset=utf-8"
+        />
+        <title>SMALL</title>
+    </head>
+    <body>
+        <p>
+            <big><big>Большая кошка</big></big>
+        </p>
+        <p>
+            Из семейства кошачьих самая большая кошка это
+            совсем не
+            <small>лев</small>, как можно было бы подумать
+            исходя из титула «царя зверей». А уссурийский
+            тигр, вес которого достигает 300 килограмм. Тигр
+            уступает по <small>размерам</small> и
+            <small>весу</small> только другому наземному
+            хищнику, белому медведю.
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<small>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/small) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<small>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/small) <sup><small>MDN (рус.)</small></sup>

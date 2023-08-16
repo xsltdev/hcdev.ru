@@ -110,50 +110,52 @@ animation-fill-mode: none;
 
 ## Спецификации
 
-- [CSS Animations](http://dev.w3.org/csswg/css-animations/#animation-fill-mode)
+-   [CSS Animations](http://dev.w3.org/csswg/css-animations/#animation-fill-mode)
 
 ## Поддержка браузерами
 
-<p class="ciu_embed" data-feature="css-animation" data-periods="future_1,current,past_1,past_2">
-  <a href="http://caniuse.com/#feat=css-animation">Can I Use css-animation?</a> Data on support for the css-animation feature across the major browsers from caniuse.com.
-</p>
+<p class="ciu_embed" data-feature="css-animation" data-periods="future_1,current,past_1,past_2"></p>
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>animation-fill-mode</title>
-    <style>
-      .wheel {
-        animation: wheel 3s 1s;
-        animation-fill-mode: both;
-        -webkit-animation: wheel 3s 1s;
-        -webkit-animation-fill-mode: both;
-      }
-      @keyframes wheel {
-        from {
-          transform: translateX(0) rotate(0);
-        }
-        to {
-          transform: translateX(450px) rotate(2turn);
-        }
-      }
-      @-webkit-keyframes wheel {
-        from {
-          transform: translateX(0) rotate(0);
-        }
-        to {
-          transform: translateX(450px) rotate(2turn);
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <img src="image/wheel.png" alt="" class="wheel" />
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>animation-fill-mode</title>
+        <style>
+            .wheel {
+                animation: wheel 3s 1s;
+                animation-fill-mode: both;
+                -webkit-animation: wheel 3s 1s;
+                -webkit-animation-fill-mode: both;
+            }
+            @keyframes wheel {
+                from {
+                    transform: translateX(0) rotate(0);
+                }
+                to {
+                    transform: translateX(450px) rotate(
+                            2turn
+                        );
+                }
+            }
+            @-webkit-keyframes wheel {
+                from {
+                    transform: translateX(0) rotate(0);
+                }
+                to {
+                    transform: translateX(450px) rotate(
+                            2turn
+                        );
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <img src="image/wheel.png" alt="" class="wheel" />
+    </body>
 </html>
 ```
 
@@ -161,6 +163,6 @@ animation-fill-mode: none;
 
 ### Примечание
 
-- Chrome, Safari и Android поддерживают свойство `-webkit-animation-fill-mode`.
-- Opera до версии 12.10 поддерживает свойство `-o-animation-fill-mode`.
-- Firefox до версии 16 поддерживает свойство `-moz-animation-fill-mode`.
+-   Chrome, Safari и Android поддерживают свойство `-webkit-animation-fill-mode`.
+-   Opera до версии 12.10 поддерживает свойство `-o-animation-fill-mode`.
+-   Firefox до версии 16 поддерживает свойство `-moz-animation-fill-mode`.
