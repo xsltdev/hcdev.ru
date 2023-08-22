@@ -8,6 +8,10 @@ description: Тег iframe (от англ. inline frame - встроенная �
 
 `<iframe>` является контейнером, содержание которого игнорируется браузерами, не поддерживающими данный элемент. Для таких браузеров можно указать альтернативный текст, который увидят пользователи. Он должен располагаться между тегами `<iframe>` и `</iframe>`.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/iframe.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Изображения и мультимедиа"
 
     <div class="col4" markdown="1">
@@ -139,8 +143,8 @@ description: Тег iframe (от англ. inline frame - встроенная �
 
 ```html
 <iframe
-  src="URL"
-  sandbox="allow-same-origin || allow-top-navigation || allow-forms || allow-scripts"
+    src="URL"
+    sandbox="allow-same-origin || allow-top-navigation || allow-forms || allow-scripts"
 ></iframe>
 ```
 
@@ -193,23 +197,23 @@ description: Тег iframe (от англ. inline frame - встроенная �
 
 **Значения**
 
-- `auto` — Полосы прокрутки добавляются браузером только по необходимости, в том случае, когда содержимое фрейма превышает его видимую часть.
-- `no` — Запрещает отображение полос прокрутки.
-- `yes` — Всегда вызывает появление полос прокрутки, независимо от объёма информации.
+-   `auto` — Полосы прокрутки добавляются браузером только по необходимости, в том случае, когда содержимое фрейма превышает его видимую часть.
+-   `no` — Запрещает отображение полос прокрутки.
+-   `yes` — Всегда вызывает появление полос прокрутки, независимо от объёма информации.
 
 **Значение по умолчанию**
 
-- `auto`
+-   `auto`
 
 ### seamless
 
 Устанавливает, что содержимое фрейма должно отображаться так, словно оно является частью документа. При этом соблюдается ряд условий:
 
-- игнорируется атрибут `sandbox`, если содержимое фрейма и родительского документа взяты из одного источника;
-- ссылки во фрейме открываются не внутри фрейма, а в текущем документе;
-- стили родительского документа применяются и к содержимому фрейма;
-- фрейм считается блочным элементом, у которого ширина задана как `auto`;
-- высота формируется автоматически на основе содержимого.
+-   игнорируется атрибут `sandbox`, если содержимое фрейма и родительского документа взяты из одного источника;
+-   ссылки во фрейме открываются не внутри фрейма, а в текущем документе;
+-   стили родительского документа применяются и к содержимому фрейма;
+-   фрейм считается блочным элементом, у которого ширина задана как `auto`;
+-   высота формируется автоматически на основе содержимого.
 
 **Синтаксис**
 
@@ -283,35 +287,35 @@ HTML-код содержимого, включая необходимые тег
 
 ## Спецификации
 
-- [Referrer Policy](https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-delivery-referrer-attribute)
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-iframe-element)
-- [HTML5](http://www.w3.org/TR/html5/embedded-content-0.html#the-iframe-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/present/frames.html#h-16.5)
-- [Screen Orientation API](https://w3c.github.io/screen-orientation/)
-- [Presentation API](http://w3c.github.io/presentation-api/#sandboxing-and-the-allow-presentation-keyword)
+-   [Referrer Policy](https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-delivery-referrer-attribute)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-iframe-element)
+-   [HTML5](http://www.w3.org/TR/html5/embedded-content-0.html#the-iframe-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/present/frames.html#h-16.5)
+-   [Screen Orientation API](https://w3c.github.io/screen-orientation/)
+-   [Presentation API](http://w3c.github.io/presentation-api/#sandboxing-and-the-allow-presentation-keyword)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>IFRAME</title>
-  </head>
-  <body>
-    <iframe
-      src="page/banner.html"
-      width="468"
-      height="60"
-      align="left"
-    >
-      Ваш браузер не поддерживает встроенные фреймы!
-    </iframe>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>IFRAME</title>
+    </head>
+    <body>
+        <iframe
+            src="page/banner.html"
+            width="468"
+            height="60"
+            align="left"
+        >
+            Ваш браузер не поддерживает встроенные фреймы!
+        </iframe>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<iframe>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/iframe) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<iframe>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/iframe) <sup><small>MDN (рус.)</small></sup>

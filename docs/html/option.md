@@ -8,6 +8,10 @@ description: Тег option (от англ. option — пункт, парамет
 
 Ширина списка определяется самым широким текстом, указанным в `<option>`, а также может изменяться с помощью стилей. Если планируется отправлять данные списка на сервер, то требуется поместить элемент `<select>` внутрь формы. Это также необходимо, когда к данным списка идёт обращение через скрипты.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/option.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Формы"
 
     <div class="col4" markdown="1">
@@ -33,8 +37,8 @@ description: Тег option (от англ. option — пункт, парамет
 
 ```html
 <select>
-  <option>Пункт 1</option>
-  <option>Пункт 2</option>
+    <option>Пункт 1</option>
+    <option>Пункт 2</option>
 </select>
 ```
 
@@ -130,36 +134,40 @@ description: Тег option (от англ. option — пункт, парамет
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-option-element)
-- [HTML 5](http://www.w3.org/TR/html5/forms.html#the-option-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/forms.html#h-17.6)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-option-element)
+-   [HTML 5](http://www.w3.org/TR/html5/forms.html#the-option-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/forms.html#h-17.6)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>OPTION</title>
-  </head>
-  <body>
-    <form action="option2.php">
-      <p>
-        <select size="3" name="hero">
-          <option disabled>Выберите рыцаря</option>
-          <option value="t1" selected>Гавейн</option>
-          <option value="t2">Ланселот</option>
-          <option value="t3">Галахэд</option>
-          <option value="t4">Персиваль</option>
-        </select>
-      </p>
-      <p><input type="submit" value="Отправить" /></p>
-    </form>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>OPTION</title>
+    </head>
+    <body>
+        <form action="option2.php">
+            <p>
+                <select size="3" name="hero">
+                    <option disabled>
+                        Выберите рыцаря
+                    </option>
+                    <option value="t1" selected>
+                        Гавейн
+                    </option>
+                    <option value="t2">Ланселот</option>
+                    <option value="t3">Галахэд</option>
+                    <option value="t4">Персиваль</option>
+                </select>
+            </p>
+            <p><input type="submit" value="Отправить" /></p>
+        </form>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<option>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/option) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<option>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/option) <sup><small>MDN (рус.)</small></sup>

@@ -10,6 +10,10 @@ description: Тег label (от англ. label - метка, ярлык) уст
 
 Существует два способа связывания объекта и метки. Первый заключается в использовании идентификатора `id` внутри элемента формы и указании его имени в качестве атрибута `for` элемента `<label>`. При втором способе элемент формы помещается внутрь контейнера `<label>`.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/label.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Формы"
 
     <div class="col4" markdown="1">
@@ -35,7 +39,7 @@ description: Тег label (от англ. label - метка, ярлык) уст
 
 ```html
 <input id="<идентификатор>" /><label for="<идентификатор>"
-  >Текст</label
+    >Текст</label
 >
 <label><input /> Текст</label>
 ```
@@ -69,41 +73,41 @@ description: Тег label (от англ. label - метка, ярлык) уст
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-label-element)
-- [HTML 5](http://www.w3.org/TR/html5/forms.html#the-label-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/forms.html#h-17.9.1)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-label-element)
+-   [HTML 5](http://www.w3.org/TR/html5/forms.html#the-label-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/forms.html#h-17.9.1)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>LABEL</title>
-  </head>
-  <body>
-    <form action="handler.php">
-      <p><b>Выберите напиток</b></p>
-      <p>
-        <input type="checkbox" id="check1" /><label
-          for="check1"
-          >Коньяк</label
-        ><br />
-        <input type="checkbox" id="check2" /><label
-          for="check2"
-          >Арманьяк</label
-        ><br />
-        <input type="checkbox" id="check3" /><label
-          for="check3"
-          >Кальвадос</label
-        ><br />
-      </p>
-    </form>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>LABEL</title>
+    </head>
+    <body>
+        <form action="handler.php">
+            <p><b>Выберите напиток</b></p>
+            <p>
+                <input type="checkbox" id="check1" /><label
+                    for="check1"
+                    >Коньяк</label
+                ><br />
+                <input type="checkbox" id="check2" /><label
+                    for="check2"
+                    >Арманьяк</label
+                ><br />
+                <input type="checkbox" id="check3" /><label
+                    for="check3"
+                    >Кальвадос</label
+                ><br />
+            </p>
+        </form>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<label>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/label) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<label>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/label) <sup><small>MDN (рус.)</small></sup>

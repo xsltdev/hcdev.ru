@@ -8,6 +8,10 @@ description: Тег strong (от англ. strong — сильный) предн
 
 Браузеры отображают такой текст жирным начертанием.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/strong.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -62,30 +66,31 @@ description: Тег strong (от англ. strong — сильный) предн
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-strong-element)
-- [HTML 5](http://www.w3.org/TR/html5/text-level-semantics.html#the-strong-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#edef-STRONG)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-strong-element)
+-   [HTML 5](http://www.w3.org/TR/html5/text-level-semantics.html#the-strong-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#edef-STRONG)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>STRONG</title>
-  </head>
-  <body>
-    <p><strong>Глубокий антарктический пояс</strong></p>
-    <p>
-      Основная магистраль проходит с севера на юг от Шкодера
-      через Дуррес до Влёры, после поворота оазисное
-      земледелие точно берёт протяженный кедровый стланик.
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>STRONG</title>
+    </head>
+    <body>
+        <p><strong>Глубокий антарктический пояс</strong></p>
+        <p>
+            Основная магистраль проходит с севера на юг от
+            Шкодера через Дуррес до Влёры, после поворота
+            оазисное земледелие точно берёт протяженный
+            кедровый стланик.
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<strong>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/strong) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<strong>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/strong) <sup><small>MDN (рус.)</small></sup>

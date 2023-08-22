@@ -8,6 +8,10 @@ description: Тег button (от англ. button - кнопка) создаёт
 
 В отличие от этого элемента, `<button>` предлагает расширенные возможности по созданию кнопок. Например, на подобной кнопке можно размещать любые элементы HTML, в том числе изображения. Используя стили можно определить вид кнопки путём изменения шрифта, цвета фона, размеров и других параметров.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/button.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Формы"
 
     <div class="col4" markdown="1">
@@ -150,9 +154,9 @@ description: Тег button (от англ. button - кнопка) создаёт
 
 ```html
 <button
-  formenctype="application/x-www-form-urlencoded | multipart/form-data | text/plain"
+    formenctype="application/x-www-form-urlencoded | multipart/form-data | text/plain"
 >
-  ...
+    ...
 </button>
 ```
 
@@ -169,7 +173,7 @@ description: Тег button (от англ. button - кнопка) создаёт
 
 **Значение по умолчанию**
 
-- `application/x-www-form-urlencoded`
+-   `application/x-www-form-urlencoded`
 
 ### formmethod
 
@@ -217,9 +221,9 @@ description: Тег button (от англ. button - кнопка) создаёт
 
 ```html
 <button
-  formtarget="<имя фрейма> | _blank | _self | _parent | _top"
+    formtarget="<имя фрейма> | _blank | _self | _parent | _top"
 >
-  ...
+    ...
 </button>
 ```
 
@@ -283,7 +287,7 @@ description: Тег button (от англ. button - кнопка) создаёт
 
 **Значение по умолчанию**
 
-- `submit`
+-   `submit`
 
 ### value
 
@@ -305,35 +309,35 @@ description: Тег button (от англ. button - кнопка) создаёт
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/the-button-element.html#the-button-element)
-- [HTML5](http://www.w3.org/TR/html5/forms.html#the-button-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/forms.html#h-17.5)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/the-button-element.html#the-button-element)
+-   [HTML5](http://www.w3.org/TR/html5/forms.html#the-button-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/forms.html#h-17.5)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>BUTTON</title>
-  </head>
-  <body>
-    <p style="text-align: center">
-      <button>Кнопка с текстом</button>
-      <button>
-        <img
-          src="image/umbrella.gif"
-          alt="Зонтик"
-          style="vertical-align: middle"
-        />
-        Кнопка с рисунком
-      </button>
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>BUTTON</title>
+    </head>
+    <body>
+        <p style="text-align: center">
+            <button>Кнопка с текстом</button>
+            <button>
+                <img
+                    src="image/umbrella.gif"
+                    alt="Зонтик"
+                    style="vertical-align: middle"
+                />
+                Кнопка с рисунком
+            </button>
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<button>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/button) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<button>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/button) <sup><small>MDN (рус.)</small></sup>

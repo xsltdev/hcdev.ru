@@ -22,6 +22,10 @@ http://www.htmlbook.ru/handler.php?nick=%C2%E0%ED%FF+%D8%E0%EF%EE%F7%EA%E8%ED&pa
 
 Допускается внутрь контейнера `<form>` помещать другие элементы, при этом сама форма никак не отображается на веб-странице, видны только элементы внутри неё.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/form.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Формы"
 
     <div class="col4" markdown="1">
@@ -151,9 +155,9 @@ http://www.htmlbook.ru/handler.php?nick=%C2%E0%ED%FF+%D8%E0%EF%EE%F7%EA%E8%ED&pa
 
 ```html
 <form
-  enctype="application/x-www-form-urlencoded | multipart/form-data | text/plain"
+    enctype="application/x-www-form-urlencoded | multipart/form-data | text/plain"
 >
-  ...
+    ...
 </form>
 ```
 
@@ -264,49 +268,49 @@ http://www.htmlbook.ru/handler.php?nick=%C2%E0%ED%FF+%D8%E0%EF%EE%F7%EA%E8%ED&pa
 
 ## Спецификации
 
-- [HTML 5](http://www.w3.org/TR/html5/forms.html#the-form-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/1999/REC-html401-19991224/interact/forms.html#h-17.3)
+-   [HTML 5](http://www.w3.org/TR/html5/forms.html#the-form-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/1999/REC-html401-19991224/interact/forms.html#h-17.3)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>FORM</title>
-  </head>
-  <body>
-    <form action="handler.php">
-      <p>
-        <b
-          >Как по вашему мнению расшифровывается
-          аббревиатура "ОС"?</b
-        >
-      </p>
-      <p>
-        <input
-          type="radio"
-          name="answer"
-          value="a1"
-        />Офицерский состав<br />
-        <input
-          type="radio"
-          name="answer"
-          value="a2"
-        />Операционная система<br />
-        <input
-          type="radio"
-          name="answer"
-          value="a3"
-        />Большой полосатый мух
-      </p>
-      <p><input type="submit" /></p>
-    </form>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>FORM</title>
+    </head>
+    <body>
+        <form action="handler.php">
+            <p>
+                <b
+                    >Как по вашему мнению расшифровывается
+                    аббревиатура "ОС"?</b
+                >
+            </p>
+            <p>
+                <input
+                    type="radio"
+                    name="answer"
+                    value="a1"
+                />Офицерский состав<br />
+                <input
+                    type="radio"
+                    name="answer"
+                    value="a2"
+                />Операционная система<br />
+                <input
+                    type="radio"
+                    name="answer"
+                    value="a3"
+                />Большой полосатый мух
+            </p>
+            <p><input type="submit" /></p>
+        </form>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<form>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/form) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<form>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/form) <sup><small>MDN (рус.)</small></sup>

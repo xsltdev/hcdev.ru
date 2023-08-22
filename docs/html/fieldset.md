@@ -10,6 +10,10 @@ description: Тег fieldset (от англ. field set - набор полей) 
 
 Браузеры для повышения наглядности отображают результат использования элемента `<fieldset>` в виде рамки. Её вид зависит от операционной системы, а также используемого браузера.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/fieldset.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Формы"
 
     <div class="col4" markdown="1">
@@ -35,7 +39,7 @@ description: Тег fieldset (от англ. field set - набор полей) 
 
 ```html
 <form>
-  <fieldset>...</fieldset>
+    <fieldset>...</fieldset>
 </form>
 ```
 
@@ -92,37 +96,38 @@ description: Тег fieldset (от англ. field set - набор полей) 
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-fieldset-element)
-- [HTML 5](http://www.w3.org/TR/html5/forms.html#the-fieldset-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/forms.html#h-17.10)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-fieldset-element)
+-   [HTML 5](http://www.w3.org/TR/html5/forms.html#the-fieldset-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/forms.html#h-17.10)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>FIELDSET</title>
-  </head>
-  <body>
-    <form action="handler.php">
-      <fieldset>
-        <legend>Работа со временем</legend>
-        <input type="checkbox" /> создание пунктуальности
-        (никогда не будете никуда опаздывать);<br />
-        <input type="checkbox" /> излечение от
-        пунктуальности (никогда никуда не будете
-        торопиться);<br />
-        <input type="checkbox" /> изменение восприятия
-        времени и часов.
-        <p><input type="submit" /></p>
-      </fieldset>
-    </form>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>FIELDSET</title>
+    </head>
+    <body>
+        <form action="handler.php">
+            <fieldset>
+                <legend>Работа со временем</legend>
+                <input type="checkbox" /> создание
+                пунктуальности (никогда не будете никуда
+                опаздывать);<br />
+                <input type="checkbox" /> излечение от
+                пунктуальности (никогда никуда не будете
+                торопиться);<br />
+                <input type="checkbox" /> изменение
+                восприятия времени и часов.
+                <p><input type="submit" /></p>
+            </fieldset>
+        </form>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<fieldset>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/fieldset) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<fieldset>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/fieldset) <sup><small>MDN (рус.)</small></sup>

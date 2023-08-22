@@ -10,6 +10,10 @@ description: Тег progress (от англ. progress — прогрес) исп
 
 Вид элемента зависит от браузера и операционной системы и может довольно сильно различаться между собой.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/progress.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Формы"
 
     <div class="col4" markdown="1">
@@ -39,7 +43,7 @@ description: Тег progress (от англ. progress — прогрес) исп
 
 Полифилы для включения поддержки:
 
-- [`<progress>` polyfill](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills#output-progress-menu-command)
+-   [`<progress>` polyfill](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills#output-progress-menu-command)
 
 ## Синтаксис
 
@@ -59,27 +63,29 @@ description: Тег progress (от англ. progress — прогрес) исп
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-progress-element)
-- [HTML 5](http://www.w3.org/TR/html5/forms.html#the-progress-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-progress-element)
+-   [HTML 5](http://www.w3.org/TR/html5/forms.html#the-progress-element)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>progress</title>
-  </head>
-  <body>
-    <p>Пожалуйста, подождите, фотографии загружаются.</p>
-    <progress max="100" value="25">
-      Загружено на <span id="value">25</span>%
-    </progress>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>progress</title>
+    </head>
+    <body>
+        <p>
+            Пожалуйста, подождите, фотографии загружаются.
+        </p>
+        <progress max="100" value="25">
+            Загружено на <span id="value">25</span>%
+        </progress>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<progress>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/progress) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<progress>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/progress) <sup><small>MDN (рус.)</small></sup>

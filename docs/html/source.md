@@ -8,6 +8,10 @@ description: Тег source (от англ. source — источник) вста
 
 Когда располагается внутри `<audio>` или `<video>`, элемент `<source>` должен идти после медийных файлов, но до [`<track>`](track.md). Внутри `<picture>` он должен идти перед [`<img>`](img.md).
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/source.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Изображения и мультимедиа"
 
     <div class="col4" markdown="1">
@@ -33,15 +37,15 @@ description: Тег source (от англ. source — источник) вста
 
 ```html
 <audio>
-  <source src="<адрес>" />
+    <source src="<адрес>" />
 </audio>
 
 <video>
-  <source src="<адрес>" />
+    <source src="<адрес>" />
 </video>
 
 <picture>
-  <source srcset="..." />
+    <source srcset="..." />
 </picture>
 ```
 
@@ -72,8 +76,8 @@ description: Тег source (от англ. source — источник) вста
 
 ```html
 <picture>
-  <source media="<медиа-запрос>" />
-  <picture></picture
+    <source media="<медиа-запрос>" />
+    <picture></picture
 ></picture>
 ```
 
@@ -109,11 +113,11 @@ sizes="(max-width: 30em) 100vw, (max-width: 50em) 50vw, calc(33vw - 100px)"
 
 ```html
 <picture>
-  <source
-    sizes="[<размер исходника># ,]? <значение размера исходника>
+    <source
+        sizes="[<размер исходника># ,]? <значение размера исходника>
       <медиа-запрос> <значение размера исходника>
       <размер>"
-  />
+    />
 </picture>
 ```
 
@@ -131,10 +135,10 @@ sizes="(max-width: 30em) 100vw, (max-width: 50em) 50vw, calc(33vw - 100px)"
 
 ```html
 <audio>
-  <source src="<адрес>" />
+    <source src="<адрес>" />
 </audio>
 <video>
-  <source src="<адрес>" />
+    <source src="<адрес>" />
 </video>
 ```
 
@@ -150,9 +154,9 @@ sizes="(max-width: 30em) 100vw, (max-width: 50em) 50vw, calc(33vw - 100px)"
 
 Список из одной или нескольких строк, разделённых запятыми, указывающих набор возможных изображений для отображения в браузере. Каждая строка может состоять их следующих частей:
 
-- адрес изображения;
-- дескриптор ширины, который представляет собой целое положительное число, за которым следует w (например: 600w). Дескриптор подсказывает браузеру, для какой контрольной точки использовать данное изображение;
-- дескриптор плотности пикселей, представляет собой положительное десятичное число, за которым сразу следует х.
+-   адрес изображения;
+-   дескриптор ширины, который представляет собой целое положительное число, за которым следует w (например: 600w). Дескриптор подсказывает браузеру, для какой контрольной точки использовать данное изображение;
+-   дескриптор плотности пикселей, представляет собой положительное десятичное число, за которым сразу следует х.
 
 Каждая строка в списке должна содержать по крайней мере дескриптор ширины или плотности пикселей.
 
@@ -172,16 +176,16 @@ sizes="(max-width: 30em) 100vw, (max-width: 50em) 50vw, calc(33vw - 100px)"
 
 ```html
 <audio>
-  <source
-    src="<адрес>"
-    type='<MIME-тип>; codecs="<кодек>"'
-  />
+    <source
+        src="<адрес>"
+        type='<MIME-тип>; codecs="<кодек>"'
+    />
 </audio>
 <video>
-  <source
-    src="<адрес>"
-    type='<MIME-тип>; codecs="<кодек>"'
-  />
+    <source
+        src="<адрес>"
+        type='<MIME-тип>; codecs="<кодек>"'
+    />
 </video>
 ```
 
@@ -195,38 +199,38 @@ sizes="(max-width: 30em) 100vw, (max-width: 50em) 50vw, calc(33vw - 100px)"
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-source-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-source-element)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>source</title>
-  </head>
-  <body>
-    <video width="400" height="300" controls="controls">
-      <source
-        src="video/duel.ogv"
-        type='video/ogg; codecs="theora, vorbis"'
-      />
-      <source
-        src="video/duel.mp4"
-        type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
-      />
-      <source
-        src="video/duel.webm"
-        type='video/webm; codecs="vp8, vorbis"'
-      />
-      Элемент video не поддерживается вашим браузером.
-      <a href="video/duel.mp4">Скачайте видео</a>.
-    </video>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>source</title>
+    </head>
+    <body>
+        <video width="400" height="300" controls="controls">
+            <source
+                src="video/duel.ogv"
+                type='video/ogg; codecs="theora, vorbis"'
+            />
+            <source
+                src="video/duel.mp4"
+                type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+            />
+            <source
+                src="video/duel.webm"
+                type='video/webm; codecs="vp8, vorbis"'
+            />
+            Элемент video не поддерживается вашим браузером.
+            <a href="video/duel.mp4">Скачайте видео</a>.
+        </video>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<source>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/source) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<source>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/source) <sup><small>MDN (рус.)</small></sup>

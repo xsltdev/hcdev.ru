@@ -8,6 +8,10 @@ description: Тег br (от англ. break - разрыв) устанавли�
 
 В отличие от элемента [`<p>`](p.md), использование `<br>` не добавляет пустой отступ перед строкой.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/br.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -63,31 +67,31 @@ description: Тег br (от англ. break - разрыв) устанавли�
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-br-element)
-- [HTML5](http://www.w3.org/TR/html5/text-level-semantics.html#the-br-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#h-9.3.2.1)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-br-element)
+-   [HTML5](http://www.w3.org/TR/html5/text-level-semantics.html#the-br-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#h-9.3.2.1)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>BR</title>
-  </head>
-  <body>
-    <p>Р.Л. Стивенсон</p>
-    <p>
-      Лето в стране настало,<br />
-      Вереск опять цветёт.<br />
-      Но некому готовить<br />
-      Вересковый мёд.
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>BR</title>
+    </head>
+    <body>
+        <p>Р.Л. Стивенсон</p>
+        <p>
+            Лето в стране настало,<br />
+            Вереск опять цветёт.<br />
+            Но некому готовить<br />
+            Вересковый мёд.
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<br>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/br) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<br>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/br) <sup><small>MDN (рус.)</small></sup>

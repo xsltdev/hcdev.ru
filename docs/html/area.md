@@ -10,6 +10,10 @@ description: Тег area (от англ. **area** - область) опреде
 
 Несколько областей могут перекрывать друг друга, сверху будет та, которая в коде HTML располагается выше.
 
+## Демо
+
+<iframe class="interactive is-tabbed-taller-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/area.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Изображения и мультимедиа"
 
     <div class="col4" markdown="1">
@@ -35,7 +39,7 @@ description: Тег area (от англ. **area** - область) опреде
 
 ```html
 <map>
-  <area href="адрес" />
+    <area href="адрес" />
 </map>
 ```
 
@@ -100,7 +104,7 @@ description: Тег area (от англ. **area** - область) опреде
 
 ```html
 <area
-  coords="<координата 1>, <координата 2>, <координата 3>, ..."
+    coords="<координата 1>, <координата 2>, <координата 3>, ..."
 />
 ```
 
@@ -150,7 +154,7 @@ description: Тег area (от англ. **area** - область) опреде
 
 ```html
 <map>
-  <area href="<адрес>" hreflang="<язык>" />
+    <area href="<адрес>" hreflang="<язык>" />
 </map>
 ```
 
@@ -188,7 +192,7 @@ description: Тег area (от англ. **area** - область) опреде
 
 **Значение по умолчанию**
 
-- `rect`
+-   `rect`
 
 ### target
 
@@ -218,7 +222,7 @@ description: Тег area (от англ. **area** - область) опреде
 
 **Значение по умолчанию**
 
-- `_self`
+-   `_self`
 
 ### type
 
@@ -240,98 +244,98 @@ MIME-тип
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-area-element)
-- [HTML5](http://www.w3.org/TR/html5/embedded-content-0.html#the-area-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/objects.html#h-13.6.1)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-area-element)
+-   [HTML5](http://www.w3.org/TR/html5/embedded-content-0.html#the-area-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/objects.html#h-13.6.1)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>AREA</title>
-    <style>
-      #title {
-        line-height: 0;
-        /* Изменяем межстрочное расстояние */
-      }
+    <head>
+        <meta charset="utf-8" />
+        <title>AREA</title>
+        <style>
+            #title {
+                line-height: 0;
+                /* Изменяем межстрочное расстояние */
+            }
 
-      #title img {
-        border: none;
-        /* Убираем рамку вокруг изображения */
-      }
-    </style>
-  </head>
+            #title img {
+                border: none;
+                /* Убираем рамку вокруг изображения */
+            }
+        </style>
+    </head>
 
-  <body>
-    <div id="title">
-      <img
-        src="https://via.placeholder.com/640x158.png?text=xsltdev.ru"
-        width="640"
-        height="158"
-        alt="Детский образовательный центр"
-      />
-      <br /><br />
-      <img
-        src="https://via.placeholder.com/640x30.png?text=xsltdev.ru"
-        width="640"
-        height="30"
-        alt="Навигация по сайту"
-        usemap="#Navigation"
-      />
-    </div>
-    <p>
-      <map name="Navigation">
-        <area
-          shape="poly"
-          coords="113,24,211,24,233,0,137,0"
-          href="page/inform.html"
-          alt="Информация"
-        />
-        <area
-          shape="poly"
-          coords="210,24,233,0,329,0,307,24"
-          href="page/activity.html"
-          alt="Мероприятия"
-        />
-        <area
-          shape="poly"
-          coords="304,24,385,24,407,0,329,0"
-          href="page/depart.html"
-          alt="Отделения"
-        />
-        <area
-          shape="poly"
-          coords="384,24,449,24,473,0,406,0"
-          href="page/techinfo.html"
-          alt="Техническая информация"
-        />
-        <area
-          shape="poly"
-          coords="449,24,501,24,525,0,473,0"
-          href="page/study.html"
-          alt="Обучение"
-        />
-        <area
-          shape="poly"
-          coords="501,24,560,24,583,0,525,0"
-          href="page/work.html"
-          alt="Работа"
-        />
-        <area
-          shape="poly"
-          coords="560,24,615,24,639,0,585,0"
-          href="page/misk.html"
-          alt="Разное"
-        />
-      </map>
-    </p>
-  </body>
+    <body>
+        <div id="title">
+            <img
+                src="https://via.placeholder.com/640x158.png?text=xsltdev.ru"
+                width="640"
+                height="158"
+                alt="Детский образовательный центр"
+            />
+            <br /><br />
+            <img
+                src="https://via.placeholder.com/640x30.png?text=xsltdev.ru"
+                width="640"
+                height="30"
+                alt="Навигация по сайту"
+                usemap="#Navigation"
+            />
+        </div>
+        <p>
+            <map name="Navigation">
+                <area
+                    shape="poly"
+                    coords="113,24,211,24,233,0,137,0"
+                    href="page/inform.html"
+                    alt="Информация"
+                />
+                <area
+                    shape="poly"
+                    coords="210,24,233,0,329,0,307,24"
+                    href="page/activity.html"
+                    alt="Мероприятия"
+                />
+                <area
+                    shape="poly"
+                    coords="304,24,385,24,407,0,329,0"
+                    href="page/depart.html"
+                    alt="Отделения"
+                />
+                <area
+                    shape="poly"
+                    coords="384,24,449,24,473,0,406,0"
+                    href="page/techinfo.html"
+                    alt="Техническая информация"
+                />
+                <area
+                    shape="poly"
+                    coords="449,24,501,24,525,0,473,0"
+                    href="page/study.html"
+                    alt="Обучение"
+                />
+                <area
+                    shape="poly"
+                    coords="501,24,560,24,583,0,525,0"
+                    href="page/work.html"
+                    alt="Работа"
+                />
+                <area
+                    shape="poly"
+                    coords="560,24,615,24,639,0,585,0"
+                    href="page/misk.html"
+                    alt="Разное"
+                />
+            </map>
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<area>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/area) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<area>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/area) <sup><small>MDN (рус.)</small></sup>

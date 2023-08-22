@@ -8,6 +8,10 @@ description: Тег details (от англ. details - детали) исполь
 
 Исходно содержимое `<details>` скрыто, вместо него выводится текст «Подробнее», щелчок по которому прячет или показывает содержимое элемента.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/details.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Интерактивные элементы"
 
     <div class="col4" markdown="1">
@@ -26,7 +30,7 @@ description: Тег details (от англ. details - детали) исполь
 
 Полифилы для включения поддержки:
 
-- [`<details>` and `<summary>` polyfill](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills#details-and-summary)
+-   [`<details>` and `<summary>` polyfill](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills#details-and-summary)
 
 ## Синтаксис
 
@@ -41,29 +45,41 @@ description: Тег details (от англ. details - детали) исполь
 `open`
 : Показывает информацию внутри элемента.
 
-## Спецификации
-
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-details-element)
-- [HTML 5.1](https://www.w3.org/TR/2016/REC-html51-20161101/semantics.html#the-details-element)
-
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>details</title>
-  </head>
-  <body>
-    <details>
-      <summary>Спойлер</summary>
-      <p>Убийца — дворецкий!</p>
-    </details>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>details</title>
+    </head>
+    <body>
+        <details>
+            <summary>Спойлер</summary>
+            <p>Убийца — дворецкий!</p>
+        </details>
+    </body>
 </html>
 ```
 
-## Ссылки
+<div class="grid cards" style="margin-top: 1.6em" markdown>
 
-- Тег [`<details>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/details) <sup><small>MDN (рус.)</small></sup>
+-   :simple-html5:{ .lg .middle } **Спецификации**
+
+    ***
+
+    [:octicons-arrow-right-24: WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-details-element)
+
+    [:octicons-arrow-right-24: HTML 5.1](https://www.w3.org/TR/2016/REC-html51-20161101/semantics.html#the-details-element)
+
+</div>
+<div class="grid cards" markdown>
+
+-   :material-link:{ .lg .middle } **Ссылки**
+
+    ***
+
+    :simple-mdnwebdocs: [`<details>`: The Details disclosure element](https://developer.mozilla.org/docs/Web/HTML/Element/details)
+
+</div>

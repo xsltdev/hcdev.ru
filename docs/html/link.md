@@ -8,6 +8,10 @@ description: Тег link (от англ. link - ссылка, связь) уст
 
 Элемент `<link>` обычно размещается внутри контейнера [`<head>`](head.md) и не создаёт ссылку, в отличие от элемента [`<a>`](a.md).
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/link.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Метаданные документа"
 
     <div class="col4" markdown="1">

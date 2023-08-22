@@ -14,6 +14,10 @@ description: Тег colgroup (от англ. group of columns - группа к�
 
 Для `<colgroup>` допустимо использовать следующие стилевые свойства: `border`, `background`, `width`, `visibility`. Остальные свойства не оказывают никакого эффекта на элемент.
 
+## Демо
+
+<iframe class="interactive is-tabbed-taller-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/colgroup.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Таблицы"
 
     <div class="col4" markdown="1">
@@ -69,9 +73,9 @@ description: Тег colgroup (от англ. group of columns - группа к�
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/tables.html#the-colgroup-element)
-- [HTML5](http://www.w3.org/TR/html5/tabular-data.html#the-colgroup-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/tables.html#edef-COLGROUP)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/tables.html#the-colgroup-element)
+-   [HTML5](http://www.w3.org/TR/html5/tabular-data.html#the-colgroup-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/tables.html#edef-COLGROUP)
 
 ## Описание и примеры
 
@@ -113,4 +117,4 @@ description: Тег colgroup (от англ. group of columns - группа к�
 
 ## Ссылки
 
-- Тег [`<colgroup>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/colgroup) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<colgroup>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/colgroup) <sup><small>MDN (рус.)</small></sup>

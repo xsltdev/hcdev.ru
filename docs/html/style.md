@@ -8,6 +8,10 @@ description: Тег style (от англ. style — стиль) применяе
 
 Элемент `<style>` необходимо использовать внутри контейнера [`<head>`](head.md). Можно задавать несколько `<style>`.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/style.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Метаданные документа"
 
     <div class="col4" markdown="1">
@@ -24,9 +28,9 @@ description: Тег style (от англ. style — стиль) применяе
 
 ```html
 <head>
-  <style>
-    ...;
-  </style>
+    <style>
+        ...;
+    </style>
 </head>
 ```
 
@@ -48,7 +52,7 @@ description: Тег style (от англ. style — стиль) применяе
 
 ```html
 <style media="all | print | screen | speech">
-  ...;
+    ...;
 </style>
 ```
 
@@ -70,7 +74,7 @@ description: Тег style (от англ. style — стиль) применяе
 
 **Значение по умолчанию**
 
-- `screen`
+-   `screen`
 
 ### type
 
@@ -82,7 +86,7 @@ description: Тег style (от англ. style — стиль) применяе
 
 ```html
 <style type="text/css">
-  ...;
+    ...;
 </style>
 ```
 
@@ -92,52 +96,53 @@ description: Тег style (от англ. style — стиль) применяе
 
 **Значение по умолчанию**
 
-- `text/css`
+-   `text/css`
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/document-metadata.html#the-style-element)
-- [HTML 5](http://www.w3.org/TR/html5/document-metadata.html#the-style-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/present/styles.html#h-14.2.3)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/document-metadata.html#the-style-element)
+-   [HTML 5](http://www.w3.org/TR/html5/document-metadata.html#the-style-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/present/styles.html#h-14.2.3)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>STYLE, атрибут media</title>
-    <style media="screen">
-      .window {
-        background: #333;
-        border: 1px solid red;
-        font-size: 0.9em;
-        color: #fc0;
-        padding: 10px;
-      }
-    </style>
-    <style media="print">
-      .window {
-        border: 1px solid black;
-        font-family: Arial;
-        font-size: 0.9em;
-        color: black;
-        padding: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="window">
-      Ветеринарное свидетельство входит экскурсионный
-      эфемероид, но особой популярностью пользуются
-      заведения подобного рода, сосредоточенные в районе
-      Центральной площади и железнодорожного вокзала.
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>STYLE, атрибут media</title>
+        <style media="screen">
+            .window {
+                background: #333;
+                border: 1px solid red;
+                font-size: 0.9em;
+                color: #fc0;
+                padding: 10px;
+            }
+        </style>
+        <style media="print">
+            .window {
+                border: 1px solid black;
+                font-family: Arial;
+                font-size: 0.9em;
+                color: black;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="window">
+            Ветеринарное свидетельство входит экскурсионный
+            эфемероид, но особой популярностью пользуются
+            заведения подобного рода, сосредоточенные в
+            районе Центральной площади и железнодорожного
+            вокзала.
+        </div>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<style>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/style) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<style>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/style) <sup><small>MDN (рус.)</small></sup>

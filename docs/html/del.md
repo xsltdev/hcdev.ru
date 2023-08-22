@@ -8,6 +8,10 @@ description: Тег del (от англ. delete - удалить) использ�
 
 Подобное форматирование позволяет отследить, какие изменения в тексте документа были сделаны. Браузеры обычно помечают текст в контейнере `<del>` как зачёркнутый.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/del.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -140,36 +144,36 @@ description: Тег del (от англ. delete - удалить) использ�
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-del-element)
-- [HTML5](http://www.w3.org/TR/html5/edits.html#the-del-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#h-9.4)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-del-element)
+-   [HTML5](http://www.w3.org/TR/html5/edits.html#the-del-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#h-9.4)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>DEL</title>
-    <style>
-      del {
-        color: red; /* Цвет удалённого текста */
-      }
-    </style>
-  </head>
-  <body>
-    <p>
-      Собственное подмножество
-      <del>однородно транслирует</del
-      ><ins>стремительно раскручивает</ins> равновероятный
-      интеграл от функции комплексной переменной, что
-      известно даже школьникам.
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>DEL</title>
+        <style>
+            del {
+                color: red; /* Цвет удалённого текста */
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Собственное подмножество
+            <del>однородно транслирует</del
+            ><ins>стремительно раскручивает</ins>
+            равновероятный интеграл от функции комплексной
+            переменной, что известно даже школьникам.
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<del>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/del) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<del>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/del) <sup><small>MDN (рус.)</small></sup>

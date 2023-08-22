@@ -8,6 +8,10 @@ description: Тег kbd (от англ. keyboard - клавиатура) исп�
 
 Браузеры обычно помечают текст в контейнере `<kbd>` моноширинным шрифтом.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/kbd.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -62,40 +66,43 @@ description: Тег kbd (от англ. keyboard - клавиатура) исп�
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-kbd-element)
-- [HTML 5](http://www.w3.org/TR/html5/text-level-semantics.html#the-kbd-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#h-9.2.1)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-kbd-element)
+-   [HTML 5](http://www.w3.org/TR/html5/text-level-semantics.html#the-kbd-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#h-9.2.1)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>KBD</title>
-    <style>
-      kbd {
-        background: #ccc;
-        border-radius: 3px;
-        padding: 0 4px;
-      }
-    </style>
-  </head>
-  <body>
-    <p>
-      Для быстрого закрашивания выделенной области цветом
-      переднего плана используйте комбинацию клавиш
-      <kbd>Alt</kbd>+<kbd>Backspace</kbd> или
-      <kbd>Alt</kbd>+<kbd>Delete</kbd>. Для закрашивания
-      выделенной области фоновым цветом воспользуйтесь
-      комбинацией <kbd>Ctrl</kbd>+<kbd>Backspace</kbd> или
-      <kbd>Ctrl</kbd>+<kbd>Delete</kbd>.
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>KBD</title>
+        <style>
+            kbd {
+                background: #ccc;
+                border-radius: 3px;
+                padding: 0 4px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Для быстрого закрашивания выделенной области
+            цветом переднего плана используйте комбинацию
+            клавиш
+            <kbd>Alt</kbd>+<kbd>Backspace</kbd> или
+            <kbd>Alt</kbd>+<kbd>Delete</kbd>. Для
+            закрашивания выделенной области фоновым цветом
+            воспользуйтесь комбинацией <kbd>Ctrl</kbd>+<kbd
+                >Backspace</kbd
+            >
+            или <kbd>Ctrl</kbd>+<kbd>Delete</kbd>.
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<kbd>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/kbd) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<kbd>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/kbd) <sup><small>MDN (рус.)</small></sup>

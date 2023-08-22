@@ -8,10 +8,14 @@ description: Тег picture (от англ. picture — картина, изоб
 
 Это позволяет указывать разные изображения с учётом размера экрана, плотности пикселей, формата изображения и других параметров. Вот несколько областей применения `<picture>`:
 
-- для экранов ретина можно показывать картинку большего размера;
-- выводить рисунки разного размера для мобильных и настольных устройств;
-- отображать изображения разных пропорций, учитывающих ориентацию устройства;
-- выводить изображение в векторном формате SVG, а для браузеров, его не поддерживающих, показывать PNG.
+-   для экранов ретина можно показывать картинку большего размера;
+-   выводить рисунки разного размера для мобильных и настольных устройств;
+-   отображать изображения разных пропорций, учитывающих ориентацию устройства;
+-   выводить изображение в векторном формате SVG, а для браузеров, его не поддерживающих, показывать PNG.
+
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/picture.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Изображения и мультимедиа"
 
@@ -42,14 +46,14 @@ description: Тег picture (от англ. picture — картина, изоб
 
 Полифилы для включения поддержки:
 
-- [`<picture>` polyfill](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills#picture-and-img-srcset)
+-   [`<picture>` polyfill](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills#picture-and-img-srcset)
 
 ## Синтаксис
 
 ```html
 <picture>
-  <source />
-  <img />
+    <source />
+    <img />
 </picture>
 ```
 
@@ -63,31 +67,31 @@ description: Тег picture (от англ. picture — картина, изоб
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-picture-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-picture-element)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>picture</title>
-  </head>
-  <body>
-    <picture>
-      <source srcset="image/html5-logo.svg" />
-      <img
-        src="image/html5-logo.png"
-        width="256"
-        height="256"
-        alt="HTML5"
-      />
-    </picture>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>picture</title>
+    </head>
+    <body>
+        <picture>
+            <source srcset="image/html5-logo.svg" />
+            <img
+                src="image/html5-logo.png"
+                width="256"
+                height="256"
+                alt="HTML5"
+            />
+        </picture>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<picture>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/picture) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<picture>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/picture) <sup><small>MDN (рус.)</small></sup>

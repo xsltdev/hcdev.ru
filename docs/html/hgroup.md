@@ -16,6 +16,10 @@ description: Тег hgroup представляет заголовок разд�
 
 Этот элемент группирует несколько заголовков, внося лишь основной текст в план документа. Он позволяет связывать вторичные заголовки, такие как подзаголовки, альтернативные заголовки или даже теги, с основным заголовком, без загрязнения структуры документа.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/hgroup.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Секции и заголовки"
 
     <div class="col4" markdown="1">
@@ -42,8 +46,8 @@ description: Тег hgroup представляет заголовок разд�
 
 ```html
 <hgroup>
-  <h1>Главный заголовок</h1>
-  <h2>Вторичный заголовок</h2>
+    <h1>Главный заголовок</h1>
+    <h2>Вторичный заголовок</h2>
 </hgroup>
 ```
 
@@ -55,7 +59,7 @@ description: Тег hgroup представляет заголовок разд�
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/sections.html#the-hgroup-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/sections.html#the-hgroup-element)
 
 ## Описание и примеры
 
@@ -63,20 +67,20 @@ description: Тег hgroup представляет заголовок разд�
 <!DOCTYPE html>
 <title>HTML Standard</title>
 <body>
-  <hgroup id="document-title">
-    <h1>HTML: Living Standard</h1>
-    <p>Last Updated 12 July 2022</p>
-  </hgroup>
-  <p>Some intro to the document.</p>
-  <h2>Table of contents</h2>
-  <ol id="toc">
-    …
-  </ol>
-  <h2>First section</h2>
-  <p>Some intro to the first section.</p>
+    <hgroup id="document-title">
+        <h1>HTML: Living Standard</h1>
+        <p>Last Updated 12 July 2022</p>
+    </hgroup>
+    <p>Some intro to the document.</p>
+    <h2>Table of contents</h2>
+    <ol id="toc">
+        …
+    </ol>
+    <h2>First section</h2>
+    <p>Some intro to the first section.</p>
 </body>
 ```
 
 ## Ссылки
 
-- Тег [`<hgroup>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/hgroup) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<hgroup>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/hgroup) <sup><small>MDN (рус.)</small></sup>

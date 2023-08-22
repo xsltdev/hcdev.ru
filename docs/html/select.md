@@ -8,6 +8,10 @@ description: Тег select (от англ. select — выбрать) позво
 
 Конечный вид зависит от использования атрибута `size`, который устанавливает высоту списка. Ширина списка определяется самым широким текстом, указанным в элементе [`<option>`](option.md), а также может изменяться с помощью стилей. Каждый пункт создаётся с помощью элемента `<option>`, который должен быть вложен в контейнер `<select>`. Если планируется отправлять данные списка на сервер, то требуется поместить `<select>` внутрь формы. Это также необходимо, когда к данным списка идёт обращение через скрипты.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/select.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Формы"
 
     <div class="col4" markdown="1">
@@ -33,8 +37,8 @@ description: Тег select (от англ. select — выбрать) позво
 
 ```html
 <select>
-  <option>Пункт 1</option>
-  <option>Пункт 2</option>
+    <option>Пункт 1</option>
+    <option>Пункт 2</option>
 </select>
 ```
 
@@ -73,7 +77,7 @@ description: Тег select (от англ. select — выбрать) позво
 
 ```html
 <select autofocus>
-  ...
+    ...
 </select>
 ```
 
@@ -93,7 +97,7 @@ description: Тег select (от англ. select — выбрать) позво
 
 ```html
 <select disabled>
-  ...
+    ...
 </select>
 ```
 
@@ -113,7 +117,7 @@ description: Тег select (от англ. select — выбрать) позво
 
 ```html
 <select form="<идентификатор>">
-  ...
+    ...
 </select>
 ```
 
@@ -137,7 +141,7 @@ description: Тег select (от англ. select — выбрать) позво
 
 ```html
 <select multiple>
-  ...
+    ...
 </select>
 ```
 
@@ -157,7 +161,7 @@ description: Тег select (от англ. select — выбрать) позво
 
 ```html
 <select name="<имя>">
-  ...
+    ...
 </select>
 ```
 
@@ -177,7 +181,7 @@ description: Тег select (от англ. select — выбрать) позво
 
 ```html
 <select required>
-  ...
+    ...
 </select>
 ```
 
@@ -197,7 +201,7 @@ description: Тег select (от англ. select — выбрать) позво
 
 ```html
 <select size="<число>">
-  ...
+    ...
 </select>
 ```
 
@@ -211,43 +215,49 @@ description: Тег select (от англ. select — выбрать) позво
 
 ## Значения ARIA role
 
-- `<select>` (без атрибута `multiple` и без атрибута `size` со значением больше `1`) — `role=combobox`
-- `<select>` (с атрибутом `multiple` или с атрибутом `size` со значением больше `1`) — `role=listbox`
+-   `<select>` (без атрибута `multiple` и без атрибута `size` со значением больше `1`) — `role=combobox`
+-   `<select>` (с атрибутом `multiple` или с атрибутом `size` со значением больше `1`) — `role=listbox`
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-select-element)
-- [HTML 5](http://www.w3.org/TR/html5/forms.html#the-select-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/forms.html#h-17.6)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-select-element)
+-   [HTML 5](http://www.w3.org/TR/html5/forms.html#the-select-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/forms.html#h-17.6)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>SELECT</title>
-  </head>
-  <body>
-    <form action="select1.php" method="post">
-      <p>
-        <select size="3" multiple name="hero[]">
-          <option disabled>Выберите героя</option>
-          <option value="Чебурашка">Чебурашка</option>
-          <option selected value="Крокодил Гена">
-            Крокодил Гена
-          </option>
-          <option value="Шапокляк">Шапокляк</option>
-          <option value="Крыса Лариса">Крыса Лариса</option>
-        </select>
-      </p>
-      <p><input type="submit" value="Отправить" /></p>
-    </form>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>SELECT</title>
+    </head>
+    <body>
+        <form action="select1.php" method="post">
+            <p>
+                <select size="3" multiple name="hero[]">
+                    <option disabled>Выберите героя</option>
+                    <option value="Чебурашка">
+                        Чебурашка
+                    </option>
+                    <option selected value="Крокодил Гена">
+                        Крокодил Гена
+                    </option>
+                    <option value="Шапокляк">
+                        Шапокляк
+                    </option>
+                    <option value="Крыса Лариса">
+                        Крыса Лариса
+                    </option>
+                </select>
+            </p>
+            <p><input type="submit" value="Отправить" /></p>
+        </form>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<select>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/select) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<select>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/select) <sup><small>MDN (рус.)</small></sup>

@@ -8,6 +8,10 @@ description: Тег tr (от англ. table row — строка таблицы
 
 Каждая ячейка в пределах такой строки устанавливается с помощью элемента [`<th>`](th.md) или [`<td>`](td.md).
 
+## Демо
+
+<iframe class="interactive is-tabbed-taller-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/tr.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Таблицы"
 
     <div class="col4" markdown="1">
@@ -29,9 +33,9 @@ description: Тег tr (от англ. table row — строка таблицы
 
 ```html
 <table>
-  <tr>
-    <td>...</td>
-  </tr>
+    <tr>
+        <td>...</td>
+    </tr>
 </table>
 ```
 
@@ -43,38 +47,38 @@ description: Тег tr (от англ. table row — строка таблицы
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/tables.html#the-tr-element)
-- [HTML 5](http://www.w3.org/TR/html5/tabular-data.html#the-tr-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/tables.html#the-tr-element)
+-   [HTML 5](http://www.w3.org/TR/html5/tabular-data.html#the-tr-element)
 
 ## Описание и примеры
 
 ```html
 <html>
-  <head>
-    <meta
-      http-equiv="Content-Type"
-      content="text/html; charset=utf-8"
-    />
-    <title>TR</title>
-  </head>
-  <body>
-    <table width="100%" border="0" cellpadding="4">
-      <tr align="right" valign="top">
-        <td>
-          <img
-            src="image/book.png"
-            width="199"
-            height="133"
-            alt="Книга"
-          />
-        </td>
-        <td>Lorem ipsum dolor sit amet...</td>
-      </tr>
-    </table>
-  </body>
+    <head>
+        <meta
+            http-equiv="Content-Type"
+            content="text/html; charset=utf-8"
+        />
+        <title>TR</title>
+    </head>
+    <body>
+        <table width="100%" border="0" cellpadding="4">
+            <tr align="right" valign="top">
+                <td>
+                    <img
+                        src="image/book.png"
+                        width="199"
+                        height="133"
+                        alt="Книга"
+                    />
+                </td>
+                <td>Lorem ipsum dolor sit amet...</td>
+            </tr>
+        </table>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<tr>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/tr) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<tr>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/tr) <sup><small>MDN (рус.)</small></sup>

@@ -8,6 +8,10 @@ description: Тег td (от англ. table data — данные таблиц�
 
 Элемент `<td>` должен размещаться внутри контейнера [`<tr>`](tr.md), который в свою очередь располагается внутри [`<table>`](table.md).
 
+## Демо
+
+<iframe class="interactive is-tabbed-taller-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/td.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Таблицы"
 
     <div class="col4" markdown="1">
@@ -29,9 +33,9 @@ description: Тег td (от англ. table data — данные таблиц�
 
 ```html
 <table>
-  <tr>
-    <td>...</td>
-  </tr>
+    <tr>
+        <td>...</td>
+    </tr>
 </table>
 ```
 
@@ -109,36 +113,42 @@ description: Тег td (от англ. table data — данные таблиц�
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/tables.html#the-td-element)
-- [HTML 5](http://www.w3.org/TR/html5/tabular-data.html#the-td-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/tables.html#the-td-element)
+-   [HTML 5](http://www.w3.org/TR/html5/tabular-data.html#the-td-element)
 
 ## Описание и примеры
 
 ```html
 <html>
-  <head>
-    <meta
-      http-equiv="Content-Type"
-      content="text/html; charset=utf-8"
-    />
-    <title>TD</title>
-  </head>
-  <body>
-    <table border="1" cellpadding="7" cellspacing="0">
-      <tr>
-        <td colspan="2" bgcolor="#D3EDF6" align="center">
-          Ячейка 1
-        </td>
-      </tr>
-      <tr>
-        <td valign="top" align="center">Ячейка 2</td>
-        <td width="98%" valign="top">Ячейка 3</td>
-      </tr>
-    </table>
-  </body>
+    <head>
+        <meta
+            http-equiv="Content-Type"
+            content="text/html; charset=utf-8"
+        />
+        <title>TD</title>
+    </head>
+    <body>
+        <table border="1" cellpadding="7" cellspacing="0">
+            <tr>
+                <td
+                    colspan="2"
+                    bgcolor="#D3EDF6"
+                    align="center"
+                >
+                    Ячейка 1
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" align="center">
+                    Ячейка 2
+                </td>
+                <td width="98%" valign="top">Ячейка 3</td>
+            </tr>
+        </table>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<td>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/td) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<td>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/td) <sup><small>MDN (рус.)</small></sup>

@@ -8,6 +8,10 @@ description: Тег rt добавляет аннотацию сверху или
 
 Такая форма записи преимущественно используется для азиатских языков вроде китайского или японского, но также может применяться для других языков, если требуется написать один текст над другим.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/rt.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -52,8 +56,8 @@ description: Тег rt добавляет аннотацию сверху или
 
 ```html
 <ruby>
-  текст
-  <rt>аннотация</rt>
+    текст
+    <rt>аннотация</rt>
 </ruby>
 ```
 
@@ -65,40 +69,40 @@ description: Тег rt добавляет аннотацию сверху или
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-rt-element)
-- [HTML 5](http://www.w3.org/TR/html5/text-level-semantics.html#the-rt-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-rt-element)
+-   [HTML 5](http://www.w3.org/TR/html5/text-level-semantics.html#the-rt-element)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>rt</title>
-    <style>
-      .date {
-        font-size: 2em;
-      }
-      .date ruby {
-        background: #0078c9;
-        color: #fff;
-      }
-      .date rt {
-        background: #a0dae8;
-        color: #000;
-        padding: 2px;
-      }
-    </style>
-  </head>
-  <body>
-    <p class="date">
-      <ruby>23<rt>ноябрь</rt></ruby>
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>rt</title>
+        <style>
+            .date {
+                font-size: 2em;
+            }
+            .date ruby {
+                background: #0078c9;
+                color: #fff;
+            }
+            .date rt {
+                background: #a0dae8;
+                color: #000;
+                padding: 2px;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="date">
+            <ruby>23<rt>ноябрь</rt></ruby>
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<rt>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/rt) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<rt>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/rt) <sup><small>MDN (рус.)</small></sup>

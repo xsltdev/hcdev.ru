@@ -1,10 +1,15 @@
 ---
 description: Тег rtc (от англ. ruby text container) обозначает текстовый контейнер внутри ruby
+status: deprecated
 ---
 
 # &lt;rtc&gt;
 
 Тег **`<rtc>`** _(от англ. **r**uby **t**ext **c**ontainer)_ обозначает текстовый контейнер внутри [`<ruby>`](ruby.md). В основном применяется в качестве описательной части или аннотации для иероглифов.
+
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/rtc.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Текстовые элементы"
 
@@ -50,8 +55,8 @@ description: Тег rtc (от англ. ruby text container) обозначае�
 
 ```html
 <ruby>
-  текст
-  <rtc>аннотация</rtc>
+    текст
+    <rtc>аннотация</rtc>
 </ruby>
 ```
 
@@ -63,29 +68,29 @@ description: Тег rtc (от англ. ruby text container) обозначае�
 
 ## Спецификации
 
-- [HTML 5](http://www.w3.org/TR/html5/text-level-semantics.html#the-rtc-element)
+-   [HTML 5](http://www.w3.org/TR/html5/text-level-semantics.html#the-rtc-element)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>rtc</title>
-  </head>
-  <body>
-    <p>
-      <ruby>
-        <rb>旧</rb><rb>金</rb><rb>山</rb> <rt>jiù</rt
-        ><rt>jīn</rt><rt>shān</rt>
-        <rtc>Сан-Франциско</rtc>
-      </ruby>
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>rtc</title>
+    </head>
+    <body>
+        <p>
+            <ruby>
+                <rb>旧</rb><rb>金</rb><rb>山</rb>
+                <rt>jiù</rt><rt>jīn</rt><rt>shān</rt>
+                <rtc>Сан-Франциско</rtc>
+            </ruby>
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<rtc>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/rtc) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<rtc>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/rtc) <sup><small>MDN (рус.)</small></sup>

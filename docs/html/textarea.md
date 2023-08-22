@@ -10,6 +10,10 @@ description: Тег textarea (от англ. text area — область тек
 
 Между тегами `<textarea>` и `</textarea>` можно поместить любой текст, который будет отображаться внутри поля.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/textarea.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Формы"
 
     <div class="col4" markdown="1">
@@ -357,40 +361,40 @@ description: Тег textarea (от англ. text area — область тек
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-textarea-element)
-- [HTML 5](http://www.w3.org/TR/html5/forms.html#the-textarea-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/forms.html#h-17.7)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-textarea-element)
+-   [HTML 5](http://www.w3.org/TR/html5/forms.html#the-textarea-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/forms.html#h-17.7)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>TEXTAREA</title>
-  </head>
-  <body>
-    <form action="textarea1.php" method="post">
-      <p><b>Введите ваш отзыв:</b></p>
-      <p>
-        <textarea
-          rows="10"
-          cols="45"
-          name="text"
-        ></textarea>
-      </p>
-      <p><input type="submit" value="Отправить" /></p>
-    </form>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>TEXTAREA</title>
+    </head>
+    <body>
+        <form action="textarea1.php" method="post">
+            <p><b>Введите ваш отзыв:</b></p>
+            <p>
+                <textarea
+                    rows="10"
+                    cols="45"
+                    name="text"
+                ></textarea>
+            </p>
+            <p><input type="submit" value="Отправить" /></p>
+        </form>
+    </body>
 </html>
 ```
 
 ## См. также
 
-- [`<form>`](form.md)
-- [`<input>`](input.md)
+-   [`<form>`](form.md)
+-   [`<input>`](input.md)
 
 ## Ссылки
 
-- Тег [`<textarea>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<textarea>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) <sup><small>MDN (рус.)</small></sup>

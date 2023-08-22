@@ -1,5 +1,6 @@
 ---
 description: Тег param (от англ. parameter — параметр) предназначен для передачи значений параметров Java-апплетам или объектам веб-страницы, созданным с помощью элементов applet или object
+status: deprecated
 ---
 
 # &lt;param&gt;
@@ -83,37 +84,37 @@ description: Тег param (от англ. parameter — параметр) пре
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-param-element)
-- [HTML 5](http://www.w3.org/TR/html5/embedded-content-0.html#the-param-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/objects.html#h-13.3.2)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-param-element)
+-   [HTML 5](http://www.w3.org/TR/html5/embedded-content-0.html#the-param-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/objects.html#h-13.3.2)
 
 ## Описание и примеры
 
 ```html
 <html>
-  <head>
-    <meta
-      http-equiv="Content-Type"
-      content="text/html; charset=utf-8"
-    />
-    <title>PARAM</title>
-  </head>
-  <body>
-    <p>
-      <object
-        classid="animation.class"
-        width="500"
-        height="200"
-      >
-        <param name="bgcolor" value="#000000" />
-        <param name="delay" value="1000" />
-        <param name="loop" value="5" />
-      </object>
-    </p>
-  </body>
+    <head>
+        <meta
+            http-equiv="Content-Type"
+            content="text/html; charset=utf-8"
+        />
+        <title>PARAM</title>
+    </head>
+    <body>
+        <p>
+            <object
+                classid="animation.class"
+                width="500"
+                height="200"
+            >
+                <param name="bgcolor" value="#000000" />
+                <param name="delay" value="1000" />
+                <param name="loop" value="5" />
+            </object>
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<param>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/param) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<param>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/param) <sup><small>MDN (рус.)</small></sup>

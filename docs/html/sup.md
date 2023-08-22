@@ -6,6 +6,10 @@ description: Тег sup (от англ. superscript — надстрочный �
 
 Тег **`<sup>`** _(от англ. **sup**erscript — надстрочный индекс)_ отображает шрифт в виде верхнего индекса. Шрифт при этом отображается выше базовой линии текста и уменьшенного размера.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/sup.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -60,32 +64,32 @@ description: Тег sup (от англ. superscript — надстрочный �
 
 ## Спецификации
 
-- [HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-sub-and-sup-elements)
-- [HTML 5](http://www.w3.org/TR/html5/textlevel-semantics.html#the-sub-and-sup-elements)
+-   [HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-sub-and-sup-elements)
+-   [HTML 5](http://www.w3.org/TR/html5/textlevel-semantics.html#the-sub-and-sup-elements)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>SUP</title>
-  </head>
-  <body>
-    <p><b>Великая теорема Ферма</b></p>
-    <p>
-      <i
-        >X <sup><small>n</small></sup> + Y
-        <sup><small>n</small></sup> = Z
-        <sup><small>n</small></sup></i
-      >
-    </p>
-    <p>где n - целое число > 2</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>SUP</title>
+    </head>
+    <body>
+        <p><b>Великая теорема Ферма</b></p>
+        <p>
+            <i
+                >X <sup><small>n</small></sup> + Y
+                <sup><small>n</small></sup> = Z
+                <sup><small>n</small></sup></i
+            >
+        </p>
+        <p>где n - целое число > 2</p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<sup>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/sup) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<sup>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/sup) <sup><small>MDN (рус.)</small></sup>

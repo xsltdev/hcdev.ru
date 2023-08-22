@@ -10,6 +10,10 @@ description: Тег ruby предназначен для добавления н
 
 Название происходит от слова «рубин», которым в типографии обозначается небольшой шрифт.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/ruby.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -54,8 +58,8 @@ description: Тег ruby предназначен для добавления н
 
 ```html
 <ruby>
-  текст
-  <rt>аннотация</rt>
+    текст
+    <rt>аннотация</rt>
 </ruby>
 ```
 
@@ -67,31 +71,31 @@ description: Тег ruby предназначен для добавления н
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-ruby-element)
-- [HTML 5](http://www.w3.org/TR/html5/text-level-semantics.html#the-ruby-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-ruby-element)
+-   [HTML 5](http://www.w3.org/TR/html5/text-level-semantics.html#the-ruby-element)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>ruby</title>
-    <style>
-      p:lang(zh-CN) {
-        font-size: 2em;
-      }
-    </style>
-  </head>
-  <body>
-    <p lang="zh-CN">
-      <ruby> 汉<rt>hàn</rt> 字<rt>zì</rt> </ruby>
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>ruby</title>
+        <style>
+            p:lang(zh-CN) {
+                font-size: 2em;
+            }
+        </style>
+    </head>
+    <body>
+        <p lang="zh-CN">
+            <ruby> 汉<rt>hàn</rt> 字<rt>zì</rt> </ruby>
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<ruby>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/ruby) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<ruby>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/ruby) <sup><small>MDN (рус.)</small></sup>

@@ -1,5 +1,6 @@
 ---
 description: Элемент rb (Ruby Base) используется для разграничения базового текстового компонента аннотации ruby, то есть текста, который аннотируется
+status: deprecated
 ---
 
 # &lt;rb&gt;
@@ -58,7 +59,7 @@ description: Элемент rb (Ruby Base) используется для ра�
 
 ## Спецификации
 
-- [HTML 5](https://www.w3.org/TR/html50/text-level-semantics.html#the-rb-element)
+-   [HTML 5](https://www.w3.org/TR/html50/text-level-semantics.html#the-rb-element)
 
 ## Описание и примеры
 
@@ -77,4 +78,4 @@ description: Элемент rb (Ruby Base) используется для ра�
 
 ## Ссылки
 
-- Тег [`<rb>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/rb) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<rb>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/rb) <sup><small>MDN (рус.)</small></sup>

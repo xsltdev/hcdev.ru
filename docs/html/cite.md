@@ -10,6 +10,10 @@ description: Тег cite (от англ. cite - цитировать) предс
 
 `<cite>` не используется для разметки людей, даже если они имеют непосредственное отношение к упомянутому произведению.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/cite.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -64,30 +68,31 @@ description: Тег cite (от англ. cite - цитировать) предс
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-cite-element)
-- [HTML5](http://www.w3.org/TR/html5/text-level-semantics.html#the-cite-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#h-9.2.1)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-cite-element)
+-   [HTML5](http://www.w3.org/TR/html5/text-level-semantics.html#the-cite-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#h-9.2.1)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>CITE</title>
-  </head>
-  <body>
-    <p>
-      Игра <cite>Diablo</cite> уносит нас в мир тёмного
-      фэнтези и основана на <cite>GURPS</cite> —
-      универсальной системе ролевых игр, разработанной
-      компанией Steve Jackson Games в 1986 году.
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>CITE</title>
+    </head>
+    <body>
+        <p>
+            Игра <cite>Diablo</cite> уносит нас в мир
+            тёмного фэнтези и основана на
+            <cite>GURPS</cite> — универсальной системе
+            ролевых игр, разработанной компанией Steve
+            Jackson Games в 1986 году.
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<cite>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/cite) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<cite>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/cite) <sup><small>MDN (рус.)</small></sup>

@@ -10,6 +10,10 @@ description: Тег img (от англ. image - изображение) пред
 
 Рисунки также могут применяться в качестве карт-изображений, когда картинка содержит активные области, выступающие в качестве ссылок. Такая карта по внешнему виду ничем не отличается от обычного изображения, но при этом оно может быть разбито на невидимые зоны разной формы, где каждая из областей служит ссылкой.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/img.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Изображения и мультимедиа"
 
     <div class="col4" markdown="1">
@@ -185,9 +189,9 @@ sizes="(max-width: 30em) 100vw, (max-width: 50em) 50vw, calc(33vw - 100px)")
 
 Список из одного или нескольких значений, разделённых запятыми, указывающих набор возможных изображений для отображения в браузере. Каждая строка может состоять их следующих частей:
 
-- адрес изображения;
-- дескриптор ширины, который представляет собой целое положительное число, за которым следует w (например: 600w);
-- дескриптор плотности пикселей, представляет собой положительное десятичное число, за которым сразу следует х.
+-   адрес изображения;
+-   дескриптор ширины, который представляет собой целое положительное число, за которым следует w (например: 600w);
+-   дескриптор плотности пикселей, представляет собой положительное десятичное число, за которым сразу следует х.
 
 Каждая строка в списке должна содержать обязательно адрес и по желанию дескриптор ширины или плотности пикселей. Если никакой дескриптор не задан, то по умолчанию он равен 1x.
 
@@ -201,14 +205,14 @@ sizes="(max-width: 30em) 100vw, (max-width: 50em) 50vw, calc(33vw - 100px)")
 
 Полифилы для включения поддержки:
 
-- [`srcset` polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills#picture-and-img-srcset)
+-   [`srcset` polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills#picture-and-img-srcset)
 
 **Пример**
 
 ```html
 <img
-  src="image-src.png"
-  srcset="image-1x.png 1x, image-2x.png 2x"
+    src="image-src.png"
+    srcset="image-1x.png 1x, image-2x.png 2x"
 />
 ```
 
@@ -258,34 +262,34 @@ sizes="(max-width: 30em) 100vw, (max-width: 50em) 50vw, calc(33vw - 100px)")
 
 ## Спецификации
 
-- [Referrer Policy](https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-delivery-referrer-attribute)
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element)
-- [HTML5](http://www.w3.org/TR/html5/embedded-content-0.html#the-img-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/objects.html#h-13.2)
+-   [Referrer Policy](https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-delivery-referrer-attribute)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element)
+-   [HTML5](http://www.w3.org/TR/html5/embedded-content-0.html#the-img-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/objects.html#h-13.2)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>IMG</title>
-  </head>
-  <body>
-    <p>
-      <a href="page/lorem.html"
-        ><img
-          src="image/girl.jpg"
-          width="120"
-          height="120"
-          alt="Девочка с муфтой"
-      /></a>
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>IMG</title>
+    </head>
+    <body>
+        <p>
+            <a href="page/lorem.html"
+                ><img
+                    src="image/girl.jpg"
+                    width="120"
+                    height="120"
+                    alt="Девочка с муфтой"
+            /></a>
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<img>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/img) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<img>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/img) <sup><small>MDN (рус.)</small></sup>

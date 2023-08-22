@@ -8,6 +8,10 @@ description: Тег thead (от англ. table head — голова, верх 
 
 Допустимо использовать не более одного элемента `<thead>` в пределах одной таблицы, и он должен идти в исходном коде сразу после элемента [`<table>`](table.md).
 
+## Демо
+
+<iframe class="interactive is-tabbed-taller-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/thead.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Таблицы"
 
     <div class="col4" markdown="1">
@@ -29,17 +33,17 @@ description: Тег thead (от англ. table head — голова, верх 
 
 ```html
 <table>
-  <thead>
-    <tr>
-      <td>...</td>
-    </tr>
-  </thead>
-  <tfoot>
-    ...
-  </tfoot>
-  <tbody>
-    ...
-  </tbody>
+    <thead>
+        <tr>
+            <td>...</td>
+        </tr>
+    </thead>
+    <tfoot>
+        ...
+    </tfoot>
+    <tbody>
+        ...
+    </tbody>
 </table>
 ```
 
@@ -51,37 +55,37 @@ description: Тег thead (от англ. table head — голова, верх 
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/tables.html#the-thead-element)
-- [HTML 5](http://www.w3.org/TR/html5/tabular-data.html#the-thead-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/tables.html#the-thead-element)
+-   [HTML 5](http://www.w3.org/TR/html5/tabular-data.html#the-thead-element)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>THEAD</title>
-  </head>
-  <body>
-    <table style="width: 600px;">
-      <thead style="background: #fc0">
-        <tr>
-          <td>...</td>
-          <td>...</td>
-        </tr>
-      </thead>
-      <tbody style="background: #ccc">
-        <tr>
-          <td>...</td>
-          <td>...</td>
-        </tr>
-      </tbody>
-    </table>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>THEAD</title>
+    </head>
+    <body>
+        <table style="width: 600px;">
+            <thead style="background: #fc0">
+                <tr>
+                    <td>...</td>
+                    <td>...</td>
+                </tr>
+            </thead>
+            <tbody style="background: #ccc">
+                <tr>
+                    <td>...</td>
+                    <td>...</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<thead>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/thead) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<thead>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/thead) <sup><small>MDN (рус.)</small></sup>

@@ -8,6 +8,10 @@ description: Тег optgroup (от англ. option group — группа па�
 
 Особенностью `<optgroup>` является то, что он не выделяется как обычный элемент списка, акцентируется с помощью жирного начертания, а все элементы, входящие в этот контейнер, смещаются вправо от своего исходного положения.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/optgroup.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Формы"
 
     <div class="col4" markdown="1">
@@ -33,9 +37,9 @@ description: Тег optgroup (от англ. option group — группа па�
 
 ```html
 <select>
-  <optgroup label="<текст>">
-    <option>...</option>
-  </optgroup>
+    <optgroup label="<текст>">
+        <option>...</option>
+    </optgroup>
 </select>
 ```
 
@@ -89,43 +93,49 @@ description: Тег optgroup (от англ. option group — группа па�
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-optgroup-element)
-- [HTML 5](http://www.w3.org/TR/html5/forms.html#the-optgroup-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/forms.html#h-17.6)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-optgroup-element)
+-   [HTML 5](http://www.w3.org/TR/html5/forms.html#the-optgroup-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/forms.html#h-17.6)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>OPTGROUP</title>
-  </head>
-  <body>
-    <form action="handler.php">
-      <p>
-        <select>
-          <optgroup label="Цвет">
-            <option value="c1">Апельсиновый</option>
-            <option value="c2">Лимонный</option>
-            <option value="c3">Персиковый</option>
-          </optgroup>
-          <optgroup label="Тон">
-            <option value="s1">Светлый</option>
-            <option value="s2">Нормальный</option>
-            <option value="s3">Темный</option>
-          </optgroup>
-        </select>
-      </p>
-      <p>
-        <input type="submit" value="Отправить" />
-      </p>
-    </form>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>OPTGROUP</title>
+    </head>
+    <body>
+        <form action="handler.php">
+            <p>
+                <select>
+                    <optgroup label="Цвет">
+                        <option value="c1">
+                            Апельсиновый
+                        </option>
+                        <option value="c2">Лимонный</option>
+                        <option value="c3">
+                            Персиковый
+                        </option>
+                    </optgroup>
+                    <optgroup label="Тон">
+                        <option value="s1">Светлый</option>
+                        <option value="s2">
+                            Нормальный
+                        </option>
+                        <option value="s3">Темный</option>
+                    </optgroup>
+                </select>
+            </p>
+            <p>
+                <input type="submit" value="Отправить" />
+            </p>
+        </form>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<optgroup>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/optgroup) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<optgroup>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/optgroup) <sup><small>MDN (рус.)</small></sup>

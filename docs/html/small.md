@@ -8,6 +8,10 @@ description: Тег small (от англ. small — маленький) испо
 
 В HTML4 `<small>` уменьшает размер шрифта на единицу по сравнению с обычным текстом. В HTML4 размер шрифта измеряется в условных единицах от 1 до 7, средний размер текста, используемый по умолчанию, принят 3. Таким образом, добавление `<small>` уменьшает текст на одну условную единицу. Допускается применение вложенных элементов `<small>`, при этом размер шрифта будет меньше с каждым вложенным уровнем, но не может быть меньше, чем 1.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/small.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">

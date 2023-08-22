@@ -8,6 +8,10 @@ description: Тег s (от англ. strikethrough — зачеркнутый) 
 
 Браузеры отображают такой текст как перечёркнутый. Элемент `<s>` не должен применяться для удалённого текста, для этой цели есть элемент [`<del>`](del.md).
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/s.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -62,27 +66,27 @@ description: Тег s (от англ. strikethrough — зачеркнутый) 
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-s-element)
-- [HTML 5](http://www.w3.org/TR/html5/textlevel-semantics.html#the-s-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-s-element)
+-   [HTML 5](http://www.w3.org/TR/html5/textlevel-semantics.html#the-s-element)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>S</title>
-    <meta charset="utf-8" />
-  </head>
-  <body>
-    <p><b>Список должников</b></p>
-    <p><s>Чебурашка</s></p>
-    <p><s>Крокодил Гена</s></p>
-    <p>Шапокляк</p>
-  </body>
+    <head>
+        <title>S</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <p><b>Список должников</b></p>
+        <p><s>Чебурашка</s></p>
+        <p><s>Крокодил Гена</s></p>
+        <p>Шапокляк</p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<s>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/s) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<s>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/s) <sup><small>MDN (рус.)</small></sup>

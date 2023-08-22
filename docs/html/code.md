@@ -10,6 +10,10 @@ description: Тег code (от англ. code - код) предназначен
 
 В отличие от элемента [`<pre>`](pre.md) дополнительные пробелы внутри контейнера `<code>` не учитываются, так же, как и переносы текста. Для разметки кода программы элементы `<code>` и `<pre>` комбинируют.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/code.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -64,22 +68,22 @@ description: Тег code (от англ. code - код) предназначен
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-code-element)
-- [HTML5](http://www.w3.org/TR/html5/text-level-semantics.html#the-code-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#h-9.2.1)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-code-element)
+-   [HTML5](http://www.w3.org/TR/html5/text-level-semantics.html#the-code-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#h-9.2.1)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>CODE</title>
-  </head>
-  <body>
-    <p>Код программы</p>
-    <pre>
+    <head>
+        <meta charset="utf-8" />
+        <title>CODE</title>
+    </head>
+    <body>
+        <p>Код программы</p>
+        <pre>
 	  <code>
 		function checkParent (src, dest) {
 		  while (src != null) {
@@ -90,10 +94,10 @@ description: Тег code (от англ. code - код) предназначен
 		}
 	  </code>
 	</pre>
-  </body>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<code>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/code) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<code>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/code) <sup><small>MDN (рус.)</small></sup>

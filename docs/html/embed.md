@@ -8,6 +8,10 @@ description: Тег embed (от англ. embed - встраивать) испо
 
 Как правило, такие объекты требуют подключения к браузеру специального модуля, который называется плагин, или запуска вспомогательной программы. Вид внедрённого объекта зависит от установленных в браузере плагинов, типа загружаемого файла, а также от атрибутов элемента `<embed>`.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/embed.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Изображения и мультимедиа"
 
     <div class="col4" markdown="1">
@@ -99,7 +103,7 @@ description: Тег embed (от англ. embed - встраивать) испо
 
 **Значение по умолчанию**
 
-- `false`
+-   `false`
 
 ### pluginspage
 
@@ -179,30 +183,30 @@ description: Тег embed (от англ. embed - встраивать) испо
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-embed-element)
-- [HTML 5](http://www.w3.org/TR/html5/embedded-content-0.html#the-embed-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-embed-element)
+-   [HTML 5](http://www.w3.org/TR/html5/embedded-content-0.html#the-embed-element)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>EMBED</title>
-  </head>
-  <body>
-    <embed
-      src="flash/mouse.swf"
-      width="400"
-      height="300"
-      type="application/x-shockwave-flash"
-      pluginspage="https://get.adobe.com/flashplayer"
-    />
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>EMBED</title>
+    </head>
+    <body>
+        <embed
+            src="flash/mouse.swf"
+            width="400"
+            height="300"
+            type="application/x-shockwave-flash"
+            pluginspage="https://get.adobe.com/flashplayer"
+        />
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<embed>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/embed) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<embed>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/embed) <sup><small>MDN (рус.)</small></sup>

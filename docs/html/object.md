@@ -10,6 +10,10 @@ description: Тег object (от англ. object — объект) сообща
 
 Дополнительно внутрь контейнера `<object>` можно поместить элемент [`<param>`](param.md), который передаёт дополнительные параметры для отображения объекта.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/object.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Изображения и мультимедиа"
 
     <div class="col4" markdown="1">
@@ -115,35 +119,35 @@ description: Тег object (от англ. object — объект) сообща
 
 ## Спецификации
 
-- [HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-object-element)
-- [HTML 5](http://www.w3.org/TR/html5/embedded-content-0.html#the-object-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/objects.html#h-13.3)
+-   [HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-object-element)
+-   [HTML 5](http://www.w3.org/TR/html5/embedded-content-0.html#the-object-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/objects.html#h-13.3)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>OBJECT</title>
-  </head>
-  <body>
-    <p>
-      <object
-        type="application/x-shockwave-flash"
-        data="flash/mouse.swf"
-        width="400"
-        height="300"
-      >
-        <param name="quality" value="high" />
-        <param name="wmode" value="opaque" />
-      </object>
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>OBJECT</title>
+    </head>
+    <body>
+        <p>
+            <object
+                type="application/x-shockwave-flash"
+                data="flash/mouse.swf"
+                width="400"
+                height="300"
+            >
+                <param name="quality" value="high" />
+                <param name="wmode" value="opaque" />
+            </object>
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<object>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/object) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<object>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/object) <sup><small>MDN (рус.)</small></sup>

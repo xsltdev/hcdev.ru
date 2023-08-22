@@ -10,6 +10,10 @@ description: Тег bdi (от англ. bidirectional isolation - элемент
 
 Хоть такой же эффект может быть достигнут с использованием CSS-правила [`unicode-bidi: isolate`](/css/unicode-bidi/) для [`<span>`](span.md) или другого текстового элемента, семантическое значение достигается только с помощью элемента `<bdi>`. Более того, браузеры имеют опцию игнорирования стилей. В этом случае, текст будет отображен корректно при использовании HTML элемента, и некорректно при использовании CSS стилей.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/bdi.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -64,8 +68,8 @@ description: Тег bdi (от англ. bidirectional isolation - элемент
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdi-element)
-- [HTML5](http://www.w3.org/TR/html5/the-bdi-element.html#the-bdi-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-bdi-element)
+-   [HTML5](http://www.w3.org/TR/html5/the-bdi-element.html#the-bdi-element)
 
 ### Поддержка браузерами
 
@@ -88,20 +92,20 @@ description: Тег bdi (от англ. bidirectional isolation - элемент
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>BDI</title>
-  </head>
-  <body>
-    <p dir="rtl"><bdi>שבת</bdi> — суббота</p>
-    <p>
-      В ашкеназском произношении звучит как «ша́бос» (идиш
-      «ша́бес»), а в сефардском — как «шаба́т».
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>BDI</title>
+    </head>
+    <body>
+        <p dir="rtl"><bdi>שבת</bdi> — суббота</p>
+        <p>
+            В ашкеназском произношении звучит как «ша́бос»
+            (идиш «ша́бес»), а в сефардском — как «шаба́т».
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<bdi>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/bdi) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<bdi>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/bdi) <sup><small>MDN (рус.)</small></sup>

@@ -10,6 +10,10 @@ description: Тег col (от англ. column - столбец, колонка)
 
 Для `<col>` допустимо использовать следующие стилевые свойства: `border`, `background`, `width`, `visibility`. Остальные свойства не оказывают никакого эффекта на элемент.
 
+## Демо
+
+<iframe class="interactive is-tabbed-taller-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/col.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Таблицы"
 
     <div class="col4" markdown="1">
@@ -31,10 +35,10 @@ description: Тег col (от англ. column - столбец, колонка)
 
 ```html
 <table>
-  <col />
-  <tr>
-    <td>...</td>
-  </tr>
+    <col />
+    <tr>
+        <td>...</td>
+    </tr>
 </table>
 ```
 
@@ -65,46 +69,47 @@ description: Тег col (от англ. column - столбец, колонка)
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/tables.html#the-col-element)
-- [HTML5](http://www.w3.org/TR/html5/tabular-data.html#the-col-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/tables.html#h-11.2.4.2)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/tables.html#the-col-element)
+-   [HTML5](http://www.w3.org/TR/html5/tabular-data.html#the-col-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/tables.html#h-11.2.4.2)
 
 ## Описание и примеры
 
 ```html
 <html>
-  <head>
-    <meta
-      http-equiv="Content-Type"
-      content="text/html; charset=utf-8"
-    />
-    <title>COL</title>
-  </head>
-  <body>
-    <table
-      width="400"
-      border="0"
-      cellpadding="5"
-      cellspacing="0"
-    >
-      <col width="150" valign="top" />
-      <col width="250" valign="top" />
-      <tr>
-        <td style="background: #B0B28E">
-          Рутений распознает окисленный интермедиат, что
-          позже подтвердилось многочисленными опытами.
-        </td>
-        <td style="background: #CCCCCC">
-          При осуществлении искусственных ядерных реакций
-          было доказано, что хлорсульфит натрия
-          кристалличен.
-        </td>
-      </tr>
-    </table>
-  </body>
+    <head>
+        <meta
+            http-equiv="Content-Type"
+            content="text/html; charset=utf-8"
+        />
+        <title>COL</title>
+    </head>
+    <body>
+        <table
+            width="400"
+            border="0"
+            cellpadding="5"
+            cellspacing="0"
+        >
+            <col width="150" valign="top" />
+            <col width="250" valign="top" />
+            <tr>
+                <td style="background: #B0B28E">
+                    Рутений распознает окисленный
+                    интермедиат, что позже подтвердилось
+                    многочисленными опытами.
+                </td>
+                <td style="background: #CCCCCC">
+                    При осуществлении искусственных ядерных
+                    реакций было доказано, что хлорсульфит
+                    натрия кристалличен.
+                </td>
+            </tr>
+        </table>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<col>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/col) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<col>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/col) <sup><small>MDN (рус.)</small></sup>

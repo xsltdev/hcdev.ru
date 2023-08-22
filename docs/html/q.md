@@ -8,6 +8,10 @@ description: Тег q (от англ. quote — цитата) используе
 
 Содержимое контейнера автоматически отображается в браузере в кавычках.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/q.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -83,34 +87,34 @@ description: Тег q (от англ. quote — цитата) используе
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-q-element)
-- [HTML 5](http://www.w3.org/TR/html5/text-level-semantics.html#the-q-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#h-9.2.2)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-q-element)
+-   [HTML 5](http://www.w3.org/TR/html5/text-level-semantics.html#the-q-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#h-9.2.2)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Q</title>
-    <style>
-      q {
-        font-style: italic; /* Курсивное начертание текста */
-        color: #008; /* Цвет текста */
-      }
-    </style>
-  </head>
-  <body>
-    <p>
-      Станислав Лец утверждал:
-      <q>Чаще всего выход там, где был вход</q>.
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>Q</title>
+        <style>
+            q {
+                font-style: italic; /* Курсивное начертание текста */
+                color: #008; /* Цвет текста */
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Станислав Лец утверждал:
+            <q>Чаще всего выход там, где был вход</q>.
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<q>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/q) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<q>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/q) <sup><small>MDN (рус.)</small></sup>

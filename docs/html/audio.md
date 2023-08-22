@@ -12,6 +12,10 @@ description: Тег audio (от англ. audio - звук, аудио) доба
 
 Управление воспроизведением аудио различается между браузерами по своему виду, но основные элементы совпадают. Это кнопка воспроизведения/паузы, длина трека, прошедшее и суммарное время звучания, а также уровень громкости.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/audio.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Изображения и мультимедиа"
 
     <div class="col4" markdown="1">
@@ -74,7 +78,7 @@ description: Тег audio (от англ. audio - звук, аудио) доба
 ```html
 <audio src="URL"></audio>
 <audio>
-  <source src="URL" />
+    <source src="URL" />
 </audio>
 ```
 
@@ -202,8 +206,8 @@ description: Тег audio (от англ. audio - звук, аудио) доба
 
 **Примечания**
 
-- Аттрибут `autoplay` имеет приоритет над `preload`. Если `autoplay` указан, браузер, должен начать загрузку для воспроизведения.
-- Браузер не принуждается спецификацией следовать значению этого аттрибута; это просто подсказка.
+-   Аттрибут `autoplay` имеет приоритет над `preload`. Если `autoplay` указан, браузер, должен начать загрузку для воспроизведения.
+-   Браузер не принуждается спецификацией следовать значению этого аттрибута; это просто подсказка.
 
 ### src
 
@@ -225,31 +229,34 @@ description: Тег audio (от англ. audio - звук, аудио) доба
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-audio-element)
-- [HTML5](http://www.w3.org/TR/html5/embedded-content-0.html#the-audio-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-audio-element)
+-   [HTML5](http://www.w3.org/TR/html5/embedded-content-0.html#the-audio-element)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>audio</title>
-  </head>
+    <head>
+        <meta charset="utf-8" />
+        <title>audio</title>
+    </head>
 
-  <body>
-    <p>Александр Клименков - Четырнадцать</p>
-    <audio controls>
-      <source
-        src="audio/music.ogg"
-        type="audio/ogg; codecs=vorbis"
-      />
-      <source src="audio/music.mp3" type="audio/mpeg" />
-      Тег audio не поддерживается вашим браузером.
-      <a href="audio/music.mp3">Скачайте музыку</a>.
-    </audio>
-  </body>
+    <body>
+        <p>Александр Клименков - Четырнадцать</p>
+        <audio controls>
+            <source
+                src="audio/music.ogg"
+                type="audio/ogg; codecs=vorbis"
+            />
+            <source
+                src="audio/music.mp3"
+                type="audio/mpeg"
+            />
+            Тег audio не поддерживается вашим браузером.
+            <a href="audio/music.mp3">Скачайте музыку</a>.
+        </audio>
+    </body>
 </html>
 ```
 
@@ -258,26 +265,26 @@ description: Тег audio (от англ. audio - звук, аудио) доба
 ```html
 <!-- Simple audio playback -->
 <audio
-  src="http://developer.mozilla.org/@api/deki/files/2926/=AudioTest_(1).ogg"
-  autoplay
+    src="http://developer.mozilla.org/@api/deki/files/2926/=AudioTest_(1).ogg"
+    autoplay
 >
-  Ваш браузер не поддерживает <code>audio</code> элемент.
+    Ваш браузер не поддерживает <code>audio</code> элемент.
 </audio>
 
 <!-- Audio playback with captions -->
 <audio src="foo.ogg">
-  <track
-    kind="captions"
-    src="foo.en.vtt"
-    srclang="en"
-    label="English"
-  />
-  <track
-    kind="captions"
-    src="foo.sv.vtt"
-    srclang="sv"
-    label="Svenska"
-  />
+    <track
+        kind="captions"
+        src="foo.en.vtt"
+        srclang="en"
+        label="English"
+    />
+    <track
+        kind="captions"
+        src="foo.sv.vtt"
+        srclang="sv"
+        label="Svenska"
+    />
 </audio>
 ```
 
@@ -285,11 +292,11 @@ description: Тег audio (от англ. audio - звук, аудио) доба
 
 ```html
 <audio controls="controls">
-  Ваш браузер не поддерживает <code>audio</code> элемент.
-  <source src="foo.wav" type="audio/wav" />
+    Ваш браузер не поддерживает <code>audio</code> элемент.
+    <source src="foo.wav" type="audio/wav" />
 </audio>
 ```
 
 ## Ссылки
 
-- Тег [`<audio>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/audio) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<audio>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/audio) <sup><small>MDN (рус.)</small></sup>

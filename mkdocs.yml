@@ -102,6 +102,11 @@ plugins:
               - en
     - awesome-pages
     - social
+    - minify:
+          minify_html: true
+          htmlmin_opts:
+              remove_comments: true
+          cache_safe: true
 
 extra_javascript:
     - 'https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js'

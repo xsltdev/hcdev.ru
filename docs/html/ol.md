@@ -8,6 +8,10 @@ description: Тег ol (от англ. ordered list — упорядоченны
 
 Каждый элемент списка должен начинаться с [`<li>`](li.md). Если к `<ol>` применяется таблица стилей, то элементы `<li>` наследуют эти свойства.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/ol.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые блоки"
 
     <div class="col4" markdown="1">
@@ -30,8 +34,8 @@ description: Тег ol (от англ. ordered list — упорядоченны
 
 ```html
 <ol>
-  <li>элемент нумерованного списка</li>
-  <li>элемент нумерованного списка</li>
+    <li>элемент нумерованного списка</li>
+    <li>элемент нумерованного списка</li>
 </ol>
 ```
 
@@ -58,7 +62,7 @@ description: Тег ol (от англ. ordered list — упорядоченны
 
 ```html
 <ol type="A | a | I | i | 1">
-  ...
+    ...
 </ol>
 ```
 
@@ -66,11 +70,11 @@ description: Тег ol (от англ. ordered list — упорядоченны
 
 Нумерованные списки представляют собой набор элементов с их порядковыми номерами. Вид и тип нумерации зависит от атрибутов элемента `<ol>`, который и используется для создания списка. В качестве маркеров могут быть следующие значения:
 
-- `A` — заглавные латинские буквы;
-- `a` — строчные латинские буквы;
-- `I` — заглавные римские цифры;
-- `i` — строчные римские цифры;
-- `1` — арабские цифры.
+-   `A` — заглавные латинские буквы;
+-   `a` — строчные латинские буквы;
+-   `I` — заглавные римские цифры;
+-   `i` — строчные римские цифры;
+-   `1` — арабские цифры.
 
 **Значение по умолчанию**
 
@@ -84,7 +88,7 @@ description: Тег ol (от англ. ordered list — упорядоченны
 
 ```html
 <ol reversed>
-  ...
+    ...
 </ol>
 ```
 
@@ -104,7 +108,7 @@ description: Тег ol (от англ. ordered list — упорядоченны
 
 ```html
 <ol start="<число>">
-  <li>Элемент списка</li>
+    <li>Элемент списка</li>
 </ol>
 ```
 
@@ -118,29 +122,29 @@ description: Тег ol (от англ. ordered list — упорядоченны
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-ol-element)
-- [HTML 5](http://www.w3.org/TR/html5/grouping-content.html#the-ol-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/lists.html#h-10.2)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-ol-element)
+-   [HTML 5](http://www.w3.org/TR/html5/grouping-content.html#the-ol-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/lists.html#h-10.2)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>OL</title>
-  </head>
-  <body>
-    <ol>
-      <li>Чебурашка</li>
-      <li>Крокодил Гена</li>
-      <li>Шапокляк</li>
-    </ol>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>OL</title>
+    </head>
+    <body>
+        <ol>
+            <li>Чебурашка</li>
+            <li>Крокодил Гена</li>
+            <li>Шапокляк</li>
+        </ol>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<ol>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/ol) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<ol>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/ol) <sup><small>MDN (рус.)</small></sup>

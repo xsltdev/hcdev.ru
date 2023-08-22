@@ -8,6 +8,10 @@ description: Тег summary (от англ. summary — резюме, сводк
 
 Элемент `<summary>` должен идти первым внутри `<details>`.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/summary.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Интерактивные элементы"
 
     <div class="col4" markdown="1">
@@ -26,13 +30,13 @@ description: Тег summary (от англ. summary — резюме, сводк
 
 Полифилы для включения поддержки:
 
-- [`<details>` and `<summary>` polyfill](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills#details-and-summary)
+-   [`<details>` and `<summary>` polyfill](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills#details-and-summary)
 
 ## Синтаксис
 
 ```html
 <details>
-  <summary>Текст</summary>
+    <summary>Текст</summary>
 </details>
 ```
 
@@ -44,27 +48,27 @@ description: Тег summary (от англ. summary — резюме, сводк
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-summary-element)
-- [HTML 5.1](https://www.w3.org/TR/2016/REC-html51-20161101/interactive-elements.html#the-summary-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-summary-element)
+-   [HTML 5.1](https://www.w3.org/TR/2016/REC-html51-20161101/interactive-elements.html#the-summary-element)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>summary</title>
-  </head>
-  <body>
-    <details>
-      <summary>Информация об авторе</summary>
-      <p>Бендер Родригез</p>
-    </details>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>summary</title>
+    </head>
+    <body>
+        <details>
+            <summary>Информация об авторе</summary>
+            <p>Бендер Родригез</p>
+        </details>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<summary>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/summary) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<summary>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/summary) <sup><small>MDN (рус.)</small></sup>

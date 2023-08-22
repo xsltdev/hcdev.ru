@@ -8,6 +8,10 @@ description: Тег pre (от англ. preformatted — предварител�
 
 Такой текст отображается обычно моноширинным шрифтом и со всеми пробелами между словами. По умолчанию, любое количество пробелов идущих в коде подряд, на веб-странице показывается как один. Элемент `<pre>` позволяет обойти эту особенность и отображать текст как требуется разработчику.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/pre.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые блоки"
 
     <div class="col4" markdown="1">
@@ -40,21 +44,21 @@ description: Тег pre (от англ. preformatted — предварител�
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-pre-element)
-- [HTML 5](http://www.w3.org/TR/html5/grouping-content.html#the-pre-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#h-9.3.4)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-pre-element)
+-   [HTML 5](http://www.w3.org/TR/html5/grouping-content.html#the-pre-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#h-9.3.4)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>PRE</title>
-  </head>
-  <body>
-    <pre>
+    <head>
+        <meta charset="utf-8" />
+        <title>PRE</title>
+    </head>
+    <body>
+        <pre>
 -                -----  
 -----           |-----
 ||----|          ----||  
@@ -71,11 +75,11 @@ description: Тег pre (от англ. preformatted — предварител�
 |----|    ---   |-----|
 |-----          ------|
 </pre
-    >
-  </body>
+        >
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<pre>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/pre) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<pre>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/pre) <sup><small>MDN (рус.)</small></sup>

@@ -8,6 +8,10 @@ description: Тег rp используется для вывода текста
 
 В остальных браузерах текст, заключенный в контейнер `<rp>`, не отображается. Элемент `<rp>` должен идти до или после [`<rt>`](rt.md).
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/rp.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -52,8 +56,8 @@ description: Тег rp используется для вывода текста
 
 ```html
 <ruby>
-  текст
-  <rp>текст</rp><rt>аннотация</rt><rp>текст</rp>
+    текст
+    <rp>текст</rp><rt>аннотация</rt><rp>текст</rp>
 </ruby>
 ```
 
@@ -65,8 +69,8 @@ description: Тег rp используется для вывода текста
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-rp-element)
-- [HTML 5](https://www.w3.org/TR/html5/text-level-semantics.html#the-rp-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-rp-element)
+-   [HTML 5](https://www.w3.org/TR/html5/text-level-semantics.html#the-rp-element)
 
 ## Описание и примеры
 
@@ -75,15 +79,17 @@ description: Тег rp используется для вывода текста
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>rp</title>
-  </head>
-  <body>
-    <p>
-      <ruby> 字 <rp>(</rp><rt>zì</rt><rp>)</rp> </ruby>
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>rp</title>
+    </head>
+    <body>
+        <p>
+            <ruby>
+                字 <rp>(</rp><rt>zì</rt><rp>)</rp>
+            </ruby>
+        </p>
+    </body>
 </html>
 ```
 
@@ -95,4 +101,4 @@ description: Тег rp используется для вывода текста
 
 ## Ссылки
 
-- Тег [`<rp>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/rp) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<rp>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/rp) <sup><small>MDN (рус.)</small></sup>

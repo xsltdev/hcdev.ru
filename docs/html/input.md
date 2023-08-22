@@ -10,6 +10,10 @@ description: Тег input (от англ. input - ввод) является о�
 
 Основной атрибут `<input>`, определяющий вид элемента — `type`. Он позволяет задавать следующие элементы формы: текстовое поле (`text`), поле с паролем (`password`), переключатель (`radio`), флажок (`checkbox`), скрытое поле (`hidden`), кнопка (`button`), кнопка для отправки формы (`submit`), кнопка для очистки формы (`reset`), поле для отправки файла (`file`), кнопка с изображением (`image`) и др. Для каждого элемента существует свой список атрибутов, которые определяют его вид и характеристики. Кроме того, в HTML5 добавлено ещё более десятка новых атрибутов.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/input-text.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Формы"
 
     <div class="col4" markdown="1">
@@ -324,8 +328,8 @@ description: Тег input (от англ. input - ввод) является о�
 
 ```html
 <input
-  type="submit"
-  formenctype="application/x-www-form-urlencoded | multipart/form-data | text/plain"
+    type="submit"
+    formenctype="application/x-www-form-urlencoded | multipart/form-data | text/plain"
 />
 ```
 
@@ -394,8 +398,8 @@ description: Тег input (от англ. input - ввод) является о�
 
 ```html
 <input
-  type="submit"
-  formtarget="<имя фрейма> | _blank | _self | _parent | _top"
+    type="submit"
+    formtarget="<имя фрейма> | _blank | _self | _parent | _top"
 />
 ```
 
@@ -428,8 +432,8 @@ description: Тег input (от англ. input - ввод) является о�
 ```html
 <input list="<идентификатор>" />
 <datalist id="<идентификатор>">
-  <option value="Текст1"></option>
-  <option value="Текст2"></option>
+    <option value="Текст1"></option>
+    <option value="Текст2"></option>
 </datalist>
 ```
 
@@ -770,7 +774,7 @@ description: Тег input (от англ. input - ввод) является о�
 
 ```html
 <input
-  type="button|checkbox|file|hidden|image|password|radio|reset|submit|text"
+    type="button|checkbox|file|hidden|image|password|radio|reset|submit|text"
 />
 ```
 
@@ -859,10 +863,10 @@ description: Тег input (от англ. input - ввод) является о�
 
 В зависимости от типа элемента атрибут `value` выступает в следующей роли:
 
-- для кнопок (`input type="button | reset | submit"`) устанавливает текстовую надпись на них;
-- для текстовых полей (`input type="password | text"`) указывает предварительно введённую строку. Пользователь может стирать текст и вводить свои символы, но при использовании в форме кнопки Reset пользовательский текст очищается и восстанавливается введённый в атрибуте `value`;
-- для флажков и переключателей (`input type="checkbox | radio"`) уникально определяет каждый элемент, с тем, чтобы клиентская или серверная программа могла однозначно установить, какой пункт выбрал пользователь.
-- для файлового поля (`input type="file"`) не оказывает влияние.
+-   для кнопок (`input type="button | reset | submit"`) устанавливает текстовую надпись на них;
+-   для текстовых полей (`input type="password | text"`) указывает предварительно введённую строку. Пользователь может стирать текст и вводить свои символы, но при использовании в форме кнопки Reset пользовательский текст очищается и восстанавливается введённый в атрибуте `value`;
+-   для флажков и переключателей (`input type="checkbox | radio"`) уникально определяет каждый элемент, с тем, чтобы клиентская или серверная программа могла однозначно установить, какой пункт выбрал пользователь.
+-   для файлового поля (`input type="file"`) не оказывает влияние.
 
 **Синтаксис**
 
@@ -880,73 +884,84 @@ description: Тег input (от англ. input - ввод) является о�
 
 ## Значения ARIA role
 
-- `<input type=button>` — `role=button`
-- `<input type=checkbox>` — `role=checkbox`
-- `<input type=email>` — `role=textbox`
-- `<input type=image>` — `role=button`
-- `<input type=number>` — `role=spinbutton`
-- `<input type=radio>` — `role=radio`
-- `<input type=range>` — `role=slider`
-- `<input type=reset>` — `role=button`
-- `<input type=search>` — `role=searchbox`
-- `<input type=submit>` — `role=button`
-- `<input type=tel>` — `role=textbox`
-- `<input type=text>` — `role=textbox`
-- `<input type=text, search, tel, url, или email с атрибутом list>` — `role=combobox`
-- `<input type=url>` — `role=textbox`
+-   `<input type=button>` — `role=button`
+-   `<input type=checkbox>` — `role=checkbox`
+-   `<input type=email>` — `role=textbox`
+-   `<input type=image>` — `role=button`
+-   `<input type=number>` — `role=spinbutton`
+-   `<input type=radio>` — `role=radio`
+-   `<input type=range>` — `role=slider`
+-   `<input type=reset>` — `role=button`
+-   `<input type=search>` — `role=searchbox`
+-   `<input type=submit>` — `role=button`
+-   `<input type=tel>` — `role=textbox`
+-   `<input type=text>` — `role=textbox`
+-   `<input type=text, search, tel, url, или email с атрибутом list>` — `role=combobox`
+-   `<input type=url>` — `role=textbox`
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/the-input-element.html#the-input-element)
-- [HTML5](http://www.w3.org/TR/html5/forms.html#the-input-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/forms.html#h-17.4)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/the-input-element.html#the-input-element)
+-   [HTML5](http://www.w3.org/TR/html5/forms.html#the-input-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/forms.html#h-17.4)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>INPUT</title>
-  </head>
+    <head>
+        <meta charset="utf-8" />
+        <title>INPUT</title>
+    </head>
 
-  <body>
-    <form name="test" method="post" action="input1.php">
-      <p>
-        <b>Ваше имя:</b><br />
-        <input type="text" size="40" />
-      </p>
-      <p>
-        <b>Каким браузером в основном пользуетесь:</b><br />
-        <input type="radio" name="browser" value="ie" />
-        Internet Explorer<br />
-        <input type="radio" name="browser" value="opera" />
-        Opera<br />
-        <input
-          type="radio"
-          name="browser"
-          value="firefox"
-        />
-        Firefox<br />
-      </p>
-      <p>
-        Комментарий<br />
-        <textarea
-          name="comment"
-          cols="40"
-          rows="3"
-        ></textarea>
-      </p>
-      <p>
-        <input type="submit" value="Отправить" />
-        <input type="reset" value="Очистить" />
-      </p>
-    </form>
-  </body>
+    <body>
+        <form name="test" method="post" action="input1.php">
+            <p>
+                <b>Ваше имя:</b><br />
+                <input type="text" size="40" />
+            </p>
+            <p>
+                <b
+                    >Каким браузером в основном
+                    пользуетесь:</b
+                ><br />
+                <input
+                    type="radio"
+                    name="browser"
+                    value="ie"
+                />
+                Internet Explorer<br />
+                <input
+                    type="radio"
+                    name="browser"
+                    value="opera"
+                />
+                Opera<br />
+                <input
+                    type="radio"
+                    name="browser"
+                    value="firefox"
+                />
+                Firefox<br />
+            </p>
+            <p>
+                Комментарий<br />
+                <textarea
+                    name="comment"
+                    cols="40"
+                    rows="3"
+                ></textarea>
+            </p>
+            <p>
+                <input type="submit" value="Отправить" />
+                <input type="reset" value="Очистить" />
+            </p>
+        </form>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<input>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/input) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<input>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/input) <sup><small>MDN (рус.)</small></sup>

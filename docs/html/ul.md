@@ -8,6 +8,10 @@ description: Тег ul (от англ. unordered list — неупорядоче
 
 Каждый пункт списка должен начинаться с элемента [`<li>`](li.md).
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/ul.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые блоки"
 
     <div class="col4" markdown="1">
@@ -30,7 +34,7 @@ description: Тег ul (от англ. unordered list — неупорядоче
 
 ```html
 <ul>
-  <li>пункт маркированного списка</li>
+    <li>пункт маркированного списка</li>
 </ul>
 ```
 
@@ -59,8 +63,8 @@ description: Тег ul (от англ. unordered list — неупорядоче
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element)
-- [HTML 5](http://www.w3.org/TR/html5/grouping-content.html#the-ul-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element)
+-   [HTML 5](http://www.w3.org/TR/html5/grouping-content.html#the-ul-element)
 
 ## Примеры
 
@@ -69,19 +73,19 @@ description: Тег ul (от англ. unordered list — неупорядоче
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>UL</title>
-  </head>
-  <body>
-    <ul>
-      <li>Баал</li>
-      <li>Агарес</li>
-      <li>Марбас</li>
-      <li>Пруфлас</li>
-      <li>Аамон</li>
-    </ul>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>UL</title>
+    </head>
+    <body>
+        <ul>
+            <li>Баал</li>
+            <li>Агарес</li>
+            <li>Марбас</li>
+            <li>Пруфлас</li>
+            <li>Аамон</li>
+        </ul>
+    </body>
 </html>
 ```
 
@@ -91,34 +95,37 @@ description: Тег ul (от англ. unordered list — неупорядоче
 
 ```html
 <ul>
-  <li>first item</li>
-  <li>
-    second item
-    <!-- Внимание, закрывающий тег </li> здесь не размещаем -->
-    <ul>
-      <li>second item first subitem</li>
-      <li>
-        second item second subitem
-        <!-- Same for the second nested unordered list! -->
+    <li>first item</li>
+    <li>
+        second item
+        <!-- Внимание, закрывающий тег </li> здесь не размещаем -->
         <ul>
-          <li>
-            second item second subitem first sub-subitem
-          </li>
-          <li>
-            second item second subitem second sub-subitem
-          </li>
-          <li>
-            second item second subitem third sub-subitem
-          </li>
-        </ul>
-      </li>
-      <!-- Closing </li> tag for the li that
+            <li>second item first subitem</li>
+            <li>
+                second item second subitem
+                <!-- Same for the second nested unordered list! -->
+                <ul>
+                    <li>
+                        second item second subitem first
+                        sub-subitem
+                    </li>
+                    <li>
+                        second item second subitem second
+                        sub-subitem
+                    </li>
+                    <li>
+                        second item second subitem third
+                        sub-subitem
+                    </li>
+                </ul>
+            </li>
+            <!-- Closing </li> tag for the li that
             contains the third unordered list -->
-      <li>second item third subitem</li>
-    </ul>
-    <!-- Здесь размещается закрывающий тег </li> -->
-  </li>
-  <li>third item</li>
+            <li>second item third subitem</li>
+        </ul>
+        <!-- Здесь размещается закрывающий тег </li> -->
+    </li>
+    <li>third item</li>
 </ul>
 ```
 
@@ -128,28 +135,28 @@ description: Тег ul (от англ. unordered list — неупорядоче
 
 ```html
 <ul>
-  <li>first item</li>
-  <li>
-    second item
-    <!-- Look, the closing </li> tag is not placed here! -->
-    <ol>
-      <li>second item first subitem</li>
-      <li>second item second subitem</li>
-      <li>second item third subitem</li>
-    </ol>
-    <!-- Here is the closing </li> tag -->
-  </li>
-  <li>third item</li>
+    <li>first item</li>
+    <li>
+        second item
+        <!-- Look, the closing </li> tag is not placed here! -->
+        <ol>
+            <li>second item first subitem</li>
+            <li>second item second subitem</li>
+            <li>second item third subitem</li>
+        </ol>
+        <!-- Here is the closing </li> tag -->
+    </li>
+    <li>third item</li>
 </ul>
 ```
 
 ## См. также
 
-- [`<ol>`](ol.md)
-- [`<li>`](li.md)
-- [`list-style`](/css/list-style/)
-- [`line-height`](/css/line-height/)
+-   [`<ol>`](ol.md)
+-   [`<li>`](li.md)
+-   [`list-style`](/css/list-style/)
+-   [`line-height`](/css/line-height/)
 
 ## Ссылки
 
-- Тег [`<ul>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/ul) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<ul>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/ul) <sup><small>MDN (рус.)</small></sup>

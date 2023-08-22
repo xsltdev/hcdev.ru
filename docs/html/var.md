@@ -8,6 +8,10 @@ description: Тег var (от англ. variable — переменная) ис�
 
 Браузеры обычно помечают текст в контейнере `<var>` курсивным начертанием.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/var.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -62,8 +66,8 @@ description: Тег var (от англ. variable — переменная) ис�
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-var-element)
-- [HTML 5](http://www.w3.org/TR/html5/textlevel-semantics.html#the-var-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-var-element)
+-   [HTML 5](http://www.w3.org/TR/html5/textlevel-semantics.html#the-var-element)
 
 ## Примеры
 
@@ -72,19 +76,20 @@ description: Тег var (от англ. variable — переменная) ис�
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>VAR</title>
-  </head>
-  <body>
-    <p>
-      В данном примере делается запрос к базе данных для
-      получения поля
-      <var>content_title</var> из таблицы
-      <var>content</var>, причем должно удовлетворяться
-      условие <code>section_id = 1</code>.
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>VAR</title>
+    </head>
+    <body>
+        <p>
+            В данном примере делается запрос к базе данных
+            для получения поля
+            <var>content_title</var> из таблицы
+            <var>content</var>, причем должно
+            удовлетворяться условие
+            <code>section_id = 1</code>.
+        </p>
+    </body>
 </html>
 ```
 
@@ -120,4 +125,4 @@ description: Тег var (от англ. variable — переменная) ис�
 
 ## Ссылки
 
-- Тег [`<var>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/var) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<var>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/var) <sup><small>MDN (рус.)</small></sup>

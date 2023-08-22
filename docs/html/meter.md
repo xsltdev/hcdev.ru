@@ -10,6 +10,10 @@ description: Тег meter (от англ. meter — счетчик, измери
 
 Браузеры, которые поддерживают элемент `<meter>`, отображают значение в виде рисунка, на котором цветом помечается текущее значение в указанном диапазоне. Остальные браузеры выводят текст, написанный внутри `<meter>`.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/meter.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Формы"
 
     <div class="col4" markdown="1">
@@ -39,7 +43,7 @@ description: Тег meter (от англ. meter — счетчик, измери
 
 Полифилы для включения поддержки:
 
-- [`<meter>` polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills#meter)
+-   [`<meter>` polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills#meter)
 
 ## Синтаксис
 
@@ -179,34 +183,34 @@ description: Тег meter (от англ. meter — счетчик, измери
 
 ## Спецификации
 
-- [HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-meter-element)
-- [HTML 5](http://www.w3.org/TR/html5/forms.html#the-meter-element)
+-   [HTML Living Standard](https://html.spec.whatwg.org/multipage/forms.html#the-meter-element)
+-   [HTML 5](http://www.w3.org/TR/html5/forms.html#the-meter-element)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>meter</title>
-  </head>
-  <body>
-    <p>Температура воды</p>
-    <meter value="0" max="100" low="10" high="60">
-      Низкая
-    </meter>
-    <meter value="30" max="100" low="10" high="60">
-      Нормальная
-    </meter>
-    <meter value="80" max="100" low="10" high="60">
-      Горячая
-    </meter>
-    <meter value="100" max="100">Кипяток</meter>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>meter</title>
+    </head>
+    <body>
+        <p>Температура воды</p>
+        <meter value="0" max="100" low="10" high="60">
+            Низкая
+        </meter>
+        <meter value="30" max="100" low="10" high="60">
+            Нормальная
+        </meter>
+        <meter value="80" max="100" low="10" high="60">
+            Горячая
+        </meter>
+        <meter value="100" max="100">Кипяток</meter>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<meter>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/meter) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<meter>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/meter) <sup><small>MDN (рус.)</small></sup>

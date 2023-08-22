@@ -10,6 +10,10 @@ description: Тег a (от англ. anchor - якорь, ссылка) пре�
 
 В качестве значения атрибута `href` используется адрес документа, на который происходит переход. Адрес ссылки может быть абсолютным и относительным. Абсолютные адреса работают везде и всюду независимо от имени сайта или веб-страницы, где прописана ссылка. Относительные ссылки, как следует из их названия, построены относительно текущего документа или корня сайта.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/a.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -286,13 +290,6 @@ MIME-тип
 
 Нет.
 
-## Спецификации
-
-- [Referrer Policy](https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-delivery-referrer-attribute)
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element)
-- [HTML5](http://www.w3.org/TR/html5/text-level-semantics.html#the-a-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/links.html#h-12.2)
-
 ## Примеры
 
 ### Пример со ссылкой
@@ -300,20 +297,22 @@ MIME-тип
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>А</title>
-  </head>
-  <body>
-    <p>
-      <a href="image/xxx.jpg"
-        >Посмотрите на мою фотографию!</a
-      >
-    </p>
-    <p>
-      <a href="page/tip.html">Как сделать такое же фото?</a>
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>А</title>
+    </head>
+    <body>
+        <p>
+            <a href="image/xxx.jpg"
+                >Посмотрите на мою фотографию!</a
+            >
+        </p>
+        <p>
+            <a href="page/tip.html"
+                >Как сделать такое же фото?</a
+            >
+        </p>
+    </body>
 </html>
 ```
 
@@ -336,18 +335,18 @@ MIME-тип
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>anchor</title>
-    <style>
-      #anchor {
-        margin-top: 999px;
-      }
-    </style>
-  </head>
-  <body>
-    <a href="#anchor">Go to anchor</a>
-    <div id="anchor">Anchor</div>
-  </body>
+    <head>
+        <title>anchor</title>
+        <style>
+            #anchor {
+                margin-top: 999px;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="#anchor">Go to anchor</a>
+        <div id="anchor">Anchor</div>
+    </body>
 </html>
 ```
 
@@ -373,7 +372,7 @@ MIME-тип
 
 ```html
 <a href="mailto:nowhere@mozilla.org"
-  >Отправить сообщение в никуда</a
+    >Отправить сообщение в никуда</a
 >
 ```
 
@@ -389,6 +388,27 @@ MIME-тип
 
 Для дополнительных деталей о протоколе `tel`, смотрите [RFC 2806](http://tools.ietf.org/html/2806) и [RFC 2396](http://tools.ietf.org/html/2396).
 
-## Ссылки
+<div class="grid cards" style="margin-top: 1.6em" markdown>
 
-- Тег [`<a>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/A) <sup><small>MDN (рус.)</small></sup>
+-   :simple-html5:{ .lg .middle } **Спецификации**
+
+    ***
+
+    [:octicons-arrow-right-24: Referrer Policy](https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-delivery-referrer-attribute)
+
+    [:octicons-arrow-right-24: WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element)
+
+    [:octicons-arrow-right-24: HTML5](http://www.w3.org/TR/html5/text-level-semantics.html#the-a-element)
+
+    [:octicons-arrow-right-24: HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/links.html#h-12.2)
+
+</div>
+<div class="grid cards" markdown>
+
+-   :material-link:{ .lg .middle } **Ссылки**
+
+    ***
+
+    :simple-mdnwebdocs: [`<a>`: The Anchor element](https://developer.mozilla.org/docs/Web/HTML/Element/a)
+
+</div>

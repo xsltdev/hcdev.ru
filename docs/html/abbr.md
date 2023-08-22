@@ -10,6 +10,10 @@ description: Тег abbr (от англ. abbreviation - аббревиатура
 
 Браузеры обычно добавляют к тексту пунктирное подчёркивание, но могут и не выделять содержимое элемента.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/abbr.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -64,9 +68,9 @@ description: Тег abbr (от англ. abbreviation - аббревиатура
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-abbr-element)
-- [HTML5](http://www.w3.org/TR/html5/text-level-semantics.html#the-abbr-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#edef-ABBR)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-abbr-element)
+-   [HTML5](http://www.w3.org/TR/html5/text-level-semantics.html#the-abbr-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#edef-ABBR)
 
 ## Описание и примеры
 
@@ -75,35 +79,35 @@ description: Тег abbr (от англ. abbreviation - аббревиатура
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>abbr</title>
-    <meta charset="utf-8" />
-    <style>
-      abbr {
-        border-bottom: 1px dashed red;
-        color: #000080;
-      }
-    </style>
-  </head>
+    <head>
+        <title>abbr</title>
+        <meta charset="utf-8" />
+        <style>
+            abbr {
+                border-bottom: 1px dashed red;
+                color: #000080;
+            }
+        </style>
+    </head>
 
-  <body>
-    <p>
-      <abbr>CGI</abbr> обозначается протокол, с помощью
-      которого любые внешние программы взаимодействуют с
-      веб-сервером. С помощью
-      <abbr
-        title="Common
+    <body>
+        <p>
+            <abbr>CGI</abbr> обозначается протокол, с
+            помощью которого любые внешние программы
+            взаимодействуют с веб-сервером. С помощью
+            <abbr
+                title="Common
     Gateway Interface, общий шлюзовый интерфейс"
-        >CGI</abbr
-      >
-      на сервере можно выполнять программы на любом языке
-      программирования и результат их действия выводить в
-      виде веб-страницы.
-    </p>
-  </body>
+                >CGI</abbr
+            >
+            на сервере можно выполнять программы на любом
+            языке программирования и результат их действия
+            выводить в виде веб-страницы.
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<abbr>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/abbr) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<abbr>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/abbr) <sup><small>MDN (рус.)</small></sup>

@@ -1,5 +1,6 @@
 ---
 description: Элемент tt создает встроенный текст, который отображается с использованием шрифта моноширинного шрифта, установленного по умолчанию в пользовательском агенте
+status: deprecated
 ---
 
 # &lt;tt&gt;
@@ -14,18 +15,18 @@ description: Элемент tt создает встроенный текст, �
 
 ## Спецификации
 
-- [HTML Living Standard](https://html.spec.whatwg.org/multipage/obsolete.html#tt)
-- [HTML 5](https://www.w3.org/TR/html50/obsolete.html#elementdef-tt)
-- [HTML 4.01 Specification](https://www.w3.org/TR/html401/present/graphics.html#h-15.2.1)
+-   [HTML Living Standard](https://html.spec.whatwg.org/multipage/obsolete.html#tt)
+-   [HTML 5](https://www.w3.org/TR/html50/obsolete.html#elementdef-tt)
+-   [HTML 4.01 Specification](https://www.w3.org/TR/html401/present/graphics.html#h-15.2.1)
 
 ## См. также
 
-- [`<code>`](code.md)
-- [`<var>`](var.md)
-- [`<kbd>`](kbd.md)
-- [`<samp>`](samp.md)
-- [`<pre>`](pre.md)
+-   [`<code>`](code.md)
+-   [`<var>`](var.md)
+-   [`<kbd>`](kbd.md)
+-   [`<samp>`](samp.md)
+-   [`<pre>`](pre.md)
 
 ## Ссылки
 
-- Тег [`<tt>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/tt) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<tt>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/tt) <sup><small>MDN (рус.)</small></sup>

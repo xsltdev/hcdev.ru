@@ -10,10 +10,14 @@ description: Тег address (от англ. address - адрес) предназ
 
 Используйте `<address>` в следующем контексте:
 
-- если `<address>` располагается внутри `<body>`, то информация внутри `<address>` относится ко всему документу в целом;
-- если `<address>` располагается внутри `<article>`, то информация внутри `<address>` относится к автору статьи.
+-   если `<address>` располагается внутри `<body>`, то информация внутри `<address>` относится ко всему документу в целом;
+-   если `<address>` располагается внутри `<article>`, то информация внутри `<address>` относится к автору статьи.
 
 По умолчанию текст внутри контейнера `<address>` отображается курсивным начертанием.
+
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/address.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
 ??? info "Секции и заголовки"
 
@@ -51,29 +55,29 @@ description: Тег address (от англ. address - адрес) предназ
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/sections.html#the-address-element)
-- [HTML5](http://www.w3.org/TR/html5/sections.html#the-address-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/global.html#h-7.5.6)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/sections.html#the-address-element)
+-   [HTML5](http://www.w3.org/TR/html5/sections.html#the-address-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/global.html#h-7.5.6)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta
-      http-equiv="Content-Type"
-      content="text/html; charset=utf-8"
-    />
-    <title>address</title>
-  </head>
+    <head>
+        <meta
+            http-equiv="Content-Type"
+            content="text/html; charset=utf-8"
+        />
+        <title>address</title>
+    </head>
 
-  <body>
-    <address>Этот сайт сделал Бондаренко Юрий</address>
-  </body>
+    <body>
+        <address>Этот сайт сделал Бондаренко Юрий</address>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<address>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/address) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<address>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/address) <sup><small>MDN (рус.)</small></sup>

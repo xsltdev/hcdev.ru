@@ -8,6 +8,10 @@ description: Тег blockquote (от англ. block quotation - блок цит
 
 Текст, обозначенный этим тегом, традиционно отображается как выровненный блок с отступами слева и справа (примерно по 40 пикселей), а также с отбивкой сверху и снизу.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/blockquote.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые блоки"
 
     <div class="col4" markdown="1">
@@ -61,33 +65,33 @@ description: Тег blockquote (от англ. block quotation - блок цит
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-blockquote-element)
-- [HTML5](http://www.w3.org/TR/html5/grouping-content.html#the-blockquote-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#h-9.2.2)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-blockquote-element)
+-   [HTML5](http://www.w3.org/TR/html5/grouping-content.html#the-blockquote-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/text.html#h-9.2.2)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>cite</title>
-  </head>
-  <body>
-    <p>Цитата из «Двенадцати стульев»:</p>
-    <blockquote
-      cite="https://ru.wikiquote.org/wiki/Двенадцать_стульев"
-    >
-      Неделю тому назад состоялся вечер «Общества спасания
-      на водах», о чём свидетельствовал также лозунг на
-      стене: Дело помощи утопающим — дело рук самих
-      утопающих.
-    </blockquote>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>cite</title>
+    </head>
+    <body>
+        <p>Цитата из «Двенадцати стульев»:</p>
+        <blockquote
+            cite="https://ru.wikiquote.org/wiki/Двенадцать_стульев"
+        >
+            Неделю тому назад состоялся вечер «Общества
+            спасания на водах», о чём свидетельствовал также
+            лозунг на стене: Дело помощи утопающим — дело
+            рук самих утопающих.
+        </blockquote>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<blockquote>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/blockquote) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<blockquote>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/blockquote) <sup><small>MDN (рус.)</small></sup>

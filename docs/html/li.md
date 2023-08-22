@@ -6,6 +6,10 @@ description: Тег li (от англ. list item - пункт списка) оп
 
 Тег **`<li>`** _(от англ. **l**ist **i**tem — пункт списка)_ определяет отдельный пункт списка. Внешний элемент [`<ul>`](ul.md) или [`<ol>`](ol.md) устанавливает тип списка — маркированный или нумерованный.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/li.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые блоки"
 
     <div class="col4" markdown="1">
@@ -28,11 +32,11 @@ description: Тег li (от англ. list item - пункт списка) оп
 
 ```html
 <ul>
-  <li>элемент маркированного списка</li>
+    <li>элемент маркированного списка</li>
 </ul>
 
 <ol>
-  <li>элемент нумерованного списка</li>
+    <li>элемент нумерованного списка</li>
 </ol>
 ```
 
@@ -65,20 +69,20 @@ description: Тег li (от англ. list item - пункт списка) оп
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-li-element)
-- [HTML 5](http://www.w3.org/TR/html5/grouping-content.html#the-li-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/lists.html#h-10.2)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-li-element)
+-   [HTML 5](http://www.w3.org/TR/html5/grouping-content.html#the-li-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/lists.html#h-10.2)
 
 ## Описание и примеры
 
 ```html
 <ol type="I">
-  <li value="3">Третий элемент</li>
-  <li>Четвёртый элемент</li>
-  <li>Пятый элемент</li>
+    <li value="3">Третий элемент</li>
+    <li>Четвёртый элемент</li>
+    <li>Пятый элемент</li>
 </ol>
 ```
 
 ## Ссылки
 
-- Тег [`<li>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/li) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<li>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/li) <sup><small>MDN (рус.)</small></sup>

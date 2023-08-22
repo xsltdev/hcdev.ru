@@ -8,6 +8,10 @@ description: Тег track (от англ. track — след, дорожка) п
 
 Такая дорожка обычно содержит субтитры на разных языках, комментарии, заголовки и др.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/track.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Изображения и мультимедиа"
 
     <div class="col4" markdown="1">
@@ -33,10 +37,10 @@ description: Тег track (от англ. track — след, дорожка) п
 
 ```html
 <audio>
-  <track kind | src | srclang | label | default />
+    <track kind | src | srclang | label | default />
 </audio>
 <video>
-  <track kind | src | srclang | label | default />
+    <track kind | src | srclang | label | default />
 </video>
 ```
 
@@ -71,57 +75,57 @@ description: Тег track (от англ. track — след, дорожка) п
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-track-element)
-- [HTML 5](http://www.w3.org/TR/html5/embedded-content-0.html#the-track-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/embedded-content.html#the-track-element)
+-   [HTML 5](http://www.w3.org/TR/html5/embedded-content-0.html#the-track-element)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>track</title>
-  </head>
-  <body>
-    <video width="500" height="400" controls>
-      <track
-        kind="subtitles"
-        src="video/jane.en.vtt"
-        srclang="en"
-        label="English"
-      />
-      <track
-        kind="subtitles"
-        src="video/jane.ua.vtt"
-        srclang="ua"
-        label="Український"
-      />
-      <track
-        kind="subtitles"
-        src="video/jane.ru.vtt"
-        srclang="ru"
-        label="Русский"
-        default
-      />
-      <source
-        src="video/jane.ogv"
-        type='video/ogg; codecs="theora, vorbis"'
-      />
-      <source
-        src="video/jane.mp4"
-        type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
-      />
-      <source
-        src="video/jane.webm"
-        type='video/webm; codecs="vp8, vorbis"'
-      />
-      Элемент video не поддерживается вашим браузером.
-    </video>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>track</title>
+    </head>
+    <body>
+        <video width="500" height="400" controls>
+            <track
+                kind="subtitles"
+                src="video/jane.en.vtt"
+                srclang="en"
+                label="English"
+            />
+            <track
+                kind="subtitles"
+                src="video/jane.ua.vtt"
+                srclang="ua"
+                label="Український"
+            />
+            <track
+                kind="subtitles"
+                src="video/jane.ru.vtt"
+                srclang="ru"
+                label="Русский"
+                default
+            />
+            <source
+                src="video/jane.ogv"
+                type='video/ogg; codecs="theora, vorbis"'
+            />
+            <source
+                src="video/jane.mp4"
+                type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+            />
+            <source
+                src="video/jane.webm"
+                type='video/webm; codecs="vp8, vorbis"'
+            />
+            Элемент video не поддерживается вашим браузером.
+        </video>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<track>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/track) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<track>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/track) <sup><small>MDN (рус.)</small></sup>

@@ -6,6 +6,10 @@ description: Тег wbr (от англ. word break — разрыв слова) 
 
 Тег **`<wbr>`** _(от англ. **w**ord **br**eak — разрыв слова)_ указывает браузеру место, где допускается делать перенос строки в тексте, если этого требует ширина родительского элемента.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/wbr.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -60,8 +64,8 @@ description: Тег wbr (от англ. word break — разрыв слова) 
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-wbr-element)
-- [HTML 5](http://www.w3.org/TR/html5/text-level-semantics.html#the-wbr-element)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-wbr-element)
+-   [HTML 5](http://www.w3.org/TR/html5/text-level-semantics.html#the-wbr-element)
 
 ## Примеры
 
@@ -70,24 +74,24 @@ description: Тег wbr (от англ. word break — разрыв слова) 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>WBR</title>
-    <style>
-      .word {
-        font-size: 2em;
-      }
-      wbr {
-        display: inline-block;
-      }
-    </style>
-  </head>
-  <body>
-    <p>Самое длинное слово из химии</p>
-    <p class="word">
-      метоксихлор<wbr />диэтиламино<wbr />метил<wbr />бутил<wbr />амино<wbr />акридин
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>WBR</title>
+        <style>
+            .word {
+                font-size: 2em;
+            }
+            wbr {
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Самое длинное слово из химии</p>
+        <p class="word">
+            метоксихлор<wbr />диэтиламино<wbr />метил<wbr />бутил<wbr />амино<wbr />акридин
+        </p>
+    </body>
 </html>
 ```
 
@@ -97,16 +101,16 @@ description: Тег wbr (от англ. word break — разрыв слова) 
 
 ```html
 <p>
-  http://this<wbr />.is<wbr />.a<wbr />.really<wbr />.long<wbr />.example<wbr />.com/With<wbr />/deeper<wbr />/level<wbr />/pages<wbr />/deeper<wbr />/level<wbr />/pages<wbr />/deeper<wbr />/level<wbr />/pages<wbr />/deeper<wbr />/level<wbr />/pages<wbr />/deeper<wbr />/level<wbr />/pages
+    http://this<wbr />.is<wbr />.a<wbr />.really<wbr />.long<wbr />.example<wbr />.com/With<wbr />/deeper<wbr />/level<wbr />/pages<wbr />/deeper<wbr />/level<wbr />/pages<wbr />/deeper<wbr />/level<wbr />/pages<wbr />/deeper<wbr />/level<wbr />/pages<wbr />/deeper<wbr />/level<wbr />/pages
 </p>
 ```
 
 ## См. также
 
-- [overflow-wrap](/css/overflow-wrap/)
-- [word-break](/css/word-break/)
-- [hyphens](/css/hyphens/)
+-   [overflow-wrap](/css/overflow-wrap/)
+-   [word-break](/css/word-break/)
+-   [hyphens](/css/hyphens/)
 
 ## Ссылки
 
-- Тег [`<wbr>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/wbr) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<wbr>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/wbr) <sup><small>MDN (рус.)</small></sup>

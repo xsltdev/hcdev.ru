@@ -8,6 +8,10 @@ description: Тег bdo (от англ. bidirectional override - элемент 
 
 Например, к ним относится иврит.
 
+## Демо
+
+<iframe class="interactive is-tabbed-standard-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/bdo.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Текстовые элементы"
 
     <div class="col4" markdown="1">
@@ -62,25 +66,27 @@ description: Тег bdo (от англ. bidirectional override - элемент 
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-bdo-element)
-- [HTML5](http://www.w3.org/TR/html5/textlevel-semantics.html#the-bdo-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/dirlang.html#h-8.2.4)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-bdo-element)
+-   [HTML5](http://www.w3.org/TR/html5/textlevel-semantics.html#the-bdo-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/dirlang.html#h-8.2.4)
 
 ## Описание и примеры
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>BDO</title>
-  </head>
-  <body>
-    <p><bdo dir="rtl">А роза упала на лапу Азора</bdo></p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>BDO</title>
+    </head>
+    <body>
+        <p>
+            <bdo dir="rtl">А роза упала на лапу Азора</bdo>
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<bdo>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/bdo) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<bdo>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/bdo) <sup><small>MDN (рус.)</small></sup>

@@ -1,5 +1,6 @@
 ---
 description: Элемент xmp отображает текст между начальным и конечным тегами, не интерпретируя промежуточный HTML-код и не используя моноширинный шрифт
+status: deprecated
 ---
 
 # &lt;xmp&gt;
@@ -16,4 +17,4 @@ description: Элемент xmp отображает текст между на�
 
 ## Ссылки
 
-- Тег [`<xmp>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/xmp) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<xmp>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/xmp) <sup><small>MDN (рус.)</small></sup>
