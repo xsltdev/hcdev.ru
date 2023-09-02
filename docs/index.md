@@ -53,6 +53,7 @@ hide:
     [![Typescript](ts.svg){: style="height:16px;width:16px;vertical-align:middle;"} Typescript](https://scriptdev.ru/) &nbsp;&nbsp;&nbsp;
     [![Angular](angular.svg){: style="height:16px;width:16px;vertical-align:middle;"} Angular](https://angdev.ru/) &nbsp;&nbsp;&nbsp;
     [![React](react.svg){: style="height:16px;width:16px;vertical-align:middle;"} React](https://reactdev.ru/) &nbsp;&nbsp;&nbsp;
+    [![Solid](solid.svg){: style="height:16px;width:16px;vertical-align:middle;"} Solid](https://soliddev.ru/) &nbsp;&nbsp;&nbsp;
     [![React Native](rn.svg){: style="height:16px;width:16px;vertical-align:middle;"} React Native](https://reactnativedev.ru/) &nbsp;&nbsp;&nbsp;
     [![Node.js](nodejs.svg){: style="height:16px;width:16px;vertical-align:middle;"} Node.js](https://nodejsdev.ru/) &nbsp;&nbsp;&nbsp;
     [![Python 3](python.svg){: style="height:16px;width:16px;vertical-align:middle;"} Python 3](https://py3dev.ru/) &nbsp;&nbsp;&nbsp;
@@ -66,10 +67,4 @@ hide:
 
 - [MongoDB](https://github.com/jsmarkus/the-little-mongodb-book/blob/master/ru/mongodb.markdown)
 - [MariaDB](https://oracleplsql.ru/mariadb-manual.html)
-
-- [Git](https://github.com/progit/progit2-ru)
-
-- [MDN](https://github.com/mdn/translated-content/tree/main/files/ru/web)
-
-- [Вопросы к собесам](https://github.com/YauhenKavalchuk/interview-questions)
 -->
