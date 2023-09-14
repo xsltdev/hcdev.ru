@@ -1,0 +1,23 @@
+title: Учебник HTML 5
+nav:
+    - index.md
+    - overview.md
+    - document-structure.md
+    #- metadata.md
+    #- semantic-html.md
+    #- headings-and-sections.md
+    #- attributes.md
+    #- text-basics.md
+    #- links.md
+    #- lists.md
+    #- navigation.md
+    #- tables.md
+    #- forms.md
+    #- images.md
+    #- audio-video.md
+    #- template.md
+    #- apis.md
+    #- focus.md
+    #- inline-text.md
+    #- details.md
+    #- dialog.md

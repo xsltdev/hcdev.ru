@@ -33,15 +33,17 @@ hide:
 
     **[:octicons-arrow-right-24: CSS](/css/)**
 
--   :material-grid:{ .lg .middle } **Вёрстка**
+-   :fontawesome-solid-graduation-cap:{ .lg .middle } **Учебники**
 
     ***
 
-    Нативные системы вёрстки
+    Учебники и документация
 
-    [:octicons-arrow-right-24: Flexbox](/flex/)
+    [:octicons-arrow-right-24: HTML5](/learn/flex/) <small>web.dev</small>
 
-    [:octicons-arrow-right-24: Grid Layout](/grid/)
+    [:octicons-arrow-right-24: Flexbox](/learn/flex/)
+
+    [:octicons-arrow-right-24: Grid Layout](/learn/grid/)
 
 </div>
 
