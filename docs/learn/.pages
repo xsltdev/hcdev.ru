@@ -3,5 +3,7 @@ nav:
     - index.md
     - html5
     #- css3
+    #- pwa
+    #- design
     - flex
     - grid
