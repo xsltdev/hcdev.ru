@@ -39,7 +39,7 @@ hide:
 
     Учебники и документация
 
-    [:octicons-arrow-right-24: HTML5](/learn/flex/) <small>web.dev</small>
+    **[:octicons-arrow-right-24: HTML5](/learn/html5/)** <small>web.dev</small>
 
     [:octicons-arrow-right-24: Flexbox](/learn/flex/)
 
