@@ -3,8 +3,8 @@ nav:
     - index.md
     - overview.md
     - document-structure.md
-    #- metadata.md
-    #- semantic-html.md
+    - metadata.md
+    - semantic-html.md
     #- headings-and-sections.md
     #- attributes.md
     #- text-basics.md

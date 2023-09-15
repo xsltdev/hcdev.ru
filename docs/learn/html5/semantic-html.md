@@ -1,175 +1,165 @@
 ---
-title: 'Semantic HTML'
-authors:
-  - estelleweyl
-description: Using the correct HTML elements to describe your document content.
-date: 2022-09-27
-tags:
-  - html
+description: Использование правильных элементов HTML для описания содержимого документа.
 ---
 
-With over 100 HTML elements, and the ability to create custom elements, there are infinite ways to mark up your content; but some ways—notably _semantically_—are better than others.
+# Семантический HTML
 
-_Semantic_ means "relating to meaning". Writing semantic HTML means using HTML elements to structure your content based on each element's meaning, not its appearance.
+Имея более 100 элементов HTML и возможность создавать собственные элементы, можно бесконечно долго размечать содержимое, но некоторые способы - в частности, _семантический_ - лучше других.
 
-This series hasn't covered many HTML elements yet, but even without knowing HTML, the following two code snippets show how semantic markup can give content context. Both use a word count instead of _ipsum lorem_ to save some scrolling—use your imagination to expand "thirty words" into 30 words:
+_Семантический_ означает "относящийся к смыслу". Написание семантического HTML означает использование элементов HTML для структурирования содержимого на основе смысла каждого элемента, а не его внешнего вида.
 
-The first code snippet uses `<div>` and `<span>`, two elements with no semantic value.
+В этой серии статей мы рассмотрели еще не так много элементов HTML, но даже без знания HTML следующие два фрагмента кода показывают, как семантическая разметка может придать содержимому контекст. В обоих случаях вместо _ipsum lorem_ используется подсчет слов для экономии прокрутки - используйте свое воображение, чтобы превратить "тридцать слов" в 30 слов:
+
+В первом фрагменте кода используются `<div>` и `<span>`, два элемента, не имеющие семантического значения.
 
 ```html
 <div>
-  <span>Three words</span>
-  <div>
-    <a>one word</a>
-    <a>one word</a>
-    <a>one word</a>
-    <a>one word</a>
-  </div>
+    <span>Three words</span>
+    <div>
+        <a>one word</a>
+        <a>one word</a>
+        <a>one word</a>
+        <a>one word</a>
+    </div>
 </div>
 <div>
-  <div>
-    <div>five words</div>
-  </div>
-  <div>
-    <div>three words</div>
-    <div>forty-six words</div>
-    <div>forty-four words</div>
-  </div>
-  <div>
-    <div>seven words</h2>
-    <div>sixty-eight words</div>
-    <div>forty-four words</div>
-  </div>
+    <div>
+        <div>five words</div>
+    </div>
+    <div>
+        <div>three words</div>
+        <div>forty-six words</div>
+        <div>forty-four words</div>
+    </div>
+    <div>
+        <div>seven words</div>
+        <div>sixty-eight words</div>
+        <div>forty-four words</div>
+    </div>
 </div>
 <div>
-   <span>five words</span>
+    <span>five words</span>
 </div>
 ```
 
-Do you get a sense of what those words expand to? Not really.
+Понимаете ли вы, к чему относятся эти слова? Не совсем.
 
-Let's rewrite this code with semantic elements:
+Давайте перепишем этот код с использованием семантических элементов:
 
 ```html
 <header>
-  <h1>Three words</h1>
-  <nav>
-    <a>one word</a>
-    <a>one word</a>
-    <a>one word</a>
-    <a>one word</a>
-  </nav>
+    <h1>Three words</h1>
+    <nav>
+        <a>one word</a>
+        <a>one word</a>
+        <a>one word</a>
+        <a>one word</a>
+    </nav>
 </header>
 <main>
-  <header>
-    <h1>five words</h1>
-  </header>
-  <section>
-    <h2>three words</h2>
-    <p>forty-six words</p>
-    <p>forty-four words</p>
-  </section>
-  <section>
-    <h2>seven words</h2>
-    <p>sixty-eight words</p>
-    <p>forty-four words</p>
-  </section>
+    <header>
+        <h1>five words</h1>
+    </header>
+    <section>
+        <h2>three words</h2>
+        <p>forty-six words</p>
+        <p>forty-four words</p>
+    </section>
+    <section>
+        <h2>seven words</h2>
+        <p>sixty-eight words</p>
+        <p>forty-four words</p>
+    </section>
 </main>
 <footer>
-  <p>five words</p>
+    <p>five words</p>
 </footer>
 ```
 
-Which code block conveyed meaning?  Using only the non-semantic elements of `<div>` and `<span>`, you really can't tell what the content in the first code block represents. The second code example, with semantic elements, provides enough context for a non-coder to decipher the purpose and meaning without having ever encountered an HTML tag. It definitely provides enough context for the developer to understand the outline of the page, even if they don't understand the content, such as content in a foreign language.
+Какой блок кода передает смысл? Используя только несемантические элементы `<div>` и `<span>`, невозможно определить, что представляет собой содержимое первого блока кода. Второй пример кода с семантическими элементами содержит достаточно контекста для того, чтобы не-кодер мог расшифровать назначение и смысл, даже не сталкиваясь с HTML-тегами. Определенно достаточно контекста для того, чтобы разработчик мог понять суть страницы, даже если он не понимает ее содержимого, например, содержимого на иностранном языке.
 
-In the second code block, we can understand the architecture even without understanding the content because semantic elements provide meaning and structure. You can tell that the first header is the site's banner, with the `<h1>` likely to be the site name. The footer is the site footer: the five words may be a copyright statement or business address.
+Во втором блоке кода мы можем понять архитектуру даже без понимания содержимого, поскольку семантические элементы обеспечивают смысл и структуру. Можно сказать, что первый заголовок - это баннер сайта, причем `<h1>`, скорее всего, является названием сайта. Нижний колонтитул - это нижний колонтитул сайта: пять слов могут быть заявлением об авторских правах или адресом компании.
 
-Semantic markup isn't just about making markup easier for developers to read; it's mostly about making markup easy for automated tools to decipher. Developer tools demonstrate how semantic elements provide machine-readable structure as well.
+Семантическая разметка - это не только облегчение чтения разметки для разработчиков, но и облегчение расшифровки разметки для автоматизированных средств. Инструменты разработчика демонстрируют, как семантические элементы обеспечивают также и машиночитаемую структуру.
 
-## Accessibility object model (AOM)
+## Объектная модель доступности (AOM)
 
-As the browser parses the content received, it builds the document object model (DOM) and the CSS object model (CSSOM). It then also builds an accessibility tree. Assistive devices, such as screen readers, use the AOM to parse and interpret content. The DOM is a tree of all the nodes in the document. The AOM is like a semantic version of the DOM.
+По мере разбора полученного содержимого браузер строит объектную модель документа (DOM) и объектную модель CSS (CSSOM). Затем он также строит дерево доступности. Вспомогательные устройства, такие как программы чтения с экрана, используют AOM для анализа и интерпретации содержимого. DOM - это дерево всех узлов документа. AOM - это как бы семантическая версия DOM.
 
-Let's compare how both of these document structures are rendered in Firefox's accessibility panel:
+Давайте сравним, как обе эти структуры документов отображаются в панели доступности Firefox:
 
-<div class="switcher">
-  <figure>
-    {% Img src="image/kheDArv5csY6rvQUJDbWRscckLr1/R2d9f5NfZTo1j9mOul0d.png", alt="A list of nodes which are all link or text leaf.", width="312", height="762" %}
-    <figcaption>
-      The first code snippet.
-    </figcaption>
-  </figure>
-  <figure>
-    {% Img src="image/kheDArv5csY6rvQUJDbWRscckLr1/3pwHvhjyjewbiEfHoVwQ.png", alt="A list of nodes with clear landmarks.", width="332", height="888" %}
-    <figcaption>
-      The second code snippet.
-    </figcaption>
-  </figure>
-</div>
+=== "Несемантическая разметка"
 
+    Первый фрагмент кода. Список узлов, все из которых являются ссылками или текстовыми литералами.
 
+    ![Список узлов, все из которых являются ссылками или текстовыми литералами.](semantic-html-1.avif)
 
-In the second screen shot, there are four landmark roles in the second code block. It uses semantic landmarks conveniently named `<header>`, `<main>`, `<footer>`, and `<nav>` for "navigation".   Landmarks provide structure to web content and ensure important sections of content are easily keyboard navigable for screen reader users.
+=== "Семантическая разметка"
 
-Note that `<header>` and `<footer>` are landmarks, with the roles of `banner` and `contentinfo` respectively, when they are not nested in other landmarks. Chrome's AOM shows this as follows:
+    Второй фрагмент кода. Список узлов с четкими обозначениями.
 
-<div class="switcher">
-  <figure>
-    {% Img src="image/kheDArv5csY6rvQUJDbWRscckLr1/D2dsfO1wm6UrdorarkC0.png", alt="All text nodes are listed as static text.", width="456", height="602" %}
-    <figcaption>
-      The first code snippet.
-    </figcaption>
-  </figure>
-  <figure>
-    {% Img src="image/kheDArv5csY6rvQUJDbWRscckLr1/svdGvQhpNlk7UiFgoCpH.png", alt="The text nodes all have descriptions.", width="582", height="1046" %}
-    <figcaption>
-      The second code snippet.
-    </figcaption>
-  </figure>
-</div>
+    ![Список узлов с четкими обозначениями.](semantic-html-2.avif)
 
-Looking at Chrome developer tools, you'll note a significant difference between the accessibility object model when using semantic elements versus when you don't.
+На втором снимке экрана во втором блоке кода присутствуют четыре роли ориентиров. В нем используются семантические ориентиры, удобно названные [`<header>`](../../html/header.md), [`<main>`](../../html/main.md), [`<footer>`](../../html/footer.md) и [`<nav>`](../../html/nav.md) для "навигации". Эти ориентиры придают веб-контенту структуру и обеспечивают удобную клавиатурную навигацию по важным разделам контента для пользователей программ чтения с экрана.
 
-It's pretty clear that semantic element usage helps accessibility, and using non-semantic elements reduces accessibility. HTML is generally, by default, accessible. Our job as developers is to both protect HTML's default accessible nature and ensure that we maximize accessibility. You can [inspect the AOM in developer tools](https://developer.chrome.com/docs/devtools/accessibility/reference/#explore-tree).
+Обратите внимание, что `<header>` и `<footer>` являются ориентирами с ролями `banner` и `contentinfo` соответственно, когда они не вложены в другие ориентиры. В AOM Chrome это показано следующим образом:
 
-### The `role` attribute
+=== "Несемантическая разметка"
 
-The `role` attribute describes the role an element has in the context of the document. The `role` attribute is a global attribute—meaning it is valid on all elements—defined by the [ARIA specification](https://w3c.github.io/aria/#dfn-role) rather than the [WHATWG HTML specification](https://html.spec.whatwg.org/dev/), where almost everything else in this series is defined.
+    Первый фрагмент кода. Все текстовые узлы отображаются как статический текст.
 
-Semantic elements each have an implicit role, some depending on the context. As we saw in the Firefox accessibility dev tools screenshot, the top level `<header>`, `<main>`, `<footer>`, and `<nav>` were all landmarks, while the `<header>` nested in `<main>` was a section. The Chrome screenshot lists these elements' [ARIA  roles](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles): `<main>` is `main`, `<nav>` is `navigation`, and `<footer>`, as it was the footer of the document, is `contentinfo`. When `<header>` is the header for the document, the default role is `banner`, which defines the section as the global site header. When a `<header>` or `<footer>` is nested within a sectioning element, it is not a landmark role. Both dev tools' screenshots show this.
+    ![Все текстовые узлы отображаются как статический текст.](semantic-html-3.avif)
 
-Element role names are important in building the AOM. The semantics of an element, or 'role',  are important to assistive technologies and, in some cases, search engines.  Assistive technology users rely on semantics to navigate through and understand the meaning of content. The element's role enables a user to access the content they seek quickly and, possibly, more importantly, the role informs the screen reader user how to interact with an interactive element once it has focus.
+=== "Семантическая разметка"
 
-Interactive elements, such as buttons, links, ranges, and checkboxes, all have implicit roles, all are automatically added to the keyboard tab sequence, and all have default expected user action support. The implicit role, or explicit `role` value, informs the user to expect element-specific default user interactions.
+    Второй фрагмент кода. Все текстовые узлы имеют описания.
 
-Using the `role` attribute, you can give any element a role, including a different role than the tag implies. For example, `<button>` has the implicit role of `button`.  With `role="button"`, you can turn any element semantically into a button: `<p role="button">Click Me</p>`.
+    ![Все текстовые узлы имеют описания.](semantic-html-4.avif)
 
-While adding `role="button"` to an element will inform screen readers that the element is a button, it doesn't change the appearance or functionality of the element. The `button` element provides so many features without you doing any work. The `button` element is automatically added to the document's tab ordering sequence, meaning it is by default keyboard focusable. The Enter and Space keys both activate the button. Buttons also have all the methods and properties provided to them by the [HTMLButtonElement](https://developer.mozilla.org/docs/Web/API/HTMLButtonElement) interface. If you don't use the semantic button for your button, you have to program all those features back in. It's so much easier to just go with `<button>`.
+Если посмотреть на инструменты разработчика Chrome, то можно заметить существенную разницу между объектной моделью доступности при использовании семантических элементов и без них.
 
-Go back to the screenshot of the AOM for the non-semantic code block. You'll note that non-semantic elements don't have implicit roles. We can make the non-semantic version semantic by assigning each element a role:
+Совершенно очевидно, что использование семантических элементов способствует доступности, а использование несемантических элементов снижает ее. HTML, как правило, по умолчанию является доступным. Наша задача как разработчиков заключается как в защите доступности HTML по умолчанию, так и в обеспечении максимальной доступности. Вы можете [проверить AOM в инструментах разработчика](https://developer.chrome.com/docs/devtools/accessibility/reference/#explore-tree).
+
+### Атрибут `role`
+
+Атрибут `role` описывает роль элемента в контексте документа. Атрибут `role` является глобальным атрибутом, т.е. он действителен для всех элементов, определяемых [спецификацией ARIA](https://w3c.github.io/aria/#dfn-role), а не [спецификацией WHATWG HTML](https://html.spec.whatwg.org/dev/), где определено практически все остальное в этой серии.
+
+Семантические элементы имеют неявную роль, которая зависит от контекста. Как мы видели на скриншоте инструментов разработчика доступности Firefox, элементы верхнего уровня `<header>`, `<main>`, `<footer>` и `<nav>` являются ориентирами, а `<header>`, вложенный в `<main>`, - разделом. На скриншоте Chrome эти элементы перечислены [ARIA roles](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles): `<main>` - это `main`, `<nav>` - это `navigation`, а `<footer>`, поскольку он являлся нижним колонтитулом документа, - это `contentinfo`. Когда `<header>` является заголовком документа, роль по умолчанию - `banner`, что определяет раздел как глобальный заголовок сайта. Когда `<header>` или `<footer>` вложены в элемент секционирования, они не являются ролью `landmark`. Это видно на скриншотах обоих инструментов разработки.
+
+Имена ролей элементов важны при построении АОМ. Семантика элемента, или "роль", важна для вспомогательных технологий и, в некоторых случаях, для поисковых систем. Пользователи вспомогательных технологий полагаются на семантику, чтобы ориентироваться в содержимом и понимать его смысл. Роль элемента позволяет пользователю быстро получить доступ к искомому контенту и, что, возможно, более важно, роль информирует пользователя программы чтения с экрана о том, как взаимодействовать с интерактивным элементом, когда он находится в фокусе внимания.
+
+Интерактивные элементы, такие как кнопки, ссылки, диапазоны и флажки, имеют неявные роли, все они автоматически добавляются в последовательность клавиатурных вкладок и все они по умолчанию поддерживают ожидаемые действия пользователя. Неявная роль, или явное значение `role`, информирует пользователя о том, что он ожидает от элемента специфических пользовательских действий по умолчанию.
+
+С помощью атрибута `role` можно присвоить любому элементу роль, в том числе и отличную от той, которую подразумевает тег. Например, `<button>` имеет неявную роль `button`. С помощью `role="button"` можно превратить любой элемент семантически в кнопку: `<p role="button">Click Me</p>`.
+
+Хотя добавление к элементу `role="button"` информирует читателей экрана о том, что этот элемент является кнопкой, это не меняет ни внешнего вида, ни функциональности элемента. Элемент `button` предоставляет множество возможностей, не требуя от пользователя никакой работы. Элемент `button` автоматически добавляется в последовательность упорядочивания вкладок документа, то есть по умолчанию он является фокусом клавиатуры. Клавиши ++enter++ и ++space++ активизируют кнопку. Кнопки также имеют все методы и свойства, предоставляемые им интерфейсом [HTMLButtonElement](https://developer.mozilla.org/docs/Web/API/HTMLButtonElement). Если вы не используете семантическую кнопку для своей кнопки, то вам придется программировать все эти свойства заново. Гораздо проще просто использовать `<button>`.
+
+Вернитесь к снимку экрана AOM для несемантического блока кода. Вы заметите, что у несемантических элементов нет неявных ролей. Мы можем сделать несемантическую версию семантической, назначив каждому элементу роль:
 
 ```html
 <div role="banner">
-  <span role="heading" aria-level="1">Three words</span>
-  <div role="navigation">
-    <a>one word</a>
-    <a>one word</a>
-    <a>one word</a>
-    <a>one word</a>
-  </div>
+    <span role="heading" aria-level="1">Three words</span>
+    <div role="navigation">
+        <a>one word</a>
+        <a>one word</a>
+        <a>one word</a>
+        <a>one word</a>
+    </div>
 </div>
 ```
 
 While the `role` attribute can be used to add semantics to any element, you should instead use elements with the implicit role you need.
 
-## Semantic elements
+## Семантические элементы
 
-Asking yourself, "Which element best represents the function of this section of markup?" will generally result in you picking the best element for the job. The element you choose, and therefore the tags you use, should be appropriate for the content you are displaying, as tags have semantic meaning.
+Если задать себе вопрос: "Какой элемент лучше всего отражает функцию этого раздела разметки?", то, как правило, выбирается лучший элемент для этой работы. Выбранный элемент, а следовательно, и используемые теги должны соответствовать отображаемому содержимому, поскольку теги имеют семантическое значение.
 
-HTML should be used to structure content, not to define content's appearance. The appearance is the realm of CSS. While some elements are defined to appear a certain way, don't use an element based on how the user agent stylesheet makes that element appear by default. Rather, select each element based on the element's semantic meaning and functionality. Coding HTML in a logical, semantic, and meaningful way helps to ensure CSS is applied as intended.
+HTML должен использоваться для структурирования содержимого, а не для определения его внешнего вида. Внешний вид - это сфера CSS. Хотя для некоторых элементов определено определенное оформление, не следует использовать элемент, основываясь на том, как он выглядит по умолчанию в таблице стилей агента пользователя. Вместо этого выбирайте каждый элемент, исходя из его семантического значения и функциональности. Логическое, семантическое и смысловое кодирование HTML помогает обеспечить правильное применение CSS.
 
-Choosing the right elements for the job as you code means you won't have to refactor or comment your HTML. If you think about using the right element for the job, you'll most often pick the right element for the job. If you don't, you probably won't. When you understand the semantics of each element and are aware of why choosing the right element is important, you will generally be able to make the right choice without much additional effort.
+Выбор нужных элементов в процессе кодирования позволяет избежать необходимости рефакторинга или комментирования HTML. Если вы думаете о том, как использовать нужный элемент для работы, то чаще всего вы выбираете нужный элемент. Если нет, то, скорее всего, не выберете. Если вы понимаете семантику каждого элемента и осознаете, почему выбор правильного элемента важен, то, как правило, сможете сделать правильный выбор без особых дополнительных усилий.
 
-In the next section, you'll use the semantic elements to build your [document structure](/learn/html/document-structure/).
+В следующем разделе вы будете использовать семантические элементы для построения [структуры документа](document-structure.md).
 
-{% Assessment 'semantic-html' %}
+## Источник
+
+-   [Semantic HTML](https://web.dev/learn/html/semantic-html/)
