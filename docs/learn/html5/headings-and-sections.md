@@ -1,213 +1,211 @@
 ---
-title: 'Headings and sections'
-authors:
-  - estelleweyl
-description: How to correctly use sectioning elements to give meaning to your content.
-date: 2022-09-27
-tags:
-  - html
+description: Как правильно использовать элементы секционирования для придания смысловой нагрузки контенту
 ---
 
-In the last section you learned how, even if you don't know what the words on a page mean, when semantic elements provide the document with meaningful structure, others—the search engine, assistive technologies, a future maintainer, a new team member—will understand the outline of the document.
+# Заголовки и разделы
 
-In this section, you'll discover document structure; you'll recap the sectioning elements from the previous section; and mark up the outline for your application.
+В предыдущем разделе вы узнали, что даже если вы не знаете, что означают слова на странице, когда семантические элементы придают документу осмысленную структуру, другие пользователи - поисковая система, вспомогательные технологии, будущий сопровождающий, новый член команды - смогут понять суть документа.
 
-Choosing the right elements for the job as you code means you won't have to refactor or comment out your HTML. If you think about using the right element for the job, you'll most often pick the right element for the job. If you don't, you probably won't.
+В этом разделе вы познакомитесь со структурой документа, вспомните элементы секционирования из предыдущего раздела и разметите структуру документа для применения.
 
-Now that you [understand markup semantics](/learn/html/semantic-html/)  and are aware of why choosing the right element is important, once you learn about all the different elements, you will generally pick the right element without much, if any, additional effort.
+Выбор нужных элементов в процессе написания кода позволяет избежать необходимости рефакторинга или комментирования HTML. Если вы будете думать о том, как использовать нужный элемент для работы, то чаще всего вы будете выбирать нужный элемент для работы. Если нет, то, скорее всего, не выберете.
 
-## Site `<header>`
+Теперь, когда вы [понимаете семантику разметки](semantic-html.md) и знаете, почему выбор правильного элемента важен, узнав обо всех различных элементах, вы, как правило, будете выбирать правильный элемент без особых дополнительных усилий, если они вообще будут.
 
-Let's build a site header. You'll start with non-semantic markup, and work your way to a good solution so that you can learn the benefits of the HTML section and heading elements along the way.
+## Шапка сайта `<header>`
 
-If you put little to no thought into the semantics for our header, you might use code like this:
+Давайте построим шапку сайта. Начнем с несемантической разметки и будем работать над хорошим решением, чтобы по ходу дела изучить преимущества элементов HTML `section` и `heading`.
+
+Если вы практически не задумывались о семантике нашего заголовка, то можете использовать код, подобный этому:
 
 ```html
 <!-- start header -->
 <div id="pageHeader">
-  <div id="title">Machine Learning Workshop</div>
-  <!-- navigation -->
-  <div id="navigation">
-    <a href="#reg">Register</a>
-    <a href="#about">About</a>
-    <a href="#teachers">Instructors</a>
-    <a href="#feedback">Testimonials</a>
-  </div>
-  <!-- end navigation bar -->
+    <div id="title">Machine Learning Workshop</div>
+    <!-- navigation -->
+    <div id="navigation">
+        <a href="#reg">Register</a>
+        <a href="#about">About</a>
+        <a href="#teachers">Instructors</a>
+        <a href="#feedback">Testimonials</a>
+    </div>
+    <!-- end navigation bar -->
 </div>
 <!-- end of header -->
 ```
 
-CSS can make (almost) any markup look right. But using the non-semantic `<div>` for everything actually creates extra work. To target multiple `<div>`s with CSS, you end up using ids or classes to identify the content. The code also includes a comment for each closing `</div>` to indicate which opening tag each `</div>` closed.
+CSS позволяет привести в надлежащий вид (почти) любую разметку. Но использование несемантического [`<div>`](../../html/div.md) для всего подряд фактически создает дополнительную работу. Чтобы нацелить несколько `<div>` с помощью CSS, необходимо использовать идентификаторы или классы для определения содержимого. Код также включает комментарий для каждого закрывающего `</div>`, чтобы указать, какой открывающий тег закрыл каждый `</div>`.
 
-While the `id` and `class` attributes provide hooks for styling and JavaScript, they add no semantic value for the screen reader and (for the most part) the search engines.
+Хотя атрибуты [`id`](../../html/uni-attr.md#id) и [`class`](../../html/uni-attr.md#class) предоставляют хук для стилей и JavaScript, они не несут никакой семантической ценности для устройств чтения с экрана и (по большей части) для поисковых систем.
 
-You can include `role` attributes to provide semantics to create a good accessibility object model (AOM) for screen readers:
+Вы можете включить атрибуты `role` для обеспечения семантики, чтобы создать хорошую объектную модель доступности (AOM) для устройств чтения с экрана:
 
 ```html
 <!-- start header -->
 <div role="banner">
-  <div role="heading" aria-level="1">Machine Learning Workshop</div>
-  <div role="navigation">
-    <a href="#reg">Register</a>
-    <a href="#about">About</a>
-    <a href="#teachers">Instructors</a>
-    <a href="#feedback">Testimonials</a>
-  </div>
-  <!-- end navigation bar -->
-<div>
-<!-- end of header -->
+    <div role="heading" aria-level="1">
+        Machine Learning Workshop
+    </div>
+    <div role="navigation">
+        <a href="#reg">Register</a>
+        <a href="#about">About</a>
+        <a href="#teachers">Instructors</a>
+        <a href="#feedback">Testimonials</a>
+    </div>
+    <!-- end navigation bar -->
+    <div>
+        <!-- end of header -->
+    </div>
+</div>
 ```
 
-This at least provides semantics and enables using attribute selectors in the CSS, but it still adds comments to identify which `<div>` each `</div>` closes.
+Это, по крайней мере, обеспечивает семантику и позволяет использовать селекторы атрибутов в CSS, но при этом все равно добавляются комментарии, чтобы определить, какой `<div>` закрывает каждый `</div>`.
 
-If you know HTML, all you have to do is think about the purpose of the content. Then you can write this code semantically without using `role` and without needing to comment the closing tags:
+Если вы знаете HTML, то вам достаточно подумать о назначении содержимого. Тогда вы сможете написать этот код семантически, без использования `role` и без необходимости комментировать закрывающие теги:
 
 ```html
 <header>
-  <h1>Machine Learning Workshop</h1>
-  <nav>
-    <a href="#reg">Register</a>
-    <a href="#about">About</a>
-    <a href="#teachers">Instructors</a>
-    <a href="#feedback">Testimonials</a>
-  </nav>
+    <h1>Machine Learning Workshop</h1>
+    <nav>
+        <a href="#reg">Register</a>
+        <a href="#about">About</a>
+        <a href="#teachers">Instructors</a>
+        <a href="#feedback">Testimonials</a>
+    </nav>
 </header>
 ```
 
-This code uses two semantic landmarks: `<header>` and `<nav>`.
+В этом коде используются два семантических ориентира: [`<header>`](../../html/header.md) и [`<nav>`](../../html/nav.md).
 
-This is the main header. The `<header>` element isn't always a landmark. It has different semantics depending on where it is nested. When the `<header>` is top level, it is the site `banner`, a landmark role, which you may have noted in the `role` code block. When a `<header>` is nested in  `<main>`, `<article>`,  or `<section>`, it just identifies it as the header for that section and isn't a landmark.
+Это основной заголовок. Элемент `<header>` не всегда является ориентиром. Он имеет различную семантику в зависимости от места его вложения. Если `<header>` находится на верхнем уровне, то это `banner` сайта, роль ориентира, которую вы могли заметить в блоке кода `role`. Когда `<header>` вложен в [`<main>`](../../html/main.md), [`<article>`](../../html/article.md) или [`<section>`](../../html/section.md), он просто идентифицирует его как заголовок для этого раздела и не является ориентиром.
 
-The `<nav>` element identifies content as navigation. As this `<nav>` is nested in the site heading, it is the main navigation for the site. If it was nested in an `<article>` or `<section>`, it would be internal navigation for that section only. By using semantic elements, you built a meaningful [accessibility object model](https://developer.mozilla.org/docs/Glossary/Accessibility_tree), or AOM. The AOM enables the screen reader to inform the user that this section consists of a major navigation block that they can either navigate through or skip.
+Элемент `<nav>` идентифицирует содержимое как навигацию. Поскольку этот `<nav>` вложен в заголовок сайта, он является основной навигацией по сайту. Если бы он был вложен в `<article>` или `<section>`, то это была бы внутренняя навигация только для данного раздела. Используя семантические элементы, вы построили содержательную [объектную модель доступности](https://developer.mozilla.org/docs/Glossary/Accessibility_tree), или AOM. AOM позволяет программе чтения с экрана сообщить пользователю, что данный раздел состоит из основного навигационного блока, по которому он может либо пройти, либо пропустить.
 
-Using `</nav>` and `</header>` closing tags removes the need for comments to identify which element each end tag closed. In addition, using different tags for different elements removes the need for `id` and `class` hooks. The CSS selectors can have low [specificity](/learn/css/specificity/); you can probably target the links with `header nav a` without worrying about conflict.
+Использование закрывающих тегов `</nav>` и `</header>` устраняет необходимость в комментариях для определения того, какой элемент закрывает каждый завершающий тег. Кроме того, использование различных тегов для разных элементов избавляет от необходимости использования хуков `id` и `class`. Селекторы CSS могут иметь низкую [специфичность](/learn/css/specificity/); вероятно, вы можете нацеливать ссылки с помощью `header nav a`, не беспокоясь о конфликте.
 
-You have written a header with very little HTML and no classes or ids. When using semantic HTML, you don't need to.
+Вы написали заголовок с очень небольшим количеством HTML, без классов и идентификаторов. При использовании семантического HTML в этом нет необходимости.
 
-## Site `<footer>`
+## `<footer>` сайта
 
-Let's code the site footer.
-
-```html
-<footer>
-  <p>&copy;2022 Machine Learning Workshop, LLC. All rights reserved.</p>
-</footer>
-```
-
-Similar to `<header>`, whether the footer is a landmark depends on where the footer is nested. When it is the site footer, it is a landmark, and should contain the site footer information you want on every page, such as a copyright statement, contact information, and links to your privacy and cookie policies. The implicit `role` for the site footer is `contentinfo`. Otherwise, the footer has no implicit role and is not a landmark, as shown in the following screenshot of the AOM in Chrome (which has an `<article>` with a `<header>` and `<footer>`  between the `<header>` and `<footer>`).
-
-{% Img src="image/kheDArv5csY6rvQUJDbWRscckLr1/A6uTEfG3muxX7namzXW5.png", alt="The Accessibility Object Model in Chrome.", width="800", height="374" %}
-
-In this screenshot, there are two footers: one in an `<article>` and one top level. The top level footer is a landmark with the implicit role of `contentinfo`. The other footer isn't a landmark. Chrome shows it as `FooterAsNonLandmark`; Firefox shows it as `section`.
-
-That doesn't mean you shouldn't use `<footer>`. Let's say you have a blog. The blog has a site footer with an implicit `contentinfo` role. Each blog post can also have a `<footer>`. On your blog's main landing page, the browser, search engine, and screen reader know the main footer is the top-level footer, and that all the other footers are related to the posts in which they are nested.
-
-When a `<footer>` is a descendant of an `<article>`, `<aside>`, `<main>`, `<nav>`, or `<section>`, it's not a landmark. If the post appears on its own, depending on the markup, that footer might get promoted.
-
-Footers are often where you will find contact information, wrapped in `<address>`, the contact address element. This is one element that is not very well named; it is used to enclose the contact information for individuals or organizations, not physical mailing addresses.
+Закодируем футер сайта.
 
 ```html
 <footer>
-  <p>&copy;2022 Machine Learning Workshop, LLC. All rights reserved.</p>
-  <address>Instructors: <a href="/hal.html">Hal</a> and <a href="/eve.html">Eve</a></address>
+    <p>
+        &copy;2022 Machine Learning Workshop, LLC. All
+        rights reserved.
+    </p>
 </footer>
 ```
 
-## Document structure
+Как и в случае с `<header>`, то, является ли футер ориентиром, зависит от того, где он вложен. Если это нижний колонтитул сайта, то он является ориентиром и должен содержать информацию о сайте, которую необходимо размещать на каждой странице, например, заявление об авторских правах, контактную информацию, ссылки на политику конфиденциальности и политику использования файлов cookie. Неявной `role` для футера сайта является `contentinfo`. В противном случае нижний колонтитул не имеет неявной роли и не является лендингом, как показано на следующем снимке экрана AOM в Chrome (который имеет `<article>` с `<header>` и `<footer>` между `<header>` и `<footer>`).
 
-This module starts with the `<header>` and `<footer>`, because they are unique in only sometimes being landmark, or "sectioning", elements. Let's cover the "full time" sectioning element by discussing the most common page layouts:
+![Объектная модель доступности в Chrome.](headings-and-sections-1.avif)
 
-{% Img src="image/kheDArv5csY6rvQUJDbWRscckLr1/LJs8vlTVDYBmM6t1z6rD.png", alt="A layout with a header, three columns, and a footer.", width="800", height="607" %}
+На этом снимке экрана показаны два колонтитула: один в `<article>` и один верхнего уровня. Верхний колонтитул - это лендинг с неявной ролью `contentinfo`. Другой колонтитул не является лендингом. Chrome показывает его как `FooterAsNonLandmark`, Firefox - как `section`.
 
-A layout with a header, two sidebars, and a  footer, is known as the [holy grail layout](/patterns/layout/holy-grail/). There are many ways to mark up this content, including:
+Это не означает, что не следует использовать `<footer>`. Допустим, у вас есть блог. У блога есть футер сайта с неявной ролью `contentinfo`. Каждая запись блога также может иметь `<footer>`. На главной целевой странице вашего блога браузер, поисковая система и программа чтения с экрана знают, что главный колонтитул - это колонтитул верхнего уровня, а все остальные колонтитулы относятся к постам, в которые они вложены.
+
+Если `<footer>` является потомком `<article>`, [`<aside>`](../../html/aside.md), `<main>`, `<nav>` или `<section>`, то он не является ориентиром. Если пост появляется сам по себе, то, в зависимости от разметки, этот футер может быть продвинут.
+
+В нижнем колонтитуле часто размещается контактная информация, обернутая в [`<address>`](../../html/address.md), элемент контактного адреса. Это один из элементов, который не очень удачно назван; он используется для размещения контактной информации о частных лицах или организациях, а не физических почтовых адресов.
+
+```html
+<footer>
+    <p>
+        &copy;2022 Machine Learning Workshop, LLC. All
+        rights reserved.
+    </p>
+    <address>
+        Instructors: <a href="/hal.html">Hal</a> and
+        <a href="/eve.html">Eve</a>
+    </address>
+</footer>
+```
+
+## Структура документа
+
+Этот модуль начинается с `<header>` и `<footer>`, поскольку они уникальны тем, что лишь иногда являются значащими, или "секционирующими", элементами. Давайте рассмотрим элемент секционирования "по полной программе", обсудив наиболее распространенные макеты страниц:
+
+![Макет с верхним колонтитулом, тремя колонками и нижним колонтитулом](headings-and-sections-2.avif)
+
+Макет с верхним колонтитулом, двумя боковыми колонками и нижним колонтитулом называется [holy grail layout](https://web.dev/patterns/layout/holy-grail/). Существует множество способов разметки этого содержимого, в том числе:
 
 ```html
 <body>
-  <header>Header</header>
-  <nav>Nav</nav>
-  <main>Content</main>
-  <aside>Aside</aside>
-  <footer>Footer</footer>
+    <header>Header</header>
+    <nav>Nav</nav>
+    <main>Content</main>
+    <aside>Aside</aside>
+    <footer>Footer</footer>
 </body>
 ```
 
-If you are creating a blog, you might have a series of articles in `<main>`:
+Если вы создаете блог, то в `<main>` у вас может быть серия статей:
 
 ```html
 <body>
-  <header>Header</header>
-  <nav>Nav</nav>
-  <main>
-    <article>First post</article>
-    <article>Second post</article>
-  </main>
-  <aside>Aside</aside>
-  <footer>Footer</footer>
+    <header>Header</header>
+    <nav>Nav</nav>
+    <main>
+        <article>First post</article>
+        <article>Second post</article>
+    </main>
+    <aside>Aside</aside>
+    <footer>Footer</footer>
 </body>
 ```
 
-When employing semantic elements, browsers are able to create meaningful accessibility trees, enabling screen reader users to more easily navigate. Here, a `banner` and `contentinfo` are provided through a site `<header>` and `<footer>`.  The new elements added here include `<main>`, `<aside>`, and `<article>`; also, `<h1>` and `<nav>` that you used earlier, and `<section>`, which you haven't used yet.
+При использовании семантических элементов браузеры могут создавать осмысленные деревья доступности, что позволяет пользователям программ чтения с экрана легче ориентироваться на сайте. Здесь `banner` и `contentinfo` предоставляются через сайт `<header>` и `<footer>`. Здесь добавлены такие новые элементы, как `<main>`, `<aside>` и `<article>`, а также `<h1>` и `<nav>`, которые вы использовали ранее, и `<section>`, который вы еще не использовали.
 
 ### `<main>`
 
-There's a single `<main>` landmark element. The `<main>` element identifies the main content of the document. There should be only one `<main>` per page.
+Существует единственный элемент сайта `<main>`. Элемент `<main>` идентифицирует основное содержимое документа. На каждой странице должен быть только один элемент `<main>`.
 
 ### `<aside>`
 
-The `<aside>` is for content that is indirectly or tangentially related to the document's main content. For example, this article is about HTML. For a section on CSS selector specificity for the three site header examples (div, role, and semantic), the tangentially related aside could be contained in an `<aside>`; and, like most, the `<aside>` would likely be presented in a sidebar or a call-out box. The `<aside>` is also a landmark, with the implicit role of `complementary`.
+Элемент `<aside>` предназначен для содержания, которое косвенно или по касательной связано с основным содержанием документа. Например, эта статья посвящена HTML. Для раздела, посвященного специфике CSS-селекторов для трех примеров заголовков сайта (div, role и semantic), косвенно связанный с ними отрывок можно было бы поместить в `<aside>`; и, как и в большинстве случаев, `<aside>`, скорее всего, будет представлен в боковой панели или вызывающем блоке. Кроме того, `<aside>` является ориентиром с неявной ролью `complementary`.
 
 ### `<article>`
-Nested in `<main>` we added two `<article>` elements. This wasn't necessary in the first example when the main content was just one word, or in the real world, a single section of content. But, if you are writing a blog, as in our second example, each post should be in an `<article>` nested in `<main>`.
 
-An `<article>` represents a complete, or self-contained, section of content that is, in principle, independently reusable. Think of an article as you would an article in a newspaper.  In print, a news article about Jacinda Ardern, Prime Minister of New Zealand, might only appear in one section, maybe world news. On the paper's website, that same news article might appear on the home page, in the politics section, in the Oceana or the Asia Pacific news section, and, depending on the topic of the news, the sports, lifestyle, or technology sections, perhaps. The article may also appear on other sites, like Pocket or Yahoo News!
+Вложенные в `<main>` мы добавили два элемента `<article>`. В первом примере, когда основным содержанием было одно слово или, в реальности, один раздел контента, в этом не было необходимости. Но если вы пишете блог, как в нашем втором примере, то каждая запись должна находиться в элементе `<article>`, вложенном в `<main>`.
+
+Статья `<article>` представляет собой законченный, или самодостаточный, раздел содержимого, который, в принципе, можно использовать независимо друг от друга. Думайте о статье так же, как о статье в газете. В печатном виде статья о Джасинде Ардерн, премьер-министре Новой Зеландии, может появиться только в одном разделе, возможно, в разделе мировых новостей. На сайте газеты эта же статья может появиться на главной странице, в разделе "Политика", в разделе новостей Oceana или Asia Pacific, а также, в зависимости от темы новости, в разделах "Спорт", "Стиль жизни" или "Технологии". Статья может появиться и на других сайтах, например, на Pocket или Yahoo News!
 
 ### `<section>`
 
-The `<section>` element is used to encompass generic standalone sections of a document when there is no more specific semantic element to use. Sections should have a heading, with very few exceptions.
+Элемент `<section>` используется для обозначения общих самостоятельных разделов документа, когда нет возможности использовать более конкретный семантический элемент. Разделы должны иметь заголовок, за редким исключением.
 
-Going back to the Jacinda Ardern example, on the home page of the newspaper, the banner would include the name of the newspaper, followed by a single `<main>`, divided into several `<section>`s, each with a header, such as "World news" and "Politics"; and in each section you'll find a series of `<article>`s. Within each `<article>`, you might find one or more `<section>` elements as well. If you look at this page, the entire "headers and sections" part is the `<article>`. This `<article>` is then divided into several `<section>`s, including `site header`, `site footer`, and document structure. The article itself has a header, as do each of the sections.
+Возвращаясь к примеру с Джасиндой Ардерн, на главной странице газеты баннер будет включать название газеты, затем один `<main>`, разделенный на несколько `<section>`, каждый из которых имеет заголовок, например, "Мировые новости" и "Политика"; в каждом разделе вы найдете серию `<article>`. Внутри каждой `<article>` может находиться один или несколько элементов `<section>`. Если посмотреть на эту страницу, то вся часть "заголовки и разделы" представляет собой `<article>`. Затем эта `<article>` делится на несколько `<section>`, включая `site header`, `site footer` и структуру документа. Сама статья имеет заголовок, как и каждый из разделов.
 
-A `<section>` isn't a landmark unless it has an accessible name; if it has an accessible name, the implicit role is `region`. [Landmark roles](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles#landmark_roles) should be used sparingly, to identify larger overall sections of the document. Using too many landmark roles can create "noise" in screen readers, making it difficult to understand the overall layout of the page, if your `<main>` contains two or three important sub-sections, including an accessible name for each `<section>` could be beneficial.
+Раздел `<section>` не является ориентиром, если у него нет доступного имени; если у него есть доступное имя, то неявной ролью является `region`. [Роли ориентиров](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles#landmark_roles) следует использовать редко, для обозначения больших общих разделов документа. Если ваш `<main>` содержит два или три важных подраздела, то включение доступного имени для каждого `<section>` может оказаться полезным.
 
-## Headings: `<h1>`-`<h6>`
+## Заголовки: `<h1>`-`<h6>`.
 
-There are six section heading elements: `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, and `<h6>`.  Each represents one of the six levels of section headings, with `<h1>` being the highest or most important section level, and `<h6>` the lowest.
+Существует шесть элементов заголовков разделов: `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>` и `<h6>`. Каждый из них представляет собой один из шести уровней заголовков разделов, причем `<h1>` является самым высоким или самым важным уровнем раздела, а `<h6>` - самым низким.
 
-When a heading is nested in a document banner `<header>`, it is the heading for the application or site. When nested in `<main>`, whether or not it is nested within a `<header>` in `<main>`, it is the header for that page, not the whole site. When nested in an `<article>` or `<section>`, it is the header for that subsection of the page.
+Если заголовок вложен в баннер документа `<header>`, то он является заголовком приложения или сайта. Если заголовок вложен в `<main>`, независимо от того, вложен ли он в `<header>` в `<main>` или нет, он является заголовком для этой страницы, а не для всего сайта. При вложении в `<article>` или `<section>` - это заголовок для данного подраздела страницы.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'oNdePZj',
-  height: 500,
-  theme: 'dark',
-  tab: 'html,result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/oNdePZj?height=500&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" title="Pen oNdePZj by web-dot-dev on Codepen" loading="lazy"></iframe>
 
-It is recommended to use heading levels similarly to heading levels in a text editor: starting with a `<h1>` as the main heading, with `<h2>` as headings for sub-sections, and `<h3>` if those sub-sections have sections; avoid skipping heading levels. There is a good [article on section headings](https://developer.mozilla.org/docs/Web/HTML/Element/Heading_Elements) here.
+Рекомендуется использовать уровни заголовков аналогично уровням заголовков в текстовом редакторе: начиная с `<h1>` в качестве основного заголовка, с `<h2>` в качестве заголовков подразделов и `<h3>`, если в этих подразделах есть разделы; избегайте пропуска уровней заголовков. Хорошая [статья о заголовках разделов](https://developer.mozilla.org/docs/Web/HTML/Element/Heading_Elements) находится здесь.
 
-Some screen reader users do access headings to understand a page's content. Originally, headings were supposed to outline a document, just as MS Word or Google Docs can produce an outline based on headings, but browsers never implemented this structure. While browsers do display nested headings at increasingly smaller font sizes as shown in the following example, they don't actually support outlining.
+Некоторые пользователи программ чтения с экрана обращаются к заголовкам, чтобы понять содержание страницы. Изначально предполагалось, что заголовки будут составлять структуру документа, подобно тому как MS Word или Google Docs могут создавать содержание на основе заголовков, но браузеры так и не реализовали эту структуру. Хотя браузеры и отображают вложенные заголовки со все более мелким размером шрифта, как показано в следующем примере, они не поддерживают конспектирование.
 
-You now have enough knowledge to outline MachineLearningWorkshop.com:
+Теперь у вас достаточно знаний для составления конспекта сайта MachineLearningWorkshop.com:
 
-## Outlining the `<body>` of MLW.com
+## Очертания `<body>` сайта MLW.com
 
-This is the outline for the visible content of the machine learning workshop site:
+Это набросок видимого содержимого сайта семинара по машинному обучению:
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'gOzxdxR',
-  height: 700,
-  theme: 'dark',
-  tab: 'html'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/gOzxdxR?height=700&amp;theme-id=dark&amp;default-tab=html&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Aside %}
-This code snippet only includes the content of the `<body>`. The [`<!doctype>`, `<html>`, `<body>`, and meta-information](/learn/html/metadata/) were covered earlier.
-{% endAside %}
+!!!warning "Обратите внимание"
 
-As no piece of content is a standalone, complete piece of content, `<section>` is more appropriate than `<article>`; while each has a heading, no section is worthy of a `<footer>`.
+    Этот фрагмент кода включает только содержимое `<body>`. Ранее были рассмотрены [`<!doctype>`, `<html>`, `<body>` и метаинформация](metadata.md).
 
-It should go without saying by this point, but don't use headings to make text bold or large; use CSS instead. If you want to emphasize text, there are semantic elements to do that too. We'll cover that and fill in most of the page's content as we discuss text basics; after taking a deeper dive into attributes.
+Поскольку ни одна часть контента не является самостоятельным, законченным произведением, `<section>` более уместна, чем `<article>`; хотя каждая из них имеет заголовок, ни один раздел не заслуживает `<footer>`.
 
-{% Assessment 'headings-and-sections' %}
+Само собой разумеется, что не стоит использовать заголовки для выделения текста жирным или крупным шрифтом, вместо этого используйте CSS. Если вы хотите подчеркнуть текст, для этого также существуют семантические элементы. Мы рассмотрим это и заполним большую часть содержимого страницы, обсудив основы работы с текстом и углубившись в атрибуты.
+
+-   [Headings and sections](https://web.dev/learn/html/headings-and-sections/)
