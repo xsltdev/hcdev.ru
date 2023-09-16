@@ -33,17 +33,31 @@ hide:
 
     **[:octicons-arrow-right-24: CSS](/css/)**
 
--   :fontawesome-solid-graduation-cap:{ .lg .middle } **Учебники**
-
-    ***
-
-    Учебники и документация
-
-    **[:octicons-arrow-right-24: HTML5](/learn/html5/)** <small>web.dev</small>
-
     [:octicons-arrow-right-24: Flexbox](/learn/flex/)
 
     [:octicons-arrow-right-24: Grid Layout](/learn/grid/)
+
+</div>
+
+## Учебники
+
+<div class="grid cards" style="margin-top: 1.6em" markdown>
+
+-   :simple-html5:{ .lg .middle } **HTML**
+
+    ***
+
+    Учебники и документация HTML
+
+    **[:octicons-arrow-right-24: Учебник HTML 5](learn/html5/index.md)** <small>web.dev</small>
+
+-   :simple-css3:{ .lg .middle } **CSS**
+
+    ***
+
+    Учебники и документация CSS
+
+    **:octicons-arrow-right-24: Учебник CSS 3** <small>web.dev</small>
 
 </div>
 
