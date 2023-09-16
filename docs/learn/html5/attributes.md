@@ -1,382 +1,280 @@
 ---
-title: 'Attributes'
-authors:
-  - estelleweyl
-description: Learn about the different global attributes along with attributes specific to particular HTML elements.
-date: 2022-12-08
-tags:
-  - html
+description: Узнайте о различных глобальных атрибутах, а также об атрибутах, характерных для конкретных элементов HTML
 ---
 
-Attributes were briefly discussed in [Overview of HTML](/learn/html/overview/#attributes); it's time for a deep dive.
+# Атрибуты
 
-Attributes are what make HTML so powerful. Attributes are space-separated names and name/value pairs appearing in the opening tag,
-providing information about and functionality for the element.
+Атрибуты были кратко рассмотрены в [Обзоре HTML](overview.md#attributes); настало время для более глубокого погружения.
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/17yQeLEUX6s88IbDJreQ.png", alt="The opening tag, attributes, and closing tag, labelled on an HTML element.", width="800", height="210" %}
+Атрибуты - это то, что делает HTML таким мощным. **Атрибуты** - это разделенные пробелами имена и пары имя/значение, появляющиеся в открывающем теге и предоставляющие информацию об элементе и его функциональности.
 
-Attributes define the behavior, linkages, and functionality of elements. Some attributes are global, meaning they can appear
-within any element's opening tag. Other attributes apply to several elements but not all, while other attributes are element-specific,
-relevant only to a single element. In HTML, all attributes except boolean, and to some extent enumerated attributes, require a value.
+![Открывающий тег, атрибуты и закрывающий тег, обозначенные на HTML-элементе](attributes-1.avif)
 
-If an attribute value includes a space or special characters, the value must be quoted. For this reason, and for improved legibility,
-quoting is always recommended.
+Атрибуты определяют поведение, связи и функциональность элементов. Некоторые атрибуты являются глобальными, то есть могут присутствовать в открывающем теге любого элемента. Другие атрибуты относятся к нескольким элементам, но не ко всем, а третьи являются специфическими для конкретного элемента и относятся только к нему. В HTML все атрибуты, кроме `boolean` и, в некоторой степени, перечислительных атрибутов, требуют значения.
 
-While HTML is not case-sensitive, some attribute values are. Values that are part of the HTML specification are case-insensitive.
-Strings values that are defined, such as class and id names, are case-sensitive. If an attribute value is case-sensitive in HTML,
-it is case-sensitive when used as part of an [attribute selector](https://developer.mozilla.org/docs/Web/CSS/Attribute_selectors) in CSS and in JavaScript; otherwise, it's not.
+Если значение атрибута содержит пробел или специальные символы, то значение должно быть заключено в кавычки. По этой причине, а также для повышения разборчивости, всегда рекомендуется использовать кавычки.
+
+Хотя HTML не чувствителен к регистру, некоторые значения атрибутов чувствительны к нему. Значения, являющиеся частью спецификации HTML, нечувствительны к регистру. Определенные значения строк, такие как имена классов и `id`, чувствительны к регистру. Если значение атрибута чувствительно к регистру в HTML, то оно чувствительно к регистру при использовании в качестве части [селектора атрибутов](https://developer.mozilla.org/docs/Web/CSS/Attribute_selectors) в CSS и JavaScript; в противном случае оно не чувствительно к регистру.
 
 ```html
 <!-- the type attribute is case insensitive: these are equivalent -->
-<input type="text">
-<input type="TeXt">
+<input type="text" />
+<input type="TeXt" />
 
 <!-- the id attribute is case sensitive: they are not equivalent -->
 <div id="myId">
-<div id="MyID">
+    <div id="MyID"></div>
+</div>
 ```
 
-## Boolean attributes
+## Булевы атрибуты
 
-If a boolean attribute is present, it is always true. Boolean attributes include `autofocus`, `inert`, `checked`, `disabled`,
-`required`, `reversed`, `allowfullscreen`, `default,` `loop`, `autoplay`, `controls`, `muted`, `readonly`, `multiple,` and `selected`.
-If one (or more) of these attributes is present, the element is disabled, required, readonly, etc. If not present, it isn't.
+Если присутствует булевский атрибут, то он всегда истинен. К булевым атрибутам относятся `autofocus`, `inert`, `checked`, `disabled`, `required`, `reversed`, `allowfullscreen`, `default`, `loop`, `autoplay`, `controls`, `muted`, `readonly`, `multiple,` и `selected`. Если один (или несколько) из этих атрибутов присутствует, то элемент является отключенным, обязательным, доступным для чтения и т. д. Если не присутствует, то нет.
 
-Boolean values can either be omitted, set to an empty string, or be the name of the attribute; but the value doesn't have to actually
-be set to the string `true`. All values, including `true`, `false`, and `😀`, while invalid, will resolve to true.
+Булевы значения могут быть либо опущены, либо установлены в пустую строку, либо являться именем атрибута; при этом значение не обязательно должно быть установлено в строку `true`. Все значения, включая `true`, `false` и `😀`, даже если они недействительны, примут значение `true`.
 
-These three tags are equivalent:
+Эти три тега эквивалентны:
 
 ```html
-<input required>
-<input required="">
-<input required="required">
+<input required />
+<input required="" />
+<input required="required" />
 ```
 
-If the attribute value is false, omit the attribute. If the attribute is true, include the attribute but don't provide a value.
-For example, `required="required"` is not a valid value in HTML; but as `required` is boolean, invalid values resolve to true.
-But as invalid enumerated attributes don't necessarily resolve to the same value as missing values, it is easier to get into the
-habit of omitting values than it is to remember which attributes are boolean versus enumerated and potentially provide an invalid value.
+Если значение атрибута равно `false`, опустите атрибут. Если значение атрибута истинно, включите атрибут, но не указывайте его значение. Например, `required="required"` не является допустимым значением в HTML; но поскольку `required` является булевой функцией, недействительные значения приводятся к true. Но поскольку недействительные перечислимые атрибуты не обязательно приводят к тому же значению, что и отсутствующие значения, проще взять за привычку опускать значения, чем запоминать, какие атрибуты являются булевыми, а какие перечислимыми и потенциально могут давать недействительное значение.
 
-When toggling between true and false, add and remove the attribute altogether with JavaScript rather than toggling the value.
+При переключении между `true` и `false` добавляйте и удаляйте атрибут с помощью JavaScript, а не переключая его значение.
 
 ```js
-const myMedia = document.getElementById("mediaFile");
-myMedia.removeAttribute("muted");
-myMedia.setAttribute("muted");
+const myMedia = document.getElementById('mediaFile');
+myMedia.removeAttribute('muted');
+myMedia.setAttribute('muted');
 ```
 
-Note that in XML languages, like SVG, all attributes need to include a value, including boolean attributes.
+Обратите внимание, что в языках XML, таких как SVG, все атрибуты должны содержать значение, в том числе и булевы атрибуты.
 
-## Enumerated attributes
+## Перечислимые атрибуты
 
-Enumerated attributes are sometimes confused with boolean attributes. They are HTML attributes that have a limited set of predefined valid values.
-Like boolean attributes, they have a default value if the attribute is present but the value is missing. For example, if you include `<style contenteditable>`,
-it defaults to `<style contenteditable="true">`.
+Перечислимые атрибуты иногда путают с булевыми атрибутами. Это атрибуты HTML, имеющие ограниченный набор предопределенных допустимых значений. Как и у булевых атрибутов, у них есть значение по умолчанию, если атрибут присутствует, но значение отсутствует. Например, если включить `<style contenteditable>`, то по умолчанию будет установлено значение `<style contenteditable="true">`.
 
-Unlike boolean attributes, though, omitting the attribute doesn't mean it's false; a present attribute with a missing value
-isn't necessarily true; and the default for invalid values isn't necessarily the same as a null string. Continuing the example,
-`contenteditable` defaults to `inherit` if missing or invalid, and can be explicitly set to `false`.
+Однако, в отличие от булевых атрибутов, отсутствие атрибута не означает его ложности; присутствующий атрибут с отсутствующим значением не обязательно является истинным; а значение по умолчанию для недействительных значений не обязательно равно нулевой строке. Продолжая пример, `contenteditable` по умолчанию принимает значение `inherit`, если оно отсутствует или недействительно, и может быть явно установлено в значение `false`.
 
-The default value depends on the attribute. Unlike boolean values, attributes aren't automatically "true" if present. If you
-include `<style contenteditable="false">`, the element is not editable. If the value is invalid, such as `<style contenteditable="😀">`,
-or, surprisingly, `<style contenteditable="contenteditable">`, the value is invalid and defaults to `inherit`.
+Значение по умолчанию зависит от атрибута. В отличие от булевых значений, атрибуты не являются автоматически "истинными", если они присутствуют. Если вы включите `<style contenteditable="false">`, то элемент не будет редактируемым. Если значение недопустимо, например, `<style contenteditable="😀">`, или, что удивительно, `<style contenteditable="contenteditable">`, то значение недействительно и по умолчанию принимает значение `inherit`.
 
-In most cases with enumerated attributes, missing and invalid values are the same. For example, if the `type` attribute on an `<input>`
-is missing, present but without a value, or has an invalid value, it defaults to `text`. While this behavior is common, it is not a rule.
-Because of this, it's important to know which attributes are boolean versus enumerated; omit values if possible so you don't get them wrong, and look up the value as needed.
+В большинстве случаев с перечисляемыми атрибутами отсутствующие и недопустимые значения совпадают. Например, если атрибут `type` в `<input>` отсутствует, присутствует, но не имеет значения, или имеет недопустимое значение, то по умолчанию он принимает значение `text`. Хотя такое поведение встречается часто, оно не является правилом. В связи с этим важно знать, какие атрибуты являются булевыми, а какие - перечислимыми; по возможности опускать значения, чтобы не ошибиться, и искать значение по мере необходимости.
 
-## Global attributes
+## Глобальные атрибуты
 
-Global attributes are attributes that can be set on any HTML element, including elements in the `<head>`. There are more than
-[30 global attributes](https://developer.mozilla.org/docs/Web/HTML/Global_attributes#list_of_global_attributes). While these can all, in theory, be added to any HTML element, some global attributes have no effect
-when set on some elements; for example, setting `hidden` on a `<meta>` as meta content is not displayed.
+Глобальные атрибуты - это атрибуты, которые могут быть установлены на любом элементе HTML, включая элементы в `<head>`. Существует более [30 глобальных атрибутов](../../html/uni-attr.md). Хотя теоретически все они могут быть добавлены к любому элементу HTML, некоторые глобальные атрибуты не имеют эффекта при установке на некоторые элементы; например, установка `hidden` на `<meta>` не отображает мета-содержимое.
 
 ### `id`
 
-The global attribute `id` is used to define a unique identifier for an element. It serves many purposes, including:
-- The target of a link's fragment identifier.
-- Identifying an element for scripting.
-- Associating a form element with its label.
-- Providing a label or description for assistive technologies.
-- Targeting styles with (high specificity or as attribute selectors) in CSS.
+Глобальный атрибут **[`id`](../../html/uni-attr.md#id)** используется для определения уникального идентификатора элемента. Он служит для многих целей, в том числе:
 
-The `id` value is a string with no spaces. If it contains a space, the document won't break, but you'll have to target the
-`id` with escape characters in your HTML, CSS, and JS. All other characters are valid. An `id` value can be `😀` or `.class`,
-but is not a good idea. To make programming easier for your current and future self, make the `id`'s first character a letter,
-and use only ASCII letters, digits, `_`, and `-`. It's good practice to come up with an `id` naming convention and then stick to it,
-as `id` values are case-sensitive.
+-   Целевой идентификатор фрагмента ссылки.
+-   Идентификация элемента для сценариев.
+-   Связывание элемента формы с его меткой.
+-   Предоставление метки или описания для вспомогательных технологий.
+-   Адресация стилей (с высокой специфичностью или в качестве селекторов атрибутов) в CSS.
 
-The`id` should be unique to the document. The layout of your page probably won't break if an `id` is used more than once,
-but your JavaScript, links, and element interactions may not act as expected.
+Значение `id` представляет собой строку без пробелов. Если оно содержит пробел, то документ не будет нарушен, но в HTML, CSS и JS придется использовать для обозначения `id` управляющие символы. Все остальные символы являются допустимыми. Значение `id` может быть `😀` или `.class`, но это не очень хорошая идея. Чтобы облегчить программирование для себя настоящего и будущего, сделайте первый символ `id` буквой и используйте только буквы ASCII, цифры, `_` и `-`. Рекомендуется выработать соглашение об именовании `id` и придерживаться его, поскольку значения `id` чувствительны к регистру.
 
-#### Link fragment identifier
+Идентификатор `id` должен быть уникальным для данного документа. Если `id` используется более одного раза, то макет страницы, скорее всего, не нарушится, но JavaScript, ссылки и взаимодействие элементов могут работать не так, как ожидалось.
 
-The navigation bar includes four links. We will cover the link element later, but for now, realize links are not restricted
-to HTTP-based URLs; they can be fragment identifiers to sections of the page in the current document (or in other documents).
+#### Идентификатор фрагмента ссылки
 
-On the machine learning workshop site, the navigation bar in the page header includes four links:
+Панель навигации содержит четыре ссылки. Мы рассмотрим элемент ссылки позже, а пока поймем, что ссылки не ограничиваются HTTP-адресами; они могут быть идентификаторами фрагментов страниц в текущем документе (или в других документах).
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'GRGzbXR',
-height: 300,
-theme: 'dark',
-tab: 'html,result'
-} %}
+На сайте семинара по машинному обучению панель навигации в шапке страницы содержит четыре ссылки:
 
-The href attribute provides the hyperlink that activating the link directs the user to. When a URL includes a hash mark (`#`)
-followed by a string of characters, that string is a fragment identifier. If that string matches an `id` of an element in the
-web page, the fragment is an anchor, or bookmark, to that element. The browser will scroll to the point where the anchor is defined.
+<iframe src="https://codepen.io/web-dot-dev/embed/GRGzbXR?height=300&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-These four links point to four sections of our page identified by their `id` attribute. When the user clicks on any of the
-four links in the navigation bar, the element linked to by the fragment identifier, the element containing the matching id
-minus the `#`, scrolls into view.
+Атрибут `href` указывает гиперссылку, на которую направляет пользователя активация ссылки. Если URL-адрес включает хэш-знак (`#`), за которым следует строка символов, то эта строка является идентификатором фрагмента. Если эта строка совпадает с `id` элемента веб-страницы, то фрагмент является якорем, или закладкой, на этот элемент. Браузер прокручивает страницу до того места, где определен якорь.
 
-The `<main>` content of the machine learning workshop has four sections with ids. When the site visitor clicks on one of the
-links in the `<nav>`, the section with that fragment identifier scrolls into view. The markup is similar to:
+Эти четыре ссылки указывают на четыре раздела нашей страницы, обозначенные атрибутом `id`. Когда пользователь щелкает на любой из четырех ссылок в навигационной панели, на экран прокручивается элемент, на который указывает идентификатор фрагмента - элемент, содержащий соответствующий id за вычетом `#`.
 
+Содержание `<main>` части семинара по машинному обучению состоит из четырех разделов с идентификаторами. Когда посетитель сайта нажимает на одну из ссылок в `<nav>`, то в поле зрения прокручивается раздел с идентификатором фрагмента. Разметка выглядит следующим образом:
 
 ```html
 <section id="reg">
-  <h2>Machine Learning Workshop Tickets</h2>
+    <h2>Machine Learning Workshop Tickets</h2>
 </section>
 
 <section id="about">
-  <h2>What you'll learn</h2>
+    <h2>What you'll learn</h2>
 </section>
 
 <section id="teachers">
-  <h2>Your Instructors</h2>
-  <h3>Hal 9000 <span>&amp;</span> EVE</h3>
+    <h2>Your Instructors</h2>
+    <h3>Hal 9000 <span>&amp;</span> EVE</h3>
 </section>
 
 <section id="feedback">
-  <h2>What it's like to learn good and do other stuff good too</h2>
+    <h2>
+        What it's like to learn good and do other stuff good
+        too
+    </h2>
 </section>
 ```
 
-Comparing the fragment identifiers in the `<nav>` links, you'll note that each matches the `id` of a `<section>` in `<main>`.
-The browser gives us a free "top of page" link. Setting `href="#top"`, case-insensitive, or simply `href="#"`, will scroll
-the user to the top of the page.
+Сравнивая идентификаторы фрагментов в ссылках `<nav>`, можно заметить, что каждый из них совпадает с `id`ом `<section>` в `<main>`. Браузер предоставляет нам бесплатную ссылку "верх страницы". Установка `href="#top"`, без учета регистра, или просто `href="#"`, приведет к прокрутке пользователя в верхнюю часть страницы.
 
-The hash-mark separator in the `href` is not part of the fragment identifier. The fragment identifier is always the last
-part of the URL and is not sent to the server.
+Разделитель хэш-знаков в `href` не является частью идентификатора фрагмента. Идентификатор фрагмента всегда является последней частью URL и не передается на сервер.
 
-#### CSS selectors
+#### Селекторы CSS
 
-In CSS, you can target each section using an id selector, such as `#feedback` or, for less [specificity](https://developer.mozilla.org/docs/Web/CSS/Specificity), a case-sensitive
-[attribute selector](/learn/css/selectors/#attribute-selector), `[id="feedback"]`.
+В CSS для каждого раздела можно использовать селектор `id`, например `#feedback`, или, для меньшей [специфичности](https://developer.mozilla.org/docs/Web/CSS/Specificity), [селектор атрибутов](../css3/selectors.md#attribute-selector) с учетом регистра, `[id="feedback"]`.
 
-#### Scripting
+#### Скриптинг
 
-On MLW.com, there is an easter egg for mouse users only. Clicking the light switch toggles the page on and off.
+На сайте MLW.com есть пасхальное яйцо, предназначенное только для пользователей мыши. Щелчок на выключателе света включает и выключает страницу.
 
-The markup for the light switch image is:
+Разметка для изображения выключателя выглядит следующим образом:
+
 ```html
-<img src="svg/switch2.svg" id="switch"
-  alt="light switch" class="light" />
+<img
+    src="svg/switch2.svg"
+    id="switch"
+    alt="light switch"
+    class="light"
+/>
 ```
-The `id` attribute can be used as the parameter for the [`getElementById()`](https://developer.mozilla.org/docs/Web/API/Document/getElementById) method and, with a `#` prefix, as part of a
-parameter for the [`querySelector()`](https://developer.mozilla.org/docs/Web/API/Document/querySelector) and [`querySelectorAll()`](https://developer.mozilla.org/docs/Web/API/Document/querySelectorall) methods.
+
+Атрибут `id` может использоваться в качестве параметра метода [`getElementById()`](https://developer.mozilla.org/docs/Web/API/Document/getElementById) и, с префиксом `#`, как часть параметра методов [`querySelector()`](https://developer.mozilla.org/docs/Web/API/Document/querySelector) и [`querySelectorAll()`](https://developer.mozilla.org/docs/Web/API/Document/querySelectorall).
 
 ```js
-const switchViaID = document.getElementById("switch");
-const switchViaSelector = document.querySelector("#switch");
+const switchViaID = document.getElementById('switch');
+const switchViaSelector = document.querySelector('#switch');
 ```
 
-Our one JavaScript function makes use of this ability to target elements by their `id` attribute:
+Наша одна функция JavaScript использует эту возможность для нацеливания на элементы по их атрибуту `id`:
 
 ```html
 <script>
-  /* switch is a reserved word in js, so we us onoff instead */
-  const onoff = document.getElementById('switch');
-  onoff.addEventListener('click', function(){
-    document.body.classList.toggle('black');
-  });
+    /* switch is a reserved word in js, so we us onoff instead */
+    const onoff = document.getElementById('switch');
+    onoff.addEventListener('click', function () {
+        document.body.classList.toggle('black');
+    });
 </script>
 ```
 
 #### `<label>`
 
-The [HTML `<label>` element](https://developer.mozilla.org/docs/Web/HTML/Element/label) has a `for` attribute that takes as its value the `id` of the form control with which it is associated.
-Creating an explicit label by including an `id` on every form control and pairing each with the label's `for` attribute ensures
-that every form control has an associated label.
+Элемент HTML [`<label>`](../../html/label.md) имеет атрибут [`for`](../../html/label.md#for), который принимает в качестве значения `id` элемента управления формой, с которым он связан. Создание явной метки путем включения `id` в каждый элемент управления формы и сопоставления его с атрибутом `for` метки гарантирует, что каждый элемент управления формы имеет связанную с ним метку.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'JjZxQOB',
-height: 300,
-theme: 'dark',
-tab: 'html,result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/JjZxQOB?height=300&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-While each label can be associated with exactly one form control, a form control may have more than one associated label.
+Хотя каждая метка может быть связана только с одним элементом управления формой, элемент управления формой может иметь более одной связанной с ним метки.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'dyKaBda',
-height: 300,
-theme: 'dark',
-tab: 'html,result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/dyKaBda?height=300&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-If the form control is nested between the `<label>` opening and closing tags, the `for` and `id` attributes
-aren't required: this is called an "implicit" label. Labels let all users know what each form control is for.
+Если элемент управления формы вложен между открывающим и закрывающим тегами `<label>`, то атрибуты `for` и `id` не требуются: это называется "неявной" меткой. Благодаря меткам все пользователи знают, для чего предназначен тот или иной элемент управления формой.
 
 ```html
 <label>
-  Send me a reminder <input type="number" name="min"> before the workshop resumes
-</label>.
+    Send me a reminder
+    <input type="number" name="min" /> before the workshop
+    resumes </label
+>.
 ```
 
-The association between `for` and `id` makes the information available to users of assistive technologies. In addition,
-clicking anywhere on a label gives focus to the associated element, extending the control's click area. This isn't just helpful
-to people with dexterity issues making mousing less accurate; it also helps every mobile device user with fingers wider than a radio
-button.
+Связь между `for` и `id` делает информацию доступной для пользователей вспомогательных технологий. Кроме того, при щелчке в любом месте метки фокус переходит на связанный с ней элемент, расширяя область щелчка элемента управления. Это полезно не только тем, у кого проблемы с ловкостью рук, делающие манипуляции менее точными, но и всем пользователям мобильных устройств, у которых пальцы шире радиокнопки.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'BaVMgxo',
-height: 300,
-theme: 'dark',
-tab: 'html,result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/BaVMgxo?height=300&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;"></iframe>
 
-In this code example, the fake fifth question of a fake quiz is a single select multiple-choice question. Each form control has an explicit
-label, with a unique `id` for each. To ensure we don't accidentally duplicate an id, the id value is a combination of the question number and the value.
+В данном примере кода фальшивый пятый вопрос фальшивой викторины представляет собой вопрос с множественным выбором. Каждый элемент управления формы имеет явную метку и уникальное значение `id` для каждого. Чтобы случайно не продублировать id, значение id представляет собой комбинацию номера вопроса и его значения.
 
-When including radio buttons, as the labels describe the value of the radio buttons, we encompass all the same-named buttons in a `<fieldset>`
-with the `<legend>` being the label, or question, for the entire set.
+При включении радиокнопок, поскольку их метки описывают значение, мы объединяем все одноименные кнопки в [`<fieldset>`](../../html/fieldset.md), а [`<legend>`](../../html/legend.md) является меткой или вопросом для всего набора.
 
-#### Other accessibility uses
+#### Другие варианты использования доступности
 
-The use of `id` in accessibility and usability is not limited to labels. In [introduction to text](/learn/html/text-basics), a `<section>`
-was converted into region landmark by referencing the `id` of an `<h2>` as the value of the `<section>`'s `aria-labelledby` to provide
-the accessible name:
+Использование `id` в доступности и юзабилити не ограничивается метками. В [introduction to text](text-basics.md), `<section>` был преобразован в региональный ориентир путем ссылки на `id` из `<h2>` в качестве значения `aria-labelledby` в `<section>` для обеспечения доступного имени:
 
 ```html
 <section id="about" aria-labelledby="about_heading">
-<h2 id="about_heading">What you'll learn</h2>
+    <h2 id="about_heading">What you'll learn</h2>
+</section>
 ```
 
-There are over 50 `aria-*` states and properties that can be used to ensure accessibility. [`aria-labelledby`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby), [`aria-describedby`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-describedby),
-[`aria-details`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-details), and [`aria-owns`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-owns) take as their value a space-separated `id` reference list. [`aria-activedescendant`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-activedescendant), which
-identifies the currently focused descendant element, takes as its value a single `id` reference: that of the single element
-that has focus (only one element can be focused at a time).
+Существует более 50 состояний и свойств `aria-*`, которые могут быть использованы для обеспечения доступности. [`aria-labelledby`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby), [`aria-describedby`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-describedby), [`aria-details`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-details) и [`aria-owns`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-owns) принимают в качестве значения разделенный пробелами список ссылок `id`. [`aria-activedescendant`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-activedescendant), идентифицирующий текущий элемент-потомок, принимает в качестве значения единственную ссылку `id`: ссылку на единственный элемент, находящийся в фокусе (одновременно в фокусе может находиться только один элемент).
 
-{% Aside %}
-Using `aria-labelledby`, you can create a reverse association from a form control to multiple labels, including text not
-nested in a `<label>`, whether the text labels more than one form control or not. If a control has both `<label>` and `aria-labelledby`, the `aria-labelledby`
-has precedence; users will not hear the `<label>` text unless the `aria-labelledby` includes the id of the label.
-{% endAside %}
+!!!note ""
+
+    Используя `aria-labelledby`, вы можете создать обратную ассоциацию от элемента управления формы к нескольким меткам, включая текст, не вложенный в `<label>`, независимо от того, является ли этот текст меткой более чем одного элемента управления формы или нет. Если элемент управления имеет и `<label>`, и `aria-labelledby`, то приоритет имеет `aria-labelledby`; пользователи не услышат текст `<label>`, если в `aria-labelledby` не указан идентификатор метки.
 
 ### `class`
 
-The `class` attribute provides an additional way of targeting elements with CSS (and JavaScript), but serves no other purpose
-in HTML (though frameworks and component libraries may use them). The class attribute takes as its value a space-separated list
-of the case-sensitive classes for the element.
+Атрибут **[`class`](../../html/uni-attr.md#class)** предоставляет дополнительный способ адресации элементов с помощью CSS (и JavaScript), но не имеет другого назначения в HTML (хотя фреймворки и библиотеки компонентов могут их использовать). Атрибут class принимает в качестве значения разделенный пробелами список классов элемента с учетом регистра.
 
-{% Aside %}
-Elements can be selected with CSS selectors and DOM methods based on their element names, attributes, attribute values,
-position within the DOM tree, etc. Semantic HTML provides meaningful hooks, making the addition of class names often unnecessary.
-The unique difference between including a class name and using [`document.getElementsByClassName()`](https://developer.mozilla.org/docs/Web/API/Document/getElementsByClassName) versus targeting elements
-based on attributes and page structure with the more robust document.querySelectorAll() is that the former returns a live node list, the latter
-is static.
-{% endAside %}
+!!!note ""
 
-Building a sound semantic structure enables the targeting of elements based on their placement and function. Sound structure
-enables the use of descendant element selectors, relational selectors, and attribute selectors. As you learn about attributes
-throughout this section, consider how elements with the same attributes or attribute values can be styled. It's not that you
-shouldn't use the class attribute, it's just that most developers don't realize they often don't need to.
+    Элементы могут быть выбраны с помощью селекторов CSS и методов DOM на основе их имен, атрибутов, значений атрибутов, положения в дереве DOM и т.д. Семантический HTML предоставляет значимые хуки, что делает добавление имен классов зачастую излишним. Уникальная разница между включением имени класса и использованием [`document.getElementsByClassName()`](https://developer.mozilla.org/docs/Web/API/Document/getElementsByClassName) в сравнении с выбором элементов на основе атрибутов и структуры страницы с помощью более надежной функции document.querySelectorAll() заключается в том, что первая возвращает живой список узлов, а вторая - статический.
 
-Thus far, MLW has not used any classes. Can a site be launched without a single class name? We'll see.
+Построение продуманной семантической структуры позволяет нацеливать элементы на основе их расположения и функций. Продуманная структура позволяет использовать селекторы элементов-потомков, реляционные селекторы и селекторы атрибутов. Изучая атрибуты в этом разделе, обратите внимание на то, как могут быть стилизованы элементы с одинаковыми атрибутами или значениями атрибутов. Дело не в том, что не следует использовать атрибут class, просто большинство разработчиков не понимают, что часто в этом нет необходимости.
+
+До сих пор в MLW не использовались никакие классы. Можно ли запустить сайт без единого имени класса? Посмотрим.
 
 ### `style`
 
-The `style` attribute enables applying inline styles, which are styles applied to the single element on which the attribute is set.
-The `style` attribute takes as its value CSS property value pairs, with the value's syntax being the same as the contents of a
-CSS style block: properties are followed by a colon, just like in CSS, and semicolons end each declaration, coming after the value.
+Атрибут **[`style`](../../html/uni-attr.md#style)** позволяет применять инлайн-стили, то есть стили, применяемые к одному элементу, для которого установлен атрибут. Атрибут `style` принимает в качестве значения пары значений CSS-свойств, причем синтаксис значений аналогичен содержимому блока стилей CSS: после свойств ставится двоеточие, как и в CSS, а точка с запятой завершает каждое объявление, идущее после значения.
 
-The styles are only applied to the element on which the attribute is set, with descendants inheriting inherited property values if not
-overridden by other style declarations on nested elements or in `<style>` blocks or style sheets. As the value comprises the equivalent of the contents
-of a single style block applied to that element only, it can't be used for generated content, to create keyframe animations, or to apply any
-other at-rules.
+Стили применяются только к тому элементу, для которого задан атрибут, причем потомки наследуют унаследованные значения свойств, если они не отменены другими объявлениями стилей во вложенных элементах, блоках `<style>` или таблицах стилей. Поскольку значение представляет собой эквивалент содержимого одного блока стилей, применяемого только к данному элементу, его нельзя использовать для генерируемого содержимого, создания анимации ключевых кадров или применения каких-либо других at-правил.
 
-While `style` is indeed a global attribute, using it is not recommended. Rather, define styles in a separate file or files.
-That said, the `style` attribute can come in handy during development to enable quick styling such as for testing purposes. Then take the
-'solution' style and stick it in your linked [CSS](/learn/css) file.
+Хотя `style` действительно является глобальным атрибутом, использовать его не рекомендуется. Лучше определить стили в отдельном файле или файлах. Тем не менее, атрибут `style` может пригодиться в процессе разработки для быстрого создания стилей, например, в целях тестирования. Затем возьмите стиль "solution" и поместите его в связанный файл [CSS](../css3/index.md).
 
 ### `tabindex`
 
-The `tabindex` attribute can be added to any element to enable it to receive focus. The `tabindex` value defines whether it
-gets added to the tab order, and, optionally, into a non-default tabbing order.
+Атрибут **[`tabindex`](../../html/uni-attr.md#tabindex)** может быть добавлен к любому элементу для того, чтобы он мог получать фокус. Значение `tabindex` определяет, будет ли он добавлен к порядку табуляции и, как вариант, к порядку табуляции, не заданному по умолчанию.
 
-The `tabindex` attribute takes as its value an integer. A negative value (the convention is to use `-1`) makes an element capable
-of receiving focus, such as via JavaScript, but does not add the element to the tabbing sequence. A `tabindex` value of `0` makes
-the element focusable and reachable via tabbing, adding it to the default tab order of the page in source code order. A value of `1`
-or more puts the element into a prioritized focus sequence and is not recommended.
+Атрибут `tabindex` принимает в качестве значения целое число. Отрицательное значение (принято использовать `-1`) делает элемент способным получать фокус, например, с помощью JavaScript, но не добавляет его в порядок табуляции. Значение `tabindex`, равное `0`, делает элемент фокусируемым и доступным через табуляцию, добавляя его в порядок табуляции страницы по умолчанию в порядке исходного кода. Значение `1` или больше переводит элемент в приоритетную последовательность фокусировки и не рекомендуется.
 
-On this page, there is a share functionality using a `<share-action>` custom element acting as a `<button>`. The `tabindex` of zero
-is included to add the custom element into the keyboard default tabbing order:
+На этой странице реализована функция совместного доступа с использованием пользовательского элемента `<share-action>`, выполняющего роль `<button>`. Для добавления пользовательского элемента в порядок табуляции клавиатуры по умолчанию используется значение `tabindex`, равное нулю:
 
 ```html
-<share-action authors="@estellevw" data-action="click" data-category="web.dev" data-icon="share" data-label="share, twitter" role="button" tabindex="0">
-  <svg aria-label="share" role="img" xmlns="http://www.w3.org/2000/svg">
-    <use href="#shareIcon" />
-  </svg>
-  <span>Share</span>
+<share-action
+    authors="@estellevw"
+    data-action="click"
+    data-category="web.dev"
+    data-icon="share"
+    data-label="share, twitter"
+    role="button"
+    tabindex="0"
+>
+    <svg
+        aria-label="share"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <use href="#shareIcon" />
+    </svg>
+    <span>Share</span>
 </share-action>
 ```
 
-The [`role` of `button`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/button_role) informs screen reader users that this element should behave like a button. JavaScript is used to ensure
-the button functionality promise is kept; including handling both [click](https://developer.mozilla.org/docs/Web/API/Element/click_event) and [keydown](https://developer.mozilla.org/docs/Web/API/Element/keydown_event) events as well as handling Enter and Space key keypresses.
+Указание [`role` для `button`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/button_role) информирует пользователей программ чтения с экрана о том, что данный элемент должен вести себя как кнопка. JavaScript используется для обеспечения выполнения обещания функциональности кнопки, включая обработку событий [click](https://developer.mozilla.org/docs/Web/API/Element/click_event) и [keydown](https://developer.mozilla.org/docs/Web/API/Element/keydown_event), а также обработку нажатий клавиш ++enter++ и ++space++.
 
-Form controls, links, buttons, and [content editable](#contenteditable) elements are able to receive focus; when a keyboard user hits the tab key,
-focus moves to the next focusable element as if they had `tabindex="0"` set. Other elements are not focusable by default. Adding the `tabindex`
-attribute to those elements enables them to receive focus when they would otherwise not.
+Элементы управления формы, ссылки, кнопки и элементы [content editable](#contenteditable) могут получать фокус; когда пользователь на клавиатуре нажимает клавишу табуляции, фокус перемещается на следующий фокусируемый элемент, как если бы для него был установлен `tabindex="0"`. Остальные элементы по умолчанию не фокусируются. Добавление атрибута `tabindex` к этим элементам позволяет им получать фокус в тех случаях, когда в противном случае они не могли бы его получить.
 
-If a document includes elements with a `tabindex` of `1` or more, they are included in a separate tab sequence. As you'll notice in the codepen,
-tabbing begins in a separate sequence, in order of lowest value to highest value, before going through those in the regular sequence in source order.
+Если в документе присутствуют элементы с `tabindex`, равным `1` или более, то они включаются в отдельную последовательность вкладок. Как видно из codepen, табуляция начинается с отдельной последовательности, в порядке от наименьшего значения к наибольшему, а затем переходит к элементам обычной последовательности в исходном порядке.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'ExRGBPE',
-height: 300,
-theme: dark,
-tab: 'html,result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/ExRGBPE?height=300&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Altering the tabbing order can create a really bad user experience. It makes it difficult to rely on assistive technology—keyboards and screen readers alike—to navigate
-your content. It is also difficult as a developer to manage and maintain. Focus is important; there is an entire module discussing focus and focus order.
+Изменение порядка табуляции может создать очень неприятные впечатления у пользователей. Это затрудняет навигацию по содержимому с помощью вспомогательных технологий - клавиатур и устройств чтения с экрана. Кроме того, разработчику трудно управлять и поддерживать этот порядок. Фокусировка очень важна; существует целый модуль, посвященный фокусу и порядку фокусировки.
 
 ### `role`
 
-The [`role` attribute](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles) is part of the [ARIA specification](https://w3c.github.io/aria/#introroles),
-rather than the [WHATWG HMTL specification](https://html.spec.whatwg.org/#global-attributes:attr-aria-role). The `role` attribute can
-be used to provide semantic meaning to content, enabling screen readers to inform site users of an object's expected user interaction.
+Атрибут [`role`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles) является частью спецификации [ARIA](https://w3c.github.io/aria/#introroles), а не спецификации [WHATWG HMTL](https://html.spec.whatwg.org/#global-attributes:attr-aria-role). Атрибут `role` может использоваться для придания семантического смысла содержимому, позволяя программам чтения с экрана информировать пользователей сайта о предполагаемом взаимодействии объекта с пользователем.
 
-There are a few common UI widgets, such as [comboboxes](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/combobox_role),
-[menubars](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/menubar_role), [tablists](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/tablist_role),
-and [treegrids](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/treegrid_role), that have no native HTML equivalent.
-For example, when creating a tabbed design pattern, the [`tab`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/tab_role), `tablist` and
-[`tabpanel`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/tabpanel_role) roles can be used. Someone who can physically see
-the user-interface has learned by experience how to navigate the widget and make different panels visible by clicking on associated tabs.
-Including the `tab` role with `<button role="tab">` when a group of buttons is used to show different panels lets the screen reader user know
-that the `<button>` that currently has focus can toggle a related panel into view rather than implementing typical button-like functionality.
+Существует несколько распространенных виджетов пользовательского интерфейса, таких как [comboboxes](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/combobox_role), [menubars](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/menubar_role), [tablists](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/tablist_role) и [treegrids](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/treegrid_role), которые не имеют собственного HTML-эквивалента. Например, при создании шаблона дизайна с вкладками можно использовать роли [`tab`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/tab_role), `tablist` и [`tabpanel`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/tabpanel_role). Тот, кто физически видит пользовательский интерфейс, на собственном опыте знает, как перемещаться по виджету и делать видимыми различные панели, щелкая на связанных с ними вкладках. Включение роли `tab` с `<button role="tab">`, когда группа кнопок используется для отображения различных панелей, позволяет пользователю программы чтения с экрана знать, что `<button>`, имеющая в данный момент фокус, может переключать соответствующую панель на просмотр, а не реализовывать типичную функциональность, подобную кнопкам.
 
-The `role` attribute doesn't change browser behavior or alter keyboard or pointer device interactions—adding `role="button"`to a `<span>`
-does not turn it into a `<button>`. This is why using semantic HTML elements for their intended purpose is recommended. However, when using
-the right element is not possible, the `role` attribute enables informing screen reader users when a non-semantic element has been retrofitted
-into a semantic element's role.
+Атрибут `role` не меняет поведения браузера и не изменяет взаимодействия с клавиатурой или указателем устройства - добавление `role="button"` к `<span>` не превращает его в `<button>`. Именно поэтому рекомендуется использовать семантические элементы HTML по их прямому назначению. Тем не менее, когда использование нужного элемента невозможно, атрибут `role` позволяет информировать пользователей программ чтения с экрана о том, что несемантический элемент был переделан под роль семантического элемента.
 
 ### `contenteditable`
 
-An element with the `contenteditable` attribute set to `true` is editable, is focusable, and is added to the tab order as if
-`tabindex="0"` were set. `Contenteditable` is an enumerated attribute supporting the values `true` and `false`, with a default value of `inherit`
-if the attribute is not present or has an invalid value.
+Элемент с атрибутом `contenteditable`, установленным в `true`, является редактируемым, фокусируемым и добавляется в порядок вкладок, как если бы был установлен `tabindex="0"`. `Contenteditable` - это перечисляемый атрибут, поддерживающий значения `true` и `false`, по умолчанию значение `inherit`, если атрибут отсутствует или имеет недопустимое значение.
 
-These three opening tags are equivalent:
+Эти три открывающих тега эквивалентны:
 
 ```html
 <style contenteditable>
@@ -384,23 +282,22 @@ These three opening tags are equivalent:
 <style contenteditable="true">
 ```
 
-If you include `<style contenteditable="false">`, the element is not editable (unless it's by default editable, like a `<textarea>`).
-If the value is invalid, such as `<style contenteditable="😀">` or `<style contenteditable="contenteditable">`, the value defaults to `inherit`.
+Если указать `<style contenteditable="false">`, то элемент не будет редактируемым (если только он не является редактируемым по умолчанию, как, например, `<textarea>`). Если значение недопустимо, например, `<style contenteditable="😀">` или `<style contenteditable="contenteditable">`, то по умолчанию устанавливается значение `inherit`.
 
-To toggle between states, query the value of the [HTMLElement.isContentEditable](https://developer.mozilla.org/docs/Web/API/HTMLElement/contentEditable) readonly property.
+Чтобы переключиться между состояниями, запросите значение свойства [HTMLElement.isContentEditable](https://developer.mozilla.org/docs/Web/API/HTMLElement/contentEditable) readonly.
 
 ```js
-const editor = document.getElementById("myElement");
-if(editor.contentEditable) {
-  editor.setAttribute("contenteditable", "false");
+const editor = document.getElementById('myElement');
+if (editor.contentEditable) {
+    editor.setAttribute('contenteditable', 'false');
 } else {
-  editor.setAttribute("contenteditable", "");
+    editor.setAttribute('contenteditable', '');
 }
 ```
 
-Alternatively, this property can be specified by setting `editor.contentEditable` to `true`, `false`, or `inherit`.
+В качестве альтернативы это свойство может быть задано установкой `editor.contentEditable` в `true`, `false` или `inherit`.
 
-Global attributes can be applied to all elements, even `<style>` elements. You can use attributes and a bit of CSS to make a live CSS editor.
+Глобальные атрибуты могут применяться ко всем элементам, даже к элементам `<style>`. Используя атрибуты и немного CSS, можно создать живой CSS-редактор.
 
 ```css
 <style contenteditable>
@@ -417,8 +314,7 @@ style {
 </style>
 ```
 
-Try changing the `color` of the `style` to something other than `inherit`. Then try changing the `style` to a `p` selector.
-Don't remove the display property or the style block will disappear.
+Попробуйте изменить `color` в `style` на что-то отличное от `inherit`. Затем попробуйте изменить `style` на селектор `p`. Не удаляйте свойство `display`, иначе блок стилей исчезнет.
 
 <style contenteditable>
 style {
@@ -433,51 +329,46 @@ style {
 }
 </style>
 
-## Custom attributes
+## Пользовательские атрибуты
 
-We've only touched the surface of HTML global attributes. There are even more attributes that apply to only one or a limited set of elements.
-Even with hundreds of defined attributes, you may have a need for an attribute that isn't in the specification. HTML has you covered.
+Мы только коснулись поверхности глобальных атрибутов HTML. Существует еще больше атрибутов, которые применяются только к одному или ограниченному набору элементов. Даже при наличии сотен определенных атрибутов у вас может возникнуть потребность в атрибуте, которого нет в спецификации. HTML позаботился об этом.
 
-You can create any custom attribute you want by adding the [`data-`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/data-*) prefix. You can name your attribute anything that starts with `data-`
-followed by any lowercase series of characters that don't start with `xml` and don't contain a colon (`:`).
+Вы можете создать любой пользовательский атрибут, добавив префикс [`data-`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/data-*). Вы можете назвать свой атрибут любым именем, начинающимся с `data-`, за которым следует любая строчная серия символов, не начинающаяся с `xml` и не содержащая двоеточия (`:`).
 
-While HTML is forgiving and won't break if you create unsupported attributes that don't start with `data`, or even if you start
-your custom attribute with `xml` or include a `:`, there are benefits to creating valid custom attributes that begin with `data-`.
-With custom data attributes you know that you aren't accidentally using an existing attribute name. Custom data attributes are future-proof.
+Хотя HTML снисходителен и не сломается, если вы создадите неподдерживаемые атрибуты, не начинающиеся с `data`, или даже если вы начнете свой пользовательский атрибут с `xml` или включите `:`, есть свои преимущества в создании корректных пользовательских атрибутов, начинающихся с `data-`. Используя пользовательские атрибуты данных, вы можете быть уверены, что случайно не используете существующее имя атрибута. Пользовательские атрибуты данных являются перспективными.
 
-While browsers won't implement default behaviors for any specific `data-` prefixed attribute, there is a built-in dataset API
-to iterate through your custom attributes. Custom properties are an excellent way of communicating application-specific information
-via JavaScript. Add custom attributes to elements in the form of `data-name` and access these through the DOM using `dataset[name]`
-on the element in question.
+Хотя браузеры не будут реализовывать поведение по умолчанию для какого-либо конкретного атрибута с префиксом `data-`, существует встроенный API набора данных для итерации по вашим пользовательским атрибутам. Пользовательские свойства - это отличный способ передачи специфической для приложения информации с помощью JavaScript. Добавьте к элементам пользовательские атрибуты в виде `data-name` и получайте к ним доступ через DOM, используя `dataset[name]` на соответствующем элементе.
 
 ```html
-<blockquote data-machine-learning="workshop"
-  data-first-name="Blendan" data-last-name="Smooth"
-  data-formerly="Margarita Maker" data-aspiring="Load Balancer"
-  data-year-graduated="2022">
-  HAL and EVE could teach a fan to blow hot air.
+<blockquote
+    data-machine-learning="workshop"
+    data-first-name="Blendan"
+    data-last-name="Smooth"
+    data-formerly="Margarita Maker"
+    data-aspiring="Load Balancer"
+    data-year-graduated="2022"
+>
+    HAL and EVE could teach a fan to blow hot air.
 </blockquote>
 ```
 
-You can use `getAttribute()` using the full attribute name, or you can take advantage of the simpler [`dataset`](https://developer.mozilla.org/docs/Web/API/HTMLElement/dataset) property.
+Можно использовать `getAttribute()`, используя полное имя атрибута, или воспользоваться более простым свойством [`dataset`](https://developer.mozilla.org/docs/Web/API/HTMLElement/dataset).
 
 ```js
 el.dataset[machineLearning]; // workshop
 e.dataset.machineLearning; // workshop
 ```
 
-The `dataset` property returns a `DOMStringMap` object of each element's `data-` attributes. There are several custom attributes
-on the `<blockquote>`. The dataset property means you don't need to know what those custom attributes are in order to access their
-names and values:
+Свойство `dataset` возвращает объект `DOMStringMap`, содержащий атрибуты `data-` каждого элемента. У элемента [`<blockquote>`](../../html/blockquote.md) есть несколько пользовательских атрибутов. Свойство `dataset` означает, что вам не нужно знать, что это за пользовательские атрибуты, чтобы получить доступ к их именам и значениям:
 
 ```js
 for (let key in el.dataset) {
-  customObject[key] = el.dataset[key];
+    customObject[key] = el.dataset[key];
 }
 ```
 
-The attributes in this article are global, meaning they can be applied to any HTML element (though they don't all have an impact on
-those elements). Up next, we take a look at the two attributes from the intro image that we didn't address—`target` and `href`—and
-several other element-specific attributes as we take a deeper look into links.
+Атрибуты, приведенные в этой статье, являются глобальными, то есть могут применяться к любому элементу HTML (хотя не все они оказывают влияние на эти элементы). Далее мы рассмотрим два атрибута из вводного изображения, которые не были рассмотрены, - `target` и `href` - и несколько других атрибутов, специфичных для конкретного элемента, при более глубоком изучении ссылок.
 
-{% Assessment 'attributes' %}
+## Источник
+
+-   [Attributes](https://web.dev/learn/html/attributes/)

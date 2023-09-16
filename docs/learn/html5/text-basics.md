@@ -1,188 +1,141 @@
 ---
-title: 'Text basics'
-authors:
-  - estelleweyl
-description: How to format text using HTML.
-date: 2022-12-08
-tags:
-  - html
+description: Как форматировать текст с помощью HTML
 ---
 
-Similar to how your text editor provides `<h1>` to `<h6>` headings, along with a plethora of ways to format sections of text
-in meaningful and visual ways, HTML provides a very similar set of semantic and non-semantic elements to make meaning of prose.
+# Основы работы с текстом
 
-This section covers the main ways of marking up text, or text basics. We will then discuss attributes, before exploring
-additional ways of marking up text, such as lists, tables, and forms.
+Подобно тому, как ваш текстовый редактор предоставляет заголовки `<h1>` - `<h6>`, а также множество способов осмысленного и наглядного форматирования фрагментов текста, HTML предоставляет очень похожий набор семантических и несемантических элементов для осмысления прозы.
 
-## Headings, revisited
+В этом разделе рассматриваются основные способы разметки текста, или его основы. Затем мы обсудим атрибуты, а затем рассмотрим дополнительные способы разметки текста, такие как списки, таблицы и формы.
 
-There are six section heading elements, `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, and `<h6>`, with `<h1>` being most important
-and `<h6>` the least. For many years, developers were told that headings were used by browsers to outline documents.
-That was originally a goal, but browsers haven't implemented outlining features. However, screen reader users do use headings
-as an exploration strategy to learn about the content of the page, navigating through headings with the `h` key. So ensuring
-that heading levels are implemented as you would outline a document makes your content accessible and is still very much encouraged.
+## Заголовки, пересмотр
 
-By default, browsers style `<h1>` the largest, `<h2>` slightly smaller, with each subsequent heading level being smaller
-by default. Interestingly, browsers by default also decrement the `<h1>` font size based on how many `<article>`, `<aside>`, `<nav>`, or
-`<section>` elements it is nested in.
+Существует шесть элементов заголовков разделов, [`<h1>`](../../html/h1.md), [`<h2>`](../../html/h2.md), [`<h3>`](../../html/h3.md), [`<h4>`](../../html/h4.md), [`<h5>`](../../html/h5.md) и [`<h6>`](../../html/h6.md), причем `<h1>` является наиболее важным, а `<h6>` - наименее. В течение многих лет разработчикам говорили, что заголовки используются браузерами для выделения структуры документов. Изначально это было целью, но браузеры так и не реализовали функции структурирования. Однако пользователи программ чтения с экрана используют заголовки в качестве стратегии изучения содержимого страницы, перемещаясь по заголовкам с помощью клавиши `h`. Поэтому обеспечение уровней заголовков так же, как и структурирование документа, делает ваш контент доступным и по-прежнему очень приветствуется.
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/ktRJF3DKyFHtfLifJXkn.png", alt="Nested H1 examples.", width="242", height="548" %}
+По умолчанию браузеры стилизуют `<h1>` самым большим, `<h2>` - чуть меньшим, причем каждый последующий уровень заголовка по умолчанию становится меньше. Интересно, что браузеры по умолчанию также уменьшают размер шрифта `<h1>` в зависимости от количества элементов [`<article>`](../../html/article.md), [`<aside>`](../../html/aside.md), [`<nav>`](../../html/nav.md) или [`<section>`](../../html/section.md), в которые он вложен.
 
-Some user agent stylesheets include the following selectors, or similar, to style nested `<h1>` elements as if they were
-of a less important level:
+![Примеры вложенных H1.](text-basics-1.avif)
+
+Некоторые таблицы стилей пользовательских агентов включают следующие или аналогичные селекторы для стилизации вложенных элементов `<h1>` так, как будто они относятся к менее важному уровню:
 
 ```css
-h2, :is(article, aside, nav, section) h1 {}
-h3, :is(article, aside, nav, section) :is(article, aside, nav, section) h1 {}
+h2,
+:is(article, aside, nav, section) h1 {
+}
+h3,
+:is(article, aside, nav, section)
+    :is(article, aside, nav, section)
+    h1 {
+}
 ```
-But the Accessibility Object Model, or AOM, still reports the level of the element correctly; in this case, "heading, level 1".
-Note that the browser doesn't do this for other heading levels. That said, don't use heading level-based browser styling. Even though
-browsers don't support outlining, pretend they do; mark up your content headings as if they do. That will make your content make sense to search engines, screen readers, and
-future maintainers (which just might well be you).
 
-Outside of headings, most structured text is made up of a series of paragraphs. In HTML, paragraphs are marked up with the
-`<p>` tag; the closing tag is optional but always advised.
+Однако модель объектов доступности (Accessibility Object Model, или AOM) все равно корректно сообщает уровень элемента, в данном случае "заголовок, уровень 1". Обратите внимание, что браузер не делает этого для других уровней заголовков. Тем не менее, не стоит использовать стилизацию браузера на основе уровня заголовка. Даже если браузеры не поддерживают выделение, делайте вид, что поддерживают; оформляйте заголовки контента так, как будто они поддерживают выделение. Это сделает ваш контент понятным для поисковых систем, устройств чтения с экрана и будущих разработчиков (которыми вполне можете оказаться и вы).
 
-The #about section has a heading and a few paragraphs:
+За пределами заголовков большинство структурированных текстов состоит из серии абзацев. В HTML абзацы выделяются тегом [`<p>`](../../html/p.md); закрывающий тег необязателен, но всегда рекомендуется.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'jOKdjQm',
-height: 300,
-theme: dark,
-tab: 'html,result'
-} %}
+Раздел `#about` имеет заголовок и несколько абзацев:
 
-This section is not a landmark as it doesn't have an accessible name. To turn this into a `region`, which is a landmark role, you can use `aria-labelledby` to provide the accessible name:
+<iframe src="https://codepen.io/web-dot-dev/embed/jOKdjQm?height=300&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Этот раздел не является ориентиром, так как не имеет доступного имени. Чтобы превратить его в `region`, который является ролью `landmark`, можно использовать `aria-labelledby` для указания доступного имени:
 
 ```html
-<section id="about"  aria-labelledby="about_heading">
-<h2 id="about_heading">What you'll learn</h2>
+<section id="about" aria-labelledby="about_heading">
+    <h2 id="about_heading">What you'll learn</h2>
+</section>
 ```
-Only create landmarks if and when appropriate. Having too many landmarks can quickly become disorienting for screen reader users.
 
-## Quotes and citations
+Создавайте ориентиры только тогда, когда это необходимо. Слишком большое количество ориентиров может быстро дезориентировать пользователей программ чтения с экрана.
 
-When marking up an article or blog post, you may want to include a quote or pull-quote, with or without a visible citation.
-There are elements for these three components: `<blockquote>`, `<q>`, and `<cite>` for a visible citation, or the `cite` attribute
-to provide more information for search.
+## Цитаты и цитирование
 
-The `#feedback` section contains a header and three reviews; these reviews are blockquotes, some of which contain quotes,
-followed by a paragraph containing the quote's citation. Omitting the third review to save space, the markup is:
+При разметке статьи или записи в блоге вы можете захотеть включить цитату или выдержку, с видимым цитированием или без него. Для этих трех компонентов существуют элементы: [`<blockquote>`](../../html/blockquote.md), [`<q>`](../../html/q.md) и [`<cite>`](../../html/cite.md) для видимого цитирования, или атрибут [`cite`](../../html/blockquote.md#cite) для предоставления дополнительной информации для поиска.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'eYKxwbV',
-height: 300,
-theme: dark,
-tab: 'html,result'
-} %}
+Раздел `#feedback` содержит заголовок и три отзыва; эти отзывы представляют собой блочные цитаты, некоторые из которых содержат кавычки, за которыми следует абзац, содержащий цитату. Если опустить третий отзыв для экономии места, то разметка выглядит следующим образом:
 
-The information about the quote author, or citation, is not part of the quote and therefore not in the `<blockquote>`, but comes after the quote.
-While these are citations in the lay sense of the term, they are not actually citing a specific resource, so are encapsulated in a `<p>` paragraph element.
+<iframe src="https://codepen.io/web-dot-dev/embed/eYKxwbV?height=300&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The citation appears over three lines, including the author's name, previous role, and professional aspiration. The `<br>` line break
-creates a line break in a block of text. It can be used in physical addresses, in poetry, and in signature blocks. Line
-breaks should not be used as a carriage return to separate paragraphs. Instead, close the prior paragraph and open a new one. Using paragraphs
-for paragraphs is not only good for accessibility but enables styling. The `<br>` element is just a line break; it is impacted by very few CSS properties.
+Информация об авторе цитаты, или цитата, не является частью цитаты и, следовательно, не входит в `<blockquote>`, а располагается после цитаты. Хотя это и цитаты в обычном понимании этого термина, они не являются ссылками на конкретный ресурс, поэтому заключены в элемент абзаца `<p>`.
 
-While we provided citation information in a paragraph following each blockquote, the quotes  shown earlier are coded this way because they didn't
-come from an external source. If they did, the source can (should?) be cited.
+Цитата располагается в трех строках, включая имя автора, его предыдущую роль и профессиональные устремления. Разрыв строки [`<br>`](../../html/br.md) создает разрыв строки в блоке текста. Он может использоваться в физических адресах, в стихах и в блоках подписей. Разрыв строки не следует использовать в качестве возврата каретки для разделения абзацев. Вместо этого следует закрыть предыдущий абзац и открыть новый. Использование абзацев для абзацев не только хорошо для доступности, но и позволяет использовать стилистику. Элемент `<br>` - это просто разрыв строки; на него влияет очень мало свойств CSS.
 
-If the review was pulled from a review website, book, or other work, the `<cite>` element could be used for the title
-of a source. The content of the `<cite>` can be the title of a book, the name of a website or TV show, or even the name of a
-computer program. The `<cite>` encapsulation can be used whether the source is being mentioned in passing or if the source
-is being quoted or referenced. The content of the `<cite>` is the work, not the author.
+Хотя мы представили информацию о цитировании в абзаце после каждой блок-цитаты, приведенные ранее цитаты закодированы таким образом, потому что они не были получены из внешнего источника. Если бы они были получены из внешнего источника, на него можно (нужно?) было бы сослаться.
 
-If the quote from Blendan Smooth was taken from her offline magazine, you would write the blockquote like this:
+Если обзор был взят с обзорного сайта, из книги или другой работы, то для названия источника может использоваться элемент `<cite>`. Содержимым `<cite>` может быть название книги, название сайта или телепередачи, или даже имя компьютерной программы. Инкапсуляция `<cite>` может использоваться независимо от того, упоминается ли источник вскользь, цитируется ли он или на него делается ссылка. Содержимым `<cite>` является произведение, а не автор.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'LYrqKMq',
-height: 300,
-theme: dark,
-tab: 'html,result'
-} %}
+Если цитата из Блендана Смута была взята из ее автономного журнала, то блок-цитату можно написать следующим образом:
 
-The citation element `<cite>` has no implicit role and should get its accessible name from its contents; don't include an `aria-label`.
+<iframe src="https://codepen.io/web-dot-dev/embed/LYrqKMq?height=300&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-To provide credit where credit is due when you can't make the content visible, there is the `cite` attribute which takes as its value the URL of the source document or message for the information quoted. This attribute is valid on both `<q>` and `<blockquote>`. While it's a URL, it is machine readable but not visible to the reader:
+Элемент цитирования `<cite>` не имеет неявной роли и должен получать свое доступное имя из своего содержимого; не следует включать в него `aria-label`.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'NWzoZob',
-height: 300,
-theme: dark,
-tab: 'html,result'
-} %}
+Для того чтобы отдать должное, когда нет возможности сделать содержимое видимым, существует атрибут `cite`, который принимает в качестве значения URL-адрес исходного документа или сообщения для цитируемой информации. Этот атрибут действителен как для `<q>`, так и для `<blockquote>`. Хотя это и URL, он является машиночитаемым, но не видимым для читателя:
 
-While the `</p>` closing tag is optional (and always recommended), the `</blockquote>` closing tag is always required.
+<iframe src="https://codepen.io/web-dot-dev/embed/NWzoZob?height=300&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Most browsers add padding to both `<blockquote>` inline directions and italicize `<cite>` content; this can be controlled with CSS. The `<blockquote>` does not add quotation marks, but those can be added with CSS-generated content. The `<q>` element does add quotes by default, using language-appropriate quotation marks.
+Если закрывающий тег `</p>` является необязательным (но всегда рекомендуется), то закрывающий тег `</blockquote>` всегда обязателен.
 
-In the `#teachers` section, HAL is quoted as saying, "I'm sorry <NAME REDACTED, RIP>, but I'm afraid I can't do that, ." The code for that, in English and French, is:
+Большинство браузеров добавляют отступы как к строчным направлениям `<blockquote>`, так и к курсивному содержанию `<cite>`; это можно контролировать с помощью CSS. Элемент `<blockquote>` не добавляет кавычек, но они могут быть добавлены с помощью CSS-генерируемого содержимого. Элемент `<q>` по умолчанию добавляет кавычки, используя соответствующие языку кавычки.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'qBKgzgg',
-height: 300,
-theme: dark,
-tab: 'html,result'
-} %}
+В разделе `#teachers` HAL цитирует слова: "I'm sorry Dave, but I'm afraid I can't do that.". Код для этого, на английском и французском языках, таков:
 
-The inline quotation element, `<q>`, adds language-appropriate quotes. The user-agent default styles include open-quote and close-quote generated content:
+<iframe src="https://codepen.io/web-dot-dev/embed/qBKgzgg?height=300&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Встроенный элемент кавычек `<q>` добавляет кавычки, соответствующие языку. Стили, используемые по умолчанию в пользовательском агенте, включают генерируемое содержимое открытых и закрытых кавычек:
 
 ```css
-q::before {content: open-quote;}
-q::after {content: close-quote;}
+q::before {
+    content: open-quote;
+}
+q::after {
+    content: close-quote;
+}
 ```
 
-The `lang` attribute is included to let the browser know that, while base language of the page was defined as English in the `<html lang="en-US">` opening tag, this paragraph of text is in a different language. This helps voice controls such as Siri, Alexa, and voiceOver use French pronunciation. It also informs the browser what type of quotes to render.
+Атрибут `lang` включен для того, чтобы браузер знал, что, хотя основной язык страницы определен как английский в открывающем теге `<html lang="en-US">`, данный абзац текста написан на другом языке. Это помогает голосовым системам управления, таким как Siri, Alexa и voiceOver, использовать французское произношение. Кроме того, он сообщает браузеру, какой тип кавычек следует отображать.
 
-Like `<blockquote>`, the `<q>` element supports the `cite` attribute.
+Подобно `<blockquote>`, элемент `<q>` поддерживает атрибут `cite`.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'jOKdjJw',
-height: 300,
-theme: dark,
-tab: 'html,result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/jOKdjJw?height=300&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-### HTML Entities
+### Сущности HTML
 
-You may have noticed the escape sequence or "entity". Because the `<` is used in HTML, you have to escape it using either `&lt;` or a less easy-to-remember encoding `&#60;`. There are four reserved entities in HTML: `<`, `>`, `&`, and `"`. Their character references are `&lt;`, `&gt;`, `&amp;` and `&quot;` respectively.
+Вы, возможно, обратили внимание на экранирующую последовательность или "сущность". Поскольку в HTML используется символ `<`, его необходимо экранировать, используя либо `&lt;`, либо менее легко запоминающуюся кодировку `&#60;`. В HTML существует четыре зарезервированных сущности: `<`, `>`, `&` и `"`. Их символьные ссылки - `&lt;`, `&gt;`, `&amp;` и `&quot;` соответственно.
 
-A few other entities you will often use are `&copy;`  for copyright (©),` &trade;` for Trademark (™), and `&nbsp;` for non-breaking space.
-Non-breaking spaces are useful when you want to include a space between two characters or words while preventing a line break from occurring there.
-There are over 2,000 [named character references](https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references).
-But, if needed, every single character, including emojis, has an encoded equivalent that starts with `&#`.
+Еще несколько часто используемых символов: `&copy;` для обозначения авторского права (©), `&trade;` для обозначения товарного знака (™) и `&nbsp;` для обозначения неразрывного пробела. Неразрывные пробелы полезны в тех случаях, когда необходимо включить пробел между двумя символами или словами, не допуская при этом разрыва строки. Существует более 2 000 [именных ссылок на символы](https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references). Но при необходимости каждый символ, включая emojis, имеет кодированный эквивалент, начинающийся с `&#`.
 
-If you take a look at ToastyMcToastface's workshop review (not included in the code sample above), there are some unusual text characters:
+Если вы посмотрите на обзор семинара ToastyMcToastface (не включенный в приведенный выше пример кода), то там есть несколько необычных текстовых символов:
 
 ```html
-<blockquote>Learning with Hal and Eve exceeded all of my wildest fantasies. All they did was stick a USB in. They promised that it was a brand new USB, so we know there were no viruses on it. The Russians had nothing to do with it. This has no̶̼͖ţ̘h̝̰̩͈̗i̙̪n͏̩̙͍̱̫̜̟g̢̣ͅ ̗̰͓̲̞̀t͙̀o̟̖͖̹̕ ͓̼͎̝͖̭dó̪̠͕̜ ͍̱͎͚̯̟́w̮̲̹͕͈̟͞ìth̢ ̰̳̯̮͇</blockquote>
+<blockquote>
+    Learning with Hal and Eve exceeded all of my wildest
+    fantasies. All they did was stick a USB in. They
+    promised that it was a brand new USB, so we know there
+    were no viruses on it. The Russians had nothing to do
+    with it. This has no̶̼͖ţ̘h̝̰̩͈̗i̙̪n͏̩̙͍̱̫̜̟g̢̣ͅ ̗̰͓̲̞̀t͙̀o̟̖͖̹̕ ͓̼͎̝͖̭dó̪̠͕̜ ͍̱͎͚̯̟́w̮̲̹͕͈̟͞ìth̢ ̰̳̯̮͇
+</blockquote>
 ```
 
-The last sentence in this blockquote can also be written as:
+Последнее предложение в этой цитате можно записать и так:
 
 ```html
-This has no&#x336;&#x33C;&#x356;&tcedil;&#x318;h&#x31D;&#x330;&#x329;&#x348;&#x317;i&#x319;&#x32A;n&#x34F;&#x329;&#x319;
-&#x34D;&#x331;&#x32B;&#x31C;&#x31F;g&#x322;&#x323;&#x345; &#x317;&#x330;&#x353;&#x332;&#x31E;&#x300;t&#x359;&#x300;o&#x31F;
-&#x316;&#x356;&#x339;&#x315; &#x353;&#x33C;&#x34E;&#x31D;&#x356;&#x32D;d&oacute;&#x32A;&#x320;&#x355;&#x31C; &#x34D;&#x331;
-&#x34E;&#x35A;&#x32F;&#x31F;&#x301;w&#x32E;&#x332;&#x339;&#x355;&#x348;&#x31F;&#x35E;&igrave;th&#x322; &#x330;&#x333;
-&#x32F;&#x32E;&#x347;
+This has
+no&#x336;&#x33C;&#x356;&tcedil;&#x318;h&#x31D;&#x330;&#x329;&#x348;&#x317;i&#x319;&#x32A;n&#x34F;&#x329;&#x319;
+&#x34D;&#x331;&#x32B;&#x31C;&#x31F;g&#x322;&#x323;&#x345;
+&#x317;&#x330;&#x353;&#x332;&#x31E;&#x300;t&#x359;&#x300;o&#x31F;
+&#x316;&#x356;&#x339;&#x315;
+&#x353;&#x33C;&#x34E;&#x31D;&#x356;&#x32D;d&oacute;&#x32A;&#x320;&#x355;&#x31C;
+&#x34D;&#x331;
+&#x34E;&#x35A;&#x32F;&#x31F;&#x301;w&#x32E;&#x332;&#x339;&#x355;&#x348;&#x31F;&#x35E;&igrave;th&#x322;
+&#x330;&#x333; &#x32F;&#x32E;&#x347;
 ```
 
-There are a few unescaped characters and a few named character references in this code mess. Because the character set is UTF-8,
-the last few characters in the blockquote don't actually need to be escaped, as in this example. Only characters not supported
-by the character set need to be escaped. If needed, there are [many tools](https://mothereff.in/) to enable escaping various characters,
-or you can just ensure you include [`<meta charset="UTF-8">`](/learn/html/document-structure/#character-encoding) in the `<head>`.
+В этом коде есть несколько неэкранированных символов и несколько ссылок на именованные символы. Поскольку кодировка UTF-8, последние несколько символов в блочной цитате не требуют экранирования, как в данном примере. Необходимо экранировать только те символы, которые не поддерживаются кодировкой. При необходимости существует [множество инструментов](https://mothereff.in/), позволяющих экранировать различные символы, или можно просто включить [`<meta charset="UTF-8">`](document-structure.md#character-set) в `<head>`.
 
-Even when you specify the character set as UTF-8, you still have to escape the `<` when you want to print that character to the screen.
-Generally, you don't need to include the named character references for `>`, `"`, or `&`; but if you want to write a tutorial on HTML entities,
-you do need to write `&lt;` when teaching someone how to code a `<`. 😀
+Даже если вы указали кодировку UTF-8, вам все равно придется экранировать `<`, если вы хотите вывести этот символ на экран. Обычно не требуется включать именованные ссылки на символы `>`, `"` или `&`; но если вы хотите написать учебник по сущностям HTML, то вам придется писать `&lt;`, когда вы будете учить кого-то, как кодировать `<`. 😀
 
-Oh, and that smiley emoji is `&#x1F600;`, but this doc is declared as UTF-8, so it isn't escaped.
+О, и этот смайлик-эмодзи - `&#x1F600;`, но этот документ объявлен как UTF-8, поэтому он не экранируется.
 
-{% Assessment 'text-basics' %}
+## Источник
+
+-   [Text basics](https://web.dev/learn/html/text-basics/)

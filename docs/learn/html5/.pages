@@ -6,7 +6,7 @@ nav:
     - metadata.md
     - semantic-html.md
     - headings-and-sections.md
-    #- attributes.md
+    - attributes.md
     #- text-basics.md
     #- links.md
     #- lists.md
