@@ -1,22 +1,12 @@
 ---
-title: 'Tables'
-authors:
-  - estelleweyl
 description: Understanding how to use tables to mark up tabular data.
-date: 2022-12-08
-tags:
-  - html
 ---
 
-HTML tables are used for displaying tabular data with rows and columns. The decision to use a `<table>` should be based on
-the content you are presenting and your users' needs in relation to that content. If data is being presented, compared, sorted,
-calculated, or cross-referenced, then `<table>` is probably the right choice. If you simply want to lay out non-tabular content neatly,
-such as a large group of thumbnail images, tables are not appropriate: instead, [create a list](/learn/html/lists) of images and
-style the [grid with CSS](/learn/css/grid).
+# Таблицы
 
-In this section, we are going to discuss all the elements that make up the table, along with some accessibility and usability features
-you should consider as you present tabular data. While Learn HTML isn't fundamentally about CSS, and there is an entire course dedicated
-to [learning CSS](/learn/css), we will cover some table-specific CSS properties.
+HTML tables are used for displaying tabular data with rows and columns. The decision to use a `<table>` should be based on the content you are presenting and your users' needs in relation to that content. If data is being presented, compared, sorted, calculated, or cross-referenced, then `<table>` is probably the right choice. If you simply want to lay out non-tabular content neatly, such as a large group of thumbnail images, tables are not appropriate: instead, [create a list](/learn/html/lists) of images and style the [grid with CSS](/learn/css/grid).
+
+In this section, we are going to discuss all the elements that make up the table, along with some accessibility and usability features you should consider as you present tabular data. While Learn HTML isn't fundamentally about CSS, and there is an entire course dedicated to [learning CSS](/learn/css), we will cover some table-specific CSS properties.
 
 ## Table elements, in order
 
@@ -26,11 +16,12 @@ rows and columns. If the table maintains a selection state, has two-dimensional 
 If the rows of the `grid` can be expanded and collapsed, use [`role="treegrid"`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/treegrid_role) instead.
 
 Inside the `<table>`, you'll find the table headers (`<thead>`), table bodies (`<tbody>`), and, optionally, table footers (`<tfoot>`).
-Each of these is made up of table rows (`<tr>`). Rows contain table header (`<th>`) and table data  (`<td>`) cells which, in turn, contain all the data.
+Each of these is made up of table rows (`<tr>`). Rows contain table header (`<th>`) and table data (`<td>`) cells which, in turn, contain all the data.
 In the DOM, before any of this, you may find two additional features: the table caption (`<caption>`) and column groups (`<colgroup>`). Depending
 on whether or not the `<colgroup>` has a `span` attribute, it may contain nested table column (`<col>`) elements.
 
 The table's children are, in order:
+
 1. [`<caption>`](https://developer.mozilla.org/docs/Web/HTML/Element/caption) element
 2. [`<colgroup>`](https://developer.mozilla.org/docs/Web/HTML/Element/colgroup) elements
 3. [`<thead>`](https://developer.mozilla.org/docs/Web/HTML/Element/thead) elements
@@ -84,10 +75,12 @@ What we have so far:
 
 ```html
 <table>
-  <caption>MLW Students</caption>
-  <thead></thead>
-  <tbody></tbody>
-  <tfoot></tfoot>
+    <caption>
+        MLW Students
+    </caption>
+    <thead></thead>
+    <tbody></tbody>
+    <tfoot></tfoot>
 </table>
 ```
 
@@ -184,11 +177,16 @@ should be included:
 
 ```html
 <table>
-  <caption>Table Caption</caption>
-  <colgroup>
-    <col/>
-  </colgroup>
-  <thead>...
+    <caption>
+        Table Caption
+    </caption>
+    <colgroup>
+        <col />
+    </colgroup>
+    <thead>
+        ...
+    </thead>
+</table>
 ```
 
 Neither `<colgroup>` nor `<col>` has semantic meaning in terms of helping to make the table more accessible, but they do allow
@@ -199,7 +197,7 @@ for limited column styling, including setting a width for the column with CSS.
 which selects the 8th child of every row, will highlight the 8th column in full or will highlight the 8th column for several rows,
 but with a smattering of 9th and 10th column cells, depending on what row or column cells were merged.
 
-Unfortunately, only a few properties are supported, the styles aren't inherited into the cells, and the only way  of using the `<col>`
+Unfortunately, only a few properties are supported, the styles aren't inherited into the cells, and the only way of using the `<col>`
 element in targeting cells is with a complex selector including the [`:has()` relational selector](https://developer.mozilla.org/docs/Web/CSS/:has).
 
 {% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/UJ6y8w7K3tReIJegOTSC.png", alt="Layered rendering of the elements used to design HTML tables.", width="518", height="403" %}
@@ -221,7 +219,7 @@ Table elements have semantic meanings that are used by assistive technologies to
 without getting 'lost'. The `<table>` element should not be used for presentation. If you need a heading over a list, use a [header](/learn/html/headings-and-sections/#headings-lessh1greater-lessh6greater)
 and a [list](/learn/html/lists). If you want to lay out content in many columns, use [multi-column layout](https://developer.mozilla.org/docs/Web/CSS/CSS_Columns).
 If you want to lay out content in a grid, use [CSS grid](/learn/css/grid). Only use a table for data. Think of it this way: if your data requires a spreadsheet in order to be presented at a meeting, use`<table>`.
-If you would like to  use the features available in presentation software like Keynote or Powerpoint, you probably need a [description list](/learn/html/lists).
+If you would like to use the features available in presentation software like Keynote or Powerpoint, you probably need a [description list](/learn/html/lists).
 
 While sorting table columns is the purview of JavaScript, marking up your headers to let users know the column is sortable is the purview of HTML.
 Let your users know the table columns are sortable with iconography showing ascending, descending, or unsorted. The column currently sorted should

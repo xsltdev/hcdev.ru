@@ -10,7 +10,7 @@ nav:
     - text-basics.md
     - links.md
     - lists.md
-    #- navigation.md
+    - navigation.md
     #- tables.md
     #- forms.md
     #- images.md
