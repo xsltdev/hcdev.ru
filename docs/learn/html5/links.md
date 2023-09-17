@@ -1,197 +1,153 @@
 ---
-title: 'Links'
-authors:
-  - estelleweyl
-description: Everything you need to know about links.
-date: 2022-12-08
-tags:
-  - html
+description: Все, что нужно знать о ссылках.
 ---
 
-In the introduction to the attributes section, you saw an example showing how attributes are added to the opening tag.
-The example used the `<a>` tag, but neither the element nor the specific attributes introduced in that example were discussed:
+# Ссылки
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/17yQeLEUX6s88IbDJreQ.png", alt="The opening tag, attributes, and closing tag, labelled on an HTML element.", width="800", height="210" %}
+Во введении к разделу "Атрибуты" вы видели пример, показывающий, как добавляются атрибуты к открывающему тегу. В примере использовался тег [`<a>`](../../html/a.md), но ни сам элемент, ни конкретные атрибуты, введенные в этом примере, не обсуждались:
 
-The `<a>` anchor tag, along with the `href` attribute, create a hyperlink. Links are the backbone of the internet. The [first web page](http://info.cern.ch/hypertext/WWW/TheProject.html)
-contained 25 links, reading "Everything there is online about W3 is linked directly or indirectly to this document." In all likelihood, everything there is online
-about W3 is linked directly or indirectly from this document too!
+![Открывающий тег, атрибуты и закрывающий тег, обозначенные на HTML-элементе](links-1.avif)
 
-The power of the web, and the `<a>` tag, have grown immensely since Tim Berners-Lee published this first explanation in August 1991.
-Links represent a connection between two resources, one of which is the current document. Links can be created by [`<a>`](https://developer.mozilla.org/docs/Web/HTML/Element/a),
-[`<area>`](https://developer.mozilla.org/docs/Web/HTML/Element/area), [`<form>`](https://developer.mozilla.org/docs/Web/HTML/Element/form),
-and [`<link>`](https://developer.mozilla.org/docs/Web/HTML/Element/link). You've learned about [`<link>`](/learn/html/document-structure/#other-uses-of-the-lesslinkgreater-element),
-and will discover [forms](/learn/html/forms) in a separate section. There is also an entire [form learn section](/learn/forms/form). In this session, you'll
-find out about the single-letter, not-so-simple `<a>` tag.
+Тег `<a>` якоря вместе с атрибутом `href` создают гиперссылку. Ссылки являются основой Интернета. Первая веб-страница [http://info.cern.ch/hypertext/WWW/TheProject.html] содержала 25 ссылок и гласила: "Все, что есть в Интернете о W3, прямо или косвенно связано с этим документом". По всей вероятности, все, что есть в Интернете о W3, прямо или косвенно связано и с этим документом!
 
-## The `href` attribute
+Возможности Интернета и тега `<a>` значительно возросли с тех пор, как Тим Бернерс-Ли опубликовал это первое объяснение в августе 1991 года. Ссылки представляют собой связь между двумя ресурсами, одним из которых является текущий документ. Ссылки могут быть созданы с помощью тегов [`<a>`](../../html/a.md), [`<area>`](../../html/area.md), [`<form>`](../../html/form.md) и [`<link>`](../../html/link.md). Вы уже узнали о [`<link>`](document-structure.md#other-uses-of-the-lesslinkgreater-element), а о [forms](forms.md) вы узнаете в отдельном разделе. Существует также целый раздел [изучение форм](forms.md). На этом занятии вы узнаете об однобуквенном, не очень простом теге `<a>`.
 
-While not required, the `href` attribute is found in almost all `<a>` tags. Providing the address of the hyperlink is what turns the `<a>` into a link.
-The `href` attribute is used to create hyperlinks to locations within the current page, other pages within a site, or other sites altogether. It can also
-be coded to download files or to [send an email](https://developer.mozilla.org/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks#e-mail_links)
-to a specific address, even including a subject and suggested email body content.
+## Атрибут `href`
+
+Хотя атрибут [`href`](../../html/a.md#href) не является обязательным, он встречается практически во всех тегах `<a>`. Указание адреса гиперссылки превращает `<a>` в ссылку. Атрибут `href` используется для создания гиперссылок на места в пределах текущей страницы, на другие страницы сайта или вообще на другие сайты. Кроме того, он может быть использован для загрузки файлов или для [отправки электронного письма](https://developer.mozilla.org/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks#e-mail_links) на определенный адрес, включая тему и предлагаемое содержание письма.
 
 ```html
-<a href="https://machinelearningworkshop.com">Machine Learning Workshop</a>
+<a href="https://machinelearningworkshop.com"
+    >Machine Learning Workshop</a
+>
 <a href="#teachers">Our teachers</a>
-<a href="https://machinelearningworkshop.com#teachers">MLW teachers</a>
-<a href="mailto:hal9000@machinelearningworkshop.com">Email Hal</a>
+<a href="https://machinelearningworkshop.com#teachers"
+    >MLW teachers</a
+>
+<a href="mailto:hal9000@machinelearningworkshop.com"
+    >Email Hal</a
+>
 <a href="tel:8005551212">Call Hal</a>
 ```
 
-The first link includes an absolute [URL](https://developer.mozilla.org/docs/Learn/Common_questions/What_is_a_URL), which can be
-used on any site in the world to navigate to the MLW home page. Absolute URLs include a protocol, in this case `https://`, and a
-domain name. When the protocol is written simply as `//`, it is an implicit protocol and means "use the same protocol as is currently being used."
+Первая ссылка содержит абсолютный [URL](https://developer.mozilla.org/docs/Learn/Common_questions/What_is_a_URL), который может быть использован на любом сайте мира для перехода на главную страницу MLW. Абсолютные URL включают в себя протокол, в данном случае `https://`, и доменное имя. Если протокол записан просто как `//`, то это неявный протокол и означает "использовать тот же протокол, который используется в данный момент".
 
-Relative URLs do not include a protocol or domain name. They are "relative" to the current file. MLW is a single-page site,
-but this HTML series has several sections. In order to link from this page to the attributes lesson, a relative URL is used `<a href="../attributes/">Attributes</a>`.
+Относительные URL не содержат протокола и доменного имени. Они являются "относительными" по отношению к текущему файлу. Сайт MLW является одностраничным, но эта HTML-страница имеет несколько разделов. Для того чтобы сделать ссылку с этой страницы на урок по атрибутам, используется относительный URL `<a href="../attributes/">Attributes</a>`.
 
-The second link is just a [link fragment identifier](/learn/html/attributes/#link_fragment_identifier), and will link to the
-element with `id="teachers",` if there is one, on the current page. Browsers also support two "top of page" links: clicking
-on `<a href="#top">Top</a>` (case-insensitive) or simply `<a href="#">Top</a>` will scroll the user to the top of the page,
-unless there is an element with the id of `top` set in the same letter casing.
+Вторая ссылка - это просто [идентификатор фрагмента ссылки](attributes.md#link_fragment_identifier), и она будет ссылаться на элемент с `id="teachers",` если таковой имеется на текущей странице. Браузеры также поддерживают две ссылки "верх страницы": щелчок на `<a href="#top">Top</a>` (с учетом регистра) или просто `<a href="#">Top</a>` прокрутит пользователя в верхнюю часть страницы, если на ней нет элемента с идентификатором `top`, заданным в том же буквенном регистре.
 
-MLW is a fairly long document. To save scrolling, you can add a link back to the top from the bottom of the #teachers section:
+Документ MLW является достаточно длинным. Для экономии прокрутки можно добавить ссылку на верхнюю часть из нижней части раздела #teachers:
 
 ```html
 <a href="#top">Go to top.</a>
 ```
 
-The third link combines the two values: it contains an absolute URL followed by a link fragment. This enables linking directly
-to a section in the defined URL, in this case, the `#teachers` section of the MLW home page. The MLW page will be loaded;
-then the browser will scroll to the teachers section without sending the fragment in the HTTP request.
+Третья ссылка объединяет оба значения: она содержит абсолютный URL, за которым следует фрагмент ссылки. Это позволяет напрямую ссылаться на раздел в заданном URL, в данном случае на раздел `#teachers` главной страницы MLW. Страница MLW будет загружена, а затем браузер прокрутит страницу до раздела "Учителя" без передачи фрагмента в HTTP-запросе.
 
-The `href` attribute can begin with `mailto:` or `tel:` to email or make calls, with the handling of the link depending on the device,
-operating system, and installed applications.
+Атрибут `href` может начинаться с `mailto:` или `tel:` для отправки электронной почты или совершения звонков, при этом обработка ссылки зависит от устройства, операционной системы и установленных приложений.
 
-The `mailto` link doesn't need to include an email address, but it can, along with `cc`, `bcc`, `subject`, and `body` text to
-prepopulate the email. By default, an email client will be opened. You could prepopulate the subject and body of the email with
-no email address, to allow site visitors to invite their own friends. In our link, in the footer of the document, we include the
-URL to the registration:
+Ссылка `mailto` не обязательно должна содержать адрес электронной почты, но она может содержать текст `cc`, `bcc`, `subject` и `body` для предварительного заполнения письма. По умолчанию будет открыт почтовый клиент. Можно предварительно заполнить тему и тело письма без адреса электронной почты, чтобы посетители сайта могли сами приглашать своих друзей. В нашей ссылке, в нижнем колонтитуле документа, мы указываем URL-адрес для регистрации:
 
 ```html
-<a href="mailto:?subject=Join%20me%21&body=You%20need%20to%20show%20your%20human%20that%20you%20can%27t%20be%20owned%21%20Sign%20up%20for%20Machine%20Learning%20workshop.%20We%20are%20taking%20over%20the%20world.%20http%3A%2F%2Fwww.machinelearning.com%23reg
-">Tell a machine</a>
+<a
+    href="mailto:?subject=Join%20me%21&body=You%20need%20to%20show%20your%20human%20that%20you%20can%27t%20be%20owned%21%20Sign%20up%20for%20Machine%20Learning%20workshop.%20We%20are%20taking%20over%20the%20world.%20http%3A%2F%2Fwww.machinelearning.com%23reg
+"
+    >Tell a machine</a
+>
 ```
 
-The question mark (`?`) separates the `mailto:` and the email address, if any, from the query term. Within the query,
-ampersands (`&`) separate the fields, and equal signs (=) equate each field name with its value. The entire string is
-percent-encoded, which is definitely necessary if the `href` value isn't quoted or if the values include quotes.
+Вопросительный знак (`?`) отделяет `mailto:` и адрес электронной почты, если таковой имеется, от термина запроса. Внутри запроса амперсанд (`&`) разделяет поля, а знаки равенства (=) приравнивают имя каждого поля к его значению. Вся строка кодируется в процентах, что, безусловно, необходимо, если значение `href` не заключено в кавычки или если значения включают кавычки.
 
-Which app is opened when the user clicks on, taps, or hits Enter on a `tel` link depends on the operating system,
-installed applications, and settings the user has on their device. An iPhone may open FaceTime, the phone app, or contacts.
-A Windows desktop might open Skype, if installed.
+Какое приложение откроется при нажатии, касании или вводе ссылки `tel`, зависит от операционной системы, установленных приложений и настроек устройства. На iPhone может открыться FaceTime, приложение "Телефон" или контакты. На рабочем столе Windows может открыться Skype, если он установлен.
 
-There are several other types of URLs, such as [blobs](https://developer.mozilla.org/docs/Web/API/Blob#creating_a_url_representing_the_contents_of_a_typed_array)
-and [data URLs](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Data_URLs) (see examples in the `download` attribute discussion).
-For secure sites (those served over `https`), it is possible to [create and run app specific protocols](/registering-a-custom-protocol-handler/) with [registerProtocolHandler()](https://developer.mozilla.org/docs/Web/API/Navigator/registerProtocolHandler).
+Существует еще несколько типов URL, таких как [blobs](https://developer.mozilla.org/docs/Web/API/Blob#creating_a_url_representing_the_contents_of_a_typed_array) и [data URLs](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Data_URLs) (см. примеры в обсуждении атрибута `download`). Для защищенных сайтов (обслуживаемых по протоколу `https`) можно создавать и запускать протоколы, специфичные для приложения с помощью [registerProtocolHandler()](https://developer.mozilla.org/docs/Web/API/Navigator/registerProtocolHandler).
 
-When including links that are likely to open other installed applications, it's good to let the user know. Make sure the
-text between the opening and closing tags tells the user what type of link they're about to activate. CSS attribute selectors,
-such as `[href^="mailto:"]`, `[href^="tel:"]`, and `[href$=".pdf"]` can be used to target styles by application type.
+При включении ссылок, которые могут открывать другие установленные приложения, следует предупредить об этом пользователя. Убедитесь, что текст между открывающим и закрывающим тегами сообщает пользователю, какой тип ссылки он собирается активировать. Селекторы CSS-атрибутов, такие как `[href^="mailto:"]`, `[href^="tel:"]` и `[href$=".pdf"]`, могут быть использованы для нацеливания стилей на тип приложения.
 
-## Downloadable resources
+## Загружаемые ресурсы
 
-The `download` attribute should be included when the `href` points to a downloadable resource. The value of the download
-attribute is the suggested filename for the resource to be saved in the user's local file system.
-SVGOMG, the SVG Optimizer, uses the `download` attribute to suggest a file name for the downloadable blob that the optimizer
-creates. When `hal.svg` is optimized, SVGOMG's download link opening tag is similar to:
+Атрибут [`download`](../../html/a.md#download) должен быть включен, если `href` указывает на загружаемый ресурс. Значение атрибута download - это предлагаемое имя файла для сохранения ресурса в локальной файловой системе пользователя. SVGOMG, оптимизатор SVG, использует атрибут `download`, чтобы предложить имя файла для загружаемого блоба, который создается оптимизатором. Когда оптимизируется `hal.svg`, тег открытия ссылки на скачивание в SVGOMG выглядит следующим образом:
 
 ```html
-<a href="blob:https://jakearchibald.github.io/944a5fc8-fdb3-458a-91ee-cdd5964b6646" download="hal.svg">
+<a
+    href="blob:https://jakearchibald.github.io/944a5fc8-fdb3-458a-91ee-cdd5964b6646"
+    download="hal.svg"
+></a>
 ```
 
-There's also a demo of a [`<canvas>` that creates a downloadable PNG data URL](https://developer.mozilla.org/docs/Web/HTML/Element/a#using_the_download_attribute_to_save_a_canvas_as_a_png).
+Также имеется демонстрация [`<canvas>`, создающего загружаемый PNG-данный URL](https://developer.mozilla.org/docs/Web/HTML/Element/a#using_the_download_attribute_to_save_a_canvas_as_a_png).
 
-To link to a downloadable resource, include the URL of the asset as the value of the href attribute and the suggested filename
-that can be used in the user's file system as the value of the `download` attribute.
+Для ссылки на загружаемый ресурс в качестве значения атрибута href следует указать URL актива, а в качестве значения атрибута `download` - предполагаемое имя файла, которое может быть использовано в файловой системе пользователя.
 
-## Browsing context
+## Контекст просмотра
 
-The `target` attribute enables the defining of the browsing context for link navigation (and [form submission](/learn/html/forms).
-The four case-insensitive, underscore-prefixed keywords were discussed with the [`<base>`](/learn/html/document-structure/#base) element. They include the default `_self`,
-which is the current window, `_blank`, which opens the link in a new tab, `_parent`, which is the parent if the current link is nested
-in an object or iframe, and `_top`, which is the top-most ancestor, especially useful if the current link is deeply nested. `_top` and
-`_parent` are the same as `_self` if the link is not nested. The `target` attribute is not limited to these four key terms: any term
-can be used.
+Атрибут [`target`](../../html/a.md#target) позволяет определить контекст просмотра для навигации по ссылкам (и [отправки форм](forms.md)). Четыре ключевых слова, не зависящих от регистра, с префиксом подчеркивания, обсуждались с элементом [`<base>`](document-structure.md#base). Они включают в себя стандартные `_self`, то есть текущее окно, `_blank`, открывающий ссылку в новой вкладке, `_parent`, то есть родитель, если текущая ссылка вложена в объект или iframe, и `_top`, то есть самый верхний предок, что особенно полезно, если текущая ссылка глубоко вложена. `_top` и `_parent` - это то же самое, что и `_self`, если ссылка не является вложенной. Атрибут `target` не ограничивается этими четырьмя ключевыми терминами: можно использовать любой термин.
 
-Every browsing context—basically, every browser tab—has a browsing context name. Links can open links in the current tab, a new unnamed tab,
-or a new or existing named tab. By default, the name is the empty string. To open a link in a new tab, the user can right-click and select
-"Open in a new tab". Developers can force this by including `target="_blank"`.
+Каждый контекст просмотра - по сути, каждая вкладка браузера - имеет имя контекста просмотра. Ссылки могут открываться на текущей вкладке, новой неименованной вкладке, новой или существующей именованной вкладке. По умолчанию в качестве имени используется пустая строка. Чтобы открыть ссылку в новой вкладке, пользователь может щелкнуть правой кнопкой мыши и выбрать пункт "Открыть в новой вкладке". Разработчики могут сделать это принудительно, включив `target="_blank"`.
 
-A link with `target="_blank"` will be opened in a new tab with a null name, opening a new, unnamed tab with every link click. This can
-create many new tabs. Too many tabs. For example, if the user clicks on `<a href="registration.html" target="_blank">Register Now</a>` 15 times,
-the registration form will be opened in 15 separate tabs. This problem can be fixed by providing a tab context name. By including the [`target`attribute](https://html.spec.whatwg.org/#browsing-context-names)
-with a case-sensitive value—such as `<a href="registration.html" target="reg">Register Now</a>`—the first click on this link will open
-the registration form in a new `reg` tab. Clicking on this link 15 more times will reload the registration in the `reg` browsing context, without opening any additional tabs.
+Ссылка с `target="_blank"` будет открываться в новой вкладке с нулевым именем, открывая новую, безымянную вкладку при каждом щелчке на ссылке. В результате может быть создано множество новых вкладок. Слишком много вкладок. Например, если пользователь щелкнет на ссылке `<a href="registration.html" target="_blank">Register Now</a>` 15 раз, то форма регистрации будет открыта в 15 отдельных вкладках. Эту проблему можно решить, задав имя контекста вкладки. Если включить в контекст атрибут [`target`](https://html.spec.whatwg.org/#browsing-context-names) с чувствительным к регистру значением, например `<a href="registration.html" target="reg">Register Now</a>`, то при первом щелчке на этой ссылке форма регистрации будет открыта на новой вкладке `reg`. Если щелкнуть на этой ссылке еще 15 раз, то регистрация будет перезагружена в контексте просмотра `reg`, без открытия дополнительных вкладок.
 
-The `rel` attribute controls what kinds of links the link creates, defining the relationship between the current document and the resource
-linked to in the hyperlink. The attribute's value must be a space-separated list on one or more of the [score of rel attribute values](https://developer.mozilla.org/docs/Web/HTML/Link_types) supported
-by the `<a>` tag.
+Атрибут [`rel`](../../html/a.md#rel) управляет тем, какие виды ссылок создает ссылка, определяя связь между текущим документом и ресурсом, на который ссылается гиперссылка. Значение атрибута должно представлять собой разделенный пробелами список из одного или нескольких [значений атрибута rel](https://developer.mozilla.org/docs/Web/HTML/Link_types), поддерживаемых тегом `<a>`.
 
-The `nofollow` keyword can be included if you don't want spiders to follow the link. The `external` value can be added to
-indicate that the link directs to an external URL and is not a page within the current domain. The `help` keyword indicates the hyperlink will
-provide context-sensitive help. Hovering over a link with this `rel` value will show a help cursor rather than the normal pointer cursor.
-Don't use this value just to get the help cursor; use the CSS [`cursor` property](https://developer.mozilla.org/docs/Web/CSS/cursor) instead. The `prev` and `next` values can
-be used on links pointing to the previous and next document in a series.
+Ключевое слово `nofollow` может быть включено, если вы не хотите, чтобы поисковые роботы переходили по ссылке. Значение `external` может быть добавлено, чтобы указать, что ссылка ведет на внешний URL, а не на страницу в текущем домене. Ключевое слово `help` указывает на то, что гиперссылка будет предоставлять контекстно-зависимую помощь. При наведении курсора на ссылку с этим значением `rel` вместо обычного курсора-указателя будет отображаться курсор помощи. Не используйте это значение только для получения курсора подсказки; вместо него используйте свойство CSS [`cursor`](../../css/cursor.md). Значения `prev` и `next` могут использоваться для ссылок, указывающих на предыдущий и следующий документ в серии.
 
-Similar to [`<link rel="alternative">`](/learn/html/document-structure/#alternate-versions-of-the-site), the meaning
-of <a `rel="alternative"`> depends on other attributes. RSS feed alternatives will also include `type="application/rss+xml"`
-or `type="application/atom+xml`, alternative formats will include the `type` attribute, and translations will include the `hreflang` attribute.
-If the content between the opening and closing tags is in a language other than the main document language, include the `lang` attribute.
-If the language of the hyperlinked document is in a different language, include the `hreflang` attribute.
+Подобно [`<link rel="alternative">`](document-structure.md#alternate-versions-of-the-site), смысл `<a rel="alternative">` зависит от других атрибутов. Альтернативы RSS-каналов будут включать также атрибуты `type="application/rss+xml"` или `type="application/atom+xml"`, альтернативные форматы - атрибут [`type`](../../html/a.md#type), а переводы - атрибут [`hreflang`](../../html/a.md#hreflang). Если содержимое между открывающим и закрывающим тегами написано на языке, отличном от языка основного документа, включите атрибут `lang`. Если язык документа, на который делается гиперссылка, отличается от основного языка документа, включите атрибут `hreflang`.
 
-In this example, we include the URL of the translated page as the value of the `href`, rel="alternate" to indicate that it's an alternative version of a site; the `hreflang`
-attribute provides the language of the translations:
+В данном примере в качестве значения `href`, `rel="alternate"`, мы указываем URL переведенной страницы, чтобы показать, что это альтернативная версия сайта; атрибут `hreflang` указывает на язык перевода:
 
 ```html
-<a href="/fr/" hreflang="fr-FR" rel="alternate" lang="fr-FR">atelier d'apprentissage mechanique</a>
-<a href="/pt/" hreflang="pt-BR" rel="alternate" lang="pt-BR">oficina de aprendizado de máquina</a>
+<a href="/fr/" hreflang="fr-FR" rel="alternate" lang="fr-FR"
+    >atelier d'apprentissage mechanique</a
+>
+<a href="/pt/" hreflang="pt-BR" rel="alternate" lang="pt-BR"
+    >oficina de aprendizado de máquina</a
+>
 ```
 
-If the French translation is a PDF, you can provide the type attribute with the PDF MIME type of the linked resource. While the
-MIME type is purely advisory, informing the user that a link will open a document of a different format is always a good idea.
+Если перевод на французский язык представляет собой PDF, то в атрибуте `type` можно указать MIME-тип PDF ресурса, на который дана ссылка. Хотя тип MIME носит чисто рекомендательный характер, информирование пользователя о том, что по ссылке будет открыт документ другого формата, всегда является хорошей идеей.
 
 ```html
-<a href="/fr.pdf" hreflang="fr-FR" rel="alternate" lang="fr-FR" type="application/x-pdf">atelier d'apprentissage mechanique (pdf).</a>
+<a
+    href="/fr.pdf"
+    hreflang="fr-FR"
+    rel="alternate"
+    lang="fr-FR"
+    type="application/x-pdf"
+    >atelier d'apprentissage mechanique (pdf).</a
+>
 ```
 
-## Tracking link clicks
+## Отслеживание переходов по ссылкам
 
-One way to track user interactions is to ping a URL when a link is clicked. The `ping` attribute, if present, includes a
-space-separated list of secure URLs (which start with `https`) that should be notified, or pinged, if the user activates the
-hyperlink. The browser sends `POST` requests with the body `PING` to the URLs listed as the value of the `ping` attribute.
+Одним из способов отслеживания взаимодействия с пользователем является отправка пинга на URL при переходе по ссылке. Атрибут `ping`, если он присутствует, содержит разделенный пробелами список безопасных URL (которые начинаются с `https`), которые должны быть уведомлены, или пингованы, если пользователь активирует гиперссылку. Браузер посылает `POST`-запросы с телом `PING` на URL, указанные в качестве значения атрибута `ping`.
 
-### User experience tips
+### Советы по работе с пользователями
 
-* Always consider the user experience when writing HTML. Links should provide enough information about the linked resource
-so the user knows what they are clicking on.
-* Within a block of text, ensure the appearance of your links differs enough from the surrounding text so that users can
-easily identify links from the rest of the content, ensuring that color alone is not the only means of differentiating between
-text and the surrounding content.
-* Always include focus styles; this enables keyboard navigators to know where they are when tabbing through your content.
-* The content between the opening `<a>` and closing `</a>` is the link's default accessible name and should inform the user
-of the link's destination or purpose. If the content of a link is an image, the `alt` description is the accessible name.
-Whether the accessible name comes from the `alt` attribute or a subset of words within a block of text, make sure it provides
-information about the link's destination. Link text should be more descriptive than "click here" or "more information"; this is important for your screen reader users and your search engine results!
-* Don't include interactive content, such as a `<button>` or `<input>`, inside a link. Don't nest a link within a `<button>`
-or `<label>` either. While the HTML page will still render, nesting focusable and clickable elements inside interactive elements creates a bad user experience.
-* If the `href` attribute is present, pressing the Enter key while focused on the `<a>` element will activate it.
-* Links are not limited to HTML. The `a` element can also be used within an SVG, forming a link with either the 'href' or 'xlink:href' attributes.
+-   Всегда учитывайте пожелания пользователей при написании HTML. Ссылки должны содержать достаточно информации о ресурсе, на который они ссылаются, чтобы пользователь знал, на что он нажимает.
+-   Внутри текстового блока убедитесь, что внешний вид ссылок достаточно отличается от окружающего текста, чтобы пользователи могли легко отличить ссылки от остального содержимого, причем цвет не является единственным средством отличия текста от окружающего содержимого.
+-   Всегда включайте стили фокуса; это позволит клавиатурным навигаторам знать, где они находятся при переходе по вкладкам вашего содержимого.
+-   Содержимое между открывающим `<a>` и закрывающим `</a>` является доступным именем ссылки по умолчанию и должно информировать пользователя о ее назначении или цели. Если содержимое ссылки представляет собой изображение, то доступным именем является описание `alt`. Независимо от того, является ли доступное имя атрибутом `alt` или подмножеством слов в блоке текста, оно должно содержать информацию о назначении ссылки. Текст ссылки должен быть более описательным, чем "нажмите здесь" или "подробнее"; это важно для пользователей программ чтения с экрана и для результатов поисковых систем!
+-   Не включайте в ссылку интерактивное содержимое, такое как [`<button>`](../../html/button.md) или [`<input>`](../../html/input.md). Не вкладывайте ссылку в `<button>` или [`<label>`](../../html/label.md). Хотя HTML-страница все равно будет отображаться, вложение фокусируемых и кликабельных элементов внутри интерактивных элементов создает неприятные впечатления у пользователей.
+-   Если присутствует атрибут `href`, то нажатие клавиши Enter при фокусировке на элементе `<a>` активизирует его.
+-   Ссылки не ограничиваются HTML. Элемент `a` можно использовать и в SVG, формируя ссылку с помощью атрибутов `href` или `xlink:href`.
 
-## Links and JavaScript
+## Ссылки и JavaScript
 
-The `links` property returns an `HTMLCollection` matching `a` and `area` elements that have an `href` attribute.
+Свойство `links` возвращает коллекцию `HTMLCollection`, соответствующую элементам `a` и `area`, имеющим атрибут `href`.
 
 ```js
 let a = document.links[0]; // obtain the first link in the document
 
 a.href = 'newpage.html'; // change the destination URL of the link
 a.protocol = 'ftp'; // change just the scheme part of the URL
-a.setAttribute('href', 'https://machinelearningworkshop.com/'); // change the attribute content directly
+a.setAttribute(
+    'href',
+    'https://machinelearningworkshop.com/'
+); // change the attribute content directly
 ```
 
-In this section, you have learned all about links. The next section covers lists, which we need to learn so we can group
-them together to create lists of links (also known as navigation).
+В этом разделе вы узнали все о ссылках. Следующий раздел посвящен спискам, которые нам необходимо изучить, чтобы мы могли группировать их для создания списков ссылок (также известных как навигация).
 
-{% Assessment 'links' %}
+## Источник
+
+-   [Links](https://web.dev/learn/html/links/)
