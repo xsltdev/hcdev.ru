@@ -12,7 +12,7 @@ nav:
     - lists.md
     - navigation.md
     - tables.md
-    #- forms.md
+    - forms.md
     #- images.md
     #- audio-video.md
     #- template.md
