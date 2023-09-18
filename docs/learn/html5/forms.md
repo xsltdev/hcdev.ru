@@ -1,102 +1,61 @@
 ---
-title: 'Forms'
-authors:
-  - estelleweyl
-description: An overview of forms in HTML.
-date: 2023-02-21
-tags:
-  - html
+description: Обзор форм в HTML
 ---
 
-Most sites and applications include a web form. Joke sites, like [DoWebsites<wbr>Need<wbr>To<wbr>Look<wbr>Exactly<wbr>The<wbr>Same<wbr>In<wbr>Every<wbr>Browser.com](http://dowebsitesneedtolookexactlythesameineverybrowser.com/),
-may not have a form, but even [Machine<wbr>Learning<wbr>Workshop.com](https://machinelearningworkshop.com/) (MLW), which originated as an April Fool's day joke, has a form,
-albeit a fake one. MLW's main "call to action" is a registration form for machines to sign up for a workshop. This form
-is contained in a `<form>` element.
+# Формы
 
-The [HTML `<form>` element](https://developer.mozilla.org/docs/Web/HTML/Element/form) identifies a document [landmark](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles#3._landmark_roles) containing
-interactive controls for submitting information. Nested in a `<form>` you'll find all the interactive (and non-interactive)
-form controls that make up that form.
+Большинство сайтов и приложений содержат веб-форму. Шуточные сайты, например [DoWebsites<wbr>Need<wbr>To<wbr>Look<wbr>Exactly<wbr>The<wbr>Same<wbr>In<wbr>Every<wbr>Browser.com](http://dowebsitesneedtolookexactlythesameineverybrowser.com/), могут не иметь формы, но даже [Machine<wbr>Learning<wbr>Workshop.com](https://machinelearningworkshop.com/) (MLW), возникший как шутка в День первоапрельского дурака, имеет форму, хотя и поддельную. Основным "призывом к действию" MLW является регистрационная форма для машин, позволяющая записаться на семинар. Эта форма содержится в элементе `<form>`.
 
-HTML is powerful. This section focuses on the power of HTML, covering what HTML can do without adding JavaScript.
-Using form data client-side to update the UI in some way generally involves [CSS](https://codepen.io/jcoulterdesign/pen/NOMeEb) or JavaScript, which is not discussed here.
-There is an entire [Learn Forms](/learn/forms/) course. We won't duplicate that section here, but we will introduce
-several form controls and the HTML attributes that empower them.
+Элемент HTML [`<form>`](../../html/form.md) идентифицирует документ [landmark](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles#3._landmark_roles), содержащий интерактивные элементы управления для отправки информации. Во вложенном элементе `<form>` находятся все интерактивные (и неинтерактивные) элементы управления формой, составляющие эту форму.
 
-With forms, you can enable users to interact with your website or application, validate the information entered, and submit
-the data to a server. HTML attributes can enable requiring the user to select form controls or enter a value. HTML
-attributes can define specific criteria that the value must match to be valid. When the user tries to submit the form,
-all the form control values go through [client-side constraint validation](#) and can prevent submission
-until the data matches the required criteria; all without JavaScript. You can also turn this feature off: setting the [`novalidate`](https://developer.mozilla.org/docs/Web/HTML/Element/form#attr-novalidate)
-attribute on the `<form>` or, more often, `formnovalidate` on a button, saving the form data for later completion,
-prevents validation.
+Мощные возможности HTML. Этот раздел посвящен возможностям HTML и рассказывает о том, что HTML может делать без добавления JavaScript. Использование данных формы на стороне клиента для обновления пользовательского интерфейса, как правило, предполагает использование [CSS](https://codepen.io/jcoulterdesign/pen/NOMeEb) или JavaScript, что здесь не рассматривается. Существует целый курс "Изучаем формы" [Learn Forms](../forms/index.md). Мы не будем дублировать этот раздел, но познакомим вас с несколькими элементами управления формами и HTML-атрибутами, которые позволяют их использовать.
 
-## Submitting forms
+С помощью форм вы можете предоставить пользователям возможность взаимодействовать с вашим сайтом или приложением, проверять введенную информацию и отправлять данные на сервер. Атрибуты HTML позволяют требовать от пользователя выбора элементов управления формы или ввода значения. HTML-атрибуты могут определять конкретные критерии, которым должно соответствовать значение, чтобы быть действительным. Когда пользователь пытается отправить форму, все значения элементов управления формы проходят проверку на стороне клиента и могут предотвратить отправку, пока данные не будут соответствовать требуемым критериям; все это без использования JavaScript. Эту возможность можно также отключить: установка атрибута [`novalidate`](../../html/form.md#novalidate) на `<form>` или, что чаще, `formnovalidate` на кнопке, сохраняющей данные формы для последующего заполнения, предотвращает валидацию.
 
-Forms are submitted when the user activates a submit button nested within the form. When using `<input>` for buttons, the
-'value' is the button's label, and is displayed in the button. When using `<button>`, the label is the text between the opening
-and closing `<button>` tags. A submit button can be written either of two ways:
+## Отправка форм
+
+Отправка формы происходит при активации пользователем кнопки `submit`, вложенной в форму. При использовании [`<input>`](../../html/input.md) для кнопок "значение" является меткой кнопки и отображается в ней. При использовании [`<button>`](../../html/button.md) меткой является текст между открывающим и закрывающим тегами `<button>`. Кнопка отправки может быть написана одним из двух способов:
 
 ```html
-<input type="submit" value="Submit Form">
+<input type="submit" value="Submit Form" />
 <button type="submit">Submit Form</button>
 ```
 
-For a very simple form, you need a `<form>` element, with some form inputs inside, and a submit button. However, there is
-more to submitting a form than that.
+Для простой формы достаточно элемента `<form>`, внутри которого находится несколько вводимых данных и кнопка отправки. Однако отправка формы - это еще не все.
 
-The attributes of the `<form>` element set the [HTTP method](/learn/forms/form-element/#how-is-the-data-transferred) by
-which the form is submitted and the URL that processes the form submission. Yes, forms can be submitted, processed, and
-a new page can be loaded without any JavaScript. The [`<form>` element](/learn/forms/form/) is that powerful.
+Атрибуты элемента `<form>` задают [HTTP-метод](../forms/form-element.md#how-is-the-data-transferred), с помощью которого отправляется форма, и URL, обрабатывающий отправку формы. Да, формы могут быть отправлены, обработаны и загружена новая страница без использования JavaScript. Элемент [`<form>`](../forms/form.md) обладает такими возможностями.
 
-The `<form>` element's [`action`](https://developer.mozilla.org/docs/Web/HTML/Element/form#attr-action) and [`method`](https://developer.mozilla.org/docs/Web/HTML/Element/form#attr-method)
-attribute values define the URL that processes the form data and the HTTP method used to submit the data, respectively.
-By default, the form data gets sent to the current page. Otherwise, set the `action` attribute to the URL of where the data should be sent.
+Значения атрибутов [`action`](../../html/form.md#action) и [`method`](../../html/form.md#method) элемента `<form>` определяют URL, который обрабатывает данные формы, и HTTP-метод, используемый для отправки данных, соответственно. По умолчанию данные формы отправляются на текущую страницу. В противном случае установите атрибут `action` в значение URL, куда должны быть отправлены данные.
 
-The data sent is made up of name/value pairs of the form's various form controls. By default, this includes all the form
-controls nested within the form that have a `name`. However, with the `form` attribute, it is possible to include form controls
-outside the `<form>` and to omit form controls nested within the `<form>`. Supported on form controls and `<fieldset>`,
-the `form` attribute takes as its value the `id` of the form the control it is associated with, not necessarily the form it
-is nested in. This means form controls don't need to be physically nested in a `<form>`.
+Отправляемые данные состоят из пар имя/значение различных элементов управления формы. По умолчанию сюда входят все элементы управления формы, вложенные в форму и имеющие [`name`](../../html/form.md#name). Однако с помощью атрибута `form` можно включить элементы управления формы за пределами `<form>` и опустить элементы управления формы, вложенные в `<form>`. Поддерживаемый для элементов управления формы и [`<fieldset>`](../../html/fieldset.md), атрибут `form` принимает в качестве своего значения `id` формы, с которой связан элемент управления, а не обязательно формы, в которую он вложен. Это означает, что элементы управления формы не обязательно должны быть физически вложены в `<form>`.
 
-{% Aside 'warning' %}
-Be careful though: using the `form` attribute makes it possible to disassociate a form control from its form by including
-it with an empty or erroneous value.
-{% endAside %}
+!!!warning "Внимание"
 
-The `method` attribute defines the HTTP protocol of the request: generally `GET` or `POST`. With `GET`, the form data is sent as a
-parameter string of `name=value` pairs, appended to the `action`'s URL.
+    Однако будьте осторожны: использование атрибута `form` позволяет отсоединить элемент управления формы от его формы, включив в него пустое или ошибочное значение.
 
-With `POST`, the data is appended to the body of the HTTP request. When sending secure data, such as passwords and credit card
-information, always use `POST`.
+Атрибут `method` определяет HTTP-протокол запроса: обычно `GET` или `POST`. При использовании `GET` данные формы передаются в виде строки параметров, состоящей из пар `имя=значение` и добавляемой к URL `action`.
 
-There is also a `DIALOG` method. If a `<form method="dialog">` is within a `<dialog>`, submitting the form will close the dialog;
-there is a submit event though the data is neither cleared nor submitted. Again, without JavaScript. This is discussed in
-[the dialog section](/learn/html/dialog/). Just note, because this doesn't submit the form, you probably want to
-include both `formmethod="dialog"`and `formnovalidate` on the submit button.
+При использовании `POST` данные добавляются в тело HTTP-запроса. При передаче защищенных данных, таких как пароли и информация о кредитных картах, всегда используйте `POST`.
 
-Form buttons can have more than the attributes described at the start of this section. If the button includes a `formaction`,
-`formenctype`, `formmethod`, `formnovalidate`, or `formtarget` attribute, the values set on the button activating the form
-submission take precedence over the `action`, [`enctype`](/learn/forms/form/#enable-users-to-submit-files), `method`, and [`target`](/learn/html/attributes/)
-set on the `<form>`. Constraint validation occurs prior to form submission, but only if there is neither a
-`formnovalidate` on the activated submit button nor a `novalidate` on the `<form>`.
+Существует также метод `DIALOG`. Если `<form method="dialog">` находится внутри [`<dialog>`](../../html/dialog.md), то отправка формы приведет к закрытию диалога; при этом происходит событие submit, хотя данные не очищаются и не отправляются. Опять же, без использования JavaScript. Это рассматривается в разделе [Диалог](dialog.md). Обратите внимание, что поскольку в этом случае форма не отправляется, вам, вероятно, следует включить в кнопку отправки и `formmethod="dialog"`, и `formnovalidate`.
 
-To capture which button was used to submit a form, give
-the button a `name`.  Buttons with no name or value don't get sent with the form data on form submission.
+Кнопки формы могут иметь не только атрибуты, описанные в начале этого раздела. Если кнопка содержит атрибуты `formaction`, `formenctype`, `formmethod`, `formnovalidate` или `formtarget`, то значения, установленные на кнопке, активирующей отправку формы, имеют приоритет над значениями `action`, [`enctype`](../forms/form.md#enable-users-to-submit-files), `method` и [`target`](attributes.md), установленными на `<form>`. Проверка ограничений происходит до отправки формы, но только в том случае, если на активированной кнопке отправки нет ни `formnovalidate`, ни `novalidate` на `<form>`.
 
-## After submitting the form
+Чтобы определить, какая кнопка была использована для отправки формы, задайте кнопке `имя`. Кнопки, не имеющие ни имени, ни значения, не отправляются вместе с данными формы при ее отправке.
 
-When the user submits a completed online form, the names and values of the relevant form controls get submitted. The name is the value of the `name` attribute. The values come from the contents of the `value` attribute or the value entered or picked by the user. The value of a `<textarea>` is its inner text.
-The value of a `<select>` is the selected `<option>`'s `value` or, if the `<option>` doesn't include a `value` attribute, the value is the selected option's inner text.
+## После отправки формы
+
+Когда пользователь отправляет заполненную интерактивную форму, ему передаются имена и значения соответствующих элементов управления формы. Имя - это значение атрибута `name`. Значения формируются из содержимого атрибута `value` или из значения, введенного или выбранного пользователем. Значением [`<textarea>`](../../html/textarea.md) является его внутренний текст. Значение [`<select>`](../../html/select.md) - это [`value`](../../html/option.md#value) выбранного [`<option>`](../../html/option.md) или, если `<option>` не содержит атрибута `value`, значение - это внутренний текст выбранного варианта.
 
 ```html
 <form method="GET">
-  <label for="student">Pick a student:</label>
-  <select name="student" id="student">
-    <option value="hoover">Hoover Sukhdeep</option>
-    <option>Blendan Smooth</option>
-    <option value="toasty">Toasty McToastface</option>
-  </select>
-  <input type="submit" value="Submit Form">
+    <label for="student">Pick a student:</label>
+    <select name="student" id="student">
+        <option value="hoover">Hoover Sukhdeep</option>
+        <option>Blendan Smooth</option>
+        <option value="toasty">Toasty McToastface</option>
+    </select>
+    <input type="submit" value="Submit Form" />
 </form>
 ```
 
@@ -110,398 +69,291 @@ The value of a `<select>` is the selected `<option>`'s `value` or, if the `<opti
   <input type="submit" value="Submit Form">
 </form>
 
-Selecting "Hoover Sukhdeep" (or doing nothing, as the browser displays and therefore selects the first option value by default)
-and then clicking the submit button will reload this page, setting the URL to:
+Если выбрать "Hoover Sukhdeep" (или ничего не делать, так как браузер по умолчанию отображает и, следовательно, выбирает первое значение опции), а затем нажать кнопку отправки, то эта страница будет перезагружена, установив URL:
 
 ```html
 https://web.dev/learn/html/forms?student=hoover
 ```
 
-Because the second option doesn't have a `value` attribute, the inner text is submitted as the value. Selecting "Blendan Smooth"
-and clicking the submit button will reload this page, setting the URL to:
+Поскольку второй вариант не имеет атрибута `value`, в качестве значения передается внутренний текст. Если выбрать "Blendan Smooth" и нажать кнопку submit, то эта страница перезагрузится, установив URL-адрес:
 
 ```html
 https://web.dev/learn/html/forms?student=Blendan+Smooth
 ```
 
-When a form is submitted, the information sent includes the names and values of all named form controls that have a `name`
-except non-selected checkboxes, non-selected radio buttons, and the names and values of any buttons other than the one that
-submitted the form. For all other form controls, if the form control has a name, but no value was entered or defaulted, the
-form control's `name` gets submitted with an empty value.
+При отправке формы отправляется информация, включающая имена и значения всех именованных элементов управления формы, имеющих `name`, за исключением невыбранных флажков, невыбранных радиокнопок, а также имен и значений любых кнопок, кроме той, которая отправила форму. Для всех остальных элементов управления формы, если элемент управления формы имеет имя, но значение не было введено или задано по умолчанию, то `name` элемента управления формы передается с пустым значением.
 
-There are [22 input types](https://developer.mozilla.org/docs/Web/HTML/Element/Input#input_types), so we can't cover them all.
-Just note that including a value is optional, and often a bad idea, when you want the user to enter information.
-For `<input>` elements where the user can't edit the value, you should always include a value, including for input
-elements with a type of `hidden`, `radio`, `checkbox`, `submit`, `button`, and `reset`.
+Существует [22 типа ввода](https://developer.mozilla.org/docs/Web/HTML/Element/Input#input_types), поэтому мы не можем охватить их все. Отметим лишь, что включение значения необязательно и часто является плохой идеей, если вы хотите, чтобы пользователь ввел информацию. Для элементов `<input>`, где пользователь не может редактировать значение, необходимо всегда включать значение, в том числе для элементов ввода с типом `hidden`, `radio`, `checkbox`, `submit`, `button` и `reset`.
 
-Using unique `name`s for form controls makes server-side data processing simpler and is recommended, with checkboxes and
-radio buttons being exceptions to this rule.
+Использование уникальных `name` для элементов управления формы упрощает обработку данных на стороне сервера и является рекомендуемым, исключением из этого правила являются флажки и радиокнопки.
 
-## Radio buttons
+## Радиокнопки
 
-If you have ever noticed that when you select a radio button within a group of radio buttons, only one can be selected at
-a time, this is due to the `name` attribute. This only-one-can-be-selected effect is created by giving each radio button
-in a group the same `name`.
+Если вы заметили, что при выборе радиокнопки в группе радиокнопок одновременно может быть выбрана только одна, то это связано с атрибутом `name`. Этот эффект "только одна кнопка может быть выбрана" создается путем присвоения каждой радиокнопке в группе одинакового `name`.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'JjBQJEv'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/JjBQJEv?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-A `name` should be unique to the group: if you accidentally use the same `name` for two separate groups, selecting a radio
-button in the second group will deselect any selection made in the first group with the same `name`.
+Имя `name` должно быть уникальным для группы: если вы случайно используете одно и то же `name` для двух разных групп, то выбор радиокнопки во второй группе отменит выбор, сделанный в первой группе с тем же `name`.
 
-The `name` along with the `value` of the selected radio button are submitted with the form. Make sure each radio button has
-a relevant (and usually unique) `value`. The values of the non-selected radio buttons are not sent.
+Вместе с формой передается `name` и `value` выбранной радиокнопки. Убедитесь, что каждая радиокнопка имеет соответствующее (и, как правило, уникальное) `value`. Значения невыбранных радиокнопок не передаются.
 
-You can have as many radio groups on a page as you like, with each group working independently, as long as each has a
-unique-to-the-group `name`.
+На странице может быть сколько угодно групп радиокнопок, каждая из которых работает независимо, при условии, что каждая из них имеет уникальное для всей группы `name`.
 
-If you want to load the page with one of the radio buttons in a same-named group selected, include the `checked` attribute.
-This radio button will match the [`:default`](https://developer.mozilla.org/docs/Web/CSS/:default) CSS pseudo-class,
-even if the user selects a different radio. The currently selected radio button matches the [`:checked`](https://developer.mozilla.org/docs/Web/CSS/:checked)
-pseudo-class.
+Если вы хотите загрузить страницу с выбранной одной из радиокнопок одноименной группы, включите атрибут `checked`. Эта радиокнопка будет соответствовать CSS-псевдоклассу [`:default`](../../css/default.md), даже если пользователь выберет другую радиокнопку. Выбранная в данный момент радиокнопка соответствует псевдоклассу [`:checked`](../../css/checked.md).
 
-If the user is required to pick a radio control from a group of radio buttons, add the [`required`](https://developer.mozilla.org/docs/Web/HTML/Attributes/required) attribute to at least one
-of the controls. Including `required` on a radio button in a group makes a selection required for form submission, but it
-doesn't have to be the radio with the attribute that gets selected to be valid. Also, indicate clearly in the `<legend>`
-that the [form control is required](https://www.deque.com/blog/anatomy-of-accessible-forms-required-form-fields/). The labeling of groups of radio buttons along with each individual button is described
-later on.
+Если от пользователя требуется выбрать элемент управления из группы радиокнопок, добавьте атрибут [`required`](https://developer.mozilla.org/docs/Web/HTML/Attributes/required) хотя бы к одному из элементов управления. Включение атрибута `required` к радиокнопке в группе делает выбор обязательным для отправки формы, но не обязательно, чтобы выбор был сделан именно радиокнопкой с этим атрибутом. Кроме того, в `<legend>` следует четко указать, что [элемент управления формы является обязательным](https://www.deque.com/blog/anatomy-of-accessible-forms-required-form-fields/). Маркировка групп радиокнопок, а также каждой отдельной кнопки описана далее.
 
-## Checkboxes
+## Флажки
 
-It's valid for all checkboxes within a group to have the same `name`. Only selected checkboxes have their `name` and `value`
-submitted with the form. If you have multiple checkboxes with the same name selected, the same name will be submitted with
-(hopefully) different values. If you have multiple form controls with the same name, even if they are not all checkboxes,
-they will all get submitted, separated by ampersands.
+Допустимо, чтобы все флажки в группе имели одинаковое `name`. Только выбранные флажки имеют свои `name` и `value`, передаваемые вместе с формой. Если выбрано несколько флажков с одним и тем же именем, то в форму будет отправлено одно и то же имя с (надеюсь) разными значениями. Если у вас есть несколько элементов управления формы с одинаковым именем, даже если это не все флажки, все они будут отправлены, разделенные амперсандами.
 
-If you don't include a `value` on a checkbox, the value of the selected checkboxes will default to `on`, which probably isn't
-helpful. If you have three checkboxes named `chk` and they're all checked, the form submission will not be decipherable:
+Если не указать `value` в чекбоксе, то значение выбранного чекбокса по умолчанию будет равно `on`, что, вероятно, не очень полезно. Если у вас есть три флажка с именем `chk` и все они отмечены, то отправка формы не будет расшифрована:
 
 ```html
 https://web.dev/learn/html/forms?chk=on&chk=on&chk=on
 ```
 
-To make a checkbox required, add the `required` attribute. Always inform the user when a checkbox must be checked, or when
-any form control is required. Adding `required` to a checkbox only makes that checkbox required; it does not impact other
-checkboxes with the same name.
+Чтобы сделать флажок обязательным, добавьте атрибут `required`. Всегда сообщайте пользователю, когда необходимо установить флажок, или когда любой элемент управления формой является обязательным. Добавление атрибута `required` к флажку делает обязательным только этот флажок; это не влияет на другие флажки с тем же именем.
 
-## Labels and fieldsets
+## Метки и наборы полей
 
-In order for users to know how to fill out a form, the form has to be accessible. Every form control must have a label.
-You also want to label groups of form controls. While individual input, select, and text areas are labeled with `<label>`,
-groups of form controls are labeled by the contents of the [`<legend>`](https://developer.mozilla.org/docs/Web/HTML/Element/legend) of
-the [`<fieldset>`](https://developer.mozilla.org/docs/Web/HTML/Element/fieldset) that groups them.
+Для того чтобы пользователи знали, как заполнять форму, она должна быть доступной. Каждый элемент управления формы должен иметь метку. Кроме того, необходимо помечать группы элементов управления формы. В то время как отдельные области ввода, выбора и текста обозначаются с помощью `<label>`, группы элементов управления формы обозначаются содержимым [`<legend>`](../../html/legend.md) группирующего их [`<fieldset>`](../../html/fieldset.md).
 
-In the previous examples, you may have noticed that each form control except the submit button had a `<label>`. Labels
-provide form controls with accessible names. Buttons get their accessible name from their content or value. All the other
-form controls require an associated `<label>`. If there is no associated label, the browser will still render your form controls,
-but users will not know what information is expected.
+В предыдущих примерах вы могли заметить, что каждый элемент управления формы, кроме кнопки отправки, имеет метку `<label>`. Метки дают элементам управления формы доступные имена. Кнопки получают доступное имя из своего содержимого или значения. Все остальные элементы управления формы требуют наличия связанной с ними `<label>`. Если нет связанной метки, браузер все равно отобразит элементы управления формы, но пользователи не будут знать, какая информация ожидается.
 
-To explicitly associate a form control with a `<label>`, include the `for` attribute on the [`<label>`](https://developer.mozilla.org/docs/Web/HTML/Element/label): the value being the
-`id` of the form control it is associated with.
+Чтобы явно связать элемент управления формы с `<label>`, включите атрибут `for` на [`<label>`](../../html/label.md): его значение - `id` элемента управления формы, с которым он связан.
 
 ```html
 <label for="full_name">Your name</label>
-<input type="text" id="full_name" name="name">
+<input type="text" id="full_name" name="name" />
 ```
 
 <label for="full_name">Your name</label>
 <input type="text" id="full_name" name="name">
 
-Associating labels with form controls has several benefits. Labels make form controls accessible to screen reader users by
-providing the control with an accessible name. Labels are also "hit areas"; they make the site more usable for users with
-dexterity issues by increasing the area. If you're using a mouse, try clicking anywhere on the label "Your name". Doing
-so gives the input focus.
+Использование меток в элементах управления формы имеет ряд преимуществ. Метки делают элементы управления формами доступными для пользователей программ чтения с экрана, предоставляя элементу управления доступное имя. Ярлыки также являются "областями попадания"; они делают сайт более удобным для пользователей с проблемами ловкости рук за счет увеличения площади. Если вы пользуетесь мышью, попробуйте щелкнуть в любом месте метки "Ваше имя". В результате этого ввод становится фокусным.
 
-To provide implicit labels, include the form control between the opening and closing `<label>` tags. This is equally
-accessible from both a screen reader and pointer device perspective, but doesn't provide the styling hook like the explicit
-label.
+Чтобы обеспечить неявные метки, включите элемент управления формой между открывающим и закрывающим тегами `<label>`. Такой элемент одинаково доступен как для устройства чтения с экрана, так и для указателя, однако он не позволяет использовать стилистику, как в случае с явными метками.
 
 ```html
-<label>Your name
-  <input type="text" name="name">
+<label
+    >Your name
+    <input type="text" name="name" />
 </label>
 ```
 
 <label>Your name
-  <input type="text" name="name">
+<input type="text" name="name">
 </label>
 
-As labels are "hit areas", don't include interactive elements within an explicit label, or any other interactive components
-other than the labeled form control in an implicit label. For example, if you include a link in a label, while the browser
-will render the HTML, your users will be confused if they click on the label to enter a form control but are redirected to
-a new page.
+Поскольку метки являются "областью попадания", не включайте интерактивные элементы в явную метку, а также любые другие интерактивные компоненты, кроме элементов управления формы в неявную метку. Например, если вы включите в метку ссылку, то, хотя браузер отобразит HTML, ваши пользователи будут сбиты с толку, если они щелкнут на метке, чтобы войти в элемент управления формы, но будут перенаправлены на новую страницу.
 
-Generally, the `<label>` comes before the form control except in the case of radio buttons and checkboxes. This isn't required.
-It's just the common UX pattern. The Learn Forms series has [information about form design](/learn/forms/design-basics/).
+Обычно `<label>` располагается перед элементом управления формы, за исключением радиокнопок и чекбоксов. Это не является обязательным. Это просто общепринятый UX-шаблон. В серии Learn Forms есть [информация о дизайне форм](../forms/design-basics.md).
 
-For groups of radio buttons and checkboxes, the label provides the accessible name for the form control it is associated with;
-but the group of controls and their labels also need a label. To label the group, group all of the elements into a
-`<fieldset>`, with the `<legend>` providing the label for the group.
+Для групп радиокнопок и флажков метка представляет собой доступное имя элемента управления формы, с которым она связана; но группа элементов управления и их метки также нуждаются в метке. Для обозначения группы сгруппируйте все элементы в `<fieldset>`, при этом `<legend>` будет обозначать группу.
 
 ```html
 <fieldset>
-  <legend>Who is your favorite student?</legend>
-  <ul>
-    <li>
-      <label>
-        <input type="radio" value="blendan" name="machine"> Blendan Smooth
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="radio" value="hoover" name="machine"> Hoover Sukhdeep
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="radio" value="toasty" name="machine"> Toasty McToastface
-      </label>
-    </li>
-  </ul>
+    <legend>Who is your favorite student?</legend>
+    <ul>
+        <li>
+            <label>
+                <input
+                    type="radio"
+                    value="blendan"
+                    name="machine"
+                />
+                Blendan Smooth
+            </label>
+        </li>
+        <li>
+            <label>
+                <input
+                    type="radio"
+                    value="hoover"
+                    name="machine"
+                />
+                Hoover Sukhdeep
+            </label>
+        </li>
+        <li>
+            <label>
+                <input
+                    type="radio"
+                    value="toasty"
+                    name="machine"
+                />
+                Toasty McToastface
+            </label>
+        </li>
+    </ul>
 </fieldset>
 ```
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'OJEggda'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/OJEggda?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-In this example, the implicit `<label>`s each label a radio button and the `<legend>` provides the label for the group of radio buttons.
-Nesting a `<fieldset>` inside another `<fieldset>` is standard practice. For example, if a form is a survey of many questions
-divided into groups of related questions, the “favorite student" `<fieldset>` may be nested in another `<fieldset>` labeled as
-"Your favorites":
+В данном примере неявные `<label>` обозначают каждую радиокнопку, а `<legend>` предоставляет метку для группы радиокнопок. Вложение `<fieldset>` внутри другого `<fieldset>` является стандартной практикой. Например, если форма представляет собой опрос, состоящий из множества вопросов, разделенных на группы связанных между собой вопросов, то `<fieldset>` "Любимый студент" может быть вложен в другой `<fieldset>`, обозначенный как "Ваши любимые":
 
 ```html
 <fieldset>
-  <legend>Your favorites:</legend>
-  <ul start="6">
-    <li>
-      <fieldset>
-        <legend>Who is your favorite student?</legend>
-        <ul>
-          <li>
-            <!-- the rest of the code here -->
+    <legend>Your favorites:</legend>
+    <ul start="6">
+        <li>
+            <fieldset>
+                <legend>
+                    Who is your favorite student?
+                </legend>
+                <ul>
+                    <li>
+                        <!-- the rest of the code here -->
+                    </li>
+                </ul>
+            </fieldset>
+        </li>
+    </ul>
+</fieldset>
 ```
 
-These elements' default appearances have led to their underuse, but [`<legend>` and `<fieldset>` can be styled](https://developer.mozilla.org/docs/Web/HTML/Element/fieldset#styling_with_css) with CSS.
-In addition to all the global attributes, `<fieldset>` also supports the `name`, `disabled`, and `form` attributes.
-When you disable a fieldset, all nested form controls are disabled. Neither the `name` nor the `form` attributes have
-much use on the `<fieldset>`. The `name` can be used to access the fieldset with JavaScript, but the fieldset itself
-is not included in submitted data (the named form controls nested within are included).
+Стандартный вид этих элементов привел к их недостаточному использованию, однако [`<legend>` и `<fieldset>` могут быть стилизованы](https://developer.mozilla.org/docs/Web/HTML/Element/fieldset#styling_with_css) с помощью CSS. Помимо всех глобальных атрибутов, `<fieldset>` также поддерживает атрибуты `name`, `disabled` и `form`. При отключении набора полей отключаются все вложенные элементы управления формой. Ни атрибуты `name`, ни `form` не имеют особого смысла для `<fieldset>`. Атрибут `name` может быть использован для доступа к набору полей с помощью JavaScript, но сам набор полей не включается в отправляемые данные (включаются именованные элементы управления формы, вложенные в него).
 
-{% Aside %}
-You can learn more about forms and accessibility in the [forms module of Learn Accessibility](/learn/accessibility/forms/).
-{% endAside %}
+!!!note ""
 
-## Input types and dynamic keyboard
+    Подробнее о формах и доступности можно узнать в модуле [forms of Learn Accessibility](../accessibility/forms.md).
 
-As noted earlier, there are [22 different types of inputs](https://developer.mozilla.org/docs/Web/HTML/Element/Input#input_types).
-In some cases, when a user is on a device with a dynamic keyboard that displays only as needed, such as a phone, the input
-type used determines the type of keyboard displayed. The default keyboard shown can be optimized for the type of input required.
-For example, type `tel` will show a keypad optimized for entering telephone numbers; `email` includes the `@` and `.`; and the
-dynamic keyboard for `url` includes a colon and the slash symbol. Unfortunately, the iPhone still doesn't include `:` in
-the default dynamic keyboard for `url` input types.
+## Типы ввода и динамическая клавиатура
 
-Keyboards for `<input type="tel">` on iPhone and two different Android phones:
+Как отмечалось ранее, существует [22 различных типа ввода](https://developer.mozilla.org/docs/Web/HTML/Element/Input#input_types). В некоторых случаях, когда пользователь находится на устройстве с динамической клавиатурой, которая отображается только по мере необходимости, например, на телефоне, используемый тип ввода определяет тип отображаемой клавиатуры. Отображаемая по умолчанию клавиатура может быть оптимизирована под требуемый тип ввода. Например, при наборе `tel` отображается клавиатура, оптимизированная для ввода телефонных номеров; `email` включает символы `@` и `.`; а динамическая клавиатура для `url` включает двоеточие и символ косой черты. К сожалению, iPhone по-прежнему не включает `:` в динамическую клавиатуру по умолчанию для типов ввода `url`.
 
-<div style="display: flex; flex-wrap: wrap;">
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/BK9EPsgyPy0Wt2jmp0lp.png", alt="iPhone keyboard showing input type=tel.", width="194", height="400", style="max-width: 194px; margin: 0 auto;" %}
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/8ECZmU9gqR4X6ppGk3v4.png", alt="Android keyboard showing input type=tel.", width="194", height="400", style="max-width: 194px; margin: 0 auto;" %}
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/dODUYXx0VDxVwBMP0e59.png", alt="Android keyboard showing input type=tel.", width="194", height="400", style="max-width: 194px; margin: 0 auto;" %}
-</div>
+Клавиатуры для `<input type="tel">` на iPhone и двух разных телефонах Android:
 
-Keyboards for `<input type="email">` on iPhone and two different Android phones:
+=== "iPhone"
 
-<div style="display: flex; flex-wrap: wrap;">
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/Zd2yPTG7QT74AIvyCJrU.png", alt="iPhone keyboard showing input type=email.", width="194", height="400", style="max-width: 194px; margin: 0 auto;"  %}
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/bofzFSrrNK55RW1FesAg.png", alt="Android keyboard showing input type=email.", width="194", height="400", style="max-width: 194px; margin: 0 auto;"  %}
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/4ZwT1lrxJ4owTP0FjGWf.png", alt="Android keyboard showing input type=email.", width="194", height="400", style="max-width: 194px; margin: 0 auto;"  %}
-</div>
+    Клавиатура iPhone показывает тип ввода=tel.
 
-## Accessing the microphone and camera
+    ![Клавиатура iPhone показывает тип ввода=tel.](forms-1.avif)
 
-The file input type `<input type="file">` enables uploading files via forms. Files can be of any type, defined and limited
-by the [`accept`](https://developer.mozilla.org/docs/Web/HTML/Attributes/accept) attribute. The list of acceptable file types can be a comma-separated list of file extensions, a global type,
-or a combination of global types and extensions. For example, `accept="video/*, .gif"` accepts any video files or animated gifs.
-Use "`audio/*`" for sound files, "`video/*`" for video files, and "`image/*`" for image files.
+=== "Android"
 
-The enumerated [`capture`](https://developer.mozilla.org/docs/Web/HTML/Attributes/capture) attribute, defined in the
-[media capture specification](https://w3c.github.io/html-media-capture/#the-capture-attribute), can be used if a new media
-file is to be created using the user's camera or microphone. You can set the value to `user` for the user-facing input devices
-or `environment` for the phone's back camera or microphone. Generally, using `capture`, without a value, works because the user
-is going to pick which input device they want to use.
+    Клавиатура Android показывает тип ввода=tel.
+
+    ![Клавиатура Android показывает тип ввода=tel.](forms-2.avif)
+
+=== "Android"
+
+    Клавиатура Android показывает тип ввода=tel.
+
+    ![Клавиатура Android показывает тип ввода=tel.](forms-3.avif)
+
+Клавиатуры для `<input type="email">` на iPhone и двух разных телефонах Android:
+
+=== "iPhone"
+
+    Клавиатура iPhone показывает тип ввода=email.
+
+    ![Клавиатура iPhone показывает тип ввода=email.](forms-4.avif)
+
+=== "Android"
+
+    Клавиатура Android показывает тип ввода=email.
+
+    ![Клавиатура Android показывает тип ввода=email.](forms-5.avif)
+
+=== "Android"
+
+    Клавиатура Android показывает тип ввода=email.
+
+    ![Клавиатура Android показывает тип ввода=email.](forms-6.avif)
+
+## Доступ к микрофону и камере
+
+Тип файлового ввода `<input type="file">` позволяет загружать файлы через формы. Файлы могут быть любого типа, определяемого и ограничиваемого атрибутом [`accept`](../../html/input.md#accept). Список допустимых типов файлов может представлять собой список расширений файлов, разделенных запятыми, глобальный тип или комбинацию глобальных типов и расширений. Например, `accept="video/*, .gif"` принимает любые видеофайлы или анимированные gif-файлы. Для звуковых файлов используйте "`audio/*`", для видеофайлов - "`video/*`", для файлов изображений - "`image/*`".
+
+Перечисляемый атрибут [`capture`](https://developer.mozilla.org/docs/Web/HTML/Attributes/capture), определенный в спецификации [media capture specification](https://w3c.github.io/html-media-capture/#the-capture-attribute), может использоваться, если новый медиафайл должен быть создан с помощью камеры или микрофона пользователя. Вы можете установить значение `user` для устройств ввода, обращенных к пользователю, или `environment` для задней камеры или микрофона телефона. Как правило, использование `capture` без значения работает, поскольку пользователь сам выбирает, какое устройство ввода ему использовать.
 
 ```html
 <label for="avatar">A recent photo of yourself:</label>
-<input type="file" capture="user" accept="image/*" name="avatar" id="avatar">
+<input
+    type="file"
+    capture="user"
+    accept="image/*"
+    name="avatar"
+    id="avatar"
+/>
 ```
 
-## Built-in validation
+## Встроенная валидация
 
-Again, without including any JavaScript, HTML can prevent forms with invalid values from being submitted.
+Опять же, не используя JavaScript, HTML может предотвратить отправку форм с недопустимыми значениями.
 
-There are some CSS selectors that match form controls based on the presence of HTML attributes including [`:required`](https://developer.mozilla.org/docs/Web/CSS/:required)
-and [`:optional`](https://developer.mozilla.org/docs/Web/CSS/:optional) if the boolean [`required`](https://developer.mozilla.org/docs/Web/HTML/Attributes/required)
-is set or not; [`:default`](https://developer.mozilla.org/docs/Web/CSS/:default) if [`checked`](https://developer.mozilla.org/docs/Web/HTML/Element/input#checked)
-is hard-coded; and [`:enabled`](https://developer.mozilla.org/docs/Web/CSS/:enabled) or [`:disabled`](https://developer.mozilla.org/docs/Web/CSS/:disabled),
-depending on whether the element is interactive and if the [`disabled`](https://developer.mozilla.org/docs/Web/HTML/Attributes/disabled)
-attribute is present. The [`:read-write`](https://developer.mozilla.org/docs/Web/CSS/:read-write) pseudoclass matches elements with
-[`contenteditable`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/contenteditable) set and
-form controls that are by default editable, such as `number`, `password`, and `text` input types (but not checkbox,
-radio buttons, or the `hidden` type, among others). If a normally writable element has the [`readonly`](https://developer.mozilla.org/docs/Web/HTML/Attributes/readonly)
-attribute set, it will match [`:read-only`](https://developer.mozilla.org/docs/Web/CSS/:read-only) instead.
+Существует несколько CSS-селекторов, которые подбирают элементы управления формами по наличию HTML-атрибутов, включая [`:required`](https://developer.mozilla.org/docs/Web/CSS/:required) и [`:optional`](https://developer.mozilla.org/docs/Web/CSS/:optional), если установлен или нет логический ключ [`required`](https://developer.mozilla.org/docs/Web/HTML/Attributes/required); [`:default`](https://developer.mozilla.org/docs/Web/CSS/:default), если [`checked`](https://developer.mozilla.org/docs/Web/HTML/Element/input#checked) жестко закодирован; и [`:enabled`](https://developer.mozilla.org/docs/Web/CSS/:enabled) или [`:disabled`](https://developer.mozilla.org/docs/Web/CSS/:disabled), в зависимости от того, является ли элемент интерактивным и присутствует ли атрибут [`disabled`](https://developer.mozilla.org/docs/Web/HTML/Attributes/disabled). Псевдокласс [`:read-write`](https://developer.mozilla.org/docs/Web/CSS/:read-write) соответствует элементам с набором [`contenteditable`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/contenteditable) и элементам управления формы, которые по умолчанию являются редактируемыми, например, типам ввода `number`, `password`, `text` (но не checkbox, radio buttons, тип `hidden` и др.). Если у элемента, обычно доступного для записи, установлен атрибут [`readonly`](https://developer.mozilla.org/docs/Web/HTML/Attributes/readonly), то вместо него будет использоваться [`:read-only`](https://developer.mozilla.org/docs/Web/CSS/:read-only).
 
-As the user enters information into form controls, the CSS UI selectors, including [`:valid`](https://developer.mozilla.org/docs/Web/CSS/:valid),
-[`:invalid`](https://developer.mozilla.org/docs/Web/CSS/:invalid), [`:in-range`](https://developer.mozilla.org/docs/Web/CSS/:in-range), and
-[`:out-of-range`](https://developer.mozilla.org/docs/Web/CSS/:out-of-range) will toggle on and off depending on the state. When the user
-exits a form control, either the not-yet fully supported [`:user-invalid`](https://developer.mozilla.org/docs/Web/CSS/:user-invalid) or
-[`:user-valid`]((https://developer.mozilla.org/docs/Web/CSS/:user-valid)) pseudo-class will match.
+При вводе пользователем информации в элементы управления формы селекторы CSS UI, включая [`:valid`](https://developer.mozilla.org/docs/Web/CSS/:valid), [`:invalid`](https://developer.mozilla.org/docs/Web/CSS/:invalid), [`:in-range`](https://developer.mozilla.org/docs/Web/CSS/:in-range) и [`:out-of-range`](https://developer.mozilla.org/docs/Web/CSS/:out-of-range), будут включаться и выключаться в зависимости от состояния. При выходе пользователя из элемента управления формой будет использоваться псевдокласс [`:user-invalid`](https://developer.mozilla.org/docs/Web/CSS/:user-invalid) или [`:user-valid`](<(https://developer.mozilla.org/docs/Web/CSS/:user-valid)>), который пока еще не полностью поддерживается.
 
-You can use CSS to provide cues about whether form controls are required and valid as the user interacts with the form.
-You can even use CSS to prevent users from being able to click the submit button until the form is valid:
+Вы можете использовать CSS для того, чтобы по мере взаимодействия пользователя с формой давать ему подсказки о том, являются ли элементы управления формы обязательными и действительными. Можно даже использовать CSS для предотвращения нажатия пользователем кнопки отправки до тех пор, пока форма не станет валидной:
 
 ```css
-form:invalid [type="submit"] {
-  opacity: 50%;
-  pointer-events: none;
+form:invalid [type='submit'] {
+    opacity: 50%;
+    pointer-events: none;
 }
 ```
 
-This CSS snippet is an anti-pattern. While your UI may feel intuitive and clear, many users attempt to submit a form to
-enable error messaging. Making a submit button appear disabled in this way doesn't allow for constraint validation, a
-feature many users rely on.
+Этот фрагмент CSS является антипаттерном. Хотя ваш пользовательский интерфейс может казаться интуитивно понятным и ясным, многие пользователи пытаются отправить форму, чтобы получить сообщение об ошибке. Если таким образом сделать кнопку отправки неактивной, то это не позволит выполнить проверку ограничений, на которую многие пользователи полагаются.
 
-Applied CSS is updated continuously based on the current state of the UI. For example, when you include input types with
-constraints, such as `email`, `number`, `url` and date types, if the value is non-null (not empty) and the current
-value is not a valid email, number, url, date or time, the [`:invalid` CSS pseudo-class](https://developer.mozilla.org/docs/Web/CSS/:invalid) will be a match. This constant
-updating is different from built-in HTML constraint validation, which only occurs when the user attempts to submit the form.
+Прикладной CSS постоянно обновляется в зависимости от текущего состояния пользовательского интерфейса. Например, при включении типов ввода с ограничениями, таких как `email`, `number`, `url` и `date`, если значение не является null (не пустое) и текущее значение не является допустимым `email`, `number`, `url`, `date` или `time`, то [`:invalid` CSS pseudo-class](https://developer.mozilla.org/docs/Web/CSS/:invalid) будет соответствовать. Это постоянное обновление отличается от встроенной проверки HTML-ограничений, которая происходит только при попытке пользователя отправить форму.
 
-Built-in constraint validation is only relevant to constraints set with HTML attributes. While you can style an element based
-on the `:required` and `:valid`/`:invalid` pseudoclasses, the browser supplied error messages stemming from errors based on
-the `required`, `pattern`, `min`, `max`, and even `type` attributes, come at form submission.
+Встроенная проверка ограничений относится только к ограничениям, заданным с помощью HTML-атрибутов. Хотя вы можете стилизовать элемент на основе псевдоклассов `:required` и `:valid`/`:invalid`, сообщения об ошибках, возникающих из-за ошибок на основе атрибутов `required`, `pattern`, `min`, `max` и даже `type`, выдаются браузером при отправке формы.
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/C3UYbvnyGYyLhCqReM8M.png", alt="An error message indicating that a multi-choice field is required.", width="738", height="354" %}
+![An error message indicating that a multi-choice field is required.](forms-7.avif)
 
-When we attempt to submit the form without picking the required favorite student, constraint validation prevents form submission
-because of a [`validityState.valueMissing`](https://developer.mozilla.org/docs/Web/API/ValidityState/valueMissing) error.
+Когда мы пытаемся отправить форму, не выбрав требуемого студента-фаворита, валидация ограничений не позволяет отправить форму из-за ошибки [`validityState.valueMissing`](https://developer.mozilla.org/docs/Web/API/ValidityState/valueMissing).
 
-If any of the `validityState` properties return `true`, submission is blocked, and the browser displays an error message
-in the first incorrect form control, giving it focus. When the user activates a form submission and there are invalid values,
-the first invalid form control will show an error message and receive focus. If a required control has no value set, if a
-numeric value is out of range, or if a value is not of the type required by the `type` attribute, the form will not validate,
-will not submit, and an error message will appear.
+Если любое из свойств `validityState` возвращает значение `true`, отправка формы блокируется, и браузер выводит сообщение об ошибке в первом неправильном элементе управления формы, передавая ему фокус. Если пользователь активизирует отправку формы и в ней присутствуют недопустимые значения, то первый недопустимый элемент управления формы отобразит сообщение об ошибке и получит фокус. Если для элемента управления `required` не задано значение, если числовое значение выходит за пределы диапазона или если значение не соответствует типу, требуемому атрибутом `type`, форма не пройдет проверку, не будет отправлена, и появится сообщение об ошибке.
 
-If a `number`, date, or time value is below the minimum `min` set or above the maximum `max` set the control will be [`:out-of-range`](https://developer.mozilla.org/docs/Web/CSS/:out-of-range) (and `:invalid`), and
-the user will be informed of the [`valididityState.rangeUnderflow`](https://developer.mozilla.org/docs/Web/API/ValidityState/rangeUnderflow),
-[`validityState.rangeOverflow`](https://developer.mozilla.org/docs/Web/API/ValidityState/rangeUnderflow)  error when they
-try to submit the form. If the value is out of step with the
-`step` value, whether explicitly set or defaulting to `1`, the control will be `:out-of-range` (and `:invalid`) and there will be a
-[`validityState.stepMismatch`](https://developer.mozilla.org/docs/Web/API/ValidityState/stepMismatch) error. The error appears as a bubble and by default provides helpful information on how to rectify the mistake.
+Если значение `number`, даты или времени меньше минимального значения `min` или больше максимального значения `max`, то элемент управления будет [`:out-of-range`](https://developer.mozilla.org/docs/Web/CSS/:out-of-range) (и `:invalid`), а пользователю при попытке отправить форму будет сообщено об ошибке [`valididityState.rangeUnderflow`](https://developer.mozilla.org/docs/Web/API/ValidityState/rangeUnderflow), [`validityState.rangeOverflow`](https://developer.mozilla.org/docs/Web/API/ValidityState/rangeUnderflow). Если значение не соответствует значению `step`, заданному явно или по умолчанию равному `1`, то элемент управления будет иметь значение `:out-of-range` (и `:invalid`) и будет выдана ошибка [`validityState.stepMismatch`](https://developer.mozilla.org/docs/Web/API/ValidityState/stepMismatch). Ошибка отображается в виде пузырька и по умолчанию содержит полезную информацию о том, как исправить ошибку.
 
-There are similar attributes for the length of values: the [`minlength`](https://developer.mozilla.org/docs/Web/HTML/Attributes/minlength)
-and [`maxlength`](https://developer.mozilla.org/docs/Web/HTML/Attributes/maxlength) attributes will alert the user of an error
-with the [`validityState.tooLong`](https://developer.mozilla.org/docs/Web/API/ValidityState/tooLong) or
-[`validityState.tooShort`](https://developer.mozilla.org/docs/Web/API/ValidityState/tooShort) on submission.
-The `maxlength` also prevents the user from entering too many characters.
+Аналогичные атрибуты существуют и для длины значений: атрибуты [`minlength`](https://developer.mozilla.org/docs/Web/HTML/Attributes/minlength) и [`maxlength`](https://developer.mozilla.org/docs/Web/HTML/Attributes/maxlength) при отправке предупредят пользователя об ошибке с помощью атрибутов [`validityState.tooLong`](https://developer.mozilla.org/docs/Web/API/ValidityState/tooLong) или [`validityState.tooShort`](https://developer.mozilla.org/docs/Web/API/ValidityState/tooShort). Параметр `maxlength` также предотвращает ввод пользователем слишком большого количества символов.
 
-Using the `maxlength` attribute can lead to a poor user experience. It's generally a better experience to allow the user
-to enter more than the allowed character length providing a counter, optionally in the form of an
-[`<output>`](https://developer.mozilla.org/docs/Web/HTML/Element/output) element, which is not submitted with the form,
-enabling them to edit down the text until the output shows the maximum allowed length has not been exceeded. The `maxlength`
-can be included in your HTML; like everything we've discussed, it works without JavaScript. Then, on load, the value of
-the maxlength attribute can be used to create this character counter in JavaScript.
+Использование атрибута `maxlength` может привести к ухудшению качества работы пользователя. Как правило, лучше позволить пользователю ввести больше символов, чем разрешено, предоставив ему счетчик, опционально в виде элемента [`<вывод>`](https://developer.mozilla.org/docs/Web/HTML/Element/output), который не передается вместе с формой, что позволит ему редактировать текст до тех пор, пока вывод не покажет, что максимально допустимая длина не превышена. Элемент `maxlength` может быть включен в ваш HTML; как и все, что мы обсуждали, он работает без JavaScript. Затем, при загрузке, значение атрибута maxlength может быть использовано для создания этого счетчика символов в JavaScript.
 
-Some input types appear to have default constraints, but don't. For example, the `tel` input type provides for a numeric
-telephone keypad on devices with dynamic keyboards, but doesn't constrain valid values. For this, and other input types,
-there is the `pattern` attribute. You can specify a regular expression the value needs to match to be considered valid.
-If a value is the empty string, and the value is not required, it will not cause a [`validityState.patternMismatch`](https://developer.mozilla.org/docs/Web/API/ValidityState/patternMismatch)
-error. If required and empty, the default error message for `validityState.valueMissing`will be shown to the user, rather than
-the `patternMismatch`.
+Некоторые типы ввода, как кажется, имеют ограничения по умолчанию, но это не так. Например, тип ввода `tel` обеспечивает цифровую телефонную клавиатуру на устройствах с динамическими клавиатурами, но не ограничивает допустимые значения. Для этого и других типов ввода существует атрибут `pattern`. Вы можете указать регулярное выражение, которому должно соответствовать значение, чтобы считаться допустимым. Если значение представляет собой пустую строку и не является обязательным, то оно не вызовет ошибки [`validityState.patternMismatch`](https://developer.mozilla.org/docs/Web/API/ValidityState/patternMismatch). Если значение required и пустое, то пользователю будет показано стандартное сообщение об ошибке `validityState.valueMissing`, а не `patternMismatch`.
 
-For emails, the [`validityState.typeMismatch`](https://developer.mozilla.org/docs/Web/API/ValidityState/typeMismatch) is probably too
-forgiving for your needs. You will likely want to include the [`pattern`](https://developer.mozilla.org/docs/Web/HTML/Attributes/pattern)
-attribute so intranet email addresses without a [TLD](https://developer.mozilla.org/docs/Glossary/TLD) aren't accepted as valid.
-The pattern attribute enables providing a regular expression that the value must match. When requiring a pattern match,
-ensure it is very clear to the user what is expected.
+Для электронной почты атрибут [`validityState.typeMismatch`](https://developer.mozilla.org/docs/Web/API/ValidityState/typeMismatch), вероятно, является слишком щадящим для ваших нужд. Скорее всего, необходимо включить атрибут [`pattern`](https://developer.mozilla.org/docs/Web/HTML/Attributes/pattern), чтобы адреса электронной почты интрасети без [TLD](https://developer.mozilla.org/docs/Glossary/TLD) не принимались за действительные. Атрибут pattern позволяет указать регулярное выражение, которому должно соответствовать значение. При требовании соответствия шаблону необходимо четко указать пользователю, что от него требуется.
 
-All of this can be done without a single line of JavaScript, but being an HTML API, you can use JavaScript to include
-custom messages during constraint validation. You can also use JavaScript to update how many characters are left, show
-a progression bar for password strength, or any other number of ways to [dynamically improve completion](/learn/forms/javascript/#validation-with-javascript).
+Все это можно сделать без единой строчки JavaScript, но, будучи HTML API, можно использовать JavaScript для включения пользовательских сообщений при проверке ограничений. Можно также использовать JavaScript для обновления количества оставшихся символов, отображения прогрессивной шкалы надежности пароля и других способов [динамического улучшения завершения](../forms/javascript.md#validation-with-javascript).
 
-## Example
+## Пример
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'ExeYjPB'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/ExeYjPB?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-This example has a form within a `<dialog>` with a nested `<form>` with three form controls and two submit buttons, with
-clear labels and instructions.
+В данном примере форма находится внутри `<dialog>` с вложенной `<form>` с тремя элементами управления формы и двумя кнопками отправки, с четкими надписями и инструкциями.
 
-The first submit button closes the dialog. Use `formmethod="dialog"` to override the form's default method, and close the
-`<dialog>` without submitting the data or erasing it. You must also include the `formnovalidate` otherwise the browser will
-try to validate checking that all the required fields have a value. The user may want to close the dialog and form without
-entering any data; validation would prevent this. Include `aria-label="close"` because “X" is a known visual cue but is
-not a descriptive label.
+Первая кнопка отправки закрывает диалог. Используйте `formmethod="dialog"`, чтобы переопределить метод формы по умолчанию и закрыть `<dialog>` без отправки данных или их стирания. Вы также должны включить `formnovalidate`, иначе браузер попытается выполнить валидацию, проверяя, что все обязательные поля имеют значение. Пользователь может захотеть закрыть диалог и форму, не вводя никаких данных; валидация не позволит этого сделать. Включите `aria-label="close"`, поскольку "X" является известной визуальной подсказкой, но не является описательной меткой.
 
-The form controls all have implicit labels, so you don't need to include `id` or `for` attributes. The input elements both
-have the required attribute making them required. The number input has the `step` explicitly set to demonstrate how `step` is
-included. As `step` defaults to `1`, this attribute can be omitted.
+Все элементы управления формы имеют неявные метки, поэтому включать атрибуты `id` или `for` не нужно. Оба элемента ввода имеют атрибут required, что делает их обязательными. У элемента ввода числа явно задан `step`, чтобы продемонстрировать, как включается `step`. Поскольку `step` по умолчанию равен `1`, этот атрибут можно не указывать.
 
-The `<select>` has a default value making the `required` attribute unnecessary. Instead of including the `value` attribute
-on each option, the value defaults to the inner text.
+Атрибут `<select>` имеет значение по умолчанию, что делает атрибут `required` ненужным. Вместо того чтобы включать атрибут `value` для каждой опции, значение по умолчанию соответствует внутреннему тексту.
 
-The submit button at the end sets the forms method to POST. When clicked, the validity of each value will be checked. If all
-values are valid, the form data will be submitted, the dialog will close, and the page may redirect to `thankyou.php`,
-which is the action URL. If any values are missing, or if the numeric value has a step mismatch or is out of range, a
-relevant browser defined error message will appear, the form will not be submitted, and the dialog will not close.
-The default error messages can be customized with the [`validityState.setCustomValidity('message here')`](/learn/forms/javascript/#validation-with-javascript)
-method. Just note that if you set a custom message, the message must be explicitly set to the empty string when everything
-is valid or the form will not submit.
+Кнопка submit в конце устанавливает метод формы на POST. При нажатии на кнопку происходит проверка валидности каждого значения. Если все значения действительны, то данные формы будут отправлены, диалог закроется, а страница может быть перенаправлена на `thankyou.php`, который является URL действия. Если какие-либо значения отсутствуют, или числовое значение имеет несоответствие шагу, или выходит за пределы диапазона, то появится соответствующее сообщение об ошибке, определяемое браузером, форма не будет отправлена, а диалог не закроется. Сообщения об ошибках по умолчанию можно настроить с помощью метода [`validityState.setCustomValidity('message here')`](../forms/javascript.md#validation-with-javascript). Обратите внимание, что если вы задаете пользовательское сообщение, то оно должно быть явно установлено в пустую строку, когда все валидно, иначе форма не будет отправлена.
 
-{% Aside %}
+!!!tip ""
 
-These `<input>` elements include a slash at the end, also called a "self-closing tag", which is a misnomer. The slash on
-void elements is a feature of XML, including SVG and XHTML, but not HTML. Browsers ignore it, [Prettier](https://prettier.io/)
-requires it, and the HTML Validator throws a warning when encountered.
+    Эти элементы `<input>` включают в себя косую черту в конце, которую также называют "самозакрывающимся тегом", что является ошибочным термином. Косая черта на элементах void является особенностью XML, включая SVG и XHTML, но не HTML. Браузеры игнорируют ее, [Prettier](https://prettier.io/) требует ее, а HTML Validator выдает предупреждение при ее наличии.
 
-As the slash makes it easier to read markup and some template engines require it, many view including this slash as a good
-habit. Others view this slash as against the spec, which it isn't, a waste of two bytes, which it arguably might be, and a
-possible cause of problems. The slash only causes problems if you neither quote your attributes nor put a space between the
-attribute and the end of the tag. In this case, the slash will be part of the attribute value. Because of this unquoted
-attribute issue, including the slash may actually encourage quoting attributes, which most developers consider to be a best
-practice.
+    Поскольку косая черта облегчает чтение разметки, а некоторые шаблонизаторы требуют ее наличия, многие считают включение этой косой черты хорошей привычкой. Другие считают, что косая черта противоречит спецификации, что не так, что это пустая трата двух байт, что, возможно, так и есть, и что она может стать причиной проблем. Косая черта вызывает проблемы только в том случае, если вы не заключаете атрибуты в кавычки и не ставите пробел между атрибутом и концом тега. В этом случае косая черта будет частью значения атрибута. Из-за этой проблемы с атрибутами без кавычек включение косой черты может способствовать цитированию атрибутов, что большинство разработчиков считают лучшей практикой.
 
-As you learn HTML, it is helpful to code in as legible a manner as possible, which includes "closing" all tags and quoting all
-attributes. As you become more familiar with all the intricacies of HTML and your comfort level improves, you may change your
-habits to no longer adding a slash to void elements, omitting optional closing tags, and even omitting implicit tags altogether,
-and leaving quotes off attributes that allow for it. The important thing, whether you are coding CSS, HTML, JavaScript, or other,
-is to be consistent in your coding style.
+    При изучении HTML полезно писать код как можно более разборчиво, что включает в себя "закрытие" всех тегов и цитирование всех атрибутов. По мере освоения всех тонкостей HTML и повышения уровня комфорта вы можете изменить свои привычки и больше не добавлять косую черту к элементам void, опускать необязательные закрывающие теги, а то и вовсе отказаться от неявных тегов и не заключать в кавычки атрибуты, которые это позволяют. Главное, независимо от того, на каком языке вы кодируете - CSS, HTML, JavaScript или другом, - быть последовательным в своем стиле кодирования.
 
-{% endAside %}
+## Другие соображения
 
-## Other considerations
+Существует целый раздел, посвященный [помощи пользователям при вводе правильных данных в формы](../forms/validation.md). Для удобства пользователей важно предотвращать ошибки, включая инструкции и предоставляя подсказки по мере необходимости. Хотя в этом разделе рассматривается, как HTML сам по себе может обеспечить проверку на стороне клиента, проверка должна быть как на стороне клиента, так и на стороне сервера. [Валидация может осуществляться](../forms/validation.md) ненавязчивыми способами во время заполнения формы, например, добавлением флажка при правильном значении. Однако не следует выдавать сообщения об ошибках до завершения работы с формой. Если пользователь все же допустил ошибку, сообщите ему, в чем она заключается и что он сделал неправильно.
 
-There is an entire section devoted to [helping your users enter the right data in forms](/learn/forms/validation/). For good
-user experience, it is important to prevent users from making errors by including instructions and providing hints as necessary.
-While this section covers how HTML alone can provide validation client-side, validation must be both client-side and
-server-side. [Validation can be provided in](/learn/forms/validation/) unobtrusive ways during form completion, such as adding a
-check mark when the value is correct. Do not provide error messaging before the form control is complete though. If the user
-does make a mistake, inform the user where the mistake is and what they got wrong.
+При [проектировании форм](../forms/internationalization.md) важно учитывать, что не все люди похожи на вас. У кого-то может быть одна буква в качестве фамилии (или вообще нет фамилии), у кого-то может не быть почтового индекса, у кого-то может быть трехстрочный адрес улицы, у кого-то может не быть адреса улицы. Возможно, они просматривают переведенную версию вашей формы.
 
-In [designing forms](/learn/forms/internationalization/), it is important to consider that not everyone is like you. Someone
-may have a single letter as a last name (or no last name at all), may not have a zip code, might have a three-line street address,
-may not have a street address. They may be viewing a translated version of your form.
+Элементы управления формы, их надписи и сообщения об ошибках должны быть видимыми на экране, точными и осмысленными, программно определяемыми и программно связанными с соответствующим элементом или группой формы. Атрибут [`автозаполнение`](../forms/autofill.md#how-does-autofill-work) можно и нужно использовать для ускорения заполнения формы и улучшения ее доступности.
 
-Form controls, their labels, and the error messages should be visible on the screen, accurate and meaningful, programmatically
-determinable, and programmatically associated with the appropriate form element or group. The [`autocomplete`](/learn/forms/autofill/#how-does-autofill-work)
-attribute can and should be used to enable faster form completion and improve accessibility.
+HTML предоставляет все средства для обеспечения доступности основных элементов управления формой. Чем более интерактивным является элемент формы или процесс, тем больше внимания необходимо уделять доступности в отношении управления фокусом, установки и обновления имен, ролей и значений ARIA, где это необходимо, и объявления ARIA в реальном времени, если это требуется. Но, как мы уже выяснили, с помощью одного только HTML можно проделать большой путь к достижению цели обеспечения доступности и достоверности, не прибегая к ARIA или JavaScript.
 
-HTML provides all the tools for making basic form controls accessible. The more interactive a form element or process is,
-the more attention needs to be given to accessibility with respect to focus management, setting and updating ARIA names, roles,
-and values, where necessary, and ARIA live announcements as required. But, as we've learned here, with HTML alone, you can get a
-long way to your goal of accessibility and validity without resorting to ARIA or JavaScript.
+## Источник
 
-{% Assessment 'forms' %}
+-   [Forms](https://web.dev/learn/html/forms/)

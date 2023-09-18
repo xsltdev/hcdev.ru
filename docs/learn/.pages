@@ -5,5 +5,7 @@ nav:
     #- css3
     #- pwa
     #- design
+    #- forms
+    #- accessibility
     - flex
     - grid

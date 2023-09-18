@@ -4,74 +4,45 @@ description: Understanding how to use tables to mark up tabular data.
 
 # Таблицы
 
-HTML tables are used for displaying tabular data with rows and columns. The decision to use a `<table>` should be based on the content you are presenting and your users' needs in relation to that content. If data is being presented, compared, sorted, calculated, or cross-referenced, then `<table>` is probably the right choice. If you simply want to lay out non-tabular content neatly, such as a large group of thumbnail images, tables are not appropriate: instead, [create a list](/learn/html/lists) of images and style the [grid with CSS](/learn/css/grid).
+Таблицы HTML используются для отображения табличных данных со строками и столбцами. Решение об использовании `<table>` должно основываться на содержимом, которое вы представляете, и потребностях ваших пользователей в отношении этого содержимого. Если данные представляются, сравниваются, сортируются, вычисляются или перекрестные ссылки, то `<table>`, вероятно, будет правильным выбором. Если вы просто хотите аккуратно расположить нетабличное содержимое, например, большую группу уменьшенных изображений, таблицы не подойдут: вместо этого создайте [список](lists.md) изображений и оформите [сетку с помощью CSS](../css3/grid.md).
 
-In this section, we are going to discuss all the elements that make up the table, along with some accessibility and usability features you should consider as you present tabular data. While Learn HTML isn't fundamentally about CSS, and there is an entire course dedicated to [learning CSS](/learn/css), we will cover some table-specific CSS properties.
+В этом разделе мы рассмотрим все элементы, из которых состоит таблица, а также некоторые особенности доступности и удобства использования, которые следует учитывать при представлении табличных данных. Хотя "Изучение HTML" не является фундаментальным курсом по CSS, и существует целый курс, посвященный [изучению CSS](../css3/index.md), мы рассмотрим некоторые специфические для таблиц CSSproperties.
 
-## Table elements, in order
+## Элементы таблицы, по порядку
 
-The [`<table>`](https://developer.mozilla.org/docs/Web/HTML/Element/table) tag wraps the table content, including all the table elements.
-The implicit ARIA role of a `<table>` is `table`; assistive technologies know this element is a table structure containing data arranged in
-rows and columns. If the table maintains a selection state, has two-dimensional navigation, or allows the user to rearrange cell order, set [`role="grid"`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/grid_role).
-If the rows of the `grid` can be expanded and collapsed, use [`role="treegrid"`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/treegrid_role) instead.
+Тег [`<table>`](../../html/table.md) оборачивает содержимое таблицы, включая все ее элементы. Неявная ARIA-роль элемента `<table>` - `table`; вспомогательные технологии знают, что этот элемент представляет собой табличную структуру, содержащую данные, расположенные в строках и столбцах. Если таблица поддерживает состояние выбора, имеет двумерную навигацию или позволяет пользователю изменять порядок ячеек, установите [`role="grid"`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/grid_role). Если строки `grid` могут быть развернуты и свернуты, используйте вместо этого [`role="treegrid"`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/treegrid_role).
 
-Inside the `<table>`, you'll find the table headers (`<thead>`), table bodies (`<tbody>`), and, optionally, table footers (`<tfoot>`).
-Each of these is made up of table rows (`<tr>`). Rows contain table header (`<th>`) and table data (`<td>`) cells which, in turn, contain all the data.
-In the DOM, before any of this, you may find two additional features: the table caption (`<caption>`) and column groups (`<colgroup>`). Depending
-on whether or not the `<colgroup>` has a `span` attribute, it may contain nested table column (`<col>`) elements.
+Внутри `<table>` находятся заголовки таблиц ([`<thead>`](../../html/thead.md)), тела таблиц ([`<tbody>`](../../html/thead.md)) и, по желанию, нижние колонтитулы ([`<tfoot>`](../../html/tfoot.md)). Каждая из них состоит из строк таблицы ([`<tr>`](../../html/tr.md)). Строки содержат ячейки заголовка таблицы ([`<th>`](../../html/th.md)) и данных таблицы ([`<td>`](../../html/td.md)), которые, в свою очередь, содержат все данные. В DOM перед всем этим можно обнаружить две дополнительные возможности: заголовок таблицы ([`<caption>`](../../html/caption.md)) и группы столбцов ([`<colgroup>`](../../html/colgroup.md)). В зависимости от наличия или отсутствия у `<colgroup>` атрибута [`span`](../../html/colgroup.md#span), она может содержать вложенные элементы столбцов таблицы ([`<col>`](../../html/col.md)).
 
-The table's children are, in order:
+Дочерними элементами таблицы являются, в порядке убывания:
 
-1. [`<caption>`](https://developer.mozilla.org/docs/Web/HTML/Element/caption) element
-2. [`<colgroup>`](https://developer.mozilla.org/docs/Web/HTML/Element/colgroup) elements
-3. [`<thead>`](https://developer.mozilla.org/docs/Web/HTML/Element/thead) elements
-4. [`<tbody>`](https://developer.mozilla.org/docs/Web/HTML/Element/tbody) elements
-5. [`<tfoot>`](https://developer.mozilla.org/docs/Web/HTML/Element/tfoot) elements
+1.  `<caption>`
+2.  `<colgroup>`
+3.  `<thead>`
+4.  `<tbody>`
+5.  `<tfoot>`
 
-We'll cover the `<table>` elements' children, which are all optional but recommended, then take a look at rows, table header cells,
-and table data cells. The `<colgroup>` will be covered last.
+Мы рассмотрим дочерние элементы `<table>`, которые являются необязательными, но рекомендуемыми, затем рассмотрим строки, ячейки заголовка таблицы и ячейки данных таблицы. Элемент `<colgroup>` будет рассмотрен в последнюю очередь.
 
-### Table caption
+### Заголовок таблицы
 
-Being a native, semantic element, [`<caption>`](https://developer.mozilla.org/docs/Web/HTML/Element/table) is the preferred
-method of giving a name to a table. The `<caption>` provides a descriptive, programmatically associated table title. It is
-visible and available to all users by default.
+Будучи родным, семантическим элементом, `<caption>` является предпочтительным способом присвоения имени таблице. `<caption>` обеспечивает описательный, программно связанный заголовок таблицы. По умолчанию он виден и доступен всем пользователям.
 
-The `<caption>` element should be the first element nested in the `<table>` element. Including it lets all users know the
-purpose of the table immediately without having to read the surrounding text. Alternatively, you can use `aria-label` or `aria-labelledby`
-on the `<table>` to provide an accessible name as the caption. The `<caption>` element has no element-specific attributes.
+Элемент `<caption>` должен быть первым элементом, вложенным в элемент `<table>`. Его включение позволяет всем пользователям сразу понять назначение таблицы, не читая окружающий текст. В качестве альтернативы можно использовать `aria-label` или `aria-labelledby` в элементе `<table>`, чтобы предоставить доступное имя в качестве подписи. Элемент `<caption>` не имеет специфических для данного элемента атрибутов.
 
-The caption appears outside the table. The location of the caption can be set with the CSS [`caption-side`](https://developer.mozilla.org/docs/Web/CSS/caption-side) property, which is a
-better practice than using the deprecated `align` attribute. This can set the caption to the top and bottom. The left and right
-side positioning, with `inline-start` and `inline-end`, are not yet fully supported. Top is the default browser presentation.
+Надпись отображается вне таблицы. Расположение надписи можно задать с помощью свойства CSS [`caption-side`](../../css/caption-side.md), что лучше, чем использование устаревшего атрибута `align`. Это позволяет установить надпись сверху и снизу. Позиционирование слева и справа, с помощью `inline-start` и `inline-end`, пока не поддерживается в полной мере. Верх - это представление браузера по умолчанию.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'yLEZRyW',
-  height: 300,
-  theme: 'dark',
-  tab: 'html,result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/yLEZRyW?height=300&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Preferably, data tables should have clear headers and a caption, and be simple enough to be almost self-explanatory. Bear in mind that
-not all users have the same cognitive abilities. When the table is "making a point", or otherwise needs interpretation, provide a
-brief summary of the main point or function of the table. Where that summary is placed depends on its length and complexity.
-If brief, use it as the inner text of the caption. If longer, summarize it in the caption, and provide the summary in the
-paragraph preceding the table, associating the two with the [`aria-describedby`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-describedby)
-attribute. Putting the table in a `<figure>` and putting the summary in the `<figcaption>` is another option.
+Желательно, чтобы таблицы данных имели четкие заголовки и подписи, а также были достаточно простыми и практически не требовали пояснений. Следует помнить, что не все пользователи обладают одинаковыми когнитивными способностями. В тех случаях, когда таблица "делает выводы" или иным образом нуждается в интерпретации, дайте краткое резюме основного положения или функции таблицы. Место размещения такого резюме зависит от его длины и сложности. Если оно краткое, используйте его в качестве внутреннего текста подписи. Если длиннее, то кратко изложите суть в подписи, а резюме дайте в абзаце, предшествующем таблице, связав их атрибутом [`aria-describedby`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-describedby). Другой вариант - поместить таблицу в [`<figure>`](../../html/figure.md) и поместить резюме в [`<figcaption>`](../../html/figcaption.md).
 
-### Data sectioning
+### Секционирование данных
 
-The content of tables is made up of up to three sections: zero or more table headers (`<thead>`) , table bodies (`<tbody>`),
-and table footers (`<tfoot>`). All are optional, with zero or more of each being supported.
+Содержимое таблиц состоит максимум из трех секций: нулевой или более заголовков таблицы (`<thead>`), тела таблицы (`<tbody>`) и нижних колонтитулов таблицы (`<tfoot>`). Все они являются необязательными, причем поддерживается ноль или более элементов.
 
-These elements don't help or hinder the accessibility of the table, but they are useful in terms of usability. They provide
-styling hooks. For example, the [header contents can be made sticky](https://adrianroselli.com/2020/01/fixed-table-headers.html),
-while the `<tbody>` contents can be made to scroll. Rows not nested in one of these three containing elements are implicitly
-wrapped in a `<tbody>`. All three share the same implicit role [`rowgroup`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/Rowgroup_Role).
-None of these three elements has any element-specific attributes.
+Эти элементы не помогают и не мешают доступности таблицы, но они полезны с точки зрения удобства использования. Они предоставляют крючки для стилизации. Например, содержимое [заголовка можно сделать липким](https://adrianroselli.com/2020/01/fixed-table-headers.html), а содержимое `<tbody>` можно сделать прокручиваемым. Строки, не вложенные ни в один из этих трех содержащих элементов, неявно обернуты в `<tbody>`. Все три элемента имеют одну и ту же неявную роль [`rowgroup`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/Rowgroup_Role). Ни один из этих трех элементов не имеет специфических для данного элемента атрибутов.
 
-What we have so far:
+Что мы имеем на данный момент:
 
 ```html
 <table>
@@ -84,96 +55,49 @@ What we have so far:
 </table>
 ```
 
-The `<tfoot>` element was originally specified to come right after the `<thead>` and before the `<tbody>` for accessibility reasons,
-which is why you may come across this non-intuitive source order in legacy codebases.
+Элемент `<tfoot>` изначально должен был располагаться сразу после `<thead>` и перед `<tbody>` по соображениям доступности, поэтому в устаревших кодовых базах можно встретить такой неинтуитивный порядок исходных текстов.
 
-### Table content
+### Содержание таблицы
 
-Tables can be divided into table headers, bodies, and footers, but none of these really does anything if the tables do not
-contain table rows, cells, and content. Each table row, `<tr>` contains one or more cells. If a cell is a header cell, use `<th>`.
-Otherwise, use `<td>`.
+Таблицы можно разделить на заголовки, тело и нижние колонтитулы, но ни один из них ничего не дает, если таблицы не содержат строк, ячеек и содержимого. Каждая строка таблицы, `<tr>`, содержит одну или несколько ячеек. Если ячейка является ячейкой заголовка, используйте `<th>`. В противном случае используйте `<td>`.
 
-User-agent stylesheets generally display the content in a `<th>` table header cell as centered and bold. These default styles,
-and all styling, are best controlled with CSS instead of the deprecated attributes that used to be available on individual cells,
-rows, and even the `<table>`.
+Пользовательские таблицы стилей обычно отображают содержимое ячейки заголовка таблицы `<th>` как выровненное по центру и выделенное жирным шрифтом. Эти стили по умолчанию, как и все стили, лучше всего контролировать с помощью CSS, а не устаревших атрибутов, которые раньше были доступны для отдельных ячеек, строк и даже для `<table>`.
 
-There were attributes to add padding between cells and within cells, for borders, and for text alignment. Cellpadding and cellspacing,
-which define the space between the content of a cell and its border, and between the borders of adjacent cells, should be set
-with the CSS [border-collapse](https://developer.mozilla.org/docs/Web/CSS/border-collapse) and [border-spacing](https://developer.mozilla.org/docs/Web/CSS/border-spacing)
-properties, respectively. `Border-spacing` will have no effect if `border-collapse: collapse` is set. If `border-collapse: separate;`
-is set, it's possible to hide empty cells completely with `empty-cells: hide;`. To learn more about styling tables, here's an
-interactive slidedeck of [table-related CSS styles](https://estelle.github.io/CSS/tables/#slide1).
+Существовали атрибуты, позволяющие добавлять вставки между ячейками и внутри ячеек, границы и выравнивание текста. Cellpadding и cellspacing, определяющие пространство между содержимым ячейки и ее границей, а также между границами соседних ячеек, должны задаваться с помощью свойств CSS [`border-collapse`](../../css/border-collapse.md) и [`border-spacing`](../../css/border-spacing.md) соответственно. `border-spacing` не будет иметь эффекта, если установлено `border-collapse: collapse`. Если задано `border-collapse: separate;`, то можно полностью скрыть пустые ячейки с помощью `empty-cells: hide;`. Чтобы узнать больше о стилизации таблиц, можно воспользоваться интерактивным слайдом [table-related CSS styles](https://estelle.github.io/CSS/tables/#slide1).
 
-In the examples, we've added a border on the table and each individual cell with CSS to make some features more apparent:
+В примерах мы добавили границу на таблицу и каждую отдельную ячейку с помощью CSS, чтобы сделать некоторые особенности более заметными:
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'oNymmWw',
-height: 300,
-theme: 'dark',
-tab: 'html,result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/oNymmWw?height=300&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-In this example, we have a caption, a table header, and a table body. The header has one row containing three header `<th>` cells,
-thereby creating three columns. The body contains three rows of data: the first cell is a header cell for the row, so we use `<th>` instead of `<td>`.
+В данном примере мы имеем надпись, заголовок таблицы и тело таблицы. Заголовок имеет одну строку, содержащую три ячейки заголовка `<th>`, что создает три столбца. Тело содержит три строки данных: первая ячейка является ячейкой заголовка строки, поэтому мы используем `<th>` вместо `<td>`.
 
-The `<th>` cell has semantic meaning, with implicit ARIA roles of [columnheader](https://w3c.github.io/aria/#columnheader)
-or [rowheader](https://w3c.github.io/aria/#rowheader). It defines the cell as the header for the column or row of table cells,
-depending on the value of the enumerated `scope` attribute. The browser will default to `col` or `row` if `scope` is not explicitly set.
-Because we have used semantic markup, the `1956` cell has two headers: Year and Lou Minious. This association tells us that "1956" is the
-"year" of graduation for "Lou Minious". In this example, as we can see the entire table, the association is visually apparent.
-Using `<th>` provides the association even when the header column or row has scrolled out of view. We could have explicitly set
-`<th scope="col">Year</th>` and `<th scope="row">Lou Minious</th>` but with a simple table like this, the enumerated default values work.
-Other values for `scope` include `rowgroup` and `colgroup`, which are useful with complex tables.
+Ячейка `<th>` имеет семантическое значение, с неявными ARIA-ролями [columnheader](https://w3c.github.io/aria/#columnheader) или [rowheader](https://w3c.github.io/aria/#rowheader). Она определяет ячейку как заголовок столбца или строки ячеек таблицы, в зависимости от значения перечисляемого атрибута `scope`. Если значение `scope` не задано явно, браузер по умолчанию принимает значение `col` или `row`. Поскольку мы использовали семантическую разметку, ячейка `1956` имеет два заголовка: Year и Lou Minious. Эта ассоциация говорит нам о том, что "1956" - это "год" окончания школы для "Lou Minious". В данном примере, поскольку мы видим всю таблицу, ассоциация визуально очевидна. Использование `<th>` обеспечивает ассоциацию даже в том случае, если столбец или строка заголовка ушли из поля зрения. Мы могли бы явно задать `<th scope="col">Год</th>` и `<th scope="row">Лу Миниус</th>`, но для такой простой таблицы, как эта, подойдут перечисляемые значения по умолчанию. Другие значения для `scope` включают `rowgroup` и `colgroup`, которые полезны при работе со сложными таблицами.
 
-## Merging cells
+## Объединение ячеек
 
-Similar to MS Excel, Google Sheets, and Numbers, it is possible to join multiple cells into a single cell. This is done with HTML!
-The `colspan` attribute is used to merge two or more adjacent cells within a single row. The `rowspan` attribute is used to merge cells across rows,
-being placed on the cell in the top row.
+Подобно MS Excel, Google Sheets и Numbers, можно объединить несколько ячеек в одну. Это делается с помощью HTML! Атрибут [`colspan`](../../html/td.md#colspan) используется для объединения двух или более соседних ячеек в пределах одной строки. Атрибут [`rowspan`](../../html/td.md#rowspan) используется для объединения ячеек в разных строках, располагаясь на ячейке в верхней строке.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'GRGzzEd',
-height: 300,
-theme: 'dark',
-tab: 'html,result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/GRGzzEd?height=300&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-In this example, the table header contains two rows. The first header row contains three cells spanning four columns: the middle cell
-has `colspan="2"`. This merges two adjacent cells. The first and last cells include `rowspan="2"`. This merges the cell with the cell
-in the adjacent row, immediately beneath it.
+В данном примере заголовок таблицы содержит две строки. Первая строка заголовка содержит три ячейки, охватывающие четыре столбца: средняя ячейка имеет значение `colspan="2"`. Это объединяет две соседние ячейки. Первая и последняя ячейки содержат `rowspan="2"`. Это объединяет ячейку с ячейкой в соседней строке, расположенной непосредственно под ней.
 
-The second row in the table header contains two cells; these are the cells for the second and third columns in the second row.
-No cell is declared for the first or last column as the cell in the first and last columns in the first row span two rows.
+Вторая строка в заголовке таблицы содержит две ячейки; это ячейки для второго и третьего столбцов второй строки. Для первого или последнего столбца ячейка не объявляется, так как ячейки первого и последнего столбцов первой строки занимают две строки.
 
-In cases where a cell is defined by multiple header cells with associations that cannot be set by the `scope` attributes alone,
-include the `headers` attribute with a space-separated list of the associated headers. As this example is a more complex table, we explicitly define
-the scope of the headers with the `scope` attribute. To be even clearer, we added the `headers` attribute to each cell.
+В случаях, когда ячейка определяется несколькими ячейками-заголовками с ассоциациями, которые не могут быть заданы только атрибутами `scope`, следует включить атрибут `headers` с разделенным пробелами списком ассоциированных заголовков. Поскольку данный пример представляет собой более сложную таблицу, мы явно определяем область видимости заголовков с помощью атрибута `scope`. Для большей наглядности мы добавили атрибут `headers` в каждую ячейку.
 
-The `headers` attributes were possibly not necessary in such a simple use case, but they are important to have in your toolbelt
-your tables grow in complexity. Tables with complex structures, such as tables where headers or cells are merged or with more
-than two levels of column or row headers, require explicit identification of associated header cells. In such complex tables, explicitly
-associate each data cell with each corresponding header cell with a list of space-separated `id` values of all the associated headers
-as the value of the `headers` attribute.
+Атрибуты `headers`, возможно, и не были необходимы в таком простом случае, но их важно иметь в своем арсенале, когда таблицы становятся все сложнее. Таблицы со сложной структурой, например, таблицы, в которых заголовки или ячейки объединяются, или таблицы с более чем двумя уровнями заголовков столбцов или строк, требуют явной идентификации связанных с ними ячеек заголовков. В таких сложных таблицах необходимо явно связать каждую ячейку данных с каждой соответствующей ячейкой заголовка со списком разделенных пробелами значений `id` всех связанных заголовков в качестве значения атрибута `headers`.
 
-The `headers` attribute is more commonly found on `<td>` elements, but is also valid on `<th>`.
+Атрибут `headers` чаще всего встречается в элементах `<td>`, но может быть использован и в `<th>`.
 
-That said, complex table structures can be difficult for all users, not just screen reader users, to understand. Cognitively
-and in terms of screen reader support, simpler tables, with few to no spanned cells, even without adding scope and headers, are more easily
-understood. They're also easier to manage!
+Тем не менее, сложные структуры таблиц могут быть трудны для понимания всеми пользователями, а не только пользователями устройств чтения с экрана. С когнитивной точки зрения и с точки зрения поддержки программ чтения с экрана более простые таблицы с небольшим количеством ячеек или без них, даже без добавления области видимости и заголовков, являются более понятными. Кроме того, ими легче управлять!
 
-## Styling tables
+## Стилизация таблиц
 
-There are two relatively obscure elements that were briefly mentioned: the column group, [`<colgroup>`](https://developer.mozilla.org/docs/Web/HTML/Element/colgroup), element
-and its only descendant, the empty [`<col>`](https://developer.mozilla.org/docs/Web/HTML/Element/col) column element. The
-`<colgroup>` element is used to define groups of columns, or `<col>` elements, within a table.
+Есть два относительно малоизвестных элемента, о которых было сказано вскользь: группа колонок, элемент `<colgroup>`, и его единственный потомок, пустой элемент колонки `<col>`. Элемент `<colgroup>` используется для определения групп столбцов, или элементов `<col>`, внутри таблицы.
 
-If used, the column grouping should be nested in the `<table>`, immediately after the `<caption>` and before any table data.
-If they span more than one column, use the `span` attribute.
+Если он используется, то группировка столбцов должна быть вложена в `<table>`, сразу после `<caption>` и перед любыми данными таблицы. Если они охватывают более одного столбца, следует использовать атрибут `span`.
 
-The content outline order for a table is generally as follows, with `<table>` and `<caption>` being the two elements that
-should be included:
+Порядок изложения содержимого таблицы обычно следующий: два элемента, которые должны быть включены в таблицу, - `<table>` и `<caption>`:
 
 ```html
 <table>
@@ -189,54 +113,32 @@ should be included:
 </table>
 ```
 
-Neither `<colgroup>` nor `<col>` has semantic meaning in terms of helping to make the table more accessible, but they do allow
-for limited column styling, including setting a width for the column with CSS.
+Ни `<colgroup>`, ни `<col>` не имеют семантического значения, помогая сделать таблицу более доступной, но они позволяют ограничить стилизацию столбцов, включая задание ширины столбца с помощью CSS.
 
-`<col>` styles will style a column as long as there are no `<td>` or `<th>` styles that override that styling. For example, when
-`<colspan>` is used to merge cells in some rows of a table but not all, you can't be sure that a selector such as `tr > *:nth-child(8)`,
-which selects the 8th child of every row, will highlight the 8th column in full or will highlight the 8th column for several rows,
-but with a smattering of 9th and 10th column cells, depending on what row or column cells were merged.
+Стили `<col>` будут задавать стиль столбца до тех пор, пока не будет стилей `<td>` или `<th>`, которые отменяют этот стиль. Например, когда `<colspan>` используется для объединения ячеек в некоторых строках таблицы, но не во всех, нельзя быть уверенным, что селектор типа `tr > *:nth-child(8)`, который выбирает 8-го ребенка каждой строки, выделит 8-й столбец полностью или выделит 8-й столбец для нескольких строк, но с россыпью ячеек 9-го и 10-го столбцов, в зависимости от того, ячейки какой строки или столбца были объединены.
 
-Unfortunately, only a few properties are supported, the styles aren't inherited into the cells, and the only way of using the `<col>`
-element in targeting cells is with a complex selector including the [`:has()` relational selector](https://developer.mozilla.org/docs/Web/CSS/:has).
+К сожалению, поддерживается только несколько свойств, стили не наследуются в ячейках, а единственный способ использования элемента `<col>` в таргетинге ячеек - это сложный селектор, включающий реляционный селектор [`:has()`](../../css/has.md).
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/UJ6y8w7K3tReIJegOTSC.png", alt="Layered rendering of the elements used to design HTML tables.", width="518", height="403" %}
+![Layered rendering of the elements used to design HTML tables.](tables-1.avif)
 
-If both the `<table>` and the `<colgroup>` have a background color, the `background-color` of the `<colgroup>` will be on top.
-The order of drawing is: table, column groups, columns, rowgroups, rows, with cells last and on top, as shown in the [schema of table
-layers](https://w3c.github.io/csswg-drafts/css2/#table-layers). The `<td>` and `<th>` elements are not descendants of `<colgroup>` or `<col>` elements, and do not inherit their styling.
+Если и `<table>`, и `<colgroup>` имеют цвет фона, то 'background-color' `<colgroup>` будет находиться сверху. Порядок отрисовки следующий: таблица, группы столбцов, столбцы, группы строк, строки, причем ячейки располагаются последними и сверху, как показано на [схеме слоев таблицы](https://w3c.github.io/csswg-drafts/css2/#table-layers). Элементы `<td>` и `<th>` не являются потомками элементов `<colgroup>` или `<col>` и не наследуют их стилистику.
 
-To stripe a table, CSS structural selectors come in handy. For example, `tbody tr:nth-of-type(odd) {background-color: rgba(0 0 0 / 0.1);}`
-will add a translucent black to each odd row in the body of the table, letting any background effects that are set on `<colgroup>` show through.
+Для разбиения таблицы на полосы удобно использовать структурные селекторы CSS. Например, `tbody tr:nth-of-type(odd) {background-color: rgba(0 0 0 / 0.1);}` добавит полупрозрачный черный цвет к каждой нечетной строке в теле таблицы, позволяя проявиться любым фоновым эффектам, установленным для `<colgroup>`.
 
-Tables are not responsive by default. Rather, they are sized according to their content by default. Extra measures are needed to get table
-layout styling to effectively work across a variety of devices. If you are [changing the CSS display property for table elements](https://adrianroselli.com/2018/02/tables-css-display-properties-and-aria.html),
-include ARIA `role` attributes. While that may sound redundant, the CSS `display`property can affect the accessibility tree in some browsers.
+Таблицы по умолчанию не являются отзывчивыми. Скорее, по умолчанию они имеют размеры, соответствующие их содержимому. Для того чтобы стилизация макета таблицы эффективно работала на различных устройствах, необходимо принять дополнительные меры. Если вы [изменяете свойство CSS display для элементов таблиц](https://adrianroselli.com/2018/02/tables-css-display-properties-and-aria.html), включите атрибуты ARIA `role`. Хотя это может показаться излишним, свойство CSS `display` может влиять на дерево доступности в некоторых браузерах.
 
-## Presenting data
+## Представление данных
 
-Table elements have semantic meanings that are used by assistive technologies to enable navigating through the rows and columns
-without getting 'lost'. The `<table>` element should not be used for presentation. If you need a heading over a list, use a [header](/learn/html/headings-and-sections/#headings-lessh1greater-lessh6greater)
-and a [list](/learn/html/lists). If you want to lay out content in many columns, use [multi-column layout](https://developer.mozilla.org/docs/Web/CSS/CSS_Columns).
-If you want to lay out content in a grid, use [CSS grid](/learn/css/grid). Only use a table for data. Think of it this way: if your data requires a spreadsheet in order to be presented at a meeting, use`<table>`.
-If you would like to use the features available in presentation software like Keynote or Powerpoint, you probably need a [description list](/learn/html/lists).
+Элементы таблицы имеют семантические значения, которые используются вспомогательными технологиями для навигации по строкам и столбцам без "заблуждений". Элемент `<table>` не следует использовать для представления данных. Если вам нужен заголовок над списком, используйте [header](headings-and-sections.md#headings-lessh1greater-lessh6greater) и [list](lists.md). Если вы хотите расположить содержимое во многих колонках, используйте [multi-column layout](https://developer.mozilla.org/docs/Web/CSS/CSS_Columns). Если необходимо расположить содержимое в виде сетки, используйте [CSS grid](../css/grid.md). Используйте таблицу только для данных. Подумайте об этом так: если для представления данных на совещании требуется электронная таблица, используйте `<table>`. Если же вы хотите использовать возможности, доступные в таких программах для создания презентаций, как Keynote или Powerpoint, то вам, скорее всего, понадобится [список описаний](lists.md).
 
-While sorting table columns is the purview of JavaScript, marking up your headers to let users know the column is sortable is the purview of HTML.
-Let your users know the table columns are sortable with iconography showing ascending, descending, or unsorted. The column currently sorted should
-include the [aria-sort](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-sort) attribute with the enumerated value of the sort direction.
-The `<caption>` can politely announce updates to sort order via [aria-live](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-live) and a
-span that is dynamically updated, and which is visible to screen reader users. As the column is sortable by clicking on the header content, the header content should be a `<button>`.
+В то время как сортировка столбцов таблицы относится к области JavaScript, разметка заголовков, сообщающих пользователям о возможности сортировки столбцов, относится к области HTML. Сообщите пользователям о возможности сортировки столбцов таблицы с помощью пиктограмм, показывающих сортировку по возрастанию, по убыванию или без сортировки. Сортируемый в данный момент столбец должен содержать атрибут [aria-sort](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-sort) с перечисляемым значением направления сортировки. Столбец `<caption>` может вежливо сообщать об обновлении порядка сортировки с помощью атрибута [aria-live](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-live) и динамически обновляемого span, который виден пользователям программы чтения с экрана. Поскольку столбец сортируется щелчком мыши по содержимому заголовка, содержимое заголовка должно быть `<button>`.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'XWYOOed',
-height: 300,
-theme: 'dark',
-tab: 'html,result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/XWYOOed?height=300&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-If you're not presenting tabular data, don't use a `<table>`. If you do use a table for presentation, set `role="none"`.
+Если вы не представляете табличные данные, не используйте `<table>`. Если вы используете таблицу для представления данных, установите `role="none"`.
 
-Many developers use tables to lay out forms but there is no need to. But you do need to know about HTML forms, so we will cover that next.
+Многие разработчики используют таблицы для размещения форм, но в этом нет необходимости. Но вам необходимо знать о формах HTML, поэтому мы рассмотрим их далее.
 
-{% Assessment 'tables' %}
+## Источник
+
+-   [Tables](https://web.dev/learn/html/tables/)
