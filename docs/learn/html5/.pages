@@ -13,8 +13,8 @@ nav:
     - navigation.md
     - tables.md
     - forms.md
-    #- images.md
-    #- audio-video.md
+    - images.md
+    - audio-video.md
     #- template.md
     #- apis.md
     #- focus.md
