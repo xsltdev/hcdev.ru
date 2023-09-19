@@ -1,5 +1,6 @@
 ---
-description: Understanding how to use tables to mark up tabular data.
+description: Понимание того, как использовать таблицы для разметки табличных данных.
+icon: material/table
 ---
 
 # Таблицы

@@ -6,7 +6,7 @@ hide:
 
 # Учебники
 
-Учебники по технологиям HTML 5 и CSS 3
+Учебники по технологиям HTML и CSS
 
 <div class="grid cards" style="margin-top: 1.6em" markdown>
 
@@ -16,7 +16,7 @@ hide:
 
     Учебники HTML 5
 
-    [:octicons-arrow-right-24: HTML](./html5/index.md)
+    **[:octicons-arrow-right-24: Учебник HTML 5](html5/index.md)** <small>web.dev</small>
 
 -   :simple-css3:{ .lg .middle } **CSS**
 

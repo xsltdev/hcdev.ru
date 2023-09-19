@@ -1,5 +1,6 @@
 ---
-description: Обзор изображений в HTML.
+description: Обзор изображений в HTML
+icon: material/image
 ---
 
 # Изображения

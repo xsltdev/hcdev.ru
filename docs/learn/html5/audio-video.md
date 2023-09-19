@@ -1,10 +1,11 @@
 ---
-description: Узнайте, как работать с HTML-медиа, такими как аудио и видео.
+description: Узнайте, как работать с HTML-медиа, такими как аудио и видео
+icon: material/video
 ---
 
 # Аудио и Видео
 
-As you learned in the [images](/learn/html/images/) module, HTML enables embedding media into a web page. In this section, we look at audio and video files, including how to embed them, user controls, providing a static image placeholder for your videos, and best practices, including making audio and video files accessible.
+Как вы узнали из модуля [Изображения](images.md), HTML позволяет встраивать мультимедийные файлы в веб-страницу. В этом разделе мы рассмотрим аудио- и видеофайлы, в том числе способы их встраивания, пользовательские элементы управления, предоставление статического изображения-заполнителя для видео, а также лучшие практики, включая обеспечение доступности аудио- и видеофайлов.
 
 ## `<audio>` и `<video>`
 

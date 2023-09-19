@@ -1,5 +1,6 @@
 ---
 description: Обзор форм в HTML
+icon: material/form-textbox
 ---
 
 # Формы

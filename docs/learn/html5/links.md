@@ -1,5 +1,6 @@
 ---
 description: Все, что нужно знать о ссылках.
+icon: material/link-plus
 ---
 
 # Ссылки
