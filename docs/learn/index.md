@@ -24,6 +24,8 @@ hide:
 
     Учебники CSS 3
 
+    **:octicons-arrow-right-24: Учебник CSS 3** <small>web.dev</small>
+
     [:octicons-arrow-right-24: Flexbox](./flex/index.md)
 
     [:octicons-arrow-right-24: Grid](./grid/index.md)

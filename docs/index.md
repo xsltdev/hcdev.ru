@@ -33,17 +33,13 @@ hide:
 
     **[:octicons-arrow-right-24: CSS](/css/)**
 
-    [:octicons-arrow-right-24: Flexbox](/learn/flex/)
-
-    [:octicons-arrow-right-24: Grid Layout](/learn/grid/)
-
 </div>
 
 ## Учебники
 
 <div class="grid cards" style="margin-top: 1.6em" markdown>
 
--   :simple-html5:{ .lg .middle } **HTML**
+-   :material-school:{ .lg .middle } **HTML**
 
     ***
 
@@ -51,13 +47,17 @@ hide:
 
     **[:octicons-arrow-right-24: Учебник HTML 5](learn/html5/index.md)** <small>web.dev</small>
 
--   :simple-css3:{ .lg .middle } **CSS**
+-   :material-school:{ .lg .middle } **CSS**
 
     ***
 
     Учебники и документация CSS
 
     **:octicons-arrow-right-24: Учебник CSS 3** <small>web.dev</small>
+
+    [:octicons-arrow-right-24: Flexbox](/learn/flex/)
+
+    [:octicons-arrow-right-24: Grid Layout](/learn/grid/)
 
 </div>
 
