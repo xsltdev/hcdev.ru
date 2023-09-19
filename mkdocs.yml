@@ -101,6 +101,9 @@ markdown_extensions:
 plugins:
     - git-revision-date-localized:
           enabled: !ENV [CI, false]
+          locale: ru
+          exclude:
+              - index.md
     - search:
           lang:
               - ru

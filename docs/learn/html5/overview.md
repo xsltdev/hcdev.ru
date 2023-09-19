@@ -1,5 +1,6 @@
 ---
 description: Краткое введение в основные понятия HTML
+icon: material/language-html5
 ---
 
 # Обзор HTML
