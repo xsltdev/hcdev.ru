@@ -99,11 +99,6 @@ markdown_extensions:
     - pymdownx.smartsymbols
 
 plugins:
-    - git-revision-date-localized:
-          enabled: !ENV [CI, false]
-          locale: ru
-          exclude:
-              - index.md
     - search:
           lang:
               - ru
