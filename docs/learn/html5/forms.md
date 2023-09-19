@@ -5,6 +5,8 @@ icon: material/form-textbox
 
 # Формы
 
+<big>Обзор форм в HTML.</big>
+
 Большинство сайтов и приложений содержат веб-форму. Шуточные сайты, например [DoWebsites<wbr>Need<wbr>To<wbr>Look<wbr>Exactly<wbr>The<wbr>Same<wbr>In<wbr>Every<wbr>Browser.com](http://dowebsitesneedtolookexactlythesameineverybrowser.com/), могут не иметь формы, но даже [Machine<wbr>Learning<wbr>Workshop.com](https://machinelearningworkshop.com/) (MLW), возникший как шутка в День первоапрельского дурака, имеет форму, хотя и поддельную. Основным "призывом к действию" MLW является регистрационная форма для машин, позволяющая записаться на семинар. Эта форма содержится в элементе `<form>`.
 
 Элемент HTML [`<form>`](../../html/form.md) идентифицирует документ [landmark](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles#3._landmark_roles), содержащий интерактивные элементы управления для отправки информации. Во вложенном элементе `<form>` находятся все интерактивные (и неинтерактивные) элементы управления формой, составляющие эту форму.
