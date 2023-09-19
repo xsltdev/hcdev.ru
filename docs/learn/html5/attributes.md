@@ -1,6 +1,6 @@
 ---
 description: Узнайте о различных глобальных атрибутах, а также об атрибутах, характерных для конкретных элементов HTML
-icon: :material/code-tags
+icon: material/code-tags
 ---
 
 # Атрибуты
