@@ -99,6 +99,8 @@ markdown_extensions:
     - pymdownx.smartsymbols
 
 plugins:
+    - git-revision-date-localized:
+          enabled: !ENV [CI, false]
     - search:
           lang:
               - ru
@@ -115,4 +117,4 @@ extra_javascript:
     - 'https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js'
 
 extra_css:
-    - '/assets/stylesheets/styles.css?7'
+    - '/assets/stylesheets/styles.css?8'
