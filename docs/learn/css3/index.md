@@ -32,8 +32,8 @@ hide:
 
     Этот курс написан и отредактирован экспертами сообщества CSS: [Andy Bell](https://twitter.com/piccalilli_), [Rachel Andrew](https://twitter.com/rachelandrew), [Una Kravets](https://twitter.com/Una), [Adam Argyle](https://twitter.com/argyleink), [Emma Twersky](https://twitter.com/twerske), [Camden Bickel](https://twitter.com/camdenbickel), и [Kevin Lozandier](https://twitter.com/KevinLozandier). [Rob Dodson](https://twitter.com/rob_dodson) и [Jiwoong Lee](https://twitter.com/jiwoong) руководили UX и производственной сборкой, а также помогали [Ewa Gasperowicz](https://twitter.com/devnook) и [Kayce Basques](https://twitter.com/kaycebasques).
 
-!!!tip "Перевод"
+!!!danger "Перевод"
 
     Перевод этого учебника сделан благодаря [подписчикам на Бусти](https://boosty.to/bndby).
 
-:information_source: Источник: [Learn CSS](https://web.dev/learn/css/)
+:information_source: Источник &mdash; [Learn CSS](https://web.dev/learn/css/)

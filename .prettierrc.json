@@ -11,7 +11,8 @@
 			"options": {
 				"parser": "markdown",
 				"useTabs": false,
-				"tabWidth": 4
+				"tabWidth": 4,
+				"proseWrap": "never"
 			}
 		},
 		{
