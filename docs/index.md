@@ -53,7 +53,7 @@ hide:
 
     Учебники и документация CSS
 
-    **:octicons-arrow-right-24: Учебник CSS 3** <small>web.dev</small>
+    **[:octicons-arrow-right-24: Учебник CSS 3](./learn/css3/index.md)** <small>web.dev</small>
 
     [:octicons-arrow-right-24: Flexbox](/learn/flex/)
 
