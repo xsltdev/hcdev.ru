@@ -15,9 +15,9 @@ nav:
     - forms.md
     - images.md
     - audio-video.md
-    #- template.md
-    #- apis.md
-    #- focus.md
-    #- inline-text.md
-    #- details.md
-    #- dialog.md
+    - template.md
+    - apis.md
+    - focus.md
+    - inline-text.md
+    - details.md
+    - dialog.md

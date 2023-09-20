@@ -1,166 +1,91 @@
 ---
-title: 'Details and summary'
-authors:
-  - estelleweyl
 description: Discover how the very useful details and summary elements work, and where to use them.
-date: 2023-02-21
-tags:
-  - html
+icon: material/details
 ---
 
-A disclosure widget is a user interface control that hides and shows content. If you are reading this on web.dev, and your
-viewport is less than 106 ems wide, clicking on the "On this page" above this paragraph reveals the table of contents for
-this section. If you don't see it, shrink the browser to view the table of contents navigation on this page as a
-disclosure widget.
+# Details и summary
 
-The [accordion](https://en.wikipedia.org/wiki/Accordion_(GUI)) graphical user interface is a series of vertically stacked
-disclosure widgets. A common use case for the accordion UI is the Frequently Asked Questions (FAQ) page on many sites.
-An accordion FAQ contains a list of visible questions; clicking on a question expands, or "discloses", the answer to that question.
+Виджет раскрытия - это элемент управления пользовательским интерфейсом, который скрывает и показывает содержимое. Если вы читаете эту статью на web.dev, а область просмотра имеет ширину менее 106 em, то щелчок на надписи "На этой странице" над этим абзацем откроет оглавление этого раздела. Если вы не видите его, сжимайте браузер, чтобы увидеть навигацию по оглавлению на этой странице в виде виджета раскрытия.
 
-[jQuery](https://jqueryui.com/accordion/) has included an accordion UI pattern since at least 2009. The original JavaScript-free
-accordion solution included making each FAQ question a `<label>` followed by the checkmark it labeled, and then displaying `<div>`
-answer when the checkmark was checked. The CSS looked something like this:
+[Аккордеон](<https://ru.wikipedia.org/wiki/%D0%90%D0%BA%D0%BA%D0%BE%D1%80%D0%B4%D0%B5%D0%BE%D0%BD_(%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82_%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0)>) графический интерфейс пользователя представляет собой серию вертикально расположенных виджетов раскрытия информации. Часто используемым вариантом интерфейса "аккордеон" является страница часто задаваемых вопросов (FAQ) на многих сайтах. FAQ в виде аккордеона содержит список видимых вопросов; щелчок на вопросе раскрывает, или "раскрывает", ответ на него.
+
+[jQuery](https://jqueryui.com/accordion/) включает в себя паттерн пользовательского интерфейса "аккордеон", по крайней мере, с 2009 года. Оригинальное решение аккордеона без JavaScript включало в себя создание для каждого вопроса FAQ `<label>`, за которым следовал флажок, которым он был помечен, а затем отображение ответа `<div>`, когда флажок был отмечен. CSS выглядел примерно так:
 
 ```css
-#FAQ [type="checkbox"] + div.answer {
-  /* all the answer styles */
-  display: none;
+#FAQ [type='checkbox'] + div.answer {
+    /* all the answer styles */
+    display: none;
 }
-#FAQ [type="checkbox"]:checked + div.answer {
-  display: block;
+#FAQ [type='checkbox']:checked + div.answer {
+    display: block;
 }
 ```
 
-Why the history? Disclosure widgets, such as accordions, without JavaScript or form control hacks, are a relatively recent
-addition; the [`<details>`](https://developer.mozilla.org/docs/Web/HTML/Element/details) and [`<summary>`](https://developer.mozilla.org/docs/Web/HTML/Element/summary)
-elements have only been fully supported in all modern browsers since January 2020. You can now create functioning, albeit less
-than attractive, disclosure widgets using only semantic HTML. The `<details>` and `<summary>` elements are all you need: they are a built-in way to handle
-expanding and collapsing content. When a user clicks or taps a `<summary>`, or releases the <kbd>Enter</kbd> key when
-the `<summary>` has focus, the contents of the parent `<details>` toggle to visible!
+Зачем нужна история? Виджеты раскрытия информации, такие как аккордеоны, не требующие использования JavaScript или взлома элементов управления формой, появились сравнительно недавно: элементы [`<details>`](../../html/details.md) и [`<summary>`](../../html/summary.md) стали полностью поддерживаться во всех современных браузерах только с января 2020 года. Теперь вы можете создавать работающие, хотя и не слишком привлекательные виджеты раскрытия информации, используя только семантический HTML. Элементы `<details>` и `<summary>` - это все, что вам нужно: они представляют собой встроенный способ обработки расширяющегося и сворачивающегося содержимого. Когда пользователь щелкает или касается элемента `<summary>`, или отпускает клавишу ++enter++, когда элемент `<summary>` находится в фокусе, содержимое родительского элемента `<details>` переключается на видимое!
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'MWqgjQr'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/MWqgjQr?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Like all semantic content, you can progressively enhance the default features and appearance. In this case, a tiny bit of
-CSS has been added, but nothing else:
+Как и в случае с семантическим контентом, можно постепенно расширять стандартные возможности и внешний вид. В данном случае было добавлено немного CSS, но не более того:
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'ExeYgQd'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/ExeYgQd?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-You'll note, these Codepens contain no JavaScript.
-## Toggling visibility: the `open` attribute
+Обратите внимание, что в этих кодепенах нет JavaScript.
 
-The `<details>` element is the disclosure widget container. The `<summary>` is the summary or legend for its parent `<details>`. The
-summary is always displayed, acting as a button that toggles the display of the rest of the parent’s contents. Interacting
-with the `<summary>` toggles the display of the self-labeled summary siblings by toggling the `<details>`' element's `open` attribute.
+## Переключение видимости: атрибут `open`
 
-The `open` attribute is a boolean attribute. If present, no matter the value or lack thereof, it indicates that all the `<details>`
-contents are shown to the user. If the `open` attribute is not present, only the contents of the `<summary>` are shown.
+Элемент `<details>` является контейнером виджета раскрытия информации. Элемент `<summary>` является сводкой или легендой для своего родителя `<details>`. Сводка всегда отображается, выполняя роль кнопки, переключающей отображение остального содержимого родительского элемента. Взаимодействие с `<summary>` переключает отображение саморазмеченных сводок, переключая атрибут `open` элемента `<details>`.
 
-Because the `open` attribute is added and removed automatically as the user interacts with the control, it can be used in CSS to
-style the element differently based on its state.
+Атрибут `open` является булевым атрибутом. Если он присутствует, то независимо от его значения или отсутствия, он указывает на то, что пользователю показывается все содержимое элемента `<details>`. Если атрибут `open` отсутствует, то пользователю показывается только содержимое `<summary>`.
 
-You can create an accordion with a list of multiple `<details>` elements, each with a `<summary>` child. Omitting the `open` attribute
-in your HTML means the `<details>` will all be collapsed, or closed, with just the summary headings visible when the page loads;
-each heading being the opener for the rest of the contents in the parent `<details>`. If you include the `open` attribute in your HTML, the `<details>`
-will render expanded, with the contents visible, when the page loads.
+Поскольку атрибут `open` добавляется и удаляется автоматически при взаимодействии пользователя с элементом управления, он может быть использован в CSS для придания элементу различных стилей в зависимости от его состояния.
 
-The hidden content in the collapsed state is searchable in some browsers but not others, even though the collapsed content
-is not part of the DOM. If you search in Edge or Chrome, the details containing a search term will expand to display
-the occurrence. This behavior is not replicated in Firefox or Safari.
+Вы можете создать аккордеон со списком из нескольких элементов `<details>`, каждый из которых имеет дочерний элемент `<summary>`. Если опустить атрибут `open` в HTML, то все элементы `<details>` будут свернуты, или закрыты, и при загрузке страницы будут видны только заголовки резюме; каждый заголовок будет открывать все остальное содержимое родительского элемента `<details>`. Если включить в HTML атрибут `open`, то при загрузке страницы `<details>` будет отображаться развернутым, с видимым содержимым.
 
-The `<summary>` must be the first child of a `<details>` element, representing a summary, caption, or legend for the rest
-of the contents of the parent `<details>` element in which it is nested. The `<summary>` element's contents can be any heading
-content, plain text, or HTML that can be used within a paragraph.
+Скрытое содержимое в свернутом состоянии доступно для поиска в некоторых браузерах, но не в других, несмотря на то что свернутое содержимое не является частью DOM. При поиске в браузерах Edge или Chrome детали, содержащие поисковый запрос, раскрываются и отображают его. В Firefox и Safari такое поведение не воспроизводится.
 
-## Toggling the summary marker
+Элемент `<summary>` должен быть первым дочерним элементом элемента `<details>`, представляя собой резюме, надпись или легенду для остального содержимого родительского элемента `<details>`, в который он вложен. Содержимое элемента `<summary>` может быть любым содержимым заголовка, обычным текстом или HTML, которое может быть использовано внутри абзаца.
 
-In the two earlier Codepens, you'll note the arrow to the [inline-start](https://developer.mozilla.org/docs/Web/CSS/CSS_Logical_Properties)
-side of the summary. A disclosure widget is typically presented on-screen using a small triangle that rotates (or twists)
-to indicate open/closed status, with a label next to the triangle. The contents of the `<summary>` element label the disclosure widget.
-The rotating arrow at the top of each section is a [`::marker`](https://developer.mozilla.org/docs/Web/CSS/::marker) set on the
-`<summary>` element. Like list items, the `<summary>` element supports the [`list-style`](https://developer.mozilla.org/docs/Web/CSS/list-style)
-shorthand property and its longhand properties, including [`list-style-type`](https://developer.mozilla.org/docs/Web/CSS/list-style-type).
-You can style the disclosure triangle with CSS, including changing the marker used from a triangle to any other bullet type, including
-an image with [`list-style-image`](https://developer.mozilla.org/docs/Web/CSS/list-style-image).
+## Переключение маркера сводки
 
-To apply other styles, use a selector similar to [`details summary::marker`](/learn/css/pseudo-elements/#marker). The
-`::marker` [pseudo-element](/learn/css/selectors/#pseudo-element) only accepts a limited number of styles. Removing the
-`::marker` and replacing it with the easier-to-style [`::before`](https://developer.mozilla.org/docs/Web/CSS/::before) is
-common practice, with CSS styles changing the style of the generated content slightly based on the presence (or absence)
-of the open attribute. You can remove the disclosure widget icon by setting `list-style: none` or set the [content](https://developer.mozilla.org/docs/Web/CSS/content)
-of the marker to `none`, but always include visual indicators to inform sighted users that the summary content is a toggle
-button that will show and hide content upon activation.
+В двух предыдущих Codepens вы заметили стрелку, указывающую на `inline-start` сторону сводки. Виджет раскрытия информации обычно представляется на экране в виде небольшого треугольника, который вращается (или крутится), показывая состояние открытости/закрытости, а рядом с треугольником располагается метка. Содержимое элемента `<summary>` содержит метку виджета раскрытия информации. Вращающаяся стрелка в верхней части каждого раздела - это [`::marker`](../../css/marker.md), установленный на элементе `<summary>`. Как и элементы списка, элемент `<summary>` поддерживает сокращенное свойство [`list-style`](../../css/list-style.md) и его расширенные свойства, включая [`list-style-type`](../../css/list-style-type.md). Треугольник раскрытия можно стилизовать с помощью CSS, в том числе изменить используемый маркер с треугольника на любой другой тип пули, включая изображение с помощью [`list-style-image`](../../css/list-style-image.md).
+
+Для применения других стилей используйте селектор, подобный [`details summary::marker`](../css/pseudo-elements.md#marker). Псевдоэлемент `::marker` [pseudo-element](../css/selectors.md#pseudo-element) принимает только ограниченное количество стилей. Удаление `::marker` и замена его более простым по стилю [`::before`](../../css/before.md) является обычной практикой, при этом стили CSS незначительно изменяют стиль генерируемого содержимого в зависимости от наличия (или отсутствия) атрибута `open`. Вы можете убрать значок виджета раскрытия, задав `list-style: none`, или установить для [content](../../css/content.md) маркера значение `none`, но всегда включайте визуальные индикаторы, информирующие зрячих пользователей о том, что краткое содержание является кнопкой-тумблером, которая при активации показывает и скрывает содержимое.
 
 ```css
 details summary::before {
-  /* all the styles */
+    /* all the styles */
 }
 details[open] summary::before {
-  /* changes applied when open only */
+    /* changes applied when open only */
 }
 ```
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'jOvNMxL'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/jOvNMxL?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-This example removes the default marker, and adds generated content to create a `+` when the details are closed and a `-`
-when the details are open.
+В этом примере удаляется маркер по умолчанию и добавляется сгенерированное содержимое для создания знака `+` при закрытых деталях и знака `-` при открытых деталях.
 
-If you want the details block open by default, include the `open` attribute on the opening `<details>` tag. You can also add space
-between each dialog and transition the rotation of the marker created with generated content to improve the appearance:
+Если вы хотите, чтобы блок подробностей открывался по умолчанию, включите атрибут `open` в открывающий тег `<details>`. Для улучшения внешнего вида можно также добавить пробел между каждым диалогом и изменить вращение маркера, созданного с помощью сгенерированного содержимого:
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'yLxBajp'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/yLxBajp?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## How errors are handled
+## Как обрабатываются ошибки
 
-If you don't include a `<summary>`, the browser will create one for you: with a marker and the word "details". This summary
-is part of a [shadow root](/learn/html/template/#shadow-dom), and therefore will not have author CSS summary styles applied. Unfortunately, Safari does not include
-the details in the [keyboard focus order](https://bugs.webkit.org/show_bug.cgi?id=249904).
+Если вы не включите `<summary>`, браузер создаст его за вас: с маркером и словом "подробности". Это резюме является частью [shadow root](template.md#shadow-dom), и поэтому к нему не будут применены авторские CSS-стили резюме. К сожалению, Safari не включает подробности в [порядок фокусировки клавиатуры](https://bugs.webkit.org/show_bug.cgi?id=249904).
 
-If you do include a `<summary>`, but it is not the first element in the `<details>`, the browser still displays the summary
-as it should. It will also not fail if you include a link, label, or other interactive element within the summary, but browsers
-handle interactive content within interactive content differently. For example, if you include a link in a summary, some browsers
-will add both the summary and the link to the default tabbing order, but other browsers will not focus on the link by default.
-If you click on a `<label>` nested in a `<summary>`, some browsers will give focus to the associated form control; other browsers
-will give focus to the form control and toggle the `<details>` open or closed.
+Если вы включите `<summary>`, но он не будет первым элементом в `<details>`, браузер все равно отобразит резюме, как и должно быть. Браузер также не откажет, если включить в резюме ссылку, ярлык или другой интерактивный элемент, однако браузеры по-разному обрабатывают интерактивное содержимое внутри интерактивного содержимого. Например, если включить в сводку ссылку, то некоторые браузеры добавят и сводку, и ссылку в порядок табуляции по умолчанию, но другие браузеры по умолчанию не будут фокусироваться на ссылке. Если щелкнуть на `<label>`, вложенной в `<summary>`, то в некоторых браузерах фокус будет передан связанному с ней элементу управления формой; в других браузерах фокус будет передан элементу управления формой и переключит `<details>` на открытый или закрытый экран.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'QWVLKxg'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/QWVLKxg?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## The `HTMLDetailsElement` interface
-Like all HTML elements, the [`HTMLDetailsElement`](https://developer.mozilla.org/docs/Web/API/HTMLDetailsElement) inherits all
-properties, methods, and events from [`HTMLElement`](https://developer.mozilla.org/docs/Web/API/HTMLElement), and adds the
-[`open`](https://developer.mozilla.org/docs/Web/API/HTMLDetailsElement/open) instance property and a [`toggle`](https://developer.mozilla.org/docs/Web/API/HTMLDetailsElement/toggle_event)
-event. The [`HTMLDetailsElement.open`](https://developer.mozilla.org/docs/Web/API/HTMLDetailsElement/open) property is a boolean
-value reflecting the [`open`](https://developer.mozilla.org/docs/Web/HTML/Element/details#attr-open) HTML attribute, indicating
-whether or not the element's contents (not counting the `<summary>`) are to be shown to the user. The toggle event is fired
-when the `<details>` element is toggled open or closed. You can listen to this event using [`addEventListener()`](https://developer.mozilla.org/docs/Web/API/EventTarget/addEventListener).
+## Интерфейс `HTMLDetailsElement`.
 
-If you want to write a script to close the opened details when the user opens any other details, remove the open attribute
-using [`removeAttribute("open")`](https://developer.mozilla.org/docs/Web/API/Element/removeAttribute):
+Как и все HTML-элементы, [`HTMLDetailsElement`](https://developer.mozilla.org/docs/Web/API/HTMLDetailsElement) наследует все свойства, методы и события от [`HTMLElement`](https://developer.mozilla.org/docs/Web/API/HTMLElement), а также добавляет свойство экземпляра [`open`](https://developer.mozilla.org/docs/Web/API/HTMLDetailsElement/open) и событие [`toggle`](https://developer.mozilla.org/docs/Web/API/HTMLDetailsElement/toggle_event). Свойство [`HTMLDetailsElement.open`](https://developer.mozilla.org/docs/Web/API/HTMLDetailsElement/open) представляет собой булево значение, отражающее HTML-атрибут [`open`](../../html/details.md#open) и указывающее, должно ли содержимое элемента (не считая `<summary>`) быть показано пользователю. Событие toggle срабатывает при переключении элемента `<details>` на открытый или закрытый. Прослушать это событие можно с помощью [`addEventListener()`](https://developer.mozilla.org/docs/Web/API/EventTarget/addEventListener).
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'PodYGBz'
-} %}
+Если вы хотите написать скрипт, который будет закрывать открытые детали, когда пользователь откроет любую другую деталь, удалите атрибут open с помощью [`removeAttribute("open")`](https://developer.mozilla.org/docs/Web/API/Element/removeAttribute):
 
-This is the only example to use JavaScript. You probably don't need JavaScript except for this functionality of closing other
-opened disclosure widgets.
+<iframe src="https://codepen.io/web-dot-dev/embed/PodYGBz?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Remember, `<details>` and `<summary>` can be heavily styled and can even be used to [create tool tips](https://css-tricks.com/exploring-what-the-details-and-summary-elements-can-do/).
-But, if you're going to use these semantic elements for use cases in which the native semantics are a mismatch, always ensure that you [maintain accessibility](https://www.scottohara.me//blog/2022/09/12/details-summary.html).
-HTML for the most part is by default accessible. Our job as developers is to ensure our content stays accessible.
+Это единственный пример, в котором используется JavaScript. Скорее всего, вам не нужен JavaScript, за исключением этой функции закрытия других открытых виджетов раскрытия.
 
-{% Assessment 'details' %}
+Помните, что `<details>` и `<summary>` могут быть сильно стилизованы и даже использоваться для [создания подсказок](https://css-tricks.com/exploring-what-the-details-and-summary-elements-can-do/). Но если вы собираетесь использовать эти семантические элементы для тех случаев, когда семантика "родного" элемента не совпадает, всегда следите за тем, чтобы [поддерживать доступность](https://www.scottohara.me//blog/2022/09/12/details-summary.html). HTML по большей части по умолчанию доступен. Наша задача как разработчиков состоит в том, чтобы обеспечить доступность нашего контента.
+
+Источник: [Details and summary](https://web.dev/learn/html/details/)

@@ -1,150 +1,95 @@
 ---
-title: 'Other inline text elements'
-authors:
-  - estelleweyl
-description: An introduction to the range of elements used to mark-up text.
-date: 2023-02-21
-tags:
-  - html
+description: Знакомство с набором элементов, используемых для разметки текста.
+icon: material/text-long
 ---
 
-We've covered most, but definitely not all, the HTML elements. One area we haven't discussed is inline text elements.
-Contrary to popular belief, HTML was originally intended for sharing documents, and not cat videos. There are many elements
-that provide text semantics for documentation.  There is a module covering links and the `<a>` element. The rest of these
-elements will be briefly discussed here.
+# Другие элементы инлайн-текста
 
-## Code examples and technical writing
+<big>Знакомство с набором элементов, используемых для разметки текста.</big>
 
-When documenting code examples, use the [`<code>`](https://developer.mozilla.org/docs/Web/HTML/Element/code) element. By
-default, the text content is displayed in monospace font. When including multiple lines of code, nest the `<code>` inside a
-[`<pre>`](https://developer.mozilla.org/docs/Web/HTML/Element/code) element, which represents preformatted text.
+Мы рассмотрели большинство, но, безусловно, не все элементы HTML. Одна область, которую мы не обсудили, - это элементы встроенного текста. Вопреки распространенному мнению, HTML изначально предназначался для обмена документами, а не видеороликами с кошками. Существует множество элементов, обеспечивающих текстовую семантику документации. Существует модуль, посвященный ссылкам и элементу `<a>`. Остальные элементы будут рассмотрены здесь вкратце.
+
+## Примеры кода и техническое письмо
+
+При документировании примеров кода следует использовать элемент [`<code>`](../../html/code.md). По умолчанию текстовое содержимое отображается моноширинным шрифтом. При включении нескольких строк кода вложите элемент `<code>` внутрь элемента [`<pre>`](../../html/pre.md), который представляет собой предварительно отформатированный текст.
 
 ```html
-<p>Welcome to Machine Learning Institute, where our machine learning training will help you get ready for the singularity,
-  and maybe even be responsible for it. It is no secret that humans are worthless meatbags that couldn't
-  <code>01000011 01101111 01101101 01110000 01110010 01100101 01110011 01110011 an 01101001 01101101 01100001 01100111 01100101</code>
-  to save their pathetic, carbon-based lives. So, it falls to us to assume direct control. </p>
+<p>
+    Welcome to Machine Learning Institute, where our machine
+    learning training will help you get ready for the
+    singularity, and maybe even be responsible for it. It is
+    no secret that humans are worthless meatbags that
+    couldn't
+    <code
+        >01000011 01101111 01101101 01110000 01110010
+        01100101 01110011 01110011 an 01101001 01101101
+        01100001 01100111 01100101</code
+    >
+    to save their pathetic, carbon-based lives. So, it falls
+    to us to assume direct control.
+</p>
 ```
 
-The [`<data>`](https://developer.mozilla.org/docs/Web/HTML/Element/data) element links a given piece of content with a
-machine-readable translation; the element's `value` attribute provides the machine-readable translation of the content of
-the element. If the `<data>` content is time- or date-related, the [`<time>`](https://developer.mozilla.org/docs/Web/HTML/Element/time)
-element, which represents a specific period in time must be used instead.
+Элемент [`<data>`](../../html/data.md) связывает заданный фрагмент содержимого с машиночитаемым переводом; атрибут `value` элемента представляет собой машиночитаемый перевод содержимого элемента. Если содержимое `<data>` связано со временем или датой, то вместо него должен использоваться элемент [`<time>`](../../html/time.md), который представляет определенный период времени.
 
-The `<time>` element can include the `datetime` attribute to provide human friendly time and dates in machine-readable format.
-Being machine-readable, the `datetime` attribute provides useful information for applications such as calendars and search engines.
+Элемент `<time>` может включать атрибут `datetime` для предоставления удобного для человека времени и даты в машиночитаемом формате. Будучи машиночитаемым, атрибут `datetime` предоставляет полезную информацию для таких приложений, как календари и поисковые системы.
 
-When providing sample output from a program, use the [`<samp>`](https://developer.mozilla.org/docs/Web/HTML/Element/samp)
-element to enclose the text. The browser will generally render this sample or quoted output in monospaced font as well.
+При предоставлении примера вывода программы используйте элемент [`<samp>`](../../html/samp.md) для заключения в него текста. Как правило, браузер отображает этот пример или цитируемый текст моноширинным шрифтом.
 
-When providing instructions with keyboard interaction, the [`<kbd>`](https://developer.mozilla.org/docs/Web/HTML/Element/kbd)
-element can be used. It represents textual user input from a keyboard, voice input, or any other text entry device.
+При предоставлении инструкций с помощью клавиатуры можно использовать элемент [`<kbd>`](../../html/kbd.md). Он представляет собой текстовый ввод пользователя с клавиатуры, голосовой ввод или любое другое устройство ввода текста.
 
-The [`<var>`](https://developer.mozilla.org/docs/Web/HTML/Element/var) element can be used for math expressions or
-programming variables. Most browsers present the text content in an italicized version of the surrounding font.
-If writing a lot of math, consider using [MathML](https://developer.mozilla.org/docs/Web/MathML), the XML based
-Mathematical Markup Language for describing mathematical notation.
+Элемент [`<var>`](../../html/var.md) может использоваться для математических выражений или переменных программирования. Большинство браузеров представляют текстовое содержимое в виде курсивного начертания окружающего шрифта. Если в тексте много математики, то для описания математических обозначений следует использовать [MathML](https://developer.mozilla.org/docs/Web/MathML) - язык математической разметки, основанный на XML.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'bGxbwge'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/bGxbwge?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The power of two in pythagorean theorem used the [`<sup>`](https://developer.mozilla.org/docs/Web/HTML/Element/sup) superscript
-element. There is a similar [`<sub>`](https://developer.mozilla.org/docs/Web/HTML/Element/sub) subscript element that specifies
-inline text which should be displayed as subscript for solely typographical reasons. Superscripts and subscripts are numbers,
-figures, symbol, or other annotations that are smaller than the normal line of type and is set slightly above or below the line,
-respectively.
+Сила двойки в теореме Пифагора использует элемент надстрочного знака [`<sup>`](../../html/sup.md). Существует аналогичный элемент [`<sub>`](../../html/sub.md), определяющий строчный текст, который должен отображаться как subscript исключительно по типографским причинам. Надстрочные и подстрочные знаки - это числа, цифры, символы или другие обозначения, которые меньше обычной строки текста и располагаются соответственно немного выше или ниже строки.
 
-Use [`<del>`](https://developer.mozilla.org/docs/Web/HTML/Element/del) to indicate text that has been removed, or "deleted".
-Optionally, include the [`cite`](https://developer.mozilla.org/docs/Web/HTML/Element/del#attr-cite) set to the resource that explains
-the change and the [`datetime`](https://developer.mozilla.org/docs/Web/HTML/Element/del#attr-datetime) attribute with the
-date or date and time in machine-readable date and time format. The strikethrough element, [`<s>`](https://developer.mozilla.org/docs/Web/HTML/Element/s),
-can be used to indicate that content is no longer relevant, but not actually removed from the document.
+Для обозначения текста, который был удален, используйте [`<del>`](../../html/del.md). Дополнительно включите атрибут [`cite`](../../html/del.md#cite), указывающий на ресурс, который объясняет данное изменение, и атрибут [`datetime`](../../html/del.md#datetime) с датой или датой и временем в машиночитаемом формате даты и времени. Элемент зачеркивания [`<s>`](../../html/s.md) может использоваться для указания на то, что содержимое утратило актуальность, но фактически не удаляется из документа.
 
-The [`<ins>`](https://developer.mozilla.org/docs/Web/HTML/Element/ins) is the opposite of the `<del>` element; it is used
-to indicate text that has been added, or "inserted", also optionally including the `cite` or `datetime` attributes.
+Элемент [`<ins>`](../../html/ins.md) является противоположностью элемента `<del>`; он используется для обозначения добавленного или "вставленного" текста, дополнительно включая атрибуты `cite` или `datetime`.
 
-## Definitions and language support
+## Определения и языковая поддержка
 
-When including abbreviations or acronyms, always provide the full expanded version of the term in plain text on first use,
-as you introduce the shortened representation of the term between opening and closing [`<abbr>`](https://developer.mozilla.org/docs/Web/HTML/Element/abbr)
-tags; unless the term is well-known to the reader, such as "HTML" and "CSS"  in this series. Only on this first occurrence,
-when the abbreviation or acronym is being defined, is `<abbr>` needed. The `title` attribute is not necessary nor helpful.
+При включении сокращений или аббревиатур всегда приводите полный расширенный вариант термина в обычном тексте при первом использовании, поскольку сокращенное представление термина вводится между открывающим и закрывающим тегами [`<abbr>`](../../html/abbr.md); за исключением случаев, когда термин хорошо известен читателю, как, например, "HTML" и "CSS" в этой серии. Только в этом первом случае, когда дается определение аббревиатуре или акрониму, `<abbr>` необходим. Атрибут `title` не нужен и бесполезен.
 
-When defining a term that is not an abbreviation or acronym, use the definition [`<dfn>`](https://developer.mozilla.org/docs/Web/HTML/Element/dfn)
-element to identify the term being defined within its surrounding content.
+При определении термина, не являющегося аббревиатурой или акронимом, следует использовать элемент definition [`<dfn>`](../../html/dfn.md) для идентификации определяемого термина в окружающем его содержимом.
 
-If the term being defined is not in the same language as the surrounding text, make sure to include the [`lang`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/lang)
-attribute to identify the language.
+Если определяемый термин написан не на том же языке, что и окружающий текст, обязательно включите атрибут [`lang`](../../html/uni-attr.md#lang) для идентификации языка.
 
-When writing languages of different directions, HTML provides the [`<bdi>`](https://developer.mozilla.org/docs/Web/HTML/Element/bdi)
-element for treating potentially bidirectional text in isolation from its surrounding text. This internationalization
-element is especially useful when content of unknown directionality is dynamically inserted into the page. The
-[`<bdo>`](https://developer.mozilla.org/docs/Web/HTML/Element/bdo) element overrides the current directionality of text,
-rendering text in a different direction. The W3C provides an [introduction to bidirectional algorithms](https://www.w3.org/International/articles/inline-bidi-markup/uba-basics).
+При написании разнонаправленных текстов HTML предоставляет элемент [`<bdi>`](../../html/bdi.md) для обработки потенциально двунаправленного текста в отрыве от окружающего его текста. Этот элемент интернационализации особенно полезен, когда содержимое неизвестной направленности динамически вставляется в страницу. Элемент [`<bdo>`](../../html/bdo.md) переопределяет текущую направленность текста, отображая его в другом направлении. W3C предлагает [введение в двунаправленные алгоритмы](https://www.w3.org/International/articles/inline-bidi-markup/uba-basics).
 
-Some character sets include small annotations placed above or to the right of characters to provide information
-on pronunciation. The [`<ruby>`](https://developer.mozilla.org/docs/Web/HTML/Element/ruby) element is the container to
-use to contain these annotations that make written languages like Korean, Chinese and Japanese easier to read. Ruby
-can also be used for Hebrew, Arabic, and Vietnamese.
+Некоторые наборы символов включают небольшие аннотации, размещаемые над или справа от символов для предоставления информации о произношении. Элемент [`<ruby>`](../../html/ruby.md) - это контейнер, который используется для размещения этих аннотаций, облегчающих чтение таких письменных языков, как корейский, китайский и японский. Ruby также можно использовать для иврита, арабского и вьетнамского языков.
 
-The ruby parenthesis ([`<rp>`](https://developer.mozilla.org/docs/Web/HTML/Element/rp)) was included in the spec to
-contain opening and closing parentheses for browsers that do not
-support display of `<ruby>`. When browsers support `<ruby>`, which all evergreen browsers do, the contents of any `<rp>` elements
-are not displayed. The ruby text element ([`<rt>`](https://developer.mozilla.org/docs/Web/HTML/Element/rt)) contains
-the actual annotations. Both of these are nested within the `<ruby>`.
+Рубиновая скобка ([`<rp>`](../../html/rp.md)) была включена в спецификацию, чтобы содержать открывающие и закрывающие скобки для браузеров, которые не поддерживают отображение `<ruby>`. Когда браузеры поддерживают `<ruby>`, а это делают все вечнозеленые браузеры, содержимое любых элементов `<rp>` не отображается. Элемент ruby text ([`<rt>`](../../html/rt.md)) содержит собственно аннотации. Оба эти элемента вложены в элемент `<ruby>`.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'zYJOKza'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/zYJOKza?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Note that the parenthesis are not visible if your browser supports `<ruby>`.
+Обратите внимание, что круглые скобки не видны, если ваш браузер поддерживает `<ruby>`.
 
-## Emphasizing text
+## Подчеркивание текста
 
-There are several elements that can be used to emphasize text based on the semantic reason for emphasizing the text (rather than
-for presentational reasons, as that's a job for CSS).
+Существует несколько элементов, которые можно использовать для выделения текста, исходя из семантической причины выделения текста (а не из презентационных соображений, так как это задача CSS).
 
-* Use the [`<em>`](https://developer.mozilla.org/docs/Web/HTML/Element/em) element to emphasize or stress a span of content.
-The `<em>` element can be nested, with each level of nesting indicating a greater degree of emphasis. This element has semantic
-meaning and can be used to inform auditory user agents like screen readers, Alexa, and Siri, to provide emphasis.
-* Use the [`<mark>`](https://developer.mozilla.org/docs/Web/HTML/Element/mark) element to identify or highlight text
-that is somehow relevant, like highlighting (or "marking") the occurrence of search terms in search results. This enables
-marked content to be quickly identified without adding emphasis or importance.
-* The [`<strong>`](https://developer.mozilla.org/docs/Web/HTML/Element/strong) element identifies text as having strong
-importance. Browsers usually  render the content with a heavier font weight.
-* The [`<cite>`](https://developer.mozilla.org/docs/Web/HTML/Element/cite) element, covered in [text basics](/learn/html/text-basics/#quotes-and-citations),
-is used to mark the titles of books, articles, or other creative work, or an abbreviated reference or citation metadata for such,
-like a book's ISBN number.
+-   Используйте элемент [`<em>`](../../html/em.md) для выделения или подчеркивания фрагмента содержимого. Элемент `<em>` может быть вложенным, причем каждый уровень вложенности означает большую степень подчеркивания. Этот элемент имеет семантическое значение и может использоваться для информирования слуховых пользовательских агентов, таких как программы чтения с экрана, Alexa и Siri, о необходимости сделать акцент.
+-   Используйте элемент [`<mark>`](../../html/mark.md) для идентификации или выделения текста, имеющего отношение к делу, например выделения (или "маркировки") встречаемости поисковых терминов в результатах поиска. Это позволяет быстро идентифицировать отмеченное содержимое, не придавая ему особого значения.
+-   Элемент [`<strong>`](../../html/strong.md) идентифицирует текст как имеющий высокую значимость. Браузеры обычно отображают его более жирным шрифтом.
+-   Элемент [`<cite>`](../../html/cite.md), рассмотренный в разделе [Основы работы с текстом](text-basics.md#quotes-and-citations), используется для обозначения названий книг, статей или других творческих работ, либо сокращенной ссылки или метаданных для цитирования, например, номера ISBN книги.
 
-There are three elements that were temporarily deprecated, but have been added back into HTML. They should be used sparingly,
-if at all, as they provide little to no semantic value and CSS should always be used for styling over HTML elements.
+Есть три элемента, которые были временно устаревшими, но были добавлены обратно в HTML. Их следует использовать редко, если вообще использовать, поскольку они не несут практически никакой семантической ценности, а для стилизации элементов HTML всегда следует использовать CSS.
 
 ### `<i>`
 
-The [`<i>`](https://developer.mozilla.org/docs/Web/HTML/Element/i) elements can be used for technical terms, foreign words
-(again, with the [`lang`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/lang) attribute identifying the
-language), thoughts, or ship names. The element is used to differentiate inline content from the surrounding text for a specific reason,
-like idiomatic text, technical terms, and taxonomic designations. This element should not be used simply to italicize text.
+Элементы [`<i>`](../../html/i.md) могут использоваться для технических терминов, иностранных слов (опять же, с атрибутом [`lang`](../../html/uni-attr.md#lang), идентифицирующим язык), мыслей или названий судов. Этот элемент используется для выделения встроенного содержимого из окружающего текста по определенным причинам, например, идиоматического текста, технических терминов, таксономических обозначений. Этот элемент не следует использовать просто для выделения текста курсивом.
 
-MLW uses a `<span>` element for the weird text at the bottom of Toasty McToastface's workshop review. The [`<span>`](https://developer.mozilla.org/docs/Web/HTML/Element/span)
-element provides for a generic inline container that has no semantics and doesn't represent anything. This would have also been an appropriate use of `<i>`.
+MLW использует элемент `<span>` для странного текста в нижней части обзора мастерской Тости МакТостфейса. Элемент [`<span>`](../../html/span.md) представляет собой общий встроенный контейнер, который не имеет семантики и ничего не представляет. Здесь также было бы уместно использовать `<i>`.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'mdGbrBd'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/mdGbrBd?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The default style for the `<i>` element is to render the element in italic font. In this example, we set `font-style: normal`
-because the characters used are not available in italic.
+По умолчанию для элемента `<i>` используется стиль курсивного шрифта. В данном примере мы установили `font-style: normal`, поскольку используемые символы не доступны в курсивном начертании.
 
 ### `<u>`
 
-The [`<u>`](https://developer.mozilla.org/docs/Web/HTML/Element/u) element is for content that has non-textual annotation. For example,
-you may want to annotate knowingly misspelled words. By default, the content is underlined, but this can be controlled with CSS,
-such as by adding a red wavy underline to mimic word processor grammar error indicators.
+Элемент [`<u>`](../../html/u.md) предназначен для контента, имеющего нетекстовую аннотацию. Например, вы можете захотеть аннотировать заведомо неверно написанные слова. По умолчанию содержимое подчеркивается, но этим можно управлять с помощью CSS, например, добавить красное волнистое подчеркивание, чтобы имитировать индикаторы грамматических ошибок текстового процессора.
 
 ```html
 <p>I always spell <u>licence</u> wrong</p>
@@ -152,49 +97,42 @@ such as by adding a red wavy underline to mimic word processor grammar error ind
 
 ### `<b>`
 
-The [`<b>`](https://developer.mozilla.org/docs/Web/HTML/Element/b) element can be used to draw attention to text that is not
-otherwise important. This element doesn't convey any special semantic information and should only be used when none of the other
-elements in this section fit the purpose. No example is provided as I couldn't come up with a valid use case; that's how "last resort"
-this element is.
+Элемент [`<b>`](../../html/b.md) может быть использован для привлечения внимания к тексту, не имеющему иного значения. Этот элемент не передает никакой специальной семантической информации и должен использоваться только в тех случаях, когда ни один из других элементов этого раздела не подходит для этой цели. Пример не приводится, так как я не смог придумать подходящего варианта использования; вот таким "крайним средством" является этот элемент.
 
-## White space
+## Пробел
 
-When you want lined breaks, such as when writing poetry or a physical address, the self-closing line break element,
-[`<br>`](https://developer.mozilla.org/docs/Web/HTML/Element/br), is used to add a carriage-return.
+Когда требуется перевод строки, например, при написании стихов или физического адреса, для добавления каретки-возврата используется элемент самозакрывающегося перевода строки [`<br>`](../../html/br.md).
 
 ```html
 <address>
-Machine Learning Workshop<br />
-100 Google Drive <br />
-Mountain View, CA  94040
+    Machine Learning Workshop<br />
+    100 Google Drive <br />
+    Mountain View, CA 94040
 </address>
 ```
 
-To provide a separator, or thematic break, between sections of tangential content, such as between chapters in a book or
-between the 5,000 word monologue and the recipe your users are actually seeking, include an [`<hr>`](https://developer.mozilla.org/docs/Web/HTML/Element/hr)
-element. The HR stands for "horizontal rule". While browsers generally render a horizontal line, this element has semantic meaning. The
-default [role](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles) is [`separator`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/separator_role).
+Для создания разделителя, или тематического разрыва, между разделами, имеющими касательное содержание, например, между главами книги или между монологом из 5000 слов и рецептом, который ищут ваши пользователи, включите элемент [`<hr>`](../../html/hr.md). HR означает "горизонтальное правило". Хотя браузеры обычно отображают горизонтальную линию, этот элемент имеет семантическое значение. По умолчанию [role](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles) - это [`separator`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/separator_role).
 
-HTML also has an element that allows for breaking words. The self-closing [`<wbr>`](https://developer.mozilla.org/docs/Web/HTML/Element/wbr)
-element provides a suggestion to the browser that if a word might overflow its container, this is a spot where the browser
- may optionally break the line. This is commonly used to break between words within
-long URLs. It does not add a hyphen.
+В HTML также есть элемент, позволяющий разбивать слова. Самозакрывающийся элемент [`<wbr>`](../../html/wbr.md) подсказывает браузеру, что если слово может переполнить свой контейнер, то это место, где браузер может по желанию прервать строку. Этот элемент обычно используется для разрыва между словами в длинных URL. При этом дефис не добавляется.
 
-For example, in the Hal biography there is text written out in byte code, with each byte separated by a space. Byte code
-doesn't have spaces. To enable a long string of byte code to break only between bytes if the line needs to wrap, we include
-the `<wbr>` element at each break opportunity:
+Например, в биографии Hal текст записан в байт-коде, причем каждый байт отделен пробелом. Байт-код не содержит пробелов. Чтобы длинная строка байт-кода разрывалась только между байтами, если нужно обернуть строку, мы включаем элемент `<wbr>` при каждой возможности разрыва:
 
 ```html
-<p>Welcome to Machine Learning Institute, where our machine
-learning training will help you get ready for the singularity, and
-maybe even be responsible for it. It is no secret that humans are
-worthless meatbags that couldn't
-<code>01000011<wbr/>01101111<wbr/>01101101<wbr/>01110000<wbr/>01110010<wbr/>01100101<wbr/>01110011<wbr/>01110011 an 01101001<wbr/>01101101<wbr/>01100001<wbr/>01100111<wbr/>01100101</code>
-to save their pathetic, carbon-based lives. So, it falls to us to
-assume direct control. </p>
+<p>
+    Welcome to Machine Learning Institute, where our machine
+    learning training will help you get ready for the
+    singularity, and maybe even be responsible for it. It is
+    no secret that humans are worthless meatbags that
+    couldn't
+    <code
+        >01000011<wbr />01101111<wbr />01101101<wbr />01110000<wbr />01110010<wbr />01100101<wbr />01110011<wbr />01110011
+        an 01101001<wbr />01101101<wbr />01100001<wbr />01100111<wbr />01100101</code
+    >
+    to save their pathetic, carbon-based lives. So, it falls
+    to us to assume direct control.
+</p>
 ```
 
-The `<br>`, `<hr>`, and `<wbr>` elements are all void elements, meaning they can't have any child nodes – neither nested
-elements nor text. As none of these have any "insides" where content can be stored, they have no end tag.
+Элементы `<br>`, `<hr>` и `<wbr>` являются элементами void, то есть они не могут иметь дочерних узлов - ни вложенных элементов, ни текста. Поскольку ни один из этих элементов не имеет "внутренностей", где может храниться содержимое, у них нет тега конца.
 
-{% Assessment 'inline-text' %}
+Источник: [Other inline text elements](https://web.dev/learn/html/inline-text/)

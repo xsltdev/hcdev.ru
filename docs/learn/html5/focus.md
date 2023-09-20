@@ -1,230 +1,148 @@
 ---
-title: 'Focus'
-authors:
-  - estelleweyl
-description: How to manage focus order in your HTML documents.
-date: 2023-02-21
-tags:
-  - html
+description: Как управлять порядком фокусировки в HTML-документах.
+icon: material/form-textbox
 ---
 
-Interactive elements, including [form controls](/learn/html/forms/), [links](/learn/html/links/), and buttons, are by
-default focusable and tabbable. Tabbable elements are part of the document's sequential focus navigation order. Other elements
-are inert, meaning they are not interactive. With HTML attributes, it is possible to make interactive elements inert and to
-make inert elements interactive.
+# Фокус
 
-{% Aside %}
-For usability reasons, always ensure that the user knows which element has focus. Include CSS [`:focus`](https://developer.mozilla.org/docs/Web/CSS/:focus),
-[`:focus-visible`](https://developer.mozilla.org/docs/Web/CSS/:focus-visible), and, optionally, [`:focus-within`](https://developer.mozilla.org/docs/Web/CSS/:focus-within)
-styles. This is so important: there are Learn sections devoted to focus styles in both the [CSS](/learn/css/focus/) and [Accessibility](/learn/accessibility/focus/) learning paths.
-{% endAside %}
+<big>Как управлять порядком фокусировки в HTML-документах.</big>
 
-By default, the navigation focus order is the same as the visual order, which is the source code order. There are HTML
-attributes that can alter this order and CSS properties that can alter the visual order of content. Changing the tabbing
-order with HTML or visual rendering order with CSS can harm user experience.
+Интерактивные элементы, включая [элементы управления формами](forms.md), [ссылки](links.md) и кнопки, по умолчанию являются фокусируемыми и табулируемыми. Перемещаемые по вкладкам элементы являются частью последовательного порядка навигации по фокусу документа. Другие элементы являются инертными, то есть не интерактивными. С помощью атрибутов HTML можно сделать интерактивные элементы инертными, а инертные - интерактивными.
 
-Don't alter the perceived and actual tabbing order with CSS and HTML. As the following two examples demonstrate, tab orders
-that differ from the visually expected order are confusing to users and bad for user experience.
+!!!note ""
 
-In this example, the value of the [`tabindex`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/tabindex) attribute
-has made the tab order chaotic:
+    Из соображений юзабилити всегда следует убедиться, что пользователь знает, какой элемент находится в фокусе. Включите стили CSS [`:focus`](../../css/focus.md), [`:focus-visible`](../../css/focus-visible.md) и, как вариант, [`:focus-within`](../../css/focus-within.md). Это очень важно: стилям фокуса посвящены разделы [CSS](../css/focus.md) и [Accessibility](../accessibility/focus.md).
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'GRXKqGz',
-tab: 'result'
-} %}
+По умолчанию порядок фокуса навигации совпадает с визуальным порядком, то есть с порядком исходного кода. Существуют HTML-атрибуты, которые могут изменять этот порядок, и CSS-свойства, которые могут изменять визуальный порядок содержимого. Изменение порядка табуляции с помощью HTML или порядка визуального отображения с помощью CSS может нанести вред пользовательскому опыту.
 
-In this example, CSS has created a divergence between the tabbing order and the visual order of the content:
+Не изменяйте воспринимаемый и реальный порядок табуляции с помощью CSS и HTML. Как видно из следующих двух примеров, порядок вкладок, отличающийся от визуально ожидаемого, сбивает пользователей с толку и ухудшает их восприятие.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'KKxPMBV',
-tab: 'result'
-} %}
+В этом примере значение атрибута [`tabindex`](../../html/uni-attr.md#tabindex) сделало порядок вкладок хаотичным:
 
-The [`flex-flow: row-reverse;`](https://developer.mozilla.org/docs/Web/CSS/flex-flow) declaration has reversed the visual order.
-In addition, the CSS [order](https://developer.mozilla.org/docs/Web/CSS/order) property was applied to the sixth word, "This", which visually moved that
-one word. The tabbing sequence is the order of the code, which no longer matches the visual order, creating a disconnect
-for keyboard users.
+<iframe src="https://codepen.io/web-dot-dev/embed/GRXKqGz?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Aside %}
-CSS features, including [flexbox](https://developer.mozilla.org/docs/Learn/CSS/CSS_layout/Flexbox), [grid](https://developer.mozilla.org/docs/Web/CSS/CSS_Grid_Layout),
-[positioning](https://developer.mozilla.org/docs/Learn/CSS/CSS_layout/Positioning), [transforms](https://developer.mozilla.org/docs/Web/CSS/translate),
-and [multi-column](https://developer.mozilla.org/docs/Learn/CSS/CSS_layout/Multiple-column_Layout), can alter the visual order of
-content. Always ensure your content maintains a logical tabbing order on all viewport sizes. Test your content by tabbing
-through it with a keyboard: with shift + tab to move backwards through the content. Always ensure it's apparent which element
-currently has focus with CSS, and avoid accessibility problems by not reordering focusable elements with CSS.
-{% endAside %}
+В данном примере CSS создал расхождение между порядком табуляции и визуальным порядком содержимого:
 
-## Making inert elements interactive
+<iframe src="https://codepen.io/web-dot-dev/embed/KKxPMBV?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The `contenteditable` and `tabindex` attributes, being global attributes, can be added to any element, making them focusable
-in the process. Focusable elements can also be focused with a mouse or pointer, by having the [`autofocus`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/autofocus)
-attribute set, or by script, such as with [`element.focus()`](https://developer.mozilla.org/docs/Web/API/HTMLElement/focus).
+Объявление [`flex-flow: row-reverse;`](../../css/flex-flow.md) изменило визуальный порядок. Кроме того, к шестому слову "This" было применено свойство CSS [order](../../css/order.md), которое визуально переместило это одно слово. Последовательность табуляции - это порядок кода, который больше не соответствует визуальному порядку, что создает неудобства для пользователей клавиатуры.
 
-### The `tabindex` attribute
+!!!note ""
 
-The global [`tabindex`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/tabindex) attribute, introduced in
-[attributes](/learn/html/attributes/#tabindex), enables elements that otherwise would not be able to receive focus to get
-focus, usually with the Tab key, hence the name.
+    Функции CSS, включая [flexbox](../flex/index.md), [grid](../grid/index.md), [positioning](https://developer.mozilla.org/docs/Learn/CSS/CSS_layout/Positioning), [transforms](../../css/translate.md) и [multi-column](https://developer.mozilla.org/docs/Learn/CSS/CSS_layout/Multiple-column_Layout), могут изменять визуальный порядок содержимого. Всегда следите за тем, чтобы содержимое сохраняло логичный порядок табуляции при любом размере области просмотра. Протестируйте содержимое с помощью клавиатуры: ++shift++ + ++tab++ для перемещения назад по содержимому. Всегда следите за тем, чтобы с помощью CSS было видно, какой элемент в данный момент находится в фокусе, и избегайте проблем с доступностью, не изменяя порядок расположения фокусируемых элементов с помощью CSS.
 
-The `tabindex` attribute takes as its value an integer. A negative value makes an element focusable but not tabbable. A
-`tabindex` value of `0` makes the element focusable and tabbable, adding the element on which it is applied to the sequential
-focus navigation order in source code order. A value of 1 or greater makes the element focusable and tabbable,
-but adds it to a prioritized tabbing sequence, and, as we saw above, should be avoided.
+## Делаем инертные элементы интерактивными
 
-On this page, the share button, `<share-action>`, is a [custom element](/learn/html/template/). The `tabindex="0"` adds this not-normally focusable
-element into the keyboard default tabbing order:
+Атрибуты `contenteditable` и `tabindex`, являясь глобальными атрибутами, могут быть добавлены к любому элементу, делая его при этом фокусируемым. Фокусируемые элементы можно также фокусировать с помощью мыши или указателя, установив атрибут [`autofocus`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/autofocus), или с помощью сценария, например, [`element.focus()`](https://developer.mozilla.org/docs/Web/API/HTMLElement/focus).
+
+### Атрибут `tabindex`
+
+Глобальный атрибут [`tabindex`](../../html/uni-attr.md#tabindex), введенный в [attributes](attributes.md#tabindex), позволяет элементам, которые иначе не могли бы получить фокус, получить его, обычно с помощью клавиши ++tab++, отсюда и название.
+
+Атрибут `tabindex` принимает в качестве значения целое число. Отрицательное значение делает элемент фокусируемым, но не табулируемым. Значение `tabindex`, равное `0`, делает элемент фокусируемым и табулируемым, добавляя элемент, к которому он применен, в последовательный порядок навигации по фокусу в порядке исходного кода. Значение `1` или больше делает элемент фокусируемым и табулируемым, но добавляет его в приоритетную последовательность табуляции, чего, как мы видели выше, следует избегать.
+
+На этой странице кнопка поделиться, `<share-action>`, является [пользовательским элементом](template.md). Параметр `tabindex="0"` добавляет этот ненормально фокусируемый элемент в порядок табуляции клавиатуры по умолчанию:
 
 ```html
-<share-action authors="@front-end.social/@estellevw" data-action="click" data-category="web.dev" data-icon="share" data-label="share, mastodon" role="button" tabindex="0">
-  <svg aria-label="share" role="img" xmlns="http://www.w3.org/2000/svg">
-    <use href="#shareIcon" />
-  </svg>
-  <span>Share</span>
+<share-action
+    authors="@front-end.social/@estellevw"
+    data-action="click"
+    data-category="web.dev"
+    data-icon="share"
+    data-label="share, mastodon"
+    role="button"
+    tabindex="0"
+>
+    <svg
+        aria-label="share"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <use href="#shareIcon" />
+    </svg>
+    <span>Share</span>
 </share-action>
 ```
 
-{% Aside %}
+!!!note ""
 
-The [`role="button"`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/button_role) informs screen reader
-users that this element should behave like a [`<button>`](https://developer.mozilla.org/docs/Web/HTML/Element/button).
-When creating custom elements which mimic existing semantic elements, including an [ARIA role](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles)
-is appropriate and expected. The element must provide all the features of the element being replicated. This can be done by extending the replicated
-element, such as extending the [`HTMLButtonElement`](https://developer.mozilla.org/docs/Web/API/HTMLButtonElement), or by adding
-`tabindex="0"` and using JavaScript to program *all* the functionality of the element it is mimicking, including handling
-pointer events and the Enter and Space key presses. If `<button>` had been used for the button instead of creating a custom element,
-the `tabindex` and `role` attributes would have been unnecessary, and the browser would have provided the pointer and keyboard events.
-{% endAside %}
+    Роль [`role="button"`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/button_role) сообщает пользователям программ чтения с экрана, что данный элемент должен вести себя как [`<button>`](../../html/button.md). При создании пользовательских элементов, имитирующих существующие семантические элементы, включение [ARIA-роли](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles) является уместным и ожидаемым. Элемент должен предоставлять все возможности реплицируемого элемента. Это можно сделать, расширив копируемый элемент, например, расширив [`HTMLButtonElement`](https://developer.mozilla.org/docs/Web/API/HTMLButtonElement), или добавив `tabindex="0"` и используя JavaScript для программирования _всех_ функциональных возможностей имитируемого элемента, включая обработку событий указателя и нажатия клавиш ++enter++ и ++space++. Если бы для кнопки вместо создания пользовательского элемента использовался `<button>`, то атрибуты `tabindex` и `role` были бы не нужны, а события от указателя и клавиатуры обеспечивал бы браузер.
 
-There's another custom element on this page: the [local navigation](/learn/html/navigation/#local-navigation) has a custom
-element with a negative `tabindex` value:
+На этой странице есть еще один пользовательский элемент: в [локальной навигации](navigation.md#local-navigation) есть пользовательский элемент с отрицательным значением `tabindex`:
 
 ```html
-<web-navigation-drawer type="standard" tabindex="-1">
+<web-navigation-drawer
+    type="standard"
+    tabindex="-1"
+></web-navigation-drawer>
 ```
 
-A `tabindex` attribute with a negative value makes the element focusable but not tabbable. The element is capable of receiving
-focus, such as via [`HTMLElement.focus()`](https://developer.mozilla.org/docs/Web/API/HTMLElement/focus), but it is not part
-of the sequential focus navigation order. The convention for non-tabbable, focusable elements is to use `tabindex="-1"`. Note that
-if you add `tabindex="-1"` to an interactive element, it will no longer be tabbable.
+Атрибут `tabindex` с отрицательным значением делает элемент фокусируемым, но не табулируемым. Элемент способен получать фокус, например, через [`HTMLElement.focus()`](https://developer.mozilla.org/docs/Web/API/HTMLElement/focus), но он не является частью последовательного порядка навигации фокуса. Для неперемещаемых элементов с фокусом принято использовать `tabindex="-1"`. Обратите внимание, что если добавить `tabindex="-1"` к интерактивному элементу, то он перестанет быть доступным для табуляции.
 
-The [`element.focus()`](https://developer.mozilla.org/docs/Web/API/HTMLElement/focus) method can be used to set focus to
-focusable elements. Note that the browsers scroll focused elements into view. For this reason, avoid the use of
-`element.focus({preventScroll:true})`, as focusing on a non-visible element will give a bad user experience.
+Метод [`element.focus()`](https://developer.mozilla.org/docs/Web/API/HTMLElement/focus) может быть использован для установки фокуса на фокусируемые элементы. Обратите внимание, что браузеры прокручивают сфокусированные элементы в поле зрения. По этой причине следует избегать использования `element.focus({preventScroll:true})`, так как фокусировка на невидимом элементе будет вызывать неприятные ощущения у пользователя.
 
-If you want to query the document to find out which element currently has focus, use the read-only [`Document.activeElement`](https://developer.mozilla.org/docs/Web/API/Document/activeElement) property.
+Если вы хотите запросить документ, чтобы узнать, какой элемент в данный момент находится в фокусе, используйте свойство [`Document.activeElement`](https://developer.mozilla.org/docs/Web/API/Document/activeElement), доступное только для чтения.
 
-Elements with a `tabindex` of `1` or greater are included in a separate tab sequence. As you'll notice in the Codepen,
-tabbing begins in a separate sequence, in order of lowest value to highest value, before going through those in the regular sequence
-(no `tabindex` set, or `tabindex="0"`) in source order:
+Элементы с `tabindex`, равным `1` или более, включаются в отдельную последовательность вкладок. Как можно заметить в Codepen, табуляция начинается с отдельной последовательности, в порядке от наименьшего значения к наибольшему, а затем переходит к элементам в обычной последовательности (без установленного `tabindex` или `tabindex="0"`) в исходном порядке:
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'WNgexPv'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/WNgexPv?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-`tabindex` with a positive value puts the element into a prioritized focus sequence, which can lead to focus order chaos.
-Avoid [modifying the DOM order with `tabindex`](/using-tabindex/). Not only can altered tabbing orders create bad user
-experiences, they are difficult for developers to manage and maintain.
+`tabindex` с положительным значением помещает элемент в приоритетную последовательность фокусировки, что может привести к хаосу порядка фокусировки. Избегайте изменения порядка DOM с помощью `tabindex`. Измененный порядок табуляции может не только создавать неприятные впечатления у пользователей, но и затруднять управление и поддержку разработчиков.
 
-### The `contenteditable` attribute
+### Атрибут `contenteditable`
 
-The [`contenteditable`](/learn/html/attributes/#contenteditable/) attribute was discussed earlier. Setting `contenteditable="true"` on any element makes it editable,
-focusable, and part of the tab order. The focus behavior is similar to setting `tabindex="0"`, but not the same. Nested
-`contenteditable` elements are focusable but not tabbable. To make a nested `contenteditable` element tabbable, add `tabindex="0"`,
-which will add it to the sequential focus navigation order.
+Атрибут [`contenteditable`](attributes.md#contenteditable) был рассмотрен ранее. Установка атрибута `contenteditable="true"` для любого элемента делает его редактируемым, фокусируемым и частью порядка вкладок. Поведение фокуса похоже на установку `tabindex="0"`, но не то же самое. Вложенные элементы `contenteditable` являются фокусируемыми, но не табулируемыми. Чтобы сделать вложенный элемент `contenteditable` доступным для табуляции, добавьте `tabindex="0"`, что добавит его в последовательный порядок навигации с фокусом.
 
-## Giving focus to interactive elements
+## Придание фокуса интерактивным элементам
 
-### The `autofocus` attribute
+### Атрибут `autofocus` {#autofocus}
 
-While the boolean [`autofocus`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/autofocus) is a global attribute
-that can be set on any element, it doesn't make an inert element interactive. When the page loads, the first focusable element
-with the `autofocus` attribute set will receive focus, as long as that element is displayed and not nested in a [`<dialog>`](/learn/html/dialog/).
+Хотя атрибут boolean [`autofocus`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/autofocus) является глобальным и может быть установлен для любого элемента, он не делает инертный элемент интерактивным. При загрузке страницы фокус получит первый фокусируемый элемент с установленным атрибутом `autofocus`, если только этот элемент отображается и не вложен в [`<dialog>`](dialog.md).
 
-Automatically setting focus on content can be confusing. Setting `autofocus` on a form control means that the form control
-will scroll into view on page load. All your users, including screen reader users and users with small viewports, may not
-"see" the instructions for the form, possibly even scrolling past the form control's normally visible label. The `autofocus`
-attribute doesn't alter the document's sequential focus navigation order. The elements in the sequence coming before the
-autofocused element are simply skipped. For these reasons, it is not advised to include the `autofocus` attribute.
+Автоматическая установка фокуса на содержимое может запутать. Установка `autofocus` для элемента управления формой означает, что этот элемент будет прокручиваться в поле зрения при загрузке страницы. Все ваши пользователи, включая пользователей программ чтения с экрана и пользователей с маленькими окнами обзора, могут не "увидеть" инструкций к форме, возможно, даже прокручивая мимо обычно видимой метки элемента управления формой. Атрибут `autofocus` не изменяет порядок последовательной навигации фокуса в документе. Элементы в последовательности, находящиеся перед элементом с автофокусом, просто пропускаются. По этим причинам не рекомендуется включать атрибут `autofocus`.
 
-The exception to the "don't use `autofocus`" recommendation is including the `autofocus` attribute within `<dialog>` elements.
-When a dialog is opened, the browser will automatically focus on the first focusable interactive element within the `<dialog>`,
-meaning `autofocus` to an element is not necessary. If you want to be sure a specific interactive element within the dialog receives
-focus when the dialog opens, add the `autofocus` attribute to that element.
+Исключением из рекомендации "не использовать `autofocus`" является включение атрибута `autofocus` в элементы [`<dialog>`](../../html/dialog.md). При открытии диалога браузер автоматически фокусируется на первом интерактивном элементе, находящемся в фокусе внутри `<dialog>`, поэтому `autofocus` на элемент не требуется. Если вы хотите быть уверены, что при открытии диалога фокус будет передан конкретному интерактивному элементу внутри диалога, добавьте к нему атрибут `autofocus`.
 
 ```html
 <dialog open>
-  <form method="dialog">
-    <button type="submit" autofocus>close</button>
-  </form>
+    <form method="dialog">
+        <button type="submit" autofocus>close</button>
+    </form>
 </dialog>
 ```
 
-The `autofocus` attribute set on the close `<button>` ensures it receives focus when the dialog is opened. As the first element
-in the dialog, it would have received focus in any case. By default, when a dialog is opened, the first focusable element within
-the dialog will receive focus unless a different element within the dialog has the `autofocus` attribute set.
+Атрибут `autofocus`, установленный для закрывающей `<button>`, гарантирует, что она получит фокус при открытии диалога. Будучи первым элементом диалога, она получила бы фокус в любом случае. По умолчанию при открытии диалога фокус получает первый фокусируемый элемент внутри диалога, если только у другого элемента внутри диалога не установлен атрибут `autofocus`.
 
-## Making interactive elements inert
+## Делаем интерактивные элементы инертными
 
-There are also HTML attributes that can remove interactive elements from the tabbing sequence. Including a negative `tabindex`
-to focusable elements, adding the `disabled` attribute to supporting form controls, and adding the global `inert` attribute
-to a container all make elements un-tabbable. These three attributes are NOT interchangeable.
+Существуют также атрибуты HTML, позволяющие исключить интерактивные элементы из последовательности табуляции. Включение отрицательного `tabindex` к фокусируемым элементам, добавление атрибута `disabled` к элементам управления поддерживающих форм, а также добавление глобального атрибута `inert` к контейнеру - все эти атрибуты делают элементы неперемещаемыми. Эти три атрибута НЕ являются взаимозаменяемыми.
 
-### Negative `tabindex` value
+### Отрицательное значение `tabindex`
 
-As we learned above, a `tabindex` attribute with a negative value makes an element focusable but not tabbable. While adding
-`tabindex="0"` to a focusable-by-default element, including links, buttons, form controls, and elements that are `contenteditable`
-is not necessary; including a `tabindex` with a negative value removes normally tabbable elements from the sequential focus
-navigation order.
+Как мы выяснили выше, атрибут `tabindex` с отрицательным значением делает элемент фокусируемым, но не табулируемым. Добавление `tabindex="0"` к элементу, фокусируемому по умолчанию, включая ссылки, кнопки, элементы управления формами и элементы, которые являются `contenteditable`, не является необходимым; включение `tabindex` с отрицательным значением удаляет нормально табулируемые элементы из последовательного порядка навигации фокуса.
 
-A negative `tabindex` value prevents keyboard users from focusing on interactive elements, but doesn't disable the element. Pointer
-users can still focus on the element. To disable an element, use the `disabled` attribute.
+Отрицательное значение `tabindex` не позволяет пользователям клавиатуры фокусироваться на интерактивных элементах, но не отключает элемент. Пользователи указателей по-прежнему могут фокусироваться на элементе. Чтобы отключить элемент, используйте атрибут `disabled`.
 
 ### Disabled
 
-The boolean [disabled](https://developer.mozilla.org/docs/Web/HTML/Attributes/disabled) attribute makes the form controls on
-which it is applied and their descendants, if any, unfocusable. Disabled form controls can't be focused, don't get click events,
-and are not submitted upon form submission. Note `disabled` is not a global attribute. It applies to `<button>`, `<input>`,
-`<optgroup>`, `<option>`, `<select>`, `<textarea>`, form-associated custom elements, and [`<fieldset>`](https://developer.mozilla.org/docs/Web/HTML/Element/fieldset).
-When set on `<optgroup>` or `<fieldset>`, all the child form controls are disabled, except for the contents of the `<fieldset>`'s first [`<legend>`](https://developer.mozilla.org/docs/Web/HTML/Element/legend).
+Атрибут типа boolean [`disabled`](https://developer.mozilla.org/docs/Web/HTML/Attributes/disabled) делает элементы управления формы, к которым он применен, и их потомков, если таковые имеются, несфокусированными. Элементы управления отключенной формы не могут быть сфокусированы, не получают событий щелчка мыши и не передаются при отправке формы. Обратите внимание, что `disabled` не является глобальным атрибутом. Он применяется к `<button>`, `<input>`, `<optgroup>`, `<option>`, `<select>`, `<textarea>`, пользовательским элементам, связанным с формой, и [`<fieldset>`](../../html/fieldset.md). При установке опции `<optgroup>` или `<fieldset>` отключаются все дочерние элементы управления формы, за исключением содержимого первого элемента `<fieldset>` [`<legend>`](../../html/legend.md).
 
-The same elements that support `disabled` are also targetable with the [`:disabled`](https://developer.mozilla.org/docs/Web/CSS/:disabled)
-and [`:enabled`](https://developer.mozilla.org/docs/Web/CSS/:enabled) pseudoclasses. Elements that are disabled with the
-`disabled` attribute are generally styled as light gray via the user-agent stylesheet, even if an [`accent-color`](https://developer.mozilla.org/docs/Web/CSS/accent-color)
-is set.
+Те же элементы, которые поддерживают функцию `disabled`, также являются целевыми для псевдоклассов [`:disabled`](../../css/disabled.md) и [`:enabled`](../../css/enabled.md). Элементы, отключенные с помощью атрибута `disabled`, обычно стилизуются под светло-серый цвет через таблицу стилей пользовательского агента, даже если установлен [`accent-color`](../../css/accent-color.md).
 
-Being a boolean attribute, the presence of the attribute disables the otherwise enabled element; you can't set it to `false`.
-To re-enable a disabled element, the attribute has to be removed, generally via [`Element.removeAttribute('disabled')`](https://developer.mozilla.org/docs/Web/API/Element/removeAttribute).
+Будучи булевым атрибутом, наличие атрибута отключает включенный элемент; его нельзя установить в значение `false`. Чтобы снова включить отключенный элемент, атрибут должен быть удален, как правило, через [`Element.removeAttribute('disabled')`](https://developer.mozilla.org/docs/Web/API/Element/removeAttribute).
 
-The [`HTMLInputElement.disabled`](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/disabled) property lets you check
-if an input is disabled. As `disabled` is not a global attribute, it's not inherited from the HTMLElement, but every supporting
-element interface, like [`HTMLSelectElement`](https://developer.mozilla.org/docs/Web/API/HTMLSelectElement/disabled),
-[`HTMLTextareaElement`](https://developer.mozilla.org/docs/Web/API/HTMLTextAreaElement#instance_properties), has the same read-only property.
+Свойство [`HTMLInputElement.disabled`](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/disabled) позволяет проверить, отключен ли элемент ввода. Поскольку `disabled` не является глобальным атрибутом, он не наследуется от `HTMLElement`, но все поддерживающие его интерфейсы элементов, такие как [`HTMLSelectElement`](https://developer.mozilla.org/docs/Web/API/HTMLSelectElement/disabled), [`HTMLTextareaElement`](https://developer.mozilla.org/docs/Web/API/HTMLTextAreaElement#instance_properties), имеют такое же свойство, доступное только для чтения.
 
-The `disabled` attribute does not apply to normally `inert` elements that are made focusable via `tabindex` or `contenteditable`.
-It also doesn't apply to the `<form>` element itself. To disable these, the global `inert` attribute can be used.
+Атрибут `disabled` не применяется к обычно `инертным` элементам, которые становятся фокусируемыми с помощью `tabindex` или `contenteditable`. Он также не применяется к самому элементу `<form>`. Для их отключения можно использовать глобальный атрибут `inert`.
 
-### The `inert` attribute
+### Атрибут `inert` {#the-inert-attribute}
 
-When the `inert` global boolean attribute is added to an element, that element and all nested content become disabled—neither
-clickable nor tabbable—and removed from the accessibility tree. While `inert` can be applied to any element, it is generally
-used for sections of content, such as offscreen or otherwise hidden content.
+При добавлении к элементу глобального булевого атрибута `inert` этот элемент и все вложенное в него содержимое становятся неактивными - ни кликабельными, ни табулируемыми - и удаляются из дерева доступности. Хотя атрибут `inert` может быть применен к любому элементу, обычно он используется для разделов содержимого, например, вне экрана или скрытого содержимого.
 
-When applying `disabled` to form controls, the browser provides default styling and can be styled using the [`:disabled`](https://developer.mozilla.org/docs/Web/CSS/:disabled)
-pseudo class. The `inert` attribute provides no visual indicators and has no matching pseudoclass (though the `[inert]` [attribute selector](/learn/css/selectors/#attribute-selector) matches).
+При применении `disabled` к элементам управления формы браузер предоставляет стилизацию по умолчанию, а также может быть использован псевдокласс `:disabled`. Атрибут `inert` не предоставляет никаких визуальных индикаторов и не имеет соответствующего псевдокласса (однако ему соответствует `[inert]` [селектор атрибутов](../css/selectors.md#attribute-selector)).
 
-Using `inert` on visible content without styles indicating the inertness can lead to poor user experience. As inert content
-is not available to screen reader users, it can lead to confusion when sighted screen reader users see content on screen
-that is not available to the accessibility tools. Make inertness very apparent via CSS.
+Использование `inert` для видимого содержимого без стилей, указывающих на инертность, может привести к ухудшению качества работы пользователей. Поскольку инертное содержимое недоступно для пользователей программ чтения с экрана, это может привести к путанице, когда зрячие пользователи программ чтения с экрана видят на экране содержимое, недоступное для инструментов доступности. Сделайте инертность очень очевидной с помощью CSS.
 
-Make sure that the focus never moves to non-visible content. Anything rendered off-screen that does not automatically
-come into view when focused should be made [inert](https://developer.chrome.com/articles/inert/). If content is hidden,
-but comes into view when focused, like the [skip to content link](/learn/html/navigation/#skip-to-content-link) on this page,
-it does not need to be made inert.
+Убедитесь, что фокус никогда не перемещается на невидимое содержимое. Все, что выводится за пределы экрана и не становится видимым автоматически при фокусировке, должно быть сделано [inert](https://developer.chrome.com/articles/inert/). Если содержимое скрыто, но появляется при фокусировке, как, например, ссылка [skip to content link](navigation.md#skip-to-content-link) на этой странице, ее не нужно делать инертной.
 
-## Check your understanding
-
-{% Assessment 'focus' %}
+Источник: [Focus](https://web.dev/learn/html/focus/)

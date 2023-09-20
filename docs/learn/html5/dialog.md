@@ -1,140 +1,86 @@
 ---
-title: 'Dialog'
-authors:
-  - estelleweyl
-description: 'The <dialog> element is a useful element for representing any kind of dialog in HTML, find out how it works.'
-date: 2023-02-21
-tags:
-  - html
+description: Элемент dialog - это полезный элемент для представления любого вида диалога в HTML, узнайте, как он работает.
+icon: material/tooltip-text
 ---
 
-A modal dialog is a special type of pop-up box on a web page: a pop-up that interrupts the user to focus on itself. There are
-some valid [use cases for popping up a dialog](https://www.nngroup.com/articles/modal-nonmodal-dialog/), but great consideration
-should be made before doing so. Modal dialogs force users to focus on specific content, and, temporarily at least, ignore
-the rest of the page.
+# Dialog
 
-Dialogs can be either modal (only the content in the dialog can be interacted with) or non-modal (it's still possible to interact
-with content outside of the dialog). Modal dialogs are displayed on top of the rest of the page content. The rest
-of the page is [inert](learn/html/focus/) and, by default, obscured by a semi-transparent backdrop.
+<big>Элемент `dialog` - это полезный элемент для представления любого вида диалога в HTML, узнайте, как он работает.</big>
 
-The semantic HTML [`<dialog>`](https://developer.mozilla.org/docs/Web/HTML/Element/dialog) element to create a dialog
-comes with semantics, keyboard interactions, and all the properties and methods of the [`HTMLDialogElement`](https://developer.mozilla.org/docs/Web/API/HTMLDialogElement) interface.
+**Модальный диалог** - это особый тип всплывающего окна на веб-странице: всплывающее окно, которое прерывает пользователя, чтобы сфокусировать его на себе. Существуют некоторые допустимые [случаи использования модального диалога](https://www.nngroup.com/articles/modal-nonmodal-dialog/), но прежде чем сделать это, следует хорошо подумать. Модальные диалоги заставляют пользователя сосредоточиться на определенном содержимом и, по крайней мере, временно игнорировать остальную часть страницы.
 
-## Modal dialogs
+Диалоги могут быть как модальными (взаимодействовать можно только с содержимым диалога), так и немодальными (взаимодействие с содержимым вне диалога все равно возможно). Модальные диалоги отображаются поверх остального содержимого страницы. Остальная часть страницы является [inert](focus.md) и, по умолчанию, заслоняется полупрозрачным фоном.
 
-Here is an example of a modal `<dialog>`. Open the dialog with the "Open modal dialog" button. Once opened, there are three ways to close the dialog: the escape key, submitting a form with
-a button that has the [`formmethod="dialog"`](https://developer.mozilla.org/docs/Web/HTML/Element/button#attr-formmethod)
-set (or if the form itself has `method="dialog"` set), and the [`HTMLDialogElement.close()`](https://developer.mozilla.org/docs/Web/API/HTMLDialogElement/close) method.
+Семантический элемент HTML [`<dialog>`](../../html/dialog.md) для создания диалога имеет семантику, клавиатурные взаимодействия, а также все свойства и методы интерфейса [`HTMLDialogElement`](https://developer.mozilla.org/docs/Web/API/HTMLDialogElement).
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'BaOBLNy'
-} %}
+## Модальные диалоги
 
-The `HTMLDialogElement` has three main methods, along with all the methods inherited from [`HTMLElement`](/learn/html/apis).
+Приведем пример модального `<dialog>`. Откройте диалог с помощью кнопки "Открыть модальный диалог". После открытия есть три способа закрыть диалог: клавиша escape, отправка формы с кнопкой, у которой установлен [`formmethod="dialog"`](../../html/button.md#formmethod) (или если у самой формы установлен `method="dialog"`), и метод [`HTMLDialogElement.close()`](https://developer.mozilla.org/docs/Web/API/HTMLDialogElement/close).
+
+<iframe src="https://codepen.io/web-dot-dev/embed/BaOBLNy?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Элемент `HTMLDialogElement` имеет три основных метода, а также все методы, унаследованные от [`HTMLElement`](apis.md).
 
 ```js
-dialog.show() /* opens the dialog */
-dialog.showModal() /* opens the dialog as a modal */
-dialog.close() /* closes the dialog */
+dialog.show(); /* opens the dialog */
+dialog.showModal(); /* opens the dialog as a modal */
+dialog.close(); /* closes the dialog */
 ```
 
-Because this `<dialog>` was opened via the [`HTMLDialogElement.showModal()`](https://developer.mozilla.org/docs/Web/API/HTMLDialogElement/showModal)
-method, it is a modal dialog. Opening a modal dialog deactivates and obscures everything other than the dialog itself. If you
-hover over the UI outside of the dialog, you’ll note all the elements are behaving as if [`pointer-events: none;`](https://developer.mozilla.org/docs/Web/CSS/pointer-events)
-was set; even the button that opens the dialog doesn’t react to interactions.
+Поскольку данный `<dialog>` был открыт с помощью метода [`HTMLDialogElement.showModal()`](https://developer.mozilla.org/docs/Web/API/HTMLDialogElement/showModal), он является модальным диалогом. При открытии модального диалога деактивируется и затемняется все, кроме самого диалога. Если навести курсор на пользовательский интерфейс вне диалога, то можно заметить, что все элементы ведут себя так, как будто установлен [`pointer-events: none;`](../../css/pointer-events.md); даже кнопка, открывающая диалог, не реагирует на взаимодействия.
 
-When the dialog is opened, focus moves into the dialog. Focus is set on the first element in the sequential keyboard navigation order within that dialog.
-If you hit the `tab` key repeatedly, you’ll note that only the content within the dialog can get focus while the modal dialog is
-open. Everything outside of the modal dialog is inert as long as the dialog is open.
+При открытии диалога фокус перемещается в него. Фокус устанавливается на первый элемент в последовательном порядке клавиатурной навигации в этом диалоге. Если многократно нажимать клавишу ++tab++, то можно заметить, что пока модальный диалог открыт, фокус может быть установлен только на содержимом внутри диалога. Все, что находится за пределами модального диалога, неактивно, пока диалог открыт.
 
-When a dialog is closed, modal or not, focus is returned to the element that opened the dialog. If you programmatically
-open a dialog not based on user action, reconsider. If you must, ensure that focus is put back where it was prior to the dialog opening,
-especially if the user dismisses the dialog without interacting with it.
+Когда диалог закрывается, модальный он или нет, фокус возвращается к элементу, который его открыл. Если вы программно открываете диалог, не основанный на действиях пользователя, подумайте еще раз. Если это необходимо, убедитесь, что фокус возвращается туда, где он находился до открытия диалога, особенно если пользователь закрывает диалог, не взаимодействуя с ним.
 
-There is a global [`inert`](/learn/html/focus/#the-inert-attribute) attribute that can be used to disable an element and all of its descendants, other than any active
-dialog. When a modal dialog is opened using `openModal()`, the inertness or deactivation comes for free; the attribute
-isn’t explicitly set.
+Существует глобальный атрибут [`inert`](focus.md#the-inert-attribute), который можно использовать для отключения элемента и всех его потомков, кроме активного диалога. При открытии модального диалога с помощью `openModal()` инертность или деактивация происходит бесплатно, атрибут не задается явно.
 
-The backdrop that obscures everything other than the dialog can be styled using the [`::backdrop`](https://developer.mozilla.org/docs/Web/CSS/::backdrop)
-pseudo-element. The backdrop is only displayed when a `<dialog>` is displayed with the `.showModal()` method. This pseudo-element
-matches all the backdrops, including the one displayed when the [FullScreen API](https://developer.mozilla.org/docs/Web/API/Fullscreen_API) is used,
-such as when viewing a video in full-screen mode which doesn’t have the same aspect ratio as the screen or monitor.
+Фон, заслоняющий все остальное, кроме диалога, можно стилизовать с помощью псевдоэлемента [`::backdrop`](../../css/backdrop.md). Фон отображается только при отображении `<dialog>` с помощью метода `.showModal()`. Этот псевдоэлемент соответствует всем фонам, включая тот, который отображается при использовании [FullScreen API](https://developer.mozilla.org/docs/Web/API/Fullscreen_API), например, при просмотре видео в полноэкранном режиме, соотношение сторон которого не совпадает с соотношением сторон экрана или монитора.
 
-## Non-modal dialogs
+## Немодальные диалоги
 
-The `HTMLDialogElement.show()` similarly opens a dialog, but without adding a backdrop or causing anything to become inert.
-The escape key does not close non-modal dialogs. Because of this, it is even more important to ensure you include a method
-of closing the non-modal dialog. In doing so, if the closer is outside the dialog, realize the focus will go to the element
-that opened the dialog, which may not be the best user experience.
+Аналогичным образом открывается диалог с помощью `HTMLDialogElement.show()`, но без добавления фона и без инертности. Клавиша escape не закрывает немодальные диалоги. В связи с этим еще более важно предусмотреть метод закрытия немодального диалога. При этом, если пользователь находится за пределами диалога, то фокус будет переведен на элемент, открывший диалог, что может быть не самым приятным для пользователя.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'bGKQvza'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/bGKQvza?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-While a button to close the dialog is not officially required by the specification, consider it as required. The escape key
-will close a modal dialog, but not a non-modal one. A visible button that is able to receive focus improves accessibility and
-user experience.
+Хотя кнопка закрытия диалога официально не требуется спецификацией, считайте, что она необходима. Клавиша escape закрывает модальный диалог, но не закрывает немодальный. Видимая кнопка, на которую можно обратить внимание, повышает доступность и удобство работы.
 
-## Closing a dialog
+## Закрытие диалога
 
-You don’t need the `HTMLDialogElement.close()` method to close a dialog. You don’t need JavaScript at all. To close the `<dialog>`
-without JavaScript, include a form with a dialog method by either setting `method="dialog"` on the `<form>` or `formmethod="dialog"`
-on the button.
+Для закрытия диалога не нужен метод `HTMLDialogElement.close()`. Вам вообще не нужен JavaScript. Чтобы закрыть `<dialog>` без JavaScript, включите форму с диалоговым методом, установив `method="dialog"` в `<form>` или `formmethod="dialog"` в кнопке.
 
-When a user submits via the `dialog` method, the state of user-entered data is maintained. While there is a submit event—the
-form goes through constraint validation (unless `novalidate` is set)—the user data is neither cleared nor submitted.
-A close button without JavaScript can be written as:
+Когда пользователь отправляет запрос с помощью метода `dialog`, состояние введенных пользователем данных сохраняется. Пока происходит событие отправки, форма проходит валидацию ограничений (если не установлено значение `novalidate`), данные пользователя не очищаются и не отправляются. Кнопка закрытия без использования JavaScript может быть записана в виде:
 
 ```html
 <dialog open>
-  <form method="dialog">
-    <button type="submit" autofocus>close</button>
-  </form>
+    <form method="dialog">
+        <button type="submit" autofocus>close</button>
+    </form>
 </dialog>
 ```
 
-You may have noticed the [`autofocus`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/autofocus) attribute
-set on the close `<button>` in this example. Elements with `autofocus` attribute set within a `<dialog>` will not receive
-focus on page load (unless the page is loaded with the dialog visible). They will, however, get focus when the dialog is opened.
+Вы могли заметить, что в этом примере для закрывающей `<button>` установлен атрибут [`autofocus`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/autofocus). Элементы с установленным атрибутом `autofocus` внутри `<dialog>` не будут получать фокус при загрузке страницы (если только страница не загружается с видимым диалогом). Однако они получат фокус при открытии диалога.
 
-By default, when a dialog is opened, the first focusable element within the dialog will receive focus unless a different
-element within the dialog has the `autofocus` attribute set. Setting the `autofocus` attribute on the close button ensures
-it receives focus when the dialog is opened. But including [`autofocus` within a `<dialog>`](/learn/html/focus/#autofocus)
-should only be done with much consideration. All the elements in the sequence coming before the autofocused element are skipped.
-We discuss this attribute further in [the focus lesson](/learn/html/focus/).
+По умолчанию при открытии диалога фокус получает первый фокусируемый элемент внутри диалога, если для другого элемента внутри диалога не установлен атрибут `autofocus`. Установка атрибута `autofocus` для кнопки закрытия гарантирует, что она получит фокус при открытии диалога. Однако включать [`autofocus` внутри `<dialog>`](focus.md#autofocus) следует только с большой осторожностью. Все элементы в последовательности, идущие перед элементом с автофокусом, пропускаются. Более подробно этот атрибут рассматривается в [уроке по фокусу](focus.md).
 
-The [`HTMLDialogElement`](https://developer.mozilla.org/docs/Web/API/HTMLDialogElement) interface includes a [`returnValue`](https://developer.mozilla.org/docs/Web/API/HTMLDialogElement/returnValue)
-property. Submitting a form with a `method="dialog"` sets the `returnValue` to the `name`, if any, of the submit button used to
-submit the form. If we had written `<button type="submit" name="toasty">close</button>`, the `returnValue` would be `toasty`.
+Интерфейс [`HTMLDialogElement`](https://developer.mozilla.org/docs/Web/API/HTMLDialogElement) включает свойство [`returnValue`](https://developer.mozilla.org/docs/Web/API/HTMLDialogElement/returnValue). При отправке формы с помощью `method="dialog"` свойство `returnValue` устанавливается в значение `name` (если таковое имеется) кнопки отправки, используемой для отправки формы. Если бы мы написали `<button type="submit" name="toasty">close</button>`, то `returnValue` было бы `toasty`.
 
-When a dialog is opened, the boolean [`open`](https://developer.mozilla.org/docs/Web/HTML/Element/dialog#attr-open) attribute
-is present, meaning the dialog is active and can be interacted with. When a dialog is opened by adding the `open` attribute rather
-than via `.show()` or `.showModal()`, the dialog will be modal-less. The [`HTMLDialogElement.open`](https://developer.mozilla.org/docs/Web/API/HTMLDialogElement/open)
-property returns `true` or `false`, depending on whether the dialog is available for interaction—not whether it is modal or not.
+При открытии диалога присутствует атрибут boolean [`open`](../../html/dialog.md#open), означающий, что диалог активен и с ним можно взаимодействовать. Если диалог открывается не через `.show()` или `.showModal()`, а добавлением атрибута `open`, то он будет безмодальным. Свойство [`HTMLDialogElement.open`](https://developer.mozilla.org/docs/Web/API/HTMLDialogElement/open) возвращает `true` или `false`, в зависимости от того, доступен ли диалог для взаимодействия, а не от того, является он модальным или нет.
 
-While JavaScript is the preferred method of opening a dialog, including the `open` attribute on page load, and then removing
-it with `.close()`, can help ensure the dialog is available even when JavaScript is not.
+Хотя JavaScript является предпочтительным методом открытия диалога, включение атрибута `open` при загрузке страницы и последующее его удаление с помощью `.close()` может помочь обеспечить доступность диалога даже при отсутствии JavaScript.
 
-## Additional details
+## Дополнительные сведения
 
-### Don't use `tabindex`
+### Не используйте `tabindex`.
 
-The element that is activated to open the dialog and the close button contained in it (and possibly other content) can receive
-focus and are interactive. The `<dialog>` element is not interactive and doesn’t receive focus. Do not add the `tabindex` property
-to the dialog itself.
+Элемент, активизируемый для открытия диалога, и содержащаяся в нем кнопка закрытия (а также, возможно, и другое содержимое) могут получать фокус и являются интерактивными. Элемент `<dialog>` не является интерактивным и не получает фокус. Не добавляйте свойство `tabindex` к самому диалогу.
 
-### ARIA roles
+### ARIA-роли
 
-The implicit role is [`dialog`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/dialog_role). If the dialog
-is a confirmation window communicating an important message that requires a confirmation or other user response, set [`role="alertdialog"`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/alertdialog_role).
-The dialog should also have an accessible name. If visible text can provide for the accessible name, add `aria-labelledby="idOfLabelingText"`.
+Неявной ролью является [`dialog`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/dialog_role). Если диалог является окном подтверждения, сообщающим о важном сообщении, требующем подтверждения или другой реакции пользователя, установите [`role="alertdialog"`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/alertdialog_role). Диалог также должен иметь доступное имя. Если видимый текст может обеспечить доступное имя, добавьте `aria-labelledby="idOfLabelingText"`.
 
-### CSS defaults
+### CSS по умолчанию
 
-Note that browsers provide default styling for `dialog`. Firefox, Chrome, and Edge set `color: CanvasText;` `background-color: Canvas;`
-and Safari sets `color: black; background-color: white;` in their user-agent stylesheets. The `color` is inherited
-from `dialog` and not from `body` or `:root`, which may be unexpected. The `background-color` property is not inherited.
+Обратите внимание, что браузеры предоставляют стили по умолчанию для `dialog`. Firefox, Chrome и Edge устанавливают `color: CanvasText;` `background-color: Canvas;`, а Safari устанавливает `color: black; background-color: white;` в своих таблицах стилей user-agent. Свойство `color` наследуется от `dialog`, а не от `body` или `:root`, что может быть неожиданным. Свойство `background-color` не наследуется.
 
-{% Assessment 'dialog' %}
+Источник: [Dialog](https://web.dev/learn/html/dialog/)

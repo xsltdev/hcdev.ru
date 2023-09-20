@@ -1,312 +1,304 @@
 ---
-title: 'Template, slot, and shadow'
-authors:
-  - estelleweyl
-description: An explanation of template, slot, and shadow.
-date: 2023-02-21
-tags:
-  - html
+description: Объяснение понятий "шаблон", "слот" и "теневой DOM".
+icon: material/star-box
 ---
 
-The benefit of web components is their re-usability: you can create a UI widget once, and reuse it multiple times. While you
-do need JavaScript to create web components, you don't need a JavaScript library. HTML and the associated APIs provide everything you need.
+# Template, slot и shadow
 
-The Web Component standard is made up of three parts—[HTML templates](https://developer.mozilla.org/docs/Web/Web_Components/Using_templates_and_slots),
-[Custom Elements](https://developer.mozilla.org/docs/Web/Web_Components/Using_custom_elements), and the [Shadow DOM](https://developer.mozilla.org/docs/Web/Web_Components/Using_shadow_DOM).
-Combined, they enable building customized, self-contained (encapsulated), reusable elements that can be seamlessly integrated
-into existing applications, like all the other HTML elements we've already covered.
+<big>Объяснение понятий "шаблон", "слот" и "теневой DOM".</big>
 
-In this section, we'll create the `<star-rating>` element, a web component that allows users to rate an experience on a
-scale of one to five stars. When naming a custom element, it is recommended to use all lowercase letters. Also, include a dash,
-as this helps distinguish between regular and custom elements.
+Преимущество веб-компонентов заключается в возможности многократного использования: вы можете создать виджет пользовательского интерфейса один раз и использовать его многократно. Хотя для создания веб-компонентов необходим JavaScript, библиотека JavaScript не нужна. HTML и соответствующие API предоставляют все необходимое.
 
-We'll discuss using the `<template>` and `<slot>` elements, the `slot` attribute, and JavaScript to create a template with
-an encapsulated [Shadow DOM](/shadowdom-v1/). We'll then re-use the defined element, customizing a section of text, just
-like you would any element or web component. We'll also briefly discuss using CSS from within and outside of the custom element.
+Стандарт Web Component состоит из трех частей - [HTML-шаблоны](https://developer.mozilla.org/docs/Web/Web_Components/Using_templates_and_slots), [Пользовательские элементы](https://developer.mozilla.org/docs/Web/Web_Components/Using_custom_elements) и [Теневой DOM](https://developer.mozilla.org/docs/Web/Web_Components/Using_shadow_DOM). В совокупности они позволяют создавать настраиваемые, самодостаточные (инкапсулированные), многократно используемые элементы, которые могут быть легко интегрированы в существующие приложения, как и все остальные элементы HTML, которые мы уже рассмотрели.
 
-## The `<template>` element
+В этом разделе мы создадим элемент `<star-rating>` - веб-компонент, позволяющий пользователям оценивать свои впечатления по шкале от одной до пяти звезд. При присвоении имени пользовательскому элементу рекомендуется использовать все строчные буквы. Также следует включать тире, так как это помогает отличить обычные элементы от пользовательских.
 
-The `<template>` element is used to declare fragments of HTML to be cloned and inserted into the DOM with JavaScript. The contents of the element are not rendered by default. Rather, they are instantiated using JavaScript.
+Мы рассмотрим использование элементов `<шаблон>` и `<слот>`, атрибута `слот` и JavaScript для создания шаблона с инкапсулированным [Shadow DOM](/shadowdom-v1/). Затем мы будем повторно использовать определенный элемент, настраивая участок текста, как и любой другой элемент или веб-компонент. Мы также кратко обсудим использование CSS внутри и вне пользовательского элемента.
+
+## Элемент `<template>`
+
+Элемент [`<template>`](../../html/template.md) используется для объявления фрагментов HTML, которые будут клонироваться и вставляться в DOM с помощью JavaScript. По умолчанию содержимое элемента не выводится на экран. Скорее, оно инстанцируется с помощью JavaScript.
 
 ```html
 <template id="star-rating-template">
-  <form>
-    <fieldset>
-      <legend>Rate your experience:</legend>
-      <rating>
-        <input type="radio" name="rating" value="1" aria-label="1 star" required />
-        <input type="radio" name="rating" value="2" aria-label="2 stars" />
-        <input type="radio" name="rating" value="3" aria-label="3 stars" />
-        <input type="radio" name="rating" value="4" aria-label="4 stars" />
-        <input type="radio" name="rating" value="5" aria-label="5 stars" />
-      </rating>
-    </fieldset>
-    <button type="reset">Reset</button>
-    <button type="submit">Submit</button>
-  </form>
+    <form>
+        <fieldset>
+            <legend>Rate your experience:</legend>
+            <rating>
+                <input
+                    type="radio"
+                    name="rating"
+                    value="1"
+                    aria-label="1 star"
+                    required
+                />
+                <input
+                    type="radio"
+                    name="rating"
+                    value="2"
+                    aria-label="2 stars"
+                />
+                <input
+                    type="radio"
+                    name="rating"
+                    value="3"
+                    aria-label="3 stars"
+                />
+                <input
+                    type="radio"
+                    name="rating"
+                    value="4"
+                    aria-label="4 stars"
+                />
+                <input
+                    type="radio"
+                    name="rating"
+                    value="5"
+                    aria-label="5 stars"
+                />
+            </rating>
+        </fieldset>
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+    </form>
 </template>
 ```
 
-As the contents of a `<template>` element are not written to the screen, the `<form>` and its contents aren't rendered.
-Yes, this Codepen is blank, but if you inspect the HTML tab, you'll see the `<template>` markup.
+Поскольку содержимое элемента `<template>` не выводится на экран, то `<form>` и его содержимое не отображаются. Да, этот Codepen пуст, но если вы посмотрите на вкладку HTML, то увидите разметку `<template>`.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'vYzBNKR'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/vYzBNKR?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-In this example, the `<form>` is not a child of a `<template>` in the DOM. Rather, contents of `<template>` elements are children
-of a [`DocumentFragment`](https://developer.mozilla.org/docs/Web/API/DocumentFragment) returned by the [`HTMLTemplateElement.content`](https://developer.mozilla.org/docs/Web/API/HTMLTemplateElement/content)
-property. To be made visible, JavaScript must be used to grab the contents and append those contents to the DOM.
+В данном примере `<form>` не является дочерним элементом `<template>` в DOM. Скорее, содержимое элементов `<template>` является дочерним элементом [`DocumentFragment`](https://developer.mozilla.org/docs/Web/API/DocumentFragment), возвращаемого свойством [`HTMLTemplateElement.content`](https://developer.mozilla.org/docs/Web/API/HTMLTemplateElement/content). Чтобы сделать его видимым, необходимо использовать JavaScript для захвата содержимого и добавления его в DOM.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'WNgeQGq'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/WNgeQGq?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-This brief JavaScript did not create a custom element. Rather, this example has appended the contents of the `<template>` into the `<body>`.
-The content has become part of the visible, styleable DOM.
+Этот краткий JavaScript не создал пользовательский элемент. Скорее, в этом примере содержимое `<template>` было добавлено в `<body>`. Содержимое стало частью видимой, стилизуемой DOM.
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/xd926m5ueCjzf3xt815J.png", alt="A screenshot of the previous codepen as shown in the DOM.", width="800", height="375" %}
+![Снимок экрана предыдущего кодепена, как показано в DOM.](template-1.avif)
 
-Requiring JavaScript to implement a template for just one star rating isn't very useful, but creating a web component for a
-repeatedly used, customizable star rating widget is useful.
+Использование JavaScript для реализации шаблона для одной звезды не очень полезно, но создание веб-компонента для многократно используемого, настраиваемого виджета звездного рейтинга очень полезно.
 
-## The `<slot>` element
+## Элемент `<slot>`
 
-We include a slot to include a customized per occurrence legend. HTML provides a [`<slot>`](https://developer.mozilla.org/docs/Web/HTML/Element/slot)
-element as a placeholder inside a `<template>` that, if provided a name, creates a "named slot". A named slot can be used
-to customize content within a web component. The `<slot>` element gives us a way to control where the children of a custom
-element should be inserted within its shadow tree.
+Мы включаем слот, чтобы включить в него индивидуальную легенду для каждого вхождения. HTML предоставляет элемент [`<slot>`](../../html/slot.md) в качестве заполнителя внутри `<template>`, который, при задании имени, создает "именованный слот". Именованный слот может быть использован для настройки содержимого веб-компонента. Элемент `<slot>` дает нам возможность управлять тем, куда должны вставляться дочерние элементы пользовательского элемента в его теневом дереве.
 
-In our template, we change the `<legend>` to a `<slot>`:
+В нашем шаблоне мы заменим [`<legend>`](../../html/legend.md) на `<slot>`:
 
 ```html
 <template id="star-rating-template">
-  <form>
-    <fieldset>
-      <slot name="star-rating-legend">
-        <legend>Rate your experience:</legend>
-      </slot>
+    <form>
+        <fieldset>
+            <slot name="star-rating-legend">
+                <legend>Rate your experience:</legend>
+            </slot>
+        </fieldset>
+    </form></template
+>
 ```
 
-The `name` attribute is used to assign slots to other elements if the element has a [slot](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/slot) attribute whose value matches the
-name of a named slot. If the custom element doesn't have a match for a slot, the contents of the `<slot>` will be rendered.
-So we included a `<legend>` with generic content that is OK to be rendered if anyone simply includes `<star-rating></star-rating>`, with no content, in their HTML.
+Атрибут `name` используется для назначения слотов другим элементам, если элемент имеет атрибут [slot](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/slot), значение которого совпадает с именем именованного слота. Если у пользовательского элемента нет совпадения со слотом, то будет выведено содержимое `<slot>`. Таким образом, мы включили `<legend>` с общим содержимым, которое будет отображаться, если кто-либо просто включит в свой HTML `<star-rating></star-rating>`, не имеющий никакого содержимого.
 
 ```html
 <star-rating>
-  <legend slot="star-rating-legend">Blendan Smooth</legend>
+    <legend slot="star-rating-legend">
+        Blendan Smooth
+    </legend>
 </star-rating>
 <star-rating>
-  <legend slot="star-rating-legend">Hoover Sukhdeep</legend>
+    <legend slot="star-rating-legend">
+        Hoover Sukhdeep
+    </legend>
 </star-rating>
 <star-rating>
-  <legend slot="star-rating-legend">Toasty McToastface</legend>
-  <p>Is this text visible?</p>
+    <legend slot="star-rating-legend">
+        Toasty McToastface
+    </legend>
+    <p>Is this text visible?</p>
 </star-rating>
 ```
 
-The [slot](https://developer.mozilla.orgdocs/Web/HTML/Global_attributes/slot) attribute is a global attribute that is used
-to replace the contents of the `<slot>` within a `<template>`. In our custom element, the element with the slot attribute
-is a `<legend>`. It doesn't need to be. In our template, `<slot name="star-rating-legend">` will be replaced with `<anyElement slot="star-rating-legend">`,
-where `<anyElement>` can be any element, even another custom element.
+Атрибут [slot](https://developer.mozilla.orgdocs/Web/HTML/Global_attributes/slot) - это глобальный атрибут, который используется для замены содержимого `<slot>` внутри `<template>`. В нашем пользовательском элементе элемент с атрибутом slot является `<legend>`. Это не обязательно так. В нашем шаблоне `<slot name="star-rating-legend">` будет заменен на `<anyElement slot="star-rating-legend">`, где `<anyElement>` может быть любым элементом, даже другим пользовательским элементом.
 
-## Undefined elements
+## Неопределенные элементы
 
-In our `<template>` we used a `<rating>` element. This is not a custom element. Rather, it's an unknown element. Browsers
-don't fail when they don't recognize an element. Unrecognized HTML elements are treated by the browser as anonymous inline
-elements that can be styled with CSS. Similar to `<span>`, the `<rating>` and `<star-rating>` elements have no user-agent applied
-styles or semantics.
+В нашем `<template>` мы использовали элемент `<rating>`. Это не собственный элемент. Скорее, это неизвестный элемент. Браузеры не отказывают, когда не распознают элемент. Нераспознанные HTML-элементы воспринимаются браузером как анонимные встроенные элементы, которые можно стилизовать с помощью CSS. Подобно `<span>`, элементы `<rating>` и `<star-rating>` не имеют стилей и семантики, накладываемых пользовательским агентом.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'jOvNbwO'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/jOvNbwO?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Note that the `<template>` and contents are not rendered. The `<template>` is a known element that contains content that
-is not to be rendered. The `<star-rating>` element has yet to be defined. Until we define an element, the browser displays it
-like all unrecognized elements. For now, the unrecognized `<star-rating>` is treated as an anonymous inline element, so the content
-including legends and the `<p>` in the third `<star-rating>` are displayed as they would be if they were in a `<span>` instead.
+Обратите внимание, что `<template>` и его содержимое не отображаются. Шаблон `<template>` - это известный элемент, содержащий содержимое, которое не должно отображаться. Элемент `<star-rating>` еще не определен. Пока элемент не определен, браузер отображает его как все нераспознанные элементы. Пока что нераспознанный `<star-rating>` рассматривается как анонимный inline-элемент, поэтому содержимое, включая легенды и `<p>` в третьем `<star-rating>`, отображается так, как если бы оно находилось в `<span>`.
 
-Let's define our element to convert this unrecognized element into a custom element.
+Определим наш элемент для преобразования этого нераспознанного элемента в пользовательский элемент.
 
-### Custom elements
+### Пользовательские элементы
 
-JavaScript is required to define custom elements. When defined, the contents of the `<star-rating>` element will be replaced by a
-shadow root containing all the contents of the template we associate with it. The `<slot>` elements from the template are replaced
-with the contents of the element within the `<star-rating>` whose `slot` attribute value matches the `<slot>`'s name value, if
-there is one. If not, the contents of the template's slots are displayed.
+Для определения пользовательских элементов требуется JavaScript. При его определении содержимое элемента `<star-rating>` будет заменено теневым корнем, содержащим все содержимое шаблона, с которым он ассоциирован. Элементы `<slot>` из шаблона заменяются содержимым того элемента внутри `<star-rating>`, значение атрибута `slot` которого совпадает со значением имени `<slot>`, если таковое имеется. В противном случае отображается содержимое слотов шаблона.
 
-Content within a custom element that isn't associated with a slot—the `<p>Is this text visible?</p>` in our third `<star-rating>`—is not included in
-the shadow root and therefore not displayed.
+Содержимое пользовательского элемента, не связанное со слотом - `<p>Является ли этот текст видимым?</p>` в нашем третьем `<star-rating>` - не включается в корень тени и, следовательно, не отображается.
 
-We [define the custom element](https://developer.mozilla.org/docs/Web/Web_Components/Using_custom_elements) named `star-rating`
-by extending the `HTMLElement`:
+Мы [определяем пользовательский элемент](https://developer.mozilla.org/docs/Web/Web_Components/Using_custom_elements) с именем `star-rating`, расширяя `HTMLElement`:
 
 ```js
-customElements.define('star-rating',
-  class extends HTMLElement {
-    constructor() {
-      super(); // Always call super first in constructor
-      const starRating = document.getElementById('star-rating-template').content;
-      const shadowRoot = this.attachShadow({
-        mode: 'open'
-      });
-      shadowRoot.appendChild(starRating.cloneNode(true));
+customElements.define(
+    'star-rating',
+    class extends HTMLElement {
+        constructor() {
+            super(); // Always call super first in constructor
+            const starRating = document.getElementById(
+                'star-rating-template'
+            ).content;
+            const shadowRoot = this.attachShadow({
+                mode: 'open',
+            });
+            shadowRoot.appendChild(
+                starRating.cloneNode(true)
+            );
+        }
     }
-  });
+);
 ```
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'poOzjpj'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/poOzjpj?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Now that the element is defined, every time the browser encounters a `<star-rating>` element, it will be rendered as defined
-by the element with the `#star-rating-template`, which is our template. The browser will attach a shadow DOM tree to the node, appending
-a [clone](https://developer.mozilla.org/docs/Web/API/Node/cloneNode) of the template contents to that shadow DOM.
-Note that the elements upon which you can [`attachShadow()` are limited](https://developer.mozilla.org/docs/Web/API/Element/attachShadow#elements_you_can_attach_a_shadow_to).
+Теперь, когда элемент определен, каждый раз, когда браузер встречает элемент `<star-rating>`, он будет отображаться так, как определено элементом с шаблоном `#star-rating-template`, который и является нашим шаблоном. Браузер присоединит к узлу теневое DOM-дерево, добавив к нему [копию](https://developer.mozilla.org/docs/Web/API/Node/cloneNode) содержимого шаблона. Обратите внимание, что количество элементов, к которым можно [`attachShadow()`, ограничено](https://developer.mozilla.org/docs/Web/API/Element/attachShadow#elements_you_can_attach_a_shadow_to).
 
 ```js
-const shadowRoot = this.attachShadow({mode: 'open'});
+const shadowRoot = this.attachShadow({ mode: 'open' });
 shadowRoot.appendChild(starRating.cloneNode(true));
 ```
 
-If you take a look at the developer tools, you'll note the `<form>` from the `<template>` is part of the shadow root of each custom element.
-A clone of the `<template>` contents is apparent in each custom element in the developer tools and visible in the browser, but the contents
-of the custom element itself are not rendered to the screen.
+Если вы посмотрите на инструменты разработчика, то заметите, что `<form>` из `<template>` является частью теневого корня каждого пользовательского элемента. Клон содержимого `<template>` отображается в каждом пользовательском элементе в инструментах разработчика и виден в браузере, но содержимое самого пользовательского элемента не выводится на экран.
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/CqbHMMxnse6n8STAocFo.png", alt="DevTools screenshot showing the cloned template contents in each custom element.", width="800", height="842" %}
+![Снимок экрана DevTools, показывающий содержимое клонированного шаблона в каждом пользовательском элементе.](template-2.avif)
 
-In the `<template>` example, we appended the template contents to the document body, adding the content to the regular DOM.
-In the [`customElements` definition](https://developer.mozilla.org/docs/Web/API/CustomElementRegistry/define), we used the same
-[`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild), but the cloned template contents were appended to an
-encapsulated shadow DOM.
+В примере `<template>` мы добавили содержимое шаблона в тело документа, добавив его в обычную DOM. В определении [`customElements`](https://developer.mozilla.org/docs/Web/API/CustomElementRegistry/define) мы использовали тот же [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild), но содержимое клонированного шаблона было добавлено в инкапсулированный теневой DOM.
 
-Notice how the stars went back to being unstyled radio buttons? Being part of a shadow DOM rather than the standard DOM, the styling within Codepen's CSS tab does not apply. That tab's CSS
-styles are scoped to the document, not to the shadow DOM, so the styles aren't applied. We have to create encapsulated
-styles to style our encapsulated Shadow DOM content.
+Заметьте, как звездочки снова стали нестилизованными радиокнопками? Поскольку шаблон является частью теневого DOM, а не стандартного DOM, стилизация на вкладке CSS Codepen не применяется. CSS-стили этой вкладки привязаны к документу, а не к теневому DOM, поэтому стили не применяются. Для стилизации содержимого теневого DOM необходимо создать инкапсулированные стили.
 
-## Shadow DOM
+## Теневой DOM {#shadow-dom}
 
-The Shadow DOM scopes CSS styles to each shadow tree, isolating it from the rest of the document. This means external CSS
-doesn't apply to your component, and component styles have no effect on the rest of the document, unless we intentionally
-direct them to.
+Shadow DOM ограничивает CSS-стили каждого теневого дерева, изолируя его от остальной части документа. Это означает, что внешние CSS не применяются к компоненту, а стили компонента не влияют на остальную часть документа, если только мы специально не направим их на это.
 
-Because we have appended the contents to a shadow DOM, we can include a [`<style>`](/learn/html/document-structure/#css) element
-providing encapsulated CSS to the custom element.
+Поскольку мы добавили содержимое в теневой DOM, мы можем включить элемент [`<style>`](document-structure.md#css), предоставляющий инкапсулированный CSS для пользовательского элемента.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'dyqbYme'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/dyqbYme?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Being scoped to the custom element, we don't have to worry about styles seeping out to the rest of the document. We can
-substantially reduce the specificity of the selectors. For example, as the only inputs used in the custom element are radio
-buttons, we can use `input` instead of `input[type="radio"]` as a selector.
-
-```html
- <template id="star-rating-template">
-  <style>
-    rating {
-      display: inline-flex;
-    }
-    input {
-      appearance: none;
-      margin: 0;
-      box-shadow: none;
-    }
-    input::after {
-      content: '\2605'; /* solid star */
-      font-size: 32px;
-    }
-    rating:hover input:invalid::after,
-    rating:focus-within input:invalid::after {
-      color: #888;
-    }
-    input:invalid::after,
-      rating:hover input:hover ~ input:invalid::after,
-      input:focus ~ input:invalid::after  {
-      color: #ddd;
-    }
-    input:valid {
-      color: orange;
-    }
-    input:checked ~ input:not(:checked)::after {
-      color: #ccc;
-      content: '\2606'; /* hollow star */
-    }
-  </style>
-  <form>
-    <fieldset>
-      <slot name="star-rating-legend">
-        <legend>Rate your experience:</legend>
-      </slot>
-      <rating>
-        <input type="radio" name="rating" value="1" aria-label="1 star" required/>
-        <input type="radio" name="rating" value="2" aria-label="2 stars"/>
-        <input type="radio" name="rating" value="3" aria-label="3 stars"/>
-        <input type="radio" name="rating" value="4" aria-label="4 stars"/>
-        <input type="radio" name="rating" value="5" aria-label="5 stars"/>
-      </rating>
-    </fieldset>
-    <button type="reset">Reset</button>
-    <button type="submit">Submit</button>
-  </form>
-</template>
-```
-
-While web components are encapsulated with in-`<template>` markup and CSS styles are scoped to the shadow DOM and hidden
-from everything outside of the components, the slot content which gets rendered, the `<anyElement slot="star-rating-legend">`
-portion of the `<star-rating>`, is not encapsulated.
-
-## Styling outside of the current scope
-
-It is possible, but not simple, to style the document from within a shadow DOM and to style the contents of a shadow DOM from
-the global styles. The shadow boundary, where the shadow DOM ends and the regular DOM begins, can be traversed, but only
-very intentionally.
-
-The _shadow tree_ is the DOM tree inside the shadow DOM. The shadow root is the root node of the shadow tree.
-
-The [`:host`](https://developer.mozilla.org/docs/Web/CSS/:host) pseudo-class selects the `<star-rating>`, the shadow host element.
-The _shadow host_ is the DOM node that the shadow DOM is attached to. To target only specific versions of the host, use [`:host()`](https://developer.mozilla.org/docs/Web/CSS/:host_function).
-This will select only the shadow host elements that match the parameter passed, like a class or attribute selector. To select
-all the custom elements, you can use `star-rating { /* styles */ }` in the global CSS, or `:host(:not(#nonExistantId))` in the template styles. In terms
-of [specificity](https://developer.mozilla.org/docs/Web/CSS/Specificity), the global CSS wins.
-
-The [`::slotted()`](https://developer.mozilla.org/docs/Web/CSS/::slotted) pseudo-element crosses the shadow DOM boundary
-from within the shadow DOM. It selects a slotted element if it matches the selector. In our example, `::slotted(legend)` matches our three legends.
-
-To target a shadow DOM from CSS in the global scope, the template needs to be edited. The [`part`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes#part)
-attribute can be added to any element that you want to style. Then use the [`::part()`](https://developer.mozilla.org/docs/Web/CSS/::part) pseudo-element
-to match elements within a shadow tree that match the parameter passed. The anchor or originating element for the pseudo-element is
-the host, or custom element name, in this case `star-rating`. The parameter is the value of the `part` attribute.
-
-If our template markup began as such:
+Благодаря привязке к пользовательскому элементу мы можем не беспокоиться о том, что стили просочатся в остальную часть документа. Мы можем существенно уменьшить специфичность селекторов. Например, поскольку в пользовательском элементе используются только радиокнопки, в качестве селектора можно использовать `input`, а не `input[type="radio"]`.
 
 ```html
 <template id="star-rating-template">
-  <form part="formPart">
-    <fieldset part="fieldsetPart">
+    <style>
+        rating {
+            display: inline-flex;
+        }
+        input {
+            appearance: none;
+            margin: 0;
+            box-shadow: none;
+        }
+        input::after {
+            content: '\2605'; /* solid star */
+            font-size: 32px;
+        }
+        rating:hover input:invalid::after,
+        rating:focus-within input:invalid::after {
+            color: #888;
+        }
+        input:invalid::after,
+        rating:hover input:hover ~ input:invalid::after,
+        input:focus ~ input:invalid::after {
+            color: #ddd;
+        }
+        input:valid {
+            color: orange;
+        }
+        input:checked ~ input:not(:checked)::after {
+            color: #ccc;
+            content: '\2606'; /* hollow star */
+        }
+    </style>
+    <form>
+        <fieldset>
+            <slot name="star-rating-legend">
+                <legend>Rate your experience:</legend>
+            </slot>
+            <rating>
+                <input
+                    type="radio"
+                    name="rating"
+                    value="1"
+                    aria-label="1 star"
+                    required
+                />
+                <input
+                    type="radio"
+                    name="rating"
+                    value="2"
+                    aria-label="2 stars"
+                />
+                <input
+                    type="radio"
+                    name="rating"
+                    value="3"
+                    aria-label="3 stars"
+                />
+                <input
+                    type="radio"
+                    name="rating"
+                    value="4"
+                    aria-label="4 stars"
+                />
+                <input
+                    type="radio"
+                    name="rating"
+                    value="5"
+                    aria-label="5 stars"
+                />
+            </rating>
+        </fieldset>
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+    </form>
+</template>
 ```
 
-We could target the `<form>` and `<fieldset>` with:
+В то время как веб-компоненты инкапсулируются разметкой in-`<template>`, а стили CSS привязываются к теневому DOM и скрыты от всего, что находится за пределами компонентов, содержимое слота, которое выводится на экран, `<anyElement slot="star-rating-legend">` часть `<star-rating>`, не инкапсулируется.
+
+## Стилизация за пределами текущей области видимости
+
+Можно, но не просто, стилизовать документ изнутри теневого DOM и стилизовать содержимое теневого DOM из глобальных стилей. Граница тени, где заканчивается теневой DOM и начинается обычный DOM, может быть пройдена, но только очень намеренно.
+
+Дерево _тени_ - это дерево DOM внутри теневого DOM. Теневой корень - это корневой узел теневого дерева.
+
+Псевдокласс [`:host`](https://developer.mozilla.org/docs/Web/CSS/:host) выбирает элемент `<star-rating>`, теневой хост. Теневой хост - это узел DOM, к которому прикреплен теневой DOM. Чтобы выбрать только определенные версии хоста, используйте [`:host()`](https://developer.mozilla.org/docs/Web/CSS/:host_function). При этом будут выбраны только те элементы теневого узла, которые соответствуют переданному параметру, например, селектору классов или атрибутов. Чтобы выбрать все пользовательские элементы, можно использовать `star-rating { /* styles */ }` в глобальном CSS или `:host(:not(#nonExistantId))` в стилях шаблона. С точки зрения [специфики](https://developer.mozilla.org/docs/Web/CSS/Specificity) глобальный CSS выигрывает.
+
+Псевдоэлемент [`::slotted()`](https://developer.mozilla.org/docs/Web/CSS/::slotted) пересекает границу теневого DOM изнутри теневого DOM. Он выбирает элемент slotted, если тот соответствует селектору. В нашем примере `::slotted(legend)` выбирает три легенды.
+
+Чтобы нацелить теневой DOM из CSS в глобальной области видимости, необходимо отредактировать шаблон. Атрибут [`part`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes#part) может быть добавлен к любому элементу, который необходимо стилизовать. Затем используйте псевдоэлемент [`::part()`](https://developer.mozilla.org/docs/Web/CSS/::part) для поиска элементов в дереве тени, соответствующих переданному параметру. Якорем или исходным элементом для псевдоэлемента является хост, или имя пользовательского элемента, в данном случае `star-rating`. Параметром является значение атрибута `part`.
+
+Если разметка нашего шаблона начиналась так:
+
+```html
+<template id="star-rating-template">
+    <form part="formPart">
+        <fieldset part="fieldsetPart"></fieldset></form
+></template>
+```
+
+Мы можем таргетировать `<form>` и `<fieldset>` с помощью:
 
 ```css
-star-rating::part(formPart) { /* styles */ }
-star-rating::part(fieldsetPart) { /* styles */ }
+star-rating::part(formPart) {
+    /* styles */
+}
+star-rating::part(fieldsetPart) {
+    /* styles */
+}
 ```
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'abaovjL'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/abaovjL?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Part names act similarly to classes: an element can have multiple space-separated part names, and multiple elements can
-have the same part name.
+Имена частей действуют аналогично классам: элемент может иметь несколько имен частей, разделенных пробелами, и несколько элементов могут иметь одно и то же имя части.
 
-Google has a fantastic checklist for [creating custom elements](/custom-elements-best-practices/). You may also want to learn
-about [declarative shadow DOMs](/declarative-shadow-dom/).
+Google предлагает фантастический контрольный список для [создания пользовательских элементов](https://web.dev/custom-elements-best-practices/). Возможно, вам также захочется узнать о [декларативных теневых DOM](https://web.dev/declarative-shadow-dom/).
 
-{% Assessment 'template' %}
+Источник: [Template, slot, and shadow](https://web.dev/learn/html/template/)
