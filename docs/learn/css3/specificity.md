@@ -1,382 +1,303 @@
 ---
-title: Specificity
-description: >
-  This module takes a deeper look at specificity, a key part of the cascade.
-audio:
-  title: 'The CSS Podcast - 003: Specificity'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast__Episode_003_v2.0_FINAL.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - andybell
-date: 2021-04-02
+description: В данном модуле более подробно рассматривается специфичность, являющаяся ключевой частью каскада.
+icon: material/shape-circle-plus
 ---
 
-Suppose that you're working with the following HTML and CSS:
+# Специфичность
+
+<big>В данном модуле более подробно рассматривается специфичность, являющаяся ключевой частью каскада.</big>
+
+!!!info "CSS подкаст"
+
+    003: Специфичность
+
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast__Episode_003_v2.0_FINAL.mp3?dest-id=1891556"></audio>
+
+Предположим, что вы работаете со следующими HTML и CSS:
 
 ```html
 <button class="branding">Hello, Specificity!</button>
 ```
 
+---
+
 ```css
 button {
-  color: red;
+    color: red;
 }
 
 .branding {
-  color: blue;
+    color: blue;
 }
 ```
 
-There's two competing rules here.
-One will color the button red and the other will color it blue.
-Which rule gets applied to the element?
-Understanding the CSS specification's algorithm about specificity
-is the key to understanding how CSS decides between competing rules.
+Здесь действуют два конкурирующих правила. Одно из них окрашивает кнопку в красный цвет, а другое - в синий. Какое правило будет применено к элементу? Понимание алгоритма спецификации CSS, касающегося специфичности, является ключом к пониманию того, как CSS принимает решение между конкурирующими правилами.
 
-Specificity is one of the four distinct stages of the cascade,
-which was covered in the last module, on [the cascade](/learn/css/the-cascade/).
+Специфичность - это один из четырех отдельных этапов каскада, который рассматривался в предыдущем модуле, на [the cascade](the-cascade.md).
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'YzNKMXm',
-  height: 200
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/YzNKMXm?height=200&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Specificity scoring
+## Оценка специфичности
 
-Each selector rule gets a scoring.
-You can think of specificity as a total score and each selector type earns points towards that score.
-The selector with the highest score wins.
+Каждое правило селектора оценивается в баллах. Специфичность можно представить как общий балл, и каждый тип селектора зарабатывает очки для этого балла. Побеждает тот селектор, который набрал наибольшее количество баллов.
 
-With specificity in a real project,
-the balancing act is making sure the CSS rules you expect to apply, actually _do apply,_
-while generally keeping scores low to prevent complexity.
-The score should only be as high as we need it to be,
-rather than aiming for the highest score possible.
-In the future, some genuinely more important CSS might need to be applied.
-If you go for the highest score, you'll make that job hard.
+При использовании специфичности в реальном проекте необходимо соблюдать баланс, чтобы правила CSS, которые вы ожидаете применить, действительно _применялись_, но при этом баллы должны быть низкими, чтобы избежать сложностей. Оценка должна быть настолько высокой, насколько это необходимо, а не стремиться к максимально возможной. В будущем может потребоваться применение действительно более важных CSS. Если вы будете стремиться к максимальной оценке, то затрудните эту работу.
 
-## Scoring each selector type
+## Оценка каждого типа селектора
 
-Each selector type earns points.
-You add all of these points up to calculate a selector's overall specificity.
+Каждый тип селектора зарабатывает баллы. Все эти баллы суммируются, чтобы вычислить общую специфичность селектора.
 
-### Universal selector
+### Универсальный селектор
 
-A [universal selector](https://developer.mozilla.org/docs/Web/CSS/Universal_selectors) (`*`)
-has **no specificity** and gets **0 points**.
-This means that any rule with 1 or more points will override it
+[Универсальный селектор](https://developer.mozilla.org/docs/Web/CSS/Universal_selectors) (`*`) не имеет **специфичности** и получает **0 баллов**. Это означает, что любое правило, имеющее 1 или более баллов, будет его отменять
 
 ```css
 * {
-  color: red;
+    color: red;
 }
 ```
 
-### Element or pseudo-element selector
+### Селектор элемента или псевдоэлемента
 
-An [element](https://developer.mozilla.org/docs/Web/CSS/Type_selectors) (type)
-or [pseudo-element](https://developer.mozilla.org/docs/Web/CSS/Pseudo-elements)
-selector gets **1 point of specificity** .
+Селектор [элемента](https://developer.mozilla.org/docs/Web/CSS/Type_selectors) (тип) или [псевдо-элемента](https://developer.mozilla.org/docs/Web/CSS/Pseudo-elements) получает **1 балл специфичности**.
 
-#### Type selector
+#### Селектор типа
 
 ```css
 div {
-  color: red;
+    color: red;
 }
 ```
 
-#### Pseudo-element selector
+#### Селектор псевдо-элемента
 
 ```css
 ::selection {
-  color: red;
+    color: red;
 }
 ```
 
-### Class, pseudo-class, or attribute selector
+### Селектор класса, псевдокласса или атрибута
 
-A [class](https://developer.mozilla.org/docs/Web/CSS/Class_selectors),
-[pseudo-class](https://developer.mozilla.org/docs/Web/CSS/Pseudo-classes) or
-[attribute](https://developer.mozilla.org/docs/Web/CSS/Attribute_selectors) selector gets **10 points of specificity**.
+Селектор [класса](https://developer.mozilla.org/docs/Web/CSS/Class_selectors), [псевдо-класса](https://developer.mozilla.org/docs/Web/CSS/Pseudo-classes) или [атрибута](https://developer.mozilla.org/docs/Web/CSS/Attribute_selectors) получает **10 баллов специфичности**.
 
-#### Class selector
+#### Селектор класса
 
 ```css
 .my-class {
-  color: red;
+    color: red;
 }
 ```
 
-#### Pseudo-class selector
+#### Селектор псевдокласса
 
 ```css
 :hover {
-  color: red;
+    color: red;
 }
 ```
 
-#### Attribute selector
+#### Селектор атрибутов
 
 ```css
 [href='#'] {
-  color: red;
+    color: red;
 }
 ```
 
-The [`:not()`](https://developer.mozilla.org/docs/Web/CSS/:not)
-pseudo-class itself adds nothing to the specificity calculation.
-However, the selectors passed in as arguments do get added to the specificity calculation.
+Сам по себе псевдокласс [`:not()`](../../css/not.md) ничего не добавляет к вычислению специфичности. Однако селекторы, переданные в качестве аргументов, добавляются к вычислению специфичности.
 
 ```css
 div:not(.my-class) {
-  color: red;
+    color: red;
 }
 ```
 
-This sample would have **11 points** of specificity
-because it has one type selector (`div`) and one class _inside_ the `:not()`.
+Этот пример будет иметь **11 баллов** специфичности, поскольку в нем есть один селектор типа (`div`) и один класс _внутри_ `:not()`.
 
-### ID selector
+### Селектор ID
 
-An [ID](https://developer.mozilla.org/docs/Web/CSS/ID_selectors)
-selector gets **100 points of specificity**,
-as long as you use an ID selector (`#myID`) and not an attribute selector (`[id="myID"]`).
+Селектор [ID](https://developer.mozilla.org/docs/Web/CSS/ID_selectors) получает **100 баллов специфичности**, если используется селектор ID (`#myID`), а не селектор атрибутов (`[id="myID"]`).
 
 ```css
 #myID {
-  color: red;
+    color: red;
 }
 ```
 
-### Inline style attribute
+### Атрибут inline style
 
-CSS applied directly to the `style` attribute of the HTML element,
-gets a **specificity score of 1,000 points**.
-This means that in order to override it in CSS,
-you have to write an extremely specific selector.
+CSS, применяемый непосредственно к атрибуту `style` элемента HTML, получает оценку **специфичности в 1 000 баллов**. Это означает, что для того, чтобы переопределить его в CSS, необходимо написать очень специфический селектор.
 
 ```html
 <div style="color: red"></div>
 ```
 
-### `!important` rule
+### `!important` правило
 
-Lastly, an `!important` at the end of a CSS value gets a specificity score of **10,000 points**.
-This is the highest specificity that one individual item can get.
+Наконец, `!important` в конце CSS-значения получает оценку специфичности **10 000 баллов**. Это максимальная специфичность, которую может получить один отдельный элемент.
 
-An `!important` rule is applied to a CSS property,
-so everything in the overall rule (selector and properties) does not get the same specificity score.
+Правило `!important` применяется к CSS-свойству, поэтому все элементы правила в целом (селектор и свойства) не получают одинакового балла специфичности.
 
 ```css
 .my-class {
-  color: red !important; /* 10,000 points */
-  background: white; /* 10 points */
+    color: red !important; /* 10,000 points */
+    background: white; /* 10 points */
 }
 ```
 
-{% Assessment 'scoring-beginner' %}
+## Специфичность в контексте
 
-## Specificity in context
-
-The specificity of each selector that matches an element is added together.
-Consider this example HTML:
+Специфичность каждого селектора, соответствующего элементу, суммируется. Рассмотрим пример HTML:
 
 ```html
 <a class="my-class another-class" href="#">A link</a>
 ```
 
-This link has two classes on it.
-Add the following CSS, and it gets **1 point of specificity**:
+Эта ссылка имеет два класса. Добавьте следующий CSS, и она получит **1 балл специфичности**:
 
 ```css
 a {
-  color: red;
+    color: red;
 }
 ```
 
-Reference one of the classes in this rule,
-it now has **11 points of specificity**:
+Обратитесь к одному из классов в этом правиле, теперь он имеет **11 баллов специфичности**:
 
 ```css
 a.my-class {
-  color: green;
+    color: green;
 }
 ```
 
-Add the other class to the selector,
-it now has **21 points of specificity**:
+Добавьте к селектору другой класс, теперь он имеет **21 балл специфичности**:
 
 ```css
 a.my-class.another-class {
-  color: rebeccapurple;
+    color: rebeccapurple;
 }
 ```
 
-Add the `href` attribute to the selector,
-it now has **31 points of specificity**:
+Добавьте в селектор атрибут `href`, теперь он имеет **31 балл специфичности**:
 
 ```css
 a.my-class.another-class[href] {
-  color: goldenrod;
+    color: goldenrod;
 }
 ```
 
-Finally,add a `:hover` pseudo-class to all of that,
-the selector ends up with **41 points of specificity**:
+Наконец, добавьте ко всему этому псевдокласс `:hover`, и селектор получит **41 балл специфичности**:
 
 ```css
 a.my-class.another-class[href]:hover {
-  color: lightgrey;
+    color: lightgrey;
 }
 ```
 
-{% Assessment 'scoring-advanced' %}
+## Визуализация специфичности
 
-## Visualizing specificity
+В диаграммах и калькуляторах специфичности специфичность часто визуализируется следующим образом:
 
-In diagrams and specificity calculators,
-the specificity is often visualized like this:
+![Диаграмма, демонстрирующая наиболее специфичные и наименее специфичные селекторы](specificity-1.svg)
 
-{% Img src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/McrFhjqHXMznUzXbRuJ6.svg", alt="A diagram demonstrating most specific to least specific selectors", width="800", height="474" %}
+Левая группа - это селекторы `id`. Вторая группа - селекторы классов, атрибутов и псевдоклассов. Последняя группа - селекторы элементов и псевдоэлементов.
 
-The left group is `id` selectors.
-The second group is class, attribute, and pseudo-class selectors.
-The final group is element and pseudo-element selectors.
-
-For reference, the following selector is `0-4-1`:
+В качестве примера можно привести следующий селектор `0-4-1`:
 
 ```css
 a.my-class.another-class[href]:hover {
-  color: lightgrey;
+    color: lightgrey;
 }
 ```
 
-{% Assessment 'visualizing' %}
+## Прагматическое увеличение специфичности
 
-## Pragmatically increasing specificity
-
-Let's say we have some CSS that looks like this:
+Допустим, у нас есть некий CSS, который выглядит следующим образом:
 
 ```css
 .my-button {
-  background: blue;
+    background: blue;
 }
 
 button[onclick] {
-  background: grey;
+    background: grey;
 }
 ```
 
-With HTML that looks like this:
+В HTML это выглядит следующим образом:
 
 ```html
-<button class="my-button" onclick="alert('hello')">Click me</button>
+<button class="my-button" onclick="alert('hello')">
+    Click me
+</button>
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'abpoxdR',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/abpoxdR?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The button has a grey background,
-because the second selector earns **11 points of specificity** (`0-1-1`).
-This is because it has one type selector (`button`),
-which is **1 point** and an attribute selector (`[onclick]`), which is **10 points**.
+Кнопка имеет серый фон, поскольку второй селектор набирает **11 баллов специфичности** (`0-1-1`). Это связано с тем, что он имеет один селектор типа (`button`), что составляет **1 балл**, и селектор атрибута (`[onclick]`), что составляет **10 баллов**.
 
-The previous rule—`.my-button`—gets **10 points** (`0-1-0`),
-because it has one class selector.
+Предыдущее правило - `.my-button` - получает **10 баллов** (`0-1-0`), поскольку имеет один селектор класса.
 
-If you want to give this rule a boost,
-repeat the class selector like this:
+Если вы хотите усилить это правило, повторите селектор класса следующим образом:
 
 ```css
 .my-button.my-button {
-  background: blue;
+    background: blue;
 }
 
 button[onclick] {
-  background: grey;
+    background: grey;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'zYNOXBJ',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/zYNOXBJ?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Now, the button will have a blue background,
-because the new selector gets a specificity score of **20 points** (`0-2-0`).
+Теперь кнопка будет иметь синий фон, поскольку новый селектор получил оценку специфичности **20 баллов** (`0-2-0`).
 
-{% Aside 'caution' %}
-If you find that you are needing to boost specificity like this frequently,
-it may indicate that you are writing overly specific selectors.
-Consider whether you can refactor your CSS to reduce the specificity of other selectors
-to avoid this problem.
-{% endAside %}
+!!!note ""
 
-## A matching specificity score sees the newest instance win
+    Если вы обнаружили, что вам часто приходится увеличивать специфичность, это может свидетельствовать о том, что вы пишете слишком специфичные селекторы. Подумайте, можно ли изменить CSS так, чтобы уменьшить специфичность других селекторов, чтобы избежать этой проблемы.
 
-Let's stay with the button example for now and switch the CSS around to this:
+## При совпадении показателей специфичности побеждает новейший экземпляр.
+
+Оставим пока пример с кнопкой и изменим CSS следующим образом:
 
 ```css
 .my-button {
-  background: blue;
+    background: blue;
 }
 
 [onclick] {
-  background: grey;
+    background: grey;
 }
 ```
 
-The button has a grey background,
-because **both selectors have an identical specificity score** (`0-1-0`).
+Кнопка имеет серый фон, поскольку **обои селекторы имеют одинаковую оценку специфичности** (`0-1-0`).
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'zYNOXKJ',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/zYNOXKJ?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-If you switch the rules in the source order,
-the button would then be blue.
+Если поменять местами правила в исходном порядке, то кнопка станет синей.
 
 ```css
 [onclick] {
-  background: grey;
+    background: grey;
 }
 
 .my-button {
-  background: blue;
+    background: blue;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'WNReWRO',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/WNReWRO?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-This is the only instance where newer CSS wins.
-To do so it must match the specificity of another selector that targets the same element.
+Это единственный случай, когда новый CSS выигрывает. Для этого он должен соответствовать специфике другого селектора, нацеленного на тот же элемент.
 
-## Resources
+## Ресурсы
 
-- [CSS SpeciFISHity](http://specifishity.com)
-- [Specificity Calculator](https://specificity.keegan.st)
-- [MDN Specificity](https://developer.mozilla.org/docs/Web/CSS/Specificity)
-- [Specifics on CSS Specificity](https://css-tricks.com/specifics-on-css-specificity/)
-- [Another Specificity Calculator](https://polypane.app/css-specificity-calculator)
+-   [CSS SpeciFISHity](http://specifishity.com)
+-   [Калькулятор специфичности](https://specificity.keegan.st)
+-   [MDN Specificity](https://developer.mozilla.org/docs/Web/CSS/Specificity)
+-   [Специфика CSS-специфичности](https://css-tricks.com/specifics-on-css-specificity/)
+-   [Еще один калькулятор специфичности](https://polypane.app/css-specificity-calculator)
+
+:information_source: Источник: [Specificity](https://web.dev/learn/css/specificity/)

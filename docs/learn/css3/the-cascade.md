@@ -1,254 +1,156 @@
 ---
-title: The cascade
-description: >
-  Sometimes two or more competing CSS rules could apply to an element.
-  In this module find out how the browser chooses which to use, and how to control this selection.
-audio:
-  title: 'The CSS Podcast - 004: The Cascade'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast__Episode_004_v1.0_FINAL.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - andybell
-date: 2021-03-29
-tags:
-  - css
+description: Иногда к элементу могут применяться два или более конкурирующих CSS-правил. В этом модуле вы узнаете, как браузер выбирает, какое из них использовать, и как управлять этим выбором.
+icon: material/card-bulleted
 ---
 
-CSS stands for Cascading Stylesheets.
-The cascade is the algorithm for solving conflicts where multiple CSS rules apply to an HTML element.
-It's the reason that the text of the button styled with the following CSS will be blue.
+# Каскад
+
+<big>Иногда к элементу могут применяться два или более конкурирующих CSS-правил. В этом модуле вы узнаете, как браузер выбирает, какое из них использовать, и как управлять этим выбором.</big>
+
+!!!info "CSS подкаст"
+
+    004: Каскад
+
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast__Episode_004_v1.0_FINAL.mp3?dest-id=1891556"></audio>
+
+CSS расшифровывается как Cascading Stylesheets (каскадные таблицы стилей). Каскад - это алгоритм разрешения конфликтов, когда к элементу HTML применяется несколько правил CSS. Именно благодаря ему текст кнопки, стилизованной с помощью следующего CSS, будет синим.
 
 ```css
 button {
-  color: red;
+    color: red;
 }
 
 button {
-  color: blue;
+    color: blue;
 }
 ```
 
+<iframe src="https://codepen.io/web-dot-dev/embed/GRrgMOm?height=200&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Понимание каскадного алгоритма помогает понять, как браузер разрешает подобные конфликты. Каскадный алгоритм состоит из 4 отдельных этапов.
+
+1.  **Положение и порядок появления**: порядок появления ваших CSS-правил
+2.  **Специфичность**: алгоритм, определяющий, какой CSS-селектор имеет наиболее сильное соответствие
+3.  **Оригинал**: порядок появления CSS и то, откуда он берется, будь то стиль браузера, CSS из расширения браузера или ваш авторский CSS.
+4.  **Важность**: некоторые правила CSS имеют больший вес, чем другие, особенно правило типа `!important`.
+
+## Позиция и порядок отображения
+
+Порядок появления ваших CSS-правил и их расположение учитываются каскадом при расчете разрешения конфликтов.
+
+Демонстрация в начале этого урока является наиболее простым примером позиционирования. Есть два правила, которые имеют селекторы одинаковой специфики, поэтому побеждает то, которое было объявлено последним.
+
+Стили могут поступать из различных источников на HTML-странице, таких как тег `<link>`, встроенный тег `<style>`, а также встроенный CSS, заданный в атрибуте `style` элемента.
+
+Если в верхней части HTML-страницы имеется `<link>`, содержащий CSS, а в нижней - другой `<link>`, содержащий CSS: нижний `<link>` будет обладать наибольшей специфичностью. То же самое происходит и со встроенными элементами `<style>`. Они становятся тем более конкретными, чем ниже по странице они находятся.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/NWdPaWv?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 <figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'GRrgMOm',
-  height: 200
-} %}
+<figcaption markdown>Кнопка имеет синий фон, как определено в CSS, который включен элементом `<link />`. CSS-правило, устанавливающее темный фон, находится во второй связанной таблице стилей и применяется из-за более позднего расположения.</figcaption>
 </figure>
 
-Understanding the cascade algorithm helps you understand how the browser resolves conflicts like this.
-The cascade algorithm is split into 4 distinct stages.
+Этот порядок распространяется и на встроенные элементы `<style>`. Если они объявлены перед `<link>`, то CSS связанной таблицы стилей будет иметь наибольшую специфику.
 
-1. **Position and order of appearance**: the order of which your CSS rules appear
-2. **Specificity**: an algorithm which determines which CSS selector has the strongest match
-3. **Origin**: the order of when CSS appears and where it comes from, whether that is a browser style,
-   CSS from a browser extension, or your authored CSS
-4. **Importance**: some CSS rules are weighted more heavily than others,
-   especially with the `!important` rule type
-
-## Position and order of appearance
-
-The order in which your CSS rules appear and how they appear is taken into consideration by the cascade
-while it calculates conflict resolution.
-
-The demo right at the start of this lesson is the most straightforward example of position.
-There are two rules that have selectors of identical specificity,
-so the last one to be declared won.
-
-Styles can come from various sources on an HTML page,
-such as a `<link>` tag,
-an embedded `<style>` tag,
-and inline CSS as defined in an element's `style` attribute.
-
-If you have a `<link>` that includes CSS at the top of your HTML page,
-then another `<link>` that includes CSS at the bottom of your page: the bottom `<link>` will have the most specificity.
-The same thing happens with embedded `<style>` elements, too.
-They get more specific, the further down the page they are.
-
+<iframe src="https://codepen.io/web-dot-dev/embed/xxgbLoB?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 <figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'NWdPaWv'
-} %}
-  <figcaption>The button has a blue background,
-  as defined by CSS which is included by a <code>&lt;link /&gt;</code> element.
-  A CSS rule that sets it to be dark is in a second linked stylesheet
-  and is applied because of its later position.</figcaption>
+<figcaption markdown>Элемент `<style>` объявляется в `<head>`, а элемент `<link />` - в `<body>`. Это означает, что он получает больше конкретики, чем элемент `<style>`.</figcaption>
 </figure>
 
-This ordering also applies to embedded `<style>` elements.
-If they are declared before a `<link>`,
-the linked stylesheet's CSS will have the most specificity.
+Встроенный атрибут `style` с объявленным в нем CSS будет иметь приоритет над всеми остальными CSS, независимо от его позиции, если только в объявлении не определено значение `!important`.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'xxgbLoB'
-} %}
-<figcaption>The <code>&lt;style&gt;</code> element is declared in the <code>&lt;head&gt;</code>,
-while the <code>&lt;link /&gt;</code> element is declared in the <code>&lt;body&gt;</code>.
-This means it gets more specificity than the <code>&lt;style&gt;</code> element</figcaption>
-</figure>
-
-An inline `style` attribute with CSS declared in it will override all other CSS,
-regardless of its position, unless a declaration has `!important` defined.
-
-Position also applies in the order of your CSS rule.
-In this example, the element will have a purple background because `background: purple` was declared last.
-Because the green background was declared before the purple background, it is now ignored by the browser.
+Позиция также применяется в порядке следования CSS-правил. В данном примере элемент будет иметь пурпурный фон, поскольку `background: purple` был объявлен последним. Поскольку зеленый фон был объявлен раньше пурпурного, он теперь игнорируется браузером.
 
 ```css
 .my-element {
-  background: green;
-  background: purple;
+    background: green;
+    background: purple;
 }
 ```
 
-Being able to specify two values for the same property
-can be a simple way to create fallbacks for browsers that do not support a particular value.
-In this next example, `font-size` is declared twice.
-If `clamp()` is supported in the browser,
-then the previous `font-size` declaration will be discarded.
-If `clamp()` isn't supported by the browser,
-the initial declaration will be honored, and the font-size will be 1.5rem
+Возможность указать два значения для одного и того же свойства может быть простым способом создания резервных копий для браузеров, не поддерживающих определенное значение. В следующем примере `font-size` объявляется дважды. Если `clamp()` поддерживается браузером, то предыдущее объявление `font-size` будет отменено. Если `clamp()` не поддерживается браузером, то первоначальное объявление будет выполнено, и размер шрифта будет равен `1.5rem`.
 
 ```css
 .my-element {
-  font-size: 1.5rem;
-  font-size: clamp(1.5rem, 1rem + 3vw, 2rem);
+    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 1rem + 3vw, 2rem);
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'xxgbPMP'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/xxgbPMP?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Aside %}
-This approach of declaring the same property twice works because browsers ignore values they don't understand.
-Unlike some other programming languages, CSS will not throw an error or break your program when it detects a line it
-cannot parse—the value it cannot parse is invalid and therefore ignored.
-The browser then continues to process the rest of the CSS without breaking stuff it already understands.
-{% endAside %}
+!!!note ""
 
-{% Assessment 'position' %}
+    Такой подход к объявлению одного и того же свойства дважды работает потому, что браузеры игнорируют непонятные им значения. В отличие от некоторых других языков программирования, CSS не выдает ошибку и не нарушает работу программы, когда обнаруживает строку, которую не может разобрать - значение, которое не может разобрать, является недопустимым и поэтому игнорируется. Браузер продолжает обрабатывать остальную часть CSS, не нарушая того, что он уже понял.
 
-## Specificity
+## Специфичность
 
-Specificity is an algorithm which determines which CSS selector is the most specific,
-using a weighting or scoring system to make those calculations.
-By making a rule more specific,
-you can cause it to be applied even if some other CSS that matches the selector appears later in the CSS.
+Специфичность - это алгоритм, который определяет, какой CSS-селектор является наиболее специфичным, используя для этого весовую или балльную систему расчетов. Сделав правило более специфичным, можно добиться того, что оно будет применяться даже в том случае, если в CSS появится другой CSS, соответствующий селектору.
 
-In [the next lesson](/learn/css/specificity) you can learn the details of how specificity is calculated,
-however keeping a few things in mind will help you avoid too many specificity issues.
+В [следующем уроке](specificity.md) вы сможете узнать подробности о том, как рассчитывается специфичность, однако соблюдение нескольких правил поможет вам избежать слишком частых проблем со специфичностью.
 
-CSS targeting a class on an element will make that rule more specific,
-and therefore seen as more important to be applied,
-than CSS targeting the element alone.
-This means that with the following CSS,
-the `h1` will be colored red even though both rules match and the rule for the `h1` selector comes later in the stylesheet.
+CSS, нацеленный на класс элемента, делает это правило более специфичным, а значит, и более важным для применения, чем CSS, нацеленный только на элемент. Это означает, что при использовании следующего CSS элемент `h1` будет окрашен в красный цвет, даже если оба правила совпадают и правило для селектора `h1` находится позже в таблице стилей.
 
 ```html
 <h1 class="my-element">Heading</h1>
 ```
 
+---
+
 ```css
 .my-element {
-  color: red;
+    color: red;
 }
 
 h1 {
-  color: blue;
+    color: blue;
 }
 ```
 
-An `id` makes the CSS even more specific,
-so styles applied to an ID will override those applied many other ways.
-This is one reason why it is generally not a good idea to attach styles to an `id`.
-It can make it difficult to overwrite that style with something else.
+Идентификатор `id` делает CSS еще более конкретным, поэтому стили, примененные к идентификатору, будут отменять стили, примененные другими способами. Это одна из причин, по которой обычно не стоит привязывать стили к `id`. Это может затруднить перезапись стиля чем-то другим.
 
-### Specificity is cumulative
+### Специфичность имеет кумулятивный характер
 
-As you can find out in the next lesson,
-each type of selector is awarded points which indicate how specific it is,
-the points for all of the selectors you have used to target an element are added together.
-This means that if you target an element with a selector list such as
-`a.my-class.another-class[href]:hover` you get something quite hard to overwrite with other CSS.
-For this reason, and to help make your CSS more reusable,
-it's a good idea to keep your selectors as simple as possible.
-Use specificity as a tool to get at elements when you need to,
-but always consider refactoring long, specific selector lists, if you can.
+Как вы узнаете из следующего урока, каждому типу селектора присваиваются баллы, которые показывают, насколько он специфичен. Баллы за все селекторы, которые вы использовали для выделения элемента, суммируются. Это означает, что при нацеливании элемента с помощью списка селекторов типа `a.my-class.another-class[href]:hover` вы получите нечто, что будет довольно сложно переписать с помощью других CSS. По этой причине, а также для того, чтобы сделать CSS более пригодным для повторного использования, рекомендуется максимально упростить селекторы. Используйте специфику как инструмент для получения доступа к элементам, когда это необходимо, но всегда рассматривайте возможность рефакторинга длинных специфических списков селекторов, если это возможно.
 
 ## Origin
 
-The CSS that you write isn't the only CSS applied to a page.
-The cascade takes into account the origin of the CSS.
-This origin includes the browser's internal stylesheet,
-styles added by browser extensions or the operating system,
-and your authored CSS.
-The **order of specificity of these origins**, from least specific, to most specific is as follows:
+Написанный вами CSS - это не единственный CSS, применяемый к странице. Каскад учитывает происхождение CSS. К ним относятся внутренняя таблица стилей браузера, стили, добавленные расширениями браузера или операционной системой, и ваш авторский CSS. Порядок специфичности этих источников, от наименее специфичных до наиболее специфичных, следующий:
 
-1. **User agent base styles**. These are the styles that your browser applies to HTML elements by default.
-2. **Local user styles**. These can come from the operating system level, such as a base font size,
-   or a preference of reduced motion.
-   They can also come from browser extensions,
-   such as a browser extension that allows a user to write their own custom CSS for a webpage.
-3. **Authored CSS**. The CSS that you author.
-4. **Authored `!important`**. Any `!important` that you add to your authored declarations.
-5. **Local user styles `!important`**. Any `!important` that come from the operating system level,
-   or browser extension level CSS.
-6. **User agent `!important`**. Any `!important` that are defined in the default CSS,
-   provided by the browser.
+1.  **Базовые стили пользовательского агента**. Это стили, которые браузер применяет к HTML-элементам по умолчанию.
+2.  **Локальные стили пользователя**. Они могут быть заложены на уровне операционной системы, например, базовый размер шрифта или предпочтение уменьшенного движения. Они также могут быть получены из расширений браузера, например, из расширения, позволяющего пользователю написать собственный пользовательский CSS для веб-страницы.
+3.  **Авторский CSS**. CSS, автором которого являетесь вы.
+4.  **Авторские `!important`**. Любые `!important`, которые вы добавляете к своим авторским декларациям.
+5.  **Локальные пользовательские стили `!important`**. Любые `!important`, которые поступают с уровня операционной системы или CSS уровня расширения браузера.
+6.  **Агент пользователя `!important`**. Любые `!important`, которые определены в CSS по умолчанию, предоставляемом браузером.
 
-<figure>
-{% Img src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/zPdaZ6G11oYrgJ78EfF7.svg",
-alt="A visual demonstration of the order of origins as also explained in the list.", width="800", height="347" %}
-</figure>
+![Визуальная демонстрация порядка происхождения, который также объясняется в списке.](the-cascade-1.svg)
 
-If you have an `!important` rule type in the CSS you have authored
-and the user has an `!important` rule type in their custom CSS, whose CSS wins?
+Если у вас есть тип правила `!important` в CSS, автором которого вы являетесь, а у пользователя есть тип правила `!important` в его пользовательском CSS, то чей CSS победит?
 
-{% Assessment 'origin' %}
+## Важность
 
-## Importance
+Не все правила CSS вычисляются одинаково или имеют одинаковую важность.
 
-Not all CSS rules are calculated the same as each other,
-or given the same specificity as each other.
+Порядок **важности**, от наименее важного к наиболее важному, следующий:
 
-The **order of importance**, from least important,
-to most important is as follows:
+1.  обычный тип правила, например, `font-size`, `background` или `color`.
+2.  Тип правила `animation`
+3.  Тип правила `!important` (в том же порядке, что и в оригинале)
+4.  Тип правила `transition`
 
-1. normal rule type, such as `font-size`, `background` or `color`
-2. `animation` rule type
-3. `!important` rule type (following the same order as origin)
-4. `transition` rule type
+Активные типы правил анимации и перехода имеют более высокую важность, чем обычные правила. В случае переходов более высокую важность имеют типы правил `!important`. Это связано с тем, что когда анимация или переход становятся активными, их ожидаемое поведение заключается в изменении визуального состояния.
 
-Active animation and transition rule types have higher importance than normal rules.
-In the case of transitions higher importance than `!important` rule types.
-This is because when an animation or transition becomes active,
-its expected behaviour is to change visual state.
+## Использование DevTools для выяснения причин неприменения некоторых CSS
 
-## Using DevTools to find out why some CSS is not applying
+Браузерные DevTools обычно показывают все CSS, которые могут соответствовать элементу, с вычеркиванием тех, которые не используются.
 
-Browser DevTools will typically show all CSS that could match an element,
-with those which are not being used crossed out.
+![Изображение браузера DevTools с перечеркнутым CSS](the-cascade-2.avif)
 
-<figure>
-{% Img src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/Z6aLsqcqjGAUsWzq7DZs.png",
-alt="An image of browser DevTools with overwritten CSS crossed out", width="800", height="446" %}
-</figure>
+Если CSS, который вы ожидали применить, вообще не появляется, значит, он не соответствует элементу. В этом случае необходимо искать другое место, возможно, опечатку в имени класса или элемента или недопустимый CSS.
 
-If the CSS you expected to apply doesn't appear at all,
-then it didn't match the element.
-In that case you need to look elsewhere,
-perhaps for a typo in a class or element name or some invalid CSS.
+## Ресурсы
 
-{% Assessment 'conclusion' %}
+-   [Интерактивное объяснение каскада](https://wattenberger.com/blog/css-cascade)
+-   [Ссылка на каскад в MDN](https://developer.mozilla.org/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance)
 
-## Resources
-
-- [A highly interactive explainer of the cascade](https://wattenberger.com/blog/css-cascade)
-- [MDN cascade reference](https://developer.mozilla.org/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance)
+:information_source: Источник: [The cascade](https://web.dev/learn/css/the-cascade/)

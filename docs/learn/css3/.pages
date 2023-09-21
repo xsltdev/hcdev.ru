@@ -2,9 +2,9 @@ title: Учебник CSS 3
 nav:
     - index.md
     - box-model.md
-    #- selectors.md
-    #- the-cascade.md
-    #- specificity.md
+    - selectors.md
+    - the-cascade.md
+    - specificity.md
     #- inheritance.md
     #- color.md
     #- sizing.md
