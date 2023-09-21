@@ -105,39 +105,39 @@ p {
 -   Блок полей - это пространство между каждой рамкой.
 -   Тень занимает то же пространство, что и блок полей.
 
-## Debugging the box model
+## Отладка блочной модели
 
-Browser DevTools provide a visualisation of a selected box's box model calculations, which can help you understand how the box model works and importantly, how it is affecting the website you're working on.
+Browser DevTools предоставляет визуализацию расчетов блочной модели выбранного блока, что позволяет понять, как работает блочная модель и, что немаловажно, как она влияет на сайт, над которым вы работаете.
 
-Go ahead and try this in your own browser:
+Попробуйте сделать это в своем браузере:
 
-1. [Open DevTools](https://developer.chrome.com/docs/devtools/open/)
-1. [Select an element](https://developer.chrome.com/docs/devtools/css/reference/#select)
-1. Show the box model debugger
+1.  [Open DevTools](https://developer.chrome.com/docs/devtools/open/)
+2.  [Select an element](https://developer.chrome.com/docs/devtools/css/reference/#select)
+3.  Показать отладчик блочной модели
 
 <figure>
-{% Video src="video/VbAJIREinuYvovrBzzvEyZOpw5w1/sKdHrAfqahgWfDVQEBBT.mp4", controls=true %}
+<video controls>
+<source src="/learn/css3/box-model-1.mp4" />
+</video>
 </figure>
 
-## Controlling the box model
+## Управление блочной моделью
 
-To understand how to control the box model, you first need to understand what happens in your browser.
+Чтобы понять, как управлять блочной моделью, необходимо сначала разобраться с тем, что происходит в браузере.
 
-Every browser applies a user agent stylesheet to HTML documents. The CSS used varies between each browser, but they provide sensible defaults to make content easier to read. They define how elements should look and behave if there's no CSS defined. It is in the user agent styles where a box's default `display` is set, too. For example, if we are in a normal flow, a `<div>` element's default `display` value is `block`, a `<li>` has a default `display` value of `list-item`, and a `<span>` has a default `display` value of `inline`.
+Каждый браузер применяет таблицу стилей агента пользователя к HTML-документам. В каждом браузере CSS используется по-разному, но они предоставляют разумные значения по умолчанию, чтобы сделать содержимое более удобным для чтения. Они определяют, как должны выглядеть и вести себя элементы, если CSS не задан. Именно в стилях агента пользователя задается `display` по умолчанию. Например, если мы находимся в обычном потоке, то для элемента `<div>` значение `display` по умолчанию равно `block`, для `<li>` значение `display` по умолчанию равно `list-item`, а для `<span>` значение `display` по умолчанию равно `inline`.
 
-An `inline` element has block margin, but other elements won't respect it. Use `inline-block`, and those elements will respect the block margin, while the element maintains most of the same behaviors it had as an `inline` element. A `block` item will, by default, fill the available **inline space**, whereas a `inline` and `inline-block` elements will only be as large as their content.
+Элемент `inline` имеет блочное поле, но другие элементы не будут его соблюдать. Если использовать `inline-block`, то эти элементы будут соблюдать границы блока, а сам элемент сохранит все те же свойства, которые он имел как элемент `inline`. Элемент `block` по умолчанию будет заполнять все доступное **inline-пространство**, в то время как элементы `inline` и `inline-block` будут иметь размер, равный размеру их содержимого.
 
-Alongside an understanding of how user agent styles affect each box, you also need to understand `box-sizing`, which tells our box how to calculate its box size. By default, all elements have the following user agent style: `box-sizing: content-box;`.
+Помимо понимания того, как стили пользовательского агента влияют на каждый блок, необходимо также понимать `box-sizing`, который указывает нашему блоку, как вычислить его размер. По умолчанию все элементы имеют следующий стиль пользовательского агента: `box-sizing: content-box;`.
 
-Having `content-box` as the value of `box-sizing` means that when you set dimensions, such as a `width` and `height`, they will be applied to the **content box**. If you then set `padding` and `border`, these values will be added to the content box's size.
+Наличие `content-box` в качестве значения `box-sizing` означает, что когда вы задаете размеры, такие как `width` и `height`, они будут применены к **content box**. Если затем задать `padding` и `border`, то эти значения будут добавлены к размерам блока содержимого.
 
-{% Assessment 'box-model' %}
+Фактическая ширина этого блока будет равна `260px`. Поскольку в CSS используется стандартное `box-sizing: content-box`, применяемая ширина равна ширине содержимого, к ней добавляются `padding` и `border` с обеих сторон. Таким образом, `200px` для содержимого + `40px` padding + `20px` border дают общую видимую ширину `260px`.
 
-The actual width of this box will be 260px. As the CSS uses the default `box-sizing: content-box`, the applied width is the width of the content, `padding` and `border` on both sides are added to that. So 200px for the content + 40px of padding + 20px of border makes a total visible width of 260px.
+Однако это можно контролировать, сделав следующую модификацию для использования альтернативной блочной модели `border-box`:
 
-You _can_ control this, though, by making the following modification to use the alternative box model, `border-box`:
-
-```css/1
+```css
 .my-box {
     box-sizing: border-box;
     width: 200px;
@@ -146,17 +146,11 @@ You _can_ control this, though, by making the following modification to use the 
 }
 ```
 
-This alternative box model tells CSS to apply the `width` to the border box instead of the content box. This means that our `border` and `padding` get _pushed in_, and as a result, when you set `.my-box` to be `200px` wide: it actually renders at `200px` wide.
+Эта альтернативная блочная модель предписывает CSS применять `ширину` к границе бокса, а не к содержимому. Это означает, что наши `border` и `padding` будут _задвинуты внутрь_, и в результате, когда вы задаете `.my-box` ширину `200px`, он действительно отображается с шириной `200px`.
 
-Check out how this works in the following interactive demo. Notice that when you toggle the `box-sizing` value it shows—via a blue background—which CSS is being applied _inside_ our box.
+Проверить, как это работает, можно в следующем интерактивном демонстрационном примере. Обратите внимание, что при переключении значения `box-sizing` он показывает с помощью синего фона, какой CSS применяется _внутри_ нашего бокса.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'oNBvVpM',
-  height: 650
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/oNBvVpM?height=650&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ```css
 *,
@@ -166,17 +160,19 @@ Check out how this works in the following interactive demo. Notice that when you
 }
 ```
 
-This CSS rule selects every element in the document and every `::before` and `::after` pseudo element and applies `box-sizing: border-box`. This means that every element will now have this alternative box model.
+Это CSS-правило выбирает каждый элемент в документе и все псевдоэлементы `::before` и `::after` и применяет к ним `box-sizing: border-box`. Это означает, что теперь каждый элемент будет иметь такую альтернативную блочную модель.
 
-Because the alternative box model can be more predictable, developers often add this rule to resets and normalizers, [like this one](https://piccalil.li/blog/a-modern-css-reset).
+Поскольку альтернативная блочная модель может быть более предсказуемой, разработчики часто добавляют это правило в сбросы и нормализаторы, [например, в этот](https://piccalil.li/blog/a-modern-css-reset).
 
-## Resources
+## Ресурсы
 
--   [Introduction to the box model](https://developer.mozilla.org/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
--   [What are browser developer tools?](https://developer.mozilla.org/docs/Learn/Common_questions/What_are_browser_developer_tools)
+-   [Введение в блочную модель](https://developer.mozilla.org/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
+-   [Что такое инструменты разработчика браузера?](https://developer.mozilla.org/docs/Learn/Common_questions/What_are_browser_developer_tools)
 
-### User agent stylesheets
+### Таблицы стилей пользовательского агента
 
 -   [Chromium](https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css)
 -   [Firefox](https://searchfox.org/mozilla-central/source/layout/style/res/html.css)
 -   [Webkit](https://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css)
+
+:information_source: Источник: [Box Model](https://web.dev/learn/css/box-model/)

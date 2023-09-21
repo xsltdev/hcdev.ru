@@ -1,105 +1,87 @@
 ---
-title: Selectors
-description: >
-  To apply CSS to an element you need to select it.
-  CSS provides you with a number of different ways to do this,
-  and you can explore them in this module.
-audio:
-  title: 'The CSS Podcast - 002: Selectors'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast__Episode_002_v2.0_FINAL.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - andybell
-date: 2021-03-29
+description: Чтобы применить CSS к элементу, необходимо его выбрать. CSS предоставляет несколько различных способов сделать это, и в этом модуле вы можете изучить их.
+icon: material/select-drag
 ---
 
-If you've got some text that you only want to be larger and red if it's the first paragraph of an article,
-how do you do that?
+# Селекторы
+
+<big>Чтобы применить CSS к элементу, необходимо его выбрать. CSS предоставляет несколько различных способов сделать это, и в этом модуле вы можете изучить их.</big>
+
+!!!info "CSS подкаст"
+
+    002: Селекторы
+
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast__Episode_002_v2.0_FINAL.mp3?dest-id=1891556"></audio>
+
+Если у вас есть текст, который вы хотите сделать более крупным и красным, только если это первый абзац статьи, как это сделать?
 
 ```html
 <article>
-  <p>I want to be red and larger than the other text.</p>
-  <p>I want to be normal sized and the default color.</p>
+    <p>I want to be red and larger than the other text.</p>
+    <p>I want to be normal sized and the default color.</p>
 </article>
 ```
 
-You use a CSS selector to find that specific element and apply a CSS rule, like this.
+С помощью CSS-селектора можно найти конкретный элемент и применить CSS-правило, например, так.
 
 ```css
 article p:first-of-type {
-  color: red;
-  font-size: 1.5em;
+    color: red;
+    font-size: 1.5em;
 }
 ```
 
-CSS provides you with a lot of options to select elements and apply rules to them,
-ranging from very simple to very complex,
-to help solve situations like this.
+CSS предоставляет множество возможностей для выбора элементов и применения к ним правил, от очень простых до очень сложных, чтобы помочь решить подобные ситуации.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'XWprGYz',
-  height: 250
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/XWprGYz?height=250&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+## Части правила CSS
+
+Чтобы понять принцип работы селекторов и их роль в CSS, важно знать составные части правила CSS. Правило CSS - это блок кода, содержащий один или несколько селекторов и одно или несколько объявлений.
+
+<figure markdown>
+![Изображение правила CSS с селектором .my-css-rule.](box-model-2.svg)
 </figure>
 
-## The parts of a CSS rule
+В этом CSS-правиле **селектором** является `.my-css-rule`, который находит все элементы с классом `my-css-rule` на странице. Внутри фигурных скобок находятся три декларации. Объявление - это пара свойств и значений, которая применяет стили к элементам, подобранным селекторами. В правиле CSS может быть сколько угодно деклараций и селекторов.
 
-To understand how selectors work and their role in CSS,
-it's important to know the parts of a CSS rule.
-A CSS rule is a block of code,
-containing one or more selectors and one or more declarations.
+## Простые селекторы
 
-<figure>
-{% Img src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/hFR4OOwyH5zWc5XUIcyu.svg", alt="An image of a CSS rule with the selector .my-css-rule.", width="800", height="427" %}
-</figure>
+Наиболее простая группа селекторов предназначена для HTML-элементов, а также классов, идентификаторов и других атрибутов, которые могут быть добавлены к HTML-тегу.
 
-In this CSS rule, the **selector** is `.my-css-rule`
-which finds all elements with a class of `my-css-rule` on the page.
-There are three declarations within the curly brackets.
-A declaration is a property and value pair which applies styles to the elements matched by the selectors.
-A CSS rule can have as many declarations and selectors as you like.
+### Универсальный селектор
 
-## Simple selectors
+<p class="ciu_embed" data-feature="mdn-css__selectors__universal" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-The most straightforward group of selectors target HTML elements plus
-classes, IDs, and other attributes which may be added to an HTML tag.
-
-### Universal selector
-{% BrowserCompat 'css.selectors.universal' %}
-
-A [universal selector](https://developer.mozilla.org/docs/Web/CSS/Universal_selectors)—also known as a wildcard—matches any element.
+[Универсальный селектор](https://developer.mozilla.org/docs/Web/CSS/Universal_selectors) - также известный как подстановочный знак - подбирает любой элемент.
 
 ```css
 * {
-  color: hotpink;
+    color: hotpink;
 }
 ```
 
-This rule causes every HTML element on the page to have hotpink text.
+Это правило приводит к тому, что каждый HTML-элемент на странице будет иметь розовый текст.
 
-### Type selector
-{% BrowserCompat 'css.selectors.type' %}
+### Селектор типов
 
-A [type selector](https://developer.mozilla.org/docs/Web/CSS/Type_selectors)
-matches a HTML element directly.
+<p class="ciu_embed" data-feature="mdn-css__selectors__type" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
+
+[Селектор типа](https://developer.mozilla.org/docs/Web/CSS/Type_selectors) соответствует непосредственно элементу HTML.
 
 ```css
 section {
-  padding: 2em;
+    padding: 2em;
 }
 ```
 
-This rule causes every `<section>` element to have `2em` of `padding` on all sides.
+Это правило заставляет каждый элемент `<section>` иметь `2em` отступа со всех сторон.
 
-### Class selector
-{% BrowserCompat 'css.selectors.class' %}
+### Селектор классов
 
-A HTML element can have one or more items defined in their `class` attribute.
-The
-[class selector](https://developer.mozilla.org/docs/Web/CSS/Class_selectors)
-matches any element that has that class applied to it.
+<p class="ciu_embed" data-feature="mdn-css__selectors__class" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
+
+HTML-элемент может иметь один или несколько элементов, определенных в его атрибуте `class`. [Селектор class](https://developer.mozilla.org/docs/Web/CSS/Class_selectors) соответствует любому элементу, к которому применен данный класс.
 
 ```html
 <div class="my-class"></div>
@@ -107,407 +89,302 @@ matches any element that has that class applied to it.
 <p class="my-class"></p>
 ```
 
-Any element that has the class applied to it will get colored red:
+Любой элемент, к которому применен данный класс, будет окрашен в красный цвет:
 
 ```css
 .my-class {
-  color: red;
+    color: red;
 }
 ```
 
-Notice how the `.` is only present in CSS and **not** the HTML.
-This is because the `.` character instructs the CSS language to match class attribute members.
-This is a common pattern in CSS, where a special character,
-or set of characters, is used to define selector types.
+Обратите внимание, что символ `.` присутствует только в CSS и **не** в HTML. Это связано с тем, что символ `.` указывает языку CSS на соответствие членам атрибута class. Это обычная схема в CSS, когда специальный символ или набор символов используется для определения типов селекторов.
 
-A HTML element that has a class of `.my-class` will still be matched to the above CSS rule,
-even if they have several other classes, like this:
+Элемент HTML, имеющий класс `.my-class`, все равно будет соответствовать приведенному выше правилу CSS, даже если у него есть несколько других классов, например, такой:
 
 ```html
 <div class="my-class another-class some-other-class"></div>
 ```
 
-This is because CSS looks for a `class` attribute that _contains_ the defined class,
-rather than matching that class exactly.
+Это происходит потому, что CSS ищет атрибут `class`, который _содержит_ определенный класс, вместо того чтобы точно соответствовать этому классу.
 
-{% Aside %}
-The value of a class attribute can be almost anything you want it to be.
-One thing that could trip you up, is that you can't start a class (or an ID) with a number,
-such as `.1element`.
-You can read more [in the specification](https://www.w3.org/TR/CSS21/syndata.html#characters).
-{% endAside %}
+!!!note ""
 
-### ID selector
-{% BrowserCompat 'css.selectors.id' %}
+    Значение атрибута `class` может быть практически любым. Одна вещь, которая может поставить вас в тупик, заключается в том, что вы не можете начинать класс (или идентификатор) с числа, например `.1element`. Подробнее об этом можно прочитать [в спецификации](https://www.w3.org/TR/CSS21/syndata.html#characters).
 
-An HTML element with an `id` attribute should be the only element on a page with that ID value.
-You select elements with an
-[ID selector](https://developer.mozilla.org/docs/Web/CSS/ID_selectors) like this:
+### Селектор ID
+
+<p class="ciu_embed" data-feature="mdn-css__selectors__id" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
+
+HTML-элемент с атрибутом `id` должен быть единственным элементом на странице с таким значением ID. Выбираются элементы с помощью [ID-селектора](https://developer.mozilla.org/docs/Web/CSS/ID_selectors) следующим образом:
 
 ```css
 #rad {
-  border: 1px solid blue;
+    border: 1px solid blue;
 }
 ```
 
-This CSS would apply a blue border to the HTML element that has an `id` of `rad`, like this:
+Этот CSS применит синюю рамку к элементу HTML, имеющему `id` равный `rad`, следующим образом:
 
 ```html
 <div id="rad"></div>
 ```
 
-Similarly to the class selector `.`,
-use a `#` character to instruct CSS to look for an element that matches the `id` that follows it.
+Аналогично селектору класса `.`, используйте символ `#`, чтобы указать CSS на поиск элемента, соответствующего следующему за ним `id`.
 
-{% Aside %}
-If the browser encounters more than one instance of an `id`
-it will still apply any CSS rules that match its selector.
-However, any element that has an `id` attribute is supposed to have a unique value for it,
-so unless you're writing very specific CSS for a single element,
-avoid applying styles with the `id` selector as it means you can't re-use those styles elsewhere.
-{% endAside %}
+!!!note ""
 
-### Attribute selector
-{% BrowserCompat 'css.selectors.attribute' %}
+    Если браузер встречает более одного экземпляра `id`, он все равно применит все правила CSS, соответствующие его селектору. Однако любой элемент, имеющий атрибут `id`, должен иметь уникальное значение, поэтому, если вы не пишете очень специфический CSS для одного элемента, избегайте применения стилей с селектором `id`, поскольку это означает, что вы не сможете повторно использовать эти стили в других местах.
 
-You can look for elements that have a certain HTML attribute,
-or have a certain value for an HTML attribute,
-using the [attribute selector](https://developer.mozilla.org/docs/Web/CSS/Attribute_selectors).
-Instruct CSS to look for attributes by wrapping the selector with square brackets (`[ ]`).
+### Селектор атрибута
+
+<p class="ciu_embed" data-feature="mdn-css__selectors__attribute" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
+
+С помощью селектора [атрибутов](https://developer.mozilla.org/docs/Web/CSS/Attribute_selectors) можно искать элементы, имеющие определенный HTML-атрибут или определенное значение для HTML-атрибута. Чтобы указать CSS на поиск атрибутов, оберните селектор квадратными скобками (`[ ]`).
 
 ```css
 [data-type='primary'] {
-  color: red;
+    color: red;
 }
 ```
 
-This CSS looks for all elements that have an attribute of `data-type` with a value of `primary`, like this:
+Этот CSS ищет все элементы, имеющие атрибут `data-type` со значением `primary`, следующим образом:
 
 ```html
 <div data-type="primary"></div>
 ```
 
-Instead of looking for a specific value of `data-type`,
-you can also look for elements with the attribute present, regardless of its value.
+Вместо того чтобы искать конкретное значение `data-type`, можно также искать элементы с присутствующим атрибутом, независимо от его значения.
 
 ```css
 [data-type] {
-  color: red;
+    color: red;
 }
 ```
+
+---
 
 ```html
 <div data-type="primary"></div>
 <div data-type="secondary"></div>
 ```
 
-Both of these `<div>` elements will have red text.
+Оба этих элемента `<div>` будут иметь красный текст.
 
-You can use case-sensitive attribute selectors
-by adding an `s` operator to your attribute selector.
+Вы можете использовать селекторы атрибутов с учетом регистра, добавив в селектор атрибутов оператор `s`.
 
 ```css
 [data-type='primary' s] {
-  color: red;
+    color: red;
 }
 ```
 
-This means that if a HTML element had a `data-type` of `Primary`,
-instead of `primary`, it would not get red text.
-You can do the opposite—case insensitivity—by using an `i` operator.
+Это означает, что если у элемента HTML `data-type` будет `Primary`, а не `primary`, то он не получит красного текста. Противоположное действие - нечувствительность к регистру - можно осуществить с помощью оператора `i`.
 
-Along with case operators,
-you have access to operators that match portions of strings inside attribute values.
+Наряду с операторами регистра, доступны операторы, которые сопоставляют части строк внутри значений атрибутов.
 
 ```css
 /* A href that contains "example.com" */
 [href*='example.com'] {
-  color: red;
+    color: red;
 }
 
 /* A href that starts with https */
 [href^='https'] {
-  color: green;
+    color: green;
 }
 
 /* A href that ends with .com */
 [href$='.com'] {
-  color: blue;
+    color: blue;
 }
 ```
 
-<figure>
-{% Codepen {
-    user: 'web-dot-dev',
-    id: 'BapBbOy'
-  } %}
-  <figcaption>In this demo, the `$` operator in our attribute selector gets the filetype from the `href` attribute.
-  This makes it possible to prefix the label—based on that filetype—using a pseudo-element.</figcaption>
+<figure markdown>
+<iframe src="https://codepen.io/web-dot-dev/embed/BapBbOy?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+<figcaption markdown>В данном примере оператор `$` в селекторе атрибутов получает тип файла из атрибута `href`. Это позволяет использовать псевдоэлемент для префиксации метки, основанной на этом файловом типе.</figcaption>
 </figure>
 
-### Grouping selectors
+### Группировка селекторов
 
-A selector doesn't have to match only a single element.
-You can group multiple selectors by separating them with commas:
+Селектор не обязательно должен соответствовать только одному элементу. Вы можете сгруппировать несколько селекторов, разделив их запятыми:
 
 ```css
 strong,
 em,
 .my-class,
 [lang] {
-  color: red;
+    color: red;
 }
 ```
 
-This example extends the color change to both `<strong>` elements and `<em>` elements.
-It's also extended to a class named `.my-class`, and an element that has a `lang` attribute.
+В данном примере изменение цвета распространяется как на элементы `<strong>`, так и на элементы `<em>`. Оно также распространяется на класс с именем `.my-class` и элемент, имеющий атрибут `lang`.
 
-{% Assessment 'simple-selectors' %}
+## Псевдоклассы и псевдоэлементы
 
-## Pseudo-classes and pseudo-elements
+CSS предоставляет полезные типы селекторов, которые фокусируются на определенном состоянии платформы, например, когда элемент наведен, структуры _внутри_ элемента или части элемента.
 
-CSS provides useful selector types that focus on specific platform state,
-like when an element is hovered, structures _inside_ an element, or parts of an element.
+### Псевдоэлементы
 
-### Pseudo-classes
+HTML-элементы оказываются в различных состояниях либо потому, что с ними взаимодействуют, либо потому, что один из их дочерних элементов находится в определенном состоянии.
 
-HTML elements find themselves in various states,
-either because they are interacted with,
-or one of their child elements is in a certain state.
-
-For example, an HTML element could be hovered with the mouse pointer by a user
-_or_ a child element could also be hovered by the user.
-For those situations, use the `:hover` pseudo-class.
+Например, на HTML-элемент может быть наведен указатель мыши пользователем, или дочерний элемент также может быть наведен пользователем. Для таких ситуаций следует использовать псевдокласс `:hover`.
 
 ```css
 /* Our link is hovered */
 a:hover {
-  outline: 1px dotted green;
+    outline: 1px dotted green;
 }
 
 /* Sets all even paragraphs to have a different background */
 p:nth-child(even) {
-  background: floralwhite;
+    background: floralwhite;
 }
 ```
 
-Find out more in the [pseudo-classes module](/learn/css/pseudo-classes).
+Более подробная информация содержится в модуле [pseudo-classes](pseudo-classes.md).
 
-### Pseudo-element
+### Псевдоэлемент
 
-Pseudo-elements differ from pseudo-classes because instead of responding to the platform state,
-they act as if they are inserting a new element with CSS.
-Pseudo-elements are also syntactically different from pseudo-classes,
-because instead of using a single colon (`:`), we use a double colon (`::`).
+Псевдоэлементы отличаются от псевдоклассов тем, что вместо того, чтобы реагировать на состояние платформы, они ведут себя так, как будто вставляют новый элемент с помощью CSS. Псевдоэлементы также синтаксически отличаются от псевдоклассов, поскольку вместо одинарного двоеточия (`:`) мы используем двойное двоеточие (`::`).
 
-{% Aside %}
-A double colon (`::`) is what distinguishes a pseudo-element from a pseudo-class,
-but because this distinction wasn't present in older versions of CSS specs,
-browsers support a single colon for the original pseudo-elements,
-such as `:before` and `:after` to help with backwards compatibility with older browsers, like IE8.
-{% endAside %}
+!!!note ""
+
+    Двойное двоеточие (`::`) отличает псевдоэлемент от псевдокласса, но поскольку в старых версиях спецификаций CSS это различие отсутствовало, браузеры поддерживают одинарное двоеточие для оригинальных псевдоэлементов, таких как `:before` и `:after`, чтобы обеспечить обратную совместимость со старыми браузерами, например IE8.
 
 ```css
 .my-element::before {
-  content: 'Prefix - ';
+    content: 'Prefix - ';
 }
 ```
 
-As in the above demo where you prefixed a link's label with the type of file it was,
-you can use the `::before` pseudo-element to insert content **at the start of an element**,
-or the `::after` pseudo-element to insert content at the **end of an element**.
+Как и в приведенном выше примере, где в метке ссылки указывался тип файла, псевдоэлемент `::before` можно использовать для вставки содержимого **в начало элемента**, а псевдоэлемент `::after` - в **конец элемента**.
 
-Pseudo-elements aren't limited to inserting content, though.
-You can also use them to target specific parts of an element.
-For example, suppose you have a list.
-Use `::marker` to style each bullet point (or number) in the list
+Однако псевдоэлементы не ограничиваются вставкой содержимого. Их также можно использовать для указания конкретных частей элемента. Например, предположим, что у вас есть список. Используйте `::marker` для стилизации каждого пункта (или номера) в списке
 
 ```css
 /* Your list will now either have red dots, or red numbers */
 li::marker {
-  color: red;
+    color: red;
 }
 ```
 
-You can also use `::selection` to style the content that has been highlighted by a user.
+Вы также можете использовать `::selection` для стилизации содержимого, которое было выделено пользователем.
 
 ```css
 ::selection {
-  background: black;
-  color: white;
+    background: black;
+    color: white;
 }
 ```
 
-Learn more in the [module on pseudo-elements](/learn/css/pseudo-elements).
+Более подробная информация содержится в [модуле по псевдоэлементам](pseudo-elements.md).
 
-{% Assessment 'pseudo-selectors' %}
+## Сложные селекторы
 
-## Complex selectors
+Вы уже познакомились с огромным количеством селекторов, но иногда требуется более тонкий контроль над CSS. В этом случае на помощь приходят сложные селекторы.
 
-You have already seen a vast array of selectors,
-but sometimes, you will need more _fine-grained control_ with your CSS.
-This is where complex selectors step in to help.
+Стоит помнить, что, хотя следующие селекторы дают нам больше возможностей, мы можем только **каскадировать вниз**, выбирая дочерние элементы. Мы не можем нацелиться вверх и выбрать родительский элемент. Что такое каскад и как он работает, мы рассмотрим [в одном из следующих уроков](the-cascade.md).
 
-It's worth remembering at this point that although the following selectors give us more power,
-we can only **cascade downwards**, selecting child elements.
-We are not able to target upwards and select a parent element.
-We cover what the cascade is and how it works
-[in a later lesson](/learn/css/the-cascade).
+### Комбинаторы
 
-### Combinators
+Комбинатор - это то, что находится между двумя селекторами. Например, если селектор был `p > strong`, то комбинатор - это символ `>`. Селекторы, использующие эти комбинаторы, помогают выбирать элементы в зависимости от их положения в документе.
 
-A combinator is what sits between two selectors.
-For example, if the selector was `p > strong`, the combinator is the `>` character.
-The selectors which use these combinators help you select items based on their position in the document.
+#### Комбинатор-потомок
 
-#### Descendant combinator
-
-To understand descendant combinators,
-you need to first understand parent and child elements.
+Чтобы понять, что такое комбинаторы-потомки, необходимо сначала разобраться с родительскими и дочерними элементами.
 
 ```html
-<p>A paragraph of text with some <strong>bold text for emphasis</strong>.</p>
+<p>
+    A paragraph of text with some
+    <strong>bold text for emphasis</strong>.
+</p>
 ```
 
-The parent element is the `<p>` which contains text.
-Inside that `<p>` element is a `<strong>` element, making its content bold.
-Because it is inside the `<p>`, it is a child element.
+Родительским элементом является `<p>`, содержащий текст. Внутри этого элемента `<p>` находится элемент `<strong>`, делающий его содержимое жирным. Поскольку он находится внутри `<p>`, он является дочерним элементом.
 
-A descendant combinator allows us to target a child element.
-This uses a space (` `) to instruct the browser to look for child elements:
+Комбинатор потомков позволяет нам нацелиться на дочерний элемент. С помощью пробела (` `) браузеру дается указание искать дочерние элементы:
 
 ```css
 p strong {
-  color: blue;
+    color: blue;
 }
 ```
 
-This snippet selects all `<strong>` elements
-that are child elements of `<p>` elements only, making them blue recursively.
+Этот фрагмент выбирает все `<strong>` элементы, которые являются дочерними элементами только `<p>` элементов, делая их синими рекурсивно.
 
 <figure>
-  {% Codepen {
-    user: 'web-dot-dev',
-    id: 'BapBbGN'
-  } %}
-  <figcaption>Because the descendant combinator is recursive,
-the padding added to each child element applies, resulting in a staggered effect.</figcaption>
+<iframe src="https://codepen.io/web-dot-dev/embed/BapBbGN?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+<figcaption>Поскольку комбинатор потомков является рекурсивным, то добавляемая к каждому дочернему элементу прокладка применяется, что приводит к ступенчатому эффекту.</figcaption>
 </figure>
 
-This effect is better visualised in the above example,
-using the combinator selector, `.top div`.
-That CSS rule adds left padding to those `<div>` elements.
-Because the combinator is recursive,
-all `<div>` elements that are in `.top` will have that same padding applied to them.
+Этот эффект лучше всего визуализировать в приведенном выше примере, используя комбинаторный селектор `.top div`. Это правило CSS добавляет левую подложку к элементам `<div>`. Поскольку комбинатор является рекурсивным, ко всем элементам `<div>`, находящимся в `.top`, будет применен тот же самый padding.
 
-Take a look at the HTML panel in this demo
-to see how the `.top` element has several `<div>` child elements which themselves,
-have `<div>` child elements.
+Посмотрите на HTML-панель в этом примере, чтобы увидеть, как элемент `.top` имеет несколько дочерних элементов `<div>`, которые сами имеют дочерние элементы `<div>`.
 
-#### Next sibling combinator
+#### Комбинатор следующих сиблингов
 
-You can look for an element that immediately follows another element
-by using a `+` character in your selector.
+Вы можете искать элемент, который непосредственно следует за другим элементом, используя в селекторе символ `+`.
 
 <figure>
-{% Codepen {
-    user: 'web-dot-dev',
-    id: 'JjEPzwB'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/JjEPzwB?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 </figure>
 
-To add space between stacked elements,
-use the next sibling combinator to add space
-_only_ if an element is a **next sibling** of a child element of `.top`.
+Чтобы добавить пространство между сложенными элементами, используйте комбинатор next sibling для добавления пространства _только_ если элемент является **next sibling** дочернего элемента `.top`.
 
-You could add margin to all child elements of `.top`,
-using the following selector:
+Можно добавить отступ ко всем дочерним элементам `.top`, используя следующий селектор:
 
 ```css
 .top * {
-  margin-top: 1em;
+    margin-top: 1em;
 }
 ```
 
-The problem with this is that because you're selecting every child element of `.top`,
-this rule potentially creates extra, unnecessary space.
-The **next sibling combinator**,
-mixed with a **universal selector** enables you to not only control what elements get space,
-but also apply space to **any element**.
-This provides you with some long-term flexibility,
-regardless of what HTML elements appear in `.top`.
+Проблема заключается в том, что, выбирая каждый дочерний элемент `.top`, это правило потенциально создает дополнительное, ненужное пространство. Комбинатор **next sibling combinator** в сочетании с **универсальным селектором** позволяет не только контролировать, какие элементы получают пространство, но и применять пространство к **любому элементу**. Это обеспечивает определенную долгосрочную гибкость, независимо от того, какие HTML-элементы появляются в `.top`.
 
-#### Subsequent- sibling combinator
+#### Комбинатор последующих братьев и сестер
 
-A subsequent combinator is very similar to a next sibling selector.
-Instead of a `+` character however,
-use a `~` character.
-How this differs is that an element just has to follow another element with the same parent,
-rather than being the next element with the same parent.
+Комбинатор subsequent очень похож на селектор next sibling. Однако вместо символа `+` используется символ `~`. Отличие заключается в том, что элемент просто должен следовать за другим элементом с тем же родителем, а не быть следующим элементом с тем же родителем.
 
-<figure>
-  {% Codepen {
-    user: 'web-dot-dev',
-    id: 'ZELzPPX',
-    height: 400
-  } %}
-  <figcaption>Use a subsequent selector along with a `:checked` pseudo class to create a pure CSS switch element.</figcaption>
+<figure markdown>
+<iframe src="https://codepen.io/web-dot-dev/embed/ZELzPPX?height=400&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+<figcaption markdown>Используйте последующий селектор вместе с псевдоклассом `:checked` для создания чистого CSS-элемента switch.</figcaption>
 </figure>
 
-This subsequent combinator provides a little less rigidity,
-which is useful in contexts like the above sample,
-where we change the color of a custom switch when its associated checkbox has the `:checked` state.
+Этот последующий комбинатор обеспечивает меньшую жесткость, что полезно в контекстах, подобных приведенному выше примеру, где мы изменяем цвет пользовательского переключателя, когда связанный с ним флажок имеет состояние `:checked`.
 
-#### Child combinator
+#### Дочерний комбинатор
 
-A child combinator (also known as direct descendant)
-allows you more control over the recursion that comes with combinator selectors.
-By using the `>` character, you limit the combinator selector to apply **only** to direct children.
+Дочерний комбинатор (также известный как прямой потомок) позволяет лучше контролировать рекурсию, присущую комбинаторным селекторам. Используя символ `>`, вы ограничиваете применение комбинаторного селектора **только** к прямым дочерним элементам.
 
-Consider the previous, next sibling selector example.
-The space is added to each **next sibling**,
-but if one of those elements also has **next sibling elements** as children,
-it can result in undesirable, extra spacing.
+Рассмотрим пример с селектором предыдущего, следующего брата или сестры. Пробел добавляется к каждому **следующему брату**, но если один из этих элементов также имеет в качестве дочерних элементов **следующие братья и сестры**, то это может привести к нежелательным дополнительным пробелам.
 
 <figure>
-{% Codepen {
-    user: 'web-dot-dev',
-    id: 'ExZYMJL'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/ExZYMJL?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 </figure>
 
-To alleviate this problem,
-change the **next sibling selector** to incorporate a child combinator: `> * + *`.
-The rule will now **only** apply to direct children of `.top`.
+Чтобы решить эту проблему, измените селектор **next sibling selector** на комбинатор дочерних элементов: `> * + *`. Теперь правило будет применяться **только** к прямым дочерним элементам `.top`.
 
 <figure>
-{% Codepen {
-    user: 'web-dot-dev',
-    id: 'dyNbrEr'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/dyNbrEr?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 </figure>
 
-### Compound selectors
+### Составные селекторы
 
-You can combine selectors to increase specificity and readability.
-For example, to target `<a>` elements,
-that also have a class of `.my-class`, write the following:
+Для повышения конкретности и читабельности можно комбинировать селекторы. Например, чтобы выделить элементы `<a>`, которые также имеют класс `.my-class`, напишите следующее:
 
 ```css
 a.my-class {
-  color: red;
+    color: red;
 }
 ```
 
-This wouldn't apply a red color to all links
-and it would also only apply the red color to `.my-class` **if** it was on an `<a>` element.
-For more on this, see the [specificity module](/learn/css/specificity).
+В этом случае красный цвет будет применяться не ко всем ссылкам, а только к `.my-class` **если** он находится на элементе `<a>`. Подробнее об этом см. в модуле [Специфика](specificity.md).
 
-{% Assessment 'complex-selectors' %}
+## Ресурсы
 
-## Resources
+-   [Справочник по селекторам CSS](https://developer.mozilla.org/docs/Web/CSS/CSS_Selectors)
+-   [Интерактивная игра по селекторам](https://flukeout.github.io/)
+-   [Справочник по псевдоклассам и псевдоэлементам](https://developer.mozilla.org/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)
+-   [Инструмент, переводящий CSS-селекторы в понятные объяснения на английском языке](https://kittygiraudel.github.io/selectors-explained/)
 
-- [CSS selectors reference](https://developer.mozilla.org/docs/Web/CSS/CSS_Selectors)
-- [Interactive selectors game](https://flukeout.github.io/)
-- [Pseudo-class and pseudo-elements reference](https://developer.mozilla.org/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)
-- [A tool that translates CSS selectors into plain-english explainers](https://kittygiraudel.github.io/selectors-explained/)
+:information_source: Источник: [Selectors](https://web.dev/learn/css/selectors/)
