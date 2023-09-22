@@ -5,8 +5,8 @@ nav:
     - selectors.md
     - the-cascade.md
     - specificity.md
-    #- inheritance.md
-    #- color.md
+    - inheritance.md
+    - color.md
     #- sizing.md
     #- layout.md
     #- flexbox.md
