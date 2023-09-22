@@ -1,275 +1,156 @@
 ---
-title: Color
-description: >
-  There are several different ways to specify color in CSS.
-  In this module we take a look at the most commonly used color values.
-audio:
-  title: 'The CSS Podcast - 006: Color Part One'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast__Episode_006_v3.0.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - andybell
-date: 2021-04-01
+description: Существует несколько различных способов задания цвета в CSS. В этом модуле мы рассмотрим наиболее часто используемые значения цвета.
+icon: material/format-color-fill
 ---
 
-Color is an important part of any website and in CSS there are many options for color types,
-functions and treatments.
+# Цвет
 
-How do you decide which color type to use?
-How do you make your colors semi-transparent?
-In this lesson,
-you're going to learn which options you have to help you make the right decisions for your project and team.
+<big>Существует несколько различных способов задания цвета в CSS. В этом модуле мы рассмотрим наиболее часто используемые значения цвета.</big>
 
-CSS has [various different data types](https://developer.mozilla.org/docs/Web/CSS/CSS_Types),
-such as strings and numbers.
-Color is one of these types and uses other types,
-such as numbers for its own definitions.
+!!!info "CSS подкаст"
 
-## Numeric colors
+    006: Цвет Часть первая
 
-It is very likely that your first exposure to colors in CSS is via numeric colors.
-We can work with numerical color values in a few different forms.
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast__Episode_006_v3.0.mp3?dest-id=1891556"></audio>
 
-### Hex colors
+Цвет является важной частью любого сайта, а в CSS существует множество вариантов типов, функций и обработок цвета.
+
+Как решить, какой тип цвета использовать? Как сделать цвета полупрозрачными? В этом уроке вы узнаете, какие варианты есть, что поможет вам принять правильное решение для вашего проекта и команды.
+
+В CSS существуют [различные типы данных](https://developer.mozilla.org/docs/Web/CSS/CSS_Types), такие как строки и числа. Цвет является одним из этих типов и использует другие типы, такие как числа, для своих определений.
+
+## Числовые цвета
+
+Вполне вероятно, что первое знакомство с цветами в CSS происходит через числовые цвета. Мы можем работать с числовыми значениями цветов в нескольких различных формах.
+
+### Шестнадцатеричные цвета
 
 ```css
 h1 {
-  color: #b71540;
+    color: #b71540;
 }
 ```
 
-Hexadecimal notation (often shortened to hex) is a shorthand syntax for RGB,
-which assigns a numeric value to red green and blue,
-which are the three **primary colors**.
+Шестнадцатеричная нотация (часто сокращаемая до hex) - это сокращенный синтаксис для RGB, который присваивает числовое значение красному, зеленому и синему цветам, которые являются тремя **основными цветами**.
 
-{% Aside %}
-According to the Web Almanac,
-[hex is the most popular color syntax type](https://almanac.httparchive.org/en/2019/css#color-types).
-{% endAside %}
+!!!tip ""
 
-The hexadecimal ranges are **0-9** and **A-F**.
-When used in a six digit sequence,
-they are translated to the RGB numerical ranges which are 0-255
-which correspond to the red, green, and blue color channels respectively.
+    По данным Web Almanac, [hex - самый популярный тип синтаксиса цвета](https://almanac.httparchive.org/en/2019/css#color-types).
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'BapNrPG',
-  height: 430
-} %}
-</figure>
+Шестнадцатеричные диапазоны - **0-9** и **A-F**. При использовании шестизначной последовательности они переводятся в числовые диапазоны RGB, которые составляют 0-255 и соответствуют красному, зеленому и синему цветовым каналам соответственно.
 
-You can also define an alpha value with any numerical colors.
-An alpha value is a percentage of transparency.
-In hex code, you add another two digits to the six digit sequence,
-making an eight digit sequence.
-For example, to set black in hex code, write `#000000`.
-To add a 50% transparency, change it to `#00000080`.
+<iframe src="https://codepen.io/web-dot-dev/embed/BapNrPG?height=430&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Because the hex scale is **0-9** and **A-F**, the transparency values are probably not quite what you'd expect them to be.
-Here are some key, common values added to the black hex code, `#000000`:
+Также можно задать альфа-значение для любых числовых цветов. Альфа-значение - это процент прозрачности. В шестнадцатеричном коде к шестизначной последовательности добавляются еще две цифры, и получается восьмизначная последовательность. Например, чтобы задать черный цвет в шестнадцатеричном коде, напишите `#000000`. Чтобы добавить 50% прозрачности, измените его на `#00000080`.
 
-- 0% alpha—which is fully transparent—is **00**: `#00000000`
-- 50% alpha is **80**: `#00000080`
-- 75% alpha is **BF**: `#000000BF`
+Поскольку шестнадцатеричная шкала имеет вид **0-9** и **A-F**, значения прозрачности, вероятно, не совсем такие, как вы ожидаете. Вот некоторые ключевые, общепринятые значения, добавляемые к черному шестнадцатеричному коду `#000000`:
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'VwPLXdr',
-  height: 540
-} %}
-</figure>
+-   0% альфа, т. е. полная прозрачность - **00**: `#00000000`
+-   50% альфа - это **80**: `#00000080`
+-   75% альфа - это **BF**: `#000000BF`
 
-To convert a two digit hex to a decimal,
-take the first digit and multiply it by 16 (because hex is base 16),
-then add the second digit. Using **BF** as an example for 75% alpha:
+<iframe src="https://codepen.io/web-dot-dev/embed/VwPLXdr?height=540&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-1. B is equal to 11, which when multiplied by 16 equals 176
-1. F is equal to 15
-1. 176 + 15 = 191
-1. The alpha value is 191—75% of 255
+Чтобы преобразовать двузначное шестнадцатеричное число в десятичное, нужно взять первую цифру и умножить ее на 16 (поскольку шестнадцатеричное число имеет основание 16), а затем прибавить вторую цифру. На примере **BF** для 75% альфа:
 
-{% Aside %}
-You can also write hex codes in a three digit shorthand.
-A three digit hex code is a shortcut to an equivalent six digit sequence.
-For example, `#a4e` is identical to `#aa44ee`.
-To add alpha, then `#a4e8` would expand to `#aa44ee88`.
-{% endAside %}
+1.  B равно 11, что при умножении на 16 равно 176
+2.  F равно 15
+3.  176 + 15 = 191
+4.  Значение альфа равно 191-75% от 255
+
+!!!tip "Сокращенная hex запись"
+
+    Можно также записывать шестнадцатеричные коды в виде трехзначной стенограммы. Трехзначный шестнадцатеричный код - это сокращение эквивалентной шестизначной последовательности. Например, `#a4e` идентичен `#aa44ee`. Если добавить альфу, то `#a4e8` расширится до `#aa44ee88`.
 
 ### RGB (Red, Green, Blue)
 
 ```css
 h1 {
-  color: rgb(183, 21, 64);
+    color: rgb(183, 21, 64);
 }
 ```
 
-RGB colors are defined with the
-[`rgb()`](<https://developer.mozilla.org/docs/Web/CSS/color_value/rgb()>) color function,
-using either numbers or percentages as parameters.
-The numbers need to be within the **0-255** range and the percentages are between **0% and 100%‌**.
-RGB works on the 0-255 scale,
-so 255 would be equivalent to 100%, and 0 to 0%.
+Цвета RGB задаются с помощью цветовой функции [`rgb()`](<https://developer.mozilla.org/docs/Web/CSS/color_value/rgb()>), используя в качестве параметров либо числа, либо проценты. Числа должны находиться в диапазоне **0-255**, а проценты - в диапазоне от **0% до 100%**. RGB работает по шкале 0-255, поэтому 255 будет эквивалентно 100%, а 0 - 0%.
 
-To set black in RGB, define it as `rgb(0 0 0)`,
-which is zero red, zero green and zero blue.
-Black can also be defined as `rgb(0%, 0%, 0%)`.
-White is the exact opposite: `rgb(255, 255, 255)` or `rgb(100%, 100%, 100%)`.
+Чтобы задать черный цвет в RGB, определите его как `rgb(0 0 0)`, то есть ноль красного, ноль зеленого и ноль синего. Черный цвет также можно определить как `rgb(0%, 0%, 0%)`. Белый цвет - полная противоположность: `rgb(255, 255, 255)` или `rgb(100%, 100%, 100%)`.
 
-An alpha is set in `rgb()` in one of two ways.
-Either add a `/` **after** the red, green and blue parameters,
-or use the [`rgba()`](<https://developer.mozilla.org/docs/Web/CSS/color_value/rgba()>) function.
-The alpha can be defined with a percentage or a decimal between 0 and 1.
-For example, to set a 50% alpha black in modern browsers, write: `rgb(0 0 0 / 50%)` or `rgb(0 0 0 / 0.5)`.
-For wider support, using the `rgba()` function,
-write: `rgba(0, 0, 0, 50%)` or `rgba(0, 0, 0, 0.5)`.
+Альфа задается в `rgb()` одним из двух способов. Либо добавить символ `/` **после** параметров красного, зеленого и синего цветов, либо использовать функцию [`rgba()`](<https://developer.mozilla.org/docs/Web/CSS/color_value/rgba()>). Альфа может быть задана в процентах или в десятичной дроби от 0 до 1. Например, чтобы задать 50% альфа черного цвета в современных браузерах, напишите: `rgb(0 0 0 / 50%)` или `rgb(0 0 0 / 0,5)`. Для более широкой поддержки, используя функцию `rgba()`, напишите: `rgba(0, 0, 0, 50%)` или `rgba(0, 0, 0, 0.5)`.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'dyNomWW',
-  height: 430
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/dyNomWW?height=430&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Aside %}
-Commas were removed from the `rgb()` and `hsl()` notation because newer color functions,
-such as `lab()` and `lch()` use spaces instead of commas as a delimiter.
-This change provides more consistency not just with newer color functions,
-but with CSS in general.
-For better backwards compatibility,
-you can still use commas to define `rgb()` and `hsl()`.
-{% endAside %}
+!!!warning "Запятые и пробелы"
+
+    Запятые были удалены из обозначений `rgb()` и `hsl()`, поскольку в новых цветовых функциях, таких как `lab()` и `lch()`, в качестве разделителя используются пробелы, а не запятые. Это изменение обеспечивает большую согласованность не только с новыми цветовыми функциями, но и с CSS в целом. Для лучшей обратной совместимости можно по-прежнему использовать запятые для определения `rgb()` и `hsl()`.
 
 ### HSL (Hue, Saturation, Lightness)
 
 ```css
 h1 {
-  color: hsl(344, 79%, 40%);
+    color: hsl(344, 79%, 40%);
 }
 ```
 
-HSL stands for hue, saturation and lightness.
-Hue describes the value on the color wheel, from 0 to 360 degrees, starting with red (being both 0 and 360).
-A hue of 180, or 50% would be in the blue range.
-It's the origin of the color that we see.
+HSL расшифровывается как hue, saturation и lightness. **Оттенок** описывает значение на цветовом круге, от 0 до 360 градусов, начиная с красного (это и 0, и 360). Оттенок 180, или 50%, будет находиться в синем диапазоне. Это источник того цвета, который мы видим.
 
-{% Img src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/ob7MTste1Obu9AoLvbKq.svg", alt="A color wheel with labels for degree values in 60 degree increments to help visuals what each angle value represents", width="800", height="507" %}
+![Цветовой круг с обозначениями значений градусов с шагом 60 градусов помогает наглядно представить, что представляет собой каждое значение угла](color-1.svg)
 
-Saturation is how vibrant the selected hue is.
-A fully desaturated color (with a saturation of `0%`) will appear grayscale.
-And finally, lightness is the parameter which describes the scale from white to black of added light.
-A lightness of `100%` will always give you white.
+**Насыщенность** - это степень яркости выбранного оттенка. Полностью ненасыщенный цвет (с насыщенностью `0%`) будет выглядеть полутоновым. И, наконец, **светлота** - это параметр, описывающий шкалу от белого до черного цвета добавленного света. Светлота, равная `100%`, всегда будет давать белый цвет.
 
-Using the [`hsl()`](<https://developer.mozilla.org/docs/Web/CSS/color_value/hsl()>) color function,
-you define a true black by writing `hsl(0 0% 0%)`, or even `hsl(0deg 0% 0%)`.
-This is because the hue parameter defines the degree on the color wheel,
-which if you use the number type, is **0-360**.
-You can also use the angle type, which is (`0deg`) or `(0turn)`.
-Both saturation and lightness are defined with percentages.
+Используя функцию цвета [`hsl()`](<https://developer.mozilla.org/docs/Web/CSS/color_value/hsl()>), вы определяете истинный черный цвет, написав `hsl(0 0% 0%)` или даже `hsl(0deg 0% 0%)`. Это связано с тем, что параметр hue определяет градус на цветовом круге, который, если использовать числовой тип, равен **0-360**. Можно также использовать тип angle, который имеет вид (`0deg`) или `(0turn)`. Насыщенность и светлота задаются в процентах.
 
-{% Img src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/RhVxWSZ6bH35eBdN6Prj.svg", alt="The HSL color function broken down visually. The hue uses the color wheel. The saturation shows grey blending into teal. The lightness shows black into white.", width="800", height="478" %}
+![Функция цвета HSL разбита на визуальные части. Оттенок использует цветовой круг. Насыщенность показывает, как серый цвет сливается с тиловым. Светлота показывает превращение черного в белый.](color-2.svg)
 
-{% Aside %}
-[The angle type](https://developer.mozilla.org/docs/Web/CSS/angle)
-in CSS is great for defining hue because it represents the angle of the color wheel really well.
-This type accepts degrees, turns, radians and gradians.
-{% BrowserCompat 'css.types.angle' %}
-{% endAside %}
+!!!note "Тип angle"
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'poRJLQo',
-  height: 430
-} %}
-</figure>
+    [Тип angle](https://developer.mozilla.org/docs/Web/CSS/angle) в CSS отлично подходит для определения оттенка, поскольку он очень хорошо представляет угол цветового круга. Этот тип принимает градусы, повороты, радианы и градианы.
 
-Alpha is defined in `hsl()`,
-in the same way as `rgb()` by adding a `/` after the hue, saturation and lightness parameters _or_ by using the
-[`hsla()`](<https://developer.mozilla.org/docs/Web/CSS/color_value/hsla()>) function.
-The alpha can be defined with a percentage or a decimal between 0 and 1.
-For example, to set a 50% alpha black, use: `hsl(0 0% 0% / 50%)` or `hsl(0 0% 0% / 0.5)`.
-Using the `hsla()` function, write: `hsla(0, 0%, 0%, 50%)` or `hsla(0, 0%, 0%, 0.5)`.
+    <p class="ciu_embed" data-feature="mdn-css__types__angle" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-{% Aside %}
-There are some newer color types coming to CSS.
-These include [lab()](<https://developer.mozilla.org/docs/Web/CSS/color_value/lab()>)
-and [lch()](<https://developer.mozilla.org/docs/Web/CSS/color_value/lch()>),
-which allow a far wider range of color to be specified than is possible in RGB.
-{% endAside %}
+<iframe src="https://codepen.io/web-dot-dev/embed/poRJLQo?height=430&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Color Keywords
+Альфа задается в `hsl()`, так же как и в `rgb()`, путем добавления символа `/` после параметров оттенка, насыщенности и светлоты _или_ с помощью функции [`hsla()`](<https://developer.mozilla.org/docs/Web/CSS/color_value/hsla()>). Альфа может быть задана в процентах или десятичных числах от 0 до 1. Например, чтобы задать 50% альфа черного, используйте: `hsl(0 0% 0% / 50%)` или `hsl(0 0% 0% / 0.5)`. Используя функцию `hsla()`, напишите: `hsla(0, 0%, 0%, 50%)` или `hsla(0, 0%, 0%, 0.5)`.
 
-There are [148 named colors in CSS](https://developer.mozilla.org/docs/Web/CSS/color_value#color_keywords).
-These are plain English names such as purple, tomato and goldenrod.
-Some of the most popular names,
-according to the [Web Almanac](https://almanac.httparchive.org/en/2019/css),
-are black, white, red, blue and gray.
-Our favorites include goldenrod, aliceblue, and hotpink.
+!!!note ""
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'ZELGraM'
-} %}
-</figure>
+    В CSS появилось несколько новых типов цветов. К ним относятся [lab()](<https://developer.mozilla.org/docs/Web/CSS/color_value/lab()>) и [lch()](<https://developer.mozilla.org/docs/Web/CSS/color_value/lch()>), которые позволяют задать гораздо более широкий диапазон цветов, чем это возможно в RGB.
 
-Aside from standard colors, there are also special keywords available:
+## Ключевые слова цветов
 
-- `transparent` is a fully transparent color.
-  It is also the initial value of `background-color`
-- `currentColor` is the contextual computed dynamic value of the `color` property.
-  If you have a text color of `red` and then set the `border-color` to be `currentColor`, it will also be red.
-  If the element that you define `currentColor` on doesn't have a value for `color` defined,
-  `currentColor` will be computed by the cascade instead
+В CSS существует [148 названий цветов](https://developer.mozilla.org/docs/Web/CSS/color_value#color_keywords). Это такие простые английские названия, как `purple`, `tomato` и `goldenrod`. По данным [Web Almanac](https://almanac.httparchive.org/en/2019/css), наиболее популярными являются черный, белый, красный, синий и серый. Нашими любимыми являются `goldenrod`, `aliceblue` и `hotpink`.
 
-{% Aside %}
-System keywords are colors that are defined by your operating system theme.
-Some examples of these colors are `Background`,
-which is the desktop background color or `Highlight`,
-which is the highlight color of selected items. These are just two of
-[many options](https://www.w3.org/wiki/CSS/Properties/color/keywords#System_Colors).
+<iframe src="https://codepen.io/web-dot-dev/embed/ZELGraM?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-All color keywords are case-insensitive,
-however you will often see system colors with capitalization to differentiate them from standard color keywords.
-{% endAside %}
+Помимо стандартных цветов, существуют также специальные ключевые слова:
 
-## Where to use color in CSS rules
+-   `transparent` - полностью прозрачный цвет. Он также является начальным значением `background-color`.
+-   `currentColor` - это контекстно вычисляемое динамическое значение свойства `color`. Если у вас есть цвет текста `red`, а затем установить `border-color` в значение `currentColor`, то он также будет красным. Если элемент, для которого задается `currentColor`, не имеет определенного значения для `color`, то `currentColor` будет вычисляться каскадом.
 
-If a CSS property accepts the
-[`<color>`](https://developer.mozilla.org/docs/Web/CSS/color_value) data type as a value,
-it will accept any of the above methods of expressing color.
-For styling text, use the `color`, `text-shadow` and `text-decoration-color` properties
-which all accept color as the value or color as part of the value.
+!!!note ""
 
-For backgrounds, you can set a color as the value for `background` or `background-color`.
-Colors can also be used in gradients, such as `linear-gradient`.
-Gradients are a type of image that can be programmatically defined in CSS.
-Gradients accept two or more colors in any combination of color format, such as hex, rgb or hsl.
+    **Системные ключевые слова** - это цвета, которые определяются темой операционной системы. Примерами таких цветов являются `Background` - цвет фона рабочего стола или `Highlight` - цвет подсветки выделенных элементов. Это только два из [множества вариантов](https://www.w3.org/wiki/CSS/Properties/color/keywords#System_Colors).
 
-{% Aside %}
-There's lots to learn with gradients so we wrote [a whole lesson](/learn/css/gradients) on how to use them.
-{% endAside %}
+    Все ключевые слова цвета не чувствительны к регистру, однако часто можно встретить системные цвета с заглавной буквы, чтобы отличить их от стандартных ключевых слов цвета.
 
-Finally, `border-color`, and `outline-color` set the color for borders and outlines on your boxes.
-The `box-shadow` property also accepts color as one of the values.
+## Где использовать цвет в правилах CSS
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'bGgdJKd'
-} %}
-</figure>
+Если свойство CSS принимает в качестве значения тип данных [`<color>`](https://developer.mozilla.org/docs/Web/CSS/color_value), то оно будет принимать любой из перечисленных выше способов выражения цвета. Для стилизации текста используются свойства `color`, `text-shadow` и `text-decoration-color`, которые принимают цвет в качестве значения или как часть значения.
 
-{% Assessment 'color' %}
+Для фона можно задать цвет в качестве значения для `background` или `background-color`. Цвета также могут использоваться в градиентах, например, в `linear-gradient`. **Градиенты** - это тип изображения, который может быть программно задан в CSS. Градиенты могут содержать два или более цветов в любой комбинации цветовых форматов, таких как hex, rgb или hsl.
 
-## Resources
+!!!note ""
 
-- [A handy demo showing how you can use angles with HSL](https://codepen.io/argyleink/pen/ExjReJa)
-- [A comprehensive guide on color](https://css-tricks.com/nerds-guide-color-web/)
-- [A comprehensive guide on wide gamut color](https://developer.chrome.com/articles/high-definition-css-color-guide/)
-- [[video] An explainer on how to read hex codes](https://www.youtube.com/watch?v=eqZqx6lRPe0)
-- [How hexadecimal codes work](https://medium.com/basecs/hexs-and-other-magical-numbers-9785bc26b7ee)
+    С градиентами можно многому научиться, поэтому мы написали [целый урок](gradients.md) о том, как их использовать.
+
+Наконец, свойства `border-color` и `outline-color` задают цвет границ и контуров боксов. Свойство `box-shadow` также принимает цвет в качестве одного из значений.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/bGgdJKd?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+## Ресурсы
+
+-   [Удобная демонстрация, показывающая, как можно использовать углы с HSL](https://codepen.io/argyleink/pen/ExjReJa)
+-   [Исчерпывающее руководство по цвету](https://css-tricks.com/nerds-guide-color-web/)
+-   [Исчерпывающее руководство по цвету в широкой гамме](https://developer.chrome.com/articles/high-definition-css-color-guide/)
+-   [[видео] Объяснение, как читать шестнадцатеричные коды](https://www.youtube.com/watch?v=eqZqx6lRPe0)
+-   [Как работают шестнадцатеричные коды](https://medium.com/basecs/hexs-and-other-magical-numbers-9785bc26b7ee)
+
+:information_source: Источник: [Color](https://web.dev/learn/css/color/)
