@@ -7,7 +7,7 @@ nav:
     - specificity.md
     - inheritance.md
     - color.md
-    #- sizing.md
+    - sizing.md
     #- layout.md
     #- flexbox.md
     #- grid.md

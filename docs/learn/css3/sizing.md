@@ -1,470 +1,241 @@
 ---
-title: Sizing Units
-description: >
-  In this module find out how to size elements using CSS,
-  working with the flexible medium of the web.
-audio:
-  title: 'The CSS Podcast - 008: Sizing Units'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_008_v1.0.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - andybell
-date: 2021-04-13
-tags:
-  - css
+description: В этом модуле вы узнаете, как определять размеры элементов с помощью CSS, работая с гибкой средой Интернета.
+icon: material/pencil-ruler-outline
 ---
 
-The web is a responsive medium,
-but sometimes you want to control its dimensions to improve the overall interface quality.
-A good example of this is limiting line lengths to improve readability.
-How would you do that in a flexible medium like the web?
+# Единицы измерения
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'bGgEGxj',
-  tab: 'css,result'
-} %}
-</figure>
+<big>В этом модуле вы узнаете, как определять размеры элементов с помощью CSS, работая с гибкой средой Интернета.</big>
 
-For this case,
-you can use a `ch` unit, which is equal to the width of a "0" character in the rendered font at its computed size.
-This unit allows you to limit the width of text with a unit that's designed to size text,
-which in turn,
-allows predictable control regardless of the size of that text.
-The `ch` unit is one of a handful of units that are helpful for specific contexts like this example.
+!!!info "CSS подкаст"
 
-## Numbers
+    008: Единицы измерения
 
-Numbers are used to define `opacity`, `line-height` and even for color channel values in `rgb`.
-Numbers are unitless integers (1, 2, 3, 100) and decimals (.1, .2, .3).
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_008_v1.0.mp3?dest-id=1891556"></audio>
 
-Numbers have meaning depending on their context.
-For example, when defining `line-height`,
-a number is representative of a ratio if you define it without a supporting unit:
+Веб - это отзывчивая среда, но иногда для улучшения общего качества интерфейса необходимо контролировать его размеры. Хорошим примером этого является ограничение длины строк для улучшения читаемости. Как это сделать в такой гибкой среде, как веб?
+
+<iframe src="https://codepen.io/web-dot-dev/embed/bGgEGxj?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Для этого случая можно использовать единицу `ch`, которая равна ширине символа "0" в отрисованном шрифте при его расчетном размере. Эта единица позволяет ограничить ширину текста с помощью единицы, предназначенной для определения размера текста, что, в свою очередь, обеспечивает предсказуемость управления независимо от размера этого текста. Единица `ch` - одна из нескольких единиц, которые полезны в специфических контекстах, как в данном примере.
+
+## Числа
+
+Числа используются для определения `opacity`, `line-height` и даже для значений цветовых каналов в `rgb`. Числа представляют собой целые числа без единиц измерения (1, 2, 3, 100) и десятичные (.1, .2, .3).
+
+Смысл чисел зависит от их контекста. Например, при определении `line-height` число представляет собой отношение, если оно задано без вспомогательной единицы измерения:
 
 ```css
 p {
-  font-size: 24px;
-  line-height: 1.5;
+    font-size: 24px;
+    line-height: 1.5;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'yLgYZRK',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/yLgYZRK?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-In this example, `1.5` is equal to **150%** of the `p` element's **computed pixel font size**.
-This means that if the `p` has a `font-size` of `24px`,
-the line height will be computed as `36px`.
+В данном примере `1,5` равно **150%** от **вычисленного пиксельного размера шрифта** элемента `p`. Это означает, что если `p` имеет `font-size` равный `24px`, то высота строки будет вычислена как `36px`.
 
-{% Aside %}
-It's a good idea to use a unitless value for `line-height`,
-rather than specifying a unit.
-As you learned in the [inheritance module](/learn/css/inheritance),
-`font-size` can be inherited.
-Defining a unitless `line-height` keeps the line-height relative to the font size.
-This provides a better experience than, say, `line-height: 15px`,
-which will not change and might look strange with certain font sizes.
-{% endAside %}
+!!!note ""
 
-Numbers can also be used in the following places:
+    Для `line-height` лучше не указывать единицы измерения, а использовать безразмерное значение. Как вы узнали из модуля [inheritance module](inheritance.md), `font-size` может быть унаследован. При определении `line-height` без единицы измерения высота строки сохраняется относительно размера шрифта. Это обеспечивает лучшее восприятие, чем, скажем, `line-height: 15px`, которая не будет изменяться и может выглядеть странно при определенных размерах шрифта.
 
-- When setting values for filters: `filter: sepia(0.5)` applies a `50%` sepia filter to the element.
-- When setting opacity: `opacity: 0.5` applies a `50%` opacity.
-- In color channels: `rgb(50, 50, 50)`,
-  where the values 0-255 are acceptable to set a color value.
-  [See color lesson](/learn/css/color).
-- To transform an element: `transform: scale(1.2)` scales the element by 120% of its initial size.
+Числа также могут использоваться в следующих местах:
 
-## Percentages
+-   При задании значений для фильтров: `filter: sepia(0.5)` применяет к элементу `50%` фильтр сепии.
+-   При задании непрозрачности: `opacity: 0.5` применяет `50%` непрозрачности.
+-   В цветовых каналах: `rgb(50, 50, 50)`, где для задания значения цвета допустимы значения 0-255. [См. урок "Цвет"](color.md).
+-   Для преобразования элемента: `transform: scale(1.2)` масштабирует элемент на 120% от его начального размера.
 
-When using a percentage in CSS you need to know how the percentage is calculated.
-For example,`width` is calculated as a percentage of the available width in the parent element.
+## Проценты
+
+При использовании процентов в CSS необходимо знать, как вычисляется процент. Например, `width` вычисляется как процент от доступной ширины родительского элемента.
 
 ```css
 div {
-  width: 300px;
-  height: 100px;
+    width: 300px;
+    height: 100px;
 }
 
 div p {
-  width: 50%; 
+    width: 50%;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'ZELbwwj',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/ZELbwwj?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-In the above example, the width of `div p` is `150px`, assuming that the layout uses the default `box-sizing: content-box`.
+В приведенном примере ширина `div p` равна `150px`, предполагая, что в макете используется стандартное значение `box-sizing: content-box`.
 
-If you set `margin` or `padding` as a percentage,
-they will be a portion of the **parent element's width**,
-regardless of direction.
+Если задать `margin` или `padding` в процентах, то они будут представлять собой часть ширины **родительского элемента**, независимо от направления.
 
 ```css
 div {
-  width: 300px;
-  height: 100px;
+    width: 300px;
+    height: 100px;
 }
 
 div p {
-  margin-top: 50%; /* calculated: 150px */
-  padding-left: 50%; /* calculated: 150px */
+    margin-top: 50%; /* calculated: 150px */
+    padding-left: 50%; /* calculated: 150px */
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'WNRQPqX',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/WNRQPqX?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-In the above snippet, both the `margin-top` and `padding-left` will compute to `150px`.
+В приведенном выше фрагменте оба значения `margin-top` и `padding-left` будут вычислены как `150px`.
 
 ```css
 div {
-  width: 300px;
-  height: 100px;
+    width: 300px;
+    height: 100px;
 }
 
 div p {
-  width: 50%; /* calculated: 150px */
-  transform: translateX(10%); /* calculated: 15px */
+    width: 50%; /* calculated: 150px */
+    transform: translateX(10%); /* calculated: 15px */
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'xxgwBxv',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/xxgwBxv?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-If you set a `transform` value as a percentage,
-it is based on the element with the transform set.
-In this example, the `p` has a `translateX` value of `10%` and a `width` of `50%`.
-First, calculate what the width will be: `150px` because it is **50% of its parent's width**.
-Then, take `10%` of `150px`, which is `15px`.
+Если значение `transform` задано в процентах, то оно основывается на элементе с заданным преобразованием. В данном примере элемент `p` имеет значение `translateX`, равное `10%`, и `width`, равное `50%`. Сначала вычисляем, какой будет ширина: `150px`, так как она составляет **50% от ширины родителя**. Затем отнимите `10%` от `150px`, что составит `15px`.
 
-{% Aside 'key-term' %}
-The transform property allows you alter an element's appearance and position by rotating, skewing, scaling and translating it.
-This can be done in a 2D and 3D space.
-{% endAside %}
+!!!tip ""
 
-## Dimensions and lengths
+    Свойство `transform` позволяет изменять внешний вид и положение элемента путем его поворота, перекоса, масштабирования и трансляции. Это можно делать как в двухмерном, так и в трехмерном пространстве.
 
-If you attach a unit to a number, it becomes a dimension.
-For example, `1rem` is a dimension.
-In this context, the unit that is attached to a number is referred to in specifications as a dimension token.
-Lengths are **dimensions that refer to distance** and they can either be absolute or relative.
+## Размеры и длины
 
-### Absolute lengths
+Если к числу присоединить единицу измерения, то оно становится размерностью. Например, `1rem` - это размерность. В данном контексте единица, присоединяемая к числу, называется в спецификациях маркером измерения. Длина - это **измерение, относящееся к расстоянию**, которое может быть абсолютным или относительным.
 
-All absolute lengths resolve against the same base,
-making them predictable wherever they're used in your CSS.
-For example, if you use `cm` to size your element and then print,
-it should be accurate if you compared it to a ruler.
+### Абсолютные длины
+
+Все абсолютные длины приводятся к одному и тому же основанию, что делает их предсказуемыми, где бы они ни использовались в CSS. Например, если вы используете `cm` для определения размера элемента, а затем выводите его на печать, он должен быть точным, если сравнивать его с линейкой.
 
 ```css
 div {
-  width: 10cm;
-  height: 5cm;
-  background: black;
+    width: 10cm;
+    height: 5cm;
+    background: black;
 }
 ```
 
-If you printed this page, the `div` would print as a 10x5cm black rectangle.
-Keep in mind, CSS is used not only for digital content, but also to style print content.
-Absolute lengths can really come in handy when designing for print.
+Если распечатать эту страницу, то `div` будет иметь вид черного прямоугольника размером 10x5 см. Не забывайте, что CSS используется не только для цифрового контента, но и для стилизации печатных материалов. Абсолютная длина может оказаться очень полезной при разработке дизайна для печати.
 
-<div class="table-wrapper">
-  <table>
-    <thead>
-      <tr>
-        <th>Unit</th>
-        <th>Name</th>
-        <th>Equivalent to</th>
-      </tr>
-    </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://www.w3.org/TR/css-values-4/#cm">cm</a></td>
-      <td>Centimeters</td>
-      <td>1cm = 96px/2.54</td>
-    </tr>
-    <tr>
-      <td><a href="https://www.w3.org/TR/css-values-4/#mm">mm</a></td>
-      <td>Millimeters</td>
-      <td>1mm = 1/10th of 1cm</td>
-    </tr>
-    <tr>
-      <td><a href="https://www.w3.org/TR/css-values-4/#q">Q</a></td>
-      <td>Quarter-millimeters</td>
-      <td>1Q = 1/40th of 1cm</td>
-    </tr>
-    <tr>
-      <td><a href="https://www.w3.org/TR/css-values-4/#in">in</a></td>
-      <td>Inches</td>
-      <td>1in = 2.54cm = 96px</td>
-    </tr>
-    <tr>
-      <td><a href="https://www.w3.org/TR/css-values-4/#pc">pc</a></td>
-      <td>Picas</td>
-      <td>1pc = 1/6th of 1in</td>
-    </tr>
-    <tr>
-      <td><a href="https://www.w3.org/TR/css-values-4/#pt">pt</a></td>
-      <td>Points</td>
-      <td>1pt = 1/72th of 1in</td>
-    </tr>
-    <tr>
-      <td><a href="https://www.w3.org/TR/css-values-4/#px">px</a></td>
-      <td>Pixels</td>
-      <td>1px = 1/96th of 1in</td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+| Единица | Название | Эквивалентно |
+| --- | --- | --- |
+| [cm](https://www.w3.org/TR/css-values-4/#cm) | Сантиметры | `1cm = 96px/2.54` |
+| [mm](https://www.w3.org/TR/css-values-4/#mm) | Миллиметры | `1mm = 1/10th of 1cm` |
+| [Q](https://www.w3.org/TR/css-values-4/#q) | Четвертьмиллиметры | `1Q = 1/40th of 1cm` |
+| [in](https://www.w3.org/TR/css-values-4/#in) | Дюймы | `1in = 2.54cm = 96px` |
+| [pc](https://www.w3.org/TR/css-values-4/#pc) | Пики | `1pc = 1/6th of 1in` |
+| [pt](https://www.w3.org/TR/css-values-4/#pt) | Пункты | `1pt = 1/72th of 1in` |
+| [px](https://www.w3.org/TR/css-values-4/#px) | Пиксели | `1px = 1/96th of 1in` |
 
-### Relative lengths
+### Относительная длина
 
-A relative length is calculated against a base value, much like a percentage.
-The difference between these and percentages is that you can contextually size elements.
-This means that CSS has units such as `ch` that use the text size as a basis,
-and `vw` which is based on the width of the viewport (your browser window).
-Relative lengths are particularly useful on the web due to its responsive nature.
+Относительная длина рассчитывается по отношению к базовому значению, подобно процентам. Разница между ними и процентами заключается в том, что можно контекстно определять размеры элементов. Это означает, что в CSS существуют такие единицы измерения, как `ch`, использующие в качестве основы размер текста, и `vw`, основанные на ширине области просмотра (окна браузера). Относительные размеры особенно полезны в Интернете из-за его отзывчивой природы.
 
-#### Font-size-relative units
+#### Относительные единицы измерения размера шрифта
 
-CSS provides helpful units that are relative to the size of elements of rendered typography,
-such as the size of the text itself (`em` units) or width of the typefaces characters (`ch` units).
+CSS предоставляет полезные единицы измерения, которые относятся к размерам элементов типографики, таких как размер самого текста (единицы `em`) или ширина символов шрифта (единицы `ch`).
 
-<div class="table-wrapper">
-  <table>
-    <thead>
-      <tr>
-        <th>unit</th>
-        <th>relative to:</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="https://www.w3.org/TR/css-values-4/#em">em</a></td>
-        <td>Relative to the font size,
-        i.e. 1.5em will be 50% larger than the base computed font size of its parent.
-        (Historically, the height of the capital letter "M").</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.w3.org/TR/css-values-4/#ex">ex</a></td>
-        <td>Heuristic to determine whether to use the x-height,
-        a letter "x", or `.5em` in the current computed font size of the element.</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.w3.org/TR/css-values-4/#cap">cap</a></td>
-        <td>Height of the capital letters in the current computed font size of the element.</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.w3.org/TR/css-values-4/#ch">ch</a></td>
-        <td>Average <a href="https://www.w3.org/TR/css-values-4/#length-advance-measure">character advance</a>
-        of a narrow glyph in the element's font
-        (represented by the "0" glyph).</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.w3.org/TR/css-values-4/#ic">ic</a></td>
-        <td>Average
-        <a href="https://www.w3.org/TR/css-values-4/#length-advance-measure">character advance</a>
-        of a full width glyph in the element's font,
-        as represented by the "水" (CJK water ideograph, U+6C34) glyph.</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.w3.org/TR/css-values-4/#rem">rem</a></td>
-        <td>Font size of the root element (default is 16px).</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.w3.org/TR/css-values-4/#lh">lh</a></td>
-        <td>Line height of the element.</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.w3.org/TR/css-values-4/#rlh">rlh</a></td>
-        <td>Line height of the root element.</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+| Единица | Эквивалентно |
+| --- | --- |
+| [em](https://www.w3.org/TR/css-values-4/#em) | Относительно размера шрифта, т. е. 1.5em будет на 50% больше базового вычисленного размера шрифта его родителя. (Исторически - высота заглавной буквы "М"). |
+| [ex](https://www.w3.org/TR/css-values-4/#ex) | Эвристика, определяющая, использовать ли в текущем вычисленном размере шрифта элемента x-height, букву "x" или .5em. |
+| [cap](https://www.w3.org/TR/css-values-4/#cap) | Высота прописных букв в текущем вычисленном размере шрифта элемента. |
+| [ch](https://www.w3.org/TR/css-values-4/#ch) | Среднее значение [символьного роста](https://www.w3.org/TR/css-values-4/#length-advance-measure) узкого глифа в шрифте элемента (представленного глифом "0"). |
+| [ic](https://www.w3.org/TR/css-values-4/#ic) | Среднее значение [символьного роста](https://www.w3.org/TR/css-values-4/#length-advance-measure) глифа полной ширины в шрифте элемента, представленного глифом "水" (идеограмма воды CJK, `U+6C34`). |
+| [rem](https://www.w3.org/TR/css-values-4/#rem) | Размер шрифта корневого элемента (по умолчанию 16px). |
+| [lh](https://www.w3.org/TR/css-values-4/#lh) | Высота линии элемента. |
+| [rlh](https://www.w3.org/TR/css-values-4/#rlh) | Высота линии корневого элемента. |
 
-<figure>
-{% Img src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/ttaikDgwEC572lrGgWlG.svg", alt="The text, CSS is 10x great with labels for ascender height, descender height and x-height. The x-height represents 1ex and the 0 represents 1ch", width="800", height="203" %}
-</figure>
+![Текст, CSS 10x great с метками для высоты подъема, высоты спуска и высоты x-height. x-height представляет собой 1ex, а 0 - 1ch](./sizing-1.svg)
 
-#### Viewport-relative units
+#### Относительные единицы измерения области просмотра
 
-You can use the dimensions of the viewport (browser window) as a relative basis.
-These units portion up the available viewport space.
+В качестве относительных единиц можно использовать размеры области просмотра (окна браузера). Эти единицы делят на части доступное пространство области просмотра.
 
-<div class="table-wrapper">
-  <table>
-    <thead>
-      <tr>
-        <th>unit</th>
-        <th>relative to</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="https://www.w3.org/TR/css-values-4/#vw">vw</a></td>
-        <td>1% of viewport's width. People use this unit to do cool font tricks,
-        like resizing a header font based on the width of the page so as the user resizes,
-        the font will also resize.</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.w3.org/TR/css-values-4/#vh">vh</a></td>
-        <td>1% of viewport's height.
-        You can use this to arrange items in a UI,
-        if you have a footer toolbar for example.</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.w3.org/TR/css-values-4/#vi">vi</a></td>
-        <td>1% of viewport's size in the root element's <a href="https://www.w3.org/TR/css-writing-modes-4/#inline-axis">inline axis</a>.
-        Axis refers to writing modes.
-        In horizontal writing modes like English,
-        the inline axis is horizontal.
-        In vertical writing modes like some Japanese typefaces, the inline axis runs top to bottom.</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.w3.org/TR/css-values-4/#vb">vb</a></td>
-        <td>1% of viewport's size in the root element's <a href="https://www.w3.org/TR/css-writing-modes-4/#block-axis">block axis</a>.
-        For the block axis, this would be the directionality of the language.
-        LTR languages like English would have a vertical block axis,
-        since English language readers parse the page from top to bottom.
-        A vertical writing mode has a horizontal block axis.</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.w3.org/TR/css-values-4/#vmin">vmin</a></td>
-        <td>1% of the viewport's smaller dimension.</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.w3.org/TR/css-values-4/#vmax">vmax</a></td>
-        <td>1% of the viewport's larger dimension.</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+| Единица | Эквивалентно |
+| --- | --- |
+| [vw](https://www.w3.org/TR/css-values-4/#vw) | 1% от ширины области просмотра. С помощью этой единицы измерения можно выполнять различные трюки со шрифтами, например, изменять размер шрифта заголовка в зависимости от ширины страницы, чтобы при изменении размера страницы шрифт также изменялся. |
+| [vh](https://www.w3.org/TR/css-values-4/#vh) | 1% от высоты области просмотра. Это можно использовать для расположения элементов в пользовательском интерфейсе, например, если у вас есть панель инструментов нижнего колонтитула. |
+| [vi](https://www.w3.org/TR/css-values-4/#vi) | 1% от размера области просмотра по оси [инлайна](https://www.w3.org/TR/css-writing-modes-4/#inline-axis) корневого элемента. Ось относится к режимам письма. В горизонтальных шрифтах, таких как английский, ось инлайна расположена горизонтально. При вертикальном начертании, как в некоторых японских шрифтах, ось инлайна проходит сверху вниз. |
+| [vb](https://www.w3.org/TR/css-values-4/#vb) | 1% от размера области просмотра по оси [блока](https://www.w3.org/TR/css-writing-modes-4/#block-axis) корневого элемента. Для оси блока это направление языка. Языки LTR, такие как английский, имеют вертикальную ось блока, поскольку читатели английского языка анализируют страницу сверху вниз. Вертикальный способ письма имеет горизонтальную ось блока. |
+| [vmin](https://www.w3.org/TR/css-values-4/#vmin) | 1% от меньшего размера области просмотра. |
+| [vmax](https://www.w3.org/TR/css-values-4/#vmax) | 1% от большего размера области просмотра. |
 
 ```css
 div {
-  width: 10vw;
+    width: 10vw;
 }
 
 p {
-  max-width: 60ch;
+    max-width: 60ch;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'JjEYqXa'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/JjEYqXa?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-In this example, the `div` will be 10% of the viewport's width because `1vw` is **1% of the viewport width**.
-The `p` element has a `max-width` of `60ch`
-which means it can't exceed the width of 60 "0" characters in the calculated font and size.
+В данном примере `div` будет занимать 10% ширины области просмотра, поскольку `1vw` составляет **1% ширины области просмотра**. Элемент `p` имеет `max-width`, равный `60ch`, что означает, что он не может превышать ширину 60 символов "0" в рассчитанном шрифте и размере.
 
-{% Aside 'objective' %}
+!!!note ""
 
-By sizing text with relative units like `em` or `rem`,
-rather than an absolute unit, like `px`, the size of your text can respond to user preferences.
-This can include the system font size or parent element's font size, such as the `<body>`.
-The base size of the `em` is the element's parent and the base size of the `rem` is the base font size of the document.
+    Благодаря использованию относительных единиц измерения, таких как `em` или `rem`, а не абсолютных, например `px`, размер текста может соответствовать предпочтениям пользователя. Это может быть размер системного шрифта или размер шрифта родительского элемента, например, `<body>`. Базовый размер `em` - это родительский размер элемента, а базовый размер `rem` - это базовый размер шрифта документа.
 
-If you don't define a `font-size` on your `html` element,
-this user-preferred system font size will be honoured if you use relative lengths,
-such as `em` and `rem`.
-If you use `px` units for sizing text,
-this preference will be ignored.
+    Если вы не определили `font-size` для элемента `html`, то при использовании относительных размеров, таких как `em` и `rem`, будет учитываться этот предпочитаемый пользователем системный размер шрифта. Если для определения размера текста используются единицы `px`, это предпочтение будет игнорироваться.
 
-{% Video
-  src="video/VbAJIREinuYvovrBzzvEyZOpw5w1/cUEl77VN4ZtAdElV4fd6.mp4",
-  autoplay=true,
-  controls=true,
-  muted=true
-%}
+    <video controls width="100%">
+    <source src="/learn/css3/sizing-2.mp4" />
+    </video>
 
-{% endAside %}
+## Разные единицы
 
-## Miscellaneous units
+Существуют и другие единицы, которые были определены для работы с определенными типами величин.
 
-There are some other units which have been specified to deal with particular types of values.
+### Угловые единицы
 
-### Angle units
-
-In the [color module](/learn/css/color/),
-we looked at **angle units**,
-which are helpful for defining degree values,
-such as the hue in `hsl`.
-They are also useful for rotating elements within transform functions.
+В модуле [Цвет](color.md) мы рассмотрели **угловые единицы**, которые полезны для определения градусных значений, таких как оттенок в `hsl`. Они также полезны для поворота элементов в функциях преобразования.
 
 ```css
 div {
-  width: 150px;
-  height: 150px;
-  transform: rotate(60deg);
+    width: 150px;
+    height: 150px;
+    transform: rotate(60deg);
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'VwPvRbK',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/VwPvRbK?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Using the `deg` angle unit, you can rotate a `div` 90° on its center axis.
+Используя единицу измерения угла `deg`, можно повернуть `div` на 90° относительно его центральной оси.
 
 ```css
 div {
-  background-image: url('a-low-resolution-image.jpg');
+    background-image: url('a-low-resolution-image.jpg');
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  div {
-    background-image: url('a-high-resolution-image.jpg');
-  }
+@media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
+    div {
+        background-image: url('a-high-resolution-image.jpg');
+    }
 }
 ```
 
-{% Aside %}
-Other angle units include `rad` (radians), `grad` (gradians), and `turn` units,
-which represent a part of an angle, where `1turn` = `360deg`, and `0.5turn` = `180deg`.
-{% endAside %}
+!!!note ""
 
-#### Resolution units
+    К другим единицам измерения угла относятся `rad` (радианы), `grad` (градианы) и `turn` (оборот), представляющие собой часть угла, где `1 оборот` = `360deg`, а `0,5 оборота` = `180deg`.
 
-In the previous example the value of `min-resolution` is `192dpi`.
-The `dpi` unit stands for **dots per inch**.
-A useful context for this is detecting very high resolution screens,
-such as Retina displays in a media query and serving up a higher resolution image.
+#### Единицы разрешения
 
-{% Assessment 'sizing' %}
+В предыдущем примере значение `min-resolution` равно `192dpi`. Единица `dpi` означает **точек на дюйм**. Полезным контекстом для этого является обнаружение в медиазапросе экранов с очень высоким разрешением, таких как дисплеи Retina, и выдача изображения с более высоким разрешением.
 
-## Resources
+## Ресурсы
 
-- [CSS Spec Values and Units Level 4](https://www.w3.org/TR/css-values-4)
-- [Sizing and Units on MDN](https://developer.mozilla.org/docs/Learn/CSS/Building_blocks/Values_and_units)
-- [All About Ems](https://learn.scannerlicker.net/2014/07/31/so-how-much-is-an-em/)
-- [A percentages explainer](https://wattenberger.com/blog/css-percents)
+-   [CSS Spec Values and Units Level 4](https://www.w3.org/TR/css-values-4)
+-   [Размер и единицы измерения на MDN](https://developer.mozilla.org/docs/Learn/CSS/Building_blocks/Values_and_units)
+-   [Всё об эммиволах](https://learn.scannerlicker.net/2014/07/31/so-how-much-is-an-em/)
+-   [Объяснение по процентам](https://wattenberger.com/blog/css-percents)
+
+:information_source: Источник: [Sizing Units](https://web.dev/learn/css/sizing/)
