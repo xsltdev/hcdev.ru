@@ -1,355 +1,258 @@
 ---
-title: Inheritance
-description: >
-  Some CSS properties inherit if you don't specify a value for them.
-  Find out how this works, and how to use it to your advantage in this module.
-audio:
-  title: 'The CSS Podcast - 005: Inheritance'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast__Episode_005_v1.2.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - andybell
-date: 2021-04-02
+description: Некоторые свойства CSS наследуются, если для них не задано значение. В этом модуле вы узнаете, как это работает и как использовать это в своих интересах.
+icon: material/content-copy
 ---
 
-Say you just wrote some CSS to make elements look like a button.
+# Наследование
+
+<big>Некоторые свойства CSS наследуются, если для них не задано значение. В этом модуле вы узнаете, как это работает и как использовать это в своих интересах.</big>
+
+!!!info "CSS подкаст"
+
+    005: Наследование
+
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast__Episode_005_v1.2.mp3?dest-id=1891556"></audio>
+
+Допустим, вы только что написали несколько CSS для придания элементам вида кнопки.
 
 ```html
-<a href="http://example.com" class="my-button">I am a button link</a>
+<a href="http://example.com" class="my-button"
+    >I am a button link</a
+>
 ```
+
+---
 
 ```css
 .my-button {
-  display: inline-block;
-  padding: 1rem 2rem;
-  text-decoration: none;
-  background: pink;
-  font: inherit;
-  text-align: center;
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    background: pink;
+    font: inherit;
+    text-align: center;
 }
 ```
 
-You then add a link element to an article of content,
-with a `class` value of `.my-button`. However there's an issue,
-the text is not the color that you expected it to be. How did this happen?
+Затем вы добавляете элемент ссылки в статью контента со значением `class`, равным `.my-button`. Однако возникает проблема: текст имеет не тот цвет, на который вы рассчитывали. Как это произошло?
 
-Some CSS properties inherit if you don't specify a value for them.
-In the case of this button, it **inherited** the `color` from this CSS:
+Некоторые CSS-свойства наследуются, если для них не задано значение. В случае с этой кнопкой она **наследовала** `color` от этого CSS:
 
 ```css
 article a {
-  color: maroon;
+    color: maroon;
 }
 ```
 
-In this lesson you'll learn why that happens and
-how inheritance is a powerful feature to help you write less CSS.
+В этом уроке вы узнаете, почему так происходит и как наследование является мощной функцией, помогающей писать меньше CSS.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'zYNGEbg',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/zYNGEbg?height=400&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Inheritance flow
+## Наследование в CSS
 
-Let's take a look at how inheritance works,
-using this snippet of HTML:
+Рассмотрим, как работает наследование, на примере этого фрагмента HTML:
 
 ```html
 <html>
-  <body>
-    <article>
-      <p>Lorem ipsum dolor sit amet.</p>
-    </article>
-  </body>
+    <body>
+        <article>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </article>
+    </body>
 </html>
 ```
 
-The root element (`<html>`) won't inherit anything because it is the first element in the document.
-Add some CSS on the HTML element,
-and it starts to cascade down the document.
+Корневой элемент (`<html>`) ничего не наследует, поскольку он является первым элементом в документе. Добавьте к элементу HTML некоторый CSS, и он начнет каскадом спускаться вниз по документу.
 
 ```css
 html {
-  color: lightslategray;
+    color: lightslategray;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'JjEKgBX',
-  height: 200
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/JjEKgBX?height=200&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The `color` property is inheritable by other elements.
-The `html` element has `color: lightslategray`,
-therefore all elements that can inherit color will now have a color of `lightslategray`.
+Свойство `color` наследуется другими элементами. Элемент `html` имеет свойство `color: lightslategray`, поэтому все элементы, которые могут наследовать цвет, теперь будут иметь цвет `lightslategray`.
 
 ```css
 body {
-  font-size: 1.2em;
+    font-size: 1.2em;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'VwPLrLP',
-  height: 200
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/VwPLrLP?height=200&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Aside %}
-Because this demo sets the font size on the `body` element,
-the `html` element will still have the initial font size set by the browser (user agent stylesheet),
-but the `article` and `p` will inherit the font size declared by the `body`.
-This is because inheritance only cascades downwards.
-{% endAside %}
+!!!note ""
+
+    Поскольку в этом примере размер шрифта устанавливается для элемента `body`, элемент `html` по-прежнему будет иметь начальный размер шрифта, установленный браузером (таблицей стилей агента пользователя), но `article` и `p` будут наследовать размер шрифта, объявленный в `body`. Это происходит потому, что наследование распространяется только по нисходящей.
 
 ```css
 p {
-  font-style: italic;
+    font-style: italic;
 }
 ```
 
-Only the `<p>` will have italic text because it's the deepest nested element.
-Inheritance only flows downwards, not back up to parent elements.
+Только `<p>` будет иметь курсивный текст, поскольку он является самым глубоким вложенным элементом. Наследование передается только вниз, но не обратно к родительским элементам.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'JjEKgmK',
-  tab: 'css,result',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/JjEKgmK?height=400&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Which properties are inheritable?
+## Какие свойства наследуются?
 
-Not all CSS properties are inheritable,
-but there are a lot that are.
-For reference, here is the entire list of inheritable properties,
-taken from the W3 reference of all CSS properties:
+Не все свойства CSS наследуются, но многие - да. Для справки здесь приведен полный список наследуемых свойств, взятый из справочника W3 по всем свойствам CSS:
 
-- [azimuth](https://developer.mozilla.org/docs/Web/SVG/Attribute/azimuth)
-- [border-collapse](https://developer.mozilla.org/docs/Web/CSS/border-collapse)
-- [border-spacing](https://developer.mozilla.org/docs/Web/CSS/border-spacing)
-- [caption-side](https://developer.mozilla.org/docs/Web/CSS/caption-side)
-- [color](https://developer.mozilla.org/docs/Web/CSS/color)
-- [cursor](https://developer.mozilla.org/docs/Web/CSS/cursor)
-- [direction](https://developer.mozilla.org/docs/Web/CSS/direction)
-- [empty-cells](https://developer.mozilla.org/docs/Web/CSS/empty-cells)
-- [font-family](https://developer.mozilla.org/docs/Web/CSS/font-family)
-- [font-size](https://developer.mozilla.org/docs/Web/CSS/font-size)
-- [font-style](https://developer.mozilla.org/docs/Web/CSS/font-style)
-- [font-variant](https://developer.mozilla.org/docs/Web/CSS/font-variant)
-- [font-weight](https://developer.mozilla.org/docs/Web/CSS/font-weight)
-- [font](https://developer.mozilla.org/docs/Web/CSS/font)
-- [letter-spacing](https://developer.mozilla.org/docs/Web/CSS/letter-spacing)
-- [line-height](https://developer.mozilla.org/docs/Web/CSS/line-height)
-- [list-style-image](https://developer.mozilla.org/docs/Web/CSS/list-style-image)
-- [list-style-position](https://developer.mozilla.org/docs/Web/CSS/list-style-position)
-- [list-style-type](https://developer.mozilla.org/docs/Web/CSS/list-style-type)
-- [list-style](https://developer.mozilla.org/docs/Web/CSS/list-style)
-- [orphans](https://developer.mozilla.org/docs/Web/CSS/orphans)
-- [quotes](https://developer.mozilla.org/docs/Web/CSS/quotes)
-- [text-align](https://developer.mozilla.org/docs/Web/CSS/text-align)
-- [text-indent](https://developer.mozilla.org/docs/Web/CSS/text-indent)
-- [text-transform](https://developer.mozilla.org/docs/Web/CSS/text-transform)
-- [visibility](https://developer.mozilla.org/docs/Web/CSS/visibility)
-- [white-space](https://developer.mozilla.org/docs/Web/CSS/white-space)
-- [widows](https://developer.mozilla.org/docs/Web/CSS/widows)
-- [word-spacing](https://developer.mozilla.org/docs/Web/CSS/word-spacing)
+-   [`azimuth`](https://developer.mozilla.org/docs/Web/SVG/Attribute/azimuth)
+-   [`border-collapse`](../../css/border-collapse.md)
+-   [`border-spacing`](../../css/border-spacing.md)
+-   [`caption-side`](../../css/caption-side.md)
+-   [`color`](../../css/color.md)
+-   [`cursor`](../../css/cursor.md)
+-   [`direction`](../../css/direction.md)
+-   [`empty-cells`](../../css/empty-cells.md)
+-   [`font-family`](../../css/font-family.md)
+-   [`font-size`](../../css/font-size.md)
+-   [`font-style`](../../css/font-style.md)
+-   [`font-variant`](../../css/font-variant.md)
+-   [`font-weight`](../../css/font-weight.md)
+-   [`font`](../../css/font.md)
+-   [`letter-spacing`](../../css/letter-spacing.md)
+-   [`line-height`](../../css/line-height.md)
+-   [`list-style-image`](../../css/list-style-image.md)
+-   [`list-style-position`](../../css/list-style-position.md)
+-   [`list-style-type`](../../css/list-style-type.md)
+-   [`list-style`](../../css/list-style.md)
+-   [`orphans`](../../css/orphans.md)
+-   [`quotes`](../../css/quotes.md)
+-   [`text-align`](../../css/text-align.md)
+-   [`text-indent`](../../css/text-indent.md)
+-   [`text-transform`](../../css/text-transform.md)
+-   [`visibility`](../../css/visibility.md)
+-   [`white-space`](../../css/white-space.md)
+-   [`widows`](../../css/widows.md)
+-   [`word-spacing`](../../css/word-spacing.md)
 
-## How inheritance works
+## Как работает наследование
 
-Every HTML element has every CSS property defined by default with an initial value.
-An initial value is a property that's not inherited and shows up as a default
-if the cascade fails to calculate a value for that element.
+У каждого элемента HTML каждое CSS-свойство по умолчанию имеет начальное значение. **Начальное значение** - это свойство, которое не наследуется и отображается по умолчанию, если каскаду не удается вычислить значение для данного элемента.
 
-<figure>
-{% Video src="video/VbAJIREinuYvovrBzzvEyZOpw5w1/OvoYqOMcdFZL7wJQIL2C.mp4" %}
-</figure>
+<video controls>
+<source src="/learn/css3/inheritance-1.mp4" />
+</video>
 
-Properties that can be inherited cascade downwards,
-and child elements will get a computed value which represents its parent's value.
-This means that if a parent has `font-weight` set to `bold` all child elements will be bold,
-unless their `font-weight` is set to a different value,
-or the user agent stylesheet has a value for `font-weight` for that element.
+Свойства, которые могут быть унаследованы, каскадируются вниз, и дочерние элементы получают вычисляемое значение, которое представляет собой значение родительского элемента. Это означает, что если для родительского элемента `font-weight` установлено значение `bold`, то все дочерние элементы будут жирными, если только для их `font-weight` не установлено другое значение, или в таблице стилей агента пользователя не указано значение `font-weight` для этого элемента.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'xxgGPOZ'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/xxgGPOZ?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## How to explicitly inherit and control inheritance
+## Как явно наследовать и контролировать наследование
 
-Inheritance can affect elements in unexpected ways so CSS has tools to help with that.
+Наследование может повлиять на элементы неожиданным образом, поэтому в CSS есть средства, помогающие справиться с этой проблемой.
 
-### The `inherit` keyword
+### Ключевое слово `inherit`
 
-You can make any property inherit its parent's computed value with the `inherit` keyword.
-A useful way to use this keyword is to create exceptions.
+С помощью ключевого слова `inherit` можно заставить любое свойство наследовать вычисленное значение своего родителя. Полезным способом использования этого ключевого слова является создание исключений.
 
 ```css
 strong {
-  font-weight: 900;
+    font-weight: 900;
 }
 ```
 
-This CSS snippet sets all `<strong>` elements to have a `font-weight` of `900`,
-instead of the default `bold` value, which would be the equivalent of `font-weight: 700`.
+Этот фрагмент CSS устанавливает для всех элементов `<strong>` значение `font-weight`, равное `900`, вместо значения по умолчанию `bold`, которое эквивалентно `font-weight: 700`.
 
 ```css
 .my-component {
-  font-weight: 500;
+    font-weight: 500;
 }
 ```
 
-The `.my-component` class sets `font-weight` to `500` instead.
-To make the `<strong>` elements inside `.my-component` also `font-weight: 500` add:
+Класс `.my-component` вместо этого устанавливает `font-weight` на `500`. Чтобы элементы `<strong>` внутри `.my-component` также имели `font-weight: 500`, добавьте:
 
 ```css
 .my-component strong {
-  font-weight: inherit;
+    font-weight: inherit;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'eYgNedO',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/eYgNedO?height=400&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Now, the `<strong>` elements inside `.my-component` will have a `font-weight` of `500`.
+Теперь элементы `<strong>` внутри `.my-component` будут иметь `font-weight`, равный `500`.
 
-You could explicitly set this value,
-but if you use `inherit` and the CSS of `.my-component` changes in the future,
-you can guarantee that your `<strong>` will automatically stay up to date with it.
+Вы можете явно задать это значение, но если вы используете `inherit` и в будущем CSS `.my-component` изменится, то вы можете гарантировать, что ваш `<strong>` автоматически будет соответствовать этому значению.
 
-### The `initial` keyword
+### Ключевое слово `initial`
 
-Inheritance can cause problems with your elements and `initial` provides you with a powerful reset option.
+Наследование может привести к проблемам с элементами, и `initial` предоставляет вам мощную возможность сброса.
 
-You learned earlier that every property has a default value in CSS.
-The `initial` keyword sets a property back to that initial, default value.
+Ранее вы узнали, что в CSS каждое свойство имеет значение по умолчанию. Ключевое слово `initial` возвращает свойство к исходному значению по умолчанию.
 
 ```css
 aside strong {
-  font-weight: initial;
+    font-weight: initial;
 }
 ```
 
-This snippet will remove the bold weight from all `<strong>` elements inside an `<aside>` element and instead,
-make them normal weight, which is the initial value.
+Этот фрагмент снимет полужирный вес со всех элементов `<strong>` внутри элемента `<aside>` и вместо этого сделает их вес нормальным, что является исходным значением.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'OJWVORZ',
-  tab: 'css,result',
-  height: 300
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/OJWVORZ?height=300&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-### The `unset` keyword
+### Ключевое слово `unset`
 
-The `unset` property behaves differently if a property is inheritable or not.
-If a property is inheritable,
-the `unset` keyword will be the same as `inherit`.
-If the property is not inheritable, the `unset` keyword is equal to `initial`.
+Свойство `unset` ведет себя по-разному, если свойство наследуется или нет. Если свойство наследуется, то ключевое слово `unset` будет таким же, как `inherit`. Если свойство не наследуется, то ключевое слово `unset` будет равно `initial`.
 
-Remembering which CSS properties are inheritable can be hard,
-`unset` can be helpful in that context.
-For example, `color` is inheritable,
-but `margin` isn't, so you can write this:
+Запомнить, какие CSS-свойства наследуются, бывает непросто, поэтому `unset` может оказаться полезным в этом контексте. Например, `color` наследуется, а `margin` - нет, поэтому можно написать так:
 
 ```css
 /* Global color styles for paragraph in authored CSS */
 p {
-  margin-top: 2em;
-  color: goldenrod;
+    margin-top: 2em;
+    color: goldenrod;
 }
 
 /* The p needs to be reset in asides, so you can use unset */
 aside p {
-  margin: unset;
-  color: unset;
+    margin: unset;
+    color: unset;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'JjEdpjw',
-  tab: 'css,result',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/JjEdpjw?height=400&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Now, the `margin` is removed and `color` reverts back to being the inherited computed value.
+Теперь `margin` удаляется, а `color` возвращается к унаследованному вычисляемому значению.
 
-You can use the `unset` value with the `all` property, too.
-Going back to the above example,
-what happens if the global `p` styles get an additional few properties?
-Only the rule that was set for `margin` and `color` will apply.
+Значение `unset` можно использовать и со свойством `all`. Возвращаясь к приведенному выше примеру, что произойдет, если глобальные стили `p` получат еще несколько свойств? Будет применяться только правило, установленное для `margin` и `color`.
 
-```css/4-5
+```css
 /* Global color styles for paragraph in authored CSS */
 p {
-	margin-top: 2em;
-	color: goldenrod;
-	padding: 2em;
-	border: 1px solid;
+    margin-top: 2em;
+    color: goldenrod;
+    padding: 2em;
+    border: 1px solid;
 }
 
 /* Not all properties are accounted for anymore */
 aside p {
-	margin: unset;
-	color: unset;
+    margin: unset;
+    color: unset;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'bGgdLNB',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/bGgdLNB?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-If you change the `aside p` rule to `all: unset` instead,
-it doesn't matter what global styles are applied to `p` in the future,
-they will always be unset.
+Если изменить правило `aside p` на `all: unset`, то неважно, какие глобальные стили будут применены к `p` в будущем, они всегда будут отменены.
 
-```css/3
+```css
 aside p {
-	margin: unset;
-	color: unset;
-	all: unset;
+    margin: unset;
+    color: unset;
+    all: unset;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'XWpbZbB',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/XWpbZbB?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Assessment 'conclusion' %}
+## Ресурсы
 
-## Resources
+-   [Ссылка на MDN по вычисляемым значениям](https://developer.mozilla.org/docs/Web/CSS/computed_value)
+-   [Статья о том, как наследование может быть полезно в модульных фронт-эндах](https://www.smashingmagazine.com/2016/11/css-inheritance-cascade-global-scope-new-old-worst-best-friends/)
 
-- [MDN reference on computed values](https://developer.mozilla.org/docs/Web/CSS/computed_value)
-- [An article on how inheritance can be useful in modular front-ends](https://www.smashingmagazine.com/2016/11/css-inheritance-cascade-global-scope-new-old-worst-best-friends/)
+:information_source: Источник: [Inheritance](https://web.dev/learn/css/inheritance/)
