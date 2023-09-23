@@ -8,9 +8,9 @@ nav:
     - inheritance.md
     - color.md
     - sizing.md
-    #- layout.md
-    #- flexbox.md
-    #- grid.md
+    - layout.md
+    - flexbox.md
+    - grid.md
     #- logical-properties.md
     #- spacing.md
     #- pseudo-elements.md

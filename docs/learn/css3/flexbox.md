@@ -1,666 +1,392 @@
 ---
-title: Flexbox
-description: >
-  Flexbox is a layout mechanism designed for laying out groups of items in one dimension.
-  Learn how to use it in this module.
-audio:
-  title: 'The CSS Podcast - 010: Flexbox'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_010_v1.0.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - rachelandrew
-  - andybell
-date: 2021-04-21
+description: Flexbox - это механизм верстки, предназначенный для размещения групп элементов в одном измерении. В этом модуле вы узнаете, как его использовать.
+icon: material/file-table-box-outline
 ---
 
-A design pattern that can be tricky in responsive design is a sidebar that sits inline with some
-content. Where there is viewport space,
-this pattern works great,
-but where space is condensed,
-that rigid layout can become problematic.
+# Flexbox
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'poRENWv',
-  height: 420
-} %}
-</figure>
+<big markdown>**Flexbox** - это механизм верстки, предназначенный для размещения групп элементов в одном измерении. В этом модуле вы узнаете, как его использовать.</big>
 
-The Flexible Box Layout Model (flexbox) is a layout model designed for one-dimensional content.
-It excels at taking a bunch of items which have different sizes,
-and returning the best layout for those items.
+!!!info "CSS подкаст"
 
-This is the ideal layout model for this sidebar pattern.
-Flexbox not only helps lay the sidebar and content out inline,
-but where there's not enough space remaining, the sidebar will break onto a new line.
-Instead of setting rigid dimensions for the browser to follow,
-with flexbox,
-you can instead provide flexible boundaries to hint how the content could display.
+    010: Flexbox
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'xxgERMp',
-  height: 400
-} %}
-</figure>
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_010_v1.0.mp3?dest-id=1891556"></audio>
 
-## What can you do with a flex layout?
+В отзывчивом дизайне может возникнуть проблема с боковой панелью, которая располагается на одной линии с контентом. Там, где есть пространство для просмотра, этот паттерн работает отлично, но там, где пространство сжато, такая жесткая компоновка может стать проблематичной.
 
-Flex layouts have the following features,
-which you will be able to explore in this guide.
+<iframe src="https://codepen.io/web-dot-dev/embed/poRENWv?height=420&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-- They can display as a row, or a column.
-- They respect the writing mode of the document.
-- They are single line by default,
-  but can be asked to wrap onto multiple lines.
-- Items in the layout can be visually reordered,
-  away from their order in the DOM.
-- Space can be distributed inside the items,
-  so they become bigger and smaller according to the space available in their parent.
-- Space can be distributed around the items and flex lines in a wrapped layout,
-  using the Box Alignment properties.
-- The items themselves can be aligned on the cross axis.
+Гибкая модель компоновки блоков (flexbox) - это модель компоновки, предназначенная для одномерного содержимого. Она отлично справляется с задачей получения набора элементов, имеющих различные размеры, и возвращает наилучший вариант расположения этих элементов.
 
-## The main axis and the cross axis
+Это идеальная модель компоновки для данного шаблона боковой панели. Flexbox не только помогает расположить боковую панель и содержимое в линию, но и в тех случаях, когда места не хватает, разрывает боковую панель на новую строку. Вместо того чтобы задавать жесткие размеры, которым должен следовать браузер, с помощью flexbox можно задать гибкие границы, которые подскажут, как может отображаться содержимое.
 
-The key to understanding flexbox is to understand the concept of a main axis and a cross axis.
-The main axis is the one set by your `flex-direction` property.
-If that is `row` your main axis is along the row,
-if it is `column` your main axis is along the column.
+<iframe src="https://codepen.io/web-dot-dev/embed/xxgERMp?height=400&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-<figure>
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/xKtf0cHRw0xQyiyYuuyz.svg",
-alt="Three boxes next to each other with an arrow, pointing left to right. The arrow is labelled Main axis",
-width="800",
-height="320"
-%}
-</figure>
+## Что можно сделать с помощью гибкого макета?
 
-Flex items move as a group on the main axis.
-Remember: we've got a bunch of things and we are trying to get the best layout for them as a group.
+Гибкие макеты обладают следующими возможностями, которые вы сможете изучить в этом руководстве.
 
-The cross axis runs in the other direction to the main axis,
-so if `flex-direction` is `row` the cross axis runs along the column.
+-   Они могут отображаться как в виде строки, так и в виде колонки.
+-   Они учитывают режим записи документа.
+-   По умолчанию они однострочные, но их можно попросить развернуть на несколько строк.
+-   Элементы в макете могут быть визуально переупорядочены по сравнению с их порядком в DOM.
+-   Пространство внутри элементов может быть распределено таким образом, что они становятся больше или меньше в зависимости от пространства, доступного в их родительском блоке.
+-   Пространство вокруг элементов и гибких линий в обернутом макете может быть распределено с помощью свойств выравнивания блоков.
+-   Сами элементы могут быть выровнены по поперечной оси.
 
-<figure>
-{% Img
-  src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/5wCsZcBmK5L33LS7nOmP.svg", alt="Three boxes of different heights, next to each other with an arrow, pointing left to right. The arrow is labelled Main axis. There's another arrow pointing top to bottom. This one is labelled Cross axis", width="800", height="320" %}
-</figure>
+## Главная ось и поперечная ось
 
-You can do two things on the cross axis.
-You can move the items individually or as a group, so they align against each other and the flex
-container. Also, if you have wrapped flex lines,
-you can treat those lines as a group to control how space is assigned to those lines.
-You will see how this all works in practice throughout this guide,
-for now just keep in mind that the main axis follows your `flex-direction`.
+Ключевым моментом в понимании flexbox является понимание концепции главной и поперечной осей. Главной осью является та, которая задается свойством [`flex-direction`](../../css/flex-direction.md). Если это свойство `row`, то главная ось расположена вдоль строки, если `column`, то вдоль столбца.
 
-## Creating a flex container
+![Три блока рядом друг с другом со стрелкой, направленной слева направо. Стрелка обозначена как Главная ось](flexbox-1.svg)
 
-Let's see how flexbox behaves by taking a group of different sized items and using flexbox to lay
-them out.
+Гибкие элементы перемещаются по главной оси как группа. Помните: у нас есть несколько элементов, и мы пытаемся получить наилучшую компоновку для них как для группы.
+
+Поперечная ось проходит в направлении, противоположном главной оси, поэтому если `flex-direction` - `row`, то поперечная ось проходит вдоль столбца.
+
+![Три блока разной высоты, расположенные рядом друг с другом, со стрелкой, направленной слева направо. Стрелка обозначена как Главная ось. Есть еще одна стрелка, направленная сверху вниз. Эта стрелка обозначена как Cross axis.](flexbox-2.svg)
+
+С поперечной осью можно поступить двумя способами. Можно перемещать элементы по отдельности или группой, чтобы они выравнивались относительно друг друга и гибкого контейнера. Кроме того, если у вас есть обернутые гибкие линии, вы можете рассматривать эти линии как группу, чтобы управлять распределением пространства между этими линиями. Как все это работает на практике, вы увидите в этом руководстве, а пока просто помните, что главная ось следует за вашим `flex-direction`.
+
+## Создание гибкого контейнера
+
+Давайте посмотрим, как ведет себя flexbox, взяв группу элементов разного размера и используя flexbox для их расположения.
 
 ```html
 <div class="container" id="container">
-  <div>One</div>
-  <div>Item two</div>
-  <div>The item we will refer to as three</div>
+    <div>One</div>
+    <div>Item two</div>
+    <div>The item we will refer to as three</div>
 </div>
 ```
 
-To use flexbox you need to declare that you want to use a flex formatting context and not regular
-block and inline layout.
-Do this by changing the value of the `display` property to `flex`.
+Для использования flexbox необходимо объявить, что вы хотите использовать контекст гибкого форматирования, а не обычную блочную и инлайн-верстку. Для этого нужно изменить значение свойства `display` на `flex`.
 
 ```css
 .container {
-  display: flex;
+    display: flex;
 }
 ```
 
-As you learned in the [layout guide](/learn/css/layout) this will give you a block-level box,
-with flex item children.
-The flex items immediately start exhibiting some flexbox behavior, using their **initial values**.
+Как вы узнали из руководства [layout guide](layout.md), в результате получится блок с дочерними элементами flexbox. Гибкие элементы сразу же начинают проявлять некоторое поведение flexbox, используя свои **начальные значения**.
 
-{% Aside %}
-All CSS properties have initial values which control how they behave "out of the box"
-when you haven't applied any CSS to change that initial behavior.
-The children of our flex container become flex items as soon as their parent gets
-`display: flex`, so these initial values mean that we start seeing some flexbox behavior.
-{% endAside %}
+!!!note ""
 
-The initial values mean that:
+    Все CSS-свойства имеют начальные значения, которые определяют их поведение "из блока", когда вы не применяли никаких CSS для изменения этого начального поведения. Дочерние элементы нашего flex-контейнера становятся flex-элементами, как только их родитель получает `display: flex`, поэтому эти начальные значения означают, что мы начинаем видеть некоторое поведение flexbox.
 
-- Items display as a row.
-- They do not wrap.
-- They do not grow to fill the container.
-- They line up at the start of the container.
+Начальные значения означают, что:
 
-## Controlling the direction of items
+-   Элементы отображаются в виде строки.
+-   Они не оборачиваются.
+-   Они не растут, заполняя контейнер.
+-   Они выстраиваются в начале контейнера.
 
-Even though you haven't added a `flex-direction` property yet,
-the items display as a row because the initial value of `flex-direction` is `row`.
-If you want a row then you don't need to add the property.
-To change the direction, add the property and one of the four values:
+## Управление направлением элементов
 
-- `row`: the items lay out as a row.
-- `row-reverse:` the items lay out as a row from the end of the flex container.
-- `column`: the items lay out as a column.
-- `column-reverse` : the items lay out as a column from the end of the flex container.
+Даже если вы еще не добавили свойство `flex-direction`, элементы отображаются в виде ряда, поскольку начальное значение `flex-direction` равно `row`. Если вам нужен ряд, то добавлять это свойство не нужно. Чтобы изменить направление, добавьте свойство и одно из четырех значений:
 
-You can try out all of the values using our group of items in the demo below.
+-   `row`: элементы выстраиваются в ряд.
+-   `row-reverse:` элементы выстраиваются в ряд от конца гибкого контейнера.
+-   `column`: элементы располагаются в виде столбца.
+-   `column-reverse`: элементы располагаются в виде столбца, начиная с конца гибкого контейнера.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'bGgKNXq'
-} %}
-</figure>
+Вы можете опробовать все значения на примере нашей группы элементов в демонстрационном примере ниже.
 
-### Reversing the flow of items and accessibility
+<iframe src="https://codepen.io/web-dot-dev/embed/bGgKNXq?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-You should be cautious when using any properties that reorder the visual display
-away from how things are ordered in the HTML document,
-as it can negatively impact accessibility.
-The `row-reverse` and `column-reverse` values are a good example of this.
-The reordering only happens for the visual order, not the logical order.
-This is important to understand as the logical order is the order that a screen reader will read out
-the content,
-and anyone navigating using the keyboard will follow.
+### Изменение порядка следования элементов и доступность
 
-You can see in the following video how in a reversed column layout,
-tabbing between links becomes disconnected as the keyboard navigation follows the DOM not the visual
-display.
+Следует быть осторожным при использовании свойств, которые изменяют порядок отображения элементов на противоположный тому, как они упорядочены в HTML-документе, поскольку это может негативно сказаться на доступности. Хорошим примером этого являются значения `row-reverse` и `column-reverse`. Переупорядочивание происходит только для визуального, но не для логического порядка. Это важно понимать, поскольку логический порядок - это порядок, в котором считыватель экрана будет считывать содержимое, а человек, осуществляющий навигацию с помощью клавиатуры, будет следовать ему.
 
-{% Video
-  src="video/VbAJIREinuYvovrBzzvEyZOpw5w1/IgpaIRZd7kOq8sd46eaR.mp4",
-  autoplay=true,
-  controls=true
-%}
+В следующем видеоролике показано, как при реверсивном расположении колонок переключение между ссылками с помощью табуляции становится неактуальным, поскольку клавиатурная навигация следует за DOM, а не за визуальным отображением.
 
-Anything which can change the order of items in flexbox or grid can cause this problem.
-Therefore any reordering should include thorough testing to check that it will not make your site
-hard to use for some people.
+<video controls>
+<source src="/learn/css3/flexbox-3.mp4" />
+</video>
 
-For more information see:
+Все, что может изменить порядок элементов в flexbox или grid, может вызвать эту проблему. Поэтому любое изменение порядка элементов должно включать тщательное тестирование, чтобы убедиться, что оно не сделает ваш сайт неудобным для некоторых людей.
 
-- [Content reordering](/content-reordering/)
-- [Flexbox and the keyboard navigation disconnect](https://tink.uk/flexbox-the-keyboard-navigation-disconnect/)
+Более подробную информацию см:
 
-### Writing modes and direction
+-   [Переупорядочивание содержимого](https://web.dev/content-reordering/)
+-   [Flexbox и отключение клавиатурной навигации](https://tink.uk/flexbox-the-keyboard-navigation-disconnect/)
 
-Flex items lay out as a row by default.
-A row runs in the direction that sentences flow in your writing mode and script direction.
-This means that if you are working in Arabic,
-which has a right-to-left (rtl) script direction, the items will line up on the right.
-Tab order would also begin on the right as this is the way sentences are read in Arabic.
+### Режимы и направление записи
+
+Элементы Flex по умолчанию располагаются в виде строки. Строка располагается в том направлении, в котором предложения идут в вашем режиме написания и направлении сценария. Это означает, что если вы работаете на арабском языке, который имеет право-левое (rtl) направление письма, то элементы будут выстраиваться справа. Порядок табуляции также будет начинаться справа, поскольку именно так читаются предложения на арабском языке.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/ExZgwWN?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Если вы работаете с вертикальным режимом письма, как, например, некоторые японские шрифты, то строка будет идти вертикально, сверху вниз. Попробуйте изменить `flex-direction` в этом примере, использующем вертикальный режим письма.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/qBRaPXX?height=600&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Поэтому поведение гибких элементов по умолчанию зависит от режима написания документа. Большинство учебных пособий написано на английском языке или в другом горизонтальном, лево-правостороннем стиле. Поэтому легко предположить, что гибкие элементы выстраиваются **слева**, а выполняются **горизонтально**.
+
+Учитывая наличие главной и поперечной осей, а также способ написания текста, может быть проще понять тот факт, что в flexbox мы говорим о **начале** и **конце**, а не о вершине, низе, левом и правом. Каждая ось имеет начало и конец. Начало главной оси обозначается как **main-start**. Таким образом, наши элементы flexbox изначально выстраиваются в линию от main-start. Конец этой оси называется **main-end**. Начало поперечной оси - **cross-start**, а конец - **cross-end**.
+
+![Маркированная диаграмма вышеуказанных терминов](flexbox-4.svg)
+
+## Обертывание гибких элементов
+
+Начальное значение свойства `flex-wrap` равно `nowrap`. Это означает, что если в контейнере недостаточно места, то элементы будут переполнены.
 
 <figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'ExZgwWN'
-} %}
+![Гибкий контейнер с девятью элементами внутри, элементы уменьшились так, что одно слово находится в строке
+но не хватает места, чтобы показать их рядом друг с другом, поэтому гибкие элементы выходят за пределы
+блока контейнера.](flexbox-5.avif)
+<figcaption>При достижении минимального размера содержимого гибкие элементы начнут переполнять свой контейнер</figcaption>
 </figure>
 
-If you are working with a vertical writing mode,
-like some Japanese typefaces, then a row will run vertically, from top to bottom.
-Try changing the `flex-direction` in this demo which is using a vertical writing mode.
+Элементы, отображаемые с использованием начальных значений, будут уменьшаться настолько, насколько это возможно, вплоть до размера `min-content`, прежде чем произойдет переполнение.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'qBRaPXX',
-  height: 600
-} %}
-</figure>
-
-Therefore the way flex items behave by default is linked to the writing mode of the document.
-Most tutorials are written using English, or another horizontal,
-left to right writing mode.
-This would make it easy to assume that flex items line up **on the left**, and run **horizontally**.
-
-With the main and cross axis plus the writing mode to consider,
-the fact that we talk about **start** and **end** rather than top, bottom, left, and right in
-flexbox might be easier to understand.
-Each axis has a start and an end.
-The start of the main axis is referred to as **main-start**.
-So our flex items initially line up from main-start.
-The end of that axis is **main-end**.
-The start of the cross axis is **cross-start** and the end **cross-end**.
-
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/uSH4TxRv8KNQDTK7Vn8h.svg",
-alt="A labelled diagram of the above terms",
-width="800",
-height="382" %}
-
-## Wrapping flex items
-
-The initial value of the `flex-wrap` property is `nowrap`.
-This means that if there is not enough space in the container the items will overflow.
-
-<figure>
-{% Img src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/VTUdLS9PeBziBvbOSc4q.jpg",
-alt="A flex container with nine items inside it, the items have shrunk down so one word is on a line
-but there is not enough room to show them side by side so the flex items have extended outside the
-box of the container.",
-width="800",
-height="282" %}
-  <figcaption>
-  Once they hit min-content size flex items will start to overflow their container
-  </figcaption>
-</figure>
-
-Items displaying using the initial values will shrink as small as they can,
-down to the `min-content` size before overflow happens.
-
-To cause the items to wrap add `flex-wrap: wrap` to the flex container.
+Чтобы заставить элементы сворачиваться, добавьте к гибкому контейнеру команду `flex-wrap: wrap`.
 
 ```css
 .container {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 ```
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'WNRGdNZ',
-  height: 601
-} %}
-</figure>
 
-When a flex container wraps it creates multiple **flex lines**.
-In terms of space distribution,
-each line acts like a new flex container.
-Therefore if you are wrapping rows,
-it is not possible to get something in row 2 to line up with something above it in row 1.
-This is what is meant by flexbox being one-dimensional.
-You can control alignment in one axis, a row or a column,
-not both together as we can do in grid.
+<iframe src="https://codepen.io/web-dot-dev/embed/WNRGdNZ?height=601&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-### The flex-flow shorthand
+Когда флекс-контейнер сворачивается, он создает несколько **линий флекса**. С точки зрения распределения пространства каждая линия действует как новый гибкий контейнер. Поэтому при обертывании строк невозможно добиться того, чтобы что-то в строке 2 совпадало с тем, что находится над ней в строке 1. Это и означает, что flexbox является одномерным. Вы можете управлять выравниванием по одной оси, по строке или по столбцу, а не по обеим вместе, как это можно сделать в сетке.
 
-You can set the `flex-direction` and `flex-wrap` properties using the shorthand `flex-flow`.
-For example, to set `flex-direction` to `column` and allow items to wrap:
+### Сокращение flex-flow
+
+Свойства `flex-direction` и `flex-wrap` можно задать с помощью сокращения `flex-flow`. Например, чтобы установить `flex-direction` в `column` и разрешить элементам сворачиваться:
 
 ```css
 .container {
-  display: flex;
-  flex-flow: column wrap;
+    display: flex;
+    flex-flow: column wrap;
 }
 ```
 
-## Controlling space inside flex items
+## Управление пространством внутри гибких элементов
 
-Assuming our container has more space than is needed to display the items,
-the items line up at the start and do not grow to fill the space.
-They stop growing at their max-content size.
-This is because the initial value of the `flex-` properties is:
+Если предположить, что наш контейнер имеет больше места, чем необходимо для отображения элементов, то элементы выстраиваются в линию в самом начале и не растут, чтобы заполнить пространство. Они перестают расти при максимальном размере содержимого. Это происходит потому, что начальное значение свойства `flex-` имеет вид:
 
-- `flex-grow: 0`: items do not grow.
-- `flex-shrink: 1`: items can shrink smaller than their [`flex-basis`](https://developer.mozilla.org/docs/Web/CSS/flex-basis).
-- `flex-basis: auto`: items have a base size of `auto`.
+-   `flex-grow: 0`: элементы не растут.
+-   `flex-shrink: 1`: элементы могут уменьшаться меньше, чем их [`flex-basis`](../../css/flex-basis.md).
+-   `flex-basis: auto`: элементы имеют базовый размер `auto`.
 
-This can be represented by a keyword value of `flex: initial`.
-The `flex` shorthand property,
-or the longhands of `flex-grow`, `flex-shrink` and `flex-basis` are applied to the children of the
-flex container.
+Это может быть представлено значением ключевого слова `flex: initial`. К дочерним элементам контейнера flex применяется сокращенное свойство `flex`, или длинные варианты `flex-grow`, `flex-shrink` и `flex-basis`.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'LYxRebE'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/LYxRebE?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-To cause the items to grow,
-while allowing large items to have more space than small ones use `flex:auto`.
-You can try this using the demo above.
-This sets the properties to:
+Для того чтобы элементы увеличивались и при этом большие элементы занимали больше места, чем маленькие, используйте `flex:auto`. Попробовать это можно на примере демонстрации, приведенной выше. При этом свойства устанавливаются в следующие значения:
 
-- `flex-grow: 1`: items can grow larger than their `flex-basis`.
-- `flex-shrink: 1`: items can shrink smaller than their `flex-basis`.
-- `flex-basis: auto`: items have a base size of `auto`.
+-   `flex-grow: 1`: элементы могут расти больше, чем их `flex-basis`.
+-   `flex-shrink: 1`: элементы могут уменьшаться меньше, чем их `flex-basis`.
+-   `flex-basis: auto`: элементы имеют базовый размер `auto`.
 
-Using `flex: auto` will mean that items end up different sizes,
-as the space that is shared between the items is shared out _after_ each item is laid out as
-max-content size.
-So a large item will gain more space.
-To force all of the items to be a consistent size and ignore the size of the content change
-`flex:auto` to `flex: 1` in the demo.
+Использование `flex: auto` приведет к тому, что элементы в итоге будут иметь разные размеры, так как пространство, разделяемое между элементами, распределяется _после_ того, как каждый элемент будет размещен по размеру максимального содержимого. Поэтому большой элемент будет занимать больше места. Чтобы заставить все элементы иметь одинаковый размер и игнорировать размер содержимого, измените `flex:auto` на `flex: 1` в демо-версии.
 
-This unpacks to:
+Это распаковывается на:
 
-- `flex-grow: 1`: items can grow larger than their `flex-basis`.
-- `flex-shrink: 1`: items can shrink smaller than their `flex-basis`.
-- `flex-basis: 0`: items have a base size of `0`.
+-   `flex-grow: 1`: элементы могут увеличиваться больше, чем их `flex-basis`.
+-   `flex-shrink: 1`: элементы могут уменьшаться меньше, чем их `flex-basis`.
+-   `flex-basis: 0`: элементы имеют базовый размер `0`.
 
-Using `flex: 1` says that all items have zero size,
-therefore all of the space in the flex container is available to be distributed.
-As all items have a `flex-grow` factor of `1` they all grow equally and the space is shared equally.
+Использование `flex: 1` говорит о том, что все элементы имеют нулевой размер, поэтому все пространство в гибком контейнере доступно для распределения. Поскольку все элементы имеют коэффициент `flex-grow`, равный `1`, они растут одинаково, и пространство распределяется поровну.
 
-{% Aside %}
-There is also a value of `flex: none`,
-which will give you inflexible flex items that do not grow or shrink.
-This might be useful if you are purely using flexbox to access the alignment properties but don't
-want any flexible behavior.
-{% endAside %}
+!!!note ""
 
-### Allowing items to grow at different rates
+    Существует также значение `flex: none`, которое позволяет получить негибкие гибкие элементы, не увеличивающиеся и не уменьшающиеся. Это может быть полезно, если вы используете flexbox только для доступа к свойствам выравнивания, но не хотите никакого гибкого поведения.
 
-You don't have to give all items a `flex-grow` factor of `1`.
-You could give your flex items different `flex-grow` factors.
-In the demo below the first item has `flex: 1`, the second `flex: 2` and third `flex: 3`.
-As these items grow from `0` the available space in the flex container is shared into six.
-One part is given to the first item,
-two parts to the second,
-three parts to the third.
+### Разрешение элементам расти с разной скоростью
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'OJWRzEz'
-} %}
-</figure>
+Не обязательно присваивать всем элементам коэффициент `flex-grow`, равный `1`. Вы можете задать своим гибким элементам различные коэффициенты `flex-grow`. В приведенном ниже примере первый элемент имеет коэффициент `flex: 1`, второй `flex: 2` и третий `flex: 3`. По мере роста этих элементов от `0` свободное место в гибком контейнере делится на шесть частей. Одна часть отводится первому элементу, две части - второму, три части - третьему.
 
-You can do the same thing from a `flex-basis` of `auto`, though you will need to specify the three
-values.
-The first value being `flex-grow`,
-the second `flex-shrink`,
-and the third `flex-basis`.
+<iframe src="https://codepen.io/web-dot-dev/embed/OJWRzEz?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+То же самое можно сделать и с `flex-basis` из `auto`, но при этом необходимо указать три значения. Первое значение - `flex-grow`, второе - `flex-shrink`, третье - `flex-basis`.
 
 ```css
 .item1 {
-  flex: 1 1 auto;
+    flex: 1 1 auto;
 }
 
 .item2 {
-  flex: 2 1 auto;
+    flex: 2 1 auto;
 }
 ```
 
-This is a less common use case as the reason to use a `flex-basis` of `auto`
-is to allow the browser to figure out space distribution.
-If you wanted to cause an item to grow a little more than the algorithm decides however it might be
-useful.
+Это менее распространенный случай, поскольку причина использования `flex-basis` в `auto` заключается в том, чтобы позволить браузеру самому определить распределение пространства. Однако если вы хотите, чтобы элемент увеличивался немного больше, чем решает алгоритм, это может быть полезно.
 
-## Reordering flex items
+## Переупорядочивание элементов flex
 
-Items in your flex container can be reordered using the `order` property.
-This property allows the ordering of items in **ordinal groups**.
-Items are laid out in the direction dictated by `flex-direction`,
-lowest values first.
-If more than one item has the same value it will be displayed with the other items with that value.
+Элементы в контейнере flex можно упорядочить с помощью свойства `order`. Это свойство позволяет упорядочивать элементы в **ординарные группы**. Элементы располагаются в направлении, определяемом свойством `flex-direction`, сначала идут наименьшие значения. Если несколько элементов имеют одинаковое значение, то они будут отображаться вместе с другими элементами с этим значением.
 
-The example below demonstrates this ordering.
+Приведенный ниже пример демонстрирует такой порядок.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'NWdRXoL'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/NWdRXoL?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Aside 'warning' %}
-Using `order` has the same problems as the `row-reverse` and `column-reverse`
-values of `flex-direction`.
-It would be very easy to create a disconnected experience for some users.
-Do not use `order` because you are fixing things being out of order in the document.
-If the items logically should be in a different order, change your HTML!
-{% endAside %}
+!!!note ""
 
-{% Assessment 'flex' %}
+    Использование `order` имеет те же проблемы, что и значения `row-reverse` и `column-reverse` в `flex-direction`. Очень легко создать несовместимые ощущения для некоторых пользователей. Не используйте `order`, потому что вы исправляете непорядок в документе. Если элементы логически должны располагаться в другом порядке, измените HTML!
 
-## Flexbox alignment overview
+## Обзор выравнивания в Flexbox
 
-Flexbox brought with it a set of properties for aligning items and distributing space between items.
-These properties were so useful they have since been moved into their own specification,
-you'll encounter them in Grid Layout too.
-Here you can find out how they work when you are using flexbox.
+Flexbox принес с собой набор свойств для выравнивания элементов и распределения пространства между ними. Эти свойства оказались настолько полезными, что с тех пор были перенесены в отдельную спецификацию, и вы можете встретить их и в Grid Layout. Здесь вы узнаете, как они работают при использовании flexbox.
 
-The set of properties can be placed into two groups.
-Properties for space distribution, and properties for alignment.
-The properties which distribute space are:
+Набор свойств можно разделить на две группы. Свойства для распределения пространства и свойства для выравнивания. К свойствам, распределяющим пространство, относятся:
 
-- `justify-content`: space distribution on the main axis.
-- `align-content`: space distribution on the cross axis.
-- `place-content`: a shorthand for setting both of the above properties.
+-   `justify-content`: распределение пространства по главной оси.
+-   `align-content`: распределение пространства по поперечной оси.
+-   `place-content`: сокращение для установки обоих вышеуказанных свойств.
 
-The properties used for alignment in flexbox:
+Свойства, используемые для выравнивания в flexbox:
 
-- `align-self`: aligns a single item on the cross axis.
-- `align-items`: aligns all of the items as a group on the cross axis.
+-   `align-self`: выравнивание отдельного элемента по поперечной оси.
+-   `align-items`: выравнивает все элементы как группу по поперечной оси.
 
-If you are working on the main axis then the properties begin with `justify-`.
-On the cross axis they begin with `align-`.
+Если вы работаете с главной осью, то свойства начинаются с `justify-`. На поперечной оси они начинаются с `align-`.
 
-## Distributing space on the main axis
+## Распределение пространства на главной оси
 
-With the HTML used earlier, the flex items laid out as a row, there is space on the main axis.
-The items are not big enough to completely fill the flex container.
-The items line up at the start of the flex container because the initial value of `justify-content`
-is `flex-start`.
-The items line up at the start and any extra space is at the end.
+В использованном ранее HTML, когда гибкие элементы располагаются в ряд, на главной оси остается свободное пространство. Элементы не настолько велики, чтобы полностью заполнить контейнер flex. Элементы выстраиваются в начале гибкого контейнера, поскольку начальное значение параметра `justify-content` равно `flex-start`. Элементы выстраиваются в начале, а лишнее пространство остается в конце.
 
-Add the `justify-content` property to the flex container,
-give it a value of `flex-end`,
-and the items line up at the end of the container and the spare space is placed at the start.
+Добавьте свойство `justify-content` к гибкому контейнеру, придайте ему значение `flex-end`, и элементы будут выстраиваться в конце контейнера, а свободное место будет размещено в начале.
 
 ```css
 .container {
-  display: flex;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 }
 ```
 
-You can also distribute the space between the items with `justify-content: space-between`.
+Вы также можете распределить пространство между элементами с помощью `justify-content: space-between`.
 
-Try some of the values in the demo,
-and [see MDN](https://developer.mozilla.org/docs/Web/CSS/justify-content) for the full set of
-possible values.
+Попробуйте некоторые из значений в демонстрационном примере, а также [см. MDN](https://developer.mozilla.org/docs/Web/CSS/justify-content) для полного набора возможных значений.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'JjERpGb'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/JjERpGb?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Aside %}
-For the `justify-content` property to do anything you have to have spare space in your container on
-the main axis.
-If your items fill the axis then there is no space to share out so the property won't do anything.
-{% endAside %}
+!!!note ""
 
-### With `flex-direction: column`
+    Для того чтобы свойство `justify-content` могло что-то сделать, в контейнере должно быть свободное место на главной оси. Если элементы заполняют ось, то не остается места для распределения, поэтому свойство ничего не даст.
 
-If you have changed your `flex-direction` to `column` then `justify-content` will work on
-the column.
-To have spare space in your container when working as a column you need to give your container a
-`height` or `block-size`.
-Otherwise you won't have spare space to distribute.
+### С `flex-direction: column`.
 
-Try the different values, this time with a flexbox column layout.
+Если вы изменили `flex-direction` на `column`, то `justify-content` будет работать в колонке. Чтобы в контейнере было свободное место при работе в качестве колонки, необходимо задать контейнеру `height` или `block-size`. В противном случае свободное пространство не будет распределено.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'bGgwLgz',
-  height: 600
-} %}
-</figure>
+Попробуйте различные значения, на этот раз с компоновкой колонок flexbox.
 
-## Distributing space between flex lines
+<iframe src="https://codepen.io/web-dot-dev/embed/bGgwLgz?height=600&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-With a wrapped flex container you might have space to distribute on the cross axis.
-In this case you can use the `align-content` property with the same values as `justify-content`.
-Unlike `justify-content` which aligns items to `flex-start` by default,
-the initial value of `align-content` is `stretch`.
-Add the property `align-content` to the flex container to change that default behavior.
+## Распределение пространства между гибкими линиями
+
+При использовании обернутого флекс-контейнера может возникнуть необходимость распределения пространства по поперечной оси. В этом случае можно использовать свойство `align-content` с теми же значениями, что и `justify-content`. В отличие от `justify-content`, которое по умолчанию выравнивает элементы по `flex-start`, начальным значением `align-content` является `stretch`. Добавьте свойство `align-content` в контейнер flex, чтобы изменить это поведение по умолчанию.
 
 ```css
 .container {
-  align-content: center;
+    align-content: center;
 }
 ```
 
-Try this out in the demo.
-The example has wrapped lines of flex items,
-and the container has a `block-size` in order that we have some spare space.
+Попробуйте это сделать в демонстрационном примере. Пример имеет обернутые линии гибких элементов, а контейнер имеет `block-size` для того, чтобы у нас было свободное место.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'poREawo'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/poREawo?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-### The `place-content` shorthand
+### Сокращение `place-content`.
 
-To set both `justify-content` and `align-content` you can use `place-content` with one
-or two values.
-A single value will be used for both axes,
-if you specify both the first is used for `align-content` and the second for `justify-content`.
+Чтобы задать одновременно `justify-content` и `align-content`, можно использовать `place-content` с одним или двумя значениями. Одно значение будет использоваться для обеих осей, если указать оба значения, то первое будет использоваться для `align-content`, а второе для `justify-content`.
 
 ```css
 .container {
-  place-content: space-between;
-  /* sets both to space-between */
+    place-content: space-between;
+    /* sets both to space-between */
 }
 
 .container {
-  place-content: center flex-end;
-  /* wrapped lines on the cross axis are centered,
+    place-content: center flex-end;
+    /* wrapped lines on the cross axis are centered,
   on the main axis items are aligned to the end of the flex container */
 }
 ```
 
-## Aligning items on the cross-axis
+## Выравнивание элементов на поперечной оси
 
-On the cross axis you can also align your items within the flex line using `align-items`
-and `align-self`.
-The space available for this alignment will depend on the height of the flex container,
-or flex line in the case of a wrapped set of items.
+На поперечной оси можно также выровнять элементы внутри гибкой линии с помощью `align-items` и `align-self`. Пространство, доступное для такого выравнивания, будет зависеть от высоты флекс-контейнера или флекс-линии в случае обернутого набора элементов.
 
-The initial value of `align-self` is `stretch`,
-which is why flex items in a row stretch to the height of the tallest item by default.
-To change this, add the `align-self` property to any of your flex items.
+Начальное значение `align-self` - `stretch`, поэтому по умолчанию гибкие элементы в строке растягиваются до высоты самого высокого элемента. Чтобы изменить это значение, добавьте свойство `align-self` к любому из своих гибких элементов.
 
 ```css
 .container {
-  display: flex;
+    display: flex;
 }
 
 .item1 {
-  align-self: flex-start;
+    align-self: flex-start;
 }
 ```
 
-Use any of the following values to align the item:
+Для выравнивания элемента используйте любое из следующих значений:
 
-- `flex-start`
-- `flex-end`
-- `center`
-- `stretch`
-- `baseline`
+-   `flex-start`
+-   `flex-end`
+-   `center`
+-   `stretch`
+-   `baseline`
 
-See [the full list of values on MDN](https://developer.mozilla.org/docs/Web/CSS/align-self).
+См. [полный список значений](../../css/align-self.md).
 
-The next demo has a single line of flex items with `flex-direction: row`.
-The last item defines the height of the flex container.
-The first item has the `align-self` property with a value of `flex-start`.
-Try changing the value on that property to see how it moves within its space on the cross axis.
+Следующий демонстрационный пример содержит одну строку flex-элементов с `flex-direction: row`. Последний элемент задает высоту гибкого контейнера. Первый элемент имеет свойство `align-self` со значением `flex-start`. Попробуйте изменить значение этого свойства, чтобы увидеть, как он перемещается в своем пространстве по поперечной оси.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'RwKGQee',
-  height: 600
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/RwKGQee?height=600&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The `align-self` property is applied to individual items.
-The `align-items` property can be applied to the flex container
-to set all of the individual `align-self` properties as a group.
+Свойство `align-self` применяется к отдельным элементам. Свойство `align-items` может быть применено к гибкому контейнеру, чтобы установить все отдельные свойства `align-self` как группу.
 
 ```css
 .container {
-  display: flex;
-  align-items: flex-start;
+    display: flex;
+    align-items: flex-start;
 }
 ```
 
-In this next demo try changing the value of `align-items` to align all of the items on the cross
-axis as a group.
+В следующем примере попробуйте изменить значение параметра `align-items`, чтобы выровнять все элементы на поперечной оси как группу.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'QWdKmby',
-  height: 600
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/QWdKmby?height=600&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Why is there no justify-self in flexbox?
+## Почему в flexbox нет функции justify-self?
 
-Flex items act as a group on the main axis.
-So there is no concept of splitting an individual item out of that group.
+Элементы flexbox действуют как группа на главной оси. Поэтому не существует концепции выделения отдельного элемента из этой группы.
 
-In grid layout the `justify-self` and `justify-items` properties work on the inline axis
-to do alignment of items on that axis within their grid area.
-Due to the way that flex layouts treat items as a group,
-these properties are not implemented in a flex context.
+В сетчатой верстке свойства `justify-self` и `justify-items` работают с осью inline для выравнивания элементов по этой оси в пределах их области сетки. Из-за того, что в flex-макетах элементы рассматриваются как группа, эти свойства не реализованы в контексте flex.
 
-It is worth knowing that flexbox does work very nicely with auto margins.
-If you come across a need to split off one item from a group,
-or separate the group into two groups you can apply a margin to do this.
-In the example below the last item has a left margin of `auto`.
-The auto margin absorbs all space in the direction it is applied.
-This means that it pushes the item over to the right, thus splitting the groups.
+Стоит отметить, что flexbox очень хорошо работает с автоматическими полями. Если вам необходимо отделить один элемент от группы или разделить группу на две группы, вы можете применить для этого отступ. В приведенном ниже примере последний элемент имеет левое поле `auto`. Автоматическое поле поглощает все пространство в том направлении, в котором оно применяется. Это означает, что он сдвигает элемент вправо, тем самым разделяя группы.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'poRELbR'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/poRELbR?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## How to center an item vertically and horizontally
+## Как выровнять элемент по вертикали и горизонтали
 
-The alignment properties can be used to center an item inside another box.
-The `justify-content` property aligns the item on the main axis,
-which is row. The `align-items` property on the cross axis.
+Для центрирования элемента внутри другого блока можно использовать свойства выравнивания. Свойство `justify-content` выравнивает элемент по главной оси, которой является строка. Свойство `align-items` - по поперечной оси.
 
 ```css
 .container {
-  width: 400px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 400px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 ```
 
-{% Aside %}
-In the future we may be able to do this alignment without needing to make the parent a
-flex container.
-The alignment properties are specified for block and inline layout.
-At present no browser has implemented these.
-However, switching into a flex formatting context gives you access to the properties.
-If you need to align something it's a great way to do it.
-{% endAside %}
+!!!note ""
 
-{% Assessment 'conclusion' %}
+    В будущем мы сможем выполнять такое выравнивание без необходимости делать родительский контейнер гибким. Свойства выравнивания задаются для блочной и линейной верстки. В настоящее время они не реализованы ни в одном браузере. Однако переход в контекст гибкого форматирования позволяет получить доступ к этим свойствам. Если вам нужно что-то выровнять, это отличный способ сделать это.
 
-## Resources
+## Ресурсы
 
-- [MDN CSS Flexible Box Layout](https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout) includes a series of detailed guides with examples.
-- [CSS Tricks Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-- [What Happens When You Create a Flexbox Flex Container](https://www.smashingmagazine.com/2018/08/flexbox-display-flex-container/)
-- [Everything You Need To Know About Alignment In Flexbox](https://www.smashingmagazine.com/2018/08/flexbox-alignment/)
-- [How Big Is That Flexible Box?](https://www.smashingmagazine.com/2018/09/flexbox-sizing-flexible-box/)
-- [Use Cases For Flexbox](https://www.smashingmagazine.com/2018/10/flexbox-use-cases/)
-- [Inspect and debug CSS Flexbox layouts in Chrome DevTools](https://developer.chrome.com/docs/devtools/css/flexbox/)
+-   [MDN CSS Гибкая компоновка блоков](https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout) включает серию подробных руководств с примерами.
+-   [CSS Tricks Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+-   [Что происходит при создании гибкого контейнера Flexbox](https://www.smashingmagazine.com/2018/08/flexbox-display-flex-container/)
+-   [Все, что нужно знать о выравнивании в Flexbox](https://www.smashingmagazine.com/2018/08/flexbox-alignment/)
+-   [Насколько велик этот гибкий блок?](https://www.smashingmagazine.com/2018/09/flexbox-sizing-flexible-box/)
+-   [Примеры использования Flexbox](https://www.smashingmagazine.com/2018/10/flexbox-use-cases/)
+-   [Проверка и отладка макетов CSS Flexbox в Chrome DevTools](https://developer.chrome.com/docs/devtools/css/flexbox/)
+
+:information_source: Источник: [Flexbox](https://web.dev/learn/css/flexbox/)

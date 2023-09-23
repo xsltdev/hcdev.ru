@@ -1,426 +1,274 @@
 ---
-title: Layout
-description: >
-  An overview of the various layout methods you have to choose from when building a component or page layout.
-audio:
-  title: 'The CSS Podcast - 009: Layout'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_009_v1.1.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - andybell
-date: 2021-04-20
-tags:
-  - css
+description: Обзор различных методов компоновки, которые можно выбрать при создании компонент или макета страницы.
+icon: material/layers-outline
 ---
 
-Imagine you're working as a developer,
-and a designer colleague hands you a design for a brand new website.
-The design has all sorts of interesting layouts and compositions:
-two-dimensional layouts that are considerate of viewport width and height,
-as well as layouts that need to be fluid and flexible.
-How do you decide the best way to style these with CSS?
+# Разметка
 
-CSS provides us with various ways to solve layout problems,
-on a horizontal axis, vertical axis, or even both.
-Choosing the right layout method for a context can be hard,
-and often you may need more than one layout method to solve your problem.
-To help with this, in the following modules,
-you'll learn about the unique features of each CSS layout mechanism to inform those decisions.
+<big>Обзор различных методов компоновки, которые можно выбрать при создании компонент или макета страницы.</big>
 
-## Layout: a brief history
+!!!info "CSS подкаст"
 
-In the early days of the web,
-designs more complex than a simple document were laid out with `<table>` elements.
-Separating HTML from visual styles was made easier when CSS was widely adopted by browsers in the late '90s.
-CSS opened the door to developers being able to completely change the look and feel of a website without ever touching HTML.
-This new capability inspired projects such as [The CSS Zen Garden](http://www.csszengarden.com),
-which was created to demonstrate the power of CSS to encourage more developers to learn it.
+    009: Разметка
 
-CSS has evolved as our needs for web design and browser technology have evolved.
-You can read how CSS layout and our approach to layout has evolved over time in
-[this article by Rachel Andrew](https://24ways.org/2019/a-history-of-css-through-15-years-of-24-ways/).
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_009_v1.1.mp3?dest-id=1891556"></audio>
 
-{% Img
-  src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/vDDoFFoPVgJEuEaqcP4H.svg",
-  alt="A timeline showing how CSS has evolved over the years, starting in 1996 up to 2021",
-  width="760",
-  height="270"
-%}
+Представьте, что вы работаете разработчиком, а ваш коллега-дизайнер передает вам проект нового сайта. В дизайне присутствуют всевозможные интересные компоновки и композиции: двухмерные макеты, учитывающие ширину и высоту области просмотра, а также макеты, которые должны быть плавными и гибкими. Как решить, каким образом лучше всего стилизовать их с помощью CSS?
 
-## Layout: the present and future
+CSS предоставляет нам различные способы решения проблем верстки: по горизонтальной оси, по вертикальной оси или даже по обеим. Выбрать правильный способ компоновки для конкретного контекста может быть непросто, и часто для решения проблемы может потребоваться несколько способов компоновки. Чтобы помочь в этом, в следующих модулях вы узнаете об уникальных особенностях каждого механизма CSS-раскладки, что позволит вам принять соответствующие решения.
 
-Modern CSS has exceptionally powerful layout tooling.
-We have dedicated systems for layout and we're going to have a high-level look at what we have at our disposal,
-before digging into more detail of Flexbox and Grid in the next modules.
+## Макет: краткая история
 
-## Understanding the `display` property
+На заре развития Интернета для оформления более сложных документов использовались элементы `<table>`. Отделить HTML от визуальных стилей стало проще, когда в конце 90-х годов браузеры стали широко использовать CSS. CSS открыл разработчикам возможность полностью изменить внешний вид сайта, не касаясь HTML. Эта новая возможность вдохновила такие проекты, как [The CSS Zen Garden](http://www.csszengarden.com), который был создан для демонстрации возможностей CSS, чтобы побудить больше разработчиков к его изучению.
 
-The `display` property does two things.
-The first thing it does is determine if the box it is applied to acts as inline or block.
+CSS развивался по мере того, как менялись наши потребности в веб-дизайне и технологии браузеров. О том, как со временем менялась верстка CSS и наш подход к верстке, можно прочитать в [этой статье Рейчел Эндрю](https://24ways.org/2019/a-history-of-css-through-15-years-of-24-ways/).
+
+![Временная шкала, показывающая, как развивалась CSS на протяжении многих лет, начиная с 1996 года и заканчивая 2021 годом](layout-1.svg)
+
+## Макет: настоящее и будущее
+
+Современный CSS обладает исключительно мощным инструментарием для верстки. У нас есть специальные системы для верстки, и мы рассмотрим их в общих чертах, прежде чем приступить к более детальному изучению Flexbox и Grid в следующих модулях.
+
+## Понимание свойства `display`
+
+Свойство [`display`](../../css/display.md) выполняет две задачи. Во-первых, оно определяет, является ли блок, к которому оно применяется, встроенным или блочным.
 
 ```css
 .my-element {
-  display: inline;
+    display: inline;
 }
 ```
 
-Inline elements behave like words in a sentence.
-They sit next to each other in the inline direction.
-Elements such as `<span>` and `<strong>`,
-which are typically used to style pieces of text within containing elements like a `<p>` (paragraph),
-are inline by default.
-They also preserve surrounding whitespace.
+Строчные элементы ведут себя как слова в предложении. Они располагаются рядом друг с другом в поточном направлении. Такие элементы, как [`<span>`](../../html/span.md) и [`<strong>`](../../html/strong.md), которые обычно используются для стилизации фрагментов текста внутри содержащих их элементов, таких как [`<p>`](../../html/p.md) (абзац), по умолчанию являются строчными. Они также сохраняют окружающее пробельное пространство.
 
-{% Img src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/GezxDZXkJgkMevkKg39M.png", alt="A diagram showing all the different sizes of a box and where each sizing section starts and ends", width="800", height="559" %}
+![Диаграмма, показывающая все различные размеры блока и где начинается и заканчивается каждый размерный раздел](layout-2.avif)
 
-You can't set an explicit width and height on inline elements.
-Any block level margin and padding will be ignored by the surrounding elements.
+Для встроенных элементов нельзя задать явную ширину и высоту. Любые поля и подкладки на уровне блока будут игнорироваться окружающими элементами.
 
 ```css
 .my-element {
-	display: block;
+    display: block;
 }
 ```
 
-Block elements don't sit alongside each other.
-They create a new line for themselves. Unless changed by other CSS code,
-a block element will expand to the size of the inline dimension,
-therefore spanning the full width in a horizontal writing mode.
-The margin on all sides of a block element will be respected.
+Блочные элементы не располагаются рядом друг с другом. Они создают для себя новую строку. Если он не изменен другим кодом CSS, то блочный элемент будет расширяться до размеров встроенного, поэтому при горизонтальном написании он будет занимать всю ширину. Поле со всех сторон блочного элемента будет соблюдаться.
 
 ```css
 .my-element {
-	display: flex;
+    display: flex;
 }
 ```
 
-The `display` property also determines how an element's children should behave.
-For example,
-setting the `display` property to `display: flex` makes the box a block-level box,
-and also converts its children to flex items.
-This enables the flex properties that control alignment, ordering and flow.
+Свойство `display` также определяет, как должны вести себя дочерние элементы элемента. Например, установка свойства `display` в значение `display: flex` делает элемент блоком, а также преобразует его дочерние элементы в элементы flex. Это позволяет использовать свойства flex, которые управляют выравниванием, упорядочиванием и обтеканием.
 
-## Flexbox and Grid
+## Flexbox и Grid
 
-There are two main layout mechanisms that create layout rules for multiple elements, *[flexbox](/learn/css/flexbox)* and *[grid](/learn/css/grid)*.
-They share similarities, but are designed to solve different layout problems.
+Существует два основных механизма верстки, создающих правила расположения нескольких элементов: _[flexbox](flexbox.md)_ и _[grid](grid.md)_. Они имеют общие черты, но предназначены для решения разных задач компоновки.
 
+!!!note ""
 
-{% Aside %}
-We will be going into much more detail for both of these in future modules, but here is a high-level overview of what both are and what they are useful for.
-{% endAside %}
+    В последующих модулях мы будем более подробно разбирать эти два параметра, но здесь мы дадим общий обзор того, что они собой представляют и для чего нужны.
 
 ### Flexbox
 
 ```css
 .my-element {
-	display: flex;
+    display: flex;
 }
 ```
 
-Flexbox is a layout mechanism for one-dimensional layouts.
-Layout across a single axis, either horizontally or vertically.
-By default, flexbox will align the element's children next to each other,
-in the inline direction,
-and stretch them in the block direction, so they're all the same height.
+Flexbox - это механизм верстки для одномерных макетов. Разметка осуществляется по одной оси, горизонтальной или вертикальной. По умолчанию flexbox выравнивает дочерние элементы элемента рядом друг с другом в направлении inline и растягивает их в направлении block, так что все они имеют одинаковую высоту.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'rNjxmor',
-  tab: 'css,result',
-  height: 300
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/rNjxmor?height=300&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
+Элементы будут оставаться на одной оси и не будут сворачиваться, когда у них закончится место. Вместо этого они будут пытаться сжаться в одну линию друг с другом. Это поведение можно изменить с помощью свойств [`align-items`](../../css/align-items.md), [`justify-content`](../../css/justify-content.md) и [`flex-wrap`](../../css/flex-wrap.md).
 
-Items will stay on the same axis and not wrap when they run out of space.
-Instead they will try to squash onto the same line as each other.
-This behaviour can be changed using the `align-items`, `justify-content` and `flex-wrap` properties.
+<iframe src="https://codepen.io/web-dot-dev/embed/jOyWLmg?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'jOyWLmg'
-} %}
-</figure>
-
-Flexbox also converts the child elements to be **flex items**,
-which means you can write rules on how they behave inside a flex container.
-You can change alignment, order and justification on an individual item.
-You can also change how it shrinks or grows using  the `flex` property.
+Flexbox также преобразует дочерние элементы в **гибкие элементы**, что означает возможность написания правил их поведения внутри гибкого контейнера. Вы можете изменять выравнивание, порядок и обоснование для отдельного элемента. Кроме того, с помощью свойства [`flex`](../../css/flex.md) можно изменить, как он уменьшается или увеличивается.
 
 ```css
 .my-element div {
- 	flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 ```
 
-The `flex` property is a shorthand for `flex-grow`, `flex-shrink` and `flex-basis`.
- You can expand the above example like this:
+Свойство `flex` является сокращением для [`flex-grow`](../../css/flex-grow.md), [`flex-shrink`](../../css/flex-shrink.md) и [`flex-basis`](../../css/flex-basis.md). Приведенный выше пример можно расширить следующим образом:
 
 ```css
 .my-element div {
- flex-grow: 1;
- flex-shrink: 0;
- flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
 }
 ```
 
-Developers provide these low-level rules to hint a browser how the layout should behave
-when it is challenged by content and viewport dimensions.
-This makes it a very useful mechanism for responsive web design.
+Разработчики предоставляют эти низкоуровневые правила, чтобы подсказать браузеру, как должен вести себя макет в зависимости от содержимого и размеров области просмотра. Это делает его очень полезным механизмом для отзывчивого веб-дизайна.
 
 ### Grid
 
 ```css
 .my-element {
-	display: grid;
+    display: grid;
 }
 ```
 
-Grid is similar in a lot of ways to **flexbox**,
-but it is designed to control multi-axis layouts instead of single-axis layouts (vertical or horizontal space).
+Grid во многом похож на **flexbox**, но предназначен для управления многоосевыми макетами, а не одноосевыми (вертикальное или горизонтальное пространство).
 
-Grid enables you to write layout rules on an element that has `display: grid`,
-and introduces a few new primitives for layout styling,
-such as the `repeat()` and `minmax()` functions.
-One useful grid unit is the  `fr` unit—which is a fraction of remaining space—you can build traditional 12 column grids,
-with a gap between each item, with 3 CSS properties:
+Grid позволяет писать правила компоновки для элемента, имеющего `display: grid`, и вводит несколько новых примитивов для стилизации компоновки, таких как функции `repeat()` и `minmax()`. Одной из полезных единиц сетки является единица `fr`, которая представляет собой долю оставшегося пространства. С помощью 3 CSS-свойств можно строить традиционные 12-колоночные сетки с промежутком между каждым элементом:
 
 ```css
 .my-element {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'rNjxGVz'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/rNjxGVz?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-This example above shows a single axis layout.
-Where flexbox mostly treats items as a group,
-grid gives you precise control over their placement in two dimensions.
-We could define that the first item in this grid takes up 2 rows and 3 columns:
+В приведенном примере показан макет с одной осью. Если flexbox в основном рассматривает элементы как группу, то grid позволяет точно контролировать их размещение в двух измерениях. Мы можем определить, что первый элемент в этой сетке занимает 2 строки и 3 столбца:
 
 ```css
 .my-element :first-child {
-  grid-row: 1/3;
-  grid-column: 1/4;
+    grid-row: 1/3;
+    grid-column: 1/4;
 }
 ```
 
-The `grid-row` and `grid-column` properties instruct the first element in the grid to span to the start of the fourth column,
-from the first column, then span to the third row, from the first row.
+Свойства [`grid-row`](../../css/grid-row.md) и [`grid-column`](../../css/grid-column.md) предписывают первому элементу сетки переместиться в начало четвертого столбца, начиная с первого столбца, затем переместиться в третью строку, начиная с первой строки.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'YzNwrwB',
-  height: 650
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/YzNwrwB?height=650&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Flow layout
+## Потоковая разметка
 
-If not using grid or flexbox,
-your elements display in normal flow.
-There are a number of layout methods that you can use to adjust the behavior and position of items when in normal flow.
+Если не использовать сетку или flexbox, то элементы отображаются в обычном потоке. Существует несколько методов компоновки, которые можно использовать для настройки поведения и положения элементов в обычном потоке.
 
-### Inline block
+### Встраиваемый блок
 
-Remember how surrounding elements don't respect block margin and padding on an inline element?
-With `inline-block` you *can* cause that to happen.
+Помните, как окружающие элементы не соблюдают поля и отступы блока для встроенного элемента? С помощью `inline-block` это можно сделать.
 
 ```css
 p span {
-	display: inline-block;
+    display: inline-block;
 }
 ```
 
-Using `inline-block` gives you a box that has some of the characteristics of a block-level element,
-but still flows inline with the text.
+Использование `inline-block` позволяет получить блок, обладающий некоторыми характеристиками элемента уровня блока, но при этом располагающийся в линию с текстом.
 
 ```css
 p span {
-	margin-top: 0.5rem;
+    margin-top: 0.5rem;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'PoWZJKw',
-  height: 300,
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/PoWZJKw?height=300&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### Floats
 
-If you have an image that sits within a paragraph of text,
-wouldn't it be handy for that text to wrap around that image like you might see in a newspaper?
-You can do this with floats.
+Если у вас есть изображение, помещенное в абзац текста, то было бы удобно, чтобы текст обворачивался вокруг изображения, как в газете? Это можно сделать с помощью плавающих элементов.
 
 ```css
 img {
-	float: left;
-	margin-right: 1em;
+    float: left;
+    margin-right: 1em;
 }
 ```
 
-The `float` property instructs an element to "float" to the direction specified.
-The image in this example is instructed to float left,
-which then allows sibling elements to "wrap" around it.
-You can instruct an element to float `left`, `right` or `inherit`.
+Свойство `float` предписывает элементу "плыть" в указанном направлении. В данном примере изображению предписано "плыть" влево, что позволяет "обернуть" вокруг него соседние элементы. Вы можете указать элементу плавать `left`, `right` или `inherit`.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'VwPaLMg',
-  height: 300
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/VwPaLMg?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Aside 'warning' %}
-When you use `float`, keep in mind that any elements following the floated element may have their layout adjusted.
-To prevent this, you can clear the float,
-either by using `clear: both` on an element that follows your floated element
-*or* with `display: flow-root` on the parent of your floated elements.
+!!!warning ""
 
-Find out more in the article
-[The end of the clearfix hack](https://rachelandrew.co.uk/archives/2017/01/24/the-end-of-the-clearfix-hack/).
-{% endAside %}
+    При использовании `float` следует помнить, что все элементы, следующие за плавающим элементом, могут быть скорректированы. Чтобы предотвратить это, можно очистить float либо с помощью `clear: both` для элемента, следующего за float, либо с помощью `display: flow-root` для родителя float-элемента.
 
-### Multicolumn layout
+    Подробнее об этом читайте в статье [Конец хака clearfix](https://rachelandrew.co.uk/archives/2017/01/24/the-end-of-the-clearfix-hack/).
 
-If you have a really long list of elements,
-such as a list of all of the countries of the world,
-it can result in _a lot_ of scrolling and time wasted for a user.
-It can also create excess whitespace on the page.
-With CSS multicolumn,
-you can split this into multiple columns to help with both of these issues.
+### Многоколоночная верстка
+
+Если у вас есть очень длинный список элементов, например, список всех стран мира, это может привести к _очень_ большой прокрутке и потере времени для пользователя. Кроме того, это может привести к образованию лишнего свободного пространства на странице. С помощью CSS multicolumn можно разделить этот список на несколько колонок, что поможет решить обе эти проблемы.
 
 ```html
 <h1>All countries</h1>
 <ul class="countries">
-  <li>Argentina</li>
-  <li>Aland Islands</li>
-  <li>Albania</li>
-  <li>Algeria</li>
-  <li>American Samoa</li>
-  <li>Andorra</li>
-  …
+    <li>Argentina</li>
+    <li>Aland Islands</li>
+    <li>Albania</li>
+    <li>Algeria</li>
+    <li>American Samoa</li>
+    <li>Andorra</li>
+    …
 </ul>
 ```
 
-```css
-.countries {
-	column-count: 2;
-	column-gap: 1em;
-}
-```
-
-This automatically splits that long list into two columns and adds a gap between the two columns.
-
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'gOgrpzO'
-} %}
-</figure>
+---
 
 ```css
 .countries {
-	width: 100%;
-	column-width: 260px;
-	column-gap: 1em;
+    column-count: 2;
+    column-gap: 1em;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'jOyqPvB'
-} %}
-</figure>
+При этом длинный список автоматически разбивается на два столбца и между ними добавляется промежуток.
 
-Instead of setting the number of columns that the content is split into,
-you can also define a minimum desired width, using `column-width`.
-As more space is made available in the viewport,
-more columns will automatically be created and as space is reduced,
-columns will also reduce.
-This is very useful in responsive web design contexts.
-
-### Positioning
-
-Last on this overview of layout mechanisms is positioning.
-The `position` property changes how an element behaves in the normal flow of the document,
-and how it relates to other elements.
-The available options are `relative`, `absolute`, `fixed` and `sticky` with the default value being `static`.
+<iframe src="https://codepen.io/web-dot-dev/embed/gOgrpzO?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ```css
-.my-element {
-  position: relative;
-  top: 10px;
+.countries {
+    width: 100%;
+    column-width: 260px;
+    column-gap: 1em;
 }
 ```
 
-This element is nudged 10px down based on its current position in the document,
-as it is positioned relative to itself.
-Adding `position: relative` to an element also makes it the containing block of any child elements with `position: absolute`.
-This means that its child will now be repositioned to this particular element,
-instead of the topmost relative parent, when it has an absolute position applied to it.
+<iframe src="https://codepen.io/web-dot-dev/embed/jOyqPvB?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Вместо того чтобы задавать количество колонок, на которые будет разбито содержимое, можно также определить минимальную желаемую ширину, используя `column-width`. При увеличении пространства в области просмотра автоматически будет создаваться больше колонок, а при уменьшении пространства колонки также будут уменьшаться. Это очень полезно в контексте отзывчивого веб-дизайна.
+
+### Позиционирование
+
+Последним в этом обзоре механизмов верстки является позиционирование. Свойство `position` изменяет поведение элемента в нормальном потоке документа и его отношение к другим элементам. Доступны следующие варианты: `relative`, `absolute`, `fixed` и `sticky`, при этом по умолчанию используется значение `static`.
 
 ```css
 .my-element {
-  position: relative;
-  width: 100px;
-  height: 100px;
+    position: relative;
+    top: 10px;
+}
+```
+
+Этот элемент сдвигается на `10px` вниз в зависимости от его текущей позиции в документе, поскольку он позиционируется относительно самого себя. Добавление `position: relative` к элементу также делает его содержащим блоком всех дочерних элементов с `position: absolute`. Это означает, что при применении абсолютной позиции его дочерний элемент будет перепозиционирован на этот элемент, а не на самого верхнего относительного родителя.
+
+```css
+.my-element {
+    position: relative;
+    width: 100px;
+    height: 100px;
 }
 
 .another-element {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	width: 50px;
-	height: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
 }
 ```
 
-When you set `position` to `absolute`,
-it breaks the element out of the current document flow.
-This means two things:
+При установке `position` в значение `absolute` элемент вырывается из текущего потока документов. Это означает две вещи:
 
-1. You can position this element wherever you like, using `top`, `right`, `bottom` and `left` in its nearest relative parent.
-1. All of the content surrounding an absolute element reflows to fill the remaining space left by that element.
+1.  Вы можете расположить этот элемент где угодно, используя `top`, `right`, `bottom` и `left` в его ближайшем относительном родителе.
+2.  Все содержимое, окружающее абсолютный элемент, перетекает, чтобы заполнить оставшееся пространство, оставленное этим элементом.
 
-An element with a `position` value of `fixed` behaves in a similar way to `absolute`,
-with its parent being the root `<html>` element.
-Fixed position elements stay anchored from the top left based on the `top`, `right`, `bottom` and `left` values that you set.
+Элемент со значением `position` `fixed` ведет себя аналогично `absolute`, а его родителем является корневой элемент `<html>`. Элементы с фиксированной позицией закрепляются сверху слева на основе заданных значений `top`, `right`, `bottom` и `left`.
 
-You can achieve the anchored,
-fixed aspects of `fixed` and the more predictable document flow-honoring aspects of `relative` by using `sticky`.
-With this value, as the viewport scrolls past the element,
-it stays anchored to the `top`, `right`, `bottom` and `left` values that you set.
+С помощью `sticky` можно добиться фиксированной привязки `fixed` и более предсказуемой привязки к потоку документов `relative`. При таком значении, когда область просмотра прокручивается мимо элемента, он остается привязанным к заданным значениям `top`, `right`, `bottom` и `left`.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'NWdNGZB',
-  height: 600
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/NWdNGZB?height=600&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Wrap-up
+## Подведение итогов
 
-There's a lot of choice and flexibility with CSS layout.
-To dive further into the power of CSS [Flexbox](/learn/css/flexbox) and [Grid](/learn/css/grid), continue into the next few modules.
+CSS-верстка обладает широкими возможностями выбора и гибкости. Чтобы глубже погрузиться в возможности CSS [Flexbox](flexbox.md) и [Grid](grid.md), перейдите к следующим модулям.
 
-
-{% Assessment 'layout' %}
+:information_source: Источник: [Layout](https://web.dev/learn/css/layout/)
