@@ -11,7 +11,7 @@ nav:
     - layout.md
     - flexbox.md
     - grid.md
-    #- logical-properties.md
+    - logical-properties.md
     #- spacing.md
     #- pseudo-elements.md
     #- pseudo-classes.md

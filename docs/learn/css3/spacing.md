@@ -1,407 +1,200 @@
 ---
-title: Spacing
-description: >
-  Find out how to select the best method of spacing elements,
-  taking into consideration the layout method you are using and component that you need to build.
-audio:
-  title: 'The CSS Podcast - 013: Spacing'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_013_v1.0.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - andybell
-date: 2021-04-27
+description: Узнайте, как выбрать оптимальный способ расстановки элементов с учетом используемого метода компоновки и компонента, который необходимо собрать.
+icon: material/format-paragraph-spacing
 ---
 
-Say you've got a collection of three boxes,
-stacked on top of each other and you want space between them.
-How many ways can you think of to do that in CSS?
+# Интервалы
 
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/jGjBqBRk3uCvXT7Tdjre.svg",
-alt="Three stacked boxes with a downward arrow",
-width="800",
-height="498" %}
+<big>Узнайте, как выбрать оптимальный способ расстановки элементов с учетом используемого метода компоновки и компонента, который необходимо собрать.</big>
 
-The `margin` property *might* give you what you need,
-but it also might add additional spacing that you don't want.
-For example, how do you target just the space *in between* each of those elements?
-Something like `gap` might be more appropriate in this case.
-There are many ways to adjust spacing within a UI,
-each with its own strengths and caveats.
+!!!info "CSS подкаст"
 
-## HTML spacing
+    013: Интервалы
 
-HTML itself provides some methods to space elements.
-The `<br>` and `<hr>` elements allow you to space elements in the block direction,
-which if you are in a latin-based language,
-is top-to-bottom.
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_013_v1.0.mp3?dest-id=1891556"></audio>
 
-If you use a `<br>` element,
-it will create a line-break,
-just like if you were to press your enter key in a word processor.
+Допустим, у вас есть коллекция из трех блоков, поставленных друг на друга, и вам нужно пространство между ними. Сколько способов сделать это в CSS вы можете придумать?
 
-The `<hr>` creates a horizontal line with space either-side, known as `margin`.
+![Три уложенных блока со стрелкой вниз](spacing-1.svg)
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'dyNRJQg'
-} %}
-</figure>
+Свойство `margin` _может_ дать то, что вам нужно, но оно также может добавить дополнительные интервалы, которые вам не нужны. Например, как можно указать только пространство _между_ каждым из этих элементов? В этом случае более уместным будет что-то вроде `gap`. Существует множество способов настройки интервалов в пользовательском интерфейсе, каждый из которых имеет свои преимущества и недостатки.
 
-Along with using HTML elements,
-HTML *entities* can create space.
-An HTML entity is a reserved string of characters that are replaced with character entities by the browser.
-For example,
-if you were to type `&copy;` in your HTML file,
-it would be converted into a © character.
-The `&nbsp;` entity is converted into a non-breaking space character,
-which provides an inline space.
-Be careful though,
-because the non-breaking aspect of this character stitches the two elements together,
-which can result in odd behaviour.
+## HTML интервалы
 
-{% Aside %}
-Use HTML elements to add space only when the element helps with the understanding of the document.
-For example, an `<hr>` doesn't just add space,
-it creates a logical separation of two chunks of content.
-If you just want a line with space around it,
-adding a border with CSS might be more appropriate.
-{% endAside %}
+HTML сам по себе предоставляет некоторые методы для расстановки элементов. Элементы `<br>` и `<hr>` позволяют размещать элементы в направлении блока, что в латинском языке означает "сверху вниз".
+
+При использовании элемента `<br>` создается разрыв строки, как при нажатии клавиши Enter в текстовом процессоре.
+
+Элемент `<hr>` создает горизонтальную линию с пробелами по обеим сторонам, называемыми `margin`.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/dyNRJQg?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Наряду с использованием HTML-элементов, пространство может быть создано с помощью HTML _сущностей_. HTML-сущность - это зарезервированная строка символов, которая заменяется браузером на символьные сущности. Например, если в HTML-файле набрать `&copy;`, то он будет преобразован в символ ©. Сущность `&nbsp;` преобразуется в символ неразрывного пробела, который обеспечивает строчный пробел. Однако будьте осторожны, поскольку неразрывность этого символа сшивает два элемента вместе, что может привести к странному поведению.
+
+!!!note ""
+
+    Используйте HTML-элементы для добавления пространства только в тех случаях, когда этот элемент помогает понять суть документа. Например, `<hr>` не просто добавляет пространство, а создает логическое разделение двух фрагментов содержимого. Если вам нужна просто строка с пространством вокруг нее, то добавление границы с помощью CSS может быть более уместным.
 
 ## Margin
 
-If you want to add space to the outside of an element,
-you use the `margin` property.
-Margin is like adding a cushion around your element.
-The `margin` property is shorthand for `margin-top`,
-`margin-right`, `margin-bottom` and `margin-left`.
+Если необходимо добавить пространство за пределами элемента, используется свойство `margin`. Margin - это как подушка вокруг элемента. Свойство `margin` - это сокращение для обозначения `margin-top`, `margin-right`, `margin-bottom` и `margin-left`.
 
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/ECuEOJEGnudhXW5JEFih.svg",
-alt="A diagram of the four main areas of the box model.",
-width="800",
-height="547" %}
+![Диаграмма четырех основных областей модели блока.](spacing-2.svg)
 
-The `margin` shorthand applies properties in a particular order:
-top, right, bottom and left.
-You can remember these with trouble: TRouBLe.
+Сокращение `margin` применяет свойства в определенном порядке: сверху, справа, снизу и слева. Запомнить их можно с трудом: TRouBLe.
 
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/F8jtvl15CsAcs8Oaid2l.svg",
-alt="The word 'Trouble' running downwards with T, R, B and L
-extending to Top, Right, Bottom and Left.
-A box with arrows showing the directions too.",
-width="800",
-height="320" %}
+![Слово "Trouble", идущее вниз, с буквами T, R, B и L, обозначающими верх, право, низ и лево. Блок со стрелками, указывающими направление движения.](spacing-3.svg)
 
-The `margin` shorthand can also be used with one, two, or three values.
-Adding a fourth value lets you set each individual side.
-These are applied as follows:
+Сокращение `margin` также может быть использовано с одним, двумя или тремя значениями. Добавление четвертого значения позволяет задать каждую отдельную сторону. Они применяются следующим образом:
 
-- One value will be applied to all sides. (`margin: 20px`).
-- Two values: the first value will be applied to the top and bottom sides,
-and the second value will be applied to the left and right sides.
-(`margin: 20px 40px`)
-- Three values: the first value is `top`,
-the second value is `left` **and** `right`,
-and the third value is `bottom`. (`margin: 20px 40px 30px`).
+-   Одно значение будет применяться ко всем сторонам. (`margin: 20px`).
+-   Два значения: первое значение будет применяться к верхней и нижней сторонам, а второе - к левой и правой. (`margin: 20px 40px`).
+-   Три значения: первое значение - `top`, второе значение - `left` **и** `right`, третье значение - `bottom`. (`margin: 20px 40px 30px`).
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'abpwqyQ'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/abpwqyQ?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Margin can be defined with a length,
-percentage or auto value, such as `1em` or `20%`.
-If you use a percentage,
-the value will be calculated based on the width of your element's containing block.
+Margin может быть задан в виде длины, процента или автоматического значения, например `1em` или `20%`. Если вы используете процентное значение, то оно будет рассчитываться на основе ширины содержащего блока вашего элемента.
 
-This means that if your element's containing block has a width of `250px`
-and your element has a `margin` value of `20%`:
-each side of your element will have a computed margin of `50px`.
+Это означает, что если ширина блока, содержащего элемент, составляет `250px`, а значение `margin` для элемента равно `20%`, то каждая сторона элемента будет иметь вычисляемый отступ в `50px`.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'YzNQeyb'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/YzNQeyb?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-You can also use a value of `auto` for margin.
-For block level elements with a restricted size,
-an `auto` margin will take up available space in the direction that it is applied to.
-A good example is this one,
-from the [flexbox module](/learn/css/flexbox), where the items push away from each other.
+Для поля можно также использовать значение `auto`. Для элементов уровня блока с ограниченным размером `auto` margin будет занимать свободное пространство в том направлении, к которому он применяется. Хорошим примером является этот пример из модуля [Flexbox](flexbox.md), где элементы отталкиваются друг от друга.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'poRELbR'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/poRELbR?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Another good example of `auto` margin is a horizontally centered wrapper which has a max width.
-This sort of wrapper is often used to create a consistent center column on a website.
+Другой хороший пример `auto` поля - горизонтально центрированная обертка, имеющая максимальную ширину. Такая обертка часто используется для создания последовательной центральной колонки на сайте.
 
 ```css
 .wrapper {
-	max-width: 400px;
-	margin: 0 auto;
+    max-width: 400px;
+    margin: 0 auto;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'XWpgZKq'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/XWpgZKq?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Here, margin is removed from the top and bottom (block) sides,
-and `auto` shares the space between the left and right (inline) sides.
+Здесь margin удаляется с верхней и нижней (блочной) сторон, а `auto` делит пространство между левой и правой (инлайн) сторонами.
 
-{% Aside %}
-In the previous module on [logical properties](/learn/css/logical-properties),
-you learned that instead of specifying `margin-top`, `margin-right`, `margin-bottom` and `margin-left`,
-you can use `margin-block-start`, `margin-inline-end`, `margin-block-end` and `margin-inline-start`.
-{% endAside %}
+!!!note ""
 
-### Negative margin
+    В предыдущем модуле по [логическим свойствам](logical-properties.md) вы узнали, что вместо указания `margin-top`, `margin-right`, `margin-bottom` и `margin-left` можно использовать `margin-block-start`, `margin-inline-end`, `margin-block-end` и `margin-inline-start`.
 
-Negative values can also be used for margin.
-Instead of adding space between adjacent sibling elements,
-it will **reduce space** between them.
-This can result in overlapping elements,
-if you declare a negative value that's more than the available space.
+### Отрицательный маржин
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'YzNQeLP'
-} %}
-</figure>
+Отрицательные значения также могут использоваться для margin. Вместо того чтобы добавлять пространство между соседними элементами, оно будет **уменьшать пространство** между ними. Это может привести к перекрытию элементов, если объявить отрицательное значение, превышающее доступное пространство.
 
-### Margin collapse
+<iframe src="https://codepen.io/web-dot-dev/embed/YzNQeLP?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Margin collapse is a tricky concept,
-but it's something you'll run into very commonly when building interfaces.
-Say you have two elements: a heading and a paragraph that both have vertical margin on them:
+### Схлопывание полей
+
+Схлопывание полей - понятие непростое, но с ним часто приходится сталкиваться при создании интерфейсов. Допустим, у вас есть два элемента: заголовок и абзац, которые оба имеют вертикальное поле:
 
 ```html
 <article>
-  <h1>My heading with teal margin</h1>
-  <p>A paragraph of text that has blue margin on it, following the heading with margin.</p>
+    <h1>My heading with teal margin</h1>
+    <p>
+        A paragraph of text that has blue margin on it,
+        following the heading with margin.
+    </p>
 </article>
 ```
 
+---
+
 ```css
 h1 {
-	margin-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 
 p {
-	margin-top: 3rem;
+    margin-top: 3rem;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'OJWgvMx'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/OJWgvMx?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-At first glance,
-you would be forgiven for thinking that the paragraph will be spaced `5em` from the heading,
-because `2rem` and `3rem` combined calculate to `5rem`.
-Because **vertical margin collapses**, though, the space is actually `3rem`.
+На первый взгляд можно подумать, что абзац будет отстоять от заголовка на `5em`, поскольку `2rem` и `3rem` в сумме дают `5rem`. Однако из-за того, что **вертикальное поле схлопывается**, на самом деле расстояние составляет `3rem`.
 
-Margin collapse works by selecting the largest value of two adjoining elements
-with vertical margin set on the adjoining sides.
-The bottom of the `h1` meets the top of the `p`,
-so the largest value of the `h1`'s bottom margin and the `p`'s top margin is selected.
-If the `h1` were to have `3.5rem` of bottom margin,
-the space between them both would then be `3.5rem` because that is larger than `3rem`.
-Only block margins collapse, not inline (horizontal) margins.
+Схлопывание полей происходит путем выбора наибольшего значения из двух смежных элементов с вертикальным отступом, установленным на смежных сторонах. Нижняя часть `h1` пересекается с верхней частью `p`, поэтому выбирается наибольшее значение нижнего поля `h1` и верхнего поля `p`. Если бы у `h1` было `3.5rem` нижнего поля, то пространство между ними было бы `3.5rem`, поскольку оно больше `3rem`. Разрушаются только поля блоков, но не поля строк (горизонтальные).
 
-{% Aside %}
-This behavior is rooted back to when the web was mostly just documents.
-Collapsing margins help to set consistent spacing between elements
-without accidentally creating huge gaps between elements that also have margin defined.
-{% endAside %}
+!!!note ""
 
-Margin collapse also helps with empty elements.
-If you have a paragraph that has a top and bottom margin of `20px`,
-it will only create `20px` of space: not `40px`.
-If *anything* is added to the inside of this element though,
-including `padding`, its margin will no longer collapse in itself and will be treated as any box with content.
+    Это поведение уходит корнями в те времена, когда в Интернете были только документы. Схлопывание полей помогает установить согласованное расстояние между элементами, не создавая случайно огромных зазоров между элементами, у которых также определены поля.
 
-{% Assessment 'margin-collapsing' %}
+Схлопывание полей также помогает при работе с пустыми элементами. Если у вас есть абзац, верхнее и нижнее поля которого равны `20px`, то он создаст только `20px` пространства, а не `40px`. Если же внутри этого элемента добавить _любые_ элементы, включая `padding`, то его поле больше не будет схлопываться само по себе и будет восприниматься как любой блок с содержимым.
 
-#### Preventing margin collapse
+#### Предотвращение схлопывания полей
 
-If you make an element absolutely positioned,
-using `position: absolute`, the margin will no longer collapse.
-The margin also won't collapse if you use the `float` property, too.
+Если сделать элемент абсолютно позиционированным, используя `position: absolute`, то margin больше не будет схлопываться. При использовании свойства `float` margin также не будет схлопываться.
 
-If you have an element with no margin between two elements with block margin,
-the margin won't collapse either,
-because the two elements with block margin are no longer adjacent siblings: they are just siblings.
+Если между двумя элементами с блочным полем находится элемент без поля, то поле также не будет схлопываться, поскольку два элемента с блочным полем уже не являются смежными братьями и сестрами, а просто родными.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'YzNQavQ'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/YzNQavQ?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-In the [layout lesson](/learn/css/layout),
-you learned that flexbox and grid containers are very similar to block containers,
-but handle their child elements very differently.
-This is the case with margin collapse, too.
+В уроке [Разметка](layout.md) вы узнали, что контейнеры flexbox и grid очень похожи на блочные контейнеры, но совершенно по-разному работают со своими дочерними элементами. Так же обстоит дело и с margin collapse.
 
-If we take the original example from the lesson and apply flexbox with column direction,
-the margins are combined,
-instead of collapsed.
-This can provide predictability with layout work,
-which is what flexbox and grid containers are designed for.
+Если мы возьмем исходный пример из урока и применим flexbox с направлением колонок, то поля будут объединены, а не свернуты. Это может обеспечить предсказуемость работы с макетом, для чего и предназначены контейнеры flexbox и grid.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'QWdgmNx'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/QWdgmNx?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Margin and margin collapse can be tricky to understand,
-but understanding how they work, in detail, is very useful,
-so [this detailed explainer](https://www.smashingmagazine.com/2019/07/margins-in-css)
-is strongly recommended.
+Поля и схлопывание полей могут быть сложными для понимания, но понимание того, как они работают, в деталях очень полезно, поэтому [это подробное объяснение](https://www.smashingmagazine.com/2019/07/margins-in-css) настоятельно рекомендуется.
 
-## Padding
+## Отступы
 
-Instead of creating space on the outside of your box,
-like `margin` does,
-the `padding` property creates space on the **inside** of your box instead:
-like insulation.
+Вместо того чтобы создавать пространство снаружи блока, как это делает `margin`, свойство `padding` создает пространство **внутри** блока: как изоляция.
 
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/kClqXks3zC6Dio1c6f6v.png",
-alt="A box with arrows pointing inwards to show that padding lives inside a box",
-width="800",
-height="336" %}
+![Блок со стрелками, направленными внутрь, чтобы показать, что внутри блока находятся подкладки](spacing-4.avif)
 
-Depending on which box model you are using—which was covered back in the
-[box model lesson](/learn/css/box-model/)
-—`padding` can also affect the overall dimensions of the element too.
+В зависимости от того, какую модель блока вы используете, что было рассмотрено еще в уроке [box model](box-model.md), `padding` может также влиять на общие размеры элемента.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'eYgRrzz'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/eYgRrzz?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The `padding` property is shorthand for `padding-top`, `padding-right`, `padding-bottom` and `padding-left`.
-Just like `margin`, `padding` has logical properties, too:
-`padding-block-start`, `padding-inline-end`, `padding-block-end` and `padding-inline-start`.
+Свойство `padding` является сокращением для обозначения `padding-top`, `padding-right`, `padding-bottom` и `padding-left`. Как и `margin`, `padding` также имеет логические свойства: `padding-block-start`, `padding-inline-end`, `padding-block-end` и `padding-inline-start`.
 
-## Positioning
+## Позиционирование
 
-Also covered  in the [layout](/learn/css/layout/) module,
-if you set a value for `position` that is anything other than `static`,
-you can space elements with the `top`, `right`, `bottom` and `left` properties.
-There are some differences with how these directional values behave:
+Также в модуле [layout](layout.md) описано, что если задать для `position` значение, отличное от `static`, то элементы можно расположить в пространстве с помощью свойств `top`, `right`, `bottom` и `left`. В поведении этих направленных значений есть некоторые различия:
 
-- An element with `position: relative` will maintain its place in the document flow,
-even when you set these values.
-They will be relative to your element's position too.
-- An element with `position: absolute`
-will base the directional values from the relative parent's position.
-- An element with `position: fixed`
-will base the directional values on the viewport.
-- An element with `position: sticky`
-will only apply the directional values when it is in its docked/stuck state.
+-   Элемент со свойством `position: relative` будет сохранять свое место в потоке документов, даже когда вы установите эти значения. Они также будут относительны к позиции вашего элемента.
+-   Элемент с `position: absolute` будет основывать значения направления на позиции относительного родителя.
+-   Элемент с `position: fixed` будет основывать значения направления на области просмотра.
+-   Элемент с `position: sticky` будет применять значения направления только в том случае, если он находится в пристыкованном/застывшем состоянии.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'NWdNGZB'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/NWdNGZB?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-In the [logical properties](/learn/css/logical-properties) module,
-you learn about the `inset-block` and `inset-inline` properties,
-which allow you to set directional values that honor writing mode.
+В модуле [Логические свойства](logical-properties.md) рассказывается о свойствах `inset-block` и `inset-inline`, которые позволяют задавать направленные значения, учитывающие режим записи.
 
-Both properties are shorthands combining the `start` and `end` values
-and as such accept either one value to be set for `start` and `end` or
-two individual values.
+Оба свойства являются сокращением, объединяющим значения `start` и `end`, и поэтому могут принимать либо одно значение для `start` и `end`, либо два отдельных значения.
 
-## Grid and flexbox
+## Grid и flexbox
 
-Lastly, in both grid and flexbox you can use the `gap` property to create space *between* child elements.
-The `gap` property is shorthand for `row-gap` and `column-gap`,
-it accepts one or two values, which can be lengths or percentages.
-You can also use keywords such as `unset`, `initial` and `inherit`.
-If you define only one value,
-the same `gap` will be applied to both the rows and columns,
-but if you define both values,
-the first value is `row-gap` and the second value is `column-gap`.
+Наконец, и в сетке, и в flexbox можно использовать свойство `gap` для создания пространства _между_ дочерними элементами. Свойство `gap` является сокращением для `row-gap` и `column-gap`, оно принимает одно или два значения, которые могут быть длиной или процентами. Можно также использовать такие ключевые слова, как `unset`, `initial` и `inherit`. Если задать только одно значение, то один и тот же `gap` будет применяться и к строкам, и к столбцам, если же задать оба значения, то первое значение будет `row-gap`, а второе - `column-gap`.
 
-With both flexbox and grid, you can also create space using their distribution and alignment capabilities,
-which we cover in the
-[grid module](/learn/css/grid) and
-[flexbox module](/learn/css/flexbox).
+Как с помощью flexbox, так и с помощью grid можно также создавать пространство, используя их возможности распределения и выравнивания, которые мы рассматриваем в модуле [grid](grid.md) и в модуле [flexbox](flexbox.md).
 
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/JNXSRH4j77loSB099E04.svg",
-alt="A diagram representation of a grid with gaps",
-width="800",
-height="434" %}
+![Диаграммное представление сетки с промежутками](spacing-5.svg)
 
-## Creating consistent spacing
+## Создание согласованных интервалов
 
-It is a really good idea to choose a strategy and stick with it
-to help you create a consistent user interface that has good flow and rhythm.
-A good way to achieve this is use consistent measures for your spacing.
+Очень хорошо выбрать стратегию и придерживаться ее, чтобы создать последовательный пользовательский интерфейс с хорошим потоком и ритмом. Хорошим способом достижения этой цели является использование последовательных мер для интервалов.
 
-For example, you could commit to using `20px`
-as a consistent measure for all gaps between elements—known as gutters—so
-all layouts look and feel consistent.
-You could also decide to use `1em` as the vertical spacing between flow content,
-which would achieve consistent spacing based on the element's `font-size`.
-Whatever you choose,
-you should save these values as variables (or CSS custom properties)
-to tokenize those values and make the consistency a bit easier.
+Например, можно взять на себя обязательство использовать `20px` в качестве единой меры для всех промежутков между элементами - так называемых "желобов", - чтобы все макеты выглядели и воспринимались единообразно. Можно также использовать `1em` в качестве вертикального интервала между содержимым потока, что позволит добиться согласованности интервалов в зависимости от размера шрифта элемента. Что бы вы ни выбрали, вам следует сохранить эти значения в виде переменных (или пользовательских свойств CSS), чтобы обозначить их и упростить процесс согласования.
 
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/8eun6aGNHPTr4kyOrYkc.svg",
-alt="Consistent spacing between elements,
-using either 20px for a layout or 1em for flow content.",
-width="800",
-height="602" %}
+![Согласованное расстояние между элементами, либо 20px для макета, либо 1em для содержимого потока.](spacing-6.svg)
 
 ```css
 :root {
-  --gutter: 20px;
-  --spacing: 1em;
+    --gutter: 20px;
+    --spacing: 1em;
 }
 
 h1 {
-  margin-left: var(--gutter);
-  margin-top: var(--spacing);
+    margin-left: var(--gutter);
+    margin-top: var(--spacing);
 }
-
 ```
 
-Using custom properties like this allows you to define them once,
-then use them throughout your CSS.
-When they are updated,
-either locally within an element or globally,
-the values will pass down through the cascade and the updated values will be reflected.
+Подобное использование пользовательских свойств позволяет определить их один раз и затем использовать во всем CSS. При их обновлении, как локальном в элементе, так и глобальном, значения будут передаваться вниз по каскаду, и обновленные значения будут отражаться.
 
-{% Assessment 'conclusion' %}
+:information_source: Источник: [Spacing](https://web.dev/learn/css/spacing/)

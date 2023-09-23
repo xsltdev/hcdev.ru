@@ -1,333 +1,238 @@
 ---
-title: Pseudo-elements
-description: >
-  A pseudo-element is like adding or targeting an extra element without having to add more HTML.
-  They have a variety of roles and you can learn about them in this module.
-audio:
-  title: 'The CSS Podcast - 014: Pseudo-elements'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_014_v1.0.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - andybell
-date: 2021-04-27
+description: Псевдоэлемент - это как добавление или нацеливание дополнительного элемента без необходимости добавлять дополнительный HTML. Они выполняют различные функции, и вы можете узнать о них в этом модуле.
+icon: material/select-compare
 ---
 
-If you've got an article of content
-and you want the first letter to be a much bigger drop cap—
-how do you achieve that?
+# Псевдоэлементы
 
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/Qpo2f3eRInt5iM6qW2p2.svg",
-alt="A couple of paragraphs of text with a blue drop cap",
-width="800",
-height="318" %}
+<big>_Псевдоэлемент_ - это как добавление или нацеливание дополнительного элемента без необходимости добавлять дополнительный HTML. Они выполняют различные функции, и вы можете узнать о них в этом модуле.</big>
 
-In CSS,
-you can use the `::first-letter` pseudo-element to achieve this sort of design detail.
+!!!info "CSS подкаст"
+
+    014: Псевдоэлементы
+
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_014_v1.0.mp3?dest-id=1891556"></audio>
+
+Если у вас есть статья с контентом, и вы хотите, чтобы первая буква была более крупной - как этого добиться?
+
+![Несколько абзацев текста с синей заглушкой](pseudo-elements-1.svg)
+
+В CSS для достижения подобной детализации дизайна можно использовать псевдоэлемент `::first-letter`.
 
 ```css
 p::first-letter {
-  color: blue;
-  float: left;
-  font-size: 2.6em;
-  font-weight: bold;
-  line-height: 1;
-  margin-inline-end: 0.2rem;
+    color: blue;
+    float: left;
+    font-size: 2.6em;
+    font-weight: bold;
+    line-height: 1;
+    margin-inline-end: 0.2rem;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'PoWjybP'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/PoWjybP?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-A pseudo-element is like adding or targeting an extra element without having to add more HTML.
-This example solution, using `::first-letter`,
-is one of many pseudo-elements.
-They have a range of roles,
-and in this lesson you're going to learn which pseudo-elements are available and how you can use them.
+Псевдоэлемент - это как добавление или нацеливание дополнительного элемента без необходимости добавлять дополнительный HTML. Данный пример решения, использующий `::first-letter`, является одним из многих псевдоэлементов. Они выполняют различные функции, и в этом уроке вы узнаете, какие псевдоэлементы доступны и как их можно использовать.
 
-## `::before` and `::after`
+## `::before` и `::after`
 
-Both the
-[`::before`](https://developer.mozilla.org/docs/Web/CSS/::before) and
-[`::after`](https://developer.mozilla.org/docs/Web/CSS/::after)
-pseudo-elements create a child element inside an element **only** if you define a `content` property.
+Псевдоэлементы [`::before`](../../css/before.md) и [`::after`](../../css/after.md) создают дочерний элемент внутри элемента **только**, если вы определили свойство `content`.
 
 ```css
 .my-element::before {
-	content: "";
+    content: '';
 }
 
 .my-element::after {
-	content: "";
+    content: '';
 }
 ```
 
-The `content` can be any string
-—even an empty one—
-but be mindful that anything other than an empty string will likely be announced by a screen reader.
-You can add an image `url`,
-which will insert an image at its original dimensions,
-so you won't be able to resize it.
-You can also insert a
-[`counter`](https://developer.mozilla.org/docs/Web/CSS/counter()).
+Строка `content` может быть любой, даже пустой, но следует иметь в виду, что любая строка, отличная от пустой, скорее всего, будет распознана программой чтения с экрана. Можно добавить изображение `url`, которое вставит изображение с исходными размерами, так что изменить его размер будет невозможно. Можно также вставить [`counter`](<https://developer.mozilla.org/docs/Web/CSS/counter()>).
 
-{% Aside 'key-term' %}
-You can create a named counter and then increment it,
-based on its position in the document flow.
-There's all sorts of contexts where they can be really useful, such as automatically numbering an outline.
-{% endAside %}
+!!!note ""
 
-Once a `::before` or `::after` element has been created,
-you can style it however you want with no limits.
-You can only insert a `::before` or `::after` element to an element that will accept child elements
-([elements with a document tree](https://www.w3.org/TR/CSS21/generate.html)),
-so elements such as `<img />`, `<video>` and `<input>` won't work.
+    Вы можете создать именованный счетчик и затем увеличивать его, основываясь на его положении в потоке документов. Они могут быть полезны в самых разных контекстах, например, для автоматической нумерации конспекта.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'GRrEYrg'
-} %}
-</figure>
+Создав элемент `::before` или `::after`, вы можете стилизовать его как угодно, без каких-либо ограничений. Вставить элемент `::before` или `::after` можно только в тот элемент, который принимает дочерние элементы ([элементы с деревом документа](https://www.w3.org/TR/CSS21/generate.html)), поэтому такие элементы, как `<img />`, `<video>` и `<input>` не будут работать.
 
-{% Aside 'gotchas' %}
-`input[type="checkbox"]` is an exception.
-It is allowed to have pseudo-element children.
-{% endAside %}
+<iframe src="https://codepen.io/web-dot-dev/embed/GRrEYrg?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+!!!note ""
+
+    Исключением является `input[type="checkbox"]`. Ему разрешено иметь дочерние псевдоэлементы.
 
 ## `::first-letter`
 
-We met this pseudo-element at the start of the lesson.
-It is worth being aware that not all CSS properties can be used when targeting
-[`::first-letter`](https://developer.mozilla.org/docs/Web/CSS/::first-letter).
-The available properties are:
+С этим псевдоэлементом мы познакомились в начале урока. Следует иметь в виду, что не все CSS-свойства можно использовать при нацеливании на [`::first-letter`](../../css/first-letter.md). Доступными свойствами являются:
 
-- `color`
-- `background` properties (such as `background-image`)
-- `border` properties (such as `border-color`)
-- `float`
-- `font` properties (such as `font-size` and `font-weight`)
-- text properties (such as `text-decoration` and `word-spacing`)
+-   `color`
+-   свойства `background` (например, `background-image`)
+-   `border` (например, `border-color`)
+-   `float`
+-   свойства `font` (например, `font-size` и `font-weight`)
+-   свойства текста (такие как `text-decoration` и `word-spacing`)
 
 ```css
 p::first-letter {
-  color: goldenrod;
-  font-weight: bold;
+    color: goldenrod;
+    font-weight: bold;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'JjEJmOx'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/JjEJmOx?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Aside %}
-You can only use `:first-letter` on block containers.
-Therefore, it won't work if you try to add it to an element that has `display: inline`.
-{% endAside %}
+!!!note ""
+
+    Использовать `:first-letter` можно только в блочных контейнерах. Поэтому он не будет работать, если вы попытаетесь добавить его в элемент, имеющий `display: inline`.
 
 ## `::first-line`
 
-The [`::first-line`](https://developer.mozilla.org/docs/Web/CSS/::first-line)
-pseudo-element will let you style the first line of text
-only if the element with `::first-line` applied has a `display` value of `block`,
-`inline-block`, `list-item`, `table-caption` or `table-cell`.
+Псевдоэлемент [`::first-line`](../../css/first-line.md) позволяет стилизовать первую строку текста только в том случае, если элемент, к которому применен `::first-line`, имеет значение `display` `block`, `inline-block`, `list-item`, `table-caption` или `table-cell`.
 
 ```css
 p::first-line {
-  color: goldenrod;
-  font-weight: bold;
+    color: goldenrod;
+    font-weight: bold;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'vYgZVaO'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/vYgZVaO?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Like the `::first-letter` pseudo-element,
-there's only a subset of CSS properties you can use:
+Как и в случае с псевдоэлементом `::first-letter`, существует лишь подмножество CSS-свойств, которые можно использовать:
 
-- `color`
-- `background` properties
-- `font` properties
-- `text` properties
+-   `color`
+-   `background` свойства
+-   `font` свойства
+-   `text` свойства
 
 ## `::backdrop`
 
-If you have an element that is presented in full screen mode,
-such as a `<dialog>` or a `<video>`,
-you can style the backdrop—the space between the element and the rest of the page—with the
-[`::backdrop`](https://developer.mozilla.org/docs/Web/CSS/::backdrop) pseudo-element:
-
+Если у вас есть элемент, представленный в полноэкранном режиме, например, `<dialog>` или `<video>`, вы можете стилизовать фон - пространство между элементом и остальной частью страницы - с помощью псевдоэлемента [`::backdrop`](../../css/backdrop.md):
 
 ```css
 video::backdrop {
-  background-color: goldenrod;
+    background-color: goldenrod;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'rNjwqRQ'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/rNjwqRQ?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The `::backdrop` pseudo-element is supported in all major browsers apart from Safari.
+Псевдоэлемент `::backdrop` поддерживается во всех основных браузерах, кроме Safari.
 
 ## `::marker`
 
-The [`::marker`](https://developer.mozilla.org/docs/Web/CSS/::marker)
-pseudo-element lets you style the bullet or number for a list item or the arrow of a `<summary>` element.
+Псевдоэлемент [`::marker`](../../css/marker.md) позволяет стилизовать пулю или номер для элемента списка или стрелку элемента `<summary>`.
 
 ```css
 ::marker {
-  color: hotpink;
+    color: hotpink;
 }
 
 ul ::marker {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 ol ::marker {
-  font-size: 1.1em;
+    font-size: 1.1em;
 }
 
 summary::marker {
-  content: '\002B'' '; /* Plus symbol with space */
+    content: '\002B'' '; /* Plus symbol with space */
 }
 
 details[open] summary::marker {
-  content: '\2212'' '; /* Minus symbol with space */
+    content: '\2212'' '; /* Minus symbol with space */
 }
 ```
 
-Only a small subset of CSS properties are supported for `::marker`:
+Для `::marker` поддерживается только небольшое подмножество CSS-свойств:
 
-- `color`
-- `content`
-- `white-space`
-- `font` properties
-- `animation` and `transition` properties
+-   `color`
+-   `content`
+-   `white-space`
+-   `font` свойства
+-   `animation` и `transition` свойства
 
-You can change the marker symbol, using the `content` property. You can use this to set a plus and minus symbol for the closed and empty states of a `<summary>` element, for example.
+Вы можете изменить символ маркера, используя свойство `content`. С его помощью можно, например, установить символ плюса и минуса для закрытого и пустого состояний элемента `<summary>`.
 
-
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'MWJozrR'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/MWJozrR?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ## `::selection`
 
-The [`::selection`](https://developer.mozilla.org/docs/Web/CSS/::selection)
-pseudo-element allows you to style how selected text looks.
+Псевдоэлемент [`::selection`](../../css/selection.md) позволяет стилизовать вид выделенного текста.
 
 ```css
 ::selection {
-  background: green;
-  color: white;
+    background: green;
+    color: white;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'JjEJeZK'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/JjEJeZK?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-This pseudo-element can be used to style all selected text as in the above demo.
-It can also be used in combination with other selectors for a more specific selection style.
+Этот псевдоэлемент может быть использован для стилизации всего выделенного текста, как в приведенном выше примере. Он также может быть использован в сочетании с другими селекторами для получения более специфического стиля выделения.
 
 ```css
 p:nth-of-type(2)::selection {
-  background: darkblue;
-  color: yellow;
+    background: darkblue;
+    color: yellow;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'MWJozXM'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/MWJozXM?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-As with other pseudo-elements, only a subset of CSS properties are allowed:
+Как и в случае с другими псевдоэлементами, допускается использование только некоторого подмножества CSS-свойств:
 
-- `color`
-- `background-color` but **not** `background-image`
-- `text` properties
+-   `color`
+-   `background-color` но **не** `background-image`
+-   `text` свойства
 
 ## `::placeholder`
-{% BrowserCompat 'css.selectors.placeholder' %}
 
-You can add a helper hint to form elements,
-such as `<input>` with a `placeholder` attribute.
-The [`::placeholder`](https://developer.mozilla.org/docs/Web/CSS/::placeholder)
-pseudo-element allows you to style that text.
+<p class="ciu_embed" data-feature="mdn-css__selectors__placeholder" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
+
+К элементам формы, таким как `<input>`, можно добавить вспомогательную подсказку с атрибутом `placeholder`. Псевдоэлемент [`::placeholder`](../../css/placeholder.md) позволяет стилизовать этот текст.
 
 ```css
 input::placeholder {
-  color: darkcyan;
+    color: darkcyan;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'KKaqrrY'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/KKaqrrY?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The `::placeholder` only supports a subset of CSS rules:
+В `::placeholder` поддерживается только подмножество CSS-правил:
 
-- `color`
-- `background` properties
-- `font` properties
-- `text` properties
+-   `color`
+-   свойства `background`
+-   свойства `font`
+-   свойства `text`
 
-{% Aside %}
-A `placeholder` is not `<label>`
-and should not be used in place of a `<label>`.
-Form elements must be labelled or they will be inaccessible.
-{% endAside %}
+!!!note ""
+
+    Заполнитель `placeholder` не является `<label>` и не должен использоваться вместо `<label>`. Элементы формы должны быть снабжены метками, иначе они будут недоступны.
 
 ## `::cue`
-{% BrowserCompat 'css.selectors.cue' %}
 
-Last in this tour of pseudo-elements is the
-[`::cue`](https://developer.mozilla.org/docs/Web/CSS/::cue) pseudo-element.
-This allows you to style the WebVTT cues,
-which are the captions of a `<video>` element.
+<p class="ciu_embed" data-feature="mdn-css__selectors__cue" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-You can also pass a selector into a `::cue`,
-which allows you to style specific elements _inside_ a caption.
+Последним в этой экскурсии по псевдоэлементам является псевдоэлемент [`::cue`](../../css/cue.md). Он позволяет стилизовать подсказки WebVTT, которые являются подписями к элементу `<video>`.
+
+В псевдоэлемент `::cue` можно также передать селектор, который позволяет стилизовать определенные элементы _вне_ подписи.
 
 ```css
 video::cue {
-  color: yellow;
+    color: yellow;
 }
 
 video::cue(b) {
-  color: red;
+    color: red;
 }
 
 video::cue(i) {
-  color: lightpink;
+    color: lightpink;
 }
 ```
 
-{% Assessment 'pseudo-elements' %}
+:information_source: Источник: [Pseudo-elements](https://web.dev/learn/css/pseudo-elements/)

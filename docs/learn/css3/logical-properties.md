@@ -1,340 +1,219 @@
 ---
-title: Logical Properties
-description: >
-  Logical, flow relative properties and values are linked to the flow of text,
-  rather than the physical shape of the screen.
-  Learn how to take advantage of this newer approach to CSS.
-audio:
-  title: 'The CSS Podcast - 012: Logical Properties'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast__Episode_012_v3.0.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - andybell
-date: 2021-04-21
+description: Логические, относительные для потока свойства и значения связаны с потоком текста, а не с физической формой экрана. Узнайте, как использовать преимущества этого нового подхода к CSS.
+icon: material/party-popper
 ---
 
-A really common user interface pattern is a text label with a supporting inline icon.
+# Логические свойства
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'eYgvZBx'
-} %}
-</figure>
+<big>Логические, относительные для потока свойства и значения связаны с потоком текста, а не с физической формой экрана. Узнайте, как использовать преимущества этого нового подхода к CSS.</big>
 
-The icon sits to the left of the text with a small gap between the two,
-provided by `margin-right` on the icon.
-There's a problem though,
-because this will only work when the text direction is left to right.
-If the text direction changed to right-to-left—which is how languages like Arabic read—the icon will sit up against the text.
+!!!info "CSS подкаст"
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'BapWKWm'
-} %}
-</figure>
+    012: Логические свойства
 
-How do you account for this in CSS?
-Logical properties allow you to resolve these situations. Among many other benefits, they provide free, automatic support for internationalization.
-They help you build a more resilient, inclusive front-end.
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast__Episode_012_v3.0.mp3?dest-id=1891556"></audio>
 
-## Terminology
+Очень распространенным шаблоном пользовательского интерфейса является текстовая метка с поддерживающим ее встроенным значком.
 
-The physical properties of top, right, bottom, and left refer to the physical dimensions of the viewport.
-You can think of these like a compass rose on a map.
-Logical properties, on the other hand,
-refer to the edges of a box as they relate to the _flow of content_.
-Therefore, they can change if the text direction or writing mode changes.
-This is a big shift from directional styles,
-and it gives us a lot more flexibility when styling our interfaces.
+<iframe src="https://codepen.io/web-dot-dev/embed/eYgvZBx?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Block flow
+Значок располагается слева от текста с небольшим промежутком между ними, который обеспечивается параметром `margin-right` на значке. Однако здесь возникает проблема, поскольку это работает только при направлении текста слева направо. Если направление текста изменится на право-лево, что характерно для таких языков, как арабский, то значок будет располагаться напротив текста.
 
-Block flow is the direction in which content blocks are placed.
-For example, if there are two paragraphs, the block flow is where the second paragraph will go.
-In an English document, the block flow is top-to-bottom.
-Think of this in the context of paragraphs of text following each other, top-to-bottom.
+<iframe src="https://codepen.io/web-dot-dev/embed/BapWKWm?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-<figure>
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/JKfvuIFBBtmvylmFSV8K.svg",
-alt="Three blocks, div elements, with a down arrow, labelled 'block flow'",
-width="800",
-height="507" %}
-</figure>
+Как это учесть в CSS? Логические свойства позволяют разрешить эти ситуации. Помимо многих других преимуществ, они обеспечивают бесплатную автоматическую поддержку интернационализации. Они помогают создать более устойчивый и инклюзивный внешний интерфейс.
 
-## Inline flow
+## Терминология
 
-The inline flow is how text flows in a sentence.
-In an English document the inline flow is left to right.
-If you were to change the document language of your webpage to Arabic (`<html lang="ar">`),
-then the inline flow would be right-to-left.
+Физические свойства `top`, `right`, `bottom` и `left` относятся к физическим размерам области просмотра. Их можно представить себе как компасную розу на карте. Логические свойства, с другой стороны, относятся к краям блока, поскольку они связаны с _потоком содержимого_. Поэтому они могут меняться при изменении направления текста или режима написания. Это большой сдвиг по сравнению с направленными стилями, и он дает нам гораздо больше гибкости при оформлении интерфейсов.
 
-<figure>
-{% Img src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/DfyMS0jh0SjSxaeNioJt.svg",
-alt="Three words, 'she sells seashells', with a left-to-right arrow, labelled 'inline flow'",
-width="800",
-height="507" %}
-</figure>
+## Обтекание блока
 
-Text flows in the direction determined by the document's writing mode.
-You can change the direction that text is laid out with the `writing-mode` property.
-This can be applied to the entire document, or to individual elements.
+Обтекание блоков - это направление, в котором располагаются блоки содержимого. Например, если есть два абзаца, то поток блоков определяет, где будет располагаться второй абзац. В английском документе поток блоков идет сверху вниз. Подумайте об этом в контексте абзацев текста, следующих друг за другом сверху вниз.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'YzNZGam'
-} %}
-</figure>
+![Три блока, элементы div, со стрелкой вниз, с надписью "поток блоков"](logical-properties-1.svg)
 
-## Flow relative
+## Инлайн-обтекание
 
-Historically in CSS,
-we have only been able to apply properties like margin relative to the direction of their sides.
-For example, `margin-top` is applied to the physical top of the element.
-With logical properties, `margin-top` becomes `margin-block-start`.
-This means that regardless of language and text direction,
-the **block flow** has appropriate margin rules.
+Инлайновый поток - это поток текста в предложении. В англоязычном документе инлайн-обтекание происходит слева направо. Если изменить язык документа на арабский (`<html lang="ar">`), то обтекание текста будет происходить справа налево.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'ZELeBzM'
-} %}
-</figure>
+![Три слова "она продает ракушки" со стрелкой влево-вправо, помеченные как "поточный поток".](logical-properties-2.svg)
 
-<figure>
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/GezxDZXkJgkMevkKg39M.png",
-alt="A diagram showing all the different sizes of a box and where each sizing section starts and ends",
-width="800",
-height="559" %}
-</figure>
+Text flows in the direction determined by the document's writing mode. You can change the direction that text is laid out with the `writing-mode` property. This can be applied to the entire document, or to individual elements.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/YzNZGam?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+## Относительный поток
+
+Исторически сложилось так, что в CSS мы могли применять такие свойства, как `margin`, только относительно направления их сторон. Например, `margin-top` применяется к физической верхней части элемента. С логическими свойствами `margin-top` превращается в `margin-block-start`. Это означает, что независимо от языка и направления текста, для **блочного потока** действуют соответствующие правила `margin`.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/ZELeBzM?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+![Диаграмма, показывающая все различные размеры блока и где начинается и заканчивается каждый размерный раздел](logical-properties-3.avif)
 
 ## Sizing
 
-To prevent an element exceeding a certain width or height,
-write a rule like this:
+Чтобы запретить элементу превышать определенную ширину или высоту, напишите правило следующего вида:
 
 ```css
 .my-element {
-  max-width: 150px;
-  max-height: 100px;
+    max-width: 150px;
+    max-height: 100px;
 }
 ```
 
-The flow-relative equivalents are `max-inline-size` and `max-block-size`.
-You can also use `min-block-size` and `min-inline-size` instead of `min-height` and `min-width`.
+Относительные по потоку эквиваленты - `max-inline-size` и `max-block-size`. Также можно использовать `min-block-size` и `min-inline-size` вместо `min-height` и `min-width`.
 
-With logical properties,
-that max width and height rule would look like this:
+При использовании логических свойств правило максимальной ширины и высоты будет выглядеть следующим образом:
 
 ```css
 .my-element {
-  max-inline-size: 150px;
-  max-block-size: 100px;
+    max-inline-size: 150px;
+    max-block-size: 100px;
 }
 ```
 
-## Start and end
+## Начало и конец
 
-Instead of using directions such as top, right, bottom and left,
-use start and end. This gives you block-start, inline-end, block-end, and inline-start.
-These allow you to apply CSS properties that respond to writing mode changes.
+Вместо таких направлений, как `top`, `right`, `bottom` и `left`, используйте `start` и `end`. Это дает возможность использовать `block-start`, `inline-end`, `block-end` и `inline-start`. Они позволяют применять свойства CSS, реагирующие на изменение режима написания.
 
-For example, to align text to the right, you could use this CSS:
+Например, для выравнивания текста вправо можно использовать следующий CSS:
 
 ```css
 p {
-  text-align: right;
+    text-align: right;
 }
 ```
 
-If your aim is not to align to the physical right,
-but rather to the start of the reading direction,
-this isn't helpful.
-With logical values, there are more helpful `start` and `end` values which map to the text direction.
-The text alignment rule now looks like this:
+Если ваша цель - выравнивание не по физическому правому краю, а по началу направления чтения, это не поможет. Для логических значений существуют более удобные значения `start` и `end`, которые сопоставляются с направлением текста. Теперь правило выравнивания текста выглядит следующим образом:
 
 ```css
 p {
-  text-align: end;
+    text-align: end;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'QWdpdwo'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/QWdpdwo?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Spacing and positioning
+## Интервалы и позиционирование
 
-Logical properties for `margin`, `padding` and `inset`
-make positioning elements, and determining how these elements interact with each other across writing modes easier and more efficient.
-The margin and padding related properties are still direct mappings to directions,
-but the key difference is that when a writing mode changes, they change with it.
+Логические свойства `margin`, `padding` и `inset` позволяют проще и эффективнее позиционировать элементы и определять, как эти элементы взаимодействуют друг с другом в разных режимах написания. Свойства, связанные с `margin` и `padding`, по-прежнему являются прямыми отображениями на направления, но ключевым отличием является то, что при изменении режима написания они меняются вместе с ним.
 
 ```css
 .my-element {
-  padding-top: 2em;
-  padding-bottom: 2em;
-  margin-left: 2em;
-  position: relative;
-  top: 0.2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-left: 2em;
+    position: relative;
+    top: 0.2em;
 }
 ```
 
-This adds some vertical inside space with `padding` and pushes it out from the left with `margin`.
-The `top` property also shifts it downwards.
-With logical property equivalents, it would instead look like this:
+Это добавляет некоторое вертикальное внутреннее пространство с помощью `padding` и отодвигает его слева с помощью `margin`. Свойство `top` также смещает его вниз. С логическими эквивалентами свойств это выглядело бы следующим образом:
 
 ```css
 .my-element {
-  padding-block-start: 2em;
-  padding-block-end: 2em;
-  margin-inline-start: 2em;
-  position: relative;
-  inset-block-start: 0.2em;
+    padding-block-start: 2em;
+    padding-block-end: 2em;
+    margin-inline-start: 2em;
+    position: relative;
+    inset-block-start: 0.2em;
 }
 ```
 
-This adds some inline inside space with `padding` and pushes it out from the inline-start with `margin`.
-The `inset-block` property moves it inwards from the block-start.
+Это добавляет некоторое внутреннее пространство в строке с помощью `padding` и отодвигает ее от начала строки с помощью `margin`. Свойство `inset-block` перемещает его внутрь от начала блока.
 
-The `inset-block` property isn't the only shorthand option with logical properties.
-This rule can be further condensed,
-using shorthand versions of the margin and padding properties.
+Свойство `inset-block` - не единственный вариант сокращения с логическими свойствами. Это правило можно еще больше сократить, используя сокращенные версии свойств `margin` и `padding`.
 
 ```css
 .my-element {
-  padding-block: 2em;
-  margin-inline: 2em 0;
-  position: relative;
-  inset-block: 0.2em 0;
+    padding-block: 2em;
+    margin-inline: 2em 0;
+    position: relative;
+    inset-block: 0.2em 0;
 }
 ```
 
-## Borders
+## Границы
 
-Adding `border` and `border-radius` can also be done with logical properties.
-To add a border on the bottom and right, with a right-hand radius, you might write a rule like this:
+Добавление `border` и `border-radius` также может быть выполнено с помощью логических свойств. Чтобы добавить границу снизу и справа с правым радиусом, можно написать такое правило:
 
 ```css
 .my-element {
-  border-bottom: 1px solid red;
-  border-right: 1px solid red;
-  border-bottom-right-radius: 1em;
+    border-bottom: 1px solid red;
+    border-right: 1px solid red;
+    border-bottom-right-radius: 1em;
 }
 ```
 
-Or, you could use logical properties like this:
+Или можно использовать логические свойства, например, так:
 
 ```css
 .my-element {
-  border-block-end: 1px solid red;
-  border-inline-end: 1px solid red;
-  border-end-end-radius: 1em;
+    border-block-end: 1px solid red;
+    border-inline-end: 1px solid red;
+    border-end-end-radius: 1em;
 }
 ```
 
-The `end-end` in `border-end-end-radius` is the block end _and_ inline end.
+Значение `end-end` в `border-end-end-radius` - это конец блока _и_ конец инлайна.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'yLgMgby'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/yLgMgby?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Units
+## Единицы
 
-Logical properties bring two new units: `vi` and `vb`.
-A `vi` unit is 1% of the viewport size in the inline direction.
-The non-logical property equivalent is `vw`.
-The `vb` unit is 1% of the viewport in the block direction.
-The non-logical property equivalent is `vh`.
+В логических свойствах появились две новые единицы измерения: `vi` и `vb`. Единица `vi` составляет 1% от размера области просмотра в направлении inline. Эквивалентом нелогического свойства является `vw`. Единица `vb` составляет 1% от размера области просмотра в направлении блока. Эквивалентом нелогического свойства является `vh`.
 
-These units will always map to the reading direction.
-For example, if you want an element to take up 80% of the available inline space of a viewport,
-using the `vi` unit will automatically switch that size to be top to bottom if the writing mode is vertical.
+Эти единицы всегда сопоставляются с направлением чтения. Например, если вы хотите, чтобы элемент занимал 80% доступного внутристрочного пространства области просмотра, то использование единицы `vi` автоматически изменит этот размер на размер сверху вниз, если режим записи вертикальный.
 
-## Using logical properties pragmatically
+## Прагматичное использование логических свойств
 
-Logical properties and writing modes are not just for internationalization.
-You can use them to produce a more versatile user interface.
+Логические свойства и режимы записи предназначены не только для интернационализации. Их можно использовать для создания более универсального пользовательского интерфейса.
 
-If you have a chart that has labels on the X axis and Y axis,
-you might want the text on the Y label to read vertically.
+Если у вас есть график с метками по осям X и Y, вы можете захотеть, чтобы текст на метке Y читался вертикально.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'zYNZNgE'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/zYNZNgE?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Because the Y axis label in the demo has a `writing-mode` of `vertical-rl`,
-you can use the same `margin` values on both labels.
-The `margin-block-start` value applies to both labels
-because the block start is on the right for the Y axis and on the top for the X axis.
-The block-start sides have a red border so you can see them.
+Поскольку для метки оси Y в демонстрационном примере установлен `write-mode` (режим записи) `vertical-rl`, для обеих меток можно использовать одинаковые значения `margin`. Значение `margin-block-start` применяется к обеим меткам, поскольку начало блока находится справа для оси Y и сверху для оси X. Стороны начала блока имеют красную рамку, чтобы их было видно.
 
-## Solving the icon issue
+## Решение проблемы со значками
 
-Now that we've covered logical properties,
-this knowledge can be applied to the design problem we started with.
+Теперь, когда мы рассмотрели логические свойства, эти знания можно применить к проблеме проектирования, с которой мы начали.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'eYgvZBx'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/eYgvZBx?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ```css
 p {
-  display: inline-flex;
-  align-items: center;
+    display: inline-flex;
+    align-items: center;
 }
 
 p svg {
-  width: 1.2em;
-  height: 1.2em;
-  margin-right: 0.5em;
-  flex: none;
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5em;
+    flex: none;
 }
 ```
 
-The margin has been applied to the right of the icon element.
-In order for the spacing between the icon and the text to support all reading direction,
-the `margin-inline-end` property needs to be used instead.
+Отступ был применен к правой части элемента иконки. Для того чтобы расстояние между пиктограммой и текстом поддерживало все направления чтения, необходимо использовать свойство `margin-inline-end`.
 
-```css/8
+```css
 p {
-  display: inline-flex;
-  align-items: center;
+    display: inline-flex;
+    align-items: center;
 }
 
 p svg {
-  width: 1.2em;
-  height: 1.2em;
-  margin-inline-end: 0.5em;
-  flex: none;
+    width: 1.2em;
+    height: 1.2em;
+    margin-inline-end: 0.5em;
+    flex: none;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'qBRrrOy'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/qBRrrOy?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Now, regardless of reading direction,
-the icon will position itself and space itself appropriately.
+Теперь, независимо от направления чтения, значок будет располагаться и занимать соответствующее место.
 
-{% Assessment 'logical-props' %}
+:information_source: Источник: [Logical Properties](https://web.dev/learn/css/logical-properties/)
