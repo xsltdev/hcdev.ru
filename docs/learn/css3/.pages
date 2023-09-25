@@ -16,8 +16,8 @@ nav:
     - pseudo-elements.md
     - pseudo-classes.md
     - borders.md
-    #- shadows.md
-    #- focus.md
+    - shadows.md
+    - focus.md
     #- z-index.md
     #- functions.md
     #- gradients.md

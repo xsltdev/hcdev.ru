@@ -101,28 +101,23 @@ button:focus-visible {
 
 <iframe src="https://codepen.io/web-dot-dev/embed/KKavaqx?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Historic states
+## Состояния
 
 ### `:link`
 
-{% BrowserCompat 'css.selectors.link' %}
+<p class="ciu_embed" data-feature="mdn-css__selectors__link" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-The [`:link`](https://developer.mozilla.org/docs/Web/CSS/:link) pseudo-class can be applied to any `<a>` element that has a `href` value that **hasn't been** visited yet.
+Псевдокласс [`:link`](../../css/link.md) может быть применен к любому элементу `<a>`, имеющему значение `href`, который **еще не был** посещен.
 
 ### `:visited`
 
-You can style a link that's already been visited by the user using the [`:visited`](https://developer.mozilla.org/docs/Web/CSS/:visited) pseudo-class. This is the opposite state to `:link` but you have fewer CSS properties to use for [security reasons](https://developer.mozilla.org/docs/Web/CSS/Privacy_and_the_:visited_selector). You can only style `color`, `background-color`, `border-color`, `outline-color` and the color of SVG `fill` and `stroke`.
+С помощью псевдокласса [`:visited`](../../css/visited.md) можно придать стиль ссылке, по которой пользователь уже перешел. Это состояние противоположно состоянию `:link`, однако в целях [безопасности](https://developer.mozilla.org/docs/Web/CSS/Privacy_and_the_:visited_selector) можно использовать меньше CSS-свойств. Вы можете стилизовать только `color`, `background-color`, `border-color`, `outline-color` и цвет SVG `fill` и `stroke`.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'OJWjmzM'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/OJWjmzM?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-#### Order matters
+#### Порядок имеет значение
 
-If you define a `:visited` style, it can be overridden by a link pseudo-class with at least equal specificity. Because of this, it's recommended that you use the LVHA rule for styling links with pseudo-classes in a particular order: `:link`, `:visited`, `:hover`, `:active`.
+Если вы определяете стиль `:visited`, то он может быть отменен псевдоклассом ссылки, имеющим, по крайней мере, такую же специфику. В связи с этим рекомендуется использовать правило LVHA для стилизации ссылок с псевдоклассами в определенном порядке: `:link`, `:visited`, `:hover`, `:active`.
 
 ```css
 a:link {
@@ -135,123 +130,99 @@ a:active {
 }
 ```
 
-{% Aside %} For security reasons, you can only change styles defined by a `:link` or unvisited state with the `:visited` pseudo-class, so making sure you define changeable styles first is important. Sticking to the LVHA rule will help with that. {% endAside %}
+!!!note ""
 
-## Form states
+    По соображениям безопасности изменять стили, заданные `:link` или состоянием без посещения, можно только с помощью псевдокласса `:visited`, поэтому важно сначала определить изменяемые стили. В этом поможет соблюдение правила LVHA.
 
-The following pseudo-classes can select form elements, in the various states that these elements might be in during interaction with them.
+## Состояния формы
 
-### `:disabled` and `:enabled`
+Следующие псевдоклассы могут выбирать элементы формы в различных состояниях, в которых эти элементы могут находиться при взаимодействии с ними.
 
-{% BrowserCompat 'css.selectors.disabled' %}
+### `:disabled` и `:enabled`
 
-If a form element, such as a `<button>` is disabled by the browser, you can hook on to that state with the [`:disabled`](https://developer.mozilla.org/docs/Web/CSS/:disabled) pseudo-class. The [`:enabled`](https://developer.mozilla.org/docs/Web/CSS/:enabled) pseudo-class is available for the opposite state, though form elements are also `:enabled` by default, therefore you might not find yourself reaching for this pseudo-class.
+<p class="ciu_embed" data-feature="mdn-css__selectors__disabled" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'yLgogPG',
-  height: 250
-} %}
-</figure>
+<p class="ciu_embed" data-feature="mdn-css__selectors__enabled" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-### `:checked` and `:indeterminate`
+Если элемент формы, например `<button>`, отключен браузером, вы можете использовать псевдокласс [`:disabled`](../../css/disabled.md) для хука этого состояния. Для противоположного состояния доступен псевдокласс [`:enabled`](../../css/enabled.md), однако элементы формы по умолчанию также `:enabled`, поэтому вы можете не найти возможности воспользоваться этим псевдоклассом.
 
-{% BrowserCompat 'css.selectors.checked' %}
+<iframe src="https://codepen.io/web-dot-dev/embed/yLgogPG?height=250&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The [`:checked`](https://developer.mozilla.org/docs/Web/CSS/:checked) pseudo-class is available when a supporting form element, such as a checkbox or radio button is in a checked state.
+### `:checked` и `:indeterminate`
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'GRrvrxv',
-  height: 250
-} %}
-</figure>
+<p class="ciu_embed" data-feature="mdn-css__selectors__checked" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-The `:checked` state is a binary(true or false) state, but checkboxes do have an in-between state when they are neither checked or unchecked. This is known as the [`:indeterminate`](https://developer.mozilla.org/docs/Web/CSS/:indeterminate) state.
+Псевдокласс [`:checked`](../../css/checked.md) доступен, когда вспомогательный элемент формы, такой как чекбокс или радиокнопка, находится в состоянии checked.
 
-An example of this state is when you have a "select all" control that checks all checkboxes in a group. If the user was to then uncheck one of these checkboxes, the root checkbox would no longer represent "all" being checked, so should be put into an indeterminate state.
+<iframe src="https://codepen.io/web-dot-dev/embed/GRrvrxv?height=250&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'NWdvdLB',
-  height: 250
-} %}
-</figure>
+<p class="ciu_embed" data-feature="mdn-css__selectors__indeterminate" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-The `<progress>` element also has an indeterminate state that can be styled. A common use case is to give it a striped appearance to indicate it's unknown how much more is needed.
+Состояние `:checked` является бинарным (`true` или `false`), но у флажков есть промежуточное состояние, когда они не отмечены и не сняты. Это состояние называется [`:indeterminate`](../../css/indeterminate.md).
+
+Примером такого состояния может служить элемент управления "select all", который устанавливает флажки для всех флажков в группе. Если пользователь затем снимет флажок с одного из этих флажков, то корневой флажок больше не будет представлять "всех", поэтому его следует перевести в неопределенное состояние.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/NWdvdLB?height=250&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Элемент `<progress>` также имеет неопределенное состояние, которое может быть стилизовано. Обычно его используют для придания ему полосатого вида, чтобы показать, что неизвестно, сколько еще нужно сделать.
 
 ### `:placeholder-shown`
 
-{% BrowserCompat 'css.selectors.placeholder-shown' %}
+<p class="ciu_embed" data-feature="mdn-css__selectors__placeholder-shown" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-If a form field has a `placeholder` attribute and **no value**, the [`:placeholder-shown`](https://developer.mozilla.org/docs/Web/CSS/:placeholder-shown) pseudo-class can be used to attach styles to that state. As soon as there is content in the field, whether it has a `placeholder` or not, this state will no longer apply.
+Если поле формы имеет атрибут `placeholder` и **без значения**, то псевдокласс [`:placeholder-shown`](../../css/placeholder-shown.md) может быть использован для прикрепления стилей к этому состоянию. Как только в поле появится содержимое, независимо от того, есть ли в нем `placeholder` или нет, это состояние больше не будет применяться.
 
-### Validation states
+### Состояния валидации
 
-{% BrowserCompat 'css.selectors.valid' %}
+<p class="ciu_embed" data-feature="mdn-css__selectors__valid" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-You can respond to HTML form validation with pseudo-classes such as [`:valid`](https://developer.mozilla.org/docs/Web/CSS/:valid), [`:invalid`](https://developer.mozilla.org/docs/Web/CSS/:invalid) and [`:in-range`](https://developer.mozilla.org/docs/Web/CSS/:in-range). The `:valid` and `:invalid` pseudo-classes are useful for contexts such as an email field that has a `pattern` that needs to be matched, for it to be a valid field. This valid value state can be shown to the user, helping them understand they can safely move to the next field.
+<p class="ciu_embed" data-feature="mdn-css__selectors__invalid" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'QWdMpaL',
-  height: 250
-} %}
-</figure>
+Вы можете реагировать на проверку HTML-формы с помощью таких псевдоклассов, как [`:valid`](../../css/valid.md), [`:invalid`](../../css/invalid.md) и [`:in-range`](../../css/in-range.md). Псевдоклассы `:valid` и `:invalid` полезны в таких контекстах, как поле электронной почты, которое имеет `pattern`, которому необходимо соответствовать, чтобы оно было действительным. Это состояние допустимого значения может быть показано пользователю, помогая ему понять, что он может спокойно переходить к следующему полю.
 
-The `:in-range` pseudo-class is available if an input has a `min` and `max`, such as a numeric input _and_ the value is within those bounds.
+<iframe src="https://codepen.io/web-dot-dev/embed/QWdMpaL?height=250&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'qBRXrpP',
-  height: 250
-} %}
-</figure>
+<p class="ciu_embed" data-feature="mdn-css__selectors__in-range" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-With HTML forms, you can determine that a field is required with the `required` attribute. The [`:required`](https://developer.mozilla.org/docs/Web/CSS/:required) pseudo-class will be available for required fields. Fields that are not required can be selected with the [`:optional`](https://developer.mozilla.org/docs/Web/CSS/:optional) pseudo-class.
+Псевдокласс `:in-range` доступен, если входные данные имеют значения `min` и `max`, например, числовой вход и значение находится в этих границах.
 
-{% Aside %} It's not a good idea to rely solely on color to signify state changes— especially red and green—because colorblind and low-vision users can struggle to see a state change, or even miss it completely. A good idea is to use color to support state changes, along with text changes and icon changes to visually signify change {% endAside %}
+<iframe src="https://codepen.io/web-dot-dev/embed/qBRXrpP?height=250&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Selecting elements by their index, order and occurrence
+В HTML-формах можно определить, что поле является обязательным, с помощью атрибута `required`. Для обязательных полей будет доступен псевдокласс [`:required`](../../css/required.md). Поля, которые не являются обязательными, могут быть выбраны с помощью псевдокласса [`:optional`](../../css/optional.md).
 
-There is a group of pseudo-classes that select items based on where they are in the document.
+!!!note ""
 
-### `:first-child` and `:last-child`
+    Не стоит полагаться только на цвет для обозначения изменений состояния - особенно на красный и зеленый, поскольку дальтоники и слабовидящие пользователи могут с трудом заметить изменение состояния или даже полностью его пропустить. Хорошей идеей является использование цвета для поддержки изменения состояния, а также изменения текста и пиктограмм для визуального обозначения изменений
 
-{% BrowserCompat 'css.selectors.first-child' %}
+## Выбор элементов по их индексу, порядку и месту появления
 
-If you want to find the first or last item, you can use [`:first-child`](https://developer.mozilla.org/docs/Web/CSS/:first-child) and [`:last-child`](https://developer.mozilla.org/docs/Web/CSS/:last-child). These pseudo-classes will return either the first or last element in a group of sibling elements.
+Существует группа псевдоклассов, которые выбирают элементы в зависимости от их местоположения в документе.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'YzNxZRO'
-} %}
-</figure>
+### `:first-child` и `:last-child`
+
+<p class="ciu_embed" data-feature="mdn-css__selectors__first-child" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
+
+<p class="ciu_embed" data-feature="mdn-css__selectors__last-child" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
+
+Если необходимо найти первый или последний элемент, можно использовать [`:first-child`](../../css/first-child.md) и [`:last-child`](../../css/last-child.md). Эти псевдоклассы возвращают либо первый, либо последний элемент в группе элементов-братьев.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/YzNxZRO?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### `:only-child`
 
-{% BrowserCompat 'css.selectors.only-child' %}
+<p class="ciu_embed" data-feature="mdn-css__selectors__only-child" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-You can also select elements that have no siblings, with the [`:only-child`](https://developer.mozilla.org/docs/Web/CSS/:only-child) pseudo-class.
+Также можно выделить элементы, не имеющие братьев и сестер, с помощью псевдокласса [`:only-child`](../../css/only-child.md).
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'dyNzvaj'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/dyNzvaj?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-### `:first-of-type` and `:last-of-type`
+### `:first-of-type` и `:last-of-type`
 
-{% BrowserCompat 'css.selectors.first-of-type' %}
+<p class="ciu_embed" data-feature="mdn-css__selectors__first-of-type" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-You can select the [`:first-of-type`](https://developer.mozilla.org/docs/Web/CSS/:first-of-type) and [`:last-of-type`](https://developer.mozilla.org/docs/Web/CSS/:last-of-type) which at first, look like they do the same thing as `:first-child` and `:last-child`, but consider this HTML:
+<p class="ciu_embed" data-feature="mdn-css__selectors__last-of-type" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
+
+Вы можете выбрать [`:first-of-type`](../../css/first-of-type.md) и [`:last-of-type`](../../css/last-of-type.md), которые, на первый взгляд, делают то же самое, что и `:first-child` и `:last-child`, но рассмотрим этот HTML:
 
 ```html
 <div class="my-parent">
@@ -261,7 +232,7 @@ You can select the [`:first-of-type`](https://developer.mozilla.org/docs/Web/CSS
 </div>
 ```
 
-And this CSS:
+И этот CSS:
 
 ```css
 .my-parent div:first-child {
@@ -269,7 +240,7 @@ And this CSS:
 }
 ```
 
-No elements would be colored red because the first child is a paragraph and not a div. The `:first-of-type` pseudo-class is useful in this context.
+Ни один из элементов не будет окрашен в красный цвет, поскольку первым дочерним элементом является абзац, а не div. В этом контексте полезен псевдокласс `:first-of-type`.
 
 ```css
 .my-parent div:first-of-type {
@@ -277,39 +248,25 @@ No elements would be colored red because the first child is a paragraph and not 
 }
 ```
 
-Even though the first `<div>` is the second child, it is still the first of type inside the `.my-parent` element, so with this rule, it will be colored red.
+Несмотря на то, что первый `<div>` является вторым дочерним элементом, он все равно является первым по типу внутри элемента `.my-parent`, поэтому в соответствии с этим правилом он будет окрашен в красный цвет.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'poRreXE',
-  height: 250
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/poRreXE?height=250&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-### `:nth-child` and `:nth-of-type`
+### `:nth-child` и `:nth-of-type`
 
-{% BrowserCompat 'css.selectors.nth-child' %}
+<p class="ciu_embed" data-feature="mdn-css__selectors__nth-child" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-You're not limited to first and last children and types either. The [`:nth-child`](https://developer.mozilla.org/docs/Web/CSS/:nth-child) and [`:nth-of-type`](https://developer.mozilla.org/docs/Web/CSS/:nth-of-type) pseudo-classes allow you to specify an element that is at a certain index. The indexing in CSS selectors starts at 1.
+<p class="ciu_embed" data-feature="mdn-css__selectors__nth-of-type" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'GRrvWbL'
-} %}
-</figure>
+Вы также не ограничены первым и последним дочерними элементами и типами. Псевдоклассы [`:nth-child`](../../css/nth-child.md) и [`:nth-of-type`](../../css/nth-of-type.md) позволяют указать элемент, находящийся под определенным индексом. Индексация в селекторах CSS начинается с `1`.
 
-You can pass more than an index into these pseudo-classes too. If you wanted to select all even elements, you can use `:nth-child(even)`.
+<iframe src="https://codepen.io/web-dot-dev/embed/GRrvWbL?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'wvgqdwv'
-} %}
-</figure>
+В эти псевдоклассы можно передавать не только индекс. Если требуется выбрать все четные элементы, можно использовать `:nth-child(even)`.
 
-You can also create more complex selectors that find items at regularly spaced intervals, using [the An+B microsyntax](https://www.w3.org/TR/css-syntax-3/#anb-microsyntax).
+<iframe src="https://codepen.io/web-dot-dev/embed/wvgqdwv?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Также можно создавать более сложные селекторы, которые находят элементы с регулярными интервалами, используя [микросинтаксис An+B](https://www.w3.org/TR/css-syntax-3/#anb-microsyntax).
 
 ```css
 li:nth-child(3n + 3) {
@@ -317,43 +274,37 @@ li:nth-child(3n + 3) {
 }
 ```
 
-This selector selects every third item, starting at item 3. The `n` in this expression is the index, which starts at zero the 3 (`3n`) is how much you multiply that index by.
+Этот селектор выбирает каждый третий элемент, начиная с элемента 3. `n` в этом выражении - это индекс, который начинается с нуля, а 3 (`3n`) - это то, на сколько вы умножаете этот индекс.
 
-Let's say you have 7 `<li>` items. The first item that is selected is 3 because `3n+3` translates to `(3 * 0) + 3`. The next iteration would pick item 6 because `n` has now incremented to `1`, so `(3 * 1) + 3)`. This expression works for both `:nth-child` and `:nth-of-type`.
+Допустим, у вас есть 7 элементов `<li>`. Первым выбирается элемент 3, поскольку `3n+3` переводится как `(3 * 0) + 3`. На следующей итерации будет выбран элемент 6, поскольку `n` теперь увеличилось до `1`, поэтому `(3 * 1) + 3)`. Это выражение работает как для `:nth-child`, так и для `:nth-of-type`.
 
-You can play around with this sort of selector on this [nth-child tester](https://css-tricks.com/examples/nth-child-tester/) or this [quantity selector tool](https://quantityqueries.com).
+Вы можете поиграть с подобным селектором на этом [nth-child тестере](https://css-tricks.com/examples/nth-child-tester/) или на этом [quantity selector tool](https://quantityqueries.com).
 
 ### `:only-of-type`
 
-{% BrowserCompat 'css.selectors.only-of-type' %}
+<p class="ciu_embed" data-feature="mdn-css__selectors__only-of-type" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-Lastly, you can find the only element of a certain type in a group of siblings with [`:only-of-type`](https://developer.mozilla.org/docs/Web/CSS/:only-of-type). This is useful if you want to select lists with only one item, or if you want to find the only bold element in a paragraph.
+Наконец, с помощью [`:only-of-type`](../../css/only-of-type.md) можно найти единственный элемент определенного типа в группе братьев и сестер. Это удобно, если необходимо выбрать списки, содержащие только один элемент, или найти единственный полужирный элемент в абзаце.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'yLgobJb',
-  height: 250
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/yLgobJb?height=250&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Finding empty elements
+## Поиск пустых элементов
 
-It can sometimes be useful to identify completely empty elements, and there is a pseudo-class for that too.
+Иногда бывает полезно определить абсолютно пустые элементы, и для этого также существует псевдокласс.
 
 ### `:empty`
 
-{% BrowserCompat 'css.selectors.empty' %}
+<p class="ciu_embed" data-feature="mdn-css__selectors__empty" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-If an element has no children, the [`:empty`](https://developer.mozilla.org/docs/Web/CSS/:empty) pseudo-class applies to them. Children aren't just HTML elements or text nodes though: they can also be whitespace, which can be confusing when you're debugging the following HTML and wondering why it isn't working with `:empty`:
+Если элемент не имеет дочерних элементов, то к ним применяется псевдокласс [`:empty`](../../css/empty.md). Однако дочерними элементами могут быть не только HTML-элементы или текстовые узлы: они могут быть и пробелами, что может сбить с толку при отладке следующего HTML-файла, когда вы задаетесь вопросом, почему он не работает с `:empty`:
 
 ```html
 <div></div>
 ```
 
-The reason is that there's some whitespace between the opening and closing `<div>`, so empty won't work.
+Причина заключается в том, что между открывающим и закрывающим `<div>` есть пробельные символы, поэтому empty не будет работать.
 
-The `:empty` pseudo-class can be useful if you have little control over the HTML and want to hide empty elements, such as a WYSIWYG content editor. Here, an editor has added a stray, empty paragraph.
+Псевдокласс `:empty` может быть полезен, если у вас мало контроля над HTML и вы хотите скрыть пустые элементы, например, в редакторе WYSIWYG-контента. Здесь редактор добавил пустой абзац.
 
 ```html
 <article class="post">
@@ -365,7 +316,7 @@ The `:empty` pseudo-class can be useful if you have little control over the HTML
 </article>
 ```
 
-With `:empty`, you can find that and hide it.
+С помощью `:empty` это можно найти и скрыть.
 
 ```css
 .post :empty {
@@ -373,48 +324,41 @@ With `:empty`, you can find that and hide it.
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'VwPzbKg',
-  height: 250,
-  tab: 'html,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/VwPzbKg?height=250&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Finding and excluding multiple elements
+## Нахождение и исключение нескольких элементов
 
-Some pseudo-classes help you to write more compact CSS.
+Некоторые псевдоклассы помогают писать более компактный CSS.
 
 ### `:is()`
 
-{% BrowserCompat 'css.selectors.is' %}
+<p class="ciu_embed" data-feature="mdn-css__selectors__is" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-If you want to find all of the `h2`, `li` and `img` child elements in a `.post` element, you might think to write a selector list like this:
+Если вы хотите найти все дочерние элементы `h2`, `li` и `img` в элементе `.post`, вы можете написать список селекторов следующим образом:
 
 ```css
 .post h2,
 .post li,
 .post img {
-	…
+    /* … */
 }
 ```
 
-With the [`:is()`](https://developer.mozilla.org/docs/Web/CSS/:is) pseudo-class, you can write a more compact version:
+С помощью псевдокласса [`:is()`](../../css/is.md) можно написать более компактную версию:
 
 ```css
 .post :is(h2, li, img) {
-	…
+    /* … */
 }
 ```
 
-The `:is` pseudo-class is not only more compact than a selector list but it is also more forgiving. In most cases, if there's an error or unsupported selector in a selector list, the entire selector list will no longer work. If there's an error in the passed selectors in an `:is` pseudo-class, it will ignore the invalid selector, but use those which are valid.
+Псевдокласс `:is` не только более компактен, чем список селекторов, но и более щадящий. В большинстве случаев, если в списке селекторов есть ошибка или неподдерживаемый селектор, то весь список селекторов перестает работать. Если в переданных селекторах псевдокласса `:is` есть ошибка, то недействительный селектор будет проигнорирован, но будут использованы те, которые являются действительными.
 
 ### `:not()`
 
-{% BrowserCompat 'css.selectors.not' %}
+<p class="ciu_embed" data-feature="mdn-css__selectors__not" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-You can also exclude items with the [`:not()`](https://developer.mozilla.org/docs/Web/CSS/:not) pseudo-class. For example, you can use it to style all links that don't have a `class` attribute.
+Также можно исключить элементы с помощью псевдокласса [`:not()`](../../css/not.md). Например, с его помощью можно стилизовать все ссылки, не имеющие атрибута `class`.
 
 ```css
 a:not([class]) {
@@ -422,7 +366,7 @@ a:not([class]) {
 }
 ```
 
-A `:not` pseudo-class can also help you to improve accessibility. For example, an `<img>` must have an `alt`, even if its an empty value, so you could write a CSS rule that adds a thick red outline to invalid images:
+Псевдокласс `:not` также может помочь улучшить доступность. Например, `<img>` должен иметь `alt`, даже если это пустое значение, поэтому можно написать CSS-правило, добавляющее толстый красный контур к недействительным изображениям:
 
 ```css
 img:not([alt]) {
@@ -430,11 +374,6 @@ img:not([alt]) {
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'abpyWJK'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/abpyWJK?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Assessment 'pseudo-classes' %}
+:information_source: Источник: [Pseudo-classes](https://web.dev/learn/css/pseudo-classes/)

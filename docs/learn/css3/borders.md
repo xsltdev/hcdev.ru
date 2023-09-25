@@ -19,42 +19,30 @@ icon: material/border-style
 
 Граница блока - это рамка ваших блоков, а свойства `border` предоставляют огромное количество возможностей для создания этой рамки практически в любом стиле, который только можно придумать.
 
-## Border properties
+## Свойства границы
 
-The individual `border` properties provide a way to style the various parts of a border.
+Отдельные свойства `border` предоставляют возможность стилизовать различные части границы.
 
-{% BrowserCompat 'css.properties.border' %}
+### Стиль
 
-### Style
+Для того чтобы появилась граница, необходимо определить [`border-style`](../../css/border-style.md). Есть несколько вариантов на выбор:
 
-For a border to appear, you have to define the [`border-style`](https://developer.mozilla.org/docs/Web/CSS/border-style). There's a few options to choose from:
+<iframe src="https://codepen.io/web-dot-dev/embed/GRrvyxY?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'GRrvyxY'
-} %}
+При использовании стилей `ridge`, `inset`, `outset` и `groove` браузер затемняет цвет границы для второго показанного цвета, чтобы обеспечить контраст и глубину. Это поведение может отличаться в разных браузерах, особенно для темных цветов, таких как `black`. В Chrome эти стили границ будут выглядеть сплошными, а в Firefox они будут осветляться, чтобы затем обеспечить более темный второй цвет.
+
+Поведение браузеров может отличаться и для других стилей границ, поэтому важно протестировать свой сайт в разных браузерах. Частым примером такого различия является то, как каждый браузер отображает стили `dotted` и `dashed`.
+
+<figure markdown>
+![Границы отображаются в браузерах Chrome, Firefox и Safari.](borders-2.avif)
+<figcaption>Границы отображаются в браузерах Chrome, Firefox и Safari.</figcaption>
 </figure>
 
-When using the `ridge`, `inset`, `outset` and `groove` styles, the browser will darken the border color for the second shown color to provide contrast and depth. This behaviour can vary between browsers, especially for dark colors such as `black`. In Chrome, these border styles will appear to be solid and in Firefox, they will be lightened to then provide a darker second color.
+Для установки стиля границ на каждой стороне блока можно использовать [`border-top-style`](../../css/border-top-style.md), [`border-right-style`](../../css/border-right-style.md), [`border-left-style`](../../css/border-left-style.md) и [`border-bottom-style`](../../css/border-bottom-style.md).
 
-Browser behaviour can vary for other border styles too, so it's important to test your site in different browsers. A common example of this difference is how each browser renders the `dotted` and `dashed` styles.
+### Сокращение
 
-<figure>
-  {% Img src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/ybLca9jmTgUtltTwfIpt.jpg",
-  alt="The border demo in Chrome,
-  Firefox and Safari which demonstrates the subtle differences
-  in how the borders display",
-  width="800",
-  height="489" %}
-  <figcaption>Borders displayed in Chrome, Firefox, and Safari.</figcaption>
-</figure>
-
-To set border style on each side of your box, you can use [`border-top-style`](https://developer.mozilla.org/docs/Web/CSS/border-top-style), [`border-right-style`](https://developer.mozilla.org/docs/Web/CSS/border-right-style), [`border-left-style`](https://developer.mozilla.org/docs/Web/CSS/border-left-style), and [`border-bottom-style`](https://developer.mozilla.org/docs/Web/CSS/border-bottom-style).
-
-### Shorthand
-
-As with `margin` and `padding`, you can use the [`border`](https://developer.mozilla.org/docs/Web/CSS/border) shorthand property to define all the parts of your border in one declaration.
+Как и в случае с `margin` и `padding`, для определения всех частей границы в одном объявлении можно использовать сокращенное свойство [`border`](../../css/border.md).
 
 ```css
 .my-element {
@@ -62,11 +50,11 @@ As with `margin` and `padding`, you can use the [`border`](https://developer.moz
 }
 ```
 
-The order of values in the `border` shorthand are `border-width`, `border-style` and then, `border-color`.
+Порядок значений в сокращении `border` следующий: `border-width`, `border-style` и затем `border-color`.
 
-### Color
+### Цвет
 
-You can set color on all sides of your box or on each individual side with [`border-color`](https://developer.mozilla.org/docs/Web/CSS/border-color). By default, it uses the box's current text color: `currentColor`. This means that if you only declare border properties, like width, the color will be that computed value unless you explicitly set it.
+С помощью команды [`border-color`](../../css/border-color.md) можно задать цвет для всех сторон блока или для каждой отдельной стороны. По умолчанию используется текущий цвет текста блока: `currentColor`. Это означает, что если вы объявите только свойства границы, например ширину, то цветом будет это вычисленное значение, если вы не зададите его явно.
 
 ```css
 .my-element {
@@ -80,40 +68,25 @@ You can set color on all sides of your box or on each individual side with [`bor
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'yLgovoX'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/yLgovoX?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-To set a border color on each side of your box, use [`border-top-color`](https://developer.mozilla.org/docs/Web/CSS/border-top-color), [`border-right-color`](https://developer.mozilla.org/docs/Web/CSS/border-right-color), [`border-left-color`](https://developer.mozilla.org/docs/Web/CSS/border-left-color) and [`border-bottom-color`](https://developer.mozilla.org/docs/Web/CSS/border-bottom-color).
+Чтобы задать цвет границы на каждой стороне блока, используйте [`border-top-color`](../../css/border-top-color.md), [`border-right-color`](../../css/border-right-color.md), [`border-left-color`](../../css/border-left-color.md) и [`border-bottom-color`](../../css/border-bottom-color.md).
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'MWJvQVO'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/MWJvQVO?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-### Width
+### Ширина
 
-The width of a border is how thick the line is, and is controlled by [`border-width`](https://developer.mozilla.org/docs/Web/CSS/border-width). The default border width is `medium`. This won't be visible unless you define a style, though. You can use other named widths such as `thin` and `thick`.
+Ширина границы - это толщина линии, которая определяется параметром [`border-width`](../../css/border-width.md). По умолчанию ширина границы равна `средней`. Однако она не будет видна, пока вы не определите стиль. Можно использовать и другие именованные значения ширины, например `thin` и `thick`.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'PoWKQxN'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/PoWKQxN?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The `border-width` properties also accept a length unit such as `px`, `em`, `rem` or `%`. To set border width on each side of your box, use [`border-top-width`](https://developer.mozilla.org/docs/Web/CSS/border-top-width), [`border-right-width`](https://developer.mozilla.org/docs/Web/CSS/border-right-width), [`border-left-width`](https://developer.mozilla.org/docs/Web/CSS/border-left-width) and [`border-bottom-width`](https://developer.mozilla.org/docs/Web/CSS/border-bottom-width).
+Свойства `border-width` также принимают единицы измерения длины, такие как `px`, `em`, `rem` или `%`. Чтобы задать ширину границы с каждой стороны блока, используйте свойства [`border-top-width`](../../css/border-top-width.md), [`border-right-width`](../../css/border-right-width.md), [`border-left-width`](../../css/border-left-width.md) и [`border-bottom-width`](../../css/border-bottom-width.md).
 
-## Logical properties
+## Логические свойства
 
-In the [Logical Properties](/learn/css/logical-properties) module you discovered how to refer to block flow and inline flow, rather than explicit top, right, bottom or left sides.
+В модуле [Логические свойства](logical-properties.md) вы узнали, как ссылаться на блочный и инлайн-поток, а не на явные верхнюю, правую, нижнюю или левую стороны.
 
-You have this capability with borders, too:
+Такая возможность есть и у границ:
 
 ```css
 .my-element {
@@ -122,20 +95,15 @@ You have this capability with borders, too:
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'poRraBp'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/poRraBp?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-In this example, `.my-element` has all sides defined as having a `2px`, dotted border that is the current text color. The `inline-end` border is then defined as `2px`, solid and red. This means that in left-to-right languages—like English— the red border will be on the right side of the box. In right-to-left languages—like Arabic— the red border will be on the left side of the box.
+В данном примере у `.my-element` все стороны имеют пунктирную границу размером `2px`, которая является цветом текущего текста. Граница `inline-end` определяется как `2px`, сплошная и красная. Это означает, что в языках с лево-правым расположением букв, например, в английском, красная граница будет находиться с правой стороны блока. В языках с переходом справа налево, например в арабском, красная граница будет располагаться слева от блока.
 
-Browser support is varied for logical properties in borders, so make sure you check support before using.
+Браузеры поддерживают различные логические свойства границ, поэтому перед использованием обязательно проверьте их поддержку.
 
-## Border radius
+## Радиус границы
 
-To give a box rounded corners use the [`border-radius`](https://developer.mozilla.org/docs/Web/CSS/border-radius) property.
+Чтобы придать блоку закругленные углы, используйте свойство [`border-radius`](../../css/border-radius.md).
 
 ```css
 .my-element {
@@ -143,16 +111,11 @@ To give a box rounded corners use the [`border-radius`](https://developer.mozill
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'LYxjQoK'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/LYxjQoK?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-This shorthand adds a consistent border to each corner of your box. As with the other border properties, you can define the border radius for each side with [`border-top-left-radius`](https://developer.mozilla.org/docs/Web/CSS/border-top-left-radius), [`border-top-right-radius`](https://developer.mozilla.org/docs/Web/CSS/border-top-right-radius), [`border-bottom-right-radius`](https://developer.mozilla.org/docs/Web/CSS/border-bottom-right-radius) and [`border-bottom-left-radius`](https://developer.mozilla.org/docs/Web/CSS/border-bottom-left-radius).
+Это сокращение добавляет последовательную границу к каждому углу блока. Как и в случае с другими свойствами границы, радиус границы для каждой стороны можно задать с помощью [`border-top-left-radius`](../../css/border-top-left-radius.md), [`border-top-right-radius`](../../css/border-top-right-radius.md), [`border-bottom-right-radius`](../../css/border-bottom-right-radius.md) и [`border-bottom-left-radius`](../../css/border-bottom-left-radius.md).
 
-You can also specify each corner's radius in the shorthand, which follows the order: top left, top right, bottom right then bottom left.
+Можно также указать радиус каждого угла в сокращенном виде в следующем порядке: верхний левый, верхний правый, нижний правый, затем нижний левый.
 
 ```css
 .my-element {
@@ -160,16 +123,11 @@ You can also specify each corner's radius in the shorthand, which follows the or
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'yLgovdK'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/yLgovdK?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-By defining a single value for a corner, you are using another shorthand because a border radius is split into two parts: the vertical and horizontal sides. This means that when you set `border-top-left-radius: 1em`, you are setting the top-left-**top** radius and the top-left-**left** radius.
+Определяя одно значение для угла, вы используете еще одно сокращение, поскольку радиус границы делится на две части: вертикальную и горизонтальную. Это означает, что, задавая `border-top-left-radius: 1em`, вы задаете радиус top-left-**top** и радиус top-left-**left**.
 
-You can define both properties, per corner like this:
+Вы можете задать оба свойства для каждого угла следующим образом:
 
 ```css
 .my-element {
@@ -177,16 +135,11 @@ You can define both properties, per corner like this:
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'WNRqoPM'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/WNRqoPM?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-This adds a `border-top-left-top` value of `1em`, and a `border-top-left-left` value of `2em`. This converts the top left border radius into an elliptical radius, rather than the default circular radius.
+Это добавляет значение `border-top-left-top`, равное `1em`, и значение `border-top-left-left`, равное `2em`. Это преобразует радиус верхней левой границы в эллиптический радиус, а не в круговой по умолчанию.
 
-You can define these values in the `border-radius` shorthand, using a `/` to define the elliptical values, after the standard values. This enables you to get creative and make some complex shapes.
+Вы можете задать эти значения в сокращении `border-radius`, используя `/` для определения эллиптических значений после стандартных. Это позволяет творчески подойти к созданию сложных фигур.
 
 ```css
 .my-element {
@@ -196,16 +149,11 @@ You can define these values in the `border-radius` shorthand, using a `/` to def
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'abpyqeM'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/abpyqeM?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Border images
+## Границы изображений
 
-You don't just have to use a stroke-based border in CSS. You can also use any type of image, using [`border-image`](https://developer.mozilla.org/docs/Web/CSS/border-image). This shorthand property allows you to set the source image, how that image is sliced, the image width, how far the border is outset from the edge and how it should repeat.
+В CSS можно использовать не только границы, основанные на обводке. Можно также использовать любой тип изображения, используя [`border-image`](../../css/border-image.md). Это сокращенное свойство позволяет задать исходное изображение, способ его нарезки, ширину изображения, отступ границы от края и ее повторение.
 
 ```css
 .my-element {
@@ -217,18 +165,13 @@ You don't just have to use a stroke-based border in CSS. You can also use any ty
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'zYNdWNX'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/zYNdWNX?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The [`border-image-width`](https://developer.mozilla.org/docs/Web/CSS/border-image-width) property is like `border-width`: it is how you set the width of your border image. The [`border-image-outset`](https://developer.mozilla.org/docs/Web/CSS/border-image-outset) property lets you set the distance between your border image and the box that it wraps around.
+Свойство [`border-image-width`](../../css/border-image-width.md) аналогично свойству `border-width`: с его помощью задается ширина изображения границы. Свойство [`border-image-outset`](../../css/border-image-outset.md) позволяет задать расстояние между изображением границы и блоком, вокруг которого оно обернуто.
 
 ### `border-image-source`
 
-The [`border-image-source`](https://developer.mozilla.org/docs/Web/CSS/border-image-source) (source of the border image) can be a `url` for any valid image, which includes CSS gradients.
+Свойство [`border-image-source`](../../css/border-image-source.md) (источник изображения границы) может быть `url` для любого корректного изображения, включая CSS-градиенты.
 
 ```css
 .my-element {
@@ -246,7 +189,7 @@ The [`border-image-source`](https://developer.mozilla.org/docs/Web/CSS/border-im
 
 ### `border-image-slice`
 
-The [`border-image-slice`](https://developer.mozilla.org/docs/Web/CSS/border-image-slice) property is a useful property that allows you to slice an image into 9 parts, made up of 4 split lines. It works like the `margin` shorthand where you define the top, right, bottom and left **offset value**.
+Свойство [`border-image-slice`](../../css/border-image-slice.md) - это полезное свойство, позволяющее разрезать изображение на 9 частей, состоящих из 4 разделенных линий. Оно работает подобно сокращению `margin`, где задаются значения верхнего, правого, нижнего и левого **смещения**.
 
 ```css
 .my-element {
@@ -255,30 +198,21 @@ The [`border-image-slice`](https://developer.mozilla.org/docs/Web/CSS/border-ima
 }
 ```
 
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/WETsTwhFSfl30VfyfMTA.png",
-alt="The image used in the demo with the four slices shown with blue lines",
-width="800",
-height="380" %}
+![Изображение, используемое в демонстрационном примере, с четырьмя срезами, показанными синими линиями](borders-3.avif)
 
-With the offset values defined, you now have 9 sections of the image: 4 corners, 4 edges and a middle section. The corners are applied to the corners of the element with the border image. The edges are applied to the edges of that element. The [`border-image-repeat`](https://developer.mozilla.org/docs/Web/CSS/border-image-repeat) property defines how those edges fill their space and the [`border-image-width`](https://developer.mozilla.org/docs/Web/CSS/border-image-width) property controls the size of the slices.
+После определения значений смещения у вас теперь есть 9 участков изображения: 4 угла, 4 края и средняя секция. Углы применяются к углам элемента с изображением границы. Края применяются к краям этого элемента. Свойство [`border-image-repeat`](../../css/border-image-repeat.md) определяет, как эти края заполняют свое пространство, а свойство [`border-image-width`](../../css/border-image-width.md) управляет размером фрагментов.
 
-Lastly, the `fill` keyword determines whether the middle section, left by the slicing, is used as the element's background image or not.
+Наконец, ключевое слово `fill` определяет, будет ли средняя часть, оставшаяся после нарезки, использоваться в качестве фонового изображения элемента или нет.
 
 ### `border-image-repeat`
 
-[`border-image-repeat`](https://developer.mozilla.org/docs/Web/CSS/border-image-repeat) is how you instruct CSS how you would like your border image to repeat. It works the same as `background-repeat`.
+[`border-image-repeat`](../../css/border-image-repeat.md) - это способ указать CSS, как вы хотите, чтобы изображение границы повторялось. Он работает так же, как и `background-repeat`.
 
--   The initial value is `stretch`, which stretches the source image to fill available space where possible.
--   The `repeat` value tiles the source image's edges as many times as possible, and may clip the edge regions to achieve this.
--   The `round` value is the same as repeat, but instead of clipping the image edge regions to fit as many as possible, it stretches the image as well as repeating it to achieve a seamless repeat
--   The `space` value is again, the same as repeat, but this value adds space between each edge region to create a seamless pattern.
+-   Начальное значение - `stretch`, которое растягивает исходное изображение, чтобы заполнить свободное пространство, где это возможно.
+-   Значение `repeat` повторяет края исходного изображения столько раз, сколько это возможно, и может обрезать области краев для достижения этой цели.
+-   Значение `round` аналогично значению repeat, но вместо того, чтобы обрезать области краев изображения, чтобы их было как можно больше, оно растягивает изображение, а также повторяет его, чтобы добиться бесшовного повторения.
+-   Значение `space` опять же аналогично значению repeat, но при этом добавляется пространство между каждой краевой областью для создания бесшовного узора.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'GRrvBYv'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/GRrvBYv?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Assessment 'borders' %}
+:information_source: Источник: [Borders](https://web.dev/learn/css/borders/)

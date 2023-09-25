@@ -1,164 +1,83 @@
 ---
-title: Focus
-description: >
-  Understand the importance of focus in your web applications.
-  You'll find out how to manage focus,
-  and how to make sure the path through your page works for people using a mouse,
-  and those using the keyboard to navigate.
-audio:
-  title: 'The CSS Podcast - 018: Focus'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_018_v1.0.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - andybell
-date: 2021-04-30
+description: Поймите важность фокуса в веб-приложениях. Вы узнаете, как управлять фокусом и как сделать так, чтобы путь по странице был удобен как для людей, пользующихся мышью, так и для тех, кто использует клавиатуру для навигации.
+icon: material/image-filter-center-focus
 ---
 
-On your webpage,
-you click a link that skips the user to the main content of the website.
-These are often referred to as skip links, or anchor links.
-When that link is activated by a keyboard, using the *tab* and *enter* keys,
-the main content container has a focus ring around it. Why is that?
+# Фокус
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'poRWRjp'
-} %}
-</figure>
+<big>Поймите важность фокуса в веб-приложениях. Вы узнаете, как управлять фокусом и как сделать так, чтобы путь по странице был удобен как для людей, пользующихся мышью, так и для тех, кто использует клавиатуру для навигации.</big>
 
-This is because the `<main>` has a `tabindex="-1"` attribute value,
-which means it can be programmatically focused.
-When the `<main>` is targeted—because the `#main-content`
-in the browser URL bar matches the `id`—it receives programmatic focus.
-It's tempting to remove the focus styles in these situations,
-but handling focus appropriately and with care helps to create a good,
-accessible, user experience.
-It can also be a great place to add some interest to interactions.
+!!!info "CSS подкаст"
 
-## Why is focus important?
+    018: Фокус
 
-As a web developer,
-it's your job to make a website accessible and inclusive to all.
-Creating accessible focus states with CSS is a part of this responsibility.
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_018_v1.0.mp3?dest-id=1891556"></audio>
 
-Focus styles assist people who use a device such as a keyboard or a
-[switch control](https://www.24a11y.com/2018/i-used-a-switch-control-for-a-day/)
-to navigate and interact with a website.
-If an element receives focus and there is no visual indication,
-a user may lose track of what is in focus.
-This can create navigation issues and result in unwanted behaviour if,
-say, the wrong link is followed.
+На веб-странице пользователь нажимает на ссылку, которая переводит его к основному содержанию сайта. Такие ссылки часто называют пропускными или якорными. Когда эта ссылка активизируется с клавиатуры клавишами ++tab++ и ++enter++, вокруг контейнера с основным содержимым появляется кольцо фокуса. Почему так происходит?
 
-{% Aside %}
-Learn more about the importance of focus for accessibility in [Learn Accessibility: Focus](/learn/accessibility/focus/), 
-and more information on how to manage focus in HTML in [Learn HTML: Focus](/learn/html/focus/).
-{% endAside%}
+<iframe src="https://codepen.io/web-dot-dev/embed/poRWRjp?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## How elements get focus
+Это связано с тем, что `<main>` имеет значение атрибута `tabindex="-1"`, а значит, может быть программно сфокусирован. Когда на `<main>` нацеливаются - поскольку `#main-content` в строке URL браузера совпадает с `id` - он получает программный фокус. В таких ситуациях возникает соблазн убрать стили фокусировки, но правильное и осторожное обращение с фокусом помогает создать хороший, доступный пользовательский опыт. Это также может стать отличным местом для придания интереса взаимодействию.
 
-Certain elements are automatically focusable;
-these are elements that accept interaction and input, such as `<a>`,
-`<button>`, `<input>` and `<select>`.
-In short, all form elements, buttons and links.
-You can typically navigate a website's focusable elements using the *tab* key to move forward on the page, and *shift* + *tab* to move backward.
+## Почему фокус важен?
 
-There is also a HTML attribute called `tabindex` which allows you to change the tabbing index—which is
-order in which elements are focused—every time someone presses their <kbd>tab</kbd> key,
-or focus is shifted with a hash change in the URL or by a JavaScript event.
-If `tabindex` on a HTML element is set to `0`,
-it can receive focus via the <kbd>tab</kbd> key and it will honour the global tab index,
-which is defined by the document source order.
+Ваша работа как веб-разработчика заключается в том, чтобы сделать сайт доступным и инклюзивным для всех. Создание доступных состояний фокуса с помощью CSS является частью этой задачи.
 
-If you set `tabindex` to `-1`, it can only receive focus programmatically,
-which means only when a JavaScript event happens
-or a hash change (matching the element's `id` in the URL) occurs.
-If you set `tabindex` to be anything higher than `0`,
-it will be removed from the global tab index,
-defined by document source order.
-Tabbing order will now be defined by the value of `tabindex`,
-so an element with `tabindex="1"` will receive focus before an element with `tabindex="2"`, for example.
+Стили фокуса помогают людям, использующим такие устройства, как клавиатура или [переключатель управления](https://www.24a11y.com/2018/i-used-a-switch-control-for-a-day/), осуществлять навигацию и взаимодействие с веб-сайтом. Если элемент получает фокус, а визуальная индикация отсутствует, пользователь может потерять трек, на котором он находится. Это может создать проблемы с навигацией и привести к нежелательному поведению, если, например, перейти не по той ссылке.
 
-{% Aside 'warning' %}
-Honoring document source order is really important,
-and focus order should only be changed if you **absolutely have to change it**.
-This applies both when setting `tabindex` **and** changing visual order with CSS layout,
-such as flexbox and grid.
-Anything that creates unpredictable focus on the web
-can create an inaccessible experience for the user.
-{% endAside %}
+!!!note ""
 
-## Styling focus
+    Подробнее о важности фокуса для обеспечения доступности читайте в [Изучам доступность: Фокус](../accessibility/focus.md), а о том, как управлять фокусом в HTML - в [Изучаем HTML: Фокус](../html/focus.md).
 
-The default browser behavior when an element receives focus is to present a focus ring.
-This focus ring varies between both browser and operating systems.
+## Как элементы получают фокус
 
-{% Video
-  src="video/VbAJIREinuYvovrBzzvEyZOpw5w1/zVu8FoqteYCP1sTj3uCm.mp4",
-  controls="true",
-  autoplay="true"
-%}
+Некоторые элементы автоматически фокусируются; это элементы, которые принимают взаимодействие и ввод, такие как `<a>`, `<button>`, `<input>` и `<select>`. Короче говоря, все элементы форм, кнопки и ссылки. Обычно для навигации по фокусируемым элементам сайта используется клавиша _tab_ для перемещения вперед по странице и _shift_ + _tab_ для перемещения назад.
 
-This behavior can be changed with CSS,
-using the `:focus`, `:focus-within` and `:focus-visible`
-pseudo-classes that you learned about in the
-[pseudo-classes lesson](/learn/css/pseudo-classes).
-It is important to set a focus style which has **contrast** with the default style of an element.
-For example, a common approach is to utilize the `outline` property.
+Существует также HTML-атрибут `tabindex`, который позволяет изменять индекс табуляции - порядок фокусировки элементов - каждый раз, когда кто-то нажимает клавишу ++tab++, или фокус смещается при изменении хэша в URL или по событию JavaScript. Если `tabindex` для HTML-элемента установлен в `0`, то он может получать фокус по клавише ++tab++ и будет соблюдать глобальный индекс табуляции, который определяется порядком источника документа.
+
+Если задать `tabindex` равным `-1`, то он сможет получать фокус только программно, то есть только при наступлении JavaScript-события или изменении хэша (совпадении `id` элемента с URL). Если задать `tabindex` больше `0`, то он будет удален из глобального индекса вкладок, определяемого порядком источника документа. Порядок табуляции теперь будет определяться значением `tabindex`, поэтому элемент с `tabindex="1"` будет получать фокус, например, перед элементом с `tabindex="2"`.
+
+!!!note ""
+
+    Соблюдение порядка следования документов очень важно, и менять порядок следования фокусов следует только в том случае, если это **абсолютно необходимо**. Это касается как установки `tabindex` **так и** изменения визуального порядка с помощью CSS-макетов, таких как flexbox и grid. Все, что создает непредсказуемый порядок фокуса в Интернете, может создать недоступные для пользователя условия.
+
+## Стилизация фокуса
+
+По умолчанию, когда элемент получает фокус, в браузере появляется кольцо фокуса. В разных браузерах и операционных системах это кольцо может быть разным.
+
+<video controls>
+<source src="/learn/css3/focus-1.mp4" />
+</video>
+
+Это поведение можно изменить с помощью CSS, используя псевдоклассы `:focus`, `:focus-within` и `:focus-visible`, о которых вы узнали в уроке [pseudo-classes](pseudo-classes.md). Важно задать стиль фокуса, который **контрастирует** со стилем элемента по умолчанию. Например, распространенным подходом является использование свойства `outline`.
 
 ```css
 a:focus {
-  outline: 2px solid slateblue;
+    outline: 2px solid slateblue;
 }
 ```
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'ZELXLMw'
-} %}
-</figure>
 
-The `outline` property could appear too close to the text of a link,
-but the `outline-offset` property can help with that,
-as it adds extra visual `padding` without affecting the geometric size that the element fills.
-A positive number value for `outline-offset` will push the outline outwards,
-a negative value will pull the outline inwards.
+<iframe src="https://codepen.io/web-dot-dev/embed/ZELXLMw?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'xxgXgQx'
-} %}
-</figure>
+Свойство `outline` может оказаться слишком близко к тексту ссылки, но свойство `outline-offset` может помочь в этом, поскольку оно добавляет дополнительную визуальную "подложку", не влияя на геометрический размер, который заполняет элемент. Положительное значение числа для `outline-offset` выдвигает контур наружу, отрицательное - внутрь.
 
-Currently in some browsers,
-if you have a `border-radius` set on your element and use `outline`,
-it won't match—the outline will have sharp corners.
-Due to this,
-it is tempting to use a `box-shadow` with a small blur radius because `box-shadow` clips to the shape,
-honouring `border-radius`,
-but **this style will not show in Windows High Contrast Mode**.
-This is because Windows High Contrast Mode doesn't apply shadows,
-and mostly ignores background images to favor the user's preferred settings.
+<iframe src="https://codepen.io/web-dot-dev/embed/xxgXgQx?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'bGgogyM'
-} %}
-</figure>
+В настоящее время в некоторых браузерах, если для элемента задан `border-radius` и используется `outline`, он не будет соответствовать контуру - контур будет иметь острые углы. В связи с этим возникает соблазн использовать `box-shadow` с небольшим радиусом размытия, поскольку `box-shadow` фиксирует форму, соблюдая `border-radius`, но **такой стиль не будет отображаться в режиме Windows High Contrast Mode**. Это связано с тем, что режим высокой контрастности Windows не применяет тени и в основном игнорирует фоновые изображения, чтобы отдать предпочтение настройкам пользователя.
 
+<iframe src="https://codepen.io/web-dot-dev/embed/bGgogyM?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Video src="video/VbAJIREinuYvovrBzzvEyZOpw5w1/MqMoKpLJ2rF5RRkn5jEO.mp4" %}
+<video controls>
+<source src="/learn/css3/focus-2.mp4" />
+</video>
 
-## In summary
+## В заключение
 
-Creating a focus state that has contrast with an element's default state is incredibly important. The default browser styles do this already for you, but if you want to change this behaviour, remember the following:
+Создание состояния фокуса, контрастирующего с состоянием элемента по умолчанию, невероятно важно. Стили браузера по умолчанию уже делают это за вас, но если вы хотите изменить это поведение, помните следующее:
 
-- Avoid using `outline: none` on an element that can receive keyboard focus.
-- Avoid replacing `outline` styles with `box-shadow`.
-as they don't show up in Windows High Contrast Mode.
-- Only set a positive value for `tabindex` on an HTML element if you absolutely have to.
-- Make sure the focus state is very clear vs the default state.
+-   Избегайте использования `outline: none` для элементов, которые могут получать фокус клавиатуры.
+-   Не заменяйте стили `outline` на `box-shadow`, поскольку они не отображаются в режиме высокой контрастности Windows.
+-   Устанавливайте положительное значение `tabindex` для HTML-элемента только в случае крайней необходимости.
+-   Убедитесь, что состояние фокуса очень четко отличается от состояния по умолчанию.
 
-{% Assessment 'focus' %}
+:information_source: Источник &mdash; [Focus](https://web.dev/learn/css/focus/)

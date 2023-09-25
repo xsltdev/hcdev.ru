@@ -1,192 +1,110 @@
 ---
-title: Z-index and stacking contexts
-description: >
-  In this module find out how to control the order in which things layer on top of each other,
-  by using z-index and the stacking context.
-audio:
-  title: 'The CSS Podcast - 019: z-index and stacking contexts'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_019_v1.0.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - andybell
-date: 2021-05-03
+description: В этом модуле вы узнаете, как управлять порядком расположения объектов друг над другом с помощью z-index и контекста укладки.
+icon: material/layers
 ---
 
-Say you've got a couple of elements that are absolutely positioned,
-and are supposed to be positioned on top of each other.
-You might write a bit of a HTML like this:
+# Z-индекс и контексты суммирования
+
+<big>В этом модуле вы узнаете, как управлять порядком расположения объектов друг над другом с помощью z-index и контекста укладки.</big>
+
+!!!info "CSS подкаст"
+
+    019: Z-индекс и контексты суммирования
+
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_019_v1.0.mp3?dest-id=1891556"></audio>
+
+Допустим, у вас есть несколько элементов, которые абсолютно позиционированы и должны располагаться друг над другом. Вы можете написать HTML примерно так:
 
 ```html
 <div class="stacked-items">
-	<div class="item-1">Item 1</div>
-	<div class="item-2">Item 2</div>
+    <div class="item-1">Item 1</div>
+    <div class="item-2">Item 2</div>
 </div>
 ```
 
-But which one sits on top of the other, by default?
-To know which item would do that,
-you need to understand z-index and stacking contexts.
+Но какой из них по умолчанию располагается поверх другого? Чтобы понять, какой элемент это сделает, нужно разобраться с z-index и контекстом размещения.
 
 ## Z-index
 
-The [`z-index`](https://developer.mozilla.org/docs/Web/CSS/z-index)
-property explicitly sets a layer order for HTML based on the 3D space of the browser—the Z axis.
-This is the axis which shows which layers are closer to and further from you.
-The vertical axis on the web is the Y axis and the horizontal axis is the X axis.
+Свойство [`z-index`](../../css/z-index.md) явно задает порядок слоев в HTML на основе трехмерного пространства браузера - оси Z. Именно эта ось показывает, какие слои находятся ближе, а какие дальше от вас. Вертикальная ось в Интернете - это ось Y, а горизонтальная ось - ось X.
 
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/PDglCLEK0OJY5LIHwpkI.svg",
-alt="Each axis surrounding the element",
-width="760",
-height="467" %}
+![Каждая ось, окружающая элемент](z-index-1.svg)
 
-The `z-index` property accepts a numerical value which can be a positive or negative number.
-Elements will appear above another element if they have a higher `z-index` value.
-If no `z-index` is set on your elements
-then the default behaviour is that document source order dictates the Z axis.
-This means that elements further down the document sit on top of elements that appear before them.
+Свойство `z-index` принимает числовое значение, которое может быть как положительным, так и отрицательным числом. Элементы будут располагаться выше других элементов, если они имеют большее значение `z-index`. Если для элементов не задано значение `z-index`, то по умолчанию порядок источника документа диктует ось Z. Это означает, что элементы, расположенные ниже по тексту документа, будут располагаться поверх элементов, появившихся перед ними.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'GRrMEjZ'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/GRrMEjZ?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-In normal flow,
-if you set a specific value for `z-index` and it isn't working,
-you need to set the element's `position` value to anything other than `static`.
-This is a common place where people struggle with `z-index`.
+В обычном потоке, если вы задали определенное значение для `z-index` и оно не работает, вам необходимо установить значение `position` элемента в любое другое значение, отличное от `static`. Это распространенное место, где люди испытывают трудности с `z-index`.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'bGgoRzv'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/bGgoRzv?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-This isn't the case if you are in a flexbox or grid context, though,
-because you can modify the z-index of flex or grid items without adding `position: relative`.
+Однако это не так, если вы находитесь в контексте flexbox или grid, поскольку вы можете изменять `z-index` элементов `flex` или `grid` без добавления `position: relative`.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'QWdqMOP'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/QWdqMOP?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Negative z-index
+## Отрицательный z-index
 
-To set an element *behind* another element,
-add a negative value for `z-index`.
+Чтобы установить элемент _за_ другим элементом, добавьте отрицательное значение для `z-index`.
 
 ```css
 .my-element {
-	background: rgb(232 240 254 / 0.4);
+    background: rgb(232 240 254 / 0.4);
 }
 
 .my-element .child {
-	position: relative;
-	z-index: -1;
+    position: relative;
+    z-index: -1;
 }
 ```
 
-As long as `.my-element` has the initial value for `z-index` of `auto`,
-the `.child` element will sit behind it.
+Пока `.my-element` имеет начальное значение `z-index` равное `auto`, элемент `.child` будет располагаться за ним.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'XWpeayj',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/XWpeayj?height=400&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Add the following CSS to `.my-element`,
-and the `.child` element will not sit behind it.
+Добавьте следующий CSS к `.my-element`, и элемент `.child` не будет располагаться за ним.
 
-```css/1-2
+```css
 .my-element {
-  position: relative;
-  z-index: 0;
-  background: rgb(232 240 254 / 0.4);
+    position: relative;
+    z-index: 0;
+    background: rgb(232 240 254 / 0.4);
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'bGgorZy',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/bGgorZy?height=400&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Because `.my-element` now has a `position` value that's not `static`
-and a `z-index` value that's not `auto`,
-it has created a new **stacking context**.
-This means that even if you set `.child` to have a `z-index` of `-999`,
-it would still not sit behind `.my-parent`.
+Поскольку `.my-element` теперь имеет значение `position`, которое не является `static`, и значение `z-index`, которое не является `auto`, он создал новый **контекст стекирования**. Это означает, что даже если задать `.child` значение `z-index` равное `-999`, он все равно не будет располагаться за `.my-parent`.
 
-## Stacking context
+## Контекст суммирования
 
-A stacking context is a group of elements that have a common parent and move up and down the z axis together.
+Контекст суммирования - это группа элементов, имеющих общего родителя и перемещающихся вверх и вниз по оси z вместе.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'JjErOXV',
-  height: 600
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/JjErOXV?height=600&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-In this example,
-the first parent element has a `z-index` of `1`,
-so creates a new stacking context.
-Its child element has a `z-index` of `999`.
-Next to this parent, there is another parent element with one child.
-The parent has a `z-index` of `2` and the child element also has a `z-index` of `2`.
-Because both parents create a stacking context,
-the `z-index` of all children is based on that of their parent.
+В данном примере первый родительский элемент имеет `z-index`, равный `1`, поэтому создает новый контекст суммирования. Его дочерний элемент имеет `z-index`, равный `999`. Рядом с этим родительским элементом находится еще один родительский элемент с одним дочерним элементом. Родительский элемент имеет `z-index`, равный `2`, и дочерний элемент также имеет `z-index`, равный `2`. Поскольку оба родителя создают контекст суммирования, `z-index` всех дочерних элементов основывается на индексе их родителя.
 
-The `z-index` of elements inside of a stacking context
-are always relative to the parent's current order in its own stacking context.
+Значение `z-index` элементов внутри контекста суммирования всегда относительно текущего порядка родителя в его собственном контексте суммирования.
 
-{% Aside %}
-The `<html>` element is a stacking context itself and nothing can ever go behind it.
-You can put stuff behind the `<body>` until you create a stacking context with it.
-{% endAside %}
+!!!note ""
 
-## Creating a stacking context
+    Элемент `<html>` сам по себе является контекстом суммирования, и за ним ничего не может находиться. За элементом `<body>` можно размещать что-либо до тех пор, пока не будет создан контекст суммирования с ним.
 
-You don't need to apply `z-index` and `position` to create a new
-[stacking context](https://developer.mozilla.org/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context).
-You can create a new stacking context by adding a value for properties which create a new composite layer
-such as `opacity`, `will-change` and `transform`.
-You can
-[see a full list of properties here](https://developer.mozilla.org/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context).
+## Создание контекста суммирования
 
-To explain what a composite layer is, imagine a web page is a canvas.
-A browser takes your HTML and CSS and uses these to work out how big to make the canvas.
-It then paints the page on this canvas.
-If an element was to change—say,
-it changes position—the browser then has to go back and re-work out what to paint.
+Для создания нового [stacking context](https://developer.mozilla.org/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context) не обязательно применять `z-index` и `position`. Вы можете создать новый контекст, добавив значение для свойств, создающих новый составной слой, таких как `opacity`, `will-change` и `transform`. Полный список свойств можно посмотреть [здесь](https://developer.mozilla.org/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context).
 
-To help with performance,
-the browser creates new composite layers which are layered on top of the canvas.
-These are a bit like post-it notes:
-moving one around and changing it doesn't have a huge impact on the overall canvas.
-A new composite layer is created for elements with `opacity`,
-`transform` and `will-change` because these are very likely to change,
-so the browser makes sure that change is performant as possible by using the GPU to apply style adjustments.
+Чтобы объяснить, что такое составной слой, представьте, что веб-страница - это холст. Браузер берет ваши HTML и CSS и использует их для определения размера холста. Затем он рисует страницу на этом холсте. Если элемент изменится, например, изменится его положение, браузеру придется вернуться и заново определить, что рисовать.
 
-{% Aside %}
-You can also create a stacking context by adding a `filter` and setting `backface-visibility: hidden`.
-{% endAside %}
+Для повышения производительности браузер создает новые составные слои, которые накладываются поверх холста. Эти слои похожи на записки: перемещение одного из них и его изменение не оказывают большого влияния на общую картину холста. Новый составной слой создается для элементов с `opacity`, `transform` и `will-change`, поскольку вероятность их изменения очень высока, поэтому браузер заботится о том, чтобы изменения происходили как можно быстрее, используя GPU для применения стилевых корректировок.
 
-## Resources
+!!!note ""
 
-- [Forcing layers](https://surma.dev/things/forcing-layers/)
-- [Animations Guide: Force layer creation](/animations-guide/#force)
-- [Understanding z-index](https://ishadeed.com/article/understanding-z-index/)
+    Также можно создать контекст суммирования, добавив `filter` и установив `backface-visibility: hidden`.
 
-{% Assessment 'z-index' %}
+## Ресурсы
+
+-   [Форсирование слоев](https://surma.dev/things/forcing-layers/)
+-   [Руководство по анимации: принудительное создание слоев](https://web.dev/animations-guide/#force)
+-   [Понимание z-index](https://ishadeed.com/article/understanding-z-index/)
+
+:information_source: Источник &mdash; [Z-index and stacking contexts](https://web.dev/learn/css/z-index/)
