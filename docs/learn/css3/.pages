@@ -12,10 +12,10 @@ nav:
     - flexbox.md
     - grid.md
     - logical-properties.md
-    #- spacing.md
-    #- pseudo-elements.md
-    #- pseudo-classes.md
-    #- borders.md
+    - spacing.md
+    - pseudo-elements.md
+    - pseudo-classes.md
+    - borders.md
     #- shadows.md
     #- focus.md
     #- z-index.md
