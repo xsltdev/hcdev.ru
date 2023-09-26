@@ -18,9 +18,9 @@ nav:
     - borders.md
     - shadows.md
     - focus.md
-    #- z-index.md
-    #- functions.md
-    #- gradients.md
+    - z-index.md
+    - functions.md
+    - gradients.md
     #- animations.md
     #- filters.md
     #- blend-modes.md

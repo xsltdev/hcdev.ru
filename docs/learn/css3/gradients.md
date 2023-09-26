@@ -1,279 +1,150 @@
 ---
-title: Gradients
-description: >
-  In this module you will find out how to use the various types of gradients available in CSS.
-  Gradients can be used to create a whole host of useful effects,
-  without needing to create an image using a graphics application.
-audio:
-  title: 'The CSS Podcast - 021: Gradients'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP021_TCP_CSS_Podcast_Episode_021_v1.0.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - andybell
-date: 2021-05-03
+description: В этом модуле вы узнаете, как использовать различные типы градиентов, доступные в CSS. Градиенты можно использовать для создания множества полезных эффектов, не прибегая к созданию изображения с помощью графического приложения.
+icon: material/gradient-vertical
 ---
 
-Imagine you've got a site to build and at the top,
-there's an intro with a heading, summary and a button.
-The designer has handed over a design which has a purple background for this intro.
-The only problem is the background features two shades of purple as a gradient.
-How do you do this?
+# Градиенты
 
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/0T5kGhQWJTLUclxSWipH.svg",
-alt="A dark to light purple gradient background with heading, paragraph and link",
-width="800",
-height="411" %}
+<big>В этом модуле вы узнаете, как использовать различные типы градиентов, доступные в CSS. Градиенты можно использовать для создания множества полезных эффектов, не прибегая к созданию изображения с помощью графического приложения.</big>
 
-You might initially think that you're going to need to export an image from your design tool for this,
-but you can use a
-[`linear-gradient`](https://developer.mozilla.org/docs/Web/CSS/linear-gradient())
-instead.
+!!!info "CSS подкаст"
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'XWpzdoV'
-} %}
-</figure>
+    021: Градиенты
 
-A gradient is an image and can be used anywhere images can be used,
-but it's created with CSS and is made up with colors, numbers and angles.
-CSS gradients allow you to create anything from a smooth gradient between two colors,
-right up to impressive artwork by mixing and repeating multiple gradients.
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP021_TCP_CSS_Podcast_Episode_021_v1.0.mp3?dest-id=1891556"></audio>
 
-## Linear gradient
-{% BrowserCompat 'css.types.image.gradient.linear-gradient' %}
+Представьте, что вам нужно создать сайт, в верхней части которого находится вступление с заголовком, резюме и кнопкой. Дизайнер предоставил проект с фиолетовым фоном для этого вступления. Единственная проблема заключается в том, что фон имеет два оттенка фиолетового в виде градиента. Как это сделать?
 
-The [`linear-gradient()`](https://developer.mozilla.org/docs/Web/CSS/linear-gradient())
-function generates an image of two or more colors, progressively.
-It takes multiple arguments, but in its simplest configuration,
-you can pass some colors like this and it will automatically split them evenly, while blending them.
+![Градиентный фон от темного до светло-фиолетового цвета с заголовками, абзацами и ссылками](gradients-1.svg)
+
+Поначалу можно подумать, что для этого потребуется экспортировать изображение из инструмента дизайна, однако вместо этого можно использовать [`linear-gradient()`](../../css/linear-gradient.md).
+
+<iframe src="https://codepen.io/web-dot-dev/embed/XWpzdoV?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+**Градиент** - это изображение, которое можно использовать везде, где можно использовать изображения, но создается он с помощью CSS и состоит из цветов, чисел и углов. CSS-градиенты позволяют создавать все, что угодно: от плавного градиента между двумя цветами до впечатляющих произведений искусства, смешивая и повторяя несколько градиентов.
+
+<p class="ciu_embed" data-feature="css-gradients" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+<picture>
+<source type="image/webp" srcset="https://caniuse.bitsofco.de/image/css-gradients.webp">
+<source type="image/png" srcset="https://caniuse.bitsofco.de/image/css-gradients.png">
+<img src="https://caniuse.bitsofco.de/image/css-gradients.jpg" alt="Data on support for the css-gradients feature across the major browsers from caniuse.com">
+</picture>
+</p>
+
+## Линейный градиент
+
+Функция [`linear-gradient()`](../../css/linear-gradient.md) формирует изображение из двух или более цветов, постепенно изменяя их. Она принимает несколько аргументов, но в простейшей конфигурации можно передать несколько цветов, как показано здесь, и она автоматически разделит их поровну, одновременно смешивая их.
 
 ```css
 .my-element {
-	background: linear-gradient(black, white);
+    background: linear-gradient(black, white);
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'mdRqPoZ',
-  tab: 'css,result',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/mdRqPoZ?height=400&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-You can also pass an angle or keywords that represent an angle.
-If you choose to use keywords, specify a direction after the `to` keyword.
-This means if you want a gradient that is black and white,
-that runs from left (black) to right (white),
-you would specify the angle as `to right` as the first argument.
+Можно также передать угол или ключевые слова, представляющие угол. Если вы решили использовать ключевые слова, укажите направление после ключевого слова `to`. Это означает, что если вы хотите получить черно-белый градиент, идущий слева (черный) на право (белый), то в качестве первого аргумента следует указать угол `to right`.
 
 ```css
 .my-element {
-	background: linear-gradient(to right, black, white);
+    background: linear-gradient(to right, black, white);
 }
 ```
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'zYNPqXW',
-  tab: 'css,result',
-  height: 400
-} %}
-</figure>
 
-A color stop value defined where a color stops and mixes with its neighbors.
-For a gradient starting with a dark shade of red running at a 45deg angle,
-at 30% of the size of the gradient changing to a lighter red: it looks like this.
+<iframe src="https://codepen.io/web-dot-dev/embed/zYNPqXW?height=400&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Значение цветовой остановки определяет, где цвет останавливается и смешивается с соседними. Для градиента, начинающегося с темного оттенка красного, идущего под углом 45 градусов, на 30% от размера градиента переходящего в более светлый красный: это выглядит следующим образом.
 
 ```css
 .my-element {
-	background: linear-gradient(45deg, darkred 30%, crimson);
+    background: linear-gradient(
+        45deg,
+        darkred 30%,
+        crimson
+    );
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'NWdwNZr',
-  tab: 'css,result',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/NWdwNZr?height=400&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-You can add as many colors and color stops as you like in a `linear-gradient()`,
-and you can layer gradients on top of each other by separating each gradient with a comma.
+В `linear-gradient()` можно добавлять сколько угодно цветов и цветовых остановок, а также наслаивать градиенты друг на друга, разделяя каждый градиент запятой.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'abpVZbj',
-  tab: 'css,result',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/abpVZbj?height=400&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Radial gradient
-{% BrowserCompat 'css.types.image.gradient.radial-gradient' %}
+## Радиальный градиент
 
-To create a gradient that radiates in a circular fashion, the
-[`radial-gradient()`](https://developer.mozilla.org/docs/Web/CSS/radial-gradient())
-function steps in to help.
-It's similar to `linear-gradient()`,
-but instead of specifying an angle, you optionally specify a position and ending shape.
-If you just specify colors, the `radial-gradient()` will auto-select the position as `center`
-and select either a circle or ellipse, depending on the size of the box.
+Для создания градиента, излучающего по кругу, на помощь приходит функция [`radial-gradient()`](../../css/radial-gradient.md). Она аналогична функции `linear-gradient()`, но вместо указания угла опционально задается позиция и конечная форма. Если просто указать цвета, то функция `radial-gradient()` автоматически выберет позицию `center` и выберет круг или эллипс, в зависимости от размера блока.
 
 ```css
 .my-element {
-	background: radial-gradient(white, black);
+    background: radial-gradient(white, black);
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'LYxOZEq',
-  tab: 'css,result',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/LYxOZEq?height=400&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The gradient's position is similar to `background-position` using keywords and/or number values.
-The size of the radial gradient determines the size of the gradient's ending shape
-(circle or ellipse) and by default will be `farthest-corner`,
-which means it exactly meets the farthest corner of the box from the center.
-You can also use the following keywords:
+Позиция градиента задается аналогично `background-position` с помощью ключевых слов и/или числовых значений. Размер радиального градиента определяет размер конечной формы градиента (круг или эллипс) и по умолчанию будет равен `farthest-corner`, что означает, что он точно соответствует самому дальнему от центра углу блока. Можно также использовать следующие ключевые слова:
 
-- `closest-corner` will meet the closest corner to the center of the gradient.
-- `closest-side` will meet the side of the box closest to the center of the gradient.
-- `farthest-side` will do the opposite to `closest-side`.
+-   `closest-corner` будет соответствовать ближайшему к центру углу градиента.
+-   `closest-side` будет соответствовать стороне блока, ближайшей к центру градиента.
+-   `farthest-side` будет противоположна `closest-side`.
 
-You can add as many color stops as you like, just like with the `linear-gradient`.
-Likewise, you can add as many `radial-gradients` as you like too.
+Как и в случае с `linear-gradient`, можно добавить любое количество цветовых остановок. Аналогичным образом можно добавить столько же `radial-gradients`.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'MWJOepV',
-  tab: 'css,result',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/MWJOepV?height=400&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Conic gradient
-{% BrowserCompat 'css.types.image.gradient.conic-gradient' %}
+## Конический градиент
 
-A conic gradient has a center point in your box and starts from the top (by default),
-and goes around in a 360 degree circle.
+Конический градиент имеет центральную точку в блоке, начинается сверху (по умолчанию) и идет по кругу в 360 градусов.
 
 ```css
 .my-element {
-	background: conic-gradient(white, black);
+    background: conic-gradient(white, black);
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'qBRVNXG',
-  tab: 'css,result',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/qBRVNXG?height=400&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The [`conic-gradient()`](https://developer.mozilla.org/docs/Web/CSS/conic-gradient())
-function accepts position and angle arguments.
+Функция [`conic-gradient()`](../../css/conic-gradient.md) принимает аргументы `position` и `angle`.
 
-By default, the angle is 0 degrees which starts at the top, in the center.
-If you were to set the angle to be `45deg`, it would be the top right corner.
-The angle argument accepts any type of angle value, like the linear and radial gradients.
+По умолчанию угол равен 0 градусов, то есть начинается сверху, в центре. Если задать угол `45deg`, то это будет правый верхний угол. Аргумент `angle` принимает любой тип значения угла, как и линейный и радиальный градиенты.
 
-The position is center by default.
-As with radial and linear gradients,
-positioning can be keyword-based,
-or it can be defined with numeric values.
+По умолчанию позицией является центр. Как и в случае радиального и линейного градиентов, позиционирование может быть задано ключевым словом или числовыми значениями.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'vYgWKpO',
-  tab: 'css,result',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/vYgWKpO?height=400&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-You can add as many color stops as you want, like with other gradient types.
-A good use case for this capability, with conic gradients is rendering pie charts with CSS.
+Как и в случае с другими типами градиентов, можно добавить столько цветовых остановок, сколько необходимо. Хорошим примером использования этой возможности с коническими градиентами является отрисовка круговых диаграмм с помощью CSS.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'mdRqExP',
-  tab: 'css,result',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/mdRqExP?height=400&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Repeating and mixing
+## Повторение и смешивание
 
-Each type of gradient has a repeating type, too.
-These are
-[`repeating-linear-gradient()`](https://developer.mozilla.org/docs/Web/CSS/repeating-linear-gradient()),
-[`repeating-radial-gradient()`](https://developer.mozilla.org/docs/Web/CSS/repeating-radial-gradient()) and
-[`repeating-conic-gradient()`](https://developer.mozilla.org/docs/Web/CSS/repeating-conic-gradient()).
-They are similar to the non-repeating functions and take the same arguments.
-The difference is that if the defined gradient can be repeated to fill the box,
-based on both of their sizes, it will.
+Каждый тип градиента имеет и повторяющийся тип. Это функции [`repeating-linear-gradient()`](../../css/repeating-linear-gradient.md), [`repeating-radial-gradient()`](../../css/repeating-radial-gradient.md) и [`repeating-conic-gradient()`](../../css/repeating-conic-gradient.md). Они аналогичны неповторяющимся функциям и принимают те же аргументы. Разница заключается в том, что если заданный градиент может быть повторен для заполнения блока, исходя из обоих его размеров, то он будет повторен.
 
-If your gradient doesn't appear to be repeating,
-you probably haven't set a length for one of the color stops.
-For example,
-you can create a striped background with a `repeating-linear-gradient` by setting color stop lengths.
+Если градиент не повторяется, то, скорее всего, вы не задали длину одного из цветовых упоров. Например, с помощью `repeating-linear-gradient` можно создать полосатый фон, задав длину цветовых упоров.
 
 ```css
 .my-element {
-  background: repeating-linear-gradient(
-    45deg,
-    red,
-    red 30px,
-    white 30px,
-    white 60px
-  );
+    background: repeating-linear-gradient(
+        45deg,
+        red,
+        red 30px,
+        white 30px,
+        white 60px
+    );
 }
-
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'ExZbgdy',
-  tab: 'css,result',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/ExZbgdy?height=400&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-You can also mix gradient functions on `background` properties,
-as well as defining as many gradients as you like,
-just like you would with a background image.
-For example, you can mix multiple linear-gradients together, or two linear-gradients with a radial gradient.
+Кроме того, можно смешивать функции градиента в свойствах `background`, а также задавать любое количество градиентов, как и в случае с фоновым изображением. Например, можно смешать несколько линейных градиентов или два линейных градиента с радиальным градиентом.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'ExZqGxP',
-  tab: 'css,result',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/ExZqGxP?height=400&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Resources
+## Ресурсы
 
-- [Conic.css](https://www.conic.style/) - a useful collection of conic gradients
-- [MDN guide to gradients](https://developer.mozilla.org/docs/Web/CSS/CSS_Images/Using_CSS_gradients)
-- [Gradient generator](https://www.colorzilla.com/gradient-editor/)
+-   [Conic.css](https://www.conic.style/) - полезная коллекция конических градиентов
+-   [MDN руководство по градиентам](https://developer.mozilla.org/docs/Web/CSS/CSS_Images/Using_CSS_gradients)
+-   [Генератор градиентов](https://www.colorzilla.com/gradient-editor/)
 
-{% Assessment 'gradients' %}
+:information_source: Источник &mdash; [Gradients](https://web.dev/learn/css/gradients/)
