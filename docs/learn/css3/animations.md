@@ -1,413 +1,254 @@
 ---
-title: Animations
-description: >
-  Animation is a great way to highlight interactive elements,
-  and add interest and fun to your designs.
-  In this module find out how to add and control animation effects with CSS.
-authors:
-  - andybell
-audio:
-  title: 'The CSS Podcast - 022: Animation'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCO022_TCP_CSS_Podcast_Episode_022_v1.0.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-date: 2021-05-04
+description: Анимация - это отличный способ выделить интерактивные элементы и придать дизайну интерес и увлекательность. В этом модуле вы узнаете, как добавлять и управлять эффектами анимации с помощью CSS.
+icon: material/animation-play
 ---
 
-Sometimes you see little helpers on interfaces that when clicked,
-provide some helpful information about that particular section.
-These often have a pulsing animation to subtly let you know that the information is there
-and should be interacted with.
-How do you do this with CSS though?
+# Анимации
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'mdRXGeJ',
-  height: 300
-} %}
-</figure>
+<big>**Анимация** - это отличный способ выделить интерактивные элементы и придать дизайну интерес и увлекательность. В этом модуле вы узнаете, как добавлять и управлять эффектами анимации с помощью CSS.</big>
 
-In CSS, you can make this type of animation using CSS animations,
- which allow you to set an animation sequence, using keyframes.
-Animations can be simple, one state animations,
-or even complex, time-based sequences.
+!!!info "CSS подкаст"
 
-## What is a keyframe?
+    022: Анимации
 
-In animation software, CSS, and most other tools that enable you to animate something,
-keyframes are the mechanism that you use to assign animation states to timestamps,
-along a timeline.
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCO022_TCP_CSS_Podcast_Episode_022_v1.0.mp3?dest-id=1891556"></audio>
 
-Let's use the "pulser" as a context for this.
-The entire animation runs for 1 second and runs over 2 states.
+Иногда на интерфейсах встречаются маленькие помощники, которые при нажатии на них предоставляют полезную информацию о конкретном разделе. Часто они имеют пульсирующую анимацию, чтобы ненавязчиво дать понять, что информация здесь и с ней нужно взаимодействовать. Но как это сделать с помощью CSS?
 
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/pWCGpgzJqJNTBluK5u8S.svg",
-alt="The states of the pulser animation over the 1 second timeframe",
-width="800",
-height="340" %}
+<iframe src="https://codepen.io/web-dot-dev/embed/mdRXGeJ?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-There's a specific point where each of these animation states start and end.
-You map these out on the timeline with keyframes.
+В CSS такой тип анимации можно реализовать с помощью CSS-анимации, которая позволяет задать последовательность анимации, используя ключевые кадры. Анимация может быть простой, состоящей из одного состояния, или даже сложной, основанной на времени.
 
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/wmKVq5GFj7cf6jfuLiT8.svg",
-alt="The same diagram as before, but this time, with keyframes",
-width="800",
-height="440" %}
+## Что такое ключевой кадр?
+
+В программах анимации, CSS и большинстве других инструментов, позволяющих анимировать что-либо, ключевые кадры - это механизм, который используется для назначения состояний анимации временным меткам, расположенным на временной шкале.
+
+Давайте рассмотрим "пульсатор" в качестве контекста. Вся анимация длится 1 секунду и состоит из 2 состояний.
+
+![The states of the pulser animation over the 1 second timeframe](animations-1.svg)
+
+Существует определенная точка, в которой начинается и заканчивается каждое из этих состояний анимации. Они обозначаются на временной шкале с помощью ключевых кадров.
+
+![The same diagram as before, but this time, with keyframes](animations-2.svg)
 
 ### `@keyframes`
-{% BrowserCompat 'css.at-rules.keyframes' %}
 
-Now you know what a keyframe is,
-that knowledge should help you understand how the CSS
-[`@keyframes`](https://developer.mozilla.org/docs/Web/CSS/@keyframes) rule works.
-Here is a basic rule with two states.
+Теперь вы знаете, что такое ключевой кадр, и это знание должно помочь вам понять, как работает правило CSS [`@keyframes`](../../css/keyframes.md). Здесь представлено базовое правило с двумя состояниями.
 
 ```css
 @keyframes my-animation {
-	from {
-		transform: translateY(20px);
-	}
-	to {
-		transform: translateY(0px);
-	}
+    from {
+        transform: translateY(20px);
+    }
+    to {
+        transform: translateY(0px);
+    }
 }
 ```
 
-The first part to note is the
-[custom ident](https://developer.mozilla.org/docs/Web/CSS/custom-ident)
-(custom identifier)—or in more human terms, the name of the keyframes rule.
-This rule's identifier is `my-animation`.
-The custom identifier works like a function name. Which, as you learned in the [functions module](/learn/css/functions),
-lets you reference the keyframes rule elsewhere in your CSS code.
+Первая часть, на которую следует обратить внимание, - это [custom ident](https://developer.mozilla.org/docs/Web/CSS/custom-ident) (пользовательский идентификатор), или, говоря более человеческим языком, название правила ключевых кадров. Идентификатор этого правила - `my-animation`. Пользовательский идентификатор работает как имя функции. Это, как вы узнали из модуля [Функции](functions.md), позволяет ссылаться на правило ключевых кадров в других местах вашего CSS-кода.
 
-{% Aside %}
-A `<custom-ident>` is used in various places in CSS,
-and allows you to provide your own name for things.
-These identifiers are case-sensitive,
-and in some cases there are words that you can't use.
-For example, when naming lines in CSS Grid, you can't use the word `span`.
-{% endAside %}
+!!!note ""
 
-Inside the keyframes rule, `from` and `to` are keywords that represent `0%` and `100%`,
-which are the start of the animation and end.
-You could re-create the same rule like this:
+    Идентификатор `<custom-ident>` используется в различных местах CSS и позволяет задать собственное имя для объектов. Эти идентификаторы чувствительны к регистру, и в некоторых случаях есть слова, которые нельзя использовать. Например, при именовании строк в CSS Grid нельзя использовать слово `span`.
+
+---
+
+Внутри правила ключевых кадров `from` и `to` - это ключевые слова, обозначающие `0%` и `100%`, которые являются началом и концом анимации. Можно переделать это правило следующим образом:
 
 ```css
 @keyframes my-animation {
-	0% {
-		transform: translateY(20px);
-	}
-	100% {
-		transform: translateY(0px);
-	}
+    0% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
 ```
 
-You can add as many positions as you like along the timeframe.
-Using the context of the "pulser" example, there are 2 states,
-which translate to 2 keyframes.
-This means you have 2 positions inside your keyframes rule to represent the changes for each of these keyframes.
+Можно добавить сколько угодно позиций на таймфрейме. В контексте примера с "пульсатором" имеется 2 состояния, которые соответствуют 2 ключевым кадрам. Это означает, что внутри правила ключевых кадров у вас есть 2 позиции для представления изменений для каждого из этих ключевых кадров.
 
 ```css
 @keyframes pulse {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    transform: scale(1.4);
-    opacity: 0.4;
-  }
+    0% {
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.4);
+        opacity: 0.4;
+    }
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'mdRXGeJ',
-  tab: 'css,result',
-  height: 300
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/mdRXGeJ?height=300&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## The `animation` properties
-{% BrowserCompat 'css.properties.animation' %}
+## Свойства `animation`
 
-To use your `@keyframes` in a CSS rule, define various animation properties _or_, use the
-[`animation`](https://developer.mozilla.org/docs/Web/CSS/animation) shorthand property.
+Чтобы использовать свои `@keyframes` в CSS-правилах, определите различные свойства анимации _или_ используйте сокращенное свойство [`animation`](../../css/animation.md).
 
 ### `animation-duration`
-{% BrowserCompat 'css.properties.animation-duration' %}
 
 ```css
 .my-element {
-	animation-duration: 10s;
+    animation-duration: 10s;
 }
 ```
 
-The [animation-duration](https://developer.mozilla.org/docs/Web/CSS/animation-duration)
-property defines how long the `@keyframes` timeline should be. It should be a time value.
-It defaults to 0 seconds, which means the animation still runs,
-but it'll be too quick for you to see.
-You can't add negative time values.
+Свойство [`animation-duration`](../../css/animation-duration.md) определяет, насколько длинной должна быть временная шкала `@keyframes`. Это должно быть значение времени. По умолчанию оно равно `0` секунд, т. е. анимация будет продолжаться, но будет слишком быстрой для восприятия. Отрицательные значения времени добавлять нельзя.
 
 ### `animation-timing-function`
-{% BrowserCompat 'css.properties.animation-timing-function' %}
 
-To help recreate natural motion in animation,
-you can use timing functions that calculate the speed of an animation at each point.
-Calculated values are often *curved*,
-making the animation run at variable speeds over the course of `animation-duration`,
-and if a value is calculated beyond that of the value defined in `@keyframes`, make the element appear to bounce.
+Для воссоздания естественного движения в анимации можно использовать функции синхронизации, которые рассчитывают скорость анимации в каждой точке. Вычисляемые значения часто бывают _кривыми_, заставляя анимацию работать с переменной скоростью в течение `animation-duration`, а если вычисляемое значение превышает значение, заданное в `@keyframes`, то элемент кажется подпрыгивающим.
 
-
-There are several keywords available as presets in CSS, which are used as the value for
-[animation-timing-function](https://developer.mozilla.org/docs/Web/CSS/animation-timing-function):
-`linear`, `ease`, `ease-in`, `ease-out`, `ease-in-out`.
+В CSS существует несколько ключевых слов, доступных в виде предустановок, которые используются в качестве значения для [`animation-timing-function`](../../css/animation-timing-function.md): `linear`, `ease`, `ease-in`, `ease-out`, `ease-in-out`.
 
 ```css
 .my-element {
-	animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
 }
 ```
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'YzNeJbL'
-} %}
-</figure>
 
-Values appear to curve with easing functions because easing is calculated using a **bézier curve**,
-which is used to model velocity.
-Each of the timing function keywords,
-such as `ease`, reference a pre-defined bézier curve.
-In CSS, you can define a bézier curve directly,
-using the `cubic-bezier()` function,
-which accepts four number values: `x1`, `y1`, `x2`, `y2`.
+<iframe src="https://codepen.io/web-dot-dev/embed/YzNeJbL?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Значения выглядят кривыми при использовании функций ослабления, поскольку ослабление рассчитывается с помощью кривой Безье, которая используется для моделирования скорости. Каждое из ключевых слов функции смягчения, например `ease`, ссылается на заранее определенную кривую Безье. В CSS кривую Безье можно задать напрямую, используя функцию `cubic-bezier()`, которая принимает четыре числовых значения: `x1`, `y1`, `x2`, `y2`.
 
 ```css
 .my-element {
-	animation-timing-function: cubic-bezier(.42, 0, .58, 1);
+    animation-timing-function: cubic-bezier(
+        0.42,
+        0,
+        0.58,
+        1
+    );
 }
 ```
 
-These values plot each part of the curve along the X and Y axis.
+Эти значения строят график каждой части кривой по осям X и Y.
 
-{% Img
-src="image/VbAJIREinuYvovrBzzvEyZOpw5w1/AZr17k5ejTYsikAPiwTm.svg",
-alt="A bézier on a progression vs time chart",
-width="800",
-height="499" %}
+![A bézier on a progression vs time chart](animations-3.svg)
 
-Understanding bézier curves is complicated and visual tools,
-such as
-[this generator by Lea Verou](https://cubic-bezier.com/)
-are very helpful.
+Понимание кривых Безье довольно сложно, поэтому очень полезны визуальные инструменты, такие как [этот генератор от Lea Verou](https://cubic-bezier.com/).
 
-#### The `steps` easing function
+#### Функция смягчения `steps`
 
-Sometimes you might want more granular control of your animation,
-and instead of moving along a curve, you want to move in intervals instead.
-The `steps()` easing function lets you break the timeline into defined, **equal intervals**.
+Иногда требуется более детальный контроль над анимацией, и вместо движения по кривой требуется перемещение по интервалам. Функция ослабления `steps()` позволяет разбить временную шкалу на определенные, **равные интервалы**.
 
 ```css
 .my-element {
-	animation-timing-function: steps(10, end);
+    animation-timing-function: steps(10, end);
 }
 ```
 
-The first argument is how many steps.
-If steps are defined as 10 and there are 10 keyframes,
-each keyframe will play in sequence for the exact amount of time,
-with no transition between states.
-If there are not enough keyframes for the steps,
-steps between keyframes are added depending on the second argument.
+Первый аргумент - количество шагов. Если шаги определены как 10 и имеется 10 ключевых кадров, то каждый ключевой кадр будет воспроизводиться последовательно в течение точного количества времени, без перехода между состояниями. Если ключевых кадров для шагов недостаточно, то в зависимости от второго аргумента добавляются шаги между ключевыми кадрами.
 
-The second argument is the direction.
-If it's set to `end`, which is the default,
-the steps finish at the end of your timeline.
-If it is set to `start`, the first step of your animation completes as soon as it starts,
-which means it ends one step earlier than `end`.
+Второй аргумент - это направление. Если он установлен в `end`, что является значением по умолчанию, то шаги завершаются в конце временной шкалы. Если же он имеет значение `start`, то первый шаг анимации завершается сразу после начала, то есть заканчивается на один шаг раньше, чем `end`.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'JjEpege'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/JjEpege?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### `animation-iteration-count`
-{% BrowserCompat 'css.properties.animation-iteration-count' %}
 
 ```css
 .my-element {
-	animation-iteration-count: 10;
+    animation-iteration-count: 10;
 }
 ```
 
-The [animation-iteration-count](https://developer.mozilla.org/docs/Web/CSS/animation-iteration-count)
-property defines how many times the `@keyframes` timeline should run.
-By default, this is 1,
-which means that when the animation reaches the end of your timeline,
-it will stop at the end.
-The number can't be a negative number.
+Свойство [`animation-iteration-count`](../../css/animation-iteration-count.md) определяет, сколько раз должна выполняться временная шкала `@keyframes`. По умолчанию это значение равно `1`, что означает, что когда анимация достигнет конца временной шкалы, она остановится в конце. Число не может быть отрицательным.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'oNBEaYB',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/oNBEaYB?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-You can use the `infinite` keyword which will loop your animation,
-which is how the "pulser" demo from the start of this lesson works.
+Вы можете использовать ключевое слово `infinite`, которое зацикливает анимацию, как это делает демонстрация "пульсатора" из начала этого урока.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'mdRXGeJ',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/mdRXGeJ?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### `animation-direction`
-{% BrowserCompat 'css.properties.animation-direction' %}
 
 ```css
 .my-element {
-	animation-direction: reverse;
+    animation-direction: reverse;
 }
 ```
 
-You can set which direction the timeline runs over your keyframes with
-[animation-direction](https://developer.mozilla.org/docs/Web/CSS/animation-direction):
+С помощью параметра [`animation-direction`](../../css/animation-direction.md) можно задать направление движения временной шкалы по ключевым кадрам:
 
-- `normal`: the default value, which is forwards.
-- `reverse`: runs backwards over your timeline.
-- `alternate`: for each animation iteration, the timeline will run forwards or backwards in sequence.
-- `alternate-reverse`: the reverse of `alternate`.
+-   `normal`: значение по умолчанию - вперед.
+-   `reverse`: движение по временной шкале в обратном направлении.
+-   `alternate`: для каждой итерации анимации временная шкала будет последовательно двигаться вперед или назад.
+-   `alternate-reverse`: обратный вариант `alternate`.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'JjWPqMv'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/JjWPqMv?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### `animation-delay`
-{% BrowserCompat 'css.properties.animation-delay' %}
 
 ```css
 .my-element {
-	animation-delay: 5s;
+    animation-delay: 5s;
 }
 ```
 
-The [animation-delay](https://developer.mozilla.org/docs/Web/CSS/animation-delay)
-property defines how long to wait before starting the animation.
-Like the `animation-duration` property, this accepts a time value.
+Свойство [`animation-delay`](../../css/animation-delay.md) определяет время ожидания перед началом анимации. Как и свойство `animation-duration`, оно принимает значение времени.
 
-Unlike the `animation-duration` property, you *can* define this as a negative value.
-If you set a negative value, the timeline in your `@keyframes` will start at that point.
-For example, if your animation is 10 seconds long and you set `animation-delay` to `-5s`, it will start from half-way along your timeline.
+В отличие от свойства `animation-duration`, вы _можете_ задать его как отрицательное значение. Если задать отрицательное значение, то временная шкала в `@keyframes` будет начинаться с этого момента. Например, если длительность анимации составляет 10 секунд, а для `animation-delay` задано значение `-5s`, то она начнется с половины временной шкалы.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'bGqbyPw'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/bGqbyPw?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### `animation-play-state`
-{% BrowserCompat 'css.properties.animation-play-state' %}
 
 ```css
 .my-element:hover {
-	animation-play-state: paused;
+    animation-play-state: paused;
 }
 ```
 
-The [animation-play-state](https://developer.mozilla.org/docs/Web/CSS/animation-play-state)
-property allows you to play and pause the animation.
-The default value is `running` and if you set it to `paused`, it will pause the animation.
+Свойство [`animation-play-state`](../../css/animation-play-state.md) позволяет воспроизводить и приостанавливать анимацию. По умолчанию используется значение `running`, а если установить значение `paused`, то это приведет к приостановке анимации.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'MWJQZyV',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/MWJQZyV?height=400&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### `animation-fill-mode`
-{% BrowserCompat 'css.properties.animation-fill-mode' %}
 
-The [animation-fill-mode](https://developer.mozilla.org/docs/Web/CSS/animation-fill-mode)
-property defines which values in your `@keyframes` timeline persist before the animation starts or after it ends.
-The default value is `none` which means when the animation is complete, the values in your timeline are discarded.
-Other options are:
+Свойство [animation-fill-mode](../../css/animation-fill-mode.md) определяет, какие значения на временной шкале `@keyframes` сохраняются до начала анимации или после ее окончания. По умолчанию используется значение `none`, что означает, что после завершения анимации значения на временной шкале будут удалены. Другими опциями являются:
 
-- `forwards`: The last keyframe will persist, based on the animation direction.
-- `backwards`: The first keyframe will persist, based on the animation direction.
-- `both`: follows the rules for both `forwards` and `backwards`.
+-   `forwards`: Сохраняется последний ключевой кадр в зависимости от направления анимации.
+-   `backwards`: Сохраняется первый ключевой кадр в соответствии с направлением анимации.
+-   `both`: следует правилам как для `forwards`, так и для `backwards`.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'rNyBEVK'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/rNyBEVK?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-### The `animation` shorthand
+### Короткое обозначение `animation`
 
-Instead of defining all the properties separately,
-you can define them in an `animation` shorthand,
-which lets you define the animation properties in the following order:
+Вместо того чтобы определять все свойства по отдельности, можно задать их в скороговорке `animation`, которая позволяет определять свойства анимации в следующем порядке:
 
-1. `animation-name`
-2. `animation-duration`
-3. `animation-timing-function`
-4. `animation-delay`
-5. `animation-iteration-count`
-6. `animation-direction`
-7. `animation-fill-mode`
-8. `animation-play-state`
+1.  `animation-name`
+2.  `animation-duration`
+3.  `animation-timing-function`
+4.  `animation-delay`
+5.  `animation-iteration-count`
+6.  `animation-direction`
+7.  `animation-fill-mode`
+8.  `animation-play-state`
 
 ```css
 .my-element {
-	animation: my-animation 10s ease-in-out 1s infinite forwards forwards running;
+    animation: my-animation 10s ease-in-out 1s infinite
+        forwards forwards running;
 }
 ```
 
-## Considerations when working with animation
+## Особенности работы с анимацией
 
-Users can define in their operating system that they prefer to reduce motion
-experienced when they interact with applications and websites.
-This preference can be detected using the
-[prefers-reduced-motion](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-motion)
-media query.
+Пользователи могут указать в своей операционной системе, что при работе с приложениями и веб-сайтами они предпочитают уменьшать количество движений. Это предпочтение можно определить с помощью медиазапроса [prefers-reduced-motion](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-motion).
 
 ```css
 @media (prefers-reduced-motion) {
-  .my-autoplaying-animation {
-    animation-play-state: paused;
-  }
+    .my-autoplaying-animation {
+        animation-play-state: paused;
+    }
 }
 ```
 
-This isn't necessarily a preference of no animation,
-but rather, a preference to reduce animations—
-[especially unexpected ones](/prefers-reduced-motion/).
-You can learn more about this preference and overall performance with
-[this animation guide](/animations/).
+Не обязательно, чтобы анимация отсутствовала, скорее, лучше сократить количество анимаций - [особенно неожиданных](https://web.dev/prefers-reduced-motion/). Подробнее об этом предпочтении и общей производительности можно узнать из [этого руководства по анимации](https://web.dev/animations/).
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'bGqbPwq'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/bGqbPwq?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Assessment 'animations' %}
+:information_source: Источник &mdash; [Animations](https://web.dev/learn/css/animations/)

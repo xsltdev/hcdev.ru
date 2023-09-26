@@ -21,8 +21,8 @@ nav:
     - z-index.md
     - functions.md
     - gradients.md
-    #- animations.md
-    #- filters.md
+    - animations.md
+    - filters.md
     #- blend-modes.md
     #- lists.md
     #- transitions.md

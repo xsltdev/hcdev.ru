@@ -1,327 +1,170 @@
 ---
-title: Filters
-description: >
-  Filters in CSS mean that you can apply effects you might only think possible in a graphics application.
-  In this module, you can discover what is available.
-audio:
-  title: 'The CSS Podcast - 023: Filters'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_023_v1.0.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - andybell
-date: 2021-05-04
+description: Фильтры в CSS позволяют применять эффекты, о которых можно было бы подумать только в графических приложениях. В этом модуле вы узнаете, какие эффекты доступны.
+icon: material/filter-outline
 ---
 
-Say you need to build an element that's got a slightly opaque,
-frosted glass effect that sits over the top of an image.
-The text needs to be live text and not an image.
-How do you do that?
+# Фильтры
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'KKaQLoL'
-} %}
-</figure>
+<big>**Фильтры** в CSS позволяют применять эффекты, о которых можно было бы подумать только в графических приложениях. В этом модуле вы узнаете, какие эффекты доступны.</big>
 
-A combination of CSS filters and the `backdrop-filter`
-allow us to apply effects and blur what's needed in real time.
-Blur and opacity are two of many available filters,
-so let's have a quick run through what they all do and how to use them.
+!!!info "CSS подкаст"
 
-{% Aside %}
-Take care when placing text over images,
-that the text is still readable should the filter effect not be supported in a user's browser.
-For example, at the moment
-[`backdrop-filter`](https://developer.mozilla.org/docs/Web/CSS/backdrop-filter)
-is not supported in Firefox,
-and so you should check that Firefox users aren't left with text they cannot easily read:
-{% BrowserCompat 'css.properties.backdrop-filter' %}
-{% endAside %}
+    023: Фильтры
 
-## The `filter` property
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_023_v1.0.mp3?dest-id=1891556"></audio>
 
-{% BrowserCompat 'css.properties.filter' %}
+Допустим, вам необходимо создать элемент с эффектом матового стекла, слегка непрозрачный, который располагается поверх изображения. При этом текст должен быть живым текстом, а не изображением. Как это сделать?
 
-You can apply one or many of the following filters as a value for
-[`filter`](https://developer.mozilla.org/docs/Web/CSS/filter).
-If you incorrectly apply a filter,
-the rest of the filters defined for `filter` will not work.
+<iframe src="https://codepen.io/web-dot-dev/embed/KKaQLoL?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Сочетание CSS-фильтров и `backdrop-filter` позволяет нам применять эффекты и размывать то, что необходимо, в реальном времени. Размытие и непрозрачность - два из множества доступных фильтров, поэтому давайте вкратце рассмотрим, что они делают и как их использовать.
+
+!!!note ""
+
+    При размещении текста поверх изображений необходимо следить за тем, чтобы текст оставался читаемым, если эффект фильтрации не поддерживается браузером пользователя.
+
+## Свойство `filter`
+
+В качестве значения для свойства [`filter`](../../css/filter.md) можно применить один или несколько из перечисленных ниже фильтров. При неправильном применении фильтра остальные фильтры, определенные для `filter`, работать не будут.
 
 ### `blur`
 
-This applies a gaussian blur and the only argument you can pass is a `radius`,
-which is
-[how much blur is applied](https://dbaron.org/log/20110225-blur-radius).
-This needs to be a length unit, like `10px`. Percentages are not accepted.
+Применяет гауссово размытие, и единственным аргументом, который можно передать, является `радиус`, который представляет собой [величину размытия](https://dbaron.org/log/20110225-blur-radius). Это должна быть единица длины, например `10px`. Проценты не принимаются.
 
 ```css
 .my-element {
-	filter: blur(0.2em);
+    filter: blur(0.2em);
 }
 ```
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'VwPQJwX',
-  height: 450
-} %}
-</figure>
+
+<iframe src="https://codepen.io/web-dot-dev/embed/VwPQJwX?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### `brightness`
 
-{% BrowserCompat 'css.types.filter-function.brightness' %}
-
-To increase or decrease the brightness of an element,
-use the brightness function.
-The brightness value is expressed as a percentage with the unchanged image being expressed as a value of 100%.
-A value of 0% turns the image completely black,
-therefore values between 0% and 100% make the image less bright.
-Use values over 100% to increase the brightness.
+Для увеличения или уменьшения яркости элемента используется функция яркости. Значение яркости выражается в процентах, при этом неизменное изображение выражается значением 100%. При значении 0% изображение становится абсолютно черным, поэтому значения от 0% до 100% делают изображение менее ярким. Для увеличения яркости используйте значения более 100%.
 
 ```css
 .my-element {
-	filter: brightness(80%);
+    filter: brightness(80%);
 }
 ```
 
-{% Aside %}
-You can also use decimal values,
-instead of percentage values in filters like `brightness`.
-To set 80% brightness with a decimal, write `0.8`.
-{% endAside %}
+!!!note ""
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'KKaQjpp',
-  height: 450
-} %}
-</figure>
+    В фильтрах типа `brightness` можно также использовать десятичные значения вместо процентных. Чтобы задать яркость 80% с десятичной дробью, напишите `0.8`.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/KKaQjpp?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### `contrast`
 
-{% BrowserCompat 'css.types.filter-function.contrast' %}
-
-Set a value between 0% and 100% to decrease or increase the contrast, respectively.
+Установите значение в диапазоне от 0% до 100% для уменьшения или увеличения контрастности соответственно.
 
 ```css
 .my-element {
-	filter: contrast(160%);
+    filter: contrast(160%);
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'rNjJEOW',
-  height: 450
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/rNjJEOW?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### `grayscale`
 
-{% BrowserCompat 'css.types.filter-function.grayscale' %}
-
-You can apply a completely grayscale effect by using `1` as a value for `grayscale()`,
-or `0` to have a completely saturated element.
-You can also use percentage or decimal values to only apply a partial grayscale effect.
-If you pass no arguments, the element will be completely grayscale.
-If you pass a value greater than 100%, it will be capped at 100%.
+Вы можете применить полностью полутоновый эффект, используя `1` в качестве значения для `grayscale()`, или `0` для получения полностью насыщенного элемента. Также можно использовать процентные или десятичные значения для применения только частичного эффекта оттенков серого. Если аргументы не указаны, то элемент будет полностью насыщен серым цветом. Если передать значение, превышающее 100%, то оно будет ограничено 100%.
 
 ```css
 .my-element {
-	filter: grayscale(80%);
+    filter: grayscale(80%);
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'MWJQMKe',
-  height: 450
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/MWJQMKe?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### `invert`
-{% BrowserCompat 'css.types.filter-function.invert' %}
 
-Just like `grayscale`,
-you can pass `1` or `0` to the `invert()` function to turn it on or off.
-When it is on, the element's colors are completely inverted.
-You can also use percentage or decimal values to only apply a partial inversion of colors.
-If you don't pass any arguments into the `invert()` function,
-the element will be completely inverted.
+Как и `grayscale`, в функцию `invert()` можно передать значение `1` или `0`, чтобы включить или выключить ее. Если функция включена, то цвета элемента инвертируются полностью. Можно также использовать процентные или десятичные значения, чтобы применить только частичную инверсию цветов. Если не передавать никаких аргументов в функцию `invert()`, то элемент будет полностью инвертирован.
 
 ```css
 .my-element {
-	filter: invert(1);
+    filter: invert(1);
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'yLgvdOO',
-  height: 450
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/yLgvdOO?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### `opacity`
 
-{% BrowserCompat 'css.types.filter-function.opacity' %}
-
-The `opacity()` filter works just like the `opacity` property,
-where you can pass a number or percentage to increase or reduce opacity.
-If you pass no arguments, the element is fully visible.
+Фильтр `opacity()` работает так же, как свойство `opacity`, в котором можно передать число или процент для увеличения или уменьшения непрозрачности. Если аргументы не переданы, то элемент полностью виден.
 
 ```css
 .my-element {
-	filter: opacity(0.3);
+    filter: opacity(0.3);
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'RwKQzae',
-  height: 450
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/RwKQzae?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### `saturate`
 
-{% BrowserCompat 'css.types.filter-function.saturate' %}
+Фильтр saturate очень похож на фильтр `brightness` и принимает тот же аргумент: число или процент. Вместо того чтобы увеличивать или уменьшать эффект яркости, фильтр `saturate` увеличивает или уменьшает насыщенность цвета.
 
-The saturate filter is very similar to the `brightness` filter and accepts the same argument:
-number or percentage.
-Instead of increasing or decreasing the brightness effect,
-`saturate` increases or decreases color saturation.
-
- ```css
+```css
 .my-element {
-	filter: saturate(155%);
+    filter: saturate(155%);
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'BapYgQg',
-  height: 450
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/BapYgQg?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### `sepia`
 
-{% BrowserCompat 'css.types.filter-function.sepia' %}
-
-You can add a sepia tone effect with this filter that works like `grayscale()`.
-The sepia tone is a photographic printing technique that converts black tones to brown tones to warm them up.
-You can pass a number or percentage as the argument for `sepia()`
-which increases or decreases the effect.
-Passing no arguments adds a full sepia effect (equivalent to `sepia(100%)`).
+С помощью этого фильтра, работающего по принципу `grayscale()`, можно добавить эффект тона сепии. Тон сепии - это техника фотопечати, при которой черные тона преобразуются в коричневые, чтобы сделать их теплее. В качестве аргумента для `sepia()` можно передать число или процент, что увеличивает или уменьшает эффект. Если не передавать никаких аргументов, то эффект сепии будет полным (эквивалентно `sepia(100%)`).
 
 ```css
 .my-element {
-	filter: sepia(70%);
+    filter: sepia(70%);
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'WNRMqpb',
-  height: 450
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/WNRMqpb?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### `hue-rotate`
 
-{% BrowserCompat 'css.types.filter-function.hue-rotate' %}
-
-You learned about how the hue in `hsl` references a rotation of the color wheel in the
-[colors lesson](/learn/css/color) and this filter works in a similar way.
-If you pass an angle, such as degrees or turns,
-it shifts the hue of all the element's colors,
-changing the part of the color wheel it references. If you pass no argument, it does nothing.
+В уроке [colors](color.md) вы узнали о том, как оттенок в `hsl` ссылается на вращение цветового круга, и этот фильтр работает аналогичным образом. Если передать угол, например, градусы или обороты, то он сдвигает оттенок всех цветов элемента, изменяя ту часть цветового круга, на которую он ссылается. Если аргумент не указан, то фильтр ничего не делает.
 
 ```css
 .my-element {
-	filter: hue-rotate(120deg);
+    filter: hue-rotate(120deg);
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'ExZQBWw',
-  height: 450
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/ExZQBWw?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### `drop-shadow`
 
-{% BrowserCompat 'css.types.filter-function.drop-shadow' %}
-
-You can apply a curve-hugging drop shadow like you would in a design tool,
-such as Photoshop with
-[`drop-shadow`](https://developer.mozilla.org/docs/Web/CSS/filter-function/drop-shadow()).
-This shadow is applied to an alpha mask which makes it very useful for adding a shadow to a cutout image.
-The `drop-shadow` filter takes a shadow parameter which contains space separated offset-x, offset-y, blur and color values.
-It is almost identical to `box-shadow`,
-but the `inset` keyword and spread value are not supported.
+Можно применить криволинейную падающую тень, как это делается в дизайнерских инструментах, например, в Photoshop, с помощью [`drop-shadow`](../../css/filter.md#drop-shadow). Эта тень применяется к альфа-маске, что делает ее очень удобной для добавления тени к вырезанному изображению. Фильтр `drop-shadow` принимает параметр `shadow`, содержащий разделенные пространством значения `offset-x`, `offset-y`, `blur` и `color`. Он практически идентичен фильтру `block-shadow`, но ключевое слово `inset` и значение `spread` не поддерживаются.
 
 ```css
 .my-element {
-	filter: drop-shadow(5px 5px 10px orange);
+    filter: drop-shadow(5px 5px 10px orange);
 }
 ```
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'PoWQrJr',
-  height: 450
-} %}
-</figure>
 
-Learn more about the different types of shadows in the [shadows](/learn/css/shadows) module.
+<iframe src="https://codepen.io/web-dot-dev/embed/PoWQrJr?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Подробнее о различных типах теней можно узнать в модуле [Тени](shadows.md).
 
 ### `url`
 
-{% BrowserCompat 'svg.elements.filter' %}
+Фильтр `url` позволяет применять SVG-фильтр из связанного SVG-элемента или файла. Вы можете [подробнее о фильтрах SVG можно прочитать здесь](https://developer.mozilla.org/docs/Web/SVG/Element/filter)
 
-The `url` filter allows you to apply an SVG filter from a linked SVG element or file.
-You can
-[read more about SVG filters here](https://developer.mozilla.org/docs/Web/SVG/Element/filter)
+<iframe src="https://codepen.io/web-dot-dev/embed/mdRNgyp?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'mdRNgyp',
-  height: 450
-} %}
-</figure>
+## Фильтр фона
 
-## Backdrop filter
+Свойство [`backdrop-filter`](../../css/backdrop-filter.md) принимает все те же значения функции фильтрации, что и `filter`. Разница между `backdrop-filter` и `filter` заключается в том, что свойство `backdrop-filter` применяет фильтр только к фону, в то время как свойство `filter` применяет его ко всему элементу.
 
-{% BrowserCompat 'css.properties.backdrop-filter' %}
+Пример, приведенный в начале этого урока, является идеальным примером, поскольку вы не хотите, чтобы текст был размыт, и в идеале не хотите добавлять дополнительные HTML-элементы. Возможность применять фильтры только к фону позволяет это сделать.
 
-The [backdrop-filter](https://developer.mozilla.org/docs/Web/CSS/backdrop-filter)
-property accepts all of the same filter function values as `filter`.
-The difference between `backdrop-filter` and `filter`
-is that the `backdrop-filter` property only applies the filters to the background,
-where the `filter` property applies it to the whole element.
+<iframe src="https://codepen.io/web-dot-dev/embed/KKaQLoL?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The example right at the start of this lesson is the perfect example,
-because you don't want the text to be blurred and ideally you don't want to have to add extra HTML elements.
-Being able to apply filters only to the backdrop enables that.
-
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'KKaQLoL'
-} %}
-</figure>
-
-{% Assessment 'filters' %}
+:information_source: Источник &mdash; [Filters](https://web.dev/learn/css/filters/)

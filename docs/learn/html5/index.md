@@ -192,4 +192,8 @@ hide:
 
     Этот курс был написан [Estelle Weyl](https://front-end.social/@estelle) при участии [Rachel Andrew](https://twitter.com/rachelandrew) и [Jhey Tompkins](https://twitter.com/jh3yy).
 
-Источник: [Learn HTML](https://web.dev/learn/html/)
+!!!danger "Перевод"
+
+    Перевод этого учебника сделан благодаря [подписчикам на Бусти](https://boosty.to/bndby).
+
+:information_source: Источник &mdash; [Learn HTML](https://web.dev/learn/html/)

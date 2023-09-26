@@ -5,11 +5,7 @@ hide:
     - toc # Hide table of contents
 ---
 
-# [![HTML](html.svg){: style="height:42px;width:42px;vertical-align:middle;"} HTML](/html/) и [![CSS](css.svg){: style="height:42px;width:42px;vertical-align:middle;"} CSS](/css/) справочник
-
-**[HTML](/html/)** — язык гипертекстовой разметки документов для просмотра в браузере.
-
-**[CSS](/css/)** — язык декорирования и описания внешнего вида веб-страницы.
+# ![HTML](html.svg){: style="height:42px;width:42px;vertical-align:middle;"}![CSS](css.svg){: style="height:42px;width:42px;vertical-align:middle;"} Справочник HTML и CSS
 
 <div class="grid cards" style="margin-top: 1.6em" markdown>
 
@@ -17,9 +13,9 @@ hide:
 
     ***
 
-    Справочник HTML тегов
+    Язык гипертекстовой разметки документов
 
-    **[:octicons-arrow-right-24: HTML](/html/)**
+    **[:octicons-arrow-right-24: Справочник тегов HTML5](/html/)**
 
     [:octicons-arrow-right-24: Глобальные атрибуты](/html/uni-attr/)
 
@@ -29,35 +25,23 @@ hide:
 
     ***
 
-    Справочник свойств CSS
+    Язык описания внешнего вида веб-страниц
 
-    **[:octicons-arrow-right-24: CSS](/css/)**
-
-</div>
-
-## Учебники
-
-<div class="grid cards" style="margin-top: 1.6em" markdown>
-
--   :material-school:{ .lg .middle } **HTML**
-
-    ***
-
-    Учебники и документация HTML
-
-    **[:octicons-arrow-right-24: Учебник HTML 5](learn/html5/index.md)** <small>web.dev</small>
-
--   :material-school:{ .lg .middle } **CSS**
-
-    ***
-
-    Учебники и документация CSS
-
-    **[:octicons-arrow-right-24: Учебник CSS 3](./learn/css3/index.md)** <small>web.dev</small>
+    **[:octicons-arrow-right-24: Справочник свойств CSS3](/css/)**
 
     [:octicons-arrow-right-24: Flexbox](/learn/flex/)
 
     [:octicons-arrow-right-24: Grid Layout](/learn/grid/)
+
+-   :material-school-outline:{ .lg .middle } **Учебники**
+
+    ***
+
+    Учебники по веб-технологиям
+
+    **[:octicons-arrow-right-24: Учебник HTML5](learn/html5/index.md)** <small>web.dev</small>
+
+    **[:octicons-arrow-right-24: Учебник CSS3](./learn/css3/index.md)** <small>web.dev</small>
 
 </div>
 
