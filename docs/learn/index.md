@@ -1,5 +1,5 @@
 ---
-description: Учебники по технологиям HTML 5 и CSS 3
+description: Учебники по технологиям HTML5 и CSS3
 hide:
     - toc
 ---
@@ -14,17 +14,17 @@ hide:
 
     ***
 
-    Учебники HTML 5
+    Учебники HTML5
 
-    **[:octicons-arrow-right-24: Учебник HTML 5](html5/index.md)** <small>web.dev</small>
+    **[:octicons-arrow-right-24: Учебник HTML5](html5/index.md)** <small>web.dev</small>
 
 -   :simple-css3:{ .lg .middle } **CSS**
 
     ***
 
-    Учебники CSS 3
+    Учебники CSS3
 
-    **:octicons-arrow-right-24: Учебник CSS 3** <small>web.dev</small>
+    **[:octicons-arrow-right-24: Учебник CSS3](./css3/index.md)** <small>web.dev</small>
 
     [:octicons-arrow-right-24: Flexbox](./flex/index.md)
 

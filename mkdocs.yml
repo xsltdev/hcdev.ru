@@ -41,36 +41,45 @@ theme:
 extra:
     generator: false
     social:
-        - icon: fontawesome/brands/html5
-          link: 'https://hcdev.ru/'
-          name: HTML and CSS docs
-        - icon: fontawesome/brands/js
-          link: 'https://scriptdev.ru/'
-          name: Javascript
-        - icon: fontawesome/brands/angular
-          link: 'https://angdev.ru/'
-          name: Angular docs
-        - icon: fontawesome/brands/react
-          link: 'https://reactdev.ru/'
-          name: React docs
-        - icon: simple/solid
-          link: 'https://soliddev.ru/'
-          name: Solid sdocs
-        - icon: fontawesome/solid/mobile-screen
-          link: 'https://reactnativedev.ru/'
-          name: React Native docs
-        - icon: fontawesome/brands/node-js
-          link: 'https://nodejsdev.ru/'
-          name: Node.js docs
-        - icon: fontawesome/brands/python
-          link: 'https://py3dev.ru/'
-          name: Python 3 docs
-        - icon: fontawesome/solid/code
-          link: 'https://xsltdev.ru/'
-          name: XSLT docs
-        - icon: fontawesome/solid/database
-          link: 'https://dbasedev.ru/'
-          name: Базы данных
+        - icon: fontawesome/brands/github
+          link: https://github.com/xsltdev
+          name: GitHub
+        - icon: fontawesome/regular/heart
+          link: https://boosty.to/bndby
+          name: Boosty
+        - icon: fontawesome/brands/linkedin
+          link: https://www.linkedin.com/in/bndby/
+          name: LinkedIn
+        # - icon: fontawesome/brands/html5
+        #   link: 'https://hcdev.ru/'
+        #   name: HTML and CSS docs
+        # - icon: fontawesome/brands/js
+        #   link: 'https://scriptdev.ru/'
+        #   name: Javascript
+        # - icon: fontawesome/brands/angular
+        #   link: 'https://angdev.ru/'
+        #   name: Angular docs
+        # - icon: fontawesome/brands/react
+        #   link: 'https://reactdev.ru/'
+        #   name: React docs
+        # - icon: simple/solid
+        #   link: 'https://soliddev.ru/'
+        #   name: Solid sdocs
+        # - icon: fontawesome/solid/mobile-screen
+        #   link: 'https://reactnativedev.ru/'
+        #   name: React Native docs
+        # - icon: fontawesome/brands/node-js
+        #   link: 'https://nodejsdev.ru/'
+        #   name: Node.js docs
+        # - icon: fontawesome/brands/python
+        #   link: 'https://py3dev.ru/'
+        #   name: Python 3 docs
+        # - icon: fontawesome/solid/code
+        #   link: 'https://xsltdev.ru/'
+        #   name: XSLT docs
+        # - icon: fontawesome/solid/database
+        #   link: 'https://dbasedev.ru/'
+        #   name: Базы данных
 
 markdown_extensions:
     - admonition
