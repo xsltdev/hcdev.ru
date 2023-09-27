@@ -1,279 +1,220 @@
 ---
-title: Transitions
-description: >
-  In this module, learn how to define transitions between states of an element. Use transitions to improve user experience by providing visual feedback to user interaction.
-
-audio:
-  title: 'The CSS Podcast - 044: Transitions'
-  src: https://traffic.libsyn.com/secure/thecsspodcast/TCP053_v1.mp3?dest-id=1891556
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - cambickel
-date: 2021-09-15
+description: В этом модуле вы узнаете, как определить переходы между состояниями элемента. Использование переходов позволяет повысить удобство работы пользователя, обеспечивая визуальную обратную связь при взаимодействии с ним.
+icon: material/transition
 ---
 
-When interacting with a website, you might notice that many elements have _state_. For example, dropdowns can be in opened or closed states. Buttons might change color when focused or hovered. Modals appear and disappear.
+# Переходы
 
-By default, CSS switches the style of these states instantly.
+<big>В этом модуле вы узнаете, как определить **переходы** между состояниями элемента. Использование переходов позволяет повысить удобство работы пользователя, обеспечивая визуальную обратную связь при взаимодействии с ним.</big>
 
-Using CSS transitions, we can interpolate between the initial state and the target state of the element. The transition between the two enhances the user experience by providing visual direction, support, and hints about the cause and effect of the interaction.
+!!!info "CSS подкаст"
 
-{% Aside 'key-term' %}
-_Interpolation_ is the process of creating "in-between" steps that smoothly transition from one state to another.
-{% endAside %}
+    044: Переходы
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'zYzNrJV',
-  height: 320
-} %}
-</figure>
+    === "Английский оригинал"
 
-## Transition properties
-{% BrowserCompat 'css.properties.transition-property' %}
+    	<audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP053_v1.mp3?dest-id=1891556"></audio>
 
-To use transitions in CSS, you can use the various transition properties or the `transition` shorthand property.
+При взаимодействии с веб-сайтом можно заметить, что многие элементы имеют _состояние_. Например, выпадающие окна могут находиться в открытом или закрытом состоянии. Кнопки могут менять цвет при фокусировке или наведении. Модальные окна появляются и исчезают.
 
-### transition-property
+По умолчанию CSS переключает стиль этих состояний мгновенно.
 
-The [`transition-property`](https://developer.mozilla.org/docs/Web/CSS/transition-property) property specifies which style(s) to transition.
+Используя переходы CSS, мы можем интерполировать между начальным и целевым состоянием элемента. Переход от одного состояния к другому улучшает впечатления пользователя, обеспечивая визуальное направление, поддержку и подсказки о причине и следствии взаимодействия.
+
+!!!tip "Ключевые понятия"
+
+    **Интерполяция** - это процесс создания "промежуточных" шагов, плавно переходящих из одного состояния в другое.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/zYzNrJV?height=320&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+## Свойства переходов
+
+Для использования переходов в CSS можно использовать различные свойства переходов или сокращенное свойство `transition`.
+
+### `transition-property`
+
+Свойство [`transition-property`](../../css/transition-property.md) определяет, к какому стилю (стилям) следует перейти.
 
 ```css
 .my-element {
-  transition-property: background-color;
+    transition-property: background-color;
 }
 ```
 
-The `transition-property` accepts one or more CSS property names in a comma-separated list.
+Свойство `transition-property` принимает одно или несколько имен CSS-свойств в виде списка, разделенного запятыми.
 
-Optionally, you may use `transition-property: all` to indicate that every property should transition.
+Опционально можно использовать `transition-property: all`, чтобы указать, что переход должен осуществляться для каждого свойства.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'VwWPeEj',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/VwWPeEj?height=400&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-### transition-duration
+### `transition-duration`
 
-The [`transition-duration`](https://developer.mozilla.org/docs/Web/CSS/transition-duration) property is used to define the length of time that a transition will take to complete.
+Свойство [`transition-duration`](.../.../css/transition-duration.md) используется для определения времени, в течение которого будет завершен переход.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'wvegMYp',
-  height: 400
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/wvegMYp?height=400&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-`transition-duration` accepts time units, either in seconds (`s`) or milliseconds (`ms`) and defaults to `0s`.
+`transition-duration` принимает единицы времени, либо секунды (`s`), либо миллисекунды (`ms`) и по умолчанию принимает значение `0s`.
 
-### transition-timing-function
+### `transition-timing-function`
 
-Use the [`transition-timing-function`](https://developer.mozilla.org/docs/Web/CSS/transition-timing-function) property to vary the speed of a CSS transition over the course of the `transition-duration`.
+Используйте свойство [`transition-timing-function`](../../css/transition-timing-function.md) для изменения скорости CSS-перехода в течение `transition-duration`.
 
-By default, CSS will transition your elements at a constant speed (`transition-timing-function: linear`). Linear transitions can end up looking somewhat artificial, though: in real life, objects have weight and can't stop and start instantly. Easing into or out of a transition can make your transitions more lively and natural.
+По умолчанию CSS переводит элементы с постоянной скоростью (`transition-timing-function: linear`). Однако линейные переходы могут выглядеть несколько искусственно: в реальной жизни объекты имеют вес и не могут мгновенно останавливаться и стартовать. Облегчение перехода может сделать его более живым и естественным.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'QWgdyZx'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/QWgdyZx?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Our [module on CSS Animation](/learn/css/animations/#animation-timing-function) has a good overview of timing functions.
+В нашем [модуле по CSS-анимации](animations.md#animation-timing-function) есть хороший обзор функций синхронизации.
 
-You can use [DevTools](https://developer.chrome.com/docs/devtools/css/animations/) to experiment with different timing functions in real-time.
+Вы можете использовать [DevTools](https://developer.chrome.com/docs/devtools/css/animations/) для экспериментов с различными функциями синхронизации в режиме реального времени.
 
-{% Img src="image/eiKy1JcjHqPp3gaedjAQWjPJ8YK2/dRwKg0RIsy5wWVzkUFUA.png", alt="Chrome DevTools visual transition timing editor.", width="800", height="418" %}
+![Визуальный редактор тайминга переходов Chrome DevTools](transitions-1.avif)
 
-### transition-delay
+### `transition-delay`
 
-Use the [`transition-delay`](https://developer.mozilla.org/docs/Web/CSS/transition-delay) property to specify the time at which a transition will start. If `transition-duration` is not specified, transitions will start instantly because the default value is `0s`. This property accepts a time unit, for example seconds (`s`) or milliseconds (`ms`).
+Свойство [`transition-delay`](../../css/transition-delay.md) используется для указания времени, через которое начнется переход. Если `transition-duration` не указано, то переходы будут начинаться мгновенно, так как значение по умолчанию равно `0s`. Это свойство принимает единицу времени, например, секунды (`s`) или миллисекунды (`ms`).
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'jOwyWep'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/jOwyWep?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-This property is useful for staggering transitions, achieved by setting a longer `transition-delay` for each subsequent element in a group.
+Это свойство полезно для ступенчатых переходов, достигаемых путем установки большей `transition-delay` для каждого последующего элемента в группе.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'yLXgeRQ',
-  height: 410
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/yLXgeRQ?height=410&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-`transition-delay` is also useful for debugging. Setting the delay to a negative value can start a transition further into the timeline.
+Функция `transition-delay` также полезна для отладки. Установив отрицательное значение задержки, можно запустить переход дальше по временной шкале.
 
-### shorthand: transition
+### Сокращенное свойство `transition`
 
-Like most CSS properties, there is a shorthand version. [`transition`](https://developer.mozilla.org/docs/Web/CSS/transition) combines `transition-property`, `transition-duration`, `transition-timing-function`, and `transition-delay`.
+Как и для большинства CSS-свойств, существует сокращенный вариант. [`transition`](../../css/transition.md) объединяет `transition-property`, `transition-duration`, `transition-timing-function` и `transition-delay`.
 
 ```css
 .longhand {
-  transition-property: transform;
-  transition-duration: 300ms;
-  transition-timing-function: ease-in-out;
-  transition-delay: 0s;
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
 }
 
 .shorthand {
-  transition: transform 300ms ease-in-out 0s;
+    transition: transform 300ms ease-in-out 0s;
 }
 ```
 
-## What can and can't transition?
+## Что может и что не может быть переходом?
 
-When writing CSS, you can specify which properties should have animated transitions. See [this MDN list of animatable CSS properties](https://developer.mozilla.org/docs/Web/CSS/CSS_animated_properties).
+При написании CSS можно указать, какие свойства должны иметь анимированные переходы. См. [этот MDN-список анимируемых CSS-свойств](https://developer.mozilla.org/docs/Web/CSS/CSS_animated_properties).
 
-In general, it's only possible to transition elements that can have a "middle state" between their start and final states. For example, it's impossible to add transitions for `font-family`, because it's unclear what the "middle state" between `serif` and `monospace` should look like. On the other hand, it is possible to add transitions for `font-size` because its unit is a length that can be interpolated between.
+В общем случае переход возможен только для тех элементов, которые могут иметь "среднее состояние" между начальным и конечным состояниями. Например, невозможно добавить переходы для `font-family`, поскольку неясно, как должно выглядеть "среднее состояние" между `serif` и `monospace`. С другой стороны, можно добавить переходы для `font-size`, поскольку его единицей является длина, которая может быть интерполирована между.
 
-{% Img src="image/eiKy1JcjHqPp3gaedjAQWjPJ8YK2/1Lr1iC56nyUyYWWv6qF2.jpg", alt="Diagram of shapes transitioning smoothly from one state to another, and two lines of text in different fonts that cannot be transitioned smoothly.", width="800", height="600" %}
+![Диаграмма фигур, плавно переходящих из одного состояния в другое, и две строки текста с разными шрифтами, которые не могут плавно переходить](transitions-2.avif)
 
-Here are some common properties you can transition.
+Вот некоторые общие свойства, по которым можно осуществлять переход.
 
-### Transform
-{% BrowserCompat 'css.properties.transform' %}
+### Трансформация
 
-The [`transform`](https://developer.mozilla.org/docs/Web/CSS/transform) CSS property is commonly transitioned because it is a GPU-accelerated property that results in smoother animation that also consumes less battery. This property lets you arbitrarily scale, rotate, translate, or skew an element.
+CSS-свойство [`transform`](../../css/transform.md) часто используется для перехода, поскольку это свойство ускоряется на GPU и обеспечивает более плавную анимацию, а также потребляет меньше энергии. Это свойство позволяет произвольно масштабировать, поворачивать, переводить или перекашивать элемент.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'GRErowE'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/GRErowE?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Check out [the section on transforms](/learn/css/functions/#transforms) in [our Functions module](/learn/css/functions/).
+Ознакомьтесь с [разделом о трансформациях](functions.md#transforms) в [нашем модуле Функции](functions.md).
 
-### Color
+### Цвет
 
-Before, during, and after interaction, color can be a great indicator of state. For example, a button might change color if it's being hovered. This color change can provide feedback to the user that the button is clickable.
+До, во время и после взаимодействия цвет может быть отличным индикатором состояния. Например, кнопка может менять цвет при наведении на нее курсора. Это изменение цвета может служить сигналом для пользователя о том, что на кнопку можно нажать.
 
-The `color`, `background-color`, and `border-color` properties are just a few places where color can
-be transitioned upon interaction.
+Свойства `color`, `background-color` и `border-color` - это лишь несколько мест, где цвет может быть изменен при взаимодействии.
 
-{% Aside %}
-Color transitions do not usually need to be behind a [reduced motion](#accessibility-considerations) preference. Use your best judgment.
-{% endAside %}
+!!!note ""
 
-Check out [our module on color](/learn/css/color/).
+    Цветовые переходы, как правило, не обязательно должны находиться за [уменьшенным движением](#accessibility-considerations). Используйте свое лучшее суждение.
 
-### Shadows
+Ознакомьтесь с [нашим модулем по цвету](color.md).
 
-Shadows are often transitioned to indicate elevation change, like from user focus.
+### Тени
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'gORgPQx',
-  height: 300
-} %}
-</figure>
+Тени часто переходят для обозначения изменения высоты, например, от фокуса пользователя.
 
-Check out [our module on shadows](/learn/css/shadows/).
+<iframe src="https://codepen.io/web-dot-dev/embed/gORgPQx?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-### Filters
+Ознакомьтесь с [нашим модулем по теням](shadows.md).
 
-[`filter`](https://developer.mozilla.org/docs/Web/CSS/filter) is a powerful CSS property that lets you add graphic effects on the fly. Transitioning between different `filter` states can create some pretty impressive results.
+### Фильтры
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'PojWZxJ',
-  height: 350
-} %}
-</figure>
+[`filter`](../../css/filter.md) - это мощное CSS-свойство, позволяющее добавлять графические эффекты "на лету". Переход между различными состояниями `filter` может дать весьма впечатляющие результаты.
 
-Check out [our module on filters](/learn/css/filters/).
+<iframe src="https://codepen.io/web-dot-dev/embed/PojWZxJ?height=350&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Transition triggers
+Ознакомьтесь с [нашим модулем по фильтрам](filters.md).
 
-Your CSS must include a change of state *and* an event that triggers that state change for CSS transitions to activate. A typical example of such a trigger is the `:hover` [pseudo-class](/learn/css/pseudo-classes/). This pseudo-class matches when the user hovers over an element with their cursor.
+## Триггеры переходов
 
-Below is a list of some pseudo-classes and events that can trigger state changes in your elements.
+Для активации CSS-переходов необходимо, чтобы в CSS присутствовало изменение состояния _и_ событие, вызывающее это изменение. Типичным примером такого триггера является [псевдокласс `:hover`](pseudo-classes.md). Этот псевдокласс срабатывает, когда пользователь наводит курсор на элемент.
 
-* [`:hover`](/learn/css/pseudo-classes/#hover): matches if the cursor is over the element.
-* [`:focus`](/learn/css/pseudo-classes/#focus,-focus-within,-and-focus-visible): matches if the element is focused.
-* [`:focus-within`](/learn/css/pseudo-classes/#focus,-focus-within,-and-focus-visible) : matches if the element or any of its descendants are
-    focused.
-* [`:target`](/learn/css/pseudo-classes/#target): matches when the current URL's [fragment](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web#fragment) matches the element's id.
-* [`:active`](/learn/css/pseudo-classes/#active):  matches when the element is being activated (typically when the
-    mouse is pressed over it).
-* `class` change from JavaScript: when an element's CSS `class` changes via
-    JavaScript, CSS will transition eligible properties that have changed.
+Ниже приведен список некоторых псевдоклассов и событий, которые могут вызывать изменение состояния элементов.
 
-## Different transitions for enter or exit
+-   [`:hover`](pseudo-classes.md#hover): совпадает, если курсор находится над элементом.
+-   [`:focus`](pseudo-classes.md#focus,-focus-within,-and-focus-visible): соответствует, если элемент сфокусирован.
+-   [`:focus-within`](pseudo-classes.md#focus,-focus-within,-and-focus-visible) : соответствует, если элемент или любой из его потомков сфокусирован.
+-   [`:target`](pseudo-classes.md#target) : совпадает, если [фрагмент](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web#fragment) текущего URL совпадает с `id` элемента.
+-   [`:active`](pseudo-classes.md#active): совпадает, когда элемент активизируется (обычно при нажатии на него мышью).
+-   Изменение `class` с помощью JavaScript: когда CSS `class` элемента изменяется с помощью JavaScript, CSS будет переходить к соответствующим свойствам, которые изменились.
 
-By setting different `transition` properties on hover/focus, it's possible to create some interesting effects.
+## Различные переходы для входа или выхода
+
+Устанавливая различные свойства `transition` при наведении/фокусировке, можно создать несколько интересных эффектов.
 
 ```css
 .my-element {
-  background: red;
+    background: red;
 
-  /* This transition is applied on the "exit" transition */
-  transition: background 2000ms ease-in;
+    /* This transition is applied on the "exit" transition */
+    transition: background 2000ms ease-in;
 }
 
 .my-element:hover {
-  background: blue;
+    background: blue;
 
-  /* This transition is applied on the "enter" transition */
-  transition: background 150ms ease;
+    /* This transition is applied on the "enter" transition */
+    transition: background 150ms ease;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'OJgWMaO'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/OJgWMaO?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Accessibility considerations
+## Вопросы доступности {#accessibility-considerations}
 
-CSS transitions are not for everyone. For some people, transitions and animations can cause motion sickness or discomfort. Thankfully, CSS has a media feature called [`prefers-reduced-motion`](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-motion) that detects if a user has indicated a preference for less motion from their device.
+Переходы CSS подходят не всем. У некоторых людей переходы и анимация могут вызывать укачивание или дискомфорт. К счастью, в CSS есть медиафункция [`prefers-reduced-motion`](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-motion), которая определяет, что пользователь указал, что предпочитает меньше двигаться на своем устройстве.
 
 ```css
 /*
-  If the user has expressed their preference for
-  reduced motion, then don't use transitions.
+Если пользователь высказался за уменьшение
+количества движений, то не используйте переходы.
 */
 @media (prefers-reduced-motion: reduce) {
-  .my-element {
-    transition: none;
-  }
+    .my-element {
+        transition: none;
+    }
 }
 
 /*
-  If the browser understands the media query and the user
-  explicitly hasn't set a preference, then use transitions.
+Если браузер понимает медиазапрос и пользователь
+явно не задал предпочтение, то используйте переходы.
 */
 @media (prefers-reduced-motion: no-preference) {
-  .my-element {
-    transition: transform 250ms ease;
-  }
+    .my-element {
+        transition: transform 250ms ease;
+    }
 }
 ```
 
-Check out our blog post [prefers-reduced-motion: Sometimes less movement is more](/prefers-reduced-motion/) for more information on this media feature.
+Более подробную информацию об этой медиафункции см. в нашем блоге [prefers-reduced-motion: Иногда меньше движения - лучше](https://web.dev/prefers-reduced-motion/).
 
-{% Aside %}
-In the Learn Accessibility module on [animation and motion](/learn/accessibility/motion/) discover how to add delight to your site without causing problems for some users.
-{% endAside %}
+!!!note ""
 
-## Performance considerations
+    В модуле [Изучаем доступность](../accessibility/index.md), посвященном [анимации и движению](../accessibility/motion.md), вы узнаете, как добавить на свой сайт восхищения, не создавая проблем для некоторых пользователей.
 
-When working with CSS transitions, you may encounter performance issues if you add transitions for certain CSS properties. For example, when properties such as `width` or `height` change, they push content around on the rest of the page. This forces CSS to calculate new positions for every affected element for each frame of the transition. When possible, we recommend using properties like `transform` and `opacity` instead.
+## Вопросы производительности
 
-Check out our [guide on high-performance CSS animations](/animations-guide/) for a deep-dive on this topic.
+При работе с переходами CSS могут возникнуть проблемы с производительностью, если добавить переходы для некоторых свойств CSS. Например, при изменении таких свойств, как `width` или `height`, происходит смещение содержимого на остальной части страницы. Это заставляет CSS рассчитывать новые позиции для каждого затронутого элемента для каждого кадра перехода. По возможности мы рекомендуем использовать такие свойства, как `transform` и `opacity`.
 
-{% Assessment 'transitions' %}
+Ознакомьтесь с нашим [руководством по высокопроизводительной CSS-анимации](https://web.dev/animations-guide/) для более глубокого изучения этой темы.
+
+:information_source: Источник: [Transitions](https://web.dev/learn/css/transitions/)

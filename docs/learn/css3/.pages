@@ -25,8 +25,8 @@ nav:
     - filters.md
     - blend-modes.md
     - lists.md
-    #- transitions.md
-    #- overflow.md
+    - transitions.md
+    - overflow.md
     #- backgrounds.md
     #- typography.md
     #- conclusion.md

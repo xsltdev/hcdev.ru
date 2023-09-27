@@ -41,7 +41,7 @@ icon: material/selection-multiple
 
 <iframe src="https://codepen.io/web-dot-dev/embed/YzNxpam?height=250&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-### `:focus`, `:focus-within` и `:focus-visible`
+### `:focus`, `:focus-within` и `:focus-visible` {#focus,-focus-within,-and-focus-visible}
 
 <p class="ciu_embed" data-feature="mdn-css__selectors__focus" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 

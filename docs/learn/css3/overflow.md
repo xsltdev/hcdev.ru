@@ -1,33 +1,29 @@
 ---
-title: Overflow
-description: >
-  Overflow is how you deal with content that doesn’t fit in a set parent size. In this module, you’ll think outside the box, and learn how to style overflowing content.
-audio:
-  title: 'The CSS Podcast - 034: Overflow'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP034_v1.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - emmatwersky
-date: 2021-11-09
-tags:
-  - css
+description: Переполнение - это способ работы с содержимым, которое не помещается в заданный родительский размер. В этом модуле мы рассмотрим нестандартный подход и узнаем, как стилизовать переполняющееся содержимое.
+icon: material/format-text-wrapping-overflow
 ---
 
-When content extends beyond its parent, there are many options for how you can handle it. You can scroll to add additional space, clip the overflowing edges, indicate the cut-off with an ellipsis, and so much more. Overflow is especially important to consider when developing for phone applications and multiple screen sizes.
+# Переполнение
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'LYjEjWZ',
-  tab: 'result'
-} %}
-</figure>
+<big>**Переполнение** - это способ работы с содержимым, которое не помещается в заданный родительский размер. В этом модуле мы рассмотрим нестандартный подход и узнаем, как стилизовать переполняющееся содержимое.</big>
 
-There are two different clipping options in CSS; `text-overflow` will help with individual lines of text, and the `overflow` properties will help control overflow in the box model.
+!!!info "CSS подкаст"
 
-## Single line overflow with `text-overflow`
+    034: Переполнение
 
-Use the [`text-overflow`](https://developer.mozilla.org/docs/Web/CSS/text-overflow) property on any element that contains text node(s), for example a paragraph, `<p>`. It specifies how the text appears when it doesn’t fit in the available space of the element. All viewable HTML text on a page is in [text nodes](https://developer.mozilla.org/docs/Web/API/Text). To use `text-overflow` you need a single unwrapped line of text, so you must also set `overflow` to `hidden` and have a `white-space` value that prevents wrapping.
+    === "Английский оригинал"
+
+    	<audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP034_v1.mp3?dest-id=1891556"></audio>
+
+Когда содержимое выходит за пределы родительского блока, существует множество вариантов его обработки. Можно прокрутить страницу, чтобы добавить дополнительное пространство, обрезать края переполнения, указать на обрыв с помощью многоточия и многое другое. Переполнение особенно важно учитывать при разработке приложений для телефонов и экранов разных размеров.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/LYjEjWZ?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+В CSS есть два варианта обрезки; `text-overflow` поможет работать с отдельными строками текста, а свойства `overflow` помогут управлять переполнением в модели блока.
+
+## Переполнение отдельных строк с помощью `text-overflow`
+
+Свойство [`text-overflow`](../../css/text-overflow.md) используется для любого элемента, содержащего текстовый узел (узлы), например, для абзаца `<p>`. Оно определяет, как будет выглядеть текст, если он не помещается в свободное пространство элемента. Весь просматриваемый HTML-текст на странице находится в [текстовых узлах](https://developer.mozilla.org/docs/Web/API/Text). Для использования `text-overflow` необходима одна развернутая строка текста, поэтому необходимо также установить `overflow` в значение `hidden` и иметь значение `white-space`, препятствующее развертыванию.
 
 ```css
 p {
@@ -37,197 +33,137 @@ p {
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'rNwQXyN',
-  tab: 'result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/rNwQXyN?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Using overflow properties
+## Использование свойств переполнения
 
-Overflow properties are set on an element to control what happens when its children need more space than it has available. This can be intentional, like in an interactive map like Google Maps, where a user pans around a large image clipped to a specific size. It can also be unintentional like in a chat application where the user types a lengthy message that doesn’t fit in the text bubble.
+Свойства переполнения устанавливаются для элемента, чтобы контролировать, что происходит, когда его дочерним элементам требуется больше места, чем у него есть. Это может происходить намеренно, как, например, в интерактивных картах типа Google Maps, где пользователь пролистывает большое изображение, обрезанное до определенного размера. Это может быть и непреднамеренным, как, например, в чате, где пользователь набирает длинное сообщение, которое не помещается в текстовый пузырь.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'KKvwvXE',
-  tab: 'result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/KKvwvXE?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-You can think of the overflow in two parts. The parent element has a firmly constrained space that will not change. You can think of this as a window. The child elements are content that want more space from the parent. You can think of this as what you are looking through the window at. Managing overflow will help guide how the window frames this content.
+Переполнение можно представить состоящим из двух частей. Родительский элемент имеет жестко ограниченное пространство, которое не изменяется. Это можно представить как окно. Дочерние элементы - это содержимое, которое хочет получить больше пространства от родительского элемента. Это можно представить как то, на что вы смотрите через окно. Управление переполнением поможет определить, как окно обрамляет это содержимое.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'xxrmxOm',
-  tab: 'result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/xxrmxOm?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-### Scrolling on the vertical and horizontal axis
+### Прокрутка по вертикальной и горизонтальной оси
 
-The `overflow-y` property controls physical overflow along the vertical axis of the device viewport, therefore scrolling up and down.
+Свойство `overflow-y` управляет физическим переполнением по вертикальной оси области просмотра устройства, то есть прокруткой вверх и вниз.
 
-The `overflow-x` property controls overflow along the horizontal axis of the device viewport, therefore scrolling left and right.
+Свойство `overflow-x` управляет переполнением вдоль горизонтальной оси области просмотра устройства, что позволяет прокручивать изображение влево и вправо.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'YzQdzoG',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/YzQdzoG?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-### Logical properties for scroll direction
-{% BrowserCompat 'css.properties.overflow-inline' %}
+### Логические свойства для направления прокрутки
 
-The [`overflow-inline`](https://developer.mozilla.org/docs/Web/CSS/overflow-inline) and [`overflow-block`](https://developer.mozilla.org/docs/Web/CSS/overflow-block) properties set the overflow based on the document direction and writing mode.
+Свойства [`overflow-inline`](../../css/overflow-inline.md) и [`overflow-block`](../../css/overflow-block.md) задают переполнение в зависимости от направления документа и режима записи.
 
-### The `overflow` shorthand
+### Сокращенное свойства `overflow`
 
-The [`overflow`](https://developer.mozilla.org/docs/Web/CSS/overflow) shorthand sets both `overflow-x` and `overflow-y` styles in one line:
+Сокращение [`overflow`](../../css/overflow.md) устанавливает оба стиля `overflow-x` и `overflow-y` в одной строке:
 
 ```css
 overflow: hidden scroll;
 ```
 
-If two keywords are specified, the first applies to `overflow-x` and the second to `overflow-y`. Otherwise, both `overflow-x` and `overflow-y` use the same value.
+Если указаны два ключевых слова, то первое применяется к `overflow-x`, а второе - к `overflow-y`. В противном случае и `overflow-x`, и `overflow-y` используют одно и то же значение.
 
-#### Values
+#### Значения
 
-Let's take a closer look at the [values and keywords](https://developer.mozilla.org/docs/Web/CSS/overflow#values) available for the `overflow` properties.
+Рассмотрим подробнее [значения и ключевые слова](../../css/overflow.md#значения), доступные для свойств `overflow`.
 
-`overflow: visible` (default)
-: Without setting the property, `overflow: visible` is the default value for the web. This ensures that content is never unintentionally hidden and follows the core tenets of "never hide content" or "safe layouts of precise layouts".
+`overflow: visible` (по умолчанию) : Без установки свойства `overflow: visible` является значением по умолчанию для web. Это гарантирует, что содержимое никогда не будет непреднамеренно скрыто, и соответствует основным принципам "никогда не скрывать содержимое" или "безопасные макеты точных макетов".
 
-`overflow: hidden`
-: With `overflow: hidden` content is clipped in the specified direction, and no scrollbars are provided to show it.
+`overflow: hidden` : При использовании `overflow: hidden` содержимое обрезается в указанном направлении, и полосы прокрутки для его отображения не предусмотрены.
 
-`overflow: scroll`
-: `overflow: scroll` enables scrollbars to allow users to scroll through content. Even if content isn't currently overflowing, scrollbars will be present. This is a great way to reduce future layout shift if a container may be scrollable in the future based, for example, on resize, and visually prepare the user for scrollable areas.
+`overflow: scroll` : `overflow: scroll` включает полосы прокрутки, позволяющие пользователям прокручивать содержимое. Даже если содержимое в данный момент не переполнено, полосы прокрутки будут присутствовать. Это отличный способ уменьшить смещение макета в будущем, если контейнер может стать прокручиваемым в будущем, например, при изменении размеров, и визуально подготовить пользователя к прокручиваемым областям.
 
-`overflow: clip`
-: Like `overflow: hidden`, the content with `overflow: clip` is clipped to the element's padding box. The difference between `clip` and `hidden` is that the `clip` keyword also forbids all scrolling, including programmatic scrolling.
+`overflow: clip` : Как и в случае с `overflow: hidden`, содержимое с `overflow: clip` обрезается до блока подгонки элемента. Разница между `clip` и `hidden` заключается в том, что ключевое слово `clip` также запрещает любую прокрутку, включая программную.
 
-`overflow: auto`
-: Finally, the value most commonly used, `overflow: auto`. This respects the user's preferences and shows scrollbars if needed, but hides them by default, and gives responsibility for scrolling to the user and browser.
+`overflow: auto` : Наконец, наиболее часто используемое значение - `overflow: auto`. Оно учитывает предпочтения пользователя и при необходимости показывает полосы прокрутки, но по умолчанию скрывает их, а ответственность за прокрутку возлагает на пользователя и браузер.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'gORZaaa',
-  tab: 'result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/gORZaaa?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Aside %}
-Using the `overflow` property with a value other than `visible` creates a [block formatting context](https://developer.mozilla.org/docs/Web/Guide/CSS/Block_formatting_context).
-{% endAside %}
+!!!note ""
 
-## Scrolling and overflow
+    Использование свойства `overflow` со значением, отличным от `visible`, создает [контекст форматирования блока](https://developer.mozilla.org/docs/Web/Guide/CSS/Block_formatting_context).
 
-Many of these `overflow` behaviors introduce a scrollbar, but there’s a few specific scroll behaviors and properties that can help you control scrolling on your overflow container.
+## Прокрутка и переполнение
 
-### Scrolling and accessibility
+Многие из этих моделей поведения `overflow` вводят полосу прокрутки, но есть несколько специфических моделей поведения и свойств прокрутки, которые могут помочь вам управлять прокруткой в контейнере переполнения.
 
-It's important to make sure that the scrollable area can accept focus so that a keyboard user can tab to the box, then use the arrow keys to scroll.
+### Прокрутка и доступность
 
-To allow a scrolling box to accept focus add `tabindex="0"`, a name with the [`aria-labelledby`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) attribute, and an appropriate `role` attribute. For example:
+Важно убедиться, что прокручиваемая область может принимать фокус, чтобы пользователь клавиатуры мог установить вкладку в блок, а затем использовать клавиши со стрелками для прокрутки.
+
+Чтобы блок с прокруткой мог принимать фокус, добавьте `tabindex="0"`, имя с атрибутом [`aria-labelledby`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) и соответствующий атрибут `role`. Например:
 
 ```html
-<div tabindex="0" role="region" aria-labelledby="id-of-descriptive-text">
+<div
+    tabindex="0"
+    role="region"
+    aria-labelledby="id-of-descriptive-text"
+>
     content
 </div>
 ```
 
-CSS can then be used to indicate that the box has focus, using the `outline` property to give a visual clue that it will now be scrollable.
+Затем можно использовать CSS для индикации того, что блок находится в фокусе, используя свойство `outline` для визуальной подсказки, что теперь он будет прокручиваться.
 
-In [Using CSS to Enforce Accessibility](https://adrianroselli.com/2021/06/using-css-to-enforce-accessibility.html) Adrian Roselli demonstrates how CSS can help prevent accessibility regressions. For example, to only turn on scrolling and add the focus indicator if the correct attributes are used. The following rules will only make the box scrollable if it has a `tabindex`, `aria-labelledby`, and `role` attribute.
+В статье [Using CSS to Enforce Accessibility](https://adrianroselli.com/2021/06/using-css-to-enforce-accessibility.html) Адриан Розелли демонстрирует, как CSS может помочь предотвратить регрессии доступности. Например, включать прокрутку и добавлять индикатор фокуса только при использовании правильных атрибутов. Следующие правила сделают блок прокручиваемым, только если он имеет атрибуты `tabindex`, `aria-labelledby` и `role`.
 
 ```css
 [role][aria-labelledby][tabindex] {
-  overflow: auto;
+    overflow: auto;
 }
 
 [role][aria-labelledby][tabindex]:focus {
-  outline: .1em solid blue;
+    outline: 0.1em solid blue;
 }
 ```
 
-### Scrollbar positioning within the box model
+### Позиционирование полос прокрутки в блоке
 
-Scroll bars take up space within the padding box and can compete for space if `inline` and not `overlayed`. The [box model module](/learn/css/box-model/#the-areas-of-the-box-model) expands more on this potential source of layout shift.
+Полосы прокрутки занимают место в блоке подложки и могут конкурировать за место, если они расположены `inline` и не `overlayed`. В модуле [Блочная модель](box-model.md#the-areas-of-the-box-model) более подробно рассматривается этот потенциальный источник смещения макета.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'BaReoEV',
-  tab: 'result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/BaReoEV?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### root-scroller vs implicit-scroller
 
-You may notice that some scrollers have a pull-to-refresh behavior and other special behaviors, especially when developing for mobile and hybrid applications. This scroll behavior happens on the root scroller. There is only ever one root scroller on a page. By default, the [documentElement](https://developer.mozilla.org/docs/Web/API/Document/documentElement) is the page's root scroller, however, by changing which element is the root scroller, the special behaviors can be applied to scrollers other than the documentElement, we call this new scroller the implicit root scroller.
+Вы можете заметить, что некоторые скроллеры имеют поведение pull-to-refresh и другие специальные поведения, особенно при разработке мобильных и гибридных приложений. Такое поведение скроллера происходит на корневом скроллере. На странице может быть только один корневой скроллер. По умолчанию корневым скроллером страницы является [`documentElement`](https://developer.mozilla.org/docs/Web/API/Document/documentElement), однако, изменив, какой элемент является корневым скроллером, можно применить специальное поведение к скроллерам, отличным от `documentElement`; мы называем этот новый скроллер неявным корневым скроллером.
 
-To create a root scroller, you can use something called *scroller promotion* by positioning a container as fixed, ensuring it covers the entire viewport and is z-index on top with a scroller. Experience a root scroller vs a nested implicit scroller [here](https://cdpn.io/web-dot-dev/debug/dyzPzwz).
+Для создания корневого скроллера можно использовать так называемое _продвижение скроллера_, позиционируя контейнер как фиксированный, обеспечивая его покрытие всего пространства просмотра и располагая скроллер сверху по z-индексу. Сравнить корневой скроллер с вложенным неявным скроллером можно [здесь](https://cdpn.io/web-dot-dev/debug/dyzPzwz).
 
 <figure>
-  {% Video
-    src="video/dQwiPAoChjTYzXYCNg6U6Tsnr3x1/sn1cOusFy18gRkZroAET.mp4",
-    autoplay="true",
-    loop="true",
-    width="380",
-    muted="true"
-  %}
-  <figcaption>
-    The video shows a root scroller with bounce behavior and new styling features, <br>
-    compared to scrolling an implicit scroller with no enhanced scroll behavior.
-  </figcaption>
+<video controls>
+<source src="/learn/css3/overflow-1.mp4" />
+</video>
+<figcaption>В видеоролике показан корневой скроллер с поведением отскока и новыми возможностями стилизации в сравнении с прокруткой неявного скроллера без улучшенного поведения прокрутки.</figcaption>
 </figure>
 
-### scroll-behavior
-{% BrowserCompat 'css.properties.scroll-behavior' %}
+### `scroll-behavior`
 
-`scroll-behavior` allows you to opt into browser-controlled scrolling to elements. This allows you to specify how in-page navigation like `.scrollTo()` or links are handled.
+[`scroll-behavior`](../../css/scroll-behavior.md) позволяет выбрать управляемую браузером прокрутку элементов. Это позволяет указать, как будет обрабатываться внутристраничная навигация типа `.scrollTo()` или ссылки.
 
-This is especially useful when used with [prefers-reduced-motion](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-motion) to specify scroll behavior based on user preference.
+Это особенно полезно, когда используется вместе с [`prefers-reduced-motion`](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-motion) для задания поведения прокрутки в зависимости от предпочтений пользователя.
 
 ```css
 @media (prefers-reduced-motion: no-preference) {
-  .scroll-view {
-    scroll-behavior: auto;
-  }
+    .scroll-view {
+        scroll-behavior: auto;
+    }
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'oNwJgae',
-  tab: 'result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/oNwJgae?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-### overscroll-behavior
-{% BrowserCompat 'css.properties.overscroll-behavior' %}
+### `overscroll-behavior`
 
-If you’ve ever reached the end of a modal overlay, then continued scrolling and had the page behind the overlay move, this is the scroll chaining, or bubbling up to the parent scroll container. The [`overscroll-behavior`](https://developer.mozilla.org/docs/Web/CSS/overscroll-behavior) property allows you to prevent overflow scrolling leaking into a parent container (called scroll chaining).
+Если вы когда-нибудь доходили до конца модального оверлея, а затем продолжали прокручивать страницу, и страница за оверлеем перемещалась, это означает, что цепочка прокрутки, или "пузырь", доходит до родительского контейнера прокрутки. Свойство [`overscroll-behavior`](../../css/overscroll-behavior.md) позволяет предотвратить перетекание прокрутки в родительский контейнер (так называемую цепочку прокрутки).
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'powqJQe',
-  tab: 'result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/powqJQe?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Assessment 'overflow' %}
+## Ресурсы
 
-## Resources
+[Переполнение и потеря данных в CSS из Smashing Magazine](https://www.smashingmagazine.com/2019/09/overflow-data-loss-css/)
 
-[Overflow And Data Loss In CSS from Smashing Magazine](https://www.smashingmagazine.com/2019/09/overflow-data-loss-css/)
-
+:information_source: Источник: [Overflow](https://web.dev/learn/css/overflow/)
