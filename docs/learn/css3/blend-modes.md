@@ -1,418 +1,250 @@
 ---
-title: Blend Modes
-description: >
-  Create compositional effects by mixing two or more layers,
-  and learn how to isolate an image with a white background in this module on blend modes.
-audio:
-  title: 'The CSS Podcast - 024: Blend Modes'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP024_TCP_CSS_Podcast_Episode_024_v1.0.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - andybell
-date: 2021-05-04
+description: В этом модуле, посвященном режимам наложения, можно создавать композиционные эффекты путем смешивания двух или более слоев, а также научиться выделять изображение на белом фоне.
+icon: material/blender-outline
 ---
 
-[Duotone](https://en.wikipedia.org/wiki/Duotone) is a popular color treatment for photography
-which makes an image look like it is only made up of two contrasting colors:
-one for highlights and the other for lowlights.
-How do you do this with CSS though?
+# Режимы наложения
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'bGgvYMG'
-} %}
-</figure>
+<big>В этом модуле, посвященном **режимам наложения**, можно создавать композиционные эффекты путем смешивания двух или более слоев, а также научиться выделять изображение на белом фоне.</big>
 
-Using blend modes—and other techniques you have learned about,
-such as [filters](/learn/css/filters) and
-[pseudo-elements](/learn/css/pseudo-elements)—you can apply this effect to any image.
+!!!info "CSS подкаст"
 
-## What is a blend mode?
+    024: Режимы наложения
 
-Blend modes are commonly used in design tools such as Photoshop
-to create a compositional effect by mixing colors from two or more layers.
-By changing how colors mix, you can achieve really interesting visual effects.
-You can also use blend modes as a utility,
-such as isolating an image that has a white background,
-so it appears to have a transparent background.
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP024_TCP_CSS_Podcast_Episode_024_v1.0.mp3?dest-id=1891556"></audio>
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'dyNmJor'
-} %}
-</figure>
+[Duotone](https://en.wikipedia.org/wiki/Duotone) - популярная цветовая обработка фотографий, при которой изображение выглядит так, как будто оно состоит только из двух контрастных цветов: один - для бликов, другой - для низких. Однако как это сделать в CSS?
 
-You can use most of the blend modes available in a design tool with CSS,
-using the
-[`mix-blend-mode`](https://developer.mozilla.org/docs/Web/CSS/mix-blend-mode) or the
-[`background-blend-mode`](https://developer.mozilla.org/docs/Web/CSS/background-blend-mode) properties.
-The `mix-blend-mode` applies blending to a whole element
-and the `background-blend-mode` applies blending to the background of an element.
+<iframe src="https://codepen.io/web-dot-dev/embed/bGgvYMG?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-You use `background-blend-mode` when you have multiple backgrounds on an element
-and want them all to blend into each other.
+Используя режимы наложения и другие изученные вами приемы, такие как [фильтры](filters.md) и [псевдоэлементы](pseudo-elements.md), вы можете применить этот эффект к любому изображению.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'XWpEVGO'
-} %}
-</figure>
+## Что такое режим наложения?
 
-The `mix-blend-mode` affects the entire element,
-including its pseudo-elements.
-One use-case is in the initial example of a duotone image,
-which has color layers applied to the element through its pseudo-elements.
+Режимы наложения обычно используются в таких инструментах дизайна, как Photoshop, для создания композиционного эффекта путем смешивания цветов двух или более слоев. Изменяя способ смешивания цветов, можно добиться очень интересных визуальных эффектов. Режимы наложения можно использовать и в качестве вспомогательного средства, например, для выделения изображения с белым фоном, чтобы оно казалось прозрачным.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'bGgvYMG'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/dyNmJor?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Blend modes fall into two categories: separable and non-separable.
-A separable blend mode considers each color component,
-such as RGB, individually.
-A non-separable blend mode considers all color components equally.
+С помощью CSS можно использовать большинство режимов наложения, доступных в инструментах дизайна, используя свойства [`mix-blend-mode`](../../css/mix-blend-mode.md) или [`background-blend-mode`](../../css/background-blend-mode.md). Свойство `mix-blend-mode` применяет смешивание ко всему элементу, а `background-blend-mode` - к фону элемента.
 
-## Browser compatibility
+Свойство `background-blend-mode` используется при наличии нескольких фонов у элемента и необходимости их взаимного смешивания.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/XWpEVGO?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Режим `mix-blend-mode` влияет на весь элемент, включая его псевдоэлементы. Один из примеров использования - в исходном примере дуотонового изображения, в котором цветовые слои накладываются на элемент через его псевдоэлементы.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/bGgvYMG?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Режимы наложения делятся на две категории: разделяемые и неразделяемые. Режим наложения с разделением рассматривает каждый цветовой компонент, например RGB, в отдельности. Неразделимый режим наложения учитывает все цветовые компоненты в равной степени.
+
+## Совместимость с браузерами
 
 ### `mix-blend-mode`
 
-{% BrowserCompat 'css.properties.mix-blend-mode' %}
+<p class="ciu_embed" data-feature="mdn-css__properties__mix-blend-mode" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
 ### `background-blend-mode`
 
-{% BrowserCompat 'css.properties.background-blend-mode' %}
+<p class="ciu_embed" data-feature="mdn-css__properties__background-blend-mode" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-## Separable blend modes
+## Разделяемые режимы наложения
 
-### Normal
+### Нормальный
 
-This is the default blend mode and changes nothing about how an element blends with others.
+Это режим наложения по умолчанию, который ничего не меняет в том, как элемент смешивается с другими.
 
 ### Multiply
 
-The `multiply` blend mode is like stacking multiple transparencies on top of each other.
-White pixels will appear transparent,
-and black pixels will appear black.
-Anything in between will multiply its luminosity (light) values.
-This means lights get much lighter and darks,
-darker—most often producing a darker result.
+Режим наложения `multiply` похож на наложение нескольких прозрачностей друг на друга. Белые пиксели будут выглядеть прозрачными, а черные - черными. Все, что находится между ними, будет умножать свои значения светимости (освещенности). Это означает, что светлые пикселы становятся намного светлее, а темные - темнее, что чаще всего приводит к получению более темного результата.
 
 ```css
 .my-element {
-  mix-blend-mode: multiply;
+    mix-blend-mode: multiply;
 }
 ```
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'vYgRdOy',
-  height: 450
-} %}
-</figure>
+
+<iframe src="https://codepen.io/web-dot-dev/embed/vYgRdOy?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### Screen
 
-Using `screen` multiplies the *light* values—an inverse effect to `multiply`,
-and will most often produce a brighter result.
+Использование `screen` умножает значения _света_ - эффект, обратный эффекту `multiply`, и чаще всего приводит к более яркому результату.
 
 ```css
 .my-element {
-  mix-blend-mode: screen;
+    mix-blend-mode: screen;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'JjELpYo',
-  height: 450
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/JjELpYo?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### Overlay
 
-This blend mode—`overlay`—combines `multiply` and `screen`.
-Base dark colors become darker and base light colors become lighter.
-Mid-range colors, such as a 50% gray, are unaffected.
+Этот режим наложения - `overlay` - сочетает в себе `multiply` и `screen`. Базовые темные цвета становятся темнее, а базовые светлые - светлее. Средние цвета, такие как 50% серый, не затрагиваются.
 
 ```css
 .my-element {
-  mix-blend-mode: overlay;
+    mix-blend-mode: overlay;
 }
 ```
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'BaprYom',
-  height: 450
-} %}
-</figure>
+
+<iframe src="https://codepen.io/web-dot-dev/embed/BaprYom?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### Darken
 
-The `darken` blend mode compares the source image and backdrop image's dark color luminosity
-and selects the darkest of the two.
-It does this by comparing rgb values instead of luminosity (like `multiply` and `screen` would do),
-for each color channel.
-With `darken` and `lighten`, new color values are often created from this comparison process.
+Режим наложения `darken` сравнивает светимость темных цветов исходного и фонового изображений и выбирает самый темный из них. При этом для каждого цветового канала сравниваются не яркости, а значения rgb (как это делают `multiply` и `screen`). При использовании `darken` и `lighten` в результате этого сравнения часто создаются новые цветовые значения.
 
 ```css
 .my-element {
-  mix-blend-mode: darken;
+    mix-blend-mode: darken;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'dyNmdGM',
-  height: 450
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/dyNmdGM?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### Lighten
 
-Using `lighten` does the exact opposite of `darken`.
+Использование `lighten` делает прямо противоположное `darken`.
 
 ```css
 .my-element {
-  mix-blend-mode: lighten;
+    mix-blend-mode: lighten;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'OJWvQNO',
-  height: 450
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/OJWvQNO?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### Color dodge
 
-If you use `color-dodge`, it lightens the background color to reflect the source color.
-Pure black colors see no effect from this mode.
+При использовании режима `color-dodge` цвет фона осветляется, отражая цвет источника. На чисто черные цвета этот режим не влияет.
 
 ```css
 .my-element {
-  mix-blend-mode: color-dodge;
+    mix-blend-mode: color-dodge;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'abpYqpz',
-  height: 450
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/abpYqpz?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### Color burn
 
-The `color-burn` blend mode is very similar to the `multiply` blend mode,
-but increases contrast, resulting in more saturated mid-tones and reduced highlights.
+Режим наложения `color-burn` очень похож на режим наложения `multiply`, но увеличивает контрастность, в результате чего средние тона становятся более насыщенными, а блики уменьшаются.
 
 ```css
 .my-element {
-  mix-blend-mode: color-burn;
+    mix-blend-mode: color-burn;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'gOgevmG',
-  height: 450
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/gOgevmG?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### Hard light
 
-Using `hard-light` creates a vivid contrast.
-This blend mode either screens or multiplies luminosity values.
-If the pixel value is lighter than 50% gray, the image is lightened,
-as if it were screened. If it is darker, it's multiplied.
+Использование режима `hard-light` создает яркий контраст. Этот режим наложения либо экранирует, либо умножает значения яркости. Если значение пиксела светлее 50% серого, то изображение осветляется, как бы экранируется. Если значение темнее, то оно умножается.
 
 ```css
 .my-element {
-  mix-blend-mode: hard-light;
+    mix-blend-mode: hard-light;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'ZELxreN',
-  height: 450
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/ZELxreN?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### Soft light
 
-The `soft-light` blend mode is a less-harsh version of `overlay`.
-It works in very much the same way with less contrast.
+Режим наложения `soft-light` является менее жесткой версией `overlay`. Он работает практически так же, но с меньшим контрастом.
 
 ```css
 .my-element {
-  mix-blend-mode: soft-light;
+    mix-blend-mode: soft-light;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'OJWvQmQ',
-  height: 450
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/OJWvQmQ?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### Difference
 
-A good way to picture how `difference` works is a bit like how a photo negative works.
-The `difference` blend mode takes the difference value of each pixel,
-inverting light colors.
-If the color values are identical, they become black.
-Differences in the values will invert.
+Хорошее представление о том, как работает `difference`, напоминает работу с фотонегативом. Режим наложения `difference` берет значение разности для каждого пикселя, инвертируя светлые цвета. Если значения цветов одинаковы, они становятся черными. Различия в значениях инвертируются.
 
 ```css
 .my-element {
-  mix-blend-mode: difference;
+    mix-blend-mode: difference;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'mdRxXwM',
-  height: 450
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/mdRxXwM?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### Exclusion
 
-Using `exclusion` is very similar to `difference`,
-but instead of returning black for identical pixels,
-it will return 50% gray, resulting in a softer output with less contrast.
+Использование `exclusion` очень похоже на `difference`, но вместо возврата черного цвета для одинаковых пикселей будет возвращаться 50% серого, что приведет к более мягкому результату с меньшим контрастом.
 
 ```css
 .my-element {
-  mix-blend-mode: exclusion;
+    mix-blend-mode: exclusion;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'JjELpmb',
-  height: 450
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/JjELpmb?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Non-separable blend modes
+## Неразделимые режимы наложения
 
-You can think of these blend modes like HSL [color](/learn/css/color) components.
-Each takes a specific component value from the active layer and mixes it with other component values.
+Эти режимы наложения можно представить как компоненты HSL [цвета](color.md). Каждый из них берет определенное значение компонента из активного слоя и смешивает его с другими значениями компонентов.
 
 ### Hue
 
-The `hue` blend mode takes the hue of the source color
-and applies it to the saturation and luminosity of the backdrop color.
+Режим наложения `hue` берет оттенок исходного цвета и применяет его к насыщенности и светлоте цвета фона.
 
 ```css
 .my-element {
-  mix-blend-mode: hue;
+    mix-blend-mode: hue;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'BaprYGO'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/BaprYGO?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### Saturation
 
-This works like `hue`,
-but using `saturation` as the blend mode applies the saturation of the source color
-to the hue and luminosity of the backdrop color.
+Это работает так же, как `hue`, но при использовании `Saturation` в качестве режима наложения насыщенность исходного цвета применяется к оттенку и светлоте цвета фона.
 
 ```css
 .my-element {
-  mix-blend-mode: saturation;
+    mix-blend-mode: saturation;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'QWdmQoP'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/QWdmQoP?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### Color
 
-The `color` blend mode will create a color from the hue and saturation of the source color
-and the luminosity of the backdrop color.
+Режим наложения `color` создаст цвет из оттенка и насыщенности исходного цвета и светлоты цвета фона.
 
 ```css
 .my-element {
-  mix-blend-mode: color;
+    mix-blend-mode: color;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'jOyzZRo'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/jOyzZRo?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### Luminosity
 
-Lastly, `luminosity` is the inverse of `color`.
-It creates a color with the luminosity of the source color and the hue and saturation of the backdrop color.
+Наконец, `luminosity` является обратной характеристикой `color`. Он создает цвет с яркостью исходного цвета и оттенком и насыщенностью цвета фона.
 
 ```css
 .my-element {
-  mix-blend-mode: luminosity;
+    mix-blend-mode: luminosity;
 }
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'zYNWWOK'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/zYNWWOK?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## The `isolation` property
+## Свойство `isolation`
 
-{% BrowserCompat 'css.properties.isolation' %}
+<p class="ciu_embed" data-feature="mdn-css__properties__isolation" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-If you set the [`isolation`](https://developer.mozilla.org/docs/Web/CSS/isolation)
-property to have a value of `isolate`,
-it will create a new stacking context,
-which will prevent it from blending with a backdrop layer.
-As you learned in the [z-index module](/learn/css/z-index), when you create a new stacking context,
-that layer becomes the base layer.
-This means that parent-level blend modes will no longer apply,
-but elements inside of an element with `isolation: isolate` set can _still_ blend.
+Если свойству [`isolation`](../../css/isolation.md) присвоить значение `isolate`, то будет создан новый контекст наложения, который не позволит ему смешиваться с фоновым слоем. Как вы узнали из модуля [z-index](z-index.md), при создании нового контекста наложения этот слой становится базовым. Это означает, что режимы наложения на родительском уровне больше не будут применяться, но элементы внутри элемента с установленной опцией `isolation: isolate` все равно могут смешиваться.
 
-Note that this doesn't work with `background-blend-mode`
-because the background property is already isolated.
+Обратите внимание, что это не работает с режимом наложения `background-blend-mode`, поскольку свойство фона уже изолировано.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'JjELLXy'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/JjELLXy?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Assessment 'blend-modes' %}
+:information_source: Источник &mdash; [Blend Modes](https://web.dev/learn/css/blend-modes/)

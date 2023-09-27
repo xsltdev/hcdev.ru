@@ -23,8 +23,8 @@ nav:
     - gradients.md
     - animations.md
     - filters.md
-    #- blend-modes.md
-    #- lists.md
+    - blend-modes.md
+    - lists.md
     #- transitions.md
     #- overflow.md
     #- backgrounds.md

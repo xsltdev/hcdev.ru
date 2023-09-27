@@ -1,139 +1,109 @@
 ---
-title: Lists
-description: >
-  A list, structurally, is composed of a list container element filled with list items. In this module, you'll learn how to style all the parts of a list.
-audio:
-  title: 'The CSS Podcast - 030: Lists'
-  src: 'https://traffic.libsyn.com/secure/thecsspodcast/TCP030_v2.mp3?dest-id=1891556'
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - emmatwersky
-date: 2021-10-26
-tags:
-  - css
+description: Структурно список состоит из элемента-контейнера списка, заполненного элементами списка. В этом модуле вы узнаете, как стилизовать все части списка.
+icon: material/format-list-numbered
 ---
 
-Imagine you have a bunch of items you plan to buy during your next grocery trip. One common way to represent this visually is a list—but how can you add styling to your grocery list?
+# Списки
+
+<big>Структурно список состоит из элемента-контейнера списка, заполненного элементами списка. В этом модуле вы узнаете, как стилизовать все части списка.</big>
+
+!!!info "CSS подкаст"
+
+    030: Списки
+
+    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP030_v2.mp3?dest-id=1891556"></audio>
+
+Представьте, что у вас есть набор товаров, которые вы планируете купить во время следующего похода за продуктами. Одним из распространенных способов визуального представления этого является список, но как добавить стиль в список продуктов?
 
 ```html
 <ul>
-  <li>oat milk</li>
-  <li>rhubarb</li>
-  <li>cereal</li>
-  <li>pie crust</li>
+    <li>oat milk</li>
+    <li>rhubarb</li>
+    <li>cereal</li>
+    <li>pie crust</li>
 </ul>
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'zYzrEOW',
-  tab: 'result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/zYzrEOW?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Creating a List
+## Создание списка
 
-The preceding list started with a semantic element, or `<ul>`, with grocery list items (`<li>` elements) as children. If you inspect each `<li>` element you can see that they all have `display: list-item`, which is why the browser renders a `::marker` by default.
+Предыдущий список начинался с семантического элемента `<ul>`, дочерними элементами которого являются элементы списка продуктов (элементы `<li>`). Если проанализировать каждый элемент `<li>`, то можно увидеть, что все они имеют `display: list-item`, поэтому браузер по умолчанию отображает `::marker`.
 
 ```css
 li {
-  display: list-item;
+    display: list-item;
 }
 ```
 
-There are two other types of lists.
+Существуют еще два типа списков.
 
-Ordered lists can be created with `<ol>`, in which case the list-item will display a number as the `::marker`.
+Упорядоченные списки могут быть созданы с помощью `<ol>`, в этом случае элемент списка будет отображать число в качестве `::marker`.
 
 ```html
 <ol>
-  <li>oat milk</li>
-  <li>rhubarb</li>
-  <li>cereal</li>
-  <li>pie crust</li>
+    <li>oat milk</li>
+    <li>rhubarb</li>
+    <li>cereal</li>
+    <li>pie crust</li>
 </ol>
 ```
 
-And description lists are created with `<dl>`, however this list type does not use the `<li>` list item element.
+А списки описаний создаются с помощью `<dl>`, однако в этом типе списка не используется элемент списка `<li>`.
 
 ```html
 <dl>
-  <dt>oat milk</dt>
-  <dd>- non dairy trendy drink</dd>
-  <dt>cereal</dt>
-  <dd>- breakfast food</dd>
+    <dt>oat milk</dt>
+    <dd>- non dairy trendy drink</dd>
+    <dt>cereal</dt>
+    <dd>- breakfast food</dd>
 </dl>
 ```
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'WNOrZNG',
-  tab: 'result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/WNOrZNG?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## List styles
-{% BrowserCompat 'css.properties.list-style-position' %}
+## Стили списков
 
-Now that you know how to make a list, you can style them. The first CSS properties to discover are those that are applied to the entire list.
+Теперь, когда вы знаете, как создать список, вы можете придать ему стиль. Первыми CSS-свойствами, с которыми следует познакомиться, являются те, которые применяются ко всему списку.
 
-There are three list-style properties you can use to style your example: `list-style-position`, `list-style-image`, and `list-style-type`.
+Существует три свойства стиля списка, которые можно использовать для оформления примера: `list-style-position`, `list-style-image` и `list-style-type`.
 
 ### `list-style-position`
 
-[`list-style-position`](https://developer.mozilla.org/docs/Web/CSS/list-style-position) allows you to move your bullet point to either `inside` or `outside` the list-item's contents. The default `outside` means the bullet point is not included in the list items contents while `inside` moves the first element among the list item's contents.
+[`list-style-position`](../../css/list-style-position.md) позволяет переместить точку маркера либо `inside`, либо `outside` содержимого элемента списка. По умолчанию `outside` означает, что точка не включается в содержимое элемента списка, в то время как `inside` перемещает первый элемент среди содержимого элемента списка.
 
-{% Img src="image/dQwiPAoChjTYzXYCNg6U6Tsnr3x1/qVlpVCrwKwbGjEJdmqh0.jpg", alt="A list with both outside and inside ::marker which shows that outside (default value) is not in the list-item and is inside the list-item content box.", width="800", height="270" %}
+![Список с маркерами outside и inside ::marker, который показывает, что outside (значение по умолчанию) не находится в элементе списка и находится внутри блока содержимого элемента списка.](lists-1.avif)
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'ExXPwxL',
-  tab: 'result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/ExXPwxL?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
 ### `list-style-image`
 
-[`list-style-image`](https://developer.mozilla.org/docs/Web/CSS/list-style-image) allows you to replace your list's bullet points with images. This enables you to set an image such as an `url` or `none` to make your bullets an image, svg or gif even. You can also use any media type or even a data URI.
+[`list-style-image`](../../css/list-style-image.md) позволяет заменять маркеры списка изображениями. Это позволяет задать изображение, например, `url` или `none`, чтобы сделать ваши маркеры изображением, даже svg или gif. Можно также использовать любой медиатип или даже URI данных.
 
-Let's look at how we can add an image of each of our grocery items as the `list-style-image`:
+Давайте рассмотрим, как можно добавить изображение каждого из наших продуктов в качестве `list-style-image`:
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'GREoMgK',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/GREoMgK?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Aside %}
-This property is a bit limited in controlling the position, size, etc. of the bullets, so we recommend using the [`::marker`](#marker-pseudo) property for a more customizable approach.
-{% endAside %}
+!!!note ""
+
+    Это свойство несколько ограничено в управлении положением, размером и т. д. маркера, поэтому мы рекомендуем использовать свойство [`::marker`](#marker-pseudo) для более настраиваемого подхода.
 
 ### `list-style-type`
 
-The final option is to style the [`list-style-type`](https://developer.mozilla.org/docs/Web/CSS/list-style-type) which changes the bullet points to known style keywords, custom strings, emojis and more. You can view all of the possible list style types [here](https://developer.mozilla.org/docs/Web/CSS/list-style-type ).
+Последним вариантом является стиль [`list-style-type`](../../css/list-style-type.md), который изменяет точки списка на известные ключевые слова маркера, пользовательские строки, emojis и т. д.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'jOwWGEy',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/jOwWGEy?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-### `list-style` shorthand
+### Сокращенное свойство `list-style`
 
-Now that we have all of these individual properties, we can use the [`list-style`](https://developer.mozilla.org/docs/Web/CSS/list-style) shorthand to set all of our list styles in one line:
+Теперь, когда у нас есть все эти индивидуальные свойства, мы можем использовать сокращение [`list-style`](../../css/list-style.md), чтобы задать все стили списка в одной строке:
 
 ```css
-list-style: <'list-style-type'> || <'list-style-position'> || <'list-style-image'>
+list-style: < 'list-style-type' > || < 'list-style-position'
+    > || < 'list-style-image' >;
 ```
 
-`list-style` allows you to declare combinations of one, two, or three of the `list-style` properties in any order. If `list-style-type` and `list-style-image` are both set, then` list-style-type` is used as a fallback if the image is unavailable.
+`list-style` позволяет объявлять комбинации из одного, двух или трех свойств `list-style` в любом порядке. Если заданы `list-style-type` и `list-style-image`, то `list-style-type` будет использоваться в качестве запасного варианта, если изображение недоступно.
 
 ```css
 /* type */
@@ -161,25 +131,19 @@ list-style: revert;
 list-style: unset;
 ```
 
-This is the most commonly used property of the list styles covered in this section. One common application is `list-style: none` to hide default styles. Default styles come from the browser, and you often see reset stylesheets removing list styles like padding and margins. You can also use this shorthand to set styles, like `list-style: square inside;`
+Это наиболее часто используемое свойство стилей списка, рассматриваемых в данном разделе. Часто используется `list-style: none` для скрытия стилей по умолчанию. Стили по умолчанию приходят из браузера, и часто можно увидеть сброшенные таблицы стилей, удаляющие такие стили списка, как `padding` и `margin`. Можно также использовать это сокращение для установки стилей, например `list-style: square inside;`.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'eYRJGme',
-  tab: 'result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/eYRJGme?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-So far, the examples have focused on styling an entire list and list items, but what about a more granular approach?
+До сих пор в примерах рассматривалась стилизация всего списка и его элементов, но как насчет более детального подхода?
 
-## `::marker` pseudo-element
+## Псевдоэлемент `::marker` {#marker-pseudo}
 
-The `list-item` marker element is the bullet, hyphen, or roman numeral that helps indicate each item in your list.
+Маркерный элемент `list-item` - это пуля, дефис или римская цифра, которые помогают обозначить каждый элемент списка.
 
-{% Img src="image/dQwiPAoChjTYzXYCNg6U6Tsnr3x1/pOWTl4BYyJI7qgbMVeYu.jpg", alt="A list with three items which shows that each of the bullets are ::marker pseudo-elements.", width="800", height="395" %}
+![Список с тремя элементами, в котором видно, что каждая из пуль является псевдоэлементом ::marker](lists-2.avif).
 
-If you inspect the list in DevTools, you can see a `::marker` element for each of the list items, despite not declaring any in HTML. If you inspect the `::marker` further, you'll see the browser default styling for it.
+Если просмотреть список в DevTools, то можно увидеть элемент `::marker` для каждого из элементов списка, несмотря на то, что в HTML он не объявлен. При дальнейшем рассмотрении элемента `::marker` можно увидеть его стилизацию по умолчанию в браузере.
 
 ```css
 ::marker {
@@ -192,76 +156,58 @@ If you inspect the list in DevTools, you can see a `::marker` element for each o
 }
 ```
 
-When you declare a list, each item is given a marker, despite there being no bullet point or roman numeral in your HTML. This is  a pseudo-element because the browser generates it for you, and provides a limited styling API to target it. [Learn more about the anatomy of the CSS bullet.](/css-marker-pseudo-element/) `::marker` currently has [limited support](https://developer.mozilla.org/docs/Web/CSS/::marker#browser_compatibility) in Safari.
+При объявлении списка каждому элементу присваивается маркер, несмотря на то, что в HTML нет ни буллитов, ни римских цифр. Это псевдоэлемент, поскольку браузер генерирует его за вас и предоставляет ограниченный API для его стилизации. [Подробнее об анатомии CSS-маркеров.](https://web.dev/css-marker-pseudo-element/) `::marker` в настоящее время имеет [ограниченную поддержку](../../css/marker.md) в Safari.
 
-### Marker box
+### Блок маркера
 
-In the CSS layout model, list item markers are represented by a marker box associated with each list item. The marker box is the container which typically contains the bullet or number.
+В модели CSS-макета маркеры элементов списка представлены блоком маркера, связанным с каждым элементом списка. Блок маркера - это контейнер, в котором обычно содержится пуля или номер.
 
-To style the marker box, you can use the `::marker` selector. This allows you to select just the marker instead of styling based on the entire list.
+Для стилизации блока маркеров можно использовать селектор `::marker`. Это позволяет выбрать только маркер, а не стилизовать весь список.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'jOwWGPy',
-  tab: 'css,result'
-} %}
-</figure>
+<iframe src="https://codepen.io/web-dot-dev/embed/jOwWGPy?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Aside %}
-Note: `::marker` elements precede any pseudo-elements that you may have inserted using CSS `::before`.
-{% endAside %}
+!!!note "Примечание"
 
-### Marker styles
+    Элементы `::marker` предшествуют любым псевдоэлементам, которые вы могли вставить с помощью CSS `::before`.
 
-Now that you have selected the marker, let's look at the styling properties available to this selector. You can learn more about [Custom bullets with CSS ::marker](/css-marker-pseudo-element/) on web.dev.
+### Стили маркера
 
-There are quite a few allowed CSS `::marker` Properties:
+Теперь, когда вы выбрали маркер, давайте рассмотрим свойства стиля, доступные для этого селектора.
 
-- `animation-*`
-- `transition-*`
-- `color`
-- `direction`
-- `font-*`
-- `content`
-- `unicode-bidi`
-- `white-space`
+Существует довольно много разрешенных CSS `::marker` свойств:
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'eYRJGNy',
-  tab: 'result'
-} %}
-</figure>
+-   `animation-*`
+-   `transition-*`
+-   `color`
+-   `direction`
+-   `font-*`
+-   `content`
+-   `unicode-bidi`
+-   `white-space`
 
-{% Aside %}
-In ordered lists, the bullets default to numbers. The `::marker` content value is a use case for [counters](https://developer.mozilla.org/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters) to create custom numbering.
-{% endAside %}
+<iframe src="https://codepen.io/web-dot-dev/embed/eYRJGNy?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Display type
+!!!note ""
 
-All of our `list-style` and `::marker` properties know to style `<li>` elements because they have a default display value of list-item. You can also make things that aren't an `<li>` into a list item.
+    В упорядоченных списках пули по умолчанию являются цифрами. Значение содержимого `::marker` является вариантом использования [counters](https://developer.mozilla.org/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters) для создания пользовательской нумерации.
 
-You do this by adding the property `display: list-item`. One example of using `display: list-item` is if you want a hanging bullet on a heading, so that you can change it to something else with `::marker`. The following example shows a heading using `display: list-item` for styling purposes, with a list using correct list markup below.
+## Тип отображения
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'ExXPwjR',
-  tab: 'css,result'
-} %}
-</figure>
+Все наши свойства `list-style` и `::marker` знают, как стилизовать элементы `<li>`, поскольку по умолчанию они имеют значение `list-item`. Вы также можете превратить в элемент списка то, что не является `<li>`.
 
-While you can turn anything into a list-item view with `display`, you should not use this instead of using correct list markup, if the content you are styling really is a list. Changing the visual appearance of an item to a list item does not change how accessibility services read and recognize the item, so it will not be read as a list item to screen readers or switch devices. You should always use semantic markup and create lists with `<li>` whenever possible.
+Для этого нужно добавить свойство `display: list-item`. Один из примеров использования свойства `display: list-item` - если вы хотите, чтобы в заголовке был висячий маркер, который можно изменить на что-то другое с помощью `::marker`. В следующем примере показан заголовок, использующий `display: list-item` для стилизации, и список, использующий корректную разметку списка ниже.
 
-{% Assessment 'lists' %}
+<iframe src="https://codepen.io/web-dot-dev/embed/ExXPwjR?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Resources
+Хотя с помощью `display` можно превратить что угодно в элемент списка, не следует использовать это вместо корректной разметки списка, если содержимое, которое вы стилизуете, действительно является списком. Изменение внешнего вида элемента на элемент списка не меняет того, как сервисы доступности читают и распознают этот элемент, поэтому он не будет читаться как элемент списка устройствами чтения с экрана или переключателями. Всегда используйте семантическую разметку и создавайте списки с помощью `<li>`, когда это возможно.
 
-- [MDN Guide on Styling Lists](https://developer.mozilla.org/docs/Learn/CSS/Styling_text/Styling_lists)
-- [Custom bullets with CSS ::marker](/css-marker-pseudo-element/)
-- [Smashing Magazine: CSS Lists, Markers and Counters](https://www.smashingmagazine.com/2019/07/css-lists-markers-counters/)
-- [MDN Using CSS Counters](https://developer.mozilla.org/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters)
-- [CSS Lists and Counters Module Level 3](https://www.w3.org/TR/css-lists-3/)
-- [CSS-Tricks: Counting With CSS Counters and CSS Grid](https://css-tricks.com/counting-css-counters-css-grid/)
+## Ресурсы
+
+-   [MDN Руководство по стилизации списков](https://developer.mozilla.org/docs/Learn/CSS/Styling_text/Styling_lists)
+-   [Пользовательские маркеры с помощью CSS ::marker](https://web.dev/css-marker-pseudo-element/)
+-   [Smashing Magazine: CSS списки, маркеры и счетчики](https://www.smashingmagazine.com/2019/07/css-lists-markers-counters/)
+-   [MDN Использование CSS-счетчиков](https://developer.mozilla.org/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters)
+-   [CSS Списки и счетчики Модуль Уровень 3](https://www.w3.org/TR/css-lists-3/)
+-   [CSS-Tricks: Counting With CSS Counters и CSS Grid](https://css-tricks.com/counting-css-counters-css-grid/)
+
+:information_source: Источник &mdash; [Lists](https://web.dev/learn/css/lists/)

@@ -11,7 +11,9 @@ icon: material/select-compare
 
     014: Псевдоэлементы
 
-    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_014_v1.0.mp3?dest-id=1891556"></audio>
+    <audio controls src="/learn/css3/pseudo-elements-2.mp3"></audio> (Перевод на русский)
+
+    <audio controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP_CSS_Podcast_Episode_014_v1.0.mp3?dest-id=1891556"></audio> (Английский оригинал)
 
 Если у вас есть статья с контентом, и вы хотите, чтобы первая буква была более крупной - как этого добиться?
 
