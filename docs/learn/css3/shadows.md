@@ -115,7 +115,7 @@ icon: material/box-shadow
 
 <iframe src="https://codepen.io/web-dot-dev/embed/BapwzyQ?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Тень текста
+## Тень текста {#text-shadow}
 
 Свойство `text-shadow` очень похоже на свойство `box-shadow`. Только работает оно для текстовых узлов.
 

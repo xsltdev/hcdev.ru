@@ -13,7 +13,7 @@ icon: material/select-compare
 
     === "Перевод на русский"
 
-    	<audio style="width: 100%;" controls src="/learn/css3/pseudo-elements-2.mp3"></audio>
+    	<audio style="width: 100%;" controls src="/learn/css3/pseudo-elements.ru.mp3"></audio>
 
     === "Английский оригинал"
 

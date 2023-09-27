@@ -1,492 +1,315 @@
 ---
-title: Backgrounds
-description: >
-  In this module learn the ways you can style backgrounds of boxes using CSS.
-audio:
-  title: 'The CSS Podcast - 053: Background'
-  src: https://traffic.libsyn.com/secure/thecsspodcast/TCP035_v2.mp3?dest-id=1891556
-  thumbnail: image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png
-authors:
-  - lozandier
-date: 2021-11-15
+description: В этом модуле вы узнаете, как можно стилизовать фон блоков с помощью CSS.
+icon: material/image-outline
 ---
-## Backgrounds
 
-Behind every CSS box is a specialized layer called the background layer. CSS provides a variety of ways to make meaningful changes to it–including allowing multiple backgrounds.
+# Фон
 
-Background layers are furthest from the user, rendered behind the contents of a box starting from its `padding-box` region. This enables the background layer to not overlap with borders at all.
+<big>В этом модуле вы узнаете, как можно стилизовать фон блоков с помощью CSS.</big>
 
-<figure>
-{% Codepen {
-  user: 'argyleink',
-  id: 'BaLedvd',
-  theme: 'dark',
-  height: 700,
-  tab: 'result'
-} %}
-</figure>
+!!!info "CSS подкаст"
 
-## Background color
+    053: Фон
 
-{% BrowserCompat 'css.properties.background-color' %}
+    === "Английский оригинал"
 
-One of the simplest effects you can apply to a background layer is setting the [color](/learn/css/color/). The initial value of `background-color` is `transparent`, which allows the contents of a parent to be visible. A valid color set on a background layer sits behind other things painted on that element.
+    	<audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP035_v2.mp3?dest-id=1891556"></audio>
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'GRvqQZZ',
-  theme: 'dark',
-  height: 850,
-  tab: 'result'
-} %}
-</figure>
+За каждым блоком CSS скрывается специализированный слой, называемый фоновым. CSS предоставляет множество возможностей для внесения в него значимых изменений, в том числе и возможность использования нескольких фоновых слоев.
 
-## Background images
+Фоновые слои находятся дальше всего от пользователя и отображаются за содержимым блока, начиная с его области `padding-box`. Это позволяет фоновому слою вообще не перекрывать границы.
 
-{% BrowserCompat 'css.properties.background-image' %}
+<iframe src="https://codepen.io/argyleink/embed/BaLedvd?height=700&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 650px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-On top of the `background-color` layer, you can add a background image, using the `background-image` property. A `background-image` accepts the following:
+## Цвет фона
 
-* An image URL or [data URI](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) using the `url` CSS function.
-* An image dynamically created by a gradient CSS function.
+Одним из простейших эффектов, который можно применить к фоновому слою, является установка [color](color.md). Начальное значение `background-color` - `transparent`, что позволяет видеть содержимое родительского слоя. Правильный цвет, установленный на фоновом слое, располагается за другими элементами, нарисованными на этом слое.
 
-### Setting a background-image with the `url` CSS function
+<iframe src="https://codepen.io/web-dot-dev/embed/GRvqQZZ?height=850&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 850px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'JjJNNro',
-  theme: 'dark',
-  height: 525,
-  tab: 'result'
-} %}
-</figure>
+## Фоновые изображения
 
-### CSS gradient backgrounds
+Поверх слоя `background-color` можно добавить фоновое изображение, используя свойство `background-image`. Свойство `background-image` принимает следующие значения:
 
-Several [gradient](/learn/css/gradients) CSS functions exist to allow you to generate a background-image, when passed two or more colors.
+-   URL-адрес изображения или [data URI](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) с помощью CSS-функции `url`.
+-   Изображение, динамически созданное градиентной CSS-функцией.
 
-Regardless of which gradient function is used, the resulting image is [intrinsically sized](/learn/css/box-model/#content-and-sizing) to match the amount of space available.
+### Установка фонового изображения с помощью CSS-функции `url`
 
-Demo showing example of applying a background-image using gradient functions:
+<iframe src="https://codepen.io/web-dot-dev/embed/JjJNNro?height=525&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 600px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'oNeLZWa',
-  theme: 'dark',
-  height: 600,
-  tab: 'result'
-} %}
-</figure>
+### Градиентные фоны CSS
 
-## Repeating background images
+Существует несколько CSS-функций [градиент](gradients.md), позволяющих генерировать фоновое изображение при передаче двух или более цветов.
 
-{% BrowserCompat 'css.properties.background-repeat' %}
+Независимо от того, какая функция градиента используется, результирующее изображение имеет [собственный размер](box-model.md#content-and-sizing), соответствующий объему доступного пространства.
 
-By default, background images repeat horizontally and vertically to fill the entire space of the background layer.
+Демонстрация примера применения фонового изображения с помощью градиентных функций:
 
-Change this by using the `background-repeat` property with one of the following values:
+<iframe src="https://codepen.io/web-dot-dev/embed/oNeLZWa?height=600&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 600px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-* `repeat`: The image repeats within the space available, cropping as necessary.
-* `round`: The image repeats horizontally and vertically to fit as many instances into the space available, without cropping, compressing, or stretching it.
-* `space`: The image repeats horizontally and vertically to fit as many instances within the space available without cropping—spacing out instances of the image as needed. Repeating images touch the edges of the space a background layer occupies, with white space evenly distributed between them.
+## Повторяющиеся фоновые изображения
 
-The `background-repeat` property allows you to set the behavior for the x and y axis independently. The first parameter sets the horizontal repeat behavior, and the second parameter sets the vertical repeat behavior.
+По умолчанию фоновые изображения повторяются по горизонтали и вертикали, заполняя все пространство фонового слоя.
 
-If you use a single value, it will be applied to both the horizontal and vertical repeats.
+Изменить это можно с помощью свойства `background-repeat` с одним из следующих значений:
 
-The shorthand also has convenient one-word options to make your intent clearer.
+-   `repeat`: Изображение повторяется в пределах доступного пространства, обрезаясь по мере необходимости.
+-   `round`: Изображение повторяется по горизонтали и вертикали, чтобы вместить как можно больше экземпляров в доступное пространство, не обрезая, не сжимая и не растягивая его.
+-   `space`: Изображение повторяется по горизонтали и вертикали, чтобы вместить максимальное количество экземпляров в доступное пространство без обрезки, при необходимости расставляя экземпляры изображения. Повторяющиеся изображения касаются краев пространства, занимаемого фоновым слоем, а между ними равномерно распределяется белое пространство.
 
-The value `repeat-x` repeats an image only horizontally; this is equivalent to `repeat no-repeat`.
+Свойство `background-repeat` позволяет задавать поведение для осей x и y независимо друг от друга. Первый параметр задает поведение повтора по горизонтали, а второй - по вертикали.
 
-The following demo demonstrates these capabilities of the `background-repeat` property:
+Если используется одно значение, то оно будет применяться и к горизонтальному, и к вертикальному повтору.
 
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'KKvMmjb',
-  theme: 'dark',
-  height: 1100,
-  tab: 'result'
-} %}
-</figure>
+В стенограмме также имеются удобные однословные опции, позволяющие более четко выразить свои намерения.
 
-## Background position
+Значение `repeat-x` повторяет изображение только по горизонтали, что эквивалентно `repeat no-repeat`.
 
-{% BrowserCompat 'css.properties.background-position' %}
+Приведенный ниже демонстрационный пример демонстрирует эти возможности свойства `background-repeat`:
 
-You may have noticed when some images on the Web are styled with a `background-repeat: no-repeat` declaration, such images are displayed top left of their container.
+<iframe src="https://codepen.io/web-dot-dev/embed/KKvMmjb?height=1100&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 1100px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The initial position of background images is top left. The `background-position`  property allows you to change this behavior by offsetting the image position.
+## Положение фона
 
-As with `background-repeat`,  the `background-position` property allows you to position images along the x and y axis independently with two values by default.
+Вы могли заметить, что при стилизации некоторых изображений в Web с помощью объявления `background-repeat: no-repeat` такие изображения отображаются слева вверху от своего контейнера.
 
-When CSS lengths and percentages are used, the first parameter corresponds to the horizontal axis while the second parameter corresponds to the vertical axis.
+Начальное положение фоновых изображений - верхнее левое. Свойство `background-position` позволяет изменить это поведение путем смещения позиции изображения.
 
-When keywords are only used the order of the keywords does not matter:
+Как и свойство `background-repeat`, свойство `background-position` позволяет позиционировать изображения по осям `x` и `y` независимо друг от друга, причем по умолчанию используется два значения.
 
-{% Compare 'better' %}
+Если используются длины и проценты CSS, то первый параметр соответствует горизонтальной оси, а второй - вертикальной.
+
+При использовании только ключевых слов порядок следования ключевых слов не имеет значения:
+
+!!!success "Хорошо"
+
+    ```css
+    background-position: left 50%;
+    ```
+
+!!!success "Хорошо"
+
+    ```css
+    background-position: top left;
+    ```
+
+!!!success "Хорошо"
+
+    ```css
+    background-position: left top;
+    ```
+
+    Порядок не имеет значения для ключевых слов, связанных с разными осями положения.
+
+!!!danger "Плохо"
+
+    ```css
+    background-position: 50% left;
+    ```
+
+    Когда значения CSS используются вместе с ключевыми словами, порядок имеет значение. Первое значение представляет горизонтальную ось, а второе - вертикальную.
+
+!!!danger "Плохо"
+
+    ```css
+    background-position: left right;
+    ```
+
+    Нельзя одновременно использовать ключевые слова, связанные с одной и той же осью.
+
+Свойство `background-position` также имеет удобное сокращение до одного значения; опущенное значение преобразуется в `50%`. Приведем пример, демонстрирующий это на примере ключевых слов, принимаемых свойством `background-position`:
+
+<iframe src="https://codepen.io/web-dot-dev/embed/YzxWQqx?height=950&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 950px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Помимо стандартных двух и одного параметра, свойство `background-position` может принимать до четырех параметров;
+
+При использовании трех или четырех параметров длина или процент CSS должны предшествовать ключевым словам `top`, `left`, `right` или `bottom`, чтобы браузер мог вычислить, от какого края блока CSS должно происходить смещение.
+
+При использовании трех параметров длина или значение CSS может быть вторым или третьим параметром, а два других являются ключевыми словами; ключевое слово, которое следует за ним, будет использоваться для определения края, смещению которого соответствует длина или значение CSS. Смещение другого указанного ключевого слова устанавливается равным `0`.
+
+!!!success "Хорошо"
+
+    ```css
+    background-position: bottom 88% right;
+    ```
+
+!!!success "Хорошо"
+
+    ```css
+    background-position: right bottom 88%;
+    ```
+
+!!!danger "Плохо"
+
+    ```css
+    background-position: 88% bottom right;
+    ```
+
+    При использовании трех и более параметров перед значением длины CSS должны стоять ключевые слова `top`, `right`, `bottom` или `left`.
+
+!!!success "Хорошо"
+
+    ```css
+    background-position: bottom 88% right 33%;
+    ```
+
+!!!success "Хорошо"
+
+    ```css
+    background-position: right 33% bottom 88%;
+    ```
+
+!!!danger "Плохо"
+
+    ```css
+    background-position: 88% 33% bottom left;
+    ```
+
+    При использовании трех и более параметров перед значением длины CSS должны стоять ключевые слова `top`, `right`, `bottom` или `left`.
+
+Если `background-position: top left 20%` применяется к фоновому изображению CSS, то изображение размещается в верхней части блока, а значение `20%` представляет собой 20%-ное смещение от левой части блока (по оси x).
+
+Если к фоновому изображению CSS применяется параметр `background-position: top 20% left`, то значение 20% представляет собой 20%-ное смещение от верхней части блока CSS (по оси y), а изображение размещается в левой части блока.
+
+При использовании четырех параметров два ключевых слова сопрягаются с двумя значениями, соответствующими смещению относительно начала каждого из указанных ключевых слов. Если к фоновому изображению применяется `background-position: bottom 20% right 30%`, то фоновое изображение позиционируется на 20% снизу и на 30% справа от блока CSS.
+
+Это поведение демонстрируется в следующем примере:
+
+<iframe src="https://codepen.io/web-dot-dev/embed/porbwrM?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Приведем еще несколько примеров использования свойства `background-position` с использованием сочетания значений CSS и ключевых слов:
+
+!!!note ""
+
+    Более подробно о нюансах, связанных с позиционированием фонов, можно узнать из статьи [`background-position` на MDN](../../css/background-position.md).
+
+## Размер фона
+
+Свойство `background-size` задает размер фоновых изображений; по умолчанию размер фоновых изображений определяется исходя из их собственной (реальной) ширины, высоты и соотношения сторон.
+
+Свойство `background-size` использует значения длины и процента CSS или специальные ключевые слова. Свойство принимает до двух параметров, позволяющих независимо изменять ширину и высоту фона.
+
+Свойство `background-size` принимает следующие ключевые слова:
+
+-   `auto`: При независимом использовании размер фонового изображения определяется его собственной шириной и высотой; когда `auto` используется вместе с другим CSS-значением ширины (первый параметр) или высоты (второй параметр), размер, установленный в `auto`, изменяется по мере необходимости, чтобы сохранить естественное соотношение сторон изображения. Это поведение свойства `background-size` по умолчанию.
+-   `cover`: Охватывает всю область фонового слоя. Это может означать, что изображение растягивается или обрезается.
+-   `contain`: Размер изображения позволяет заполнить пространство без растягивания или обрезки. В результате может остаться пустое пространство, что приведет к повторению изображения, если для параметра `background-repeat` не установлено значение `no-repeat`.
+
+Два последних параметра предназначены для самостоятельного использования без дополнительных параметров.
+
+В следующем демонстрационном примере показаны эти ключевые слова в действии:
+
+Демонстрация применения этих ключевых слов к `background-size`:
+
+<iframe src="https://codepen.io/web-dot-dev/embed/YzxWQYY?height=700&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 700px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+## Фиксация фона
+
+Свойство `background-attachment` позволяет изменять поведение фиксированного положения фоновых изображений (изображений, входящих в состав фонового слоя) после того, как слой становится видимым на экране.
+
+Оно принимает 3 ключевых слова: `scroll`, `fixed` и `local`.
+
+Поведением свойства `background-attachment` по умолчанию является начальное значение `scroll`. Когда требуется больше места, изображения перемещаются на это место в пределах фонового слоя, определяемого границами блока CSS.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/mdwwzOe?height=1000&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 1000px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Использование значения `fixed` фиксирует положение фоновых изображений относительно области просмотра.
+
+После того как пространство, которое изначально занимали изображения фонового слоя, необходимо прокрутить (или вывести) за пределы экрана, изображения в фоновом слое остаются зафиксированными в исходном положении, которое им позволял занимать фоновый слой, до тех пор, пока весь слой не будет прокручен за пределы экрана в области просмотра.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/MWoozvN?height=1000&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 1000px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Ключевое слово `local` позволяет фиксировать положение фоновых изображений относительно содержимого элемента. Теперь фоновые изображения перемещаются по занимаемому ими пространству по мере того, как это пространство отображается внутри и за пределами блока CSS (обычно это связано с прокруткой, двумерными или трехмерными преобразованиями).
+
+<iframe src="https://codepen.io/web-dot-dev/embed/WNExZmK?height=1000&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 1000px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+## Фоновая область
+
+Свойство `background-origin` позволяет изменять область фона, связанную с конкретным блоком. Значения, принимаемые свойством, соответствуют областям `border-box`, `padding-box` и `content-box` блока.
+
+Попробовать эти возможности можно с помощью следующей демонстрации:
+
+<iframe src="https://codepen.io/web-dot-dev/embed/ExvyXeZ?height=650&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 650px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+## Обрезка фона
+
+Свойство `background-clip` управляет тем, что визуально видно из фонового слоя, независимо от границ, созданных свойством `background-origin`.
+
+Как и в `background-origin`, могут быть указаны следующие области: `border-box`, `padding-box` и `content-box`, соответствующие местам, где может быть отрисован фоновый слой CSS. При использовании этих ключевых слов любая отрисовка фона дальше указанной области будет обрезана или вырезана.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/vYJKZba?height=650&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 650px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Свойство `background-clip` также принимает ключевое слово `text`, которое обрезает фон так, чтобы он не выходил за пределы текста в блоке содержимого. Чтобы этот эффект был заметен в тексте блока CSS, текст должен быть частично или полностью прозрачным.
+
+Это относительно новое свойство, и на момент написания статьи Chrome и большинство браузеров требуют префикс `-webkit-` для использования этого свойства.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/qBjjweL?height=650&amp;theme-id=dark&amp;default-tab=result%2Ccss&amp;editable=true" style="height: 650px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+!!!note ""
+
+    Следует также отметить, что это свойство несовместимо с одновременной установкой `background-clip: text` для блока CSS.
+
+## Несколько фоновых слоев
+
+Как уже упоминалось в начале модуля, фоновый слой позволяет определить несколько подслоев. Для краткости я буду называть эти подслои фонами.
+
+Несколько фонов задаются сверху вниз; первый фон находится ближе всего к пользователю, а последний - дальше всего от него.
+
+Единственный определенный фон или последний слой обозначается браузером как _финальный фоновый слой_. Только этому слою разрешается назначать `background-color`.
+
+!!!note ""
+
+    Учитывая непредсказуемость Интернета, фоновое изображение может не загрузиться. Установка цвета фона на последнем слое обеспечивает хороший контраст для текста и т. д., если важные фоновые слои не загрузятся.
+
+Несколько слоев могут быть настроены индивидуально с помощью большинства CSS-свойств, связанных с фоном, которые разделяются запятыми, как показано в приведенном ниже фрагменте кода и демонстрационном примере.
 
 ```css
-background-position: left 50%;
-```
-
-{% endCompare %}
-
-{% Compare 'better' %}
-
-```css
-background-position: top left;
-```
-
-{% endCompare %}
-
-
-{% Compare 'better' %}
-
-```css
-background-position: left top;
-```
-
-{% CompareCaption %}
-
-Order does not matter for keywords associated with different axes of position.
-
-{% endCompareCaption %}
-
-{% endCompare %}
-
-
-{% Compare 'worse' %}
-
-```css
-  background-position: 50% left;
-```
-
-{% CompareCaption %}
-
-When CSS values are used alongside keywords, the order matters. The first value represents the horizontal axis and the second the vertical axis.
-{% endCompareCaption %}
-
-{% endCompare%}
-
-{% Compare 'worse' %}
-
-```css
-  background-position: left right;
-```
-
-{% CompareCaption %}
-
-You cannot use keywords associated with the same axis simultaneously.
-
-{% endCompareCaption %}
-
-{% endCompare %}
-
-
-The `background-position` property also has a convenient one value shorthand; the omitted value resolves to `50%`.  Here's an example that demonstrates this using the keywords the `background-position` property accepts:
-
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'YzxWQqx',
-  theme: 'dark',
-  height: 950,
-  tab: 'result'
-} %}
-</figure>
-
-In addition to its default two parameter form and one parameter form; the `background-position` property also accepts up to four parameters;
-
-When three or four parameters are used, a CSS length or percentage must be preceded by the `top`, `left`, `right`, or `bottom` keywords in order for the browser to calculate which edge of the CSS box the offset should originate from.
-
-When three parameters are used, a CSS length or value can be the second or third parameter with the other two being keywords; the keyword it succeeds will be used to determine the edge the CSS length or value corresponds to being the offset of. The offset of the other keyword specified is set to 0.
-
-
-
-{% Compare 'better' %}
-
-```css
-background-position: bottom 88% right;
-```
-
-{% endCompare %}
-
-{% Compare 'better' %}
-
-```css
-background-position: right bottom 88%;
-```
-
-{% endCompare %}
-
-{% Compare 'worse' %}
-
-```css
-background-position: 88% bottom right;
-```
-
-{% CompareCaption %}
-CSS length value must be preceded by the `top`, `right`, `bottom`, or `left` keywords when using three or more parameters.
-{% endCompareCaption %}
-{% endCompare %}
-
-{% Compare 'better' %}
-
-```css
-background-position: bottom 88% right 33%;
-```
-
-{% endCompare %}
-
-
-{% Compare 'better' %}
-
-```css
-background-position: right 33% bottom 88%;
-```
-
-{% endCompare %}
-
-
-{% Compare 'worse' %}
-
-```css
-background-position: 88% 33% bottom left;
-```
-
-{% CompareCaption%}
-CSS length value must be preceded by the `top`, `right`, `bottom`, or `left` keywords when using three or more parameters.
-{% endCompareCaption %}
-{% endCompare %}
-
-
-If `background-position: top left 20%`is applied to a CSS background image, the image is placed at the top of the box, the `20%` value represents a 20% offset from the left of the box (on the x axis).
-
-If `background-position: top 20% left` is applied to a CSS background image, the 20% value represents a 20% offset from the top of the CSS box (on the y axis), and the image is placed at the left of the box.
-
-When four parameters are used, the two keywords are paired with two values corresponding to an offset against the origins of each keyword specified. If `background-position: bottom 20% right 30%` is applied to a background-image, the background-image is positioned 20% from the bottom, and 30% from the right of the CSS box.
-
-The following demo demonstrates this behavior:
-
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'porbwrM',
-  theme: 'dark',
-  tab: 'result'
-} %}
-</figure>
-
-Here are more examples of using the `background-position` property using a mix of CSS and keyword values:
-
-{% Aside %}
-To learn more about the nuances related to positioning backgrounds,
-check out [`background-position` on MDN](https://developer.mozilla.org/docs/Web/CSS/background-position).
-{% endAside %}
-
-## Background Size
-
-{% BrowserCompat 'css.properties.background-size' %}
-
-The `background-size` property sets the size of background images; By default background images are sized based on their intrinsic (actual) width, height, and aspect ratio.
-
-The `background-size` property uses CSS length and percentage values or specific keywords.  The property accepts up to two parameters corresponding to allowing you to change width and height of a background independently.
-
-The `background-size` property accepts the following keywords:
-
-* `auto`: When used independently, the background image is sized based on its intrinsic width and height; when `auto` is used alongside another CSS value for the width (first parameter) or height (second parameter), the dimension set to `auto` is sized as needed to maintain the natural aspect ratio of the image. This is the default behavior of the `background-size` property.
-* `cover`: Covers the entire area of the background layer. This may mean the image is stretched or cropped.
-* `contain`:  Sizes the image to fill the space  without stretching or cropping. As a result, empty space can remain that will cause the image to repeat, unless `background-repeat` is set to `no-repeat`.
-
-The latter 2 are intended to be used in a standalone fashion without another parameter.
-
-The following demo demonstrates these keywords in action:
-
-Demo demonstrating applying these keywords to `background-size`:
-
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'YzxWQYY',
-  theme: 'dark',
-  height: 700,
-  tab: 'result'
-} %}
-</figure>
-
-## Background attachment
-
-{% BrowserCompat 'css.properties.background-attachment' %}
-
-The `background-attachment` property enables you to modify the fixed position behavior of background images (images part of a background layer) once the layer is visible on a screen.
-
-It accepts 3 keywords: `scroll`, `fixed`, and `local`.
-
-The default behavior of the `background-attachment` property is the initial value of `scroll`. When more space is needed, the images move with that space within the background layer determined by the bounds of the CSS box.
-
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'mdwwzOe',
-  theme: 'dark',
-  height: 1000,
-  tab: 'result'
-} %}
-</figure>
-
-Using the value `fixed` fixes the position of background images to the viewport.
-
-Once the space of the background layer images originally takes up needs to be scrolled (or rendered) offscreen, images within the background layer stay fixed in the original position the background layer enabled them to be until the entire layer is scrolled off screen by the viewport.
-
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'MWoozvN',
-  theme: 'dark',
-  height: 1000,
-  tab: 'result'
-} %}
-</figure>
-
-The `local` keyword enables the position of background images to be fixed relative to the element's contents. Background images now move along the space they occupy as that space renders inside and outside the bounds of the CSS box (usually due to scrolling, 2D, or 3D transformations).
-
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'WNExZmK',
-  theme: 'dark',
-  height: 1000,
-  tab: 'result'
-} %}
-</figure>
-
-## Background origin
-
-{% BrowserCompat 'css.properties.background-origin' %}
-
-The `background-origin` property enables you to modify the area of backgrounds associated with a particular box. The values the property accepts correspond to the `border-box` , `padding-box`, and `content-box` regions of a box .
-
-Try these options out using the following demo:
-
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'ExvyXeZ',
-  theme: 'dark',
-  height: 650,
-  tab: 'result'
-} %}
-</figure>
-
-## Background clip
-
-{% BrowserCompat 'css.properties.background-clip' %}
-
-The `background-clip` property controls what is visually seen from a background layer regardless of the bounds created by the `background-origin` property.
-
-Like `background-origin` the regions that can be specified are `border-box`, `padding-box`, and `content-box` corresponding to where a CSS background layer can be rendered. When these keywords are used, any rendering of the background further than the region specified will be cropped or clipped.
-
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'vYJKZba',
-  theme: 'dark',
-  height: 650,
-  tab: 'result'
-} %}
-</figure>
-
-The `background-clip` property also accepts a `text` keyword that clips the background to be no further than the text within the content box.  For this effect to be evident in the actual text within a CSS box, the text must be partially or completely transparent.
-
-A relatively new property, at the time of this writing, Chrome and most browsers require the `-webkit-` prefix to use this property.
-
-{% BrowserCompat 'css.properties.background-clip' %}
-
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'qBjjweL',
-  theme: 'dark',
-  height: 650,
-  tab: 'result,css'
-} %}
-</figure>
-
-{% Aside 'gotchas' %}
-It should be also noted this property is not compatible with `background-clip: text` being simultaneously set on a CSS box.
-{% endAside %}
-
-
-## Multiple backgrounds
-
-As mentioned at the beginning of the module, the background layer allows multiple sublayers to be defined. For brevity, I'll refer to these sublayers as backgrounds.
-
-Multiple backgrounds are defined top to bottom; The first background is the closest to the user, while the last background is the furthest from the user.
-
-The only background defined or the last layer is designated the *final background layer* by the browser. Only this layer is allowed to assign a `background-color`.
-
-{% Aside %}
-With the unpredictability of the web in mind, a background-image may fail to load. Setting a background-color on the final layer ensures good contrast for text and so on if important background layers fail to load.
-{% endAside %}
-
-
-Multiple layers can be individually configured using most background-related CSS properties that are comma separated, as demonstrated in the code snippet and live demo below.
-
-```css
-background-image: url("https://assets.codepen.io/7518/pngaaa.com-1272986.png"),
-    url("https://assets.codepen.io/7518/blob.svg"),
+background-image: url('https://assets.codepen.io/7518/pngaaa.com-1272986.png'),
+    url('https://assets.codepen.io/7518/blob.svg'),
     linear-gradient(hsl(191deg, 40%, 86%), hsla(191deg, 96%, 96%, 0.5));
-  background-size: contain, cover, auto;
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: 50% 50%, 10% 50%, 0% 0%;
-  background-origin: padding-box, border-box, content-box;
+background-size: contain, cover, auto;
+background-repeat: no-repeat, no-repeat, no-repeat;
+background-position: 50% 50%, 10% 50%, 0% 0%;
+background-origin: padding-box, border-box, content-box;
 ```
-<figure>
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'dyRzQBz',
-  theme: 'dark',
-  height: 650,
-  tab: 'css'
-} %}
-</figure>
 
-## The background shorthand
+<iframe src="https://codepen.io/web-dot-dev/embed/dyRzQBz?height=650&amp;theme-id=dark&amp;default-tab=css&amp;editable=true" style="height: 650px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-To make it easier to style the background layer of a box-especially when multiple background layers are desired–there is a shorthand that follows the following specific pattern:
+## Короткое описание фона
+
+Для облегчения стилизации фонового слоя блока, особенно если требуется несколько фоновых слоев, существует сокращение, которое выглядит следующим образом:
 
 ```css
-background:
-  <background-image>
-  <background-position> / <background-size>?
-  <background-repeat>
-  <background-attachment>
-  <background-origin>
-  <background-clip>
-  <background-color>?
+background: <background-image> <background-position> /
+    <background-size>? <background-repeat>
+    <background-attachment> <background-origin>
+    <background-clip> <background-color>?;
 ```
 
-{% Aside 'gotchas' %}
-It's important to note that any background properties omitted in the shorthand are set to their initial values.
-{% endAside %}
+!!!warning "Внимание"
 
-Order is important in the shorthand form of declaring multiple backgrounds. The position and size values must both be provided, separated by a slash (`/`). Declaring the origin and clip behavior in the correct order allows you take advantage of setting keywords that are valid for both simultaneously
+    Важно отметить, что все свойства фона, опущенные в сокращении, устанавливаются в свои начальные значения.
 
-The following declaration clips the background, and originates it from the content box:
+Порядок важен при сокращенной форме объявления нескольких фонов. Значения `position` и `size` должны быть указаны оба, разделенные косой чертой (`/`). Объявление поведения `origin` и `clip` в правильном порядке позволяет воспользоваться преимуществами установки ключевых слов, которые действительны для обоих одновременно
+
+В следующем объявлении фон обрезается и берется из блока содержимого:
 
 ```css
-background: url("https://assets.codepen.io/7518/blob.svg") 50%
-      50% / contain no-repeat content-box;
+background: url('https://assets.codepen.io/7518/blob.svg')
+    50% 50% / contain no-repeat content-box;
 ```
 
-With these shorthand semantics in mind, the previous background-related declarations of the code snippet could be rewritten to be following:
+С учетом этой сокращенной семантики предыдущие объявления, связанные с фоном, в данном фрагменте кода могут быть переписаны следующим образом:
 
 ```css
-background: url("https://assets.codepen.io/7518/pngaaa.com-1272986.png") 50% 50%/contain no-repeat padding-box, url("https://assets.codepen.io/7518/blob.svg") 10% 50% / cover border-box, linear-gradient(hsl(191deg, 40%, 86%), hsla(191deg, 96%, 96%, 0.5) ) 0% 0% / cover no-repeat content-box ;
+background: url('https://assets.codepen.io/7518/pngaaa.com-1272986.png')
+        50% 50% / contain no-repeat padding-box, url('https://assets.codepen.io/7518/blob.svg')
+        10% 50% / cover border-box,
+    linear-gradient(
+            hsl(191deg, 40%, 86%),
+            hsla(191deg, 96%, 96%, 0.5)
+        ) 0% 0% / cover no-repeat content-box;
 ```
 
-{% Assessment 'backgrounds' %}
+:information_source: Источник &mdash; [Backgrounds](https://web.dev/learn/css/backgrounds/)
