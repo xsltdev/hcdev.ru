@@ -17,7 +17,7 @@ icon: material/select-compare
 
     === "Английский оригинал"
 
-    	<audio style="width: 100%;" controls src="/learn/css3/pseudo-elements.en.mp3"></audio>
+    	<audio style="width: 100%;" controls src="/learn/css3/pseudo-elements.en.ogg"></audio>
 
 Если у вас есть статья с контентом, и вы хотите, чтобы первая буква была более крупной — как этого добиться?
 

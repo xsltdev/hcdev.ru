@@ -11,7 +11,7 @@ icon: material/content-copy
 
     005: Наследование
 
-    <audio style="width: 100%;" controls src="/learn/css3/inheritance.en.mp3"></audio>
+    <audio style="width: 100%;" controls src="/learn/css3/inheritance.en.ogg"></audio>
 
 Допустим, вы только что написали несколько CSS для придания элементам вида кнопки.
 

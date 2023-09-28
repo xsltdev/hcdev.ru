@@ -11,7 +11,7 @@ icon: material/party-popper
 
     012: Логические свойства
 
-    <audio style="width: 100%;" controls src="/learn/css3/logical-properties.en.mp3"></audio>
+    <audio style="width: 100%;" controls src="/learn/css3/logical-properties.en.ogg"></audio>
 
 Очень распространенным шаблоном пользовательского интерфейса является текстовая метка с поддерживающим ее встроенным значком.
 

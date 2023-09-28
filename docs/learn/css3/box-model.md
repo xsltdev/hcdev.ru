@@ -11,7 +11,7 @@ icon: material/drawing-box
 
     001: Блочная модель
 
-    <audio style="width: 100%;" controls src="/learn/css3/box-model.en.mp3"></audio>
+    <audio style="width: 100%;" controls src="/learn/css3/box-model.en.ogg"></audio>
 
 Допустим, у вас есть такой фрагмент HTML:
 

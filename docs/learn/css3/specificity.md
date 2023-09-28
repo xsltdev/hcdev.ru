@@ -11,7 +11,7 @@ icon: material/shape-circle-plus
 
     003: Специфичность
 
-    <audio style="width: 100%;" controls src="/learn/css3/specificity.en.mp3"></audio>
+    <audio style="width: 100%;" controls src="/learn/css3/specificity.en.ogg"></audio>
 
 Предположим, что вы работаете со следующими HTML и CSS:
 
