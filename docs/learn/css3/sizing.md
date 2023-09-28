@@ -11,7 +11,7 @@ icon: material/pencil-ruler-outline
 
     008: Единицы измерения
 
-    <audio style="width: 100%;" controls src="/learn/css3/sizing.en.mp3"></audio>
+    <audio style="width: 100%;" controls src="/learn/css3/sizing.en.ogg"></audio>
 
 Веб — это отзывчивая среда, но иногда для улучшения общего качества интерфейса необходимо контролировать его размеры. Хорошим примером этого является ограничение длины строк для улучшения читаемости. Как это сделать в такой гибкой среде, как веб?
 

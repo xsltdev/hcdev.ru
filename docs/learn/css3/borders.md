@@ -11,7 +11,7 @@ icon: material/border-style
 
     016: Границы
 
-    <audio style="width: 100%;" controls src="/learn/css3/borders.en.mp3"></audio>
+    <audio style="width: 100%;" controls src="/learn/css3/borders.en.ogg"></audio>
 
 В модуле [модель блока](box-model.md) мы рассмотрели аналогию с фреймом для описания каждого раздела модели блока.
 

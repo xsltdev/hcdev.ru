@@ -11,7 +11,7 @@ icon: material/filter-outline
 
     023: Фильтры
 
-    <audio style="width: 100%;" controls src="/learn/css3/filters.en.mp3"></audio>
+    <audio style="width: 100%;" controls src="/learn/css3/filters.en.ogg"></audio>
 
 Допустим, вам необходимо создать элемент с эффектом матового стекла, слегка непрозрачный, который располагается поверх изображения. При этом текст должен быть живым текстом, а не изображением. Как это сделать?
 

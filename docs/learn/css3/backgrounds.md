@@ -13,7 +13,7 @@ icon: material/image-outline
 
     === "Английский оригинал"
 
-    	<audio style="width: 100%;" controls src="/learn/css3/backgrounds.en.mp3"></audio>
+    	<audio style="width: 100%;" controls src="/learn/css3/backgrounds.en.ogg"></audio>
 
 За каждым блоком CSS скрывается специализированный слой, называемый фоновым. CSS предоставляет множество возможностей для внесения в него значимых изменений, в том числе и возможность использования нескольких фоновых слоев.
 

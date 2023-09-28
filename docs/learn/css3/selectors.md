@@ -11,7 +11,7 @@ icon: material/select-drag
 
     002: Селекторы
 
-    <audio style="width: 100%;" controls src="/learn/css3/selectors.en.mp3"></audio>
+    <audio style="width: 100%;" controls src="/learn/css3/selectors.en.ogg"></audio>
 
 Если у вас есть текст, который вы хотите сделать более крупным и красным, только если это первый абзац статьи, как это сделать?
 

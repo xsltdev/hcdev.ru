@@ -11,7 +11,7 @@ icon: material/grid
 
     011: Grid
 
-    <audio style="width: 100%;" controls src="/learn/css3/grid.en.mp3"></audio>
+    <audio style="width: 100%;" controls src="/learn/css3/grid.en.ogg"></audio>
 
 В веб-дизайне очень часто встречается компоновка, состоящая из верхнего, бокового, основного и нижнего колонтитулов.
 

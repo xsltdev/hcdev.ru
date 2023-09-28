@@ -11,7 +11,7 @@ icon: material/format-paragraph-spacing
 
     013: Интервалы
 
-    <audio style="width: 100%;" controls src="/learn/css3/spacing.en.mp3"></audio>
+    <audio style="width: 100%;" controls src="/learn/css3/spacing.en.ogg"></audio>
 
 Допустим, у вас есть коллекция из трех блоков, поставленных друг на друга, и вам нужно пространство между ними. Сколько способов сделать это в CSS вы можете придумать?
 
