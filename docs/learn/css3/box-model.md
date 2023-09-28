@@ -115,11 +115,9 @@ Browser DevTools предоставляет визуализацию расче�
 2.  [Select an element](https://developer.chrome.com/docs/devtools/css/reference/#select)
 3.  Показать отладчик блочной модели
 
-<figure>
 <video controls>
-<source src="/learn/css3/box-model-1.mp4" />
+<source src="/learn/css3/box-model-1.mp4" type="video/mp4" />
 </video>
-</figure>
 
 ## Управление блочной моделью
 
