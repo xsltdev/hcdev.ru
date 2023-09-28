@@ -11,9 +11,9 @@ icon: material/blender-outline
 
     024: Режимы наложения
 
-    <audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP024_TCP_CSS_Podcast_Episode_024_v1.0.mp3?dest-id=1891556"></audio>
+    <audio style="width: 100%;" controls src="/learn/css3/blend-modes.en.mp3"></audio>
 
-[Duotone](https://en.wikipedia.org/wiki/Duotone) - популярная цветовая обработка фотографий, при которой изображение выглядит так, как будто оно состоит только из двух контрастных цветов: один - для бликов, другой - для низких. Однако как это сделать в CSS?
+[Duotone](https://en.wikipedia.org/wiki/Duotone) — популярная цветовая обработка фотографий, при которой изображение выглядит так, как будто оно состоит только из двух контрастных цветов: один — для бликов, другой — для низких. Однако как это сделать в CSS?
 
 <iframe src="https://codepen.io/web-dot-dev/embed/bGgvYMG?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
@@ -25,13 +25,13 @@ icon: material/blender-outline
 
 <iframe src="https://codepen.io/web-dot-dev/embed/dyNmJor?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-С помощью CSS можно использовать большинство режимов наложения, доступных в инструментах дизайна, используя свойства [`mix-blend-mode`](../../css/mix-blend-mode.md) или [`background-blend-mode`](../../css/background-blend-mode.md). Свойство `mix-blend-mode` применяет смешивание ко всему элементу, а `background-blend-mode` - к фону элемента.
+С помощью CSS можно использовать большинство режимов наложения, доступных в инструментах дизайна, используя свойства [`mix-blend-mode`](../../css/mix-blend-mode.md) или [`background-blend-mode`](../../css/background-blend-mode.md). Свойство `mix-blend-mode` применяет смешивание ко всему элементу, а `background-blend-mode` — к фону элемента.
 
 Свойство `background-blend-mode` используется при наличии нескольких фонов у элемента и необходимости их взаимного смешивания.
 
 <iframe src="https://codepen.io/web-dot-dev/embed/XWpEVGO?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Режим `mix-blend-mode` влияет на весь элемент, включая его псевдоэлементы. Один из примеров использования - в исходном примере дуотонового изображения, в котором цветовые слои накладываются на элемент через его псевдоэлементы.
+Режим `mix-blend-mode` влияет на весь элемент, включая его псевдоэлементы. Один из примеров использования — в исходном примере дуотонового изображения, в котором цветовые слои накладываются на элемент через его псевдоэлементы.
 
 <iframe src="https://codepen.io/web-dot-dev/embed/bGgvYMG?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
@@ -55,7 +55,7 @@ icon: material/blender-outline
 
 ### Multiply
 
-Режим наложения `multiply` похож на наложение нескольких прозрачностей друг на друга. Белые пиксели будут выглядеть прозрачными, а черные - черными. Все, что находится между ними, будет умножать свои значения светимости (освещенности). Это означает, что светлые пикселы становятся намного светлее, а темные - темнее, что чаще всего приводит к получению более темного результата.
+Режим наложения `multiply` похож на наложение нескольких прозрачностей друг на друга. Белые пиксели будут выглядеть прозрачными, а черные — черными. Все, что находится между ними, будет умножать свои значения светимости (освещенности). Это означает, что светлые пикселы становятся намного светлее, а темные — темнее, что чаще всего приводит к получению более темного результата.
 
 ```css
 .my-element {
@@ -67,7 +67,7 @@ icon: material/blender-outline
 
 ### Screen
 
-Использование `screen` умножает значения _света_ - эффект, обратный эффекту `multiply`, и чаще всего приводит к более яркому результату.
+Использование `screen` умножает значения _света_ — эффект, обратный эффекту `multiply`, и чаще всего приводит к более яркому результату.
 
 ```css
 .my-element {
@@ -79,7 +79,7 @@ icon: material/blender-outline
 
 ### Overlay
 
-Этот режим наложения - `overlay` - сочетает в себе `multiply` и `screen`. Базовые темные цвета становятся темнее, а базовые светлые - светлее. Средние цвета, такие как 50% серый, не затрагиваются.
+Этот режим наложения — `overlay` — сочетает в себе `multiply` и `screen`. Базовые темные цвета становятся темнее, а базовые светлые — светлее. Средние цвета, такие как 50% серый, не затрагиваются.
 
 ```css
 .my-element {

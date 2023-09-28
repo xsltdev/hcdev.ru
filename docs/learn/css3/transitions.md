@@ -13,7 +13,7 @@ icon: material/transition
 
     === "Английский оригинал"
 
-    	<audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP053_v1.mp3?dest-id=1891556"></audio>
+    	<audio style="width: 100%;" controls src="/learn/css3/transitions.en.mp3"></audio>
 
 При взаимодействии с веб-сайтом можно заметить, что многие элементы имеют _состояние_. Например, выпадающие окна могут находиться в открытом или закрытом состоянии. Кнопки могут менять цвет при фокусировке или наведении. Модальные окна появляются и исчезают.
 
@@ -23,7 +23,7 @@ icon: material/transition
 
 !!!tip "Ключевые понятия"
 
-    **Интерполяция** - это процесс создания "промежуточных" шагов, плавно переходящих из одного состояния в другое.
+    **Интерполяция** — это процесс создания "промежуточных" шагов, плавно переходящих из одного состояния в другое.
 
 <iframe src="https://codepen.io/web-dot-dev/embed/zYzNrJV?height=320&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
@@ -120,7 +120,7 @@ CSS-свойство [`transform`](../../css/transform.md) часто испол
 
 До, во время и после взаимодействия цвет может быть отличным индикатором состояния. Например, кнопка может менять цвет при наведении на нее курсора. Это изменение цвета может служить сигналом для пользователя о том, что на кнопку можно нажать.
 
-Свойства `color`, `background-color` и `border-color` - это лишь несколько мест, где цвет может быть изменен при взаимодействии.
+Свойства `color`, `background-color` и `border-color` — это лишь несколько мест, где цвет может быть изменен при взаимодействии.
 
 !!!note ""
 
@@ -138,7 +138,7 @@ CSS-свойство [`transform`](../../css/transform.md) часто испол
 
 ### Фильтры
 
-[`filter`](../../css/filter.md) - это мощное CSS-свойство, позволяющее добавлять графические эффекты "на лету". Переход между различными состояниями `filter` может дать весьма впечатляющие результаты.
+[`filter`](../../css/filter.md) — это мощное CSS-свойство, позволяющее добавлять графические эффекты "на лету". Переход между различными состояниями `filter` может дать весьма впечатляющие результаты.
 
 <iframe src="https://codepen.io/web-dot-dev/embed/PojWZxJ?height=350&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
@@ -205,7 +205,7 @@ CSS-свойство [`transform`](../../css/transform.md) часто испол
 }
 ```
 
-Более подробную информацию об этой медиафункции см. в нашем блоге [prefers-reduced-motion: Иногда меньше движения - лучше](https://web.dev/prefers-reduced-motion/).
+Более подробную информацию об этой медиафункции см. в нашем блоге [prefers-reduced-motion: Иногда меньше движения — лучше](https://web.dev/prefers-reduced-motion/).
 
 !!!note ""
 

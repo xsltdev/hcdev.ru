@@ -5,7 +5,7 @@ icon: material/text-box-outline
 
 # Текст и типографика
 
-<big>В этом модуле вы узнаете, как стилизовать текст в Интернете.</big>
+<big>В этом модуле вы узнаете, как **стилизовать текст** в Интернете.</big>
 
 !!!info "CSS подкаст"
 
@@ -13,9 +13,9 @@ icon: material/text-box-outline
 
     === "Английский оригинал"
 
-    	<audio style="width: 100%;" controls src="https://traffic.libsyn.com/secure/thecsspodcast/TCP036_v2.mp3?dest-id=1891556"></audio>
+    	<audio style="width: 100%;" controls src="/learn/css3/typography.en.mp3"></audio>
 
-Текст - один из основных элементов веб-страниц.
+Текст — один из основных элементов веб-страниц.
 
 При создании сайта не обязательно придавать тексту стиль: в HTML по умолчанию заложены вполне приемлемые стили.
 
@@ -29,7 +29,7 @@ icon: material/text-box-outline
 
 Используйте свойство [`font-family`](../../css/font-family.md) для изменения начертания шрифта в тексте.
 
-Свойство `font-family` принимает список строк, разделенных запятыми, относящихся либо к _конкретным_, либо к _общим_ семействам шрифтов. Конкретные семейства шрифтов - это строки, заключенные в кавычки, такие как "Helvetica", "EB Garamond" или "Times New Roman". Общими семействами шрифтов являются ключевые слова `serif`, `sans-serif` и `monospace` ([полный список вариантов](../../css/font-family.md#значения)). Браузер отобразит первый доступный шрифт из представленного списка.
+Свойство `font-family` принимает список строк, разделенных запятыми, относящихся либо к _конкретным_, либо к _общим_ семействам шрифтов. Конкретные семейства шрифтов — это строки, заключенные в кавычки, такие как "Helvetica", "EB Garamond" или "Times New Roman". Общими семействами шрифтов являются ключевые слова `serif`, `sans-serif` и `monospace` ([полный список вариантов](../../css/font-family.md#значения)). Браузер отобразит первый доступный шрифт из представленного списка.
 
 !!!note ""
 
@@ -219,7 +219,7 @@ icon: material/text-box-outline
 
 ## Переменные шрифты
 
-Как правило, "обычные" шрифты требуют импорта различных файлов для разных версий шрифта, например, жирного, курсивного или конденсированного. Переменные шрифты - это шрифты, которые могут содержать множество различных вариантов шрифта в одном файле.
+Как правило, "обычные" шрифты требуют импорта различных файлов для разных версий шрифта, например, жирного, курсивного или конденсированного. Переменные шрифты — это шрифты, которые могут содержать множество различных вариантов шрифта в одном файле.
 
 <figure>
 <video controls autoplay loop muted>
@@ -234,7 +234,7 @@ icon: material/text-box-outline
 
 !!!note "Ключевые понятия"
 
-    **Псевдоэлемент** - это часть элемента, на которую можно нацелиться с помощью ключевых слов CSS без необходимости добавлять дополнительный HTML. Ознакомьтесь с [нашим модулем по псевдоэлементам](pseudo-elements.md) для более глубокого изучения этой темы!
+    **Псевдоэлемент** — это часть элемента, на которую можно нацелиться с помощью ключевых слов CSS без необходимости добавлять дополнительный HTML. Ознакомьтесь с [нашим модулем по псевдоэлементам](pseudo-elements.md) для более глубокого изучения этой темы!
 
 ## Псевдоэлементы `::first-letter` и `::first-line`
 
@@ -252,7 +252,7 @@ icon: material/text-box-outline
 
 ## `font-variant`
 
-Свойство [`font-variant`](../../css/font-variant.md) - это сокращение для ряда CSS-свойств, позволяющих выбирать такие варианты шрифтов, как `small-caps` и `slashed-zero`. К таким CSS-свойствам относятся [`font-variant-alternates`](../../css/font-variant-alternates.md), [`font-variant-caps`](../../css/font-variant-caps.md), [`font-variant-east-asian`](../../css/font-variant-east-asian.md), [`font-variant-ligatures`](../../css/font-variant-ligatures.md) и [`font-variant-numeric`](../../css/font-variant-numeric.md). Более подробную информацию об использовании каждого свойства можно найти по ссылкам.
+Свойство [`font-variant`](../../css/font-variant.md) — это сокращение для ряда CSS-свойств, позволяющих выбирать такие варианты шрифтов, как `small-caps` и `slashed-zero`. К таким CSS-свойствам относятся [`font-variant-alternates`](../../css/font-variant-alternates.md), [`font-variant-caps`](../../css/font-variant-caps.md), [`font-variant-east-asian`](../../css/font-variant-east-asian.md), [`font-variant-ligatures`](../../css/font-variant-ligatures.md) и [`font-variant-numeric`](../../css/font-variant-numeric.md). Более подробную информацию об использовании каждого свойства можно найти по ссылкам.
 
 <iframe src="https://codepen.io/web-dot-dev/embed/eYEroBa?height=260&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
