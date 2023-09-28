@@ -49,7 +49,7 @@ icon: material/transition
 
 ### `transition-duration`
 
-Свойство [`transition-duration`](.../.../css/transition-duration.md) используется для определения времени, в течение которого будет завершен переход.
+Свойство [`transition-duration`](../../css/transition-duration.md) используется для определения времени, в течение которого будет завершен переход.
 
 <iframe src="https://codepen.io/web-dot-dev/embed/wvegMYp?height=400&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 

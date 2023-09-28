@@ -15,11 +15,11 @@ hide:
 
     Язык гипертекстовой разметки документов
 
-    **[:octicons-arrow-right-24: Справочник тегов HTML5](/html/)**
+    **[:octicons-arrow-right-24: Справочник тегов HTML5](./html/index.md)**
 
-    [:octicons-arrow-right-24: Глобальные атрибуты](/html/uni-attr/)
+    [:octicons-arrow-right-24: Глобальные атрибуты](./html/uni-attr.md)
 
-    [:octicons-arrow-right-24: MIME-типы](/html/list-mime-types/)
+    [:octicons-arrow-right-24: MIME-типы](./html/list-mime-types.md)
 
 -   :simple-css3:{ .lg .middle } **CSS**
 
@@ -27,11 +27,11 @@ hide:
 
     Язык описания внешнего вида веб-страниц
 
-    **[:octicons-arrow-right-24: Справочник свойств CSS3](/css/)**
+    **[:octicons-arrow-right-24: Справочник свойств CSS3](./css/index.md)**
 
-    [:octicons-arrow-right-24: Flexbox](/learn/flex/)
+    [:octicons-arrow-right-24: Flexbox](./learn/flex/index.md)
 
-    [:octicons-arrow-right-24: Grid Layout](/learn/grid/)
+    [:octicons-arrow-right-24: Grid Layout](./learn/grid/index.md)
 
 -   :material-school-outline:{ .lg .middle } **Учебники**
 
@@ -39,7 +39,7 @@ hide:
 
     Учебники по веб-технологиям
 
-    **[:octicons-arrow-right-24: Учебник HTML5](learn/html5/index.md)** <small>web.dev</small>
+    **[:octicons-arrow-right-24: Учебник HTML5](./learn/html5/index.md)** <small>web.dev</small>
 
     **[:octicons-arrow-right-24: Учебник CSS3](./learn/css3/index.md)** <small>web.dev</small>
 

@@ -67,10 +67,10 @@ grid-auto-rows: 100px 150px 390px;
 grid-auto-rows: 10% 33.3%;
 grid-auto-rows: 0.5fr 3fr 1fr;
 grid-auto-rows: minmax(100px, auto) minmax(max-content, 2fr)
-  minmax(20%, 80vmax);
+    minmax(20%, 80vmax);
 grid-auto-rows: 100px minmax(100px, auto) 10% 0.5fr fit-content(
-    400px
-  );
+        400px
+    );
 
 /* Global values */
 grid-auto-rows: inherit;
@@ -90,7 +90,7 @@ grid-auto-rows: unset;
 
 ## Спецификации
 
-- [CSS Grid Layout](https://drafts.csswg.org/css-grid/#propdef-grid-auto-rows)
+-   [CSS Grid Layout](https://drafts.csswg.org/css-grid/#propdef-grid-auto-rows)
 
 ## Поддержка браузерами
 
@@ -104,9 +104,9 @@ HTML
 
 ```html
 <div id="grid">
-  <div id="item1"></div>
-  <div id="item2"></div>
-  <div id="item3"></div>
+    <div id="item1"></div>
+    <div id="item2"></div>
+    <div id="item3"></div>
 </div>
 ```
 
@@ -114,15 +114,15 @@ CSS
 
 ```css
 #grid {
-  width: 200px;
-  display: grid;
-  grid-template-areas: 'a a';
-  grid-gap: 10px;
-  grid-auto-rows: 100px;
+    width: 200px;
+    display: grid;
+    grid-template-areas: 'a a';
+    grid-gap: 10px;
+    grid-auto-rows: 100px;
 }
 
 #grid > div {
-  background-color: lime;
+    background-color: lime;
 }
 ```
 
@@ -132,4 +132,4 @@ CSS
 
 ## См. также
 
-- [Руководство по Grid Layout](/grid/)
+-   [Руководство по Grid Layout](../learn/grid/index.md)

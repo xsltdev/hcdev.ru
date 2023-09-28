@@ -94,7 +94,7 @@ description: Тег u (от англ. underline — подчеркнутый) и
 
 ## См. также
 
--   [`text-decoration`](/css/text-decoration/)
+-   [`text-decoration`](../css/text-decoration.md)
 
 ## Ссылки
 

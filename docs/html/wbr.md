@@ -107,9 +107,9 @@ description: Тег wbr (от англ. word break — разрыв слова) 
 
 ## См. также
 
--   [overflow-wrap](/css/overflow-wrap/)
--   [word-break](/css/word-break/)
--   [hyphens](/css/hyphens/)
+-   [overflow-wrap](../css/overflow-wrap.md)
+-   [word-break](../css/word-break.md)
+-   [hyphens](../css/hyphens.md)
 
 ## Ссылки
 

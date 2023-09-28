@@ -106,7 +106,7 @@ icon: material/video
 
 !!!note "Дополнительная информация"
 
-    В разделе [Аудио и видео](../accessibility/video-audio.md) раздела [Учимся доступности](../accessibility.md) более подробно рассматриваются [субтитры](../accessibility/video-audio.md#captions), [транскрипты](../accessibility/video-audio.md#transcripts) и [описания аудио](../accessibility/video-audio.md#audio-descriptions).
+    В разделе [Аудио и видео](../accessibility/video-audio.md) раздела [Учимся доступности](../accessibility/index.md) более подробно рассматриваются [субтитры](../accessibility/video-audio.md#captions), [транскрипты](../accessibility/video-audio.md#transcripts) и [описания аудио](../accessibility/video-audio.md#audio-descriptions).
 
 [Предоставление титров и субтитров](https://developer.mozilla.org/docs/Web/Guide/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video) с использованием формата [WebVTT](https://developer.mozilla.org/docs/Web/API/WebVTT_API) делает видео доступным для людей с нарушениями слуха. Помните, что инвалидность — это несоответствие между человеком и окружающей его средой. Нарушение слуха может быть вызвано тем, что пользователь находится в шумной обстановке, у него неисправны динамики или сломаны наушники, а также тем, что он потерял слух или оглох. Обеспечение доступности вашего контента помогает гораздо большему числу людей, чем вы думаете; оно помогает всем.
 

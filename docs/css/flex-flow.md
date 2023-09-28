@@ -71,8 +71,8 @@ flex-flow: unset;
 
 Значение по-умолчанию:
 
-- [`flex-direction`](flex-direction.md): `row`
-- [`flex-wrap`](flex-wrap.md): `nowrap`
+-   [`flex-direction`](flex-direction.md): `row`
+-   [`flex-wrap`](flex-wrap.md): `nowrap`
 
 Наследуется: нет
 
@@ -88,7 +88,7 @@ Safari до версии 9 поддерживает свойство `-webkit-fl
 
 ## Спецификации
 
-- [CSS Flexible Box Layout Module](https://www.w3.org/TR/css-flexbox/#propdef-flex-flow)
+-   [CSS Flexible Box Layout Module](https://www.w3.org/TR/css-flexbox/#propdef-flex-flow)
 
 ## Поддержка браузерами
 
@@ -98,4 +98,4 @@ Safari до версии 9 поддерживает свойство `-webkit-fl
 
 ## См. также
 
-- [Руководство по Flexbox](/flex/)
+-   [Руководство по Flexbox](../learn/flex/index.md)

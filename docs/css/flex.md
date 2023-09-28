@@ -79,9 +79,9 @@ flex: unset;
 
 Значение по-умолчанию:
 
-- [`flex-grow`](/css/flex-grow/): `0`
-- [`flex-shrink`](/css/flex-shrink/): `1`
-- [`flex-basis`](/css/flex-basis/): `auto`
+-   [`flex-grow`](flex-grow.md): `0`
+-   [`flex-shrink`](flex-shrink.md): `1`
+-   [`flex-basis`](flex-basis.md): `auto`
 
 Наследуется: нет
 
@@ -89,8 +89,7 @@ flex: unset;
 
 Анимируется: да
 
-`none`
-: Соответствует значению `0 0 auto`.
+`none` : Соответствует значению `0 0 auto`.
 
 !!! note "Примечание"
 
@@ -98,7 +97,7 @@ flex: unset;
 
 ## Спецификации
 
-- [CSS Flexible Box Layout Module](https://www.w3.org/TR/css-flexbox/#flex-property)
+-   [CSS Flexible Box Layout Module](https://www.w3.org/TR/css-flexbox/#flex-property)
 
 ## Поддержка браузерами
 
@@ -112,16 +111,16 @@ CSS
 
 ```css
 #flex-container {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 #flex-container > .flex-item {
-  flex: auto;
+    flex: auto;
 }
 
 #flex-container > .raw-item {
-  width: 5rem;
+    width: 5rem;
 }
 ```
 
@@ -129,10 +128,10 @@ HTML
 
 ```html
 <div id="flex-container">
-  <div class="flex-item" id="flex">
-    Flex box (click to toggle raw box)
-  </div>
-  <div class="raw-item" id="raw">Raw box</div>
+    <div class="flex-item" id="flex">
+        Flex box (click to toggle raw box)
+    </div>
+    <div class="raw-item" id="raw">Raw box</div>
 </div>
 ```
 
@@ -142,4 +141,4 @@ HTML
 
 ## См. также
 
-- [Руководство по Flexbox](/flex/)
+-   [Руководство по Flexbox](../learn/flex/index.md)

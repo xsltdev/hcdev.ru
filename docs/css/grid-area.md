@@ -69,10 +69,10 @@ grid-area: unset;
 
 Значение по-умолчанию:
 
-- grid-row-start: auto
-- grid-column-start: auto
-- grid-row-end: auto
-- grid-column-end: auto
+-   `grid-row-start: auto`
+-   `grid-column-start: auto`
+-   `grid-row-end: auto`
+-   `grid-column-end: auto`
 
 Наследуется: нет
 
@@ -84,7 +84,7 @@ grid-area: unset;
 
 ## Спецификации
 
-- [CSS Grid Layout](https://drafts.csswg.org/css-grid/#propdef-grid-area)
+-   [CSS Grid Layout](https://drafts.csswg.org/css-grid/#propdef-grid-area)
 
 ## Поддержка браузерами
 
@@ -94,43 +94,43 @@ grid-area: unset;
 
 ## Описание и примеры
 
-HTML
+=== "HTML"
 
-```html
-<div id="grid">
-  <div id="item1"></div>
-  <div id="item2"></div>
-  <div id="item3"></div>
-</div>
-```
+    ```html
+    <div id="grid">
+    	<div id="item1"></div>
+    	<div id="item2"></div>
+    	<div id="item3"></div>
+    </div>
+    ```
 
-CSS
+=== "CSS"
 
-```css
-#grid {
-  display: grid;
-  height: 100px;
-  grid-template: repeat(4, 1fr) / 50px 100px;
-}
+    ```css
+    #grid {
+    	display: grid;
+    	height: 100px;
+    	grid-template: repeat(4, 1fr) / 50px 100px;
+    }
 
-#item1 {
-  background-color: lime;
-  grid-area: 2 / 2 / auto / span 3;
-}
+    #item1 {
+    	background-color: lime;
+    	grid-area: 2 / 2 / auto / span 3;
+    }
 
-#item2 {
-  background-color: yellow;
-}
+    #item2 {
+    	background-color: yellow;
+    }
 
-#item3 {
-  background-color: blue;
-}
-```
+    #item3 {
+    	background-color: blue;
+    }
+    ```
 
-Результат
+=== "Результат"
 
-![Пример использования свойства grid-area](grid-area.png)
+    ![Пример использования свойства grid-area](grid-area.png)
 
 ## См. также
 
-- [Руководство по Grid Layout](/grid/)
+-   [Руководство по Grid Layout](../learn/grid/index.md)

@@ -131,8 +131,7 @@ https://web.dev/learn/html/forms?chk=on&chk=on&chk=on
 <input type="text" id="full_name" name="name" />
 ```
 
-<label for="full_name">Your name</label>
-<input type="text" id="full_name" name="name">
+<label for="full_name">Your name</label> <input type="text" id="full_name" name="name">
 
 Использование меток в элементах управления формы имеет ряд преимуществ. Метки делают элементы управления формами доступными для пользователей программ чтения с экрана, предоставляя элементу управления доступное имя. Ярлыки также являются "областями попадания"; они делают сайт более удобным для пользователей с проблемами ловкости рук за счет увеличения площади. Если вы пользуетесь мышью, попробуйте щелкнуть в любом месте метки "Ваше имя". В результате этого ввод становится фокусным.
 
@@ -145,9 +144,7 @@ https://web.dev/learn/html/forms?chk=on&chk=on&chk=on
 </label>
 ```
 
-<label>Your name
-<input type="text" name="name">
-</label>
+<label>Your name <input type="text" name="name"> </label>
 
 Поскольку метки являются "областью попадания", не включайте интерактивные элементы в явную метку, а также любые другие интерактивные компоненты, кроме элементов управления формы в неявную метку. Например, если вы включите в метку ссылку, то, хотя браузер отобразит HTML, ваши пользователи будут сбиты с толку, если они щелкнут на метке, чтобы войти в элемент управления формы, но будут перенаправлены на новую страницу.
 
@@ -290,7 +287,7 @@ https://web.dev/learn/html/forms?chk=on&chk=on&chk=on
 
 Существует несколько CSS-селекторов, которые подбирают элементы управления формами по наличию HTML-атрибутов, включая [`:required`](https://developer.mozilla.org/docs/Web/CSS/:required) и [`:optional`](https://developer.mozilla.org/docs/Web/CSS/:optional), если установлен или нет логический ключ [`required`](https://developer.mozilla.org/docs/Web/HTML/Attributes/required); [`:default`](https://developer.mozilla.org/docs/Web/CSS/:default), если [`checked`](https://developer.mozilla.org/docs/Web/HTML/Element/input#checked) жестко закодирован; и [`:enabled`](https://developer.mozilla.org/docs/Web/CSS/:enabled) или [`:disabled`](https://developer.mozilla.org/docs/Web/CSS/:disabled), в зависимости от того, является ли элемент интерактивным и присутствует ли атрибут [`disabled`](https://developer.mozilla.org/docs/Web/HTML/Attributes/disabled). Псевдокласс [`:read-write`](https://developer.mozilla.org/docs/Web/CSS/:read-write) соответствует элементам с набором [`contenteditable`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/contenteditable) и элементам управления формы, которые по умолчанию являются редактируемыми, например, типам ввода `number`, `password`, `text` (но не checkbox, radio buttons, тип `hidden` и др.). Если у элемента, обычно доступного для записи, установлен атрибут [`readonly`](https://developer.mozilla.org/docs/Web/HTML/Attributes/readonly), то вместо него будет использоваться [`:read-only`](https://developer.mozilla.org/docs/Web/CSS/:read-only).
 
-При вводе пользователем информации в элементы управления формы селекторы CSS UI, включая [`:valid`](https://developer.mozilla.org/docs/Web/CSS/:valid), [`:invalid`](https://developer.mozilla.org/docs/Web/CSS/:invalid), [`:in-range`](https://developer.mozilla.org/docs/Web/CSS/:in-range) и [`:out-of-range`](https://developer.mozilla.org/docs/Web/CSS/:out-of-range), будут включаться и выключаться в зависимости от состояния. При выходе пользователя из элемента управления формой будет использоваться псевдокласс [`:user-invalid`](https://developer.mozilla.org/docs/Web/CSS/:user-invalid) или [`:user-valid`](<(https://developer.mozilla.org/docs/Web/CSS/:user-valid)>), который пока еще не полностью поддерживается.
+При вводе пользователем информации в элементы управления формы селекторы CSS UI, включая [`:valid`](https://developer.mozilla.org/docs/Web/CSS/:valid), [`:invalid`](https://developer.mozilla.org/docs/Web/CSS/:invalid), [`:in-range`](https://developer.mozilla.org/docs/Web/CSS/:in-range) и [`:out-of-range`](https://developer.mozilla.org/docs/Web/CSS/:out-of-range), будут включаться и выключаться в зависимости от состояния. При выходе пользователя из элемента управления формой будет использоваться псевдокласс [`:user-invalid`](https://developer.mozilla.org/docs/Web/CSS/:user-invalid) или [`:user-valid`](https://developer.mozilla.org/docs/Web/CSS/:user-valid), который пока еще не полностью поддерживается.
 
 Вы можете использовать CSS для того, чтобы по мере взаимодействия пользователя с формой давать ему подсказки о том, являются ли элементы управления формы обязательными и действительными. Можно даже использовать CSS для предотвращения нажатия пользователем кнопки отправки до тех пор, пока форма не станет валидной:
 

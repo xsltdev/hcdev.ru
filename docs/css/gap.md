@@ -77,22 +77,22 @@ gap: unset;
 
 ## Спецификации
 
-- [CSS Box Alignment Module Level 3](https://drafts.csswg.org/css-align-3/#propdef-gap)
+-   [CSS Box Alignment Module Level 3](https://drafts.csswg.org/css-align-3/#propdef-gap)
 
 ## Поддержка браузерами
 
 `gap` для колонок (columns):
 
-- Chrome 66+
-- Edge 16+
-- Firefox 61+
+-   Chrome 66+
+-   Edge 16+
+-   Firefox 61+
 
 `gap` для Grid-раскладки:
 
-- Chrome 66+
-- Edge 16+
-- Firefox 61+
-- Safari 10.1+
+-   Chrome 66+
+-   Edge 16+
+-   Firefox 61+
+-   Safari 10.1+
 
 `gap` для Flex-раскладки:
 
@@ -108,12 +108,12 @@ HTML:
 
 ```html
 <div id="flexbox">
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
 </div>
 ```
 
@@ -121,18 +121,18 @@ CSS
 
 ```css
 #flexbox {
-  display: flex;
-  flex-wrap: wrap;
-  width: 300px;
-  gap: 20px 5px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    gap: 20px 5px;
 }
 
 #flexbox > div {
-  border: 1px solid green;
-  background-color: lime;
-  flex: 1 1 auto;
-  width: 100px;
-  height: 50px;
+    border: 1px solid green;
+    background-color: lime;
+    flex: 1 1 auto;
+    width: 100px;
+    height: 50px;
 }
 ```
 
@@ -142,15 +142,15 @@ HTML
 
 ```html
 <div id="grid">
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
 </div>
 ```
 
@@ -158,20 +158,20 @@ CSS
 
 ```css
 #grid {
-  display: grid;
-  height: 200px;
-  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-  gap: 20px 5px;
+    display: grid;
+    height: 200px;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    gap: 20px 5px;
 }
 
 #grid > div {
-  border: 1px solid green;
-  background-color: lime;
+    border: 1px solid green;
+    background-color: lime;
 }
 ```
 
 ## См. также
 
-- Свойство [`row-gap`](row-gap.md)
-- Свойство [`column-gap`](column-gap.md)
-- [Руководство по Grid Layout](/grid/)
+-   Свойство [`row-gap`](row-gap.md)
+-   Свойство [`column-gap`](column-gap.md)
+-   [Руководство по Grid Layout](../learn/grid/index.md)

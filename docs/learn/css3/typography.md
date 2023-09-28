@@ -105,7 +105,7 @@ icon: material/text-box-outline
 
 ## Сокращенное свойство `font`
 
-С помощью свойства [`font`](../../css/font.md) можно задать сразу несколько свойств, связанных со шрифтом. В список возможных свойств входят [`font-family`](#font-family), [`font-size`](#font-size), [`font-stretch`](../../css/font-stretch. md), [`font-style`](#font-style), [`font-variant`](#font-variant), [`font-weight`](#font-weight) и [`line-height`](#line-height).
+С помощью свойства [`font`](../../css/font.md) можно задать сразу несколько свойств, связанных со шрифтом. В список возможных свойств входят [`font-family`](#font-family), [`font-size`](#font-size), [`font-stretch`](../../css/font-stretch.md), [`font-style`](#font-style), [`font-variant`](#font-variant), [`font-weight`](#font-weight) и [`line-height`](#line-height).
 
 О том, как упорядочить эти свойства, читайте в [`font`](../../css/font.md#синтаксис).
 

@@ -63,18 +63,15 @@ grid-auto-flow: unset;
 
 Анимируется: нет
 
-`row`
-: алгоритм размещает элементы, заполняя каждую строку поочередно, добавляя новые строки по мере необходимости.
+`row` : алгоритм размещает элементы, заполняя каждую строку поочередно, добавляя новые строки по мере необходимости.
 
-`column`
-: алгоритм помещает элементы, заполняя каждый столбец поочередно, добавляя по мере необходимости новые столбцы.
+`column` : алгоритм помещает элементы, заполняя каждый столбец поочередно, добавляя по мере необходимости новые столбцы.
 
-`dense`
-: алгоритм использует «плотный» алгоритм упаковки, который пытается заполнить дыры в сетке, если позже появятся более мелкие элементы. Это может привести к тому, что элементы появятся не по порядку, но при этом заполнят отверстия, оставленные более крупными элементами.
+`dense` : алгоритм использует «плотный» алгоритм упаковки, который пытается заполнить дыры в сетке, если позже появятся более мелкие элементы. Это может привести к тому, что элементы появятся не по порядку, но при этом заполнят отверстия, оставленные более крупными элементами.
 
 ## Спецификации
 
-- [CSS Grid Layout](https://drafts.csswg.org/css-grid/#propdef-grid-auto-flow)
+-   [CSS Grid Layout](https://drafts.csswg.org/css-grid/#propdef-grid-auto-flow)
 
 ## Поддержка браузерами
 
@@ -90,11 +87,11 @@ HTML
 
 ```html
 <div id="grid">
-  <div id="item1"></div>
-  <div id="item2"></div>
-  <div id="item3"></div>
-  <div id="item4"></div>
-  <div id="item5"></div>
+    <div id="item1"></div>
+    <div id="item2"></div>
+    <div id="item3"></div>
+    <div id="item4"></div>
+    <div id="item5"></div>
 </div>
 ```
 
@@ -102,34 +99,34 @@ CSS
 
 ```css
 #grid {
-  height: 200px;
-  width: 200px;
-  display: grid;
-  grid-gap: 10px;
-  grid-template: repeat(4, 1fr) / repeat(2, 1fr);
-  grid-auto-flow: column; /* or 'row', 'row dense', 'column dense' */
+    height: 200px;
+    width: 200px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template: repeat(4, 1fr) / repeat(2, 1fr);
+    grid-auto-flow: column; /* or 'row', 'row dense', 'column dense' */
 }
 
 #item1 {
-  background-color: lime;
-  grid-row-start: 3;
+    background-color: lime;
+    grid-row-start: 3;
 }
 
 #item2 {
-  background-color: yellow;
+    background-color: yellow;
 }
 
 #item3 {
-  background-color: blue;
+    background-color: blue;
 }
 
 #item4 {
-  grid-column-start: 2;
-  background-color: red;
+    grid-column-start: 2;
+    background-color: red;
 }
 
 #item5 {
-  background-color: aqua;
+    background-color: aqua;
 }
 ```
 
@@ -139,11 +136,11 @@ CSS
 
 ```html
 <section class="container">
-  <div class="item-a">item-a</div>
-  <div class="item-b">item-b</div>
-  <div class="item-c">item-c</div>
-  <div class="item-d">item-d</div>
-  <div class="item-e">item-e</div>
+    <div class="item-a">item-a</div>
+    <div class="item-b">item-b</div>
+    <div class="item-c">item-c</div>
+    <div class="item-d">item-d</div>
+    <div class="item-e">item-e</div>
 </section>
 ```
 
@@ -151,10 +148,10 @@ CSS
 
 ```css
 .container {
-  display: grid;
-  grid-template-columns: 60px 60px 60px 60px 60px;
-  grid-template-rows: 30px 30px;
-  grid-auto-flow: row;
+    display: grid;
+    grid-template-columns: 60px 60px 60px 60px 60px;
+    grid-template-rows: 30px 30px;
+    grid-auto-flow: row;
 }
 ```
 
@@ -162,12 +159,12 @@ CSS
 
 ```css
 .item-a {
-  grid-column: 1;
-  grid-row: 1 / 3;
+    grid-column: 1;
+    grid-row: 1 / 3;
 }
 .item-e {
-  grid-column: 5;
-  grid-row: 1 / 3;
+    grid-column: 5;
+    grid-row: 1 / 3;
 }
 ```
 
@@ -179,10 +176,10 @@ CSS
 
 ```css
 .container {
-  display: grid;
-  grid-template-columns: 60px 60px 60px 60px 60px;
-  grid-template-rows: 30px 30px;
-  grid-auto-flow: column;
+    display: grid;
+    grid-template-columns: 60px 60px 60px 60px 60px;
+    grid-template-rows: 30px 30px;
+    grid-auto-flow: column;
 }
 ```
 
@@ -190,4 +187,4 @@ CSS
 
 ## См. также
 
-- [Руководство по Grid Layout](/grid/)
+-   [Руководство по Grid Layout](../learn/grid/index.md)

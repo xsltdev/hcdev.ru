@@ -6,7 +6,7 @@ description: Псевдокласс :default определяет элемент
 
 Псевдокласс **`:default`** определяет элемент формы, установленный изначально при загрузке страницы.
 
-Этот псевдокласс может использоваться для [`<button>`](/html/button/), [`<input type="checkbox">`](/html/input/), [`<input type="radio">`](/html/input/) и [`<option>`](/html/option/).
+Этот псевдокласс может использоваться для [`<button>`](../html/button.md), [`<input type="checkbox">`](../html/input.md#type), [`<input type="radio">`](../html/input.md#type) и [`<option>`](../html/option.md).
 
 ??? info "Псевдоклассы"
 
@@ -79,7 +79,7 @@ description: Псевдокласс :default определяет элемент
 ```css
 /* Selects any default <input> */
 input:default {
-  background-color: lime;
+    background-color: lime;
 }
 ```
 
@@ -89,10 +89,10 @@ input:default {
 
 ## Спецификации
 
-- [HTML Living Standard](https://html.spec.whatwg.org/multipage/#selector-default)
-- [HTML5](http://www.w3.org/TR/html5/#selector-default)
-- [Selectors Level 4](https://drafts.csswg.org/selectors-4/#default-pseudo)
-- [CSS Basic User Interface Module Level 3](https://drafts.csswg.org/css-ui-3/#pseudo-default)
+-   [HTML Living Standard](https://html.spec.whatwg.org/multipage/#selector-default)
+-   [HTML5](http://www.w3.org/TR/html5/#selector-default)
+-   [Selectors Level 4](https://drafts.csswg.org/selectors-4/#default-pseudo)
+-   [CSS Basic User Interface Module Level 3](https://drafts.csswg.org/css-ui-3/#pseudo-default)
 
 ## Поддержка браузерами
 

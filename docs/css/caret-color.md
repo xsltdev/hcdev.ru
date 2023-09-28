@@ -4,7 +4,7 @@ description: Свойство caret-color задает цвет текстово
 
 # caret-color
 
-Свойство **`caret-color`** задает цвет текстового курсора в полях ввода, например, [`input`](/html/input/) или [`textarea`](/html/textarea/).
+Свойство **`caret-color`** задает цвет текстового курсора в полях ввода, например, [`input`](../html/input.md) или [`textarea`](../html/textarea.md).
 
 ## Демо
 
@@ -63,7 +63,7 @@ caret-color: auto;
 
 ## Спецификации
 
-- [CSS Basic User Interface Module Level 3](https://drafts.csswg.org/css-ui-3/#propdef-caret-color)
+-   [CSS Basic User Interface Module Level 3](https://drafts.csswg.org/css-ui-3/#propdef-caret-color)
 
 ## Поддержка браузерами
 

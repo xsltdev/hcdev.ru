@@ -64,8 +64,7 @@ flex-shrink: unset;
 
 Анимируется: да
 
-`<число>`
-: Принимаются целые числа. Отрицательные значения игнорируются.
+`<число>` : Принимаются целые числа. Отрицательные значения игнорируются.
 
 ### Примечание
 
@@ -73,7 +72,7 @@ Safari до версии 9 поддерживает свойство `-webkit-fl
 
 ## Спецификации
 
-- [CSS Flexible Box Layout Module](https://www.w3.org/TR/css-flexbox/#propdef-flex-shrink)
+-   [CSS Flexible Box Layout Module](https://www.w3.org/TR/css-flexbox/#propdef-flex-shrink)
 
 ## Поддержка браузерами
 
@@ -148,4 +147,4 @@ Safari до версии 9 поддерживает свойство `-webkit-fl
 
 ## См. также
 
-- [Руководство по Flexbox](/flex/)
+-   [Руководство по Flexbox](../learn/flex/index.md)
