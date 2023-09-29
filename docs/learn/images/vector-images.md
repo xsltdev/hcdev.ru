@@ -1,44 +1,24 @@
 ---
-title: 'Vector images'
-authors:
-  - matmarquis
-description: Learn about SVG, the vector image format used on the web. 
-date: 2023-02-01
-tags:
-  - images
+description: Узнайте о SVG - формате векторных изображений, используемом в Интернете.
+icon: material/vector-square
 ---
 
-Vector graphics are a method of communicating a series of shapes, coordinates, and paths to their rendering context. They
-are a set of instructions for how an image should be drawn. When that image is scaled up or down, the set of points and lines that
-the image represents are redrawn to scale. A smooth curve between two points will be redrawn just as smoothly at any size—similar
-to the way a CSS-defined border on an HTML element is redrawn as that element is scaled in the viewport.
+# Векторные изображения
 
-Scalable Vector Graphics (SVG) is an XML-based markup language developed by the W3C. It is a vector image format designed
-for the modern web.
+<big>Узнайте о SVG - формате векторных изображений, используемом в Интернете.</big>
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'WNKorKN',
-height: 500,
-theme: dark,
-tab: 'html,result'
-} %}
+**Векторная графика** - это метод передачи серии фигур, координат и путей в контекст рендеринга. Они представляют собой набор инструкций по отрисовке изображения. При увеличении или уменьшении масштаба изображения набор точек и линий, которые оно представляет, перерисовывается в соответствии с масштабом. Плавная кривая между двумя точками будет перерисовываться так же плавно при любом размере - подобно тому, как CSS-определенная граница элемента HTML перерисовывается при изменении масштаба элемента в области просмотра.
 
-Any design software dedicated to editing vector artwork will allow you to export an image as an SVG. But being a standardized,
-human-readable markup language, SVG can also be created and edited with any text editing software, regardless of the software used
-to create it, though that quickly becomes unrealistic for images of any real complexity. SVG can be styled with CSS, or contain
-JavaScript that builds behaviors and interactions into the images themselves.
+Scalable Vector Graphics (SVG) - язык разметки на основе XML, разработанный W3C. Это формат векторных изображений, предназначенный для современного Интернета.
 
-Even beyond the obvious appeal for designers and developers, SVG is also an incredibly powerful format in terms of the end user experience.
-The descriptive information contained within an SVG source is often highly compact compared to raster image formats' more prescriptive
-pixel-grid-based information, in the case of simple shapes—to oversimplify somewhat, the difference between telling the browser
-"draw a 1px red line between 1x1 and 1x5" and "1x1 is a red pixel. 1x2 is a red pixel. 1x3 is a red pixel. 1x4 is a red pixel. 1x5 is a red pixel."
-The flip side is that the descriptive nature of SVG requires more interpretation—more "thinking"—from the browser. For this reason,
-complex SVGs can be more taxing to render. In the same vein, a highly complex image could mean a verbose set of instructions, and a large transfer size.
+<iframe src="https://codepen.io/web-dot-dev/embed/WNKorKN?height=500&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-It may take a little trial and error before you're able to instantly recognize an image source candidate as better served by SVG rather than a
-conventional raster format. There are a few guidelines, though: interface elements like icons are almost always well served by SVG. Artwork with
-sharp lines, solid colors, and clearly-defined shapes will likely be a strong candidate for SVG.
+Любое программное обеспечение, предназначенное для редактирования векторных изображений, позволяет экспортировать изображение в формат SVG. Однако, будучи стандартизованным, человекочитаемым языком разметки, SVG можно создавать и редактировать с помощью любого текстового редактора, независимо от того, в какой программе он был создан, хотя это быстро становится нереальным для изображений любой реальной сложности. SVG может быть стилизован с помощью CSS или содержать JavaScript, который встраивает поведение и взаимодействие в сами изображения.
 
-SVG is a huge topic: an entire markup language made to coexist alongside HTML, with unique styling options and capabilities. For a more detailed
-introduction to SVG see the [MDN SVG tutorial](https://developer.mozilla.org/docs/Web/SVG/Tutorial/Introduction).
+Помимо очевидной привлекательности для дизайнеров и разработчиков, SVG также является невероятно мощным форматом с точки зрения удобства для конечного пользователя. Описательная информация, содержащаяся в источнике SVG, зачастую очень компактна по сравнению с более предписывающей информацией в формате растровых изображений, основанной на пиксельной сетке, в случае простых фигур - если несколько упростить, то разница между указанием браузеру "нарисуй красную линию в 1px между 1x1 и 1x5" и "1x1 - красный пиксель. 1x2 - красный пиксель. 1x3 - красный пиксель. 1x4 - красный пиксель. 1x5 - красный пиксель". Обратной стороной является то, что описательный характер SVG требует от браузера большей интерпретации - большего "мышления". По этой причине сложные SVG могут быть более сложными для визуализации. Аналогичным образом, сложное изображение может потребовать многословного набора инструкций и большого размера передачи.
+
+Возможно, потребуется немного проб и ошибок, прежде чем вы сможете сразу определить, что для исходного изображения лучше использовать SVG, а не обычный растровый формат. Однако есть несколько рекомендаций: такие элементы интерфейса, как значки, почти всегда хорошо работают в SVG. Изображения с четкими линиями, сплошными цветами и четко очерченными формами, скорее всего, будут хорошим кандидатом для SVG.
+
+SVG - это огромная тема: целый язык разметки, созданный для сосуществования с HTML, с уникальными опциями и возможностями стилизации. Более подробное знакомство с SVG можно найти в [MDN SVG tutorial](https://developer.mozilla.org/docs/Web/SVG/Tutorial/Introduction).
+
+:information_source: Источник &mdash; [Vector images](https://web.dev/learn/images/vector-images/)

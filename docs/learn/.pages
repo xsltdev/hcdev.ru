@@ -3,10 +3,10 @@ nav:
     - index.md
     - html5
     - css3
-    #- images
-    #- pwa
     #- design
+    #- images
     #- forms
     #- accessibility
+    #- pwa
     - flex
     - grid

@@ -1,201 +1,122 @@
 ---
-title: 'Key performance issues'
-authors:
-  - matmarquis
-description: Learn ways to ensure that your image requests are as small and performant as possible.
-date: 2023-02-01
-tags:
-  - images
+description: Узнайте, как сделать так, чтобы ваши запросы к изображениям были как можно меньше и производительнее.
+icon: material/power
 ---
 
-As it stands now, images are the web's biggest assets in terms of both [total transfer size](https://almanac.httparchive.org/en/2022/page-weight#fig-8)
-and [number of requests](https://almanac.httparchive.org/en/2022/page-weight#fig-3) per page. The median webpage's total transfer size is roughly
-[2MB, as of June 2022](https://httparchive.org/reports/page-weight), with images alone accounting for nearly half of that. It's no exaggeration
-to say that optimizing image requests may be the single biggest performance optimization you can make.
+# Ключевые вопросы производительности
 
-Later, you'll learn how responsive images have evolved to help with the issues created by trying to serve one image for all eventualities.
-In this section, discover key performance metrics that relate to images, and how to improve them.
+<big>Узнайте, как сделать так, чтобы ваши запросы к изображениям были как можно меньше и производительнее.</big>
 
-## Deferring image requests
+В настоящее время изображения являются самыми большими ресурсами Интернета как по [общему объему передачи данных](https://almanac.httparchive.org/en/2022/page-weight#fig-8), так и по [количеству запросов](https://almanac.httparchive.org/en/2022/page-weight#fig-3) на страницу. Средний размер веб-страницы составляет примерно [2 МБ, по состоянию на июнь 2022 года](https://httparchive.org/reports/page-weight), причем почти половина этого объема приходится только на изображения. Не будет преувеличением сказать, что оптимизация запросов к изображениям может стать самым важным шагом в оптимизации производительности.
 
-While you're about to learn a number of ways to ensure your image requests are as small and efficient as possible, the fastest image request
-will always be the one that never gets made. So, right up front, I want to share what may be the most impactful change you can make to the way
-you deliver image assets to your users: the `loading="lazy"` attribute.
+Позже вы узнаете, как развивались отзывчивые изображения, чтобы решить проблемы, возникающие при попытке предоставить одно изображение на все случаи жизни. В этом разделе мы рассмотрим основные показатели производительности, связанные с изображениями, и способы их улучшения.
+
+## Откладывание запросов к изображениям
+
+Хотя сейчас вы узнаете о нескольких способах обеспечения минимальной и эффективной обработки запросов к изображениям, самым быстрым запросом к изображению всегда будет тот, который никогда не будет выполнен. Поэтому сразу хочу сказать, что это, возможно, самое значительное изменение, которое вы можете внести в способ доставки изображений пользователям: атрибут `loading="lazy"`.
 
 ```html
-<img src="image.jpg" loading="lazy" alt="…">
+<img src="image.jpg" loading="lazy" alt="…" />
 ```
 
-This attribute ensures that requests for images aren't made until they fall close to the user's viewport, deferring them from the initial
-page load—the time when the browser is at its busiest—and removing those requests from the critical rendering path.
+Этот атрибут гарантирует, что запросы к изображениям не будут выполняться до тех пор, пока они не попадут в область просмотра пользователя, откладывая их от начальной загрузки страницы - времени, когда браузер наиболее загружен, - и убирая эти запросы с критического пути рендеринга.
 
-Simple as it may be in practice, using this attribute can have a huge positive impact on performance: an image that never falls within
-the user's viewport will never be requested, and no bandwidth will be wasted on images that the user will never see.
+Как бы ни было просто на практике, использование этого атрибута может оказать огромное положительное влияние на производительность: изображение, которое никогда не попадет в область просмотра пользователя, никогда не будет запрошено, и пропускная способность не будет тратиться на изображения, которые пользователь никогда не увидит.
 
-There's a catch, however: deferring those requests means not taking advantage of browsers' hyper-optimized processes for requesting
-images as early as possible. If `loading="lazy"` is used on `img` elements toward the top of the layout—and thus more likely
-to be in the user's viewport when the page is first loaded—these images can feel significantly slower to the end user.
+Однако есть одна загвоздка: откладывая эти запросы, вы не используете преимущества гипер-оптимизированных процессов браузеров, позволяющих запрашивать изображения как можно раньше. Если `loading="lazy"` используется для элементов `img`, расположенных в верхней части макета и, следовательно, с большей вероятностью находящихся в области просмотра пользователя при первой загрузке страницы, то эти изображения могут показаться конечному пользователю значительно медленнее.
 
-## Fetch Priority
+## Приоритет выборки
 
-The `loading` attribute is an example of a larger web standards effort to give developers more power over how web browsers
-prioritize requests.
+Атрибут `loading` является примером более масштабных усилий в области веб-стандартов, направленных на предоставление разработчикам большей власти над тем, как браузеры определяют приоритетность запросов.
 
-You're likely aware of browsers' [basic approaches to fetch priority](https://docs.google.com/document/d/1bCDuq9H1ih9iNjgzyAL0gpwNFiEP4TZS-YLRp_RuMlc/edit#):
-for example, a request for an external CSS file in the `<head>` of a document is considered essential enough to block render, while a request for an
-external JavaScript file just above `</body>` will be deferred until render is complete. If the value of a `loading` attribute on an `<img>` is 'lazy',
-the associated image request will be deferred until the browser determines that it will be shown to a user. Otherwise, that image will have the same
-priority as any other image on the page.
+Вы, вероятно, знаете о [базовых подходах браузеров к приоритету выборки](https://docs.google.com/document/d/1bCDuq9H1ih9iNjgzyAL0gpwNFiEP4TZS-YLRp_RuMlc/edit#): например, запрос на внешний CSS-файл в `<head>` документа считается достаточно важным, чтобы заблокировать рендеринг, в то время как запрос на внешний JavaScript-файл чуть выше `</body>` будет отложен до завершения рендеринга. Если значение атрибута `loading` для `<img>` равно 'lazy', то запрос соответствующего изображения будет отложен до тех пор, пока браузер не определит, что оно будет показано пользователю. В противном случае это изображение будет иметь такой же приоритет, как и любое другое изображение на странице.
 
-The [`fetchpriority` attribute](https://caniuse.com/mdn-html_elements_img_fetchpriority) is intended to give
-developers [finer-grained control over the priority of assets](/fetch-priority/), allowing you to flag resources
-as 'high' and 'low' priority relative to resources of the same type. The use cases for `fetchpriority` are similar to the `loading`
-attribute, though much more broad. For example, you might use `fetchpriority="low"` on an image only revealed following user interaction
-(whether that image falls within the user's viewport or not) in order to prioritize visible images elsewhere on the page, or `fetchpriority="high"`
-to prioritize an image you know will be immediately visible in the viewport as soon as the page is rendered.
+Атрибут [`fetchpriority`](https://caniuse.com/mdn-html_elements_img_fetchpriority) предназначен для предоставления разработчикам [более тонкого контроля над приоритетом ресурсов](https://web.dev/fetch-priority/), позволяя отмечать ресурсы как "высоко" и "низко" приоритетные по отношению к ресурсам того же типа. Варианты использования `fetchpriority` аналогичны атрибуту `loading`, но гораздо шире. Например, вы можете использовать `fetchpriority="low"` для изображения, которое появляется только после взаимодействия с пользователем (независимо от того, попадает ли это изображение в область просмотра пользователя или нет), чтобы отдать приоритет видимым изображениям в других местах страницы, или `fetchpriority="high"` для приоритета изображения, которое, как вы знаете, будет сразу видно в области просмотра, как только страница будет отрисована.
 
-Note that `fetchpriority` differs from `loading` in that it doesn't fundamentally change browser behavior. It doesn't instruct the browser
-to load certain assets before others, instead giving it vital context for the decisions it makes around requesting assets.
+Обратите внимание, что `fetchpriority` отличается от `loading` тем, что не меняет принципиально поведение браузера. Она не предписывает браузеру загружать одни активы раньше других, а предоставляет ему жизненно важный контекст для принятия решений о запросе активов.
 
-## Measuring the impact of images
+## Измерение влияния изображений
 
-When optimizing image assets, _perceived_ performance is often more important, and more difficult to measure, than total transfer
-size alone.
+При оптимизации изображений часто важнее и сложнее измерить _воспринимаемую_ производительность, чем только общий размер передачи.
 
-Web Vitals provide measurable, actionable metrics and guidance for improving users' experience of the web, highlighting problems such
-as slow response time from a web server, rendering issues, and interactivity delays. Core Web Vitals are a subset of these goals, laser-focused
-on the user's direct experience of an individual page—a set of technical measurements that, together, determine how fast an experience _feels_ to a user.
+Web Vitals - это измеримые, применимые на практике показатели и рекомендации по улучшению работы пользователей в Интернете, выявляющие такие проблемы, как медленное время отклика веб-сервера, проблемы рендеринга и задержки интерактивности. Основные показатели Web Vitals - это подмножество этих целей, сфокусированное на непосредственном восприятии пользователем отдельной страницы - набор технических измерений, которые в совокупности определяют, насколько быстрой кажется пользователю страница.
 
-### Cumulative Layout Shift
+### Кумулятивный сдвиг верстки
 
-[Cumulative Layout Shift](/cls/) (CLS) is a measure of visual stability. It is a metric for capturing how much
-the layout of the content on a page shifts as assets are loaded and the page is rendered. Anyone that has spent a significant amount
-of time using the web has lost their place in a long run of text due to a page "jumping" as a delayed webfont or image source is suddenly
-rendered—or had an interactive element suddenly moved away from your pointer. A high CLS is a nuisance at best, and cause of
-user error at worst—a "cancel" button shifting to a space previously occupied by a "confirm" button just as the user clicks, for example.
+[Кумулятивный сдвиг верстки](https://web.dev/cls/) (CLS) - это показатель визуальной стабильности. Это метрика, позволяющая определить, насколько сильно изменяется расположение содержимого на странице в процессе загрузки активов и рендеринга страницы. Любой, кто провел значительное время в Интернете, терял свое место в длинном тексте из-за того, что страница "прыгала", когда внезапно отображался отложенный веб-шрифт или источник изображения, или интерактивный элемент внезапно уходил от указателя. Высокий CLS - это в лучшем случае неприятность, а в худшем - причина ошибки пользователя: например, кнопка "отмена" перемещается на место, ранее занимаемое кнопкой "подтверждение", как раз в тот момент, когда пользователь щелкает мышью.
 
-With high load times and the amount of space they can occupy in a layout, it stands to reason that images are a common cause
-of high CLS scores.
+Учитывая большое время загрузки и занимаемое ими место в макете, вполне логично, что изображения являются частой причиной высоких показателей CLS.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'NWBbxqo',
-height: 500,
-theme: dark,
-tab: 'css,result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/NWBbxqo?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Thanks to relatively recent changes in modern browsers, it's easier than you might think to avoid high CLS scores due to images.
+Благодаря относительно недавним изменениям в современных браузерах, избежать высоких оценок CLS из-за изображений стало проще, чем кажется.
 
-If you've been working on the frontend for a few years now, you'll be familiar with the `width` and `height` attributes on `<img>`:
-prior to the widespread adoption of CSS, these were the only way to control the size of an image.
+Если вы уже несколько лет работаете с фронтендом, то вам наверняка знакомы атрибуты `width` и `height` на `<img>`: до широкого распространения CSS они были единственным способом управления размером изображения.
 
 ```html
-<img src="image.jpg" height="200" width="400" alt="…">
+<img src="image.jpg" height="200" width="400" alt="…" />
 ```
 
-These attributes fell out of use in an effort to keep our styling concerns separate from our markup, especially as responsive
-web design made it necessary to specify percentage-based sizing via CSS. In the early days of responsive web design, "remove
-the unused `width` and `height` attributes" was common advice, as the values we specified in our CSS—`max-width: 100%` and
-`height: auto`—would override them.
+Эти атрибуты вышли из употребления в связи с тем, что мы стремились отделить вопросы стилизации от вопросов разметки, особенно когда в отзывчивом веб-дизайне возникла необходимость задавать размеры в процентах с помощью CSS. На заре развития отзывчивого веб-дизайна распространенным советом было "удалить неиспользуемые атрибуты `width` и `height`", поскольку значения, которые мы указывали в CSS - `max-width: 100%` и `height: auto` - должны были их отменять.
 
 ```html
-<img src="image.jpg" alt="…">
+<img src="image.jpg" alt="…" />
 ```
 
 ```css
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 ```
 
-Having removed the `height` and `width` attributes as in the previous example, the only method the browser has for determining
-the height of the image in this situation is to request the source, parse it, and render it at its intrinsic aspect ratio, based on the
-width of the space it occupies in the layout once stylesheets have been applied. Much of this process takes place after the page has been
-rendered, with the newly calculated height causing additional layout shifts.
+После удаления атрибутов `height` и `width`, как в предыдущем примере, единственным способом определения высоты изображения в данной ситуации для браузера остается запрос источника, его разбор и рендеринг с присущим ему соотношением сторон, основанным на ширине занимаемого им места в макете после применения таблиц стилей. Большая часть этого процесса происходит уже после рендеринга страницы, при этом вновь рассчитанная высота приводит к дополнительным сдвигам макета.
 
-[Starting in 2019](https://caniuse.com/mdn-html_elements_img_aspect_ratio_computed_from_attributes
-), browser behavior was updated to handle the `width` and `height` attributes differently. Rather than using the values of these
-attributes to determine the fixed, pixel-based size of an `img` element in the layout, these attributes can be thought to represent
-the _aspect ratio_ of the image, though the syntax is the same. Modern browsers will divide these values against each other in order to
-determine an `img` element's intrinsic _aspect ratio_ prior to the page being rendered, allowing it to reserve the space the image will occupy as the layout is rendered.
+[Начиная с 2019 года](https://caniuse.com/mdn-html_elements_img_aspect_ratio_computed_from_attributes) поведение браузера было изменено, чтобы по-другому обрабатывать атрибуты `width` и `height`. Вместо того чтобы использовать значения этих атрибутов для определения фиксированного, основанного на пикселях размера элемента `img` в макете, можно считать, что эти атрибуты представляют собой _аспектное соотношение_ изображения, хотя синтаксис остался прежним. Современные браузеры делят эти значения друг на друга, чтобы определить собственное _аспектное отношение_ элемента `img` до начала рендеринга страницы, что позволяет зарезервировать место, которое изображение будет занимать при рендеринге макета.
 
-As a rule, you should always use `height` and `width` attributes on `<img>`, with values matching the intrinsic size of your image source—so
-long as you make sure that you've specified `height: auto` alongside `max-width: 100%` to override the height from the HTML attribute.
+Как правило, в элементе `<img>` всегда следует использовать атрибуты `height` и `width` со значениями, соответствующими собственным размерам источника изображения, при условии, что вы указали `height: auto` и `max-width: 100%` для переопределения высоты из атрибута HTML.
 
 ```html
-<img src="image.jpg" height="200" width="400" alt="…">
+<img src="image.jpg" height="200" width="400" alt="…" />
 ```
 
 ```css
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 ```
 
-By using the `width` and `height` attributes on your `<img>` elements, you'll avoid a high CLS score due to images.
+Использование атрибутов `width` и `height` в элементах `<img>` позволяет избежать высокой оценки CLS из-за изображений.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'YzjpwyE',
-height: 300,
-theme: dark,
-tab: 'html,result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/YzjpwyE?height=300&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-It's important to note that there's no downside to this approach, as it leans on long-established browser behavior—any browser
-with support for basic CSS will work the way it always has, with the `height` and `width` attributes in your markup overridden by your styles.
+Важно отметить, что недостатков у такого подхода нет, поскольку он опирается на давно известное поведение браузеров - любой браузер с поддержкой базового CSS будет работать так, как работал всегда, атрибуты `height` и `width` в вашей разметке будут переопределены стилями.
 
-While `width` and `height` attributes deftly avoid CLS issues by reserving the necessary layout space for your images, presenting
-users with an empty gap or [low-quality placeholder](https://www.guypo.com/introducing-lqip-low-quality-image-placeholders) while
-they wait for an image to transfer and render isn't ideal either. While there are things you can do to mitigate the measurable and perceptible
-impact of slow-to-load images, the only way to present a fully-rendered image to a user more quickly is by reducing its transfer size.
+Хотя атрибуты `width` и `height` позволяют ловко избежать проблем с CLS, резервируя необходимое пространство макета для изображений, представлять пользователям пустой пробел или [низкокачественный placeholder](https://www.guypo.com/introducing-lqip-low-quality-image-placeholders), пока они ожидают передачи и рендеринга изображения, тоже не идеально. Несмотря на то, что есть способы уменьшить ощутимое и заметное влияние медленно загружающихся изображений, единственный способ быстрее представить пользователю полностью отрендеренное изображение - это уменьшить его размер при передаче.
 
-### Largest Contentful Paint
+### Самый большой объем содержимого
 
-Largest Contentful Paint (LCP) measures the time it takes to render the largest “contentful” element visible in the user's viewport—the
-content element that occupies the largest percentage of the visible page. It may seem like an overly specific metric on the surface, but that
-element serves as a practical proxy for the point where the majority of the page has been rendered, from the user's perspective. LCP is a vital
-measure of (perceived) performance.
+Показатель Largest Contentful Paint (LCP) измеряет время, необходимое для отрисовки самого большого "содержательного" элемента, видимого во вьюпорте пользователя, - элемента содержимого, занимающего наибольший процент видимой части страницы. На первый взгляд может показаться, что это слишком специфическая метрика, но этот элемент служит практическим приближением к моменту, когда с точки зрения пользователя была отрисована большая часть страницы. LCP является важным показателем (воспринимаемой) производительности.
 
-Metrics like `DOMContentLoaded` or the `window.onload` event can be useful for determining when the process of loading the current page
-has technically completed, but they don't necessarily correspond to a user's experience of the page. A slight delay in rendering an element
-outside the user's viewport would be factored into either of these metrics, but would likely go completely undetected by a real-world user.
-A long LCP means the user's first impression of a page—the most important content inside the current viewport—is that the page is slow,
-or broken outright.
+Такие метрики, как `DOMContentLoaded` или событие `window.onload`, могут быть полезны для определения момента технического завершения процесса загрузки текущей страницы, но они не всегда соответствуют восприятию страницы пользователем. Небольшая задержка при отрисовке элемента за пределами области просмотра пользователя будет учтена в любой из этих метрик, но, скорее всего, останется незамеченной реальным пользователем. Длинный LCP означает, что первое впечатление пользователя от страницы - наиболее важного контента в текущем окне просмотра - заключается в том, что страница работает медленно или вообще не работает.
 
-The user perception captured by LCP has a direct impact on user experience. [An experiment done by Vodafone](/vodafone/) just last year
-found that a 31% improvement in LCP not only led to 8% more sales—a strong result on its own—but of their total number of users, found a 15%
-improvement in the number of visitors who became prospective customers ("visitor-to-lead rate") and a 11% improvement in the number of users
-who visited their cart ("cart to visit rate").
+Восприятие пользователем LCP оказывает непосредственное влияние на его опыт. [Эксперимент, проведенный компанией Vodafone](https://web.dev/vodafone/) в прошлом году, показал, что улучшение LCP на 31% не только привело к увеличению продаж на 8%, что само по себе является сильным результатом, но и позволило на 15% увеличить количество посетителей, ставших потенциальными клиентами ("visitor-to-lead rate"), и на 11% увеличить количество пользователей, посетивших корзину ("cart to visit rate").
 
-On more than [70%](https://almanac.httparchive.org/en/2021/media#images) of webpages, the largest element in the initial
-viewport involves an image, either as a stand-alone `<img>` element or an element with a background image. In other words,
-70% of pages' LCP scores are based on image performance. It doesn't take much imagination to see why: big, attention-grabbing
-images and logos are very likely to be found "above the fold."
+Более чем на [70%](https://almanac.httparchive.org/en/2021/media#images) веб-страниц самым крупным элементом в начальной области просмотра является изображение - либо отдельный элемент `<img>`, либо элемент с фоновым изображением. Другими словами, 70% оценок LCP страниц основаны на работе с изображениями. Не нужно обладать большим воображением, чтобы понять причину этого: крупные, привлекающие внимание изображения и логотипы с большой вероятностью будут находиться "выше сгиба".
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/KrYcABGs7oYi9oHHZPJW.png", alt="LCP highlighted in the console of a web.dev page", width="800", height="407" %}
+![Выделение LCP в консоли страницы web.dev](performance-issues-1.avif)
 
-There are a few steps you can take to avoid LCP delays: first, never specify `loading="lazy"` on an "above the fold" image,
-as delaying the request until after the page has been rendered will likely have a massive negative impact on your LCP score.
-Second, using `fetchpriority="high"` can inform the browser that the transfer of this image should be prioritized above images elsewhere on the page.
+Чтобы избежать задержек LCP, можно предпринять несколько шагов: во-первых, никогда не указывайте `loading="lazy"` для изображений, расположенных "над сгибом", поскольку задержка запроса до завершения рендеринга страницы, скорее всего, окажет значительное негативное влияние на оценку LCP. Во-вторых, использование `fetchpriority="high"` может сообщить браузеру, что передача этого изображения должна быть приоритетнее, чем других изображений на странице.
 
-With those rules squarely in mind, the most important thing you can do to improve a page's LCP score is reduce the amount of time
-it takes to transfer and render those images. In order to do that, you'll need to keep your image sources as small and efficient as
-possible (without sacrificing their quality, of course) and ensure that users are only getting the image assets that make the most
-sense for their browsing contexts.
+Учитывая эти правила, самое важное, что можно сделать для повышения LCP-показателя страницы, - это сократить время, затрачиваемое на передачу и рендеринг изображений. Для этого необходимо, чтобы источники изображений были как можно меньше и эффективнее (разумеется, без снижения их качества), а пользователи получали только те изображения, которые наиболее целесообразно использовать в контексте их просмотра.
 
-### Conclusion
+### Заключение
 
-Image assets are the biggest drain on your users' bandwidth—bandwidth taken away from transferring every other asset necessary
-to render a page. Images introduce significant issues in terms of perceived performance, both during and after the surrounding page
-layout has been rendered. In short: image assets do _damage_.
+Изображения - это самый большой расход пропускной способности канала связи, который отнимается у пользователей при передаче всех остальных ресурсов, необходимых для рендеринга страницы. Изображения создают значительные проблемы с точки зрения воспринимаемой производительности, как во время, так и после отрисовки окружающего макета страницы. Короче говоря, графические активы _повреждают_.
 
-Daunting as that may be, while "the web would be better off with fewer images" would certainly be true in terms of performance alone,
-it would also do its users a tremendous disservice. Images are a vital part of the web, and you shouldn't compromise on the quality of
-meaningful content for the sake of performance alone.
+Как бы это ни было непонятно, но "лучше бы в Интернете было меньше изображений", конечно, верно только с точки зрения производительности, но это также нанесло бы огромный вред пользователям. Изображения - важнейшая часть Интернета, и не стоит жертвовать качеством содержательного контента ради одной лишь производительности.
 
-In the rest of this course, you'll learn about the technologies that power our image assets and techniques for mitigating their
-performance impacts, without compromising on quality.
+В оставшейся части этого курса вы узнаете о технологиях, на которых основаны наши графические ресурсы, и о методах снижения их влияния на производительность без ущерба для качества.
+
+:information_source: Источник &mdash; [Key performance issues](https://web.dev/learn/images/performance-issues/)

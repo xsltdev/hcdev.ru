@@ -1,108 +1,44 @@
 ---
-title: 'A brief history of images on the web'
-authors:
-  - matmarquis
-description: A history of images on the web, starting with the image element in 1993
-date: 2023-02-01
-tags:
-  - images
+description: История изображений в Интернете, начиная с элемента image в 1993 году
+icon: material/history
 ---
 
-No matter how far along you are in learning to design and develop for the web, the `<img>` element needs very little introduction.
-[Launched in Netscape (“Mosaic,” at the time) in 1993](https://www.wired.com/2010/04/0422mosaic-web-browser/) and added to the HTML
-specification in 1995, `<img>` has long played a simple but powerful role within the web platform. The developer adds a "source" image
-file with the `src` attribute and provides a text alternative with the `alt` attribute in the event that the image cannot be rendered or
-assistive technologies request an alternative. From there, the browser has only one job: get the image data, then render it as quickly as possible.
+# Краткая история изображений в Интернете
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'jOpVPJa',
-height: 300,
-theme: dark,
-tab: 'html,result'
-} %}
+<big>История изображений в Интернете, начиная с элемента image в 1993 году</big>
 
-For most of web development history, working with images didn't get much more complicated than that. And, despite the modern
-web's complexity, the fundamentals of working with images haven't changed: use a web-friendly image format for compatibility,
-sensible compression to conserve bandwidth, and dimensions that suit the space the image is going to occupy in the page's layout.
+Независимо от того, как далеко вы продвинулись в изучении дизайна и разработки для Web, элемент `<img>` не нуждается в представлении. [Появившись в Netscape ("Mosaic", в то время) в 1993 году](https://www.wired.com/2010/04/0422mosaic-web-browser/) и добавленный в спецификацию HTML в 1995 году, `<img>` уже давно играет простую, но мощную роль в веб-платформе. Разработчик добавляет "исходный" файл изображения с помощью атрибута `src` и предоставляет текстовую альтернативу с помощью атрибута `alt` на случай, если изображение не может быть отображено или ассистивные технологии запрашивают альтернативу. Далее браузеру остается только одна задача: получить данные об изображении и как можно быстрее отрендерить его.
 
-Using fixed-width layouts, like we did back when we thought we had more say in how users experienced the web,
-made this an uncomplicated process. It was particularly easy to set the size of the image source. For an image that occupied a space five
-hundred pixels wide and three hundred pixels tall, it was a case of specifying a source image at that same size.
+<iframe src="https://codepen.io/web-dot-dev/embed/jOpVPJa?height=300&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-## Images in a responsive layout
+На протяжении большей части истории веб-разработки работа с изображениями была не сложнее, чем сейчас. И, несмотря на всю сложность современного Интернета, основы работы с изображениями не изменились: использование дружественного веб-формата изображения для совместимости, разумное сжатие для экономии полосы пропускания и размеры, соответствующие месту, которое изображение будет занимать в макете страницы.
 
-Alongside a flexible layout and use of CSS media queries, "flexible images and media" are one of the three defining facets
-of [responsive web design](/learn/design/). To make an image flexible, developers began using CSS to set `max-width: 100%` on the image
-(or all images, site-wide) to tell the browser's rendering engine to prevent an image from ever overflowing its parent container by
-scaling it down. Visually, this works perfectly–downscaling a [raster image](/learn/images/raster-images/) is visually seamless. With a line or two of CSS,
-a scaled-down image will always look as though we've specified an image source that was meant to be displayed at that size.
-When rendering engines are given more image data than necessary for the space the image occupies in a layout, they are able
-to make informed decisions about how to render the reduced image, and can do so without introducing any visual artifacts or blurring.
+Использование макетов с фиксированной шириной, как это было в те времена, когда мы считали, что можем больше влиять на восприятие веб-страниц пользователями, упростило этот процесс. Особенно легко было задать размер исходного изображения. Для изображения, занимающего пространство шириной пятьсот пикселей и высотой триста пикселей, достаточно указать исходное изображение такого же размера.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'YzjpXBP',
-height: 500,
-theme: dark,
-tab: 'result'
-} %}
+## Изображения в отзывчивой верстке
 
-You wouldn't typically want to _upscale_ an image—that is, render the `<img>` at a size larger than the intrinsic size of the source image.
-The displayed image would appear blurry and grainy-looking.
+Наряду с гибкой версткой и использованием медиазапросов CSS, "гибкие изображения и медиа" являются одним из трех определяющих аспектов [отзывчивого веб-дизайна](../design/index.md). Чтобы сделать изображение гибким, разработчики стали использовать CSS, устанавливая для него (или для всех изображений на сайте) значение `max-width: 100%`, чтобы указать механизму рендеринга браузера, что изображение никогда не переполнит родительский контейнер, уменьшив его масштаб. Визуально это работает идеально - уменьшение [растрового изображения](raster-images.md) визуально не вызывает затруднений. С помощью пары строк CSS уменьшенное изображение всегда будет выглядеть так, как будто мы указали источник изображения, предназначенного для отображения в таком размере. Когда системам рендеринга предоставляется больше данных об изображении, чем необходимо для места, занимаемого изображением в макете, они могут принять обоснованное решение о том, как отобразить уменьшенное изображение, и сделать это без появления визуальных артефактов или размытия.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'XWBNbOx',
-height: 500,
-theme: dark,
-tab: 'result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/YzjpXBP?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Using `img { max-width: 100% }` means that as a flexible container resizes, images will be downscaled as appropriate.
-Unlike setting a more rigid `width: 100%`, this also ensures that the image won't be scaled up beyond its intrinsic size.
-For a long time, that was it for the rules of working with images: use a format browsers understand, use a sensible level of
-compression, and never scale images upwards.
+Обычно не следует _увеличивать_ изображение, т.е. отображать `<img>` в размере, превышающем собственный размер исходного изображения. Выводимое изображение будет выглядеть размытым и зернистым.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'gOjLpEM',
-height: 500,
-theme: dark,
-tab: 'css,result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/XWBNbOx?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-But as simple and effective as this approach was visually, it came at a huge performance cost. As `<img>` only supported a
-single source for the image data, this approach required us to provide an image asset with an intrinsic size as large as
-the largest size at which it could be displayed. An image meant to occupy a space in a layout that could be anywhere
-from `300px` to `2000px` wide, depending on the user's viewport size, required an image source with an intrinsic width of
-at least `2000px`. For a user who only views the page by way of a small viewport, everything would look as expected—the
-image would scale just fine. In the rendered page, a massive but scaled-down source image would _look_ no different from an
-appropriately-sized one. However, they would still be transferring and rendering a `2000px` wide image, burning through a huge
-amount of bandwidth and processing power with no tangible benefit.
+Использование `img { max-width: 100% }` означает, что при изменении размеров гибкого контейнера изображения будут уменьшаться соответствующим образом. В отличие от более жесткой установки `width: 100%`, это также гарантирует, что изображение не будет масштабироваться сверх его собственных размеров. Долгое время правила работы с изображениями были таковы: использовать формат, понятный браузерам, использовать разумный уровень сжатия и никогда не масштабировать изображения вверх.
 
-Things got much worse with the advent of the first "Retina" devices, as display _density_ became a concern alongside viewport
-size. An image source needs a much larger intrinsic width in order to suit a high density display. In simple terms, a display with
-double the density requires twice as many image pixels to render the image as sharply as possible.
+<iframe src="https://codepen.io/web-dot-dev/embed/gOjLpEM?height=500&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Here, developers were again able to rely on rendering engines' ability to downscale images visually. By providing the browser with
-an `800px` wide source image in `src`, then specifying that it should be displayed at `400px` wide with CSS, the result is an image
-rendered at double the pixel density:
+Однако, как бы ни был прост и эффективен этот подход с визуальной точки зрения, он был сопряжен с огромными затратами производительности. Поскольку `<img>` поддерживал только один источник данных для изображения, такой подход требовал от нас предоставления актива изображения с собственным размером, равным наибольшему размеру, при котором оно может быть отображено. Для изображения, которое должно занимать место в макете шириной от `300px` до `2000px`, в зависимости от размера области просмотра пользователя, требовался источник изображения с собственной шириной не менее `2000px`. Для пользователя, который просматривает страницу только через небольшое окно просмотра, все будет выглядеть так, как и ожидалось - изображение будет отлично масштабироваться. На отрисованной странице массивное, но уменьшенное исходное изображение ничем не будет отличаться от изображения соответствующего размера. Однако при передаче и рендеринге изображения шириной `2000px` оно будет потреблять огромное количество полосы пропускания и вычислительной мощности без ощутимой пользы.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'QWBKrjX',
-height: 700,
-theme: dark,
-tab: 'css,result'
-} %}
+Ситуация значительно ухудшилась с появлением первых "ретина"-устройств, когда наряду с размером области просмотра стала учитываться и плотность отображения. Для того чтобы источник изображения подходил для дисплея с высокой плотностью, ему требуется гораздо большая собственная ширина. Проще говоря, дисплей с удвоенной плотностью требует в два раза больше пикселей изображения для его максимально четкого отображения.
 
-A single source image, cut to suit the largest possible space in your layout and high-density displays, works for all users _visually_,
-of course. A huge, high resolution image source rendered on a small, low density display will look like any other small, low density image,
-but feel far slower. The user will be left bearing all the performance costs of that massive, 4000px-wide image source, to no benefit.
+Здесь разработчики снова смогли положиться на способность движков рендеринга визуально уменьшать масштаб изображения. Предоставив браузеру исходное изображение шириной `800px` в `src`, а затем указав в CSS, что оно должно отображаться с шириной `400px`, мы получаем изображение с удвоенной плотностью пикселей:
 
-For a long time, `<img>` largely did one thing— it "got image data and put it on the screen." It did that reasonably well, for certain,
-but `<img>` wasn't up to the task of accommodating the radical shifts in browsing context we were experiencing. While responsive web design
-became a mainstream development practice, browsers optimized the performance of `img` for nearly twenty years—but for all but the most privileged
-users, the image _content_ of pages was inefficient from the outset. No matter how quickly the browser managed to request, parse, and render
-an image source, that asset would likely be far bigger than the user needed.
+<iframe src="https://codepen.io/web-dot-dev/embed/QWBKrjX?height=700&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 600px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Одно исходное изображение, обрезанное под максимально возможное пространство в макете и на дисплеях высокой плотности, конечно, работает для всех пользователей _визуально_. Огромное исходное изображение высокого разрешения, выведенное на маленький дисплей с низкой плотностью, будет выглядеть как любое другое маленькое изображение с низкой плотностью, но работать будет гораздо медленнее. Пользователь будет вынужден нести все издержки производительности этого массивного изображения шириной `4000px`, не получая никакой выгоды.
+
+Долгое время `<img>` выполнял в основном одну задачу - "получал данные изображения и выводил их на экран". Конечно, он делал это достаточно хорошо, но `<img>` не справлялся с радикальными изменениями в контексте просмотра, которые мы переживали. В то время как отзывчивый веб-дизайн стал основной практикой разработки, браузеры оптимизировали работу `img` в течение почти двадцати лет - но для всех, кроме самых привилегированных пользователей, изображение _содержимого_ страницы было неэффективным с самого начала. Независимо от того, насколько быстро браузеру удавалось запросить, разобрать и отобразить исходное изображение, его размер, скорее всего, был намного больше, чем требовалось пользователю.
+
+:information_source: Источник &mdash; [A brief history of images on the web](https://web.dev/learn/images/history/)

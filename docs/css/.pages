@@ -77,6 +77,8 @@ nav:
         - placeholder.md
         - selection.md
     - "функции()":
+        - attr.md
+        - calc.md
         - conic-gradient.md
         - cross-fade.md
         - element.md

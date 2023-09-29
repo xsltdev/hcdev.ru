@@ -1,21 +1,29 @@
 ---
-title: Learn Images
-authors:
-    - matmarquis
-description: An in-depth course on images for the web.
-date: 2023-01-31
+description: Углубленный курс по изображениям для Web.
 ---
 
-This course is created for beginner and advanced web developers alike, covering everything from the basics of ensuring image sources are efficiently requested and rendered, to the details of how common image formats are communicated from server to client. Throughout this course you’ll learn how to achieve the smallest possible transfer sizes for your images without compromising on their quality—at least, not in a way anyone will be able to see.
+# Учим картинки
 
-You can go through the series from start to finish for a holistic understanding of how images work on the modern web, or use it as a reference for the specific concepts and markup patterns you’ll be using in your day-to-day work.
+<big>Углубленный курс по изображениям для Web.</big>
 
-For those new to web development, check out the [Learn HTML](/learn/html/) courses for the basics of using markup, [Learn CSS](/learn/css/) courses for styling fundamentals, and [Learn Responsive Design](/learn/design/) courses for an understanding of how images will be rendered in responsive layouts.
+Этот курс предназначен как для начинающих, так и для опытных веб-разработчиков и охватывает все аспекты, начиная с основ обеспечения эффективного запроса и рендеринга изображений и заканчивая деталями передачи распространенных форматов изображений с сервера на клиент. На протяжении всего курса вы узнаете, как добиться минимально возможного размера передаваемых изображений без ущерба для их качества - по крайней мере, так, чтобы никто не мог этого увидеть.
 
-Here's what you'll learn:
+Вы можете пройти весь курс от начала до конца, чтобы получить целостное представление о том, как изображения работают в современном Интернете, или использовать его в качестве справочника по конкретным концепциям и шаблонам разметки, которые вы будете использовать в своей повседневной работе.
+
+Для тех, кто только начинает заниматься веб-разработкой, предлагаем ознакомиться с курсами [Learn HTML](../html5/index.md), где рассматриваются основы использования разметки, [Learn CSS](../css3/index.md), где рассматриваются основы стилизации, и [Learn Responsive Design](../design/index.md), где рассматриваются способы отображения изображений в отзывчивых макетах.
+
+Вот что вы узнаете:
 
 {% include 'partials/course-index.njk' %}
 
-So, are you ready to learn Images?
+Итак, готовы ли вы к изучению изображений?
 
-{% Aside %} Course written by [Mat Marquis](https://hire.wil.to), with input and review from [Rachel Andrew](/authors/rachelandrew/), [Jake Archibald](/authors/jakearchibald/), [Barry Pollard](/authors/tunetheweb/), [Aaron Forinton](https://github.com/aaronforinton), [Eric Portis](https://ericportis.com/), [Zach Leatherman](https://www.zachleat.com/), and [K.Adam White](https://www.kadamwhite.com/). {% endAside %}
+!!!note "Авторы"
+
+    Курс написан [Mat Marquis](https://hire.wil.to) при участии и рецензировании [Rachel Andrew](/authors/rachelandrew/), [Jake Archibald](/authors/jakearchibald/), [Barry Pollard](/authors/tunetheweb/), [Aaron Forinton](https://github.com/aaronforinton), [Eric Portis](https://ericportis.com/), [Zach Leatherman](https://www.zachleat.com/), и [K.Adam White](https://www.kadamwhite.com/).
+
+!!!danger "Перевод"
+
+    Перевод этого учебника сделан благодаря [подписчикам на Бусти](https://boosty.to/bndby).
+
+:information_source: Источник &mdash; [Learn Images](https://web.dev/learn/images/)
