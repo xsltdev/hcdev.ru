@@ -43,6 +43,8 @@ hide:
 
     **[:octicons-arrow-right-24: Учебник CSS3](./learn/css3/index.md)** <small>web.dev</small>
 
+    **[:octicons-arrow-right-24: Учим картинки](./learn/images/index.md)** <small>web.dev</small>
+
 </div>
 
 ---

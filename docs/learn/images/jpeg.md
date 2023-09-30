@@ -1,139 +1,83 @@
 ---
-title: 'Image formats: JPEG'
-authors:
-  - matmarquis
-description: Learn about the most common image format on the web. 
-date: 2023-02-01
-tags:
-  - images
+title: JPEG
+description: Узнайте о самом распространенном формате изображений в Интернете.
+icon: material/file-jpg-box
 ---
 
-JPEG is the most common type of image used on the web, and with good reason: for decades, JPEG has almost invariably been the right choice for
-encoding photographs. The use case is right there in the name: JPEG stands for "Joint Photographic Experts Group," the committee responsible
-for first issuing the standard in 1992. You'll see the file extension for a JPEG as either .jpg or .jpeg, though the latter is rare in modern usage.
+# Форматы изображений: JPEG
 
-While lossless compression passively compresses image data as best it can, JPEG's _lossy_ compression looks for opportunities to make the compression
-more efficient with tiny, often imperceptible alterations to the image data. JPEG encodes image data as eight-by-eight blocks of pixels and describes the
-blocks—not the individual pixels inside them—algorithmically.
+<big>Узнайте о самом распространенном формате изображений в Интернете.</big>
 
-It may sound like an academic distinction on paper: "GIF uses a grid made up of pixels versus JPEG uses a grid made up of smaller grids of pixels."
-In practice, this use of blocks rather than pixels means JPEG is well suited to a much more common use case for images: the kind of subtle, layered
-gradients that make up a real world photograph.
+JPEG - самый распространенный тип изображений, используемый в Интернете, и на то есть веские причины: на протяжении десятилетий JPEG практически всегда был правильным выбором для кодирования фотографий. Причина этого кроется в самом названии: JPEG расшифровывается как "Joint Photographic Experts Group", комитет, ответственный за выпуск стандарта в 1992 году. В расширении файла JPEG можно встретить .jpg или .jpeg, хотя последний вариант в современном использовании встречается редко.
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/TFKgf2FgDGkoyg7wnVai.png", alt="Horizontal alignment of green blocks going from light to dark.", width="800", height="67" %}
+Если сжатие без потерь пассивно сжимает данные изображения настолько, насколько это возможно, то сжатие с потерями в JPEG ищет возможности сделать сжатие более эффективным с помощью крошечных, часто незаметных изменений данных изображения. JPEG кодирует данные изображения в виде блоков пикселей размером восемь на восемь и алгоритмически описывает блоки, а не отдельные пиксели внутри них.
 
-Describing even a very simple single-pixel gradient using GIF-style encoding would be extremely verbose:
+На бумаге это может показаться академическим различием: "В GIF используется сетка из пикселей, а в JPEG - сетка из более мелких пикселей". На практике такое использование блоков, а не пикселей означает, что JPEG хорошо подходит для гораздо более распространенных случаев использования изображений: таких тонких, многослойных градиентов, которые образуют реальную фотографию.
 
-> Row one, columns one through nine are #00CC00. Row one, column ten is #00BB00. Row one, column eleven is #00AA00. Row one, column twelve is #009900. Row one, column thirteen is #008800. Row one, column fourteen is #007700. Row one, column fifteen is #006600. Row one, column sixteen is #005500.
+![Горизонтальное выравнивание зеленых блоков в направлении от светлого к темному.](jpeg-1.avif)
 
-Describing a gradient using JPEG-style encoding is much, much more efficient:
+Описание даже очень простого однопиксельного градиента с использованием кодировки в стиле GIF будет чрезвычайно многословным:
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/ttnejYz6sQKRpzv1v8cl.png", alt="An eight-by-sixteen grid of green blocks ranging in hue from light to dark.", width="800", height="402" %}
+> Первая строка, столбцы с первого по девятый - #00CC00. Первая строка, десятый столбец - #00BB00. Первая строка, одиннадцатый столбец - #00AA00. Строка первая, столбец двенадцатый - #009900. Первая строка, тринадцатый столбец - #008800. Первая строка, четырнадцатый столбец - #007700. Первая строка, пятнадцатый столбец - #006600. Первая строка, шестнадцатый столбец - #005500.
 
-> Block one is #00CC00. Block two is a gradient from #00CC00 to #005500.
+Описание градиента с помощью кодирования в стиле JPEG намного, намного эффективнее:
 
-Where JPEG really shines is in quantizing the level of "high frequency" detail in an image, often imperceptibly. As a result,
-saving an image as a JPEG usually means reducing the quality of that image in ways that are measurable, but not necessarily _visible_.
-[As you've learned](/learn/images/gif), GIF-style palette quantization is a relatively simple operation: reducing the number of colors in an image results in
-smaller files, but in a way that can be easy to spot with the human eye.
+![Сетка размером восемь на шестнадцать из зеленых блоков от светлого до темного оттенка.](jpeg-2.avif)
 
-JPEG, on the other hand, is clever about how quantization is performed: JPEG's lossy compression attempts to quantize an image
-source in a way that loosely matches the way our own psycho-visual systems quantize the world around us. In effect, JPEG tries to
-throw away details we weren't likely to see in the first place, so it can sneak additional compression past us.
+> Первый блок - #00CC00. Второй блок - градиент от #00CC00 до #005500.
 
-The human psycho-visual system does a great deal to "compress" the images you're constantly taking in. When I glance outside at my tiny garden,
-I can immediately process a huge amount of information: for example, individual brightly-colored flowers stand out. I register right away that the
-soil is a dusty gray, and the leaves are drooping—my plants need water. What I do _see_, but don't fully _process_, are the exact shape, size, angle,
-and shade of green for any of the individual dropping leaves. I can actively look for that level of detail of course, but it would simply be too much
-information to take in passively, and to no real benefit. So my psycho-visual system does a little quantization of its own, distilling that information
-to "the leaves are drooping."
+Где JPEG действительно силен, так это в квантовании уровня "высокочастотных" деталей изображения, часто незаметном. В результате сохранение изображения в формате JPEG обычно означает снижение его качества, которое можно измерить, но не обязательно _видимо_. [Как вы уже поняли](/learn/images/gif), квантование палитры в стиле GIF - относительно простая операция: уменьшение количества цветов в изображении приводит к уменьшению размера файла, но так, что это легко заметить человеческим глазом.
 
-In effect, JPEG works the same way. JPEG's lossy compression reduces the level of detail in an image in a way that might not register at
-all to our naturally "lossy" psycho-visual systems, if done within reason—and introduces far more opportunities for bandwidth savings than
-lossless compression alone.
+В JPEG, напротив, квантование выполняется очень хитро: Сжатие с потерями в JPEG пытается квантовать исходное изображение таким образом, чтобы оно примерно соответствовало тому, как наши собственные психо-визуальные системы квантуют окружающий нас мир. По сути, JPEG пытается отбросить детали, которые мы вряд ли увидим, чтобы незаметно для нас получить дополнительное сжатие.
 
-For example, JPEG takes advantage of one of our major psycho-visual weaknesses: our eyes are more sensitive to differences in brightness
-than differences in hue. Prior to applying any compression, JPEG uses a process called "discrete cosine transformation" to split the image into
-separate frequencies—"layers," in a manner of speaking—representing _luminance_ (brightness) and _chrominance_ (color), or "luma" and "chroma."
+Психовизуальная система человека делает очень многое для "сжатия" изображений, которые вы постоянно воспринимаете. Когда я смотрю на свой крошечный сад, то сразу же обрабатываю огромное количество информации: например, выделяются отдельные ярко окрашенные цветы. Я сразу же замечаю, что почва серая от пыли, а листья поникли - моим растениям нужна вода. Что я _вижу_, но не полностью _обрабатываю_, так это точную форму, размер, угол наклона и оттенок зеленого для каждого из отдельных поникших листьев. Я, конечно, могу активно искать такие детали, но для пассивного восприятия это было бы просто слишком много информации, не приносящей никакой реальной пользы. Поэтому моя психовизуальная система делает небольшое квантование, сводя эту информацию к "листья поникли".
 
-The luma layer is minimally compressed, discarding only small details that aren't likely noticeable to the human eye.
+В сущности, JPEG работает точно так же. Сжатие с потерями в JPEG снижает уровень детализации изображения таким образом, который может вообще не восприниматься нашими психовизуальными системами с естественными "потерями", если это делается в пределах разумного, и открывает гораздо больше возможностей для экономии полосы пропускания, чем сжатие без потерь.
 
-The chroma layers are reduced significantly. Rather than simply quantizing the palette of the chroma layers like GIF, JPEG can perform a
-process called "subsampling" wherein a chroma layer is stored at a lower resolution. When recombined by effectively stretching the lower
-resolution chroma layers over the luma layer, the difference is often imperceptible. Slight differences in the hue might be noticeable if
-we compare the original image source and our JPEG side-by-side, but only when we know exactly what to look for.
+Например, JPEG использует одну из основных слабостей нашей психовизуальной системы: наши глаза более чувствительны к различиям в яркости, чем к различиям в оттенках. Прежде чем приступить к сжатию, JPEG использует процесс, называемый "дискретным косинусным преобразованием", для разделения изображения на отдельные частоты - "слои", так сказать, представляющие _яркость_ (яркость) и _хроматику_ (цвет), или "луму" и "хрому".
 
-With that said, JPEG isn't perfect. As crafty as JPEG is about sneaking compression past us, it can become glaringly obvious if taken too far.
-In fact, if you've spent much time on the web—particularly in days long past—you may have noticed the result of JPEG compression taken too far:
+Слой luma сжимается минимально, отбрасываются только мелкие детали, которые вряд ли заметны человеческому глазу.
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/ar5QsCECxAJLdAHFlwNd.png", alt="A highly compressed image of flowers containing many visual artifacts.", width="800", height="637" %}
+Слои цветности значительно уменьшаются. Вместо того чтобы просто квантовать палитру цветных слоев, как в GIF, JPEG может выполнять процесс, называемый "субдискретизацией", при котором цветной слой хранится с меньшим разрешением. При рекомбинации путем эффективного растягивания слоев цветности с более низким разрешением на слой luma разница часто оказывается незаметной. Небольшие различия в оттенках могут быть заметны при сравнении исходного изображения и JPEG, но только в том случае, если мы точно знаем, что искать.
 
-Compressing image data too aggressively means the level of detail is reduced further than our psycho-visual systems would naturally
-ignore, so the illusion is broken. It becomes obvious that detail is missing. Because JPEG operates in terms of blocks, the seams between
-those blocks can start to show.
+Тем не менее, JPEG не идеален. Как бы ни был хитер JPEG, чтобы скрыть от нас сжатие, оно может стать очевидным, если зайти слишком далеко. На самом деле, если вы проводили много времени в Интернете, особенно в далекие времена, вы могли заметить результат слишком сильного сжатия JPEG:
 
-## Progressive JPEG
+![Сильно сжатое изображение цветов, содержащее множество визуальных артефактов.](jpeg-3.avif)
 
-Progressive JPEG (PJPEG) effectively reorders the process of rendering a JPEG. "Baseline" JPEGs are rendered from top to
-bottom as the transfer progresses, while progressive JPEG breaks rendering into a set of full-sized "scans"—likewise done
-top-to-bottom—with each scan increasing the quality of the image. The entire image appears immediately, albeit blurry,
-and grows clearer as the transfer continues.
+Слишком сильное сжатие данных изображения приводит к тому, что уровень детализации снижается настолько, что наши психо-визуальные системы не замечают этого, поэтому иллюзия нарушается. Становится очевидным, что детали отсутствуют. Поскольку JPEG оперирует блоками, швы между ними могут стать заметными.
 
-<img alt="Gif showing the superior load speed of a progressive JPEG compared to a regular JPEG." decoding="async" loading="lazy" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" src="https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=800" srcset="https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=200 200w,     https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=228 228w,     https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=260 260w,     https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=296 296w,     https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=338 338w,     https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=385 385w,     https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=439 439w,     https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=500 500w,     https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=571 571w,     https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=650 650w,     https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=741 741w,     https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=845 845w,     https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=964 964w,     https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=1098 1098w,     https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=1252 1252w,     https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=1428 1428w,     https://web-dev.imgix.net/image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/iLfUCvVpxOSRAOqhbYCc.gif?w=1600 1600w" width="800" height="446">
+## Прогрессивный JPEG
 
-It seems like a strictly technical difference on paper, but there's a huge perceptual benefit: by delivering a full-size version of
-the image right away instead of empty space, PJPEG can _feel_ faster than a baseline JPEG to the end user. In addition, except for the smallest images,
-encoding an image as PJPEG almost always means a smaller file size compared to a baseline JPEG—not by much, but every byte helps.
+Прогрессивный JPEG (PJPEG) эффективно перестраивает процесс рендеринга JPEG. "Базовый JPEG рендерится сверху вниз по мере передачи, а прогрессивный JPEG разбивает рендеринг на множество полноразмерных "сканов" - как бы сверху вниз, причем каждый скан повышает качество изображения. Все изображение появляется сразу, хотя и нечетко, и становится более четким по мере продолжения передачи.
 
-There is one tiny trade-off, however: decoding PJPEG is more complex on the client side, which means putting a _little_ more strain on the
-browser—and a device's hardware—during rendering. That rendering overhead is difficult to quantify in exact terms, but it's very minor
-and unlikely to be noticeable except for with severely underpowered devices. It's a trade-off worth making and, all told, progressive is a
-sensible default approach whenever encoding an image as JPEG.
+![Gif, демонстрирующий более высокую скорость загрузки прогрессивного JPEG по сравнению с обычным JPEG.](jpeg-4.gif)
 
-## Using JPEG
+На бумаге это кажется чисто техническим различием, но на деле это дает огромные преимущества для восприятия: благодаря тому, что вместо пустого пространства сразу передается полноразмерная версия изображения, PJPEG может показаться конечному пользователю быстрее, чем базовый JPEG. Кроме того, за исключением самых маленьких изображений, кодирование изображения в PJPEG почти всегда означает меньший размер файла по сравнению с базовым JPEG - не намного, но каждый байт помогает.
 
-You might feel a little overwhelmed by all this information. There's good news for your day-to-day work, though: the more
-technical specifics of JPEG compression are abstracted away, instead exposed as a single "quality" setting: an integer from 0 to 100.
-0 provides the smallest possible file size, and as you might expect, the worst possible visual quality. As you progress from 0 to 100 both
-the quality and the file size increase. This setting is subjective, of course—not every tool will interpret a value of "75" the same way, and
-perceptual quality always varies according to the content of the image.
+Однако есть один небольшой компромисс: декодирование PJPEG сложнее на стороне клиента, что означает несколько большую нагрузку на браузер и аппаратное обеспечение устройства во время рендеринга. Точно оценить этот эффект сложно, но он очень незначительный и вряд ли будет заметен, разве что на совсем уж маломощных устройствах. Это компромисс, на который стоит пойти, и, в целом, прогрессивный подход является разумным по умолчанию при кодировании изображения в JPEG.
 
-To understand how this compression setting works, let's use a common web-based tool for optimizing image files: [Squoosh](https://squoosh.app/).
+## Использование JPEG
 
-[Squoosh](https://squoosh.app/)—maintained by the Chrome team—provides a side-by-side comparison between different methods of encoding
-and configuring image outputs, with configuration options ranging from a 0-100 global "quality" slider, to the ability to fine-tune
-details of chrominance vs. luminance resampling. The lower the "quality" number, the higher the compression, and the smaller the resulting file will be.
+Возможно, вы чувствуете себя немного ошеломленным всей этой информацией. Однако для повседневной работы есть хорошие новости: технические особенности сжатия JPEG абстрагированы от них и представлены в виде единственной настройки "качества": целого числа от 0 до 100. Значение 0 обеспечивает наименьший размер файла и, как и следовало ожидать, наихудшее качество изображения. По мере продвижения от 0 до 100 увеличивается и качество, и размер файла. Конечно, эта настройка субъективна - не каждый инструмент будет интерпретировать значение "75" одинаково, а качество восприятия всегда зависит от содержания изображения.
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/17U3oSBnmzOXCvFPu0dV.png", alt="The Squoosh settings panel, with the quality slider highlighted.", width="800", height="783" %}
+Чтобы понять, как работает эта настройка сжатия, воспользуемся распространенным веб-инструментом для оптимизации графических файлов: [Squoosh](https://squoosh.app/).
 
-Here, with the "quality" set to 60, the file size is reduced by 79%. Don't be fooled by the implications of this label: differences in
-quality across most of the scale will be imperceptible to the human eye, even when performing a side-by-side comparison.
+[Squoosh](https://squoosh.app/), поддерживаемый командой разработчиков Chrome, позволяет сравнить между собой различные методы кодирования и настройки выходных изображений, при этом возможности настройки варьируются от глобального ползунка "качества" 0-100 до возможности тонкой настройки деталей передискретизации цветности и яркости. Чем меньше значение параметра "качество", тем выше степень сжатия и тем меньше будет результирующий файл.
 
-To convert your source image to a progressive JPEG, tick the box labeled "progressive rendering" under "advanced options."
-Some of these configuration options are almost certainly a deeper dive than the average web project will require, but they can
-provide you with a closer look at how the things you've learned about JPEG encoding impact file size and quality in real world use cases.
+![Панель настроек Squoosh с выделенным ползунком качества.](jpeg-5.avif)
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/2jknUAL72eJKef8m2tPP.png", alt="The Squoosh settings panel, with the progressive rendering setting highlighted.", width="800", height="781" %}
+Здесь при значении "качества" 60 размер файла уменьшается на 79%. Пусть вас не обманывает смысл этой надписи: разница в качестве на большей части шкалы будет незаметна для человеческого глаза даже при сравнении рядом.
 
-There is not much to it in practical terms, despite how complicated we now know JPEG to be internally. Squoosh is just one of _countless_
-methods of saving optimized JPEGs, all of which use a similar method of determining the compression level: a single integer between 0 and 100.
+Чтобы преобразовать исходное изображение в прогрессивный JPEG, установите блок "Прогрессивный рендеринг" в разделе "Дополнительные параметры". Некоторые из этих опций почти наверняка окажутся более глубокими, чем это требуется для среднего веб-проекта, но они позволят вам лучше понять, как то, что вы узнали о кодировании JPEG, влияет на размер и качество файла в реальных условиях использования.
 
-Determining the ideal level of compression for your images is a finesse game, given that all the complexity of JPEG encoding
-is being distilled down to a single integer, especially when so much hinges on the _content_ of an image. Like thinking about
-blinking or breathing, considering JPEG compression settings changes how we perceive them.
+![Панель настроек Squoosh, где выделена настройка прогрессивного рендеринга.](jpeg-6.avif)
 
-Looking back outside now, after writing all this, my psycho-visual processing has become more manual—_now_ I'm looking at
-the individual leaves, even though the picture itself—so to speak—hasn't changed. That makes configuring JPEG compression a
-little fraught: you know exactly what kinds of visual defects to look for. By thinking about image compression in the first
-place, you're focusing on individual leaves—we're primed to spot slight blurring and the occasional compression artifact.
-The harder you look for artifacts while fine-tuning your JPEG compression settings the more likely you are to find them,
-when a user likely wouldn't. Even if that user knew exactly what to look for, they're not likely to visit a page with JPEG
-compression on their mind.
+С практической точки зрения это не так уж и много, несмотря на то, насколько сложным, как мы теперь знаем, является JPEG внутри. Squoosh - это всего лишь один из _бесчисленных_ методов сохранения оптимизированных JPEG, все они используют схожий способ определения степени сжатия: одно целое число от 0 до 100.
 
-For that reason, avoid the instinct to upscale an image looking for artifacts—or even look too closely at the parts of our
-images where you know artifacts will appear first. For users, faint artifacts blend in with the tiny details that their lossy
-psycho-visual systems usually gloss over. In fact, even with an understanding of the tricks JPEG tries to play, you wouldn't
-notice those same artifacts while browsing the web unless you went looking for them. For that reason, it's almost always a safe
-bet to nudge JPEG compression just a little lower than you think might be noticeable—especially when that image is going to be displayed
-_smaller_ than its intrinsic size due to direct styling, or constraints set by the surrounding layout.
+Определение идеального уровня сжатия для ваших изображений - дело тонкое, учитывая, что вся сложность кодирования JPEG сводится к одному целому числу, особенно когда многое зависит от _содержания_ изображения. Как и размышления о моргании или дыхании, рассмотрение параметров сжатия JPEG меняет наше восприятие.
 
+Оглядываясь на улицу сейчас, после написания всего этого, я вижу, что моя психовизуальная обработка стала более ручной - теперь я смотрю на отдельные листья, хотя сама картинка, так сказать, не изменилась. Это делает настройку сжатия JPEG несколько затруднительной: вы точно знаете, какие визуальные дефекты следует искать. Задумываясь о сжатии изображения, вы в первую очередь фокусируетесь на отдельных листьях - мы готовы заметить легкое размытие и случайные артефакты сжатия. Чем тщательнее вы ищете артефакты при точной настройке параметров сжатия JPEG, тем больше вероятность того, что вы их обнаружите, тогда как пользователь, скорее всего, этого не сделает. Даже если бы пользователь точно знал, что искать, он вряд ли стал бы заходить на страницу, имея в виду сжатие JPEG.
+
+Поэтому не стоит увеличивать масштаб изображения в поисках артефактов или даже слишком внимательно рассматривать те части изображения, где, как вы знаете, артефакты появятся в первую очередь. Для пользователей слабые артефакты сливаются с мельчайшими деталями, которые их психовизуальные системы, работающие с потерями, обычно не замечают. На самом деле, даже понимая, какие трюки пытается разыграть JPEG, вы не заметите эти артефакты при просмотре веб-страниц, если не будете их искать. По этой причине почти всегда стоит уменьшить степень сжатия JPEG до уровня, который, по вашему мнению, может быть заметен, особенно если изображение будет отображаться _меньше_, чем его собственный размер, из-за непосредственной стилизации или ограничений, накладываемых окружающим макетом.
+
+:information_source: Источник &mdash; [Image formats: JPEG](https://web.dev/learn/images/jpeg/)

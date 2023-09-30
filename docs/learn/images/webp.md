@@ -1,120 +1,87 @@
 ---
-title: 'Image formats: WebP'
-authors:
-  - matmarquis
-description: Learn about WebP, and understand the difference between this format and others.
-date: 2023-02-01
-tags:
-  - images
+title: WebP
+description: Узнайте о WebP и поймите разницу между этим форматом и другими.
+icon: material/web-plus
 ---
 
-Google originally developed WebP as a lossy image format to supersede JPEG, one that was able to produce files smaller than a
-comparable-quality image file encoded as JPEG. Later updates to the format introduced the option of lossless compression,
-PNG-like alpha channel transparency, and GIF-like animation—all of which can be used alongside JPEG-style lossy compression.
-WebP is an _unbelievably_ versatile format.
+# Форматы изображений: WebP
 
-WebP's lossy compression algorithm is based on a method that the [VP8 video codec](https://datatracker.ietf.org/doc/html/draft-bankoski-vp8-bitstream-01#page-7)
-uses to compress keyframes in videos. At a high level, it's similar to JPEG encoding: WebP operates in terms of "blocks" rather than individual pixels,
-and has a similar division between luminance and chrominance. WebP's luma blocks are 16x16, while chroma blocks are 8x8, and those "macroblocks" are
-further subdivided into 4x4 sub-blocks.
+<big>Узнайте о WebP и поймите разницу между этим форматом и другими.</big>
 
-Where WebP differs radically from JPEG are in two features: "block prediction" and "adaptive block quantization."
+<p class="ciu_embed" data-feature="webp" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+<picture>
+<source type="image/webp" srcset="https://caniuse.bitsofco.de/image/webp.webp">
+<source type="image/png" srcset="https://caniuse.bitsofco.de/image/webp.png">
+<img src="https://caniuse.bitsofco.de/image/webp.jpg" alt="Data on support for the webp feature across the major browsers from caniuse.com">
+</picture>
+</p>
 
-## Block Prediction
+Изначально компания Google разрабатывала WebP как формат изображений с потерями, пришедший на смену JPEG, который позволял создавать файлы меньшего размера, чем файлы изображений сопоставимого качества, закодированные в JPEG. В последующих обновлениях формата появилась возможность сжатия без потерь, прозрачность альфа-канала, подобная PNG, и анимация, подобная GIF, - все это может использоваться наряду со сжатием с потерями, подобным JPEG. WebP - невероятно универсальный формат.
 
-Block prediction is the process through which the contents of each chrominance and luminance block are predicted based on the values
-of their surrounding blocks—specifically the blocks above and to the left of the current block. As you might imagine, the algorithms
-that do this work are fairly complex, but to put it in plain language: "if there's blue above the current block, and blue to the left
-of the current block, assume this block is blue."
+Алгоритм сжатия WebP с потерями основан на методе, который использует [видеокодек VP8](https://datatracker.ietf.org/doc/html/draft-bankoski-vp8-bitstream-01#page-7) для сжатия ключевых кадров в видео. На высоком уровне он похож на кодирование JPEG: WebP работает в терминах "блоков", а не отдельных пикселей, и имеет аналогичное разделение на яркость и цветность. Блоки света в WebP имеют размер 16x16, блоки цветности - 8x8, и эти "макроблоки" далее делятся на субблоки 4x4.
 
-In truth, both PNG and JPEG also do this sort of prediction to _some_ degree. WebP, however, is unique in that it samples the surrounding
-blocks' data and then attempts to populate the current block by way of several different "prediction modes", effectively trying to "draw"
-the missing part of the image. The results provided by each prediction mode are then compared to the real image data, and the closest
-predictive match is selected.
+Кардинальное отличие WebP от JPEG заключается в двух особенностях: "предсказание блоков" и "адаптивное квантование блоков".
 
-<div style="background: #fff;">
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/t8neUw7UOsUNTF3uxe08.png", alt="A diagram of WebP’s various block prediction methods.", width="800", height="509" %}
+## Предсказание блоков
+
+Предсказание блоков - это процесс, в ходе которого содержимое каждого блока цветности и яркости предсказывается на основе значений окружающих блоков, то есть блоков, расположенных выше и левее текущего блока. Как вы можете себе представить, алгоритмы, выполняющие эту работу, достаточно сложны, но если говорить простым языком, то: "если над текущим блоком есть синий цвет, а слева от него - синий, считайте, что этот блок синий".
+
+По правде говоря, и PNG, и JPEG также в той или иной степени выполняют подобное предсказание. Однако WebP уникален тем, что он делает выборку данных из окружающих блоков, а затем пытается заполнить текущий блок с помощью нескольких различных "режимов предсказания", фактически пытаясь "нарисовать" недостающую часть изображения. Результаты, полученные в каждом режиме предсказания, сравниваются с реальными данными изображения, и выбирается наиболее близкое к ним предсказание.
+
+<div style="background: #fff;" markdown>
+![Диаграмма различных методов блочного предсказания в WebP.](webp-1.avif)
 </div>
 
-Even the closest predictive match isn't going to be completely right, of course, so the differences between the predicted and
-actual values of that block are encoded in the file. When decoding the image, the rendering engine uses the same data to apply
-the same predictive logic, leading to the same predicted values for each block. The difference between the prediction and the
-expected image that was encoded in the file is then applied over the predictions—similar to how a Git commit represents a differential
-patch that gets applied over the local file, rather than a brand new copy of the file.
+Конечно, даже самое близкое прогнозирование не может быть полностью верным, поэтому различия между прогнозируемыми и реальными значениями блока кодируются в файле. При декодировании изображения механизм рендеринга использует те же данные для применения той же логики прогнозирования, что приводит к получению тех же прогнозируемых значений для каждого блока. Разница между прогнозом и ожидаемым изображением, которое было закодировано в файле, затем применяется к прогнозам - подобно тому, как коммит в Git представляет собой дифференциальный патч, который применяется к локальному файлу, а не к совершенно новой копии файла.
 
-To illustrate: rather than dig into the complex math involved in the true predictive algorithm, we'll invent a WebP-like encoding
-with a single prediction mode, and use it to efficiently relay a grid of numbers the way we did with the legacy formats. Our algorithm
-has a single prediction mode, which we'll call "prediction mode one:" the value of each block is the sum of the values of the blocks above
-it and to the left of it, starting with 1.
+Для примера: вместо того чтобы вникать в сложную математику, связанную с настоящим алгоритмом предсказания, мы придумаем WebP-подобную кодировку с одним режимом предсказания и будем использовать ее для эффективной передачи сетки чисел так же, как это было сделано в старых форматах. Наш алгоритм имеет единственный режим предсказания, который мы назовем "режимом предсказания один": значение каждого блока равно сумме значений блоков, расположенных над ним и слева от него, начиная с 1.
 
-Now, say we're starting with the following real image data:
+Итак, предположим, что мы имеем следующие данные реального изображения:
 
 ```text
 111151111
 122456389
 ```
 
-Using our predictive model to determine the contents of a 2x9 grid, we would get the following result:
+Используя нашу прогностическую модель для определения содержимого сетки 2x9, мы получим следующий результат:
 
 ```text
 111111111
 123456789
 ```
 
-Our data is a good fit for the predictive algorithm we've invented—the predicted data is a close match to our real data.
-Not a perfect fit, of course—the actual data has several blocks that are different from the predicted data. So, the encoding
-we send includes not just the prediction method to use, but a diff of any blocks that should differ from their predicted values:
+Наши данные хорошо подходят для разработанного нами алгоритма прогнозирования - прогнозируемые данные близко совпадают с реальными. Конечно, это не совсем так - в реальных данных есть несколько блоков, которые отличаются от предсказанных. Поэтому в кодировке, которую мы отправляем, указывается не только метод предсказания, но и различие между блоками, которые должны отличаться от предсказанных значений:
 
 ```text
 _ _ _ _ +4 _ _ _ _
 _ _ -1 _ _ _ -4 _ _
 ```
 
-Put in the same kind of plain language as some of the legacy format encodings we've discussed:
+Выражаясь тем же простым языком, что и некоторые из обсуждавшихся нами кодировок устаревших форматов:
 
-> 2x9 grid using prediction mode one. +4 to 1x5, -1 to 2x3, -4 to 2x7.
+> сетка 2x9 с использованием первого режима предсказания. +4 - 1x5, -1 - 2x3, -4 - 2x7.
 
-The end result is an unbelievably efficient encoded file.
+В итоге получается невероятно эффективный кодированный файл.
 
-## Adaptive block quantization
+## Адаптивное блочное квантование
 
-JPEG compression is a blanket operation, applying the same level of quantization to every block in the image. In an image
-with a uniform composition, that certainly makes sense—but real-world photographs aren't any more uniform than the world around us.
-In practice, this means that our JPEG compression settings are determined not by the high frequency details—where JPEG
-compression excels—but by the parts of our image where compression artifacts are most likely to appear.
+JPEG-сжатие - это сплошная операция, при которой к каждому блоку изображения применяется один и тот же уровень квантования. Для изображений с однородной композицией это, конечно, имеет смысл, но реальные фотографии не более однородны, чем окружающий нас мир. На практике это означает, что параметры сжатия JPEG определяются не высокочастотными деталями, в которых JPEG-компрессия превосходит все остальные, а теми частями изображения, где наиболее вероятно появление артефактов сжатия.
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/ohpy2TSKU5qkO7bZOzIy.png", alt="A compressed JPEG image of a monarch butterfly", width="800", height="798" %}
+![Сжатое JPEG-изображение бабочки-монарха](webp-2.avif)
 
-As you can see in this exaggerated example, the wings of the monarch in the foreground look relatively sharp—a little grainy
-when compared with the high-resolution original, but certainly not noticeable without the original to compare with it.
-Likewise, the detailed inflorescence of the milkweed, and the leaves in the foreground—you and I may see traces of compression
-artifacts with our trained eyes, but even with the compression dialed up well beyond reasonable levels things in the foreground
-still look passably crisp. The low-frequency information at the top left of the picture—the blurry green backdrop of leaves—looks
-_terrible_. Even an untrained viewer would immediately notice the quality issue—the subtle gradients in the background are
-rounded down to jagged, solid-color blocks.
+Как видно из этого утрированного примера, крылья монарха на переднем плане выглядят относительно четко - немного зернисто, если сравнивать с оригиналом высокого разрешения, но, конечно, не заметно без оригинала, чтобы сравнить с ним. Аналогично, детальное соцветие молочая и листья на переднем плане - мы с вами можем увидеть следы артефактов сжатия, но даже при компрессии, превышающей разумные пределы, все на переднем плане выглядит достаточно четким. Низкочастотная информация в левой верхней части изображения - размытый зеленый фон из листьев - выглядит просто ужасно. Даже неподготовленный зритель сразу же заметит проблему качества - тонкие градиенты на заднем плане округляются до рваных сплошных цветовых блоков.
 
-In order to avoid this, WebP takes an _adaptive_ approach to quantization: an image is broken into up to four visually similar
-segments, and compression parameters for those segments are tuned independently. Using the same outsized compression with WebP:
+Чтобы избежать этого, в WebP используется _адаптивный_ подход к квантованию: изображение разбивается на четыре визуально похожих сегмента, и параметры сжатия для них настраиваются независимо. Использование такого же чрезмерного сжатия в WebP:
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/gJKurkTf09XGFhaUApP2.png", alt="A compressed WebP image of a monarch butterfly", width="800", height="801" %}
+![Сжатое WebP-изображение бабочки-монарха](webp-3.avif)
 
-The size of both these image files is about the same. The quality is about the same when we look at the monarch's wings—you
-can spot a few tiny differences in the end result if you look very, very closely, but no real difference in overall quality.
-In the WebP, the flowers of the milkweed are just a _little_ sharper—again, likely not enough to be noticeable unless you're
-comparing the two side-by-side and really looking for differences in quality, the way we are. The background is a different story
-altogether: it has barely a trace of JPEG's glaringly obvious artifacts. WebP gives us the same file size, but a much higher
-quality image—give or take a few tiny details that our psychovisual systems wouldn't be able to detect if we weren't comparing
-the two so closely.
+Размер обоих файлов изображений примерно одинаков. Качество изображения примерно одинаково, когда мы смотрим на крылья монарха - можно заметить несколько крошечных различий в конечном результате, если присмотреться очень-очень внимательно, но реальной разницы в общем качестве нет. В WebP цветки молочая чуть более резкие - опять же, скорее всего, не настолько, чтобы это было заметно, если только вы не сравниваете два снимка рядом и не ищете разницу в качестве, как это делаем мы. Фон - совсем другая история: на нем почти нет следов явно выраженных артефактов JPEG. WebP дает тот же размер файла, но гораздо более высокое качество изображения - плюс-минус несколько мелких деталей, которые наши психовизуальные системы не смогли бы обнаружить, если бы мы не сравнивали их так близко.
 
-## Using WebP
+## Использование WebP
 
-The internals of WebP might be considerably more complex than JPEG encoding, but just as simple for the purpose of our daily
-work: all the complexity of WebP's encoding is standardized around a single "quality" value—expressed from 0–100, just like JPEG.
-And once again, that's not to say that you're _limited_ to a single overarching "quality" setting. You can—and should—tinker with all
-the fine details of WebP encoding, if only to gain a better understanding of how these normally-invisible settings can impact
-file size and quality.
+Внутреннее устройство WebP может быть значительно сложнее, чем кодирование JPEG, но столь же просто для целей нашей повседневной работы: вся сложность кодирования WebP стандартизирована вокруг одного значения "качества", выражаемого в пределах 0-100, как и в JPEG. И опять же, это не означает, что вы _ограничены_ одним общим значением "качества". Вы можете и даже должны попробовать разобраться во всех тонкостях кодирования WebP, хотя бы для того, чтобы лучше понять, как эти обычно невидимые настройки могут влиять на размер и качество файла.
 
-Google offers a `cwebp` command line encoder that allows you to convert or compress individual files or entire directories of images:
+Google предлагает кодировщик командной строки `cwebp`, который позволяет конвертировать или сжимать отдельные файлы или целые каталоги изображений:
 
 ```shell
 $ cwebp -q 80 butterfly.jpg -o butterfly.webp
@@ -135,5 +102,6 @@ quantizer:       |      27 |      25 |      21 |      13 |
 filter level:    |       8 |       6 |      19 |      16 |
 ```
 
-And if you're not inclined toward the command line, Squoosh will serve us just as well for encoding WebP. It gives us the option
-of side-by-side comparisons between different encodings, settings, quality levels, and differences in file size from JPEG encoding.
+Если же вы не склонны к работе с командной строкой, то Squoosh также хорошо подойдет для кодирования WebP. Он позволяет сравнивать различные кодировки, настройки, уровни качества и размер файла, отличающийся от размера файла при кодировании JPEG.
+
+:information_source: Источник &mdash; [Image formats: WebP](https://web.dev/learn/images/webp/)

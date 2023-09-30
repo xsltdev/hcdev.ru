@@ -18,6 +18,8 @@ hide:
 
     **[:octicons-arrow-right-24: Учебник HTML5](html5/index.md)** <small>web.dev</small>
 
+    **[:octicons-arrow-right-24: Учим картинки](./images/index.md)** <small>web.dev</small>
+
 -   :simple-css3:{ .lg .middle } **CSS**
 
     ***

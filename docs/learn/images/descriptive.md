@@ -1,303 +1,189 @@
 ---
-title: 'Descriptive syntaxes'
-authors:
-  - matmarquis
-description: Using srcset and sizes to provide the browser with information about image sources and how they'll be used.
-date: 2023-02-01
-tags:
-  - images
+description: Использование srcset и sizes позволяет предоставить браузеру информацию об источниках изображений и о том, как они будут использоваться.
+icon: material/sort-descending
 ---
 
-In this module, you'll learn how to give the browser a choice of images so that it can make the best decisions about what to display. `srcset`
-isn't a method for swapping image sources at specific breakpoints, and it isn't meant to swap one image for another. These syntaxes allow the
-browser to solve a very difficult problem, independent of us: seamlessly requesting and rendering an image source tailored to a user's browsing context,
-including viewport size, display density, user preferences, bandwidth, and countless other factors.
+# Дескриптивные синтаксисы
 
-It's a big ask—certainly more than we want to consider when we're simply marking up an image for the web, and doing it well involves more
-information than we can access.
+<big>Использование `srcset` и `sizes` позволяет предоставить браузеру информацию об источниках изображений и о том, как они будут использоваться.</big>
 
-## Describing density with `x`
+В этом модуле вы узнаете, как предоставить браузеру возможность выбора изображений, чтобы он мог принимать оптимальные решения о том, что ему показывать. Синтаксис `srcset` не является методом замены источников изображений в определенных точках останова и не предназначен для замены одного изображения на другое. Эти синтаксисы позволяют браузеру независимо от нас решать очень сложную задачу: беспрепятственно запрашивать и отображать источник изображения в соответствии с условиями просмотра, включая размер области просмотра, плотность экрана, предпочтения пользователя, пропускную способность и множество других факторов.
 
-An `<img>` with a fixed width will occupy the same amount of the viewport in any browsing context, regardless of the _density_ of a user's
-display—the number of physical pixels that make their screen. For example, an image with an inherent width of `400px` will occupy almost
-the entire browser viewport on both the original Google Pixel and much newer Pixel 6 Pro—both devices have a normalized `412px`
-[logical pixel](https://developer.mozilla.org/docs/Glossary/CSS_pixel) wide viewport.
+Это очень сложная задача - конечно, более сложная, чем та, которую мы хотим учитывать, когда просто размечаем изображение для Web, и для ее решения требуется больше информации, чем мы можем получить.
 
-The Pixel 6 Pro has a much _sharper_ display, however: the 6 Pro has a _physical_ resolution of 1440 × 3120 pixels, while the
-Pixel is 1080 × 1920 pixels—that is, the number of hardware pixels that make up the screen itself.
+## Описание размеров с помощью `x`
 
-The ratio between a device's logical pixels and physical pixels is the _device pixel ratio_ for that display (DPR). DPR is
-calculated by dividing the device's actual screen resolution by a viewport's CSS pixels.
+Изображение `<img>` с фиксированной шириной будет занимать одинаковую часть области просмотра в любом контексте просмотра, независимо от _плотности_ дисплея пользователя - количества физических пикселей, составляющих его экран. Например, изображение с собственной шириной `400px` будет занимать почти все поле зрения браузера как на оригинальном Google Pixel, так и на гораздо более новом Pixel 6 Pro - оба устройства имеют нормализованное поле зрения шириной `412px` [логический пиксель](https://developer.mozilla.org/docs/Glossary/CSS_pixel).
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/2YTBM6TXRoEE2Q3XbFhX.png", alt="A DPR of 2 displayed in a console window.", width="800", height="277" %}
+Однако у Pixel 6 Pro дисплей гораздо более узкий: у 6 Pro _физическое_ разрешение составляет 1440 × 3120 пикселей, а у Pixel - 1080 × 1920 пикселей, то есть количество аппаратных пикселей, составляющих сам экран.
 
-So, the original Pixel has a DPR of 2.6, while the Pixel 6 Pro has a DPR of 3.5.
+Соотношение между логическими и физическими пикселями устройства - это _отношение пикселей устройства_ для данного дисплея (DPR). Значение DPR рассчитывается путем деления фактического разрешения экрана устройства на количество CSS-пикселей области просмотра.
 
-The iPhone 4, the first device with a DPR greater than 1, reports a device pixel ratio of 2—the physical resolution of the screen is
-double the logical resolution. Any device prior to the iPhone 4 had a DPR of 1: one logical pixel to one physical pixel.
+![В консольном окне отображается DPR, равный 2.](descriptive-1.avif)
 
-If you view that `400px`-wide image on a display with a DPR of `2`, each logical pixel is being rendered across four of the
-display's physical pixels: two horizontal and two vertical. The image doesn't benefit from the high-density display—it will look the
-same as it would on a display with a DPR of `1`. Of course, anything "drawn" by the browser's rendering engine—text, CSS shapes, or SVGs,
-for example—will be drawn to suit the higher-density display. But as you learned from [Image Formats and Compression](/learn/images/raster-images/), raster images are fixed
-grids of pixels. While it may not always be glaringly obvious, a raster image upscaled to suit a higher-density display will look
-low-resolution compared to the surrounding page.
+Так, у оригинального Pixel DPR составляет 2,6, а у Pixel 6 Pro - 3,5.
 
-In order to prevent this upscaling, the image being rendered has to have an intrinsic width of at least `800` pixels. When scaled down
-to fit a space in a layout 400 logical pixels wide, that 800-pixel image source has double the pixel density—on a display with a DPR of `2`,
-it'll look nice and sharp.
+У iPhone 4, первого устройства с DPR больше 1, соотношение пикселей устройства равно 2 - физическое разрешение экрана в два раза больше логического. Все устройства до iPhone 4 имели DPR, равный 1: один логический пиксель к одному физическому пикселю.
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/IoJjwpreGIT7LwRThaWn.png", alt="Close up of a flower petal showing disparity in density.", width="800", height="417" %}
+При просмотре изображения шириной `400px` на дисплее с DPR `2` каждый логический пиксель отображается на четырех физических пикселях дисплея: двух горизонтальных и двух вертикальных. Изображение не выигрывает от высокой плотности - оно будет выглядеть так же, как и на дисплее с DPR `1`. Конечно, все, что "рисуется" механизмом рендеринга браузера - текст, CSS-фигуры или SVG, например, - будет рисоваться в соответствии с более высокой плотностью отображения. Но, как вы узнали из раздела [Форматы и сжатие изображений](raster-images.md), растровые изображения представляют собой фиксированные сетки пикселей. И хотя это не всегда заметно, растровое изображение, увеличенное для отображения на дисплее с более высокой плотностью, будет выглядеть низкоразрешенным по сравнению с окружающей страницей.
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'QWBGVyo',
-height: 300,
-theme: dark,
-tab: 'html,css,result'
-} %}
+Чтобы предотвратить такое увеличение, необходимо, чтобы выводимое изображение имело собственную ширину не менее `800` пикселей. При уменьшении масштаба для размещения в макете шириной 400 логических пикселей 800-пиксельное изображение будет иметь вдвое большую плотность пикселей, и на дисплее с DPR `2` оно будет выглядеть хорошо и четко.
 
-Since a display with a DPR of `1` can't make use of the increased density of an image, it will be _downscaled_ to match the
-display—and as you know, a _downscaled_ image will look just fine. On a low-density display, an image suitable for higher-density
-displays will look like any other low-density image.
+![Крупный план лепестка цветка, демонстрирующий разброс плотности.](descriptive-2.avif)
 
-As you learned in [Images and Performance](/learn/images/performance-issues/), a user with a low-density display viewing an image source scaled down to `400px`
-will only _need_ a source with an inherent width of `400px`. While a much larger image would work for all users visually, a huge,
-high resolution image source rendered on a small, low density display will _look_ like any other small, low density image, but _feel_ far slower.
+<iframe src="https://codepen.io/web-dot-dev/embed/QWBGVyo?height=300&amp;theme-id=light&amp;default-tab=html%2Ccss%2Cresult&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-As you might guess, _mobile_ devices with a DPR of 1 are [vanishingly rare](https://jakearchibald.com/2021/serving-sharp-images-to-high-density-screens/),
-though it is still [common in "desktop" browsing contexts](https://twitter.com/TimVereecke/status/1587878439729725442). According to data
-shared by [Matt Hobbs](https://nooshu.com), approximately 18% of  [GOV.UK](https://www.gov.uk/) browsing sessions from November 2022 report a DPR of 1. While high-density images would _look_ the way those users might expect, they'll come at a much higher bandwidth and processing cost—of
-particular concern to users on the older and less powerful devices still likely to have low-density displays.
+Поскольку дисплей с DPR `1` не может использовать повышенную плотность изображения, оно будет _уменьшено_ для соответствия дисплею, а, как известно, _уменьшенное_ изображение выглядит просто замечательно. На дисплее с низкой плотностью изображение, подходящее для дисплеев с более высокой плотностью, будет выглядеть как любое другое изображение с низкой плотностью.
 
-Using `srcset` ensures that only devices with high-resolution displays receive image sources large enough to look sharp, without passing that same
-bandwidth cost along to users with lower-resolution displays.
+Как вы узнали в [Images and Performance](performance-issues.md), пользователю с дисплеем низкой плотности, просматривающему источник изображения, масштабированный до `400px`, нужен источник только с шириной `400px`. В то время как изображение гораздо большего размера будет визуально работать для всех пользователей, огромный источник изображения с высоким разрешением, выводимый на маленький дисплей с низкой плотностью, будет выглядеть так же, как и любое другое маленькое изображение с низкой плотностью, но ощущаться гораздо медленнее.
 
-The `srcset` attribute identifies one or more comma-separated _candidates_ for rendering an image. Each candidate is made up of
-two things: a URL, just like you would use in `src`, and a syntax that _describes_ that image source. Each candidate in `srcset`
-is described by its inherent _width_ ("`w` syntax") or intended _density_ ("`x` syntax").
+Как можно догадаться, на _мобильных_ устройствах DPR, равный 1, встречается [крайне редко](https://jakearchibald.com/2021/serving-sharp-images-to-high-density-screens/), хотя в контексте "настольных" браузеров он все еще [распространен](https://twitter.com/TimVereecke/status/1587878439729725442). Согласно данным, предоставленным [Matt Hobbs](https://nooshu.com), примерно 18% сеансов просмотра сайта [GOV.UK](https://www.gov.uk/) с ноября 2022 г. имеют DPR, равный 1. Хотя изображения высокой плотности будут выглядеть так, как ожидают эти пользователи, они будут требовать гораздо больших затрат на пропускную способность и обработку, что особенно важно для пользователей старых и менее мощных устройств, которые все еще имеют дисплеи низкой плотности.
 
-The `x` syntax is a shorthand for "this source is appropriate for a display with this density"—a candidate followed by `2x` is
-appropriate for a display with a DPR of 2.
+Использование `srcset` гарантирует, что только устройства с дисплеями высокого разрешения получат источники изображения, достаточно большие для того, чтобы оно выглядело четким, не перекладывая эти затраты на пропускную способность на пользователей с дисплеями низкого разрешения.
+
+Атрибут `srcset` определяет один или несколько разделенных запятыми _кандидатов_ для рендеринга изображения. Каждый кандидат состоит из двух частей: URL, как и в `src`, и синтаксиса, описывающего источник изображения. Каждый кандидат в `srcset` описывается присущей ему _шириной_ (синтаксис `w`) или предполагаемой _плотностью_ (синтаксис `x`).
+
+Синтаксис `x` является сокращением для выражения "этот источник подходит для дисплея с такой плотностью" - кандидат, за которым следует `2x`, подходит для дисплея с DPR, равным 2.
 
 ```html
-<img src="low-density.jpg" srcset="double-density.jpg 2x" alt="...">
+<img
+    src="low-density.jpg"
+    srcset="double-density.jpg 2x"
+    alt="..."
+/>
 ```
 
-Browsers that support `srcset` will be presented with two candidates: `double-density.jpg`, which `2x` describes as appropriate
-for displays with a DPR of 2, and `low-density.jpg` in the `src` attribute—the candidate selected if nothing more appropriate is
-found in `srcset`. For browsers without support for `srcset`, the attribute and its contents will be ignored—the contents of `src`
-will be requested, as usual.
+Браузерам, поддерживающим `srcset`, будет предложено два кандидата: `double-density.jpg`, который `2x` описывает как подходящий для дисплеев с DPR равным 2, и `low-density.jpg` в атрибуте `src` - кандидат, выбранный, если в `srcset` не найдено ничего более подходящего. Для браузеров, не поддерживающих `srcset`, атрибут и его содержимое будут проигнорированы - будет запрошено содержимое `src`, как обычно.
 
-It's easy to mistake the  values specified in the `srcset` attribute for instructions. That `2x` informs the browser that the
-associated source file would be suitable for use on a display with a DPR of 2—information about the source itself. It doesn't tell
-the browser how to use that source, just informs the browser how the source could be used. It's a subtle but important distinction: this
-is a double density _image_, not an image for use on a double density _display_.
+Значения, указанные в атрибуте `srcset`, легко принять за инструкции. То, что `2x` сообщает браузеру, что связанный с ним исходный файл подходит для использования на дисплее с DPR, равным 2, - это информация о самом источнике. Он не указывает браузеру, как использовать этот источник, а лишь информирует его о том, как этот источник может быть использован. Это тонкое, но важное различие: это _изображение_ двойной плотности, а не изображение для использования на _дисплее_ двойной плотности.
 
-The difference between a syntax that says "this source is appropriate for `2x` displays" and one that says "use this source on `2x` displays"
-is slight in print, but display density is only one of a huge number of interlinked factors that the browser uses to decide on the candidate
-to render, only some of which you can know. For example: individually, it's possible for you to determine that a user has enabled a
-bandwidth-saving browser preference through the `prefers-reduced-data` media query, and use that to always opt users into low-density images
-regardless of their display density—but unless implemented consistently, by every developer, on every website, it wouldn't be of much use to a user.
-They might have their preference respected on one site, and run into a bandwidth-obliterating wall of images on the next.
+Разница между синтаксисом, который говорит "этот источник подходит для дисплеев `2x`", и синтаксисом, который говорит "используйте этот источник на дисплеях `2x`", незначительна в печатном виде, но плотность дисплея - это только один из огромного количества взаимосвязанных факторов, которые браузер использует для принятия решения о кандидате для рендеринга, и только некоторые из них вы можете знать. Например: по отдельности можно определить, что пользователь включил в браузере предпочтение экономии полосы пропускания с помощью медиазапроса `prefers-reduced-data`, и использовать его для того, чтобы всегда выбирать для пользователей изображения с низкой плотностью, независимо от плотности отображения, но если это не будет реализовано последовательно, каждым разработчиком, на каждом сайте, то это не принесет большой пользы пользователю. На одном сайте его предпочтения могут быть учтены, а на другом он столкнется со стеной изображений, отнимающих полосу пропускания.
 
-The deliberately vague resource selection algorithm used by `srcset`/`sizes` leaves room for browsers to decide to select lower density
-images with bandwidth dips, or based on a preference to minimize data usage, without us taking on responsibility for how, or when, or at
-what threshold. There's no sense in taking on responsibilities—and additional work—that the browser is better equipped to handle for you.
+Намеренно расплывчатый алгоритм выбора ресурсов, используемый в `srcset`/`sizes`, оставляет возможность браузерам принимать решение о выборе изображений с меньшей плотностью при пропуске полосы пропускания или на основе предпочтений по минимизации использования данных, не беря на себя ответственность за то, как, когда и при каком пороговом значении. Нет смысла брать на себя ответственность и дополнительную работу, с которой лучше справится браузер.
 
-## Describing widths with `w`
+## Описание ширины с помощью `w`
 
-`srcset` accepts a second type of descriptor for image source candidates. It's a far more powerful one—and for our purposes, a
-great deal easier to understand. Rather than flagging a candidate as having the appropriate dimensions for a given display density,
-the `w` syntax describes the inherent width of each candidate source. Again, each candidate is identical save for their dimensions—the same
-content, the same cropping, and the same aspect ratio. But in this case, you want the user's browser to choose between two candidates:
-small.jpg, a source with an inherent width of 600px, and large.jpg, a source with an inherent width of 1200px.
+`srcset` принимает второй тип дескрипторов для кандидатов в источники изображения. Он гораздо более мощный и для наших целей гораздо более понятный. Синтаксис `w` описывает ширину, присущую каждому кандидату, а не отмечает, что он имеет размеры, соответствующие заданной плотности отображения. Опять же, каждый кандидат идентичен, за исключением размеров - то же содержание, та же обрезка и то же соотношение сторон. Но в данном случае необходимо, чтобы браузер пользователя выбирал между двумя кандидатами: `small.jpg` - источником с собственной шириной `600px` и `large.jpg` - источником с собственной шириной `1200px`.
 
 ```html
 srcset="small.jpg 600w, large.jpg 1200w"
 ```
 
-This doesn't tell the browser what to _do_ with this information—just supplies it with a list of candidates for displaying the image.
-Before the browser can make a decision about which source to render, you need to provide it with a little more information: a
-description of how the image will be rendered on the page. To do that, use the `sizes` attribute.
+Это не указывает браузеру, что _делать_ с этой информацией, а лишь предоставляет ему список кандидатов на отображение изображения. Прежде чем браузер примет решение о выборе источника, необходимо предоставить ему еще немного информации: описание того, как изображение будет отображаться на странице. Для этого используется атрибут `sizes`.
 
-## Describing usage with `sizes`
+## Описание использования с помощью `sizes`
 
-Browsers are incredibly performant when it comes to transferring images. Requests for image assets will be initiated long
-before requests for stylesheets or JavaScript—oftentimes even before the markup has been fully parsed. When the browser
-makes these requests, it has no information about the page itself, apart from the markup—it may not have even initiated requests
-for external stylesheets yet, let alone applied them. At the time the browser parses your markup and starts making external
-requests, it only has browser-level information: the size of the user's viewport, the pixel density of the user's display,
-user preferences, and so on.
+Браузеры невероятно производительны при передаче изображений. Запросы к изображениям инициируются задолго до запросов к таблицам стилей или JavaScript - зачастую даже до того, как разметка будет полностью разобрана. Когда браузер выполняет эти запросы, он не имеет никакой информации о самой странице, кроме разметки - возможно, он еще даже не инициировал запросы на внешние таблицы стилей, не говоря уже об их применении. В тот момент, когда браузер разбирает вашу разметку и начинает выполнять внешние запросы, он располагает только информацией на уровне браузера: размер области просмотра пользователя, плотность пикселей на его дисплее, предпочтения пользователя и т. д. Это не говорит ни о чем.
 
-This doesn't tell us anything about how an image is intended to be rendered in the page layout—it can't even use the viewport
-as a proxy for the upper bound of the `img` size, as it may occupy a horizontally scrolling container. So we need to
-provide the browser with this information and do it using markup. That is all we'll be able to use for these requests.
+Это ничего не говорит нам о том, как изображение должно быть отображено в макете страницы, он даже не может использовать область просмотра для определения верхней границы размера `img`, поскольку изображение может занимать горизонтально прокручиваемый контейнер. Поэтому нам необходимо предоставить браузеру эту информацию и сделать это с помощью разметки. Это все, что мы сможем использовать для этих запросов.
 
-Like `srcset`, `sizes` is intended to make information about an image available as soon as the markup is parsed. Just as the `srcset`
-attribute is shorthand for "here are the source files and their inherent sizes," the `sizes` attribute is shorthand for "here
-is the size of the rendered image _in the layout_." The way you describe the image is relative to the viewport—again, viewport
-size is the only layout information the browser has when the image request is made.
+Как и `srcset`, `sizes` предназначен для того, чтобы сделать информацию об изображении доступной сразу же после разбора разметки. Подобно тому, как атрибут `srcset` является сокращением для "вот исходные файлы и присущие им размеры", атрибут `sizes` является сокращением для "вот размер отрисованного изображения _в макете_". То, как вы описываете изображение, относится к области просмотра - опять же, размер области просмотра является единственной информацией о макете, которой располагает браузер в момент запроса изображения.
 
-That may sound a little convoluted in print, but it's far easier to understand in practice:
+Возможно, в печатном виде это звучит несколько запутанно, но на практике это гораздо проще понять:
 
 ```html
 <img
- sizes="80vw"
- srcset="small.jpg 600w, medium.jpg 1200w, large.jpg 2000w"
- src="fallback.jpg"
- alt="...">
+    sizes="80vw"
+    srcset="
+        small.jpg   600w,
+        medium.jpg 1200w,
+        large.jpg  2000w
+    "
+    src="fallback.jpg"
+    alt="..."
+/>
 ```
 
-Here, this `sizes` value informs the browser that the space in our layout that the `img` occupies has a width of `80vw`—80% of
-the viewport. Remember, this isn't an _instruction_, but a description of the image's size in the page layout. It doesn't say "make this
-image occupy 80% of the viewport," but "this image will end up occupying 80% of the viewport once the page has rendered."
+Здесь значение `sizes` сообщает браузеру, что пространство в нашем макете, которое занимает `img`, имеет ширину `80vw` - 80% от области просмотра. Помните, что это не _инструкция_, а описание размера изображения в макете страницы. Здесь не говорится "сделайте так, чтобы это изображение занимало 80% области просмотра", а говорится "это изображение будет занимать 80% области просмотра после рендеринга страницы".
 
-{% Codepen {
-user: 'web-dot-dev',
-id: 'PoBWLYP',
-height: 500,
-theme: dark,
-tab: 'html,result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/PoBWLYP?height=500&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-As a developer, your job is done. You've accurately described a list of candidate sources in `srcset` and the width of your image
-in `sizes`, and, just as with the `x` syntax in `srcset`, the rest is up to the browser.
+Ваша задача как разработчика выполнена. Вы точно описали список источников-кандидатов в `srcset` и ширину изображения в `sizes`, и, как и в случае с синтаксисом `x` в `srcset`, остальное зависит от браузера.
 
-But in the interest of fully understanding how this information is used, let's take a moment to walk through the decisions that
-a user's browser makes upon encountering this markup:
+Но для того чтобы полностью понять, как используется эта информация, давайте рассмотрим, какие решения принимает браузер пользователя, встретив эту разметку:
 
-You've informed the browser that this image will take up 80% of the available viewport—so, if we were to render this `img` on a
-device with a 1000-pixel-wide viewport, this image will occupy 800 pixels. The browser will then take that value and divide against
-it the widths of each of the image source candidates we specified in `srcset`. The smallest source has an inherent size of 600 pixels,
-so: 600÷800=.75. Our medium image is 1200 pixels wide: 1200÷800=1.5. Our largest image is 2000 pixels wide: 2000÷800=2.5.
+Вы сообщили браузеру, что это изображение будет занимать 80% доступного пространства просмотра, поэтому, если мы отобразим это `img` на устройстве с пространством просмотра шириной 1000 пикселей, это изображение будет занимать 800 пикселей. Затем браузер возьмет это значение и разделит на него ширину каждого из кандидатов в источники изображения, которые мы указали в `srcset`. Самый маленький источник имеет собственный размер 600 пикселей, поэтому: `600÷800=.75`. Наше среднее изображение имеет ширину 1200 пикселей: `1200÷800=1.5`. Самое большое изображение имеет ширину 2000 пикселей: `2000÷800=2.5`.
 
-The results of those calculations (`.75`, `1.5`, and `2.5`) are, effectively, DPR options _specifically tailored to the user's
-viewport size_. Since the browser also has information on the user's display density at hand, it makes a series of decisions:
+Результаты этих вычислений (`.75`, `1.5` и `2.5`) фактически являются параметрами DPR _специфически адаптированными к размеру области просмотра пользователя_. Поскольку браузер также располагает информацией о плотности изображения на экране пользователя, он принимает ряд решений:
 
-At this viewport size, the `small.jpg` candidate is discarded regardless of the user's display density—with a calculated DPR lower
-than `1`, this source would require upscaling for any user, so it isn't appropriate. On a device with a DPR of `1`, `medium.jpg` provides the
-closest match—that source is appropriate for display at a DPR of `1.5`, so it is a little larger than necessary, but remember that downscaling is
-a visually seamless process. On a device with a DPR of 2,`large.jpg` is the closest match, so it gets selected.
+При данном размере области просмотра кандидат `small.jpg` отбрасывается независимо от плотности изображения на экране пользователя - при расчетном DPR меньше `1` этот источник потребует увеличения для любого пользователя, поэтому он не подходит. На устройстве с DPR `1` наиболее близкое соответствие обеспечивает `medium.jpg` - этот источник подходит для отображения при DPR `1,5`, поэтому он немного больше, чем нужно, но помните, что уменьшение масштаба - визуально плавный процесс. На устройстве с DPR 2 наиболее близким по размеру является `large.jpg`, поэтому он и выбирается.
 
-If the same image is rendered on a 600 pixel wide viewport, the result of all that math would be completely different: 80vw is now 480px.
-When we divide our sources' widths against that, we get `1.25`, `2.5`, and `4.1666666667`. At this viewport size, `small.jpg` will be chosen
-on 1x devices, and `medium.jpg` will match on 2x devices.
+Если то же самое изображение будет отображаться на экране просмотра шириной 600 пикселей, результат всей этой математики будет совершенно иным: 80vw теперь равно `480px`. Разделив ширину наших источников на это значение, мы получим `1.25`, `2.5` и `4.1666666667`. При таком размере области просмотра `small.jpg` будет выбран на устройствах с шириной 1х, а `medium.jpg` - на устройствах с шириной `2х`.
 
-This image will look identical in all of these browsing contexts: all our source files are exactly the same apart from their dimensions,
-and each one is being rendered as sharply as the user's display density will allow. However, instead of serving `large.jpg` to every user
-in order to accommodate the largest viewports and the highest density displays, users will always be served the smallest suitable candidate.
-By using a descriptive syntax rather than a prescriptive one, you don't need to manually set breakpoints and consider future viewports and
-DPRs—you simply supply the browser with information and allow it to determine the answers for you.
+Во всех этих контекстах просмотра данное изображение будет выглядеть одинаково: все наши исходные файлы, кроме размеров, абсолютно идентичны, и каждый из них отображается настолько резко, насколько позволяет плотность изображения на экране пользователя. Однако вместо того, чтобы предлагать каждому пользователю `large.jpg`, чтобы удовлетворить потребности самых больших видовых экранов и дисплеев с самой высокой плотностью, пользователям всегда будет предлагаться самый маленький подходящий кандидат. Благодаря использованию описательного, а не предписывающего синтаксиса, вам не нужно вручную устанавливать точки останова и учитывать будущие области просмотра и DPR - вы просто предоставляете браузеру информацию и позволяете ему самому определять ответы.
 
-Because our `sizes` value is relative to the viewport and completely independent of the page layout, it adds a layer of complication.
-It's rare to have an image that _only_ occupies a percentage of the viewport, without any fixed-width margins, padding, or influence
-from other elements on the page. You'll frequently need to express the width of an image using a combination of units; percentages, `em`, `px`, and so on.
+Поскольку значение `sizes` относительно области просмотра и совершенно не зависит от макета страницы, это добавляет дополнительный уровень сложности. Редко можно встретить изображение, которое занимает только один процент области просмотра, без каких-либо фиксированных по ширине полей, подкладок или влияния других элементов на странице. Часто требуется выразить ширину изображения, используя комбинацию единиц измерения: проценты, `em`, `px` и т. д.
 
-Fortunately, you can use `calc()` here—any browser with native support for responsive images will support `calc()` as well, allowing us to
-mix-and-match CSS units—for example, an image that occupies the full width of the user's viewport, minus a `1em` margin on either side:
+К счастью, здесь можно использовать `calc()` - любой браузер с встроенной поддержкой отзывчивых изображений будет поддерживать `calc()`, что позволит нам смешивать и сочетать единицы CSS - например, изображение, занимающее всю ширину области просмотра пользователя, за вычетом поля `1em` по обеим сторонам:
 
 ```html
 <img
-	sizes="calc(100vw-2em)"
-	srcset="small.jpg 400w, medium.jpg 800w, large.jpg 1600w, x-large.jpg 2400w"
-	src="fallback.jpg"
-	alt="...">
+    sizes="calc(100vw-2em)"
+    srcset="
+        small.jpg    400w,
+        medium.jpg   800w,
+        large.jpg   1600w,
+        x-large.jpg 2400w
+    "
+    src="fallback.jpg"
+    alt="..."
+/>
 ```
 
-## Describing breakpoints
+## Описание брекпоинтов
 
-If you've spent much time working with responsive layouts, you've likely noticed something missing from these examples:
-the space an image occupies in a layout is very likely to change across our layout's breakpoints. In that case, you need
-to pass a little more detail along to the browser: `sizes` accepts a comma-separated set of candidates for the rendered size of the
-image, just like `srcset` accepts comma-separated candidates for image sources. Those conditions use the familiar media query syntax.
-This syntax is first-match: as soon as a media condition matches, the browser stops parsing the `sizes` attribute, and the value
-specified is applied.
+Если вы много времени проводите в работе с отзывчивыми макетами, то, скорее всего, заметили, что в этих примерах чего-то не хватает: пространство, занимаемое изображением в макете, с большой вероятностью будет меняться в зависимости от брекпоинтов макета. В этом случае необходимо передать браузеру немного больше деталей: `sizes` принимает набор кандидатов на размер изображения, разделенных запятыми, точно так же, как `srcset` принимает кандидатов на источник изображения, разделенных запятыми. Эти условия используют привычный синтаксис медиазапроса. Этот синтаксис является первоочередным: как только медиаусловие совпадает, браузер прекращает разбор атрибута `sizes`, и применяется указанное значение.
 
-Say you have an image meant to occupy 80% of the viewport, minus one `em` of padding on either side, on viewports above 1200px—on
-smaller viewports, it occupies the full width of the viewport.
+Допустим, у вас есть изображение, которое должно занимать 80% области просмотра за вычетом одного `em` отступа с каждой стороны на экранах более `1200px`, на меньших экранах оно занимает всю ширину области просмотра.
 
 ```html
-  <img
-     sizes="(min-width: 1200px) calc(80vw - 2em), 100vw"
-     srcset="small.jpg 600w, medium.jpg 1200w, large.jpg 2000w"
-     src="fallback.jpg"
-     alt="...">
+<img
+    sizes="(min-width: 1200px) calc(80vw - 2em), 100vw"
+    srcset="
+        small.jpg   600w,
+        medium.jpg 1200w,
+        large.jpg  2000w
+    "
+    src="fallback.jpg"
+    alt="..."
+/>
 ```
-{% Codepen {
-user: 'web-dot-dev',
-id: 'RwBoYRx',
-height: 500,
-theme: dark,
-tab: 'html,result'
-} %}
 
-If the user's viewport is greater than 1200px, `calc(80vw - 2em)` describes the width of the image in our layout. If the
-`(min-width: 1200px)` condition _doesn't_ match, the browser moves on to the next value. Because there isn't a specific
-media condition tied to this value, `100vw` is used as a  default. If you were to write this `sizes` attribute using
-`max-width` media queries:
+<iframe src="https://codepen.io/web-dot-dev/embed/RwBoYRx?height=500&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Если область просмотра пользователя больше `1200px`, то `calc(80vw - 2em)` описывает ширину изображения в нашем макете. Если условие `(min-width: 1200px)` не выполняется, браузер переходит к следующему значению. Поскольку к этому значению не привязано конкретное медиаусловие, по умолчанию используется `100vw`. Если бы вы написали этот атрибут `sizes` с использованием медиазапросов `max-width`:
 
 ```html
-  <img
-     sizes="(max-width: 1200px) 100vw, calc(80vw - 2em)"
-     srcset="small.jpg 600w, medium.jpg 1200w, large.jpg 2000w"
-     src="fallback.jpg"
-     alt="...">
+<img
+    sizes="(max-width: 1200px) 100vw, calc(80vw - 2em)"
+    srcset="
+        small.jpg   600w,
+        medium.jpg 1200w,
+        large.jpg  2000w
+    "
+    src="fallback.jpg"
+    alt="..."
+/>
 ```
-{% Codepen {
-user: 'web-dot-dev',
-id: 'BaPQOzO',
-height: 500,
-theme: dark,
-tab: 'html,result'
-} %}
 
-In plain language: "does `(max-width: 1200px)` match? If not, move on. The next value—`calc(80vw - 2em)`—has no qualifying condition,
-so this is the one selected.
+<iframe src="https://codepen.io/web-dot-dev/embed/BaPQOzO?height=500&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Now that you've provided the browser with all this information about your `img` element—potential sources,  inherent widths,
-and how you intend to present the image to the user—the browser uses a fuzzy set of rules for determining what to do with
-that information. If that sounds vague, well, that's because it is—by design. The source-selection algorithm encoded in the
-HTML specification is _explicitly_ vague on how a source should be chosen. Once the sources, their descriptors, and how
-the image will be rendered has all been parsed, the browser is free to do whatever it wants—you _can't_ know for certain which
-source the browser will choose.
+На обычном языке: "соответствует ли `(max-width: 1200px)`? Если нет, переходим к следующему значению. Следующее значение - `calc(80vw - 2em)` - не имеет условия отбора, поэтому выбирается именно оно.
 
-A syntax that says "use this source on a high-resolution display" would be predictable, but it wouldn't address the core problem
-with images in a responsive layout: conserving user bandwidth. A screen's pixel density is only tangentially related to internet
-connection speed, if at all. If you are using a top-of-the-line laptop, but browsing the web by way of a metered connection, tethered
-to your phone, or using a shaky airplane wifi connection—you might want to opt out of high-resolution image sources, regardless of
-the quality of your display.
+Теперь, когда вы предоставили браузеру всю эту информацию об элементе `img` - потенциальные источники, присущую ему ширину и то, как вы собираетесь представить изображение пользователю, - браузер использует нечеткий набор правил для определения того, что делать с этой информацией. Если это звучит расплывчато, то так оно и есть. Алгоритм выбора источника, заложенный в спецификации HTML, явно нечетко определяет, как следует выбирать источник. После разбора источников, их дескрипторов и того, как будет выводиться изображение, браузер волен делать все, что ему заблагорассудится - вы не можете знать наверняка, какой источник выберет браузер.
 
-Leaving the final say to the browser allows for far more performance improvements than we could manage with a strictly prescriptive
-syntax. For example: in most browsers, an `img` using the `srcset` or `sizes` syntax will never bother requesting a source with smaller
-dimensions than one that the user already has in their browser's cache. What would be the point in making a new request for a source
-that would look identical, when the browser can seamlessly downscale the image source it already has? But if the user scales their
-viewport up to the point where a new image is needed in order to avoid upscaling, _that_ request will still get made, so everything
-looks the way you expect.
+Синтаксис, гласящий "использовать этот источник на экране с высоким разрешением", был бы предсказуем, но он не решал бы основную проблему, связанную с изображениями в отзывчивой верстке: экономию полосы пропускания пользователя. Плотность пикселей экрана имеет лишь косвенное отношение к скорости интернет-соединения, если вообще имеет. Если вы пользуетесь ноутбуком высшего класса, но выходите в Интернет по счетчику, с телефона или по шаткому Wi-Fi в самолете, вам лучше отказаться от источников изображений высокого разрешения, независимо от качества вашего дисплея.
 
-That lack of explicit control can sound a little scary at face value, but because you're using source files with identical
-content, we're no more likely to present users with a "broken" experience than we would with a single-source `src`, regardless of
-the decisions made by the browser.
+Оставляя последнее слово за браузером, можно добиться гораздо большего повышения производительности, чем при использовании строго предписывающего синтаксиса. Например: в большинстве браузеров `img`, использующий синтаксис `srcset` или `sizes`, никогда не станет запрашивать источник с меньшими размерами, чем тот, который уже есть в кэше браузера. Какой смысл делать новый запрос к источнику, который будет выглядеть идентично, если браузер может без проблем уменьшить размеры уже имеющегося источника изображения? Но если пользователь изменит масштаб области просмотра до такой степени, что потребуется новое изображение, чтобы избежать увеличения, то _этот_ запрос все равно будет сделан, и все будет выглядеть так, как вы ожидаете.
 
-## Using `sizes` and `srcset`
+Такое отсутствие явного контроля может показаться немного пугающим, но, поскольку вы используете исходные файлы с идентичным содержимым, вероятность того, что пользователь получит "сломанный" результат, не выше, чем при использовании `src` с одним источником, независимо от решений, принимаемых браузером.
 
-This is a lot of information—both for you, the reader, and for the browser. `srcset` and `sizes` are both dense syntaxes,
-describing a shocking amount of information in relatively few characters. That is, for better or worse, by design: making
-these syntaxes less terse—and more easily parsed by us humans—could have made them more difficult for a _browser_ to parse. The
-more complexity added to a string, the more potential there is for parser errors or unintentional differences in behavior
-from one browser to another. There's an upside here, however: a syntax more easily read by machines is a syntax more easily written
-by them.
+## Использование `sizes` и `srcset`
 
-`srcset` is a clear-cut case for automation. It's rare that you'll be hand-crafting multiple versions of your images for a
-production environment, instead automating the process using a task runner like Gulp, a bundler like Webpack, a third-party
-CDN like Cloudinary, or functionality already built into your CMS of choice. Given enough information to generate our sources
-in the first place, a system would have enough information to write them into a viable `srcset` attribute.
+Это очень много информации - как для вас, читателя, так и для браузера. Синтаксисы `srcset` и `sizes` - это плотные синтаксисы, описывающие огромное количество информации в относительно небольшом количестве символов. Это, к счастью или к худшему, так и задумано: если сделать эти синтаксисы менее лаконичными и более удобными для разбора человеком, то это могло бы усложнить их разбор для _браузера_. Чем больше сложностей добавляется к строке, тем больше вероятность ошибок парсера или непреднамеренных различий в поведении браузера. Однако в этом есть и положительная сторона: синтаксис, который легче читается машинами, легче ими же и пишется.
 
-`sizes` is a little more difficult to automate. As you know, the only way a system can calculate the size of an image in a
-rendered layout is to have _rendered_ the layout. Fortunately, a number of developer tools have popped up to abstract away
-the process of hand-writing `sizes` attributes—with an efficiency you could never match by hand.
-[respImageLint](https://github.com/ausi/respimagelint), for example, is a snippet of code intended to vet your `sizes` attributes
-for accuracy and provide suggestions for improvement. The [Lazysizes](https://github.com/aFarkas/lazysizes) project compromises
-some speed for efficiency by deferring image requests until after the layout has been established, allowing JavaScript to
-generate  `sizes` values for you. If you're using a fully client-side rendering framework such as React or Vue, there are a
-number of solutions for authoring and/or generating `srcset` and `sizes` attributes, which we'll discuss further in [CMS and Frameworks](cms).
+`srcset` - явный пример для автоматизации. Вряд ли вы будете вручную создавать несколько версий своих образов для производственной среды, вместо этого вы сможете автоматизировать этот процесс с помощью программы запуска задач, например Gulp, пакета Webpack, сторонней CDN, например Cloudinary, или функциональности, уже встроенной в выбранную вами CMS. Имея достаточно информации для генерации наших исходных текстов, система будет иметь достаточно информации, чтобы записать их в жизнеспособный атрибут `srcset`.
+
+Автоматизировать `sizes` несколько сложнее. Как известно, единственный способ, которым система может вычислить размер изображения в отрисованном макете, - это _отрисовать_ макет. К счастью, появился ряд инструментов для разработчиков, позволяющих абстрагироваться от процесса ручного написания атрибутов `sizes`, причем с такой эффективностью, с которой вы никогда не сможете справиться вручную. Например, [respImageLint](https://github.com/ausi/respimagelint) - это фрагмент кода, предназначенный для проверки точности атрибутов `sizes` и предложения по их улучшению. В проекте [Lazysizes](https://github.com/aFarkas/lazysizes) в угоду эффективности немного снижается скорость, поскольку запросы к изображениям откладываются до момента создания макета, а JavaScript сам генерирует значения `sizes`. Если вы используете фреймворк с полностью клиентским рендерингом, например React или Vue, то существует ряд решений для создания и/или генерации атрибутов `srcset` и `sizes`, которые мы рассмотрим далее в разделе [CMS и фреймворки](cms.md).
+
+:information_source: Источник &mdash; [Descriptive syntaxes](https://web.dev/learn/images/descriptive/)

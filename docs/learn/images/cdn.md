@@ -1,119 +1,101 @@
 ---
-title: 'Image content delivery networks'
-authors:
-  - matmarquis
-description: Learn how image CDNs have the ability to transform and optimize the contents of an image.
-date: 2023-02-01
-tags:
-  - images
+description: Узнайте, как CDN для изображений способны преобразовывать и оптимизировать содержимое изображения.
+icon: material/clouds
 ---
 
-You may already be familiar with the core concept of a content delivery network (CDN): a network of distributed but interconnected
-servers that quickly and efficiently delivers assets to users. When a file is uploaded to a CDN provider, a duplicate will be created
-on the other nodes of the CDN network around the world. When a user requests a file, the data will be sent by the node geographically
-closest to that user, reducing latency. The distributed nature of CDNs also provides redundancy in the event of network outages or
-hardware failure, and load balancing to mitigate spikes in traffic.
+# Сети доставки контента изображений
 
-An [image CDN](/image-cdns/) can provide all these benefits, with one key difference: the ability to transform and
-optimize the contents of an image based on strings the URL used to access it.
+<big>Узнайте, как CDN для изображений способны преобразовывать и оптимизировать содержимое изображения.</big>
 
-A user will upload a canonical, high-resolution image to the provider, which will generate a URL used to access it:
+Возможно, вы уже знакомы с основной концепцией сети доставки контента (CDN): это сеть распределенных, но взаимосвязанных серверов, которые быстро и эффективно доставляют ресурсы пользователям. Когда файл загружается на CDN-провайдер, на других узлах сети CDN по всему миру создается его дубликат. Когда пользователь запрашивает файл, данные отправляются узлом, географически расположенным ближе всего к пользователю, что позволяет сократить время ожидания. Распределенный характер CDN также обеспечивает резервирование в случае перебоев в работе сети или отказа оборудования, а также балансировку нагрузки для уменьшения скачков трафика.
+
+[Image CDN](https://web.dev/image-cdns/) может обеспечить все эти преимущества с одним ключевым отличием: возможностью преобразования и оптимизации содержимого изображения на основе строк URL-адреса, используемого для доступа к нему.
+
+Пользователь загружает каноническое изображение высокого разрешения провайдеру, который генерирует URL, используемый для доступа к нему:
 
 ```html
 https://res.cloudinary.com/demo/image/upload/sample.jpg
 ```
 
-Though the exact syntax used will vary from one provider to another, at a minimum all image CDNs allow you to alter a source
-image's dimensions, encoding, and compression settings. [Cloudinary](https://cloudinary.com/), for example,
-performs [dynamic resizing](https://cloudinary.com/documentation/resizing_and_cropping#setting_the_resize_dimensions) of an
-uploaded image through the following syntaxes: `h_` followed by the numerical height in pixels, `w_` followed by the width,
-and a `c_` value that allows you to specify [detailed information about how the image should be scaled or cropped](https://cloudinary.com/documentation/resizing_and_cropping#crop).
+Хотя точный синтаксис используется у разных провайдеров по-разному, как минимум все CDN для изображений позволяют изменять размеры исходного изображения, его кодировку и параметры сжатия. Например, [Cloudinary](https://cloudinary.com/) выполняет [динамическое изменение размеров](https://cloudinary.com/documentation/resizing_and_cropping#setting_the_resize_dimensions) загруженного изображения с помощью следующих синтаксисов: `h_` - числовая высота в пикселях, `w_` - ширина и значение `c_`, которое позволяет указать [подробную информацию о том, как изображение должно быть масштабировано или обрезано](https://cloudinary.com/documentation/resizing_and_cropping#crop).
 
-Any number of transforms can be applied by adding comma-separated values to the URL, prior to the filename and extension,
-meaning that the uploaded image can be manipulated as-needed through the `src` of the `img` element that requests it.
-
-```html
-<img src="https://res.cloudinary.com/demo/image/upload/w_400/sample.jpg" alt="…">
-```
-
-The first time a user visits the URL containing these transforms, a new version of the image proportionally scaled to a
-width of 400px (`w_400`) is generated and sent. That newly-created file is then cached across the CDN so it can be sent
-to any user requesting the same URL, rather than recreated on-demand.
-
-Though not uncommon for image CDN providers to offer [software development kits](https://cloudinary.com/documentation/cloudinary_sdks)
-to facilitate advanced usage and integration with various technology stacks, this predictable URL pattern alone allows us to easily
-turn a single uploaded file into a viable `srcset` attribute without the need for any other development tooling:
+Любое количество преобразований может быть применено путем добавления в URL значений, разделенных запятыми, перед именем и расширением файла, что означает, что загруженным изображением можно манипулировать по мере необходимости через `src` элемента `img`, который его запрашивает.
 
 ```html
 <img
-  src="https://res.cloudinary.com/demo/image/upload/w_1000/sample.jpg 1000w"
-  srcset="https://res.cloudinary.com/demo/image/upload/w_1000/sample.jpg 1000w,
-      	https://res.cloudinary.com/demo/image/upload/w_800/sample.jpg 800w,
-      	https://res.cloudinary.com/demo/image/upload/w_600/sample.jpg 600w"
-  alt="…">
+    src="https://res.cloudinary.com/demo/image/upload/w_400/sample.jpg"
+    alt="…"
+/>
 ```
 
-We're able to manually specify our desired level of compression using what should now be a familiar syntax: `q_`, short
-for "quality," followed by the numerical shorthand for compression level:
+При первом обращении пользователя к URL-адресу, содержащему эти преобразования, создается и отправляется новая версия изображения, пропорционально масштабированная до ширины 400px (`w_400`). Затем этот вновь созданный файл кэшируется в CDN, чтобы он мог быть отправлен любому пользователю, запрашивающему тот же URL, а не воссоздан по требованию.
+
+Хотя поставщики CDN для изображений нередко предлагают [комплекты разработчика программного обеспечения](https://cloudinary.com/documentation/cloudinary_sdks) для облегчения использования и интеграции с различными технологическими стеками, один только этот предсказуемый шаблон URL позволяет нам легко превратить один загруженный файл в жизнеспособный атрибут `srcset без необходимости использования каких-либо других инструментов разработки:
 
 ```html
-<img src="https://res.cloudinary.com/demo/image/upload/w_400,q_60/sample.jpg"  alt="…">
+<img
+    src="https://res.cloudinary.com/demo/image/upload/w_1000/sample.jpg 1000w"
+    srcset="
+        https://res.cloudinary.com/demo/image/upload/w_1000/sample.jpg 1000w,
+        https://res.cloudinary.com/demo/image/upload/w_800/sample.jpg   800w,
+        https://res.cloudinary.com/demo/image/upload/w_600/sample.jpg   600w
+    "
+    alt="…"
+/>
 ```
 
-It's rare that you'll need to include this information manually, however, thanks to a set of incredibly powerful features
-provided by most image CDNs: fully automatic compression, encoding, and content negotiation.
-
-
-## Automated compression
-
-The computing power image CDNs have at their disposal means they're able to offer an incredibly powerful feature: analyzing
-the content of an image to algorithmically determine its ideal compression level and encoding settings, just as you or I would
-manually fine-tune compression for each one of our images.
-
-These algorithms automate the decisions you might make balancing file size and perceptual quality, analyzing image content for
-measurable signs of degradation and fine-tuning compression settings accordingly. This frequently means huge reductions in file
-size compared to the one-size-fits-all manual approach to compression settings.
-
-As complex as this process might sound, implementation couldn't be much simpler: for Cloudinary, the addition of `q_auto` in an
-image URL enables this feature:
+Мы можем вручную указать желаемый уровень сжатия, используя уже ставший привычным синтаксис: `q_`, сокращение от "quality", за которым следует числовое обозначение степени сжатия:
 
 ```html
-<img src="https://res.cloudinary.com/demo/image/upload/w_1400/sample.jpg" alt="…">
+<img
+    src="https://res.cloudinary.com/demo/image/upload/w_400,q_60/sample.jpg"
+    alt="…"
+/>
+```
+
+Однако необходимость включать эту информацию вручную возникает редко, благодаря набору невероятно мощных функций, предоставляемых большинством CDN для изображений: полностью автоматическое сжатие, кодирование и согласование содержимого.
+
+## Автоматическое сжатие
+
+Вычислительные мощности, которыми располагают CDN для работы с изображениями, позволяют предложить невероятно мощную функцию: анализ содержимого изображения для алгоритмического определения его идеального уровня сжатия и параметров кодирования, подобно тому, как мы с вами вручную настраиваем сжатие для каждого из наших изображений.
+
+Эти алгоритмы автоматизируют принятие решений о балансе между размером файла и качеством восприятия, анализируя содержимое изображения на предмет выявления измеримых признаков деградации и соответствующим образом настраивая параметры сжатия. Это часто означает значительное уменьшение размера файла по сравнению с универсальным ручным подходом к настройкам сжатия.
+
+Как бы сложно ни звучал этот процесс, его реализация не может быть проще: для Cloudinary добавление `q_auto` в URL-адрес изображения позволяет реализовать эту функцию:
+
+```html
+<img
+    src="https://res.cloudinary.com/demo/image/upload/w_1400/sample.jpg"
+    alt="…"
+/>
 <!-- 250 KB-->
 
-<img src="https://res.cloudinary.com/demo/image/upload/w_1400,q_auto/sample.jpg" alt="…">
+<img
+    src="https://res.cloudinary.com/demo/image/upload/w_1400,q_auto/sample.jpg"
+    alt="…"
+/>
 <!-- 134 KB-->
 ```
 
-## Automated encoding and content negotiation
+## Автоматизированное кодирование и согласование контента
 
-Upon receiving a request for an image, image CDNs determine the most modern encoding the browser supports through the
-[HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) sent by the browser alongside requests for assets—specifically,
-the `Accept` header. This header indicates the encodings that the browser is able to understand, using the same
-[media types](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types) we would use to populate the `type`
-attribute of a `<picture>` element's `<source>`.
+Получив запрос на изображение, CDN изображений определяют наиболее современную кодировку, поддерживаемую браузером, с помощью [HTTP-заголовков](https://developer.mozilla.org/docs/Web/HTTP/Headers), передаваемых браузером вместе с запросами на активы, в частности, заголовка `Accept`. Этот заголовок указывает на кодировки, которые браузер способен понять, используя те же [media types](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types), которые мы использовали бы для заполнения атрибута `type` элемента `<picture>` в `<source>`.
 
-For example, adding the `f_auto` parameter to the list of image transforms in an asset URL explicitly tells Cloudinary to
-deliver the most efficient encoding the browser is able to understand:
+Например, добавление параметра `f_auto` в список преобразований изображения в URL актива явно указывает Cloudinary на то, что нужно передавать наиболее эффективную кодировку, которую способен понять браузер:
 
 ```html
-<img src="https://res.cloudinary.com/demo/image/upload/w_1200,q_auto,f_auto/sample.jpg" alt="…">
+<img
+    src="https://res.cloudinary.com/demo/image/upload/w_1200,q_auto,f_auto/sample.jpg"
+    alt="…"
+/>
 ```
 
-The server then generates a version of the image with that encoding and caches the result for all subsequent users with the same
-level of browser support.  That response includes a [`Content-Type` header](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Type)
-to explicitly inform the browser of the file's encoding, regardless of the file extension. Even though a user with a modern browser will make a
-request for a file ending in `.jpg`, that request will be accompanied by a header informing the server that AVIF is supported, and the server
-will send an AVIF encoded file along with an explicit instruction to treat it as AVIF.
+Затем сервер генерирует версию изображения с этой кодировкой и кэширует результат для всех последующих пользователей с тем же уровнем поддержки браузера. Этот ответ содержит заголовок [`Content-Type`](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Type), явно информирующий браузер о кодировке файла, независимо от его расширения. Даже если пользователь с современным браузером сделает запрос на файл, заканчивающийся `.jpg`, этот запрос будет сопровождаться заголовком, информирующим сервер о поддержке AVIF, и сервер пошлет файл в кодировке AVIF вместе с явным указанием обрабатывать его как AVIF.
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/JyJi8gXuacJB0L2puHbK.png", alt="CDN user interface.", width="800", height="649" %}
+![Пользовательский интерфейс CDN.](cdn-1.avif)
 
-The net result is a process that not only absolves you of creating alternately encoded files and of manually fine-tuning your compression settings
-(or maintaining a system that does these tasks for you), but does away with the need to use `<picture>` and the `type` attribute to effectively
-deliver those files to users. So, using the `srcset` and `sizes` syntaxes alone can still provide your users with images encoded as—for example—AVIF,
-falling back to WebP (or JPEG-2000, for Safari alone), falling back again to the most sensible legacy encoding.
+В итоге получается процесс, который не только избавляет вас от необходимости создавать файлы с альтернативной кодировкой и вручную настраивать параметры сжатия (или поддерживать систему, выполняющую эти задачи за вас), но и избавляет от необходимости использовать `<picture>` и атрибут `type` для эффективного предоставления этих файлов пользователям. Таким образом, используя только синтаксисы `srcset` и `sizes`, вы можете предоставлять пользователям изображения, закодированные, например, как AVIF, возвращаясь к WebP (или JPEG-2000, только для Safari) и снова возвращаясь к наиболее разумной традиционной кодировке.
 
-The drawbacks of using an image CDN are more logistical than technical, chief among them being cost. While it is common for image CDNs to
-offer feature-robust free plans for personal usage, generating image assets requires bandwidth and storage space for uploads, processing on
-the server to transform images, and additional space for the cached transform results—so advanced usage and high-traffic applications may require a paid plan.
+Недостатки использования CDN для изображений скорее логистические, чем технические, и главный из них - стоимость. Хотя обычно CDN для изображений предлагают многофункциональные бесплатные тарифные планы для персонального использования, создание графических активов требует пропускной способности и места для хранения загружаемых файлов, обработки на сервере для преобразования изображений и дополнительного места для кэшированных результатов преобразования, поэтому для расширенного использования и приложений с высоким трафиком может потребоваться платный тарифный план.
 
+:information_source: Источник &mdash; [Image content delivery networks](https://web.dev/learn/images/cdn/)

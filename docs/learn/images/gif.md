@@ -1,89 +1,69 @@
 ---
-title: 'Image formats: GIF'
-authors:
-  - matmarquis
-description: Understand the GIF image format, along with an explanation of how image encoding works. 
-date: 2023-02-01
-tags:
-  - images
+title: GIF
+description: Понимание формата изображения GIF, а также объяснение принципов кодирования изображений.
+icon: material/file-gif-box
 ---
 
-While not terribly useful on the modern web, GIF (Graphics Interchange Format) provides a solid introduction to the core
-concepts of image encoding.
+# Форматы изображений: GIF
 
-GIF can be thought of as a wrapper for image data. It has a viewport, of sorts, called a "logical screen," to which individual
-frames of image data are drawn—a bit like layers in a Photoshop document. That's how GIF supports its flipbook-like animation:
-a single frame is drawn to the logical screen, then replaced by another, then another. Of course, this distinction isn't important
-when we're dealing with a static GIF, made up of a single frame drawn to the logical screen.
+<big>Понимание формата изображения GIF, а также объяснение принципов кодирования изображений.</big>
 
-GIF uses a lossless data compression method—a variant of the "[Lempel–Ziv–Welch](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch)"
-algorithm, if you're curious. The finer details of how this algorithm works are more than we need to get into here, but at a high level: it
-works a bit like "Uglifying" JavaScript, where repeated strings of characters throughout the file are saved to a sort of internal dictionary,
-so they can be referenced rather than repeated every time they appear.
+Хотя GIF (Graphics Interchange Format) не слишком полезен в современном Интернете, он является хорошим введением в основные концепции кодирования изображений.
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/AWgIX677XevD9J0ZUBo3.png", alt="Visualization of the gif reference using a four-by-four grid.", width="800", height="873" %}
+GIF можно рассматривать как обертку для данных изображения. Он имеет своего рода область просмотра, называемую "логическим экраном", на которую выводятся отдельные кадры изображения - примерно как слои в документе Photoshop. Именно так в GIF реализована анимация, напоминающая флипбук: на логический экран выводится один кадр, затем его сменяет другой, затем еще один. Конечно, это различие не имеет значения, когда мы имеем дело со статическим GIF, состоящим из одного кадра, выведенного на логический экран.
 
-Granted, the [algorithm isn't quite as simple](https://giflib.sourceforge.net/whatsinagif/lzw_image_data.html) as a paint-by-number. It steps
-again through the generated table of color codes to find repeated sequences of pixel colors and creates a second table of referencable codes. At no
-point is any image data lost, however—just sorted and reorganized in a way that can be read without fundamentally changing it.
+В GIF используется метод сжатия данных без потерь - вариант алгоритма "[Lempel-Ziv-Welch](https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%9B%D0%B5%D0%BC%D0%BF%D0%B5%D0%BB%D1%8F_%E2%80%94_%D0%97%D0%B8%D0%B2%D0%B0_%E2%80%94_%D0%92%D0%B5%D0%BB%D1%87%D0%B0)", если вам интересно. В тонкости работы этого алгоритма мы вдаваться не будем, но в общих чертах можно сказать, что он работает примерно так же, как JavaScript, где повторяющиеся строки символов во всем файле сохраняются во внутреннем словаре, чтобы на них можно было ссылаться, а не повторять каждый раз, когда они появляются.
 
-While GIF technically uses lossless _compression_, it does have a major limitation that severely impacts the quality of the images:
-saving an image as a GIF will always result in reduced fidelity, unless the image already uses 256 colors or less.
+![Визуализация условного обозначения gif с помощью сетки "четыре на четыре".](gif-1.avif)
 
-Each frame drawn to the GIF's logical screen can only contain a maximum of 256 colors. GIF also supports “index transparency,” where a
-transparent pixel will reference the index of a transparent “color” in the color table.
+Конечно, этот [алгоритм не так прост](https://giflib.sourceforge.net/whatsinagif/lzw_image_data.html), как paint-by-number. Он снова просматривает сгенерированную таблицу цветовых кодов, чтобы найти повторяющиеся последовательности цветов пикселей, и создает вторую таблицу кодов, на которую можно ссылаться. При этом данные изображения ни в коем случае не теряются - они просто сортируются и реорганизуются таким образом, чтобы их можно было прочитать, не изменяя принципиально.
 
-The practice of reducing a range of values to a smaller, approximated set of output values is called _quantization_, a term you'll be seeing a lot
-when learning about image encodings. The results of this palette quantization are usually obvious:
+Хотя формально GIF использует сжатие без потерь, у него есть серьезное ограничение, которое сильно влияет на качество изображений: сохранение изображения в формате GIF всегда приводит к снижению четкости, если только в изображении не используется 256 цветов или меньше.
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/PjWX2BD4QXqj3efvX7MP.png", alt="Static gif example", width="393", height="399" %}
+Каждый кадр, выводимый на логический экран GIF, может содержать не более 256 цветов. GIF также поддерживает "индексную прозрачность", когда прозрачный пиксель ссылается на индекс прозрачного "цвета" в таблице цветов.
 
-To better understand this process, think back to the raster image grid you were able to recreate from my description.
+Практика сокращения диапазона значений до меньшего, приближенного набора выходных значений называется _квантованием_ - этот термин часто встречается при изучении кодировок изображений. Результаты квантования палитры обычно очевидны:
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/pwUWoFFo7MVq58e05NnK.png", alt="Three horizontal blue boxes followed by one red box", width="652", height="204" %}
+![Пример статического gif-изображения](gif-2.avif)
 
-This time around, add a little more detail to that original image: a few more pixels, one of which is a slightly darker shade of blue:
+Чтобы лучше понять этот процесс, вспомните сетку растровых изображений, которую вы смогли воссоздать из моего описания.
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/m9BkyRb7yy1zLBlvlHka.png", alt="Blue to red horizontal boxes in a two-by-four configuration, with one blue box shaded darker than the others.", width="752", height="400" %}
+![Три горизонтальных синих блока, за которыми следует один красный блок](gif-3.avif)
 
-Absent any compression—so to speak—you could describe this grid as:
+На этот раз добавьте к исходному изображению немного больше деталей: еще несколько пикселей, один из которых имеет чуть более темный оттенок синего:
 
-> Row one, column one is #0000FF. Row one, column two is #0000FF. Row one, column three is #0000FF. Row one, column four is #FF0000. Row two, column one is #0000FF. Row two, column two is #000085. Row two, column three is #0000FF. Row two, column four is #FF0000.
+![Синие и красные горизонтальные блоки в конфигурации "два на четыре", причем один синий блок затенен темнее остальных.](gif-4.avif)
 
-Using something akin to GIF's lossless data compression and color indexing, you might describe it as:
+Без какого-либо сжатия, так сказать, можно описать эту сетку следующим образом:
 
-> A: #0000FF, B: #FF0000, C: #000085. Row one, columns one through three are A. Row one, column four is B. Row two, column one is A. Row two, column two is C. Row two, column three is A. Row two, column four is B.
+> Первая строка, первый столбец - #0000FF. Первая строка, второй столбец - #0000FF. Строка один, столбец три - #0000FF. Первая строка, четвертый столбец - #FF0000. Вторая строка, первый столбец - #0000FF. Строка два, столбец два - #000085. Строка два, столбец три - #0000FF. Строка два, четвертый столбец - #FF0000.
 
-This manages to condense the pixel-by-pixel description in a few places (“columns one through three are…”), and saves a
-few characters by defining the repeated colors in a dictionary, of sorts, up front. There's no change to the visual fidelity.
-The information has been compressed without any loss.
+Используя сжатие данных без потерь и индексацию цветов в GIF, можно описать это следующим образом:
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/nNmCqD5iYi1QEEbDeL4M.png", alt="Blue to red horizontal boxes, with a single dark pixel at 2x2.", width="752", height="400" %}
+> A: #0000FF, B: #FF0000, C: #000085. Первая строка, столбцы с первого по третий - A. Первая строка, четвертый столбец - B. Вторая строка, первый столбец - A. Вторая строка, второй столбец - C. Вторая строка, третий столбец - A. Вторая строка, четвертый столбец - B.
 
-As you can see, however, the single dark blue pixel is having an outsized impact on the size of our encoding. If I were to
-limit myself to a quantized color palette, it could be reduced much further:
+Это позволяет сократить попиксельное описание в нескольких местах ("столбцы с первого по третий являются...") и сэкономить несколько символов за счет определения повторяющихся цветов в своеобразном словаре. Визуальная достоверность не изменилась. Информация сжата без каких-либо потерь.
 
-> A: #0000FF, B: #FF0000. Row one, columns one through three are A. Row one, column four is B. Row two, columns one through three are A. Row two, column four is B.
+![Сине-красные горизонтальные блоки, с одним темным пикселем при 2x2.](gif-5.avif)
 
-The unfortunate end result of those saved bytes is that you've lost pixel-perfection.
+Однако, как видите, один-единственный темно-синий пиксель оказывает чрезмерное влияние на размер нашего кодирования. Если бы я ограничился квантованной цветовой палитрой, то ее можно было бы уменьшить еще больше:
 
-{% Img src="image/kheDArv5csY6rvQUJDbWRscckLr1/YhCa9QIzzkZsyw4zyUzu.png", alt="Uniformly blue to red horizontal boxes.", width="800", height="421" %}
+> A: #0000FF, B: #FF0000. Первая строка, столбцы с первого по третий - A. Первая строка, четвертый столбец - B. Вторая строка, столбцы с первого по третий - A. Вторая строка, четвертый столбец - B.
 
-Of course, you, the rendering engine, don't know that—the detail of the darker blue pixel was left out of how I encoded my source image.
-You've rendered the image exactly as I've encoded it, based on our shared understanding of the colors we have at hand.
+К сожалению, в результате экономии этих байтов теряется пиксельная точность.
 
-Now, in this exaggerated example, reducing three colors to two makes for an obvious difference in quality. Across a larger and
-more detailed image the effects might not be quite as noticeable, but they would still be visible.
+![Равномерно расположенные горизонтальные блоки от синего до красного цвета.](gif-6.avif)
 
-When encoded as a GIF, subtle gradients like shadows become mottled, with individual pixels standing out from their surroundings:
+Разумеется, вы, механизм рендеринга, не знаете этого - детализация темно-синего пикселя не была учтена в том, как я закодировал исходное изображение. Вы отобразили изображение именно так, как я его закодировал, основываясь на нашем общем понимании имеющихся у нас цветов.
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/ncTFXA6KsRGAK7Rdvyoi.png", alt="Pink flowers on a green background.", width="800", height="595" %}
+Теперь, в этом утрированном примере, сокращение трех цветов до двух дает очевидную разницу в качестве. На более крупном и детальном изображении эффект может быть не столь заметен, но он все равно будет заметен.
 
-In practice, the combination of lossless compression and palette quantization means that GIF isn't very useful in modern
-web development. Lossless compression doesn't do enough to reduce file sizes, and a reduced palette means an obvious reduction in quality.
+При кодировании в формат GIF тонкие градиенты, например тени, становятся пестрыми, а отдельные пиксели выделяются на фоне окружающего пространства:
 
-Ultimately, GIF is only an efficient format for encoding simple images that already use limited color palettes, hard edges
-rather than anti-aliasing, and solid colors rather than gradients—all use cases that are far better served by other formats.
-The smaller and more featured PNG is often a better choice for raster images, though both are far inferior to SVG in terms of file
-size and visual fidelity for use cases like icons or line art, where vector shines. The most commonly seen modern use case for GIF is
-animation, but there are far more efficient—and accessible—modern video formats to serve that purpose.
+![Розовые цветы на зеленом фоне.](gif-7.avif)
+
+На практике сочетание сжатия без потерь и квантования палитры означает, что GIF не очень полезен в современной веб-разработке. Сжатие без потерь не позволяет уменьшить размер файла, а уменьшение палитры означает очевидное снижение качества.
+
+В конечном счете, GIF является эффективным форматом только для кодирования простых изображений, в которых уже используются ограниченные цветовые палитры, жесткие края, а не сглаживание, и сплошные цвета, а не градиенты - все те случаи, для которых гораздо лучше подходят другие форматы. Более компактный и многофункциональный PNG часто является лучшим выбором для растровых изображений, хотя оба формата значительно уступают SVG по размеру файла и визуальной достоверности для таких случаев использования, как пиктограммы или линейный рисунок, где векторный формат является лучшим. Наиболее распространенным современным вариантом использования GIF является анимация, однако для этой цели существуют гораздо более эффективные и доступные современные видеоформаты.
+
+:information_source: Источник &mdash; [Image formats: GIF](https://web.dev/learn/images/gif/)

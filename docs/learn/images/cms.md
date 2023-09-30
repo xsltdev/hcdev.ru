@@ -1,141 +1,166 @@
 ---
-title: 'Site Generators, frameworks, and CMSs'
-authors:
-  - matmarquis
-description: Discover how CMSs such as WordPress, and other site generators can make it easier to use responsive images.
-date: 2023-02-01
-tags:
-  - images
+description: Узнайте, как CMS, такие как WordPress, и другие генераторы сайтов могут упростить использование отзывчивых изображений.
+icon: material/image-filter-frames
 ---
 
-While certainly an improvement over manually saving alternate cuts of each image and hand-optimizing them through a tool like 
-[Squoosh.app](https://squoosh.app/), automating image compression as a step in the development process has some limitations. For one, you may not 
-always have full control over the images used throughout a site—most user-facing images on the web are _content_ concerns more 
-than development concerns, uploaded by users or editors, rather than living in a repository alongside development assets like 
-JavaScript and stylesheets.
+# Генераторы сайтов, фреймворки и CMS
 
-This will typically necessitate more than one process for image management: a development-level task for the image assets used in 
-building and maintaining a site—backgrounds, icons, logos, and so on—and another concerned with image assets generated through _use_
- of the site, such as photographs embedded in a post by an editorial team, or an avatar uploaded by a user. While the context may 
- differ, the end goals are the same: automated encoding and compression based on settings defined by the development team.
+<big>Узнайте, как CMS, такие как WordPress, и другие генераторы сайтов могут упростить использование отзывчивых изображений.</big>
 
-Fortunately, the image processing libraries you’ve come to understand from your local development workflows can be used in any number
- of contexts. And while there can never be a one-size-fits-all approach to your responsive image markup, these systems provide sensible
-  defaults, configuration options, and API hooks to ease their implementation.
+Несмотря на то, что автоматизация сжатия изображений как один из этапов процесса разработки, безусловно, является улучшением по сравнению с ручным сохранением альтернативных фрагментов каждого изображения и их ручной оптимизацией с помощью таких инструментов, как [Squoosh.app](https://squoosh.app/), она имеет ряд ограничений. Например, вы не всегда можете полностью контролировать изображения, используемые на сайте - большинство изображений в Интернете, предназначенных для пользователей, скорее относятся к содержимому, чем к разработке, загружаются пользователями или редакторами, а не хранятся в репозитории вместе с такими активами разработки, как JavaScript и таблицы стилей.
 
-## Static Site Generators
+В связи с этим, как правило, возникает необходимость в нескольких процессах управления изображениями: на уровне разработки - для графических активов, используемых при создании и поддержке сайта - фоновых рисунков, иконок, логотипов и т.д., и на уровне использования - для графических активов, создаваемых в процессе использования сайта, например, фотографий, встроенных в пост редакции, или аватара, загруженного пользователем. Хотя контекст может быть разным, конечные цели одинаковы: автоматическое кодирование и сжатие на основе настроек, заданных командой разработчиков.
 
-Compared to task-runners, there’s some similarity in the way static site generators such as Jekyll or Eleventy approach images. Using 
-these tools to produce a deployment-ready website requires management of assets, including CSS minification or transpiling and bundling 
-of JavaScript. As you might imagine, this means these tools enable you to process image assets the same way, using many of the libraries 
-you’ve already learned about.
+К счастью, библиотеки обработки изображений, с которыми вы познакомились в процессе локальной разработки, можно использовать в любом контексте. И хотя универсального подхода к разметке изображений не существует, эти системы предоставляют разумные настройки по умолчанию, параметры конфигурации и API-хуки, облегчающие их применение.
 
-The official [image plugin for Eleventy](https://www.11ty.dev/docs/plugins/image/) uses [Sharp](https://www.npmjs.com/package/sharp) to provide resizing, generation of multiple source sizes, re-encoding, and compression, just like some of the tasks you’ve learned about here.
+## Генераторы статических сайтов
 
-Unlike a task-runner, a static site generator has direct insight into both the configuration and usage of those libraries,
- and the markup being generated for the production site—meaning it can do a great deal more to automate our responsive image 
- markup. For example, when [invoked as part of a shortcode for displaying images](https://www.aleksandrhovhannisyan.com/blog/eleventy-image-plugin/), this plugin will output HTML according 
- to the configuration options passed along to Sharp.
+По сравнению с программами для выполнения задач, в генераторах статических сайтов, таких как Jekyll или Eleventy, есть некоторое сходство в подходе к работе с изображениями. Использование этих инструментов для создания готового к развертыванию сайта требует управления активами, включая минификацию CSS или транспиляцию и пакетирование JavaScript. Как вы понимаете, это означает, что эти инструменты позволяют обрабатывать графические активы таким же образом, используя многие из библиотек, о которых вы уже узнали.
 
-```javascript
+Официальный [image plugin for Eleventy](https://www.11ty.dev/docs/plugins/image/) использует [Sharp](https://www.npmjs.com/package/sharp) для изменения размеров, генерации нескольких исходных размеров, повторного кодирования и сжатия, как и некоторые из задач, о которых вы уже узнали здесь.
 
-const Image = require("@11ty/eleventy-img");
-module.exports = function(eleventyConfig) {
+В отличие от исполнителя задач, генератор статических сайтов имеет непосредственное представление как о конфигурации и использовании этих библиотек, так и о разметке, создаваемой для производственного сайта, а значит, он может сделать гораздо больше для автоматизации разметки отзывчивых изображений. Например, когда [вызывается как часть шорткода для отображения изображений](https://www.aleksandrhovhannisyan.com/blog/eleventy-image-plugin/), этот плагин выводит HTML в соответствии с параметрами конфигурации, переданными Sharp.
 
-async function imageShortcode(src, alt, sizes="100vw") {
-  let metadata = await Image(src, {
-  formats: ["avif", "webp", "jpeg"],
-  widths: [1000, 800, 400],
-  outputDir: "_dist/img/",
-  filenameFormat: function( id, src, width, format, options ) {
-      const ext = path.extname( src ),
-        name = path.basename( src, ext );
+```js
+const Image = require('@11ty/eleventy-img');
+module.exports = function (eleventyConfig) {
+    async function imageShortcode(
+        src,
+        alt,
+        sizes = '100vw'
+    ) {
+        let metadata = await Image(src, {
+            formats: ['avif', 'webp', 'jpeg'],
+            widths: [1000, 800, 400],
+            outputDir: '_dist/img/',
+            filenameFormat: function (
+                id,
+                src,
+                width,
+                format,
+                options
+            ) {
+                const ext = path.extname(src),
+                    name = path.basename(src, ext);
 
-      return `${name}-${width}.${format}`
-  }
-  });
+                return `${name}-${width}.${format}`;
+            },
+        });
 
-  let imageAttributes = {
-  alt,
-  sizes,
-  loading: "lazy"
-  };
+        let imageAttributes = {
+            alt,
+            sizes,
+            loading: 'lazy',
+        };
 
-  return Image.generateHTML(metadata, imageAttributes);
-}
+        return Image.generateHTML(
+            metadata,
+            imageAttributes
+        );
+    }
 
-eleventyConfig.addAsyncShortcode("respimg", imageShortcode);
+    eleventyConfig.addAsyncShortcode(
+        'respimg',
+        imageShortcode
+    );
 };
 ```
 
-This shortcode could then be used in place of the default image syntax:
+Этот шорткод может быть использован вместо стандартного синтаксиса изображения:
 
 ```markdown
 {‌% respimg "img/butterfly.jpg", "Alt attribute.", "(min-width: 30em) 800px, 80vw" %}
 ```
 
-If configured to output multiple encodings, as above, the generated markup will be a `<picture>` element containing
- corresponding `<source>` elements, `type` attributes, and `srcset` attributes already fully populated with a list of 
-  generated candidate sizes. 
+Если, как указано выше, настроен вывод нескольких кодировок, то генерируемая разметка будет представлять собой элемент `<picture>`, содержащий соответствующие элементы `<source>`, атрибуты `type` и `srcset`, уже полностью заполненные списком сгенерированных размеров-кандидатов.
 
 ```html
-<picture><source type="image/avif" srcset="/img/butterfly-400.avif 400w, /img/butterfly-800.avif 800w, /img/butterfly-1000.avif 1000w" sizes="(min-width: 30em) 800px, 80vw"><source type="image/webp" srcset="/img/butterfly-400.webp 400w, /img/butterfly-800.webp 800w, /img/butterfly-1000.webp 1000w" sizes="(min-width: 30em) 800px, 80vw"><source type="image/jpeg" srcset="/img/butterfly-400.jpeg 400w, /img/butterfly-800.jpeg 800w, /img/butterfly-1000.jpeg 1000w" sizes="(min-width: 30em) 800px, 80vw"><img alt="Alt attribute." loading="lazy" src="/img/butterfly-400.jpeg" width="1000" height="846"></picture>
+<picture
+    ><source
+        type="image/avif"
+        srcset="
+            /img/butterfly-400.avif   400w,
+            /img/butterfly-800.avif   800w,
+            /img/butterfly-1000.avif 1000w
+        "
+        sizes="(min-width: 30em) 800px, 80vw" />
+    <source
+        type="image/webp"
+        srcset="
+            /img/butterfly-400.webp   400w,
+            /img/butterfly-800.webp   800w,
+            /img/butterfly-1000.webp 1000w
+        "
+        sizes="(min-width: 30em) 800px, 80vw" />
+    <source
+        type="image/jpeg"
+        srcset="
+            /img/butterfly-400.jpeg   400w,
+            /img/butterfly-800.jpeg   800w,
+            /img/butterfly-1000.jpeg 1000w
+        "
+        sizes="(min-width: 30em) 800px, 80vw" />
+    <img
+        alt="Alt attribute."
+        loading="lazy"
+        src="/img/butterfly-400.jpeg"
+        width="1000"
+        height="846"
+/></picture>
 ```
 
-Of course, this plugin won’t be able to _generate_ a viable `sizes` attribute, as it can’t know the ultimate size and position 
-of the image in the rendered layout, but it does accept one as input when generating your markup—another job for RespImageLint.
+Конечно, этот плагин не сможет _генерировать_ жизнеспособный атрибут `sizes`, так как не может знать конечный размер и положение изображения в отрисованной разметке, но он принимает его в качестве входных данных при генерации вашей разметки - еще одна задача для RespImageLint.
 
-## Frameworks
+## Фреймворки
 
-Client-side rendering frameworks will require a task-runner or bundler like Webpack to edit, encode, and compress image assets 
-themselves. [Responsive-loader](https://www.npmjs.com/package/responsive-loader), for example, also uses the Sharp library to re-save image assets. It then allows you to 
-then `import` your images as objects:
+Фреймворки для рендеринга на стороне клиента потребуют использования исполнителя задач или бандлера типа Webpack для самостоятельного редактирования, кодирования и сжатия графических активов. [Responsive-loader](https://www.npmjs.com/package/responsive-loader), например, также использует библиотеку Sharp для пересохранения графических активов. Затем он позволяет "импортировать" изображения в виде объектов:
 
-```javascript
-  import imageAVIF from 'img/butterfly.jpg?sizes[]=400,sizes[]=800,sizes[]=1000&format=avif';
-  import imageWebP from 'img/butterfly.jpg?sizes[]=400,sizes[]=800,sizes[]=1000&format=webp';
-  import imageDefault from 'img/butterfly.jpg?sizes[]=400,sizes[]=800,sizes[]=1000';
+```js
+import imageAVIF from 'img/butterfly.jpg?sizes[]=400,sizes[]=800,sizes[]=1000&format=avif';
+import imageWebP from 'img/butterfly.jpg?sizes[]=400,sizes[]=800,sizes[]=1000&format=webp';
+import imageDefault from 'img/butterfly.jpg?sizes[]=400,sizes[]=800,sizes[]=1000';
 ```
 
-These imported images can then be used through abstractions like [React's Image component](https://reactnative.dev/docs/image), or to populate your responsive 
-image markup directly:
+Эти импортированные изображения можно использовать с помощью таких абстракций, как [компонент React's Image](https://reactnative.dev/docs/image), или непосредственно в разметке отзывчивых изображений:
 
 ```html
 <picture>
-  <source type='image/avif' srcSet={imageAVIF.srcSet} sizes='…' />
-  <source type='image/webp' srcSet={imageWebp.srcSet} sizes='…' />
-  <img
-    src={imageDefault.src}
-    srcSet={imageDefault.srcSet}
-    width={imageDefault.width}
-    height={imageDefault.height}
-    sizes='…'
-    loading="lazy"
-  />
+    <source
+        type="image/avif"
+        srcset="{imageAVIF.srcSet}"
+        sizes="…" />
+    <source
+        type="image/webp"
+        srcset="{imageWebp.srcSet}"
+        sizes="…" />
+    <img
+        src="{imageDefault.src}"
+        srcset="{imageDefault.srcSet}"
+        width="{imageDefault.width}"
+        height="{imageDefault.height}"
+        sizes="…"
+        loading="lazy"
+/></picture>
 ```
 
-A framework that does client side rendering is a strong candidate for [Lazysizes](https://www.npmjs.com/package/lazysizes) and `sizes="auto"`—giving you almost fully
-automated responsive images.
+Фреймворк, выполняющий рендеринг на стороне клиента, является сильным кандидатом на использование [Lazysizes](https://www.npmjs.com/package/lazysizes) и `sizes="auto"`, что позволяет получить практически полностью автоматизированные отзывчивые изображения.
 
-## Content Management Systems
+## Системы управления контентом
 
-WordPress was one of the earliest adopters of native responsive images markup, and the API has been gradually improved since
-being [introduced in WordPress 4.4](https://make.wordpress.org/core/2015/11/10/responsive-images-in-wordpress-4-4/) with support for WebP and control over the output mime type. WordPress core is designed to make use of the [ImageMagick PHP extension](https://www.php.net/manual/en/book.imagick.php) 
-(or, absent that, the [GD](https://www.php.net/manual/en/book.image.php) library). 
+WordPress был одним из первых, кто начал использовать собственную разметку отзывчивых изображений, и с момента появления [introduced in WordPress 4.4](https://make.wordpress.org/core/2015/11/10/responsive-images-in-wordpress-4-4/) API постепенно улучшался: появилась поддержка WebP и контроль над типом выходного mime. Ядро WordPress рассчитано на использование расширения [ImageMagick PHP](https://www.php.net/manual/en/book.imagick.php) (или, при отсутствии такового, библиотеки [GD](https://www.php.net/manual/en/book.image.php)).
 
-When an image is uploaded through the WordPress admin interface, that source image is used to generate user-facing files on
-the server, in much the same way as you would on your local machine. By default, any image output by WordPress will come
-with a generated `srcset` attribute based on [the image sizes configured in your theme](https://developer.wordpress.org/apis/responsive-images/).
+Когда изображение загружается через интерфейс администратора WordPress, оно используется для создания пользовательских файлов на сервере, точно так же, как и на локальной машине. По умолчанию любое изображение, выводимое WordPress, будет иметь атрибут `srcset`, основанный на [размерах изображения, настроенных в вашей теме](https://developer.wordpress.org/apis/responsive-images/).
 
-Two key settings that can be configured for generated images are the [compression quality](https://developer.wordpress.org/reference/hooks/wp_editor_set_quality/) and the [output mime type](https://developer.wordpress.org/reference/hooks/image_editor_output_format/).
+Два ключевых параметра, которые можно настроить для генерируемых изображений, - это [качество сжатия](https://developer.wordpress.org/reference/hooks/wp_editor_set_quality/) и [тип выходного mime](https://developer.wordpress.org/reference/hooks/image_editor_output_format/).
 
-For example, to set the default compression quality to `70` for all generated images, use the following:
+Например, чтобы установить качество сжатия по умолчанию `70` для всех генерируемых изображений, выполните следующее:
 
 ```php
 add_filter( 'wp_editor_set_quality', function() { return 70; } );
 ```
 
-For even better compression, switch the output format for uploaded JPEG images to WebP with the following:
+Для еще большего сжатия переключите выходной формат загружаемых JPEG-изображений на WebP следующим образом:
+
 ```php
 add_filter( 'image_editor_output_format', function( $mappings ) {
   $mappings[ 'image/jpeg' ] = 'image/webp';
@@ -143,23 +168,12 @@ add_filter( 'image_editor_output_format', function( $mappings ) {
 } );
 ```
 
-Given that WordPress has full understanding of all [alternate cuts](https://developer.wordpress.org/reference/functions/add_image_size/)
-and encodings it generates from an uploaded image, it can provide helper functions like
-[`wp_get_attachment_image_srcset()`](https://developer.wordpress.org/reference/functions/wp_get_attachment_image_srcset/) to
-retrieve the full, generated `srcset` value of an image attachment.
+Учитывая, что WordPress имеет полное представление обо всех [alternate cuts](https://developer.wordpress.org/reference/functions/add_image_size/) и кодировках, которые он генерирует из загруженного изображения, он может предоставить вспомогательные функции типа [`wp_get_attachment_image_srcset()`](https://developer.wordpress.org/reference/functions/wp_get_attachment_image_srcset/) для получения полного сгенерированного значения `srcset` вложенного изображения.
 
-As you'll likely have guessed by this point, working with the `sizes` attribute is a little more fraught. Absent any information
-about how images will be used in a layout, WordPress currently defaults to a `sizes` value that effectively says "this image
-should occupy 100% of the available viewport, up to the largest source's intrinsic size"—a predictable default, but not a correct
-one for any real-world application. Be sure to make use of [`wp_calculate_image_sizes()`](https://developer.wordpress.org/reference/hooks/wp_calculate_image_sizes/)
-to set contextually-appropriate `sizes` attributes in your templates.
+Как вы уже, наверное, догадались, работа с атрибутом `sizes` несколько сложнее. В отсутствие какой-либо информации о том, как изображения будут использоваться в макете, WordPress по умолчанию использует значение `sizes`, которое фактически говорит: "Это изображение должно занимать 100% доступного пространства просмотра, вплоть до самого большого размера, присущего источнику" - предсказуемое значение по умолчанию, но не корректное для любого реального применения. Обязательно используйте [`wp_calculate_image_sizes()`](https://developer.wordpress.org/reference/hooks/wp_calculate_image_sizes/) для установки в шаблонах контекстно-зависимых атрибутов `sizes`.
 
-Of course, there are countless WordPress plugins dedicated to making modern image workflows faster for development teams and users alike.
-Perhaps most excitingly, plugins like [Jetpack's Site Accelerator](https://jetpack.com/support/site-accelerator/) (formerly "Photon")
-can provide _server-side_ negotiation for encodings, ensuring that users will receive the smallest, most efficient encoding that their
-browser is able to support without the need for `<picture>` and `type` markup pattern. It does this through use of an image content
-delivery network—a technology you can make use of yourself, independent of your CMS.
+Конечно, существует бесчисленное множество плагинов WordPress, призванных ускорить работу с современными изображениями как для команд разработчиков, так и для пользователей. Возможно, наиболее интересными являются такие плагины, как [Jetpack's Site Accelerator](https://jetpack.com/support/site-accelerator/) (бывший "Photon"), которые обеспечивают _серверное_ согласование кодировок, гарантируя, что пользователи получат наименьшую, наиболее эффективную кодировку, которую способен поддерживать их браузер, без необходимости использования шаблонов разметки `<picture>` и `type`. Для этого используется сеть доставки контента изображений - технология, которую вы можете использовать самостоятельно, независимо от вашей CMS.
 
-All of this is also true of hosted CMS solutions like Shopify, though the mechanisms themselves will differ somewhat: offering similar
-hooks for [generating alternate image sources and corresponding `srcset` attributes](https://performance.shopify.com/blogs/blog/responsive-images-on-shopify-with-liquid#provide-multiple-image-size-options-with-srcset)
-and [art direction through the `<picture>` element](https://performance.shopify.com/blogs/blog/responsive-images-on-shopify-with-liquid#art-direction).
+Все это справедливо и для таких хостинговых CMS, как Shopify, хотя сами механизмы несколько отличаются: предлагаются аналогичные хуки для [генерации альтернативных источников изображений и соответствующих атрибутов `srcset`](https://performance.shopify.com/blogs/blog/responsive-images-on-shopify-with-liquid#provide-multiple-image-size-options-with-srcset) и [художественного оформления с помощью элемента `<picture>`](https://performance.shopify.com/blogs/blog/responsive-images-on-shopify-with-liquid#art-direction).
+
+:information_source: Источник &mdash; [Site Generators, frameworks, and CMSs](https://web.dev/learn/images/cms/)

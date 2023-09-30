@@ -1,45 +1,31 @@
 ---
-title: 'Image formats: PNG'
-authors:
-  - matmarquis
-description: Find out when PNG is the best image format to choose.
-date: 2023-02-01
-tags:
-  - images
+title: PNG
+description: Узнайте, в каких случаях лучше всего выбирать формат изображения PNG.
+icon: material/file-png-box
 ---
 
-There are a few things that set PNG (Portable Network Graphics) apart from other formats, though as it was intended to be a replacement for
-GIF (due to patent disputes long, long ago) it is similar to GIF in several ways. PNG also uses lossless compression,
-meaning that the image data will be _compressed_ without any loss of visual fidelity. An image's color palette may be quantized—an
-“indexed color”, with PNG making use of a palette limited to 256 colors, just like GIF. A far more common “truecolor” PNG can
-contain many, many more colors—up to 16 million.
+# Форматы изображений: PNG
 
-PNG and GIF both support transparency, though with a major difference. GIF treats transparency as a binary proposition—a
-pixel is either an opaque color, or fully transparent. PNG supports “alpha channel” transparency, meaning that each pixel
-can be set to a level of transparency between 0 (fully transparent) and 255 (fully opaque).
+<big>Узнайте, в каких случаях лучше всего выбирать формат изображения PNG.</big>
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/PKQ634IdtXzy63TdlfpC.png", alt="Two pink flowers showing two levels of transparency.", width="800", height="399" %}
+Есть несколько особенностей, отличающих PNG (Portable Network Graphics) от других форматов, хотя, поскольку он был задуман как замена GIF (из-за патентных споров, возникших очень и очень давно), он похож на GIF по нескольким параметрам. PNG также использует сжатие без потерь, что означает, что данные изображения будут _сжаты_ без потери визуальной достоверности. Цветовая палитра изображения может быть квантована - "индексированный цвет", при этом PNG использует палитру, ограниченную 256 цветами, как и GIF. Гораздо более распространенный "truecolor" PNG может содержать гораздо больше цветов - до 16 миллионов.
 
-In practical terms, the lack of substantial quantization and lossless compression mean that saving an image as a PNG will
-never result in a drop in visual quality. However, this almost invariably results in excessively large file sizes compared to
-more modern web-friendly encodings. The transfer size of a PNG means they are almost never the right choice for photographic content.
+PNG и GIF поддерживают прозрачность, но с существенным отличием. В GIF прозрачность рассматривается как двоичное представление - пиксель либо непрозрачного цвета, либо полностью прозрачный. PNG поддерживает прозрачность "альфа-канала", т.е. для каждого пиксела можно установить уровень прозрачности в диапазоне от 0 (полностью прозрачный) до 255 (полностью непрозрачный).
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/asVXRCrgha5jMqCXwmn6.png", alt="Comparison of JPEG and PNG.", width="800", height="446" %}
+![Два розовых цветка, демонстрирующих два уровня прозрачности.](png-1.avif)
 
-PNG was more commonplace in years past largely for a single use case, as the only raster encoding that supported semi-transparency.
-Today, PNG should only be considered for simple artwork that requires semi-transparency—a company logo containing a drop shadow,
-for example—and should be compared carefully to the more modern formats that support semi-transparency, such as WebP.
+С практической точки зрения, отсутствие существенного квантования и сжатие без потерь означают, что сохранение изображения в формате PNG никогда не приведет к снижению его визуального качества. Однако это почти всегда приводит к чрезмерно большим размерам файлов по сравнению с более современными кодировками, удобными для использования в Интернете. Размер PNG при передаче означает, что они практически никогда не подходят для фотоконтента.
 
-Much like GIF, PNG was designed to solve use cases that are frequently better served by SVG in terms of both scalability and file size.
-For that reason, you'll sometimes see PNG used as the fallback version of UI elements in the vanishingly small number of browsers that don't
-support SVG, though these are increasingly rare.
+![Сравнение JPEG и PNG.](png-2.avif)
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/GhNCZEadcuq93fPfuiQJ.png", alt="PNG and SVG comparison.", width="800", height="598" %}
+В прошлые годы PNG был более распространен в основном из-за единственного случая использования - как единственное растровое кодирование, поддерживающее полупрозрачность. Сегодня PNG следует рассматривать только для простых работ, требующих полупрозрачности, например, для логотипа компании с падающей тенью, и внимательно сравнивать его с более современными форматами, поддерживающими полупрозрачность, такими как WebP.
 
-In practical terms, PNG is a sound choice for maintaining a manageable-sized “canonical” version of a source image, saved in your
-local development environment or committed to a project repository in case future versions of that image need to be edited or re-saved
-in alternate formats.
+PNG, как и GIF, был разработан для решения задач, для которых SVG часто оказывается лучше с точки зрения масштабируемости и размера файла. По этой причине PNG иногда используется в качестве запасного варианта элементов пользовательского интерфейса в исчезающе малом количестве браузеров, не поддерживающих SVG, хотя такие случаи становятся все более редкими.
 
-It is worth noting, however, that even though encodings are standardized, different editing tools have different methods of
-performing that encoding—some much more efficient than others. Before transferring a PNG in any context, be sure to run your
-files through a tool like [Squoosh](https://squoosh.app/) or [ImageOptim](https://imageoptim.com).
+![Сравнение PNG и SVG.](png-3.avif)
+
+С практической точки зрения PNG является оптимальным вариантом для сохранения "канонической" версии исходного изображения в локальной среде разработки или в репозитории проекта на случай, если в будущем потребуется отредактировать или пересохранить версию изображения в альтернативном формате.
+
+Следует отметить, что, несмотря на стандартизацию кодировок, различные средства редактирования используют разные методы их выполнения - одни гораздо эффективнее других. Прежде чем передавать PNG в любом контексте, обязательно прогоните файлы через такие инструменты, как [Squoosh](https://squoosh.app/) или [ImageOptim](https://imageoptim.com).
+
+:information_source: Источник &mdash; [Image formats: PNG](https://web.dev/learn/images/png/)

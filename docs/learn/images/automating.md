@@ -1,154 +1,102 @@
 ---
-title: 'Automating compression and encoding'
-authors:
-  - matmarquis
-description: Make generating highly performant image sources a seamless part of your development process.
-date: 2023-02-01
-tags:
-  - images
+description: Сделайте создание высокопроизводительных источников образов неотъемлемой частью процесса разработки.
+icon: material/auto-fix
 ---
 
-All of the syntaxes in this course—from the encoding of image data to the information-dense
-markup that powers [responsive images](/learn/images/responsive-images/)—are methods for machines to communicate with machines. You have
-discovered a number of ways for a client browser to communicate its needs to a server, and a server to respond in kind.
-Responsive image markup (`srcset` and `sizes`, in particular) manage to describe a shocking amount of information in relatively
-few characters. For better or worse, that brevity is by design: making these syntaxes less terse, and so easier for developers
-to parse, could have made them more difficult for a _browser_ to parse. The more complexity added to a string, the more
-potential there is for parser errors, or unintentional differences in behavior from one browser to another.
+# Автоматизация
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/24qgm41BZl5a2gstQQfi.png", alt="An automated image encoding window.", width="800", height="472" %}
+<big>Сделайте создание высокопроизводительных источников образов неотъемлемой частью процесса разработки.</big>
 
-However, the same trait that can make these subjects feel so intimidating can also provide you with solutions: a syntax easily
-_read_ by machines is a syntax more easily _written_ by them. You’ve almost certainly encountered many examples of automated
-image encoding and compression as a user of the web: any image uploaded to the web through social media platforms, content
-management systems (CMS), and even email clients will almost invariably pass through a system that resizes, re-encodes,
-and compresses them.
+Все синтаксисы, рассмотренные в этом курсе, - от кодирования данных изображения до информационно насыщенной разметки, используемой в [responsive images](responsive-images.md), - представляют собой методы общения машин с машинами. Вы открыли для себя несколько способов, с помощью которых клиентский браузер может сообщать свои потребности серверу, а сервер - отвечать на них. Разметка отзывчивых изображений (в частности, `srcset` и `sizes`) позволяет описать потрясающий объем информации в относительно небольшом количестве символов. К лучшему или к худшему, но такая краткость обусловлена дизайном: если сделать эти синтаксисы менее лаконичными и тем самым облегчить их разбор для разработчиков, то это могло бы усложнить их разбор для _браузера_. Чем сложнее строка, тем больше вероятность ошибок парсера или непреднамеренных различий в поведении браузера.
 
-Likewise, whether through plugins, external libraries, standalone build process tools, or responsible use of client-side scripting,
-responsive image markup readily lends itself to automation.
+![Автоматизированное окно кодирования изображений.](automating-1.avif)
 
-Those are the two primary concerns around automating image performance: managing the creation of images—their encodings,
-compression, and the alternate sources you’ll use to populate an `srcset` attribute—and generating our user-facing markup.
-In this module, you’ll learn about a few common approaches to managing images as part of a modern workflow, whether as an
-automated phase in your development process, through the framework or content management system that powers your site, or
-almost fully abstracted away by a dedicated content delivery network.
+Однако та же самая черта, из-за которой эти темы кажутся такими пугающими, может дать вам и решение: синтаксис, который легко _читать_ машинам, легче _писать_ им самим. Как пользователь Интернета вы почти наверняка сталкивались с многочисленными примерами автоматического кодирования и сжатия изображений: любое изображение, загруженное в Интернет с помощью социальных сетей, систем управления контентом (CMS) и даже почтовых клиентов, почти неизменно проходит через систему, которая изменяет его размер, перекодирует и сжимает.
 
-## Automating compression and encoding
+Аналогичным образом, разметка отзывчивых изображений легко поддается автоматизации, будь то с помощью плагинов, внешних библиотек, автономных средств сборки или ответственного использования сценариев на стороне клиента.
 
-You’re unlikely to find yourself in a position where you can take the time to manually determine the ideal encoding and level
-of compression for each individual image destined for use on a project—nor would you want to. As
-[important as it is to keep your image transfer sizes as small as possible](/learn/images/performance-issues/) , fine-tuning your
-compression settings and re-saving alternate sources for every image asset destined for a production website would introduce
-a huge bottleneck in your daily work.
+Вот две основные задачи автоматизации работы с изображениями: управление созданием изображений - их кодировкой, сжатием и альтернативными источниками, которые вы будете использовать для заполнения атрибута `srcset, - и генерация разметки, ориентированной на пользователя. В этом модуле вы узнаете о нескольких распространенных подходах к управлению изображениями в рамках современного рабочего процесса, будь то автоматизированная фаза процесса разработки, фреймворк или система управления контентом, на которой работает ваш сайт, или почти полная абстракция в специализированной сети доставки контента.
 
-As you learned when reading about the various image formats and compression types, the most efficient encoding for an image will always be dictated by
-its content, and as you learned in [Responsive Images](/learn/images/responsive-images/), the alternate sizes you’ll need for your image sources will be
-dictated by the position those images occupy in the page layout. In a modern workflow, you’ll approach these decisions
-holistically rather than individually—determining a set of sensible defaults for images, to best suit the contexts in which
-they’re meant to be used.
+## Автоматизация сжатия и кодирования
 
-When choosing encodings for a directory of photographic images, [AVIF](/learn/images/avif/) is the clear winner for quality and transfer size
-but has limited support, [WebP](/learn/images/webp/) provides an optimized, modern fallback, and [JPEG](/learn/images/jpeg/) is the most reliable default. The alternate
-sizes we need to produce for images meant to occupy a sidebar in a page layout will vary a great deal from images meant
-to occupy the entire browser viewport at our highest breakpoints. Compression settings will require an eye toward blurring
-and compression artifacts across multiple resulting files—leaving less room to carve every possible byte from each image
-in exchange for a more flexible and reliable workflow. In sum, you’ll be following the same decision making process you’ve
-come to understand from this course, writ large.
+Вряд ли вы окажетесь в ситуации, когда сможете потратить время на ручное определение идеальной кодировки и степени сжатия для каждого отдельного изображения, предназначенного для использования в проекте, да и не захотите этого делать. Как бы ни было [важно поддерживать минимальный размер передаваемых изображений](performance-issues.md), тонкая настройка параметров сжатия и повторное сохранение альтернативных источников для каждого изображения, предназначенного для производственного веб-сайта, приведет к возникновению огромного узкого места в вашей повседневной работе.
 
-As for the processing itself, there are a huge number of open source image processing libraries that provide methods of
-converting, modifying, and editing images in batches, competing on speed, efficiency, and reliability. These processing
-libraries will allow you to apply encoding and compression settings to whole directories of images at once, without the
-need to open image editing software, and in a way that preserves your original image sources should those settings need
-to be adjusted on-the-fly. They’re intended to run in a range of contexts, from your local development environment to the
-web server itself—for example, the compression-focused [ImageMin](/use-imagemin-to-compress-images/) for
-Node.js can be extended to suit specific applications through an array of [plugins](https://www.npmjs.com/search?q=keywords:imageminplugin),
-while the cross-platform [ImageMagick](https://imagemagick.org/) and the Node.js based [Sharp](https://sharp.pixelplumbing.com/)
-come with a staggering number of features right out of the box.
+Как вы узнали, читая о различных форматах изображений и типах сжатия, наиболее эффективная кодировка изображения всегда определяется его содержимым, и, как вы узнали в разделе [Отзывчивые изображения](responsive-images.md), альтернативные размеры, которые вам понадобятся для источников изображений, будут определяться их положением в макете страницы. В современном рабочем процессе к этим решениям следует подходить комплексно, а не по отдельности, определяя набор разумных значений по умолчанию для изображений, чтобы наилучшим образом соответствовать контексту, в котором их предполагается использовать.
 
-These image processing libraries make it possible for developers to build tools dedicated to seamlessly optimizing images
-as part of your standard development processes—ensuring that your project will always be referencing production-ready image
-sources with as little overhead as possible.
+При выборе кодировки для каталога фотоизображений [AVIF](avif.md) является явным победителем по качеству и размеру передаваемого изображения, но имеет ограниченную поддержку, [WebP](webp.md) обеспечивает оптимизированный, современный запасной вариант, а [JPEG](jpeg.md) является наиболее надежным вариантом по умолчанию. Альтернативные размеры, которые нам необходимо получить для изображений, занимающих боковую панель в макете страницы, будут сильно отличаться от изображений, которые должны занимать все поле зрения браузера в наших самых высоких точках разрыва. Настройки сжатия потребуют внимания к размытию и артефактам сжатия в нескольких результирующих файлах - в обмен на более гибкий и надежный рабочий процесс мы не будем стремиться вырезать из каждого изображения все возможные байты. В общем, вы будете следовать тому же процессу принятия решений, который вы уже поняли из этого курса.
 
-## Local development tools and workflows
+Что касается самой обработки, то существует огромное количество библиотек обработки изображений с открытым исходным кодом, которые предоставляют методы пакетного преобразования, модификации и редактирования изображений, конкурируя между собой по скорости, эффективности и надежности. Эти библиотеки позволяют применять параметры кодирования и сжатия к целым каталогам изображений одновременно, без необходимости открывать программы редактирования изображений и с сохранением исходных текстов, если эти параметры необходимо изменить "на лету". Они предназначены для работы в различных контекстах, от локальной среды разработки до самого веб-сервера. Например, ориентированная на сжатие [ImageMin](https://web.dev/use-imagemin-to-compress-images/) для Node.js может быть расширена для решения конкретных задач с помощью набора [плагинов](https://www.npmjs.com/search?q=keywords:imageminplugin), а кроссплатформенная [ImageMagick](https://imagemagick.org/) и основанная на Node.js [Sharp](https://sharp.pixelplumbing.com/) имеют потрясающий набор функций уже в готовом блоке.
 
-[Task-runners and bundlers like Grunt, Gulp, or Webpack](/use-imagemin-to-compress-images/) can be used to
-optimize image assets alongside other common performance-related tasks, such as minification of CSS and JavaScript. To
-illustrate, let’s take a relatively simple use case: a directory in your project contains a dozen photographic images,
-meant to be used on a public-facing website.
+Эти библиотеки обработки изображений позволяют разработчикам создавать инструменты для оптимизации изображений в рамках стандартных процессов разработки, гарантируя, что ваш проект всегда будет ссылаться на готовые к производству изображения с минимальными накладными расходами.
 
-First, you’ll need to ensure consistent, efficient encoding for these images. As you’ve learned in the previous modules,
-WebP is an efficient default for photographic images in terms of both quality and file size. WebP is _well_ supported,
-but not _universally_ supported, so you’ll also want to include a fallback in the form of a progressive JPEG. Then,
-in order to make use of the `srcset` attribute for efficient delivery of these assets, you’ll need to produce multiple
-alternate sizes for each encoding.
+## Инструменты и рабочие процессы локальной разработки
 
-While this would be a repetitive and time-consuming chore if done with image editing software, task runners like
-[Gulp](https://gulpjs.com/) are designed to automate exactly this sort of repetition. The [gulp-responsive](https://www.npmjs.com/package/gulp-responsive)
-plugin, which makes use of [Sharp](https://www.npmjs.com/package/sharp), is one option of many that all follow a similar pattern:
-collecting all the files in a source directory, re-encode them, and compress them based on the same standardized "quality"
-shorthand you learned about in [Image Formats and Compression](/learn/images/png/). The resulting files are then output to a path you define,
-ready to be referenced in the `src` attributes of your user-facing `img` elements while leaving your original files intact.
+[Task-runners и bundlers, такие как Grunt, Gulp или Webpack](https://web.dev/use-imagemin-to-compress-images/) могут использоваться для оптимизации изображений наряду с другими обычными задачами, связанными с производительностью, такими как минификация CSS и JavaScript. Для примера рассмотрим относительно простой случай: в каталоге вашего проекта находится десяток фотоизображений, предназначенных для использования на публичном сайте.
+
+Прежде всего, необходимо обеспечить последовательное и эффективное кодирование этих изображений. Как вы уже узнали из предыдущих модулей, WebP является эффективным кодированием по умолчанию для фотографических изображений как с точки зрения качества, так и с точки зрения размера файла. WebP поддерживается _хорошо_, но не _всеобще_, поэтому необходимо предусмотреть запасной вариант в виде прогрессивного JPEG. Затем, чтобы использовать атрибут `srcset для эффективной доставки этих активов, необходимо создать несколько альтернативных размеров для каждой кодировки.
+
+Если при работе с программами для редактирования изображений это было бы очень трудоемкой и повторяющейся работой, то для автоматизации подобной работы предназначены программы запуска задач типа [Gulp](https://gulpjs.com/). Плагин [gulp-responsive](https://www.npmjs.com/package/gulp-responsive), использующий [Sharp](https://www.npmjs.com/package/sharp), является одним из многих вариантов, которые работают по схожей схеме: собирают все файлы в исходном каталоге, перекодируют их и сжимают на основе стандартизированного "качества", о котором вы узнали в [Форматы и сжатие изображений](png.md). Полученные файлы выводятся по заданному пути, на них можно ссылаться в атрибутах `src` ваших элементов `img`, при этом исходные файлы остаются нетронутыми.
+
+```js
+const { src, dest } = require('gulp');
+const respimg = require('gulp-responsive');
+
+exports.webp = function () {
+    return src('./src-img/*')
+        .pipe(
+            respimg({
+                '*': [
+                    {
+                        quality: 70,
+                        format: ['webp', 'jpeg'],
+                        progressive: true,
+                    },
+                ],
+            })
+        )
+        .pipe(dest('./img/'));
+};
+```
+
+При таком процессе не будет нанесен ущерб производственной среде, если кто-то из участников проекта случайно добавит в каталог с исходными изображениями фотографию, закодированную как массивный truecolor PNG. Независимо от кодировки исходного изображения, эта задача позволит получить эффективный WebP и надежный прогрессивный JPEG, причем со степенью сжатия, которую можно легко настроить "на лету". Разумеется, при этом исходные файлы изображений будут сохранены в среде разработки проекта, а значит, эти настройки можно будет изменить в любой момент, причем перезаписываться будет только автоматический вывод.
+
+Для вывода нескольких файлов вы передаете несколько объектов конфигурации - все те же самые, за исключением добавления ключа `width` и значения в пикселях:
 
 ```javascript
 const { src, dest } = require('gulp');
 const respimg = require('gulp-responsive');
 
-exports.webp = function() {
-  return src('./src-img/*')
-    .pipe(respimg({
-      '*': [{
-        quality: 70,
-        format: ['webp', 'jpeg'],
-        progressive: true
-      }]
-  }))
-  .pipe(dest('./img/'));
-}
+exports.default = function () {
+    return src('./src-img/*')
+        .pipe(
+            respimg({
+                '*': [
+                    {
+                        width: 1000,
+                        format: ['jpeg', 'webp'],
+                        progressive: true,
+                        rename: { suffix: '-1000' },
+                    },
+                    {
+                        width: 800,
+                        format: ['jpeg', 'webp'],
+                        progressive: true,
+                        rename: { suffix: '-800' },
+                    },
+                    {
+                        width: 400,
+                        format: ['jpeg', 'webp'],
+                        progressive: true,
+                        rename: { suffix: '-400' },
+                    },
+                ],
+            })
+        )
+        .pipe(dest('./img/'));
+};
 ```
 
-With a process like this in place, no harm would be done to a production environment if someone on the project inadvertently
-added a photograph encoded as a massive truecolor PNG to the directory containing your original image sources—regardless of
-the original image’s encoding, this task will produce an efficient WebP and reliable progressive JPEG fallback, and at a
-compression level that can be easily adjusted on-the-fly. Of course, this process also ensures that your original image
-files will be retained within the project’s development environment, meaning that these settings can be adjusted at any
-time with only the automated output overwritten.
-
-In order to output multiple files, you pass along multiple configuration objects—all the same, apart from the addition of
-a `width` key and a value in pixels:
-
-```javascript
-const { src, dest } = require('gulp');
-const respimg = require('gulp-responsive');
-
-exports.default = function() {
-  return src('./src-img/*')
-	.pipe(respimg({
-  	'*': [{
-          	width: 1000,
-          	format: ['jpeg', 'webp'],
-          	progressive: true,
-          	rename: { suffix: '-1000' }
-        	},
-        	{
-          	width: 800,
-          	format: ['jpeg', 'webp'],
-          	progressive: true,
-          	rename: { suffix: '-800' }
-        	},
-        	{
-          	width: 400,
-          	format: ['jpeg', 'webp'],
-          	progressive: true,
-          	rename: { suffix: '-400' },
-      	}]
-    	})
-	)
-	.pipe(dest('./img/'));
-}
-```
-
-In the case of the example above, the original image (monarch.png) was more than 3.3MB. The largest file generated by
-this task (monarch-1000.jpeg) is approximately 150KB. The smallest, monarch-400.web, is only 32KB.
+В приведенном примере исходное изображение (`monarch.png`) имело размер более 3,3 МБ. Самый большой файл, созданный этой задачей (`monarch-1000.jpeg`), имеет размер около 150 КБ. Наименьший, `monarch-400.webp`, имеет размер всего 32 КБ.
 
 ```shell
 [10:30:54] Starting 'default'...
@@ -162,92 +110,86 @@ this task (monarch-1000.jpeg) is approximately 150KB. The smallest, monarch-400.
 [10:30:54] Finished 'default' after 374 ms
 ```
 
-Of course, you’ll want to carefully examine the results for visible compression artifacts, or possibly increase compression
-for additional savings. Since this task is non-destructive, these settings can be changed easily.
+Конечно, необходимо внимательно изучить результаты на предмет видимых артефактов сжатия или, возможно, увеличить сжатие для дополнительной экономии. Поскольку данная задача является неразрушающей, эти настройки можно легко изменить.
 
-All told, in exchange for the few kilobytes you could carve away with careful manual micro-optimization, you gain a process
-that is not only efficient, but  _resilient_—a tool that seamlessly applies your knowledge of high-performance image assets
-to an entire project, without any manual intervention.
+В общем, в обмен на те несколько килобайт, которые можно было бы сэкономить при тщательной ручной микрооптимизации, вы получаете не только эффективный, но и _устойчивый_ процесс - инструмент, который позволяет легко применить ваши знания о высокопроизводительных графических активах ко всему проекту без какого-либо ручного вмешательства.
 
-### Responsive image markup in practice
+### Разметка отзывчивых изображений на практике
 
-Populating `srcset` attributes will typically be a straightforward manual process, as the attribute really only captures
-information about the configuration you’ve already done when generating your sources. In the tasks above, we’ve established
-the file names and width information that our attribute will follow:
+Заполнение атрибутов `srcset` обычно является простым ручным процессом, поскольку атрибут действительно только собирает информацию о конфигурации, которую вы уже выполнили при генерации исходных текстов. В приведенных выше задачах мы определили имена файлов и информацию о ширине, которой будет следовать наш атрибут:
 
 ```html
-srcset="filename-1000.jpg 1000w, filename-800.jpg 800w, filename-400.jpg 400w"
+srcset="filename-1000.jpg 1000w, filename-800.jpg 800w,
+filename-400.jpg 400w"
 ```
 
-Remember that the contents of the `srcset` attribute are descriptive, not prescriptive. There’s no harm in overloading an
-`srcset` attribute, so long as the aspect ratio of every source is consistent. An `srcset` attribute can contain the URI
-and width of every alternate cut generated by the server without causing any unnecessary requests, and the more candidate
-sources we provide for a rendered image, the more efficiently the browser will be able to tailor requests.
+Помните, что содержимое атрибута `srcset` носит описательный, а не предписывающий характер. Нет никакого вреда в перегрузке атрибута `srcset`, если соотношение сторон каждого источника является последовательным. Атрибут `srcset` может содержать URI и ширину всех альтернативных обрезков, генерируемых сервером, не вызывая лишних запросов, и чем больше источников-кандидатов мы предоставим для визуализируемого изображения, тем эффективнее браузер сможет адаптировать запросы.
 
-As you learned in [Responsive Images](/learn/images/responsive-images/), you’ll want to make use of the `<picture>` element to seamlessly handle the WebP
-or JPEG fallback pattern. In this case, you’ll be using the `type` attribute in concert with `srcset`.
+Как вы уже узнали в разделе [Отзывчивые изображения](responsive-images.md), вам понадобится использовать элемент `<picture>` для плавной обработки шаблона WebP или JPEG fallback. В этом случае используется атрибут `type` в сочетании с `srcset`.
 
 ```html
 <picture>
-  <source type="image/webp" srcset="filename-1000.webp 1000w, filename-800.webp 800w, filename-400.webp 400w">
-  <img srcset="filename-1000.jpg 1000w, filename-800.jpg 800w, filename-400.jpg 400w" sizes="…" alt="…">
+    <source
+        type="image/webp"
+        srcset="
+            filename-1000.webp 1000w,
+            filename-800.webp   800w,
+            filename-400.webp   400w
+        "
+    />
+    <img
+        srcset="
+            filename-1000.jpg 1000w,
+            filename-800.jpg   800w,
+            filename-400.jpg   400w
+        "
+        sizes="…"
+        alt="…"
+    />
 </picture>
 ```
 
-As you’ve learned, browsers that support WebP will recognize the contents of the `type` attribute, and select that `<source>`
-element’s `srcset` attribute as the list of image candidates. Browsers that don’t recognize `image/webp` as a valid media
-type will ignore this `<source>`, and instead use the inner `<img>` element’s `srcset` attribute.
+Как вы уже поняли, браузеры, поддерживающие WebP, распознают содержимое атрибута `type` и выбирают атрибут `<source>` элемента ``srcset` в качестве списка кандидатов на изображение. Браузеры, не распознающие `image/webp` в качестве допустимого медиатипа, проигнорируют этот `<source>` и вместо него используют атрибут `srcset` внутреннего элемента `<img>`.
 
-There’s one more consideration in terms of browser support: browsers without support for any responsive image markup will
-still need a fallback, or we could run the risk of a broken image in especially old browsing contexts. Because `<picture>`,
-`<source>`, and `srcset` are all ignored in these browsers, we’ll want to specify a default source in the inner `<img>`’s
-`src` attribute.
+Есть еще одно соображение, касающееся поддержки браузеров: браузерам, не поддерживающим никакой отзывчивой разметки изображений, все равно потребуется запасной вариант, иначе мы рискуем получить неработающее изображение в особенно старых контекстах просмотра. Поскольку `<picture>`, `<source>` и `srcset` в таких браузерах игнорируются, нам необходимо указать источник по умолчанию во внутреннем атрибуте `src` `<img>`.
 
-Because scaling an image downwards is _visually_ seamless and JPEG encoding is universally supported, the largest JPEG is
-a sensible choice.
+Поскольку масштабирование изображения в сторону уменьшения _визуально_ не вызывает затруднений, а кодирование JPEG поддерживается повсеместно, разумным выбором будет самый большой JPEG.
 
 ```html
 <picture>
-  <source type="image/webp" srcset="filename-1000.webp 1000w, filename-800.webp 800w, filename-400.webp 400w">
-  <img src="filename-1000.jpg" srcset="filename-1000.jpg 1000w, filename-800.jpg 800w, filename-400.jpg 400w" sizes="…" alt="…">
+    <source
+        type="image/webp"
+        srcset="
+            filename-1000.webp 1000w,
+            filename-800.webp   800w,
+            filename-400.webp   400w
+        "
+    />
+    <img
+        src="filename-1000.jpg"
+        srcset="
+            filename-1000.jpg 1000w,
+            filename-800.jpg   800w,
+            filename-400.jpg   400w
+        "
+        sizes="…"
+        alt="…"
+    />
 </picture>
 ```
 
-`sizes` can be a little more difficult to deal with. As you've [learned](/learn/images/responsive-images), `sizes` is necessarily contextual—you
-can’t populate the attribute without knowing the amount of space the image is meant to occupy in the rendered layout. For
-the most efficient possible requests, an accurate `sizes` attribute needs to be in our markup at the time those requests
-are made by the end user, long before the styles that govern the page layout have been requested. Omitting `sizes` altogether
-is not only a violation of the HTML specification, but results in default behavior equivalent to `sizes="100vw"`—informing
-the browser that this image is only constrained by the viewport itself, resulting in the largest possible candidates sources
-being selected.
+С `sizes` может быть немного сложнее. Как вы уже [узнали](responsive-images.md), атрибут `sizes` обязательно должен быть контекстным - его нельзя заполнить, не зная, сколько места изображение должно занимать в отображаемом макете. Для наиболее эффективного выполнения запросов точный атрибут `sizes` должен присутствовать в нашей разметке в момент запроса конечного пользователя, задолго до того, как будут запрошены стили, определяющие макет страницы. Полное отсутствие `sizes` не только нарушает спецификацию HTML, но и приводит к поведению по умолчанию, эквивалентному `sizes="100vw"` - информированию браузера о том, что данное изображение ограничено только областью просмотра, в результате чего выбираются самые большие из возможных источников-кандидатов.
 
-As is the case with any particularly burdensome web development task, a number of tools have been created to abstract away
-the process of hand-writing `sizes` attributes. [`respImageLint`](https://ausi.github.io/respimagelint/) is an absolutely
-essential snippet of code intended to vet your `sizes` attributes for accuracy and provide suggestions for improvement.
-It runs as a bookmarklet—a tool you run in your browser, while pointed at the fully rendered page containing your image
-elements. In a context where the browser has full understanding of the page layout, it will also have nearly pixel-perfect
-awareness of the space an image is meant to occupy in that layout at every possible viewport size.
+Как и в случае с любой особо обременительной задачей веб-разработки, был создан ряд инструментов, позволяющих абстрагироваться от процесса ручного написания атрибутов `sizes`. [`respImageLint`](https://ausi.github.io/respimagelint/) - это совершенно необходимый фрагмент кода, предназначенный для проверки точности атрибутов `sizes` и предложения по их улучшению. Он работает как букмарклет - инструмент, запускаемый в браузере, при этом указывая на полностью отрендеренную страницу, содержащую элементы изображения. В условиях, когда браузер имеет полное представление о макете страницы, он также будет практически с точностью до пикселя знать, какое место должно занимать изображение в этом макете при любом возможном размере области просмотра.
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/Yr5VQ7rAATnPzHYyxcGF.png", alt="Responsive image report showing size/width mismatch.", width="800", height="861" %}
+![В отчете об отзывчивых изображениях показано несоответствие размера/ширины.](automating-2.avif)
 
-A tool for linting your `sizes` attributes is certainly useful, but it has even more value as a tool to generate them wholesale.
-As you know, `srcset` and `sizes` syntax is intended to optimize requests for image assets in a visually seamless way. Though
-not something that should ever be used in production, a default `sizes` placeholder value of `100vw` is perfectly reasonable
-while working on a page’s layout in your local development environment. Once layout styles are in place, running `respImageLint`
-will provide you with tailored `sizes` attributes that you can copy and paste into your markup, at a level of detail far greater
-than one written by hand:
+Инструмент для линтинга атрибутов `sizes`, безусловно, полезен, но еще более ценен он в качестве инструмента для их оптовой генерации. Как известно, синтаксис `srcset` и `sizes` предназначен для оптимизации запросов к графическим активам. Несмотря на то, что их не стоит использовать в производстве, значение `sizes` по умолчанию, равное `100vw`, вполне оправдано при работе над макетом страницы в локальной среде разработки. После того как стили верстки будут созданы, запуск `respImageLint` предоставит вам атрибуты `sizes`, которые вы сможете скопировать и вставить в свою разметку с уровнем детализации, намного превышающим тот, что вы напишете вручную:
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/fst6DoueH9kN4VEV6hU4.png", alt="Responsive image report with suggested dimensions.", width="800", height="861" %}
+![Отчет по отзывчивым изображениям с предлагаемыми размерами.](automating-3.avif)
 
-Though image requests initiated by server-rendered markup happen too quickly for JavaScript to generate a client-side `sizes` attribute,
-the same reasoning doesn’t apply if those requests are _initiated_ client-side. The [Lazysizes](https://github.com/aFarkas/lazysizes) project,
-for example, allows you to fully defer image requests until after the layout has been established, allowing JavaScript to generate
-our `sizes` values for us—a huge convenience for you, and a guarantee of the most efficient possible requests for your users.
-Keep in mind, however, that this approach does mean sacrificing the reliability of server-rendered markup and the speed
-optimizations built into browsers, and initiating these requests only after the page has been rendered will have an outsized
-negative impact on your LCP score.
+Хотя запросы изображений, инициированные серверной разметкой, происходят слишком быстро, чтобы JavaScript успел сгенерировать атрибут `sizes` на стороне клиента, эти рассуждения не применимы, если запросы _инициируются_ на стороне клиента. Проект [Lazysizes](https://github.com/aFarkas/lazysizes), например, позволяет полностью отложить запросы к изображениям до момента создания макета, позволяя JavaScript генерировать значения `sizes` за нас - огромное удобство для вас и гарантия наиболее эффективных запросов для ваших пользователей. Однако следует помнить, что при таком подходе приходится жертвовать надежностью серверной разметки и оптимизацией скорости, заложенной в браузерах, и инициирование этих запросов только после отрисовки страницы окажет значительное негативное влияние на ваш показатель LCP.
 
-Of course, if you’re already depending on a client-side rendering framework such as React or Vue, that’s a debt you’ll already
-be incurring—and in those cases, using Lazysizes means your `sizes` attributes can be almost completely abstracted away.
-Better still: as [`sizes="auto"`](https://github.com/whatwg/html/pull/8008) on lazy loaded images gains consensus and
-native implementations, Lazysizes will effectively become a polyfill for that newly standardized browser behavior.
+Конечно, если вы уже зависите от фреймворка рендеринга на стороне клиента, такого как [React](https://reactdev.ru/) или Vue, то это уже ваш долг, и в этом случае использование Lazysizes означает, что атрибуты `sizes` можно практически полностью абстрагироваться от них. Более того, по мере того как [`sizes="auto"`](https://github.com/whatwg/html/pull/8008) для лениво загружаемых изображений будет набирать консенсус и появятся нативные реализации, Lazysizes фактически станет полифиллом для этого нового стандартизированного поведения браузера.
+
+:information_source: Источник &mdash; [Automating compression and encoding](https://web.dev/learn/images/automating/)

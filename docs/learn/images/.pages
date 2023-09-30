@@ -4,15 +4,15 @@ nav:
     - history.md
     - performance-issues.md
     - vector-images.md
-    #- raster-images.md
-    #- gif.md
-    #- png.md
-    #- jpeg.md
-    #- webp.md
-    #- avif.md
-    #- responsive-images.md
-    #- descriptive.md
-    #- prescriptive.md
-    #- automating.md
-    #- cms.md
-    #- cdn.md
+    - raster-images.md
+    - gif.md
+    - png.md
+    - jpeg.md
+    - webp.md
+    - avif.md
+    - responsive-images.md
+    - descriptive.md
+    - prescriptive.md
+    - automating.md
+    - cms.md
+    - cdn.md

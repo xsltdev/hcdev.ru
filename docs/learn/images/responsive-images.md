@@ -1,46 +1,28 @@
 ---
-title: 'Responsive images'
-authors:
-  - matmarquis
-description: A deep dive into responsive images.
-date: 2023-02-01
-tags:
-  - images
+description: Глубокое погружение в отзывчивые изображения.
+icon: material/image-plus-outline
 ---
 
-[Responsive image](/learn/design/responsive-images/) markup can be divided into two scenarios: situations
-where the goal is the most efficient possible images, and situations where you need explicit control over what image source
-the browser selects. You can think of these as _descriptive_ and _prescriptive_ syntaxes, respectively.
+# Отзывчивые изображения
 
-In this module you'll learn both approaches. First we'll cover `srcset` and `sizes`, and how to help the browser make the best
-choice based on what it knows about the user, their device, and their browsing situation. You'll then discover the `<picture>` element,
-which allows for explicit control over source selection based on factors like viewport size and browser support for image formats.
+<big>Глубокое погружение в отзывчивые изображения.</big>
 
-## Descriptive syntaxes
+Разметку [Отзывчивые изображения](../design/responsive-images.md) можно разделить на два сценария: ситуации, когда целью является получение максимально эффективных изображений, и ситуации, когда требуется явный контроль над тем, какой источник изображения выбирает браузер. Можно считать, что это _описательный_ и _предписывающий_ синтаксис соответственно.
 
-A descriptive syntax provides the browser with information about image sources and how they'll be used, but ultimately leaves
-the decision-making to the browser. This is by far the more common scenario; for the vast majority of images you won't _want_ granular
-control over browser behavior. Browsers have far more information at their disposal than web developers do, and can make complex decisions
-based on this information. You can't predict users' browsing contexts accurately—there's too much about their hardware, preferences, and connection
-speeds that you can't know. At best, you can make educated guesses, but can't know for _certain_ how each user experiences the web. The
-central use case for responsive images is strictly goal-oriented, from a developer's perspective: allow browsers to make the most efficient image
-requests possible, based on the information the browser has at hand.
+В этом модуле вы познакомитесь с обоими подходами. Сначала мы рассмотрим `srcset` и `sizes`, а также то, как помочь браузеру сделать наилучший выбор, основываясь на том, что он знает о пользователе, его устройстве и ситуации в браузере. Затем мы познакомимся с элементом `<picture>`, который позволяет явно управлять выбором источника с учетом таких факторов, как размер области просмотра и поддержка браузером форматов изображений.
 
-To enable browsers to make these choices, `srcset` allows you to provide the browser with a list of potential sources for populating a single
-`<img>`, while `sizes` allows you to provide the browser with information about how that `<img>` will be rendered. You'll learn how to use
-these in the [next module](/learn/images/descriptive/).
+## Описательные синтаксисы
 
-## Prescriptive syntaxes
+Описательный синтаксис предоставляет браузеру информацию об источниках изображений и о том, как они будут использоваться, но в конечном итоге оставляет принятие решений за браузером. Такой сценарий является наиболее распространенным; для подавляющего большинства изображений вам не нужен детальный контроль над поведением браузера. Браузеры имеют в своем распоряжении гораздо больше информации, чем веб-разработчики, и могут принимать сложные решения на основе этой информации. Вы не можете точно предсказать контекст просмотра веб-страниц пользователей - слишком много информации об их аппаратном обеспечении, предпочтениях и скорости соединения, которую вы не можете знать. В лучшем случае можно сделать обоснованное предположение, но нельзя знать _точно_, как каждый пользователь работает в Интернете. Основная цель использования отзывчивых изображений, с точки зрения разработчика, строго целевая: позволить браузерам выполнять наиболее эффективные запросы к изображениям на основе имеющейся у браузера информации.
 
-With a prescriptive syntax, you tell the browser what to do—what source to select, based on specific criteria you've defined. While this use case isn't as
-common as "just load the most efficient asset to render this image," it allows us to provide usage instructions to the browser to account for
-information it doesn't have prior to the transfer of assets, such as the content of the sources or their formats.
+Для того чтобы браузеры могли делать такой выбор, `srcset` позволяет предоставить браузеру список потенциальных источников для наполнения одного `<img>`, а `sizes` позволяет предоставить браузеру информацию о том, как этот `<img>` будет отображаться. Как их использовать, вы узнаете в [следующем модуле](descriptive.md).
 
-While `srcset` and `sizes` provide you with a syntax for passing information along to the user's browser and allowing it to make decisions about
-image sources, there are times when you'll need explicit control over which source file is presented and when. For example, you might
-want to display versions of the same image content with different aspect ratios, based on different design treatments across layout breakpoints,
-or make sure only browsers with support for a specific encoding receive specific sources.
+## Предписывающие синтаксисы
 
-In these cases, you want explicit control over which source is shown, and when. These are assurances that `srcset` and `sizes` can't give us,
-by design. To get that control, we'll need to use the [`<picture>` element](/learn/images/prescriptive/).
+При использовании предписывающего синтаксиса вы указываете браузеру, что делать - какой источник выбрать, основываясь на определенных критериях, которые вы определили. Хотя этот вариант использования не так распространен, как "просто загрузите наиболее эффективный актив для рендеринга этого изображения", он позволяет нам предоставлять браузеру инструкции по использованию, учитывающие информацию, которой он не располагает до передачи активов, например, содержимое источников или их форматы.
 
+Хотя `srcset` и `sizes` предоставляют синтаксис для передачи информации браузеру пользователя и позволяют ему принимать решения об источниках изображений, бывают случаи, когда требуется явный контроль над тем, какой исходный файл и когда будет представлен. Например, необходимо отображать версии одного и того же изображения с разным соотношением сторон, исходя из различных дизайнерских решений в разных точках разметки, или сделать так, чтобы только браузеры с поддержкой определенной кодировки получали определенные источники.
+
+В этих случаях необходим явный контроль над тем, какой источник и когда будет показан. Такие гарантии `srcset` и `sizes` не могут дать нам по своей природе. Чтобы получить такой контроль, необходимо использовать элемент [`<picture>`](prescriptive.md).
+
+:information_source: Источник &mdash; [Responsive images](https://web.dev/learn/images/responsive-images/)

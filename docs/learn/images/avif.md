@@ -1,55 +1,39 @@
 ---
-title: 'Image formats: AVIF'
-authors:
-  - matmarquis
-description: AV1 Image File Format (AVIF) is an encoding based on the open source AV1 video codec.
-date: 2023-02-01
-tags:
-  - images
+title: AVIF
+description: AV1 Image File Format (AVIF) - это кодирование, основанное на видеокодеке AV1 с открытым исходным кодом.
+icon: material/web-plus
 ---
 
-AV1 Image File Format (AVIF) is an encoding based on the open source AV1 video codec. AVIF is [even newer](https://caniuse.com/avif)—than WebP,
-only supported in Chrome and Opera since 2020, Firefox in 2021, and Safari in 2022. As with WebP, AVIF aims to address every conceivable use case for
-raster images on the web: GIF-like animation, PNG-like transparency, and improved perceptual quality at file sizes smaller than JPEG or WebP.
+# Форматы изображений: AVIF
 
-So far, AVIF shows promise. A [testing framework](https://github.com/Netflix/image_compression_comparison) developed by Netflix—a founding member of
-the [Alliance for Open Media](https://aomedia.org/), the group responsible for the development of the AV1 codec—shows
-[significant reductions in file sizes](https://netflixtechblog.com/avif-for-next-generation-image-coding-b1d75675fe4) when
-compared to JPEG or WebP. Additional studies by [Cloudinary](https://cloudinary.com/blog/contemplating-codec-comparisons) and
-[Chrome's codecs team](https://storage.googleapis.com/avif-comparison/index.html) have weighed it favorably against current
-encoding standards.
+<big>AV1 Image File Format (AVIF) - это кодирование, основанное на видеокодеке AV1 с открытым исходным кодом.</big>
 
-Though tooling is relatively limited, you can and should [start experimenting with AVIF](https://jakearchibald.com/2020/avif-has-landed/)
-today, as one of the encodings offered by Squoosh:
+<p class="ciu_embed" data-feature="avif" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+<picture>
+<source type="image/webp" srcset="https://caniuse.bitsofco.de/image/avif.webp">
+<source type="image/png" srcset="https://caniuse.bitsofco.de/image/avif.png">
+<img src="https://caniuse.bitsofco.de/image/avif.jpg" alt="Data on support for the avif feature across the major browsers from caniuse.com">
+</picture>
+</p>
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/TkVWHUuKwH9qauQJDNpI.png", alt="A Squoosh screenshot showing AVIF compression settings.", width="800", height="547" %}
+AV1 Image File Format (AVIF) - это кодировка, основанная на видеокодеке AV1 с открытым исходным кодом. AVIF еще [более новый](https://caniuse.com/avif) чем WebP, поддерживается только в Chrome и Opera с 2020 года, в Firefox с 2021 года, а в Safari с 2022 года. Как и WebP, AVIF призван решить все возможные задачи использования растровых изображений в Интернете: GIF-анимация, PNG-прозрачность и улучшенное качество восприятия при меньших размерах файлов, чем JPEG или WebP.
 
-## Browser support
+Пока AVIF демонстрирует неплохие промисы. Тестовая схема [https://github.com/Netflix/image_compression_comparison], разработанная компанией Netflix - одним из основателей [Alliance for Open Media](https://aomedia.org/), группы, ответственной за разработку кодека AV1, - показывает [значительное уменьшение размеров файлов](https://netflixtechblog.com/avif-for-next-generation-image-coding-b1d75675fe4) по сравнению с JPEG или WebP. Дополнительные исследования, проведенные [Cloudinary](https://cloudinary.com/blog/contemplating-codec-comparisons) и [командой разработчиков кодеков Chrome](https://storage.googleapis.com/avif-comparison/index.html), положительно оценивают его в сравнении с существующими стандартами кодирования.
 
-Now, if you find yourself wondering why we've spent so much time discussing JPEG when AVIF and WebP can offer us higher
-quality results and far smaller file sizes, it's because they—and any new image encoding—come with a major catch. Support
-for GIF, PNG, and JPEG is guaranteed across all browsers, and has been for decades. Relative to those legacy image formats,
-AVIF is brand new, and while support for WebP is [excellent](https://caniuse.com/?search=webp) across modern browsers, it
-isn't a given across the entire web.
+Хотя инструментарий относительно ограничен, вы можете и должны [начать экспериментировать с AVIF](https://jakearchibald.com/2020/avif-has-landed/) уже сегодня, как с одной из кодировок, предлагаемых Squoosh:
 
-As you can imagine, a tremendous amount of time and effort has gone into the development of new image formats that aim to
-improve both quality and transfer size. Formats like WebP, AVIF, and [JPEG XL](https://jpeg.org/jpegxl/) ([not supported in any browser](https://caniuse.com/jpegxl))
-aim to become the unifying solution to raster images on the web, as SVG is to vectors. Others, like JPEG 2000 (only supported in Safari)
-were intended to satisfy all the same use cases as a baseline JPEG, but improve on compression methods to deliver a visually
-similar but much smaller image.
+![Снимок экрана Squoosh, показывающий настройки сжатия AVIF.](avif-1.avif)
 
-While some of these newer formats share the JPEG name, their encodings are as fundamentally dissimilar as JavaScript is to Java.
-A browser that doesn't support a given encoding won't be able to parse that image file at all—it's as though I instructed you to fill
-out your graph paper pixel grid in a language you don't understand. The browser will request the image data, attempt to parse it, and
-upon failing, will discard it without rendering anything at all. An image source that fails to render outside of modern browsers would be a
-huge point of failure for our content, and for the web at large—a broken image and wasted bandwidth to a huge number of users around
-the world. You shouldn't sacrifice a more resilient web for the sake of a more performant one.
+## Поддержка браузеров {#browser-support}
 
-For a long time, our single-minded friend `<img>` made it exceptionally difficult to use any new image format, no matter how promising
-it seemed. Remember, `<img>` only supported a single source file, and was hyper-optimized to transfer that file quickly—so quickly,
-in fact, that we couldn't intercept that request via JavaScript. Until recently, the only viable option was to serve all users the brand
-new type of image, and request one of the “legacy" formats when the browser fired an error—incurring a second file transfer after the first one was wasted.
+Если вы задаетесь вопросом, почему мы потратили столько времени на обсуждение JPEG, в то время как AVIF и WebP могут предложить нам более высокое качество и гораздо меньший размер файлов, то это потому, что они, как и любые другие новые кодировки изображений, имеют существенную загвоздку. Поддержка GIF, PNG и JPEG гарантирована во всех браузерах, и так было на протяжении десятилетий. По сравнению с этими старыми форматами изображений AVIF является совершенно новым, и хотя поддержка WebP [отлично](https://caniuse.com/?search=webp) реализована в современных браузерах, она не является гарантированной во всем Интернете.
 
-For that reason and more, `<img>` as it had existed for decades had to change. In the next module, [Responsive Images](/learn/images/responsive-images/), you'll learn about the
-features introduced to the HTML specification to address these issues and how to use them in your day-to-day work.
+Как вы можете себе представить, огромное количество времени и усилий было потрачено на разработку новых форматов изображений, призванных улучшить качество и размер передаваемых данных. Такие форматы, как WebP, AVIF и [JPEG XL](https://jpeg.org/jpegxl/) ([не поддерживается ни в одном браузере](https://caniuse.com/jpegxl)), стремятся стать унифицированным решением для растровых изображений в Интернете, как SVG - для векторных. Другие, например JPEG 2000 (поддерживается только в Safari), призваны удовлетворить все те же потребности, что и базовый JPEG, но при этом усовершенствовать методы сжатия, чтобы получить визуально похожее, но гораздо более компактное изображение.
 
+Хотя некоторые из этих новых форматов имеют общее название JPEG, их кодировки так же принципиально отличаются друг от друга, как JavaScript от Java. Браузер, не поддерживающий данную кодировку, вообще не сможет разобрать файл изображения - это как если бы я попросил вас заполнить пиксельную сетку на бумаге на непонятном вам языке. Браузер запросит данные изображения, попытается их разобрать и, потерпев неудачу, отбросит их, так ничего и не отобразив. Источник изображения, который не может отрисоваться вне современных браузеров, будет огромной точкой отказа для нашего контента и для Интернета в целом - неработающее изображение и потерянная пропускная способность для огромного количества пользователей по всему миру. Не стоит жертвовать более жизнеспособным вебом ради более производительного.
+
+Долгое время наш единомышленник `img>` делал использование любого нового формата изображений исключительно затруднительным, каким бы промисом он ни казался. Помните, `<img>` поддерживал только один исходный файл и был гипер-оптимизирован для быстрой передачи этого файла - настолько быстрой, что мы не могли перехватить этот запрос с помощью JavaScript. До недавнего времени единственным приемлемым вариантом было предоставлять всем пользователям совершенно новый тип изображения и запрашивать один из "старых" форматов, когда браузер выдавал ошибку, что приводило к повторной передаче файла после того, как первая была выполнена впустую.
+
+По этой и другим причинам `<img>` в том виде, в котором он существовал десятилетиями, должен был измениться. В следующем модуле, [Отзывчивые изображения](responsive-images.md), вы узнаете о функциях, внесенных в спецификацию HTML для решения этих проблем, и о том, как использовать их в своей повседневной работе.
+
+:information_source: Источник &mdash; [Image formats: AVIF](https://web.dev/learn/images/avif/)

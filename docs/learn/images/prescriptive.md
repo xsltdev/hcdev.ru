@@ -1,224 +1,186 @@
 ---
-title: 'Prescriptive syntaxes'
-authors:
-  - matmarquis
-description: Find out about the picture element.
-date: 2023-02-01
-tags:
-  - images
+description: Узнайте об элементе picture.
+icon: material/sort-ascending
 ---
 
-The `<picture>` element doesn't render anything on its own, but instead acts as a decision engine for an inner `<img>` element,
-telling it what to render. `<picture>` follows a precedent already set by the `<audio>` and `<video>` elements: a wrapper element
-that contains individual `<source>` elements.
+# Прескриптивные синтаксисы
+
+<big>Узнайте об элементе `<picture>`.</big>
+
+Элемент `<picture>` сам по себе ничего не отображает, а выступает в роли механизма принятия решений для внутреннего элемента `<img>`, указывая ему, что отображать. `<picture>` следует прецеденту, уже созданному элементами `<audio>` и `<video>`: элемент-обертка, содержащий отдельные элементы `<source>`.
 
 ```html
 <picture>
-   <source …>
-   <source …>
-	<img …>
-</picture …>
+    <source />
+    <source />
+    <img />
+</picture>
 ```
 
-That inner `<img>` also provides you with a reliable fallback pattern for older browsers without support for responsive images:
-if the `<picture>` element isn't recognized by the user's browser, it's ignored. The `<source>` elements are then discarded as well,
-since the browser either won't recognize them at all, or won't have meaningful context for them without a `<video>` or `<audio>` parent.
-The inner `<img>` element will be recognized by any browser, though—and the source specified in its `src` will be rendered as expected.
+Этот внутренний `<img>` также обеспечивает надежную схему отката для старых браузеров, не поддерживающих отзывчивые изображения: если элемент `<picture>` не распознается браузером пользователя, он игнорируется. Элементы `<source>` также отбрасываются, поскольку браузер либо вообще не распознает их, либо не будет иметь для них значимого контекста без родительского элемента `<video>` или `<audio>`. Однако внутренний элемент `<img>` будет распознан любым браузером, и источник, указанный в его `src`, будет отображен, как и ожидалось.
 
-## "Art directed" images with `<picture>`
+## "Художественное" оформление изображений с помощью `<picture>`
 
-Making changes to the content or aspect ratio of an image based on the size of the image in the page is typically referred to as "art directed"
-responsive images. `srcset` and `sizes` are designed to work invisibly, seamlessly swapping out sources as the user's browser dictates.
-There are times, however, where you want to alter sources across breakpoints to better highlight the content, the same way you adapt page layouts.
-For example: a full-width header image with a small central focus may work well on a large viewport:
+Изменение содержания или соотношения сторон изображения в зависимости от его размера на странице обычно называют "художественно-направленными" отзывчивыми изображениями. `srcset` и `sizes` предназначены для незаметной работы, плавно меняя местами источники в зависимости от настроек браузера пользователя. Однако бывают случаи, когда для лучшего выделения содержимого необходимо изменить источники в точках разрыва, подобно тому как адаптируются макеты страниц. Например, изображение заголовка во всю ширину страницы с небольшим центральным фокусом может хорошо работать в большом окне просмотра:
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/HWZtREfRzpcy7tvolvkn.png", alt="A header width image of a periwinkle flower surrounded by leaves and stems, being visited by a honeybee.", width="800", height="286" %}
+![Изображение цветка барвинка в окружении листьев и стеблей, посещаемого медоносной пчелой.](prescriptive-1.avif)
 
-But when scaled down to suit small viewports, the central focus of the image might be lost:
+Однако при уменьшении масштаба изображения до размеров небольших видовых экранов центральный фокус изображения может быть потерян:
 
-<div style="width: 50%">
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/7W8AmfGV4jEPD6mp6Kfk.png", alt="A header width image of a periwinkle flower, scaled down. The honeybee is barely visible.", width="400", height="143" %}
+<div style="width: 50%" markdown>
+![Уменьшенное по ширине изображение цветка барвинка. Медоносная пчела едва заметна.](prescriptive-2.avif)
 </div>
 
-The _subject_ of these image sources are the same, but in order to better focus on that subject visually, you'll want the
-proportions of the image source to change across breakpoints. For example, a tighter zoom on the center of the image, and
-some of the detail at the edges cropped out:
+Объект изображения в этих источниках один и тот же, но для лучшей визуальной фокусировки на объекте необходимо, чтобы пропорции источника изображения менялись в разных точках разрыва. Например, более сильное увеличение в центре изображения и уменьшение некоторых деталей по краям:
 
-{% Img src="image/cGQxYFGJrUUaUZyWhyt9yo5gHhs1/q9IrCVku2h0B4YfHzI3h.png", alt="A zoomed in crop of the periwinkle flower.", width="400", height="315" %}
+![Увеличенное изображение цветка барвинка.](prescriptive-3.avif)
 
-That sort of "cropping" can be achieved through CSS, but would leave a user requesting all the data that makes up that image,
-even though they might never end up seeing it.
+Такого рода "обрезка" может быть достигнута с помощью CSS, но при этом пользователь будет запрашивать все данные, составляющие это изображение, хотя, возможно, никогда его и не увидит.
 
-Each `source` element has attributes defining the conditions for the selection of that `source`: `media`, which accepts a
-media query, and `type`, which accepts a media type (previously known as "MIME type"). The first `<source>` in the source
-order to match the user's current browsing context is selected, and the contents of the `srcset` attribute on that `source`
-will be used to determine the right candidates for that context. In this example, the first `source` with a `media` attribute
-that matches user's viewport size will be the one selected:
+Каждый элемент `source` имеет атрибуты, определяющие условия выбора этого `source`: `media`, который принимает медиа-запрос, и `type`, который принимает медиа-тип (ранее известный как "MIME-тип"). Выбирается первый `<source>` в порядке следования источников, соответствующий текущему контексту просмотра пользователя, и содержимое атрибута `srcset` этого `source` будет использовано для определения подходящих кандидатов для этого контекста. В данном примере будет выбран первый `source` с атрибутом `media`, который соответствует размеру области просмотра пользователя:
 
 ```html
 <picture>
-  <source media="(min-width: 1200px)" srcset="wide-crop.jpg">
-  <img src="close-crop.jpg" alt="…">
+    <source
+        media="(min-width: 1200px)"
+        srcset="wide-crop.jpg"
+    />
+    <img src="close-crop.jpg" alt="…" />
 </picture>
 ```
-{% Codepen {
-user: 'web-dot-dev',
-id: 'poZNxyN',
-height: 300,
-theme: dark,
-tab: 'html,css,result'
-} %}
 
-You should always specify the inner `img` last in the order—if none of the `source` elements match their `media` or `type`
-criteria, the image will act as a "default" source. If you're using `min-width` media queries, you want to have the largest
-sources first, as seen in the preceding code. When using `max-width` media queries, you should put the smallest source first.
+<iframe src="https://codepen.io/web-dot-dev/embed/poZNxyN?height=300&amp;theme-id=light&amp;default-tab=html%2Ccss%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Внутренний `img` всегда следует указывать последним в порядке следования - если ни один из элементов `source` не соответствует критериям `media` или `type`, изображение будет выступать в качестве источника "по умолчанию". Если вы используете медиазапросы `min-width`, то первыми будут располагаться самые большие источники, как показано в предыдущем коде. При использовании медиазапросов `max-width` первым следует поместить самый маленький источник.
 
 ```html
 <picture>
-   <source media="(max-width: 400px)" srcset="mid-bp.jpg">
-   <source media="(max-width: 800px)" srcset="high-bp.jpg">
-   <img src="highest-bp.jpg" alt="…">
+    <source
+        media="(max-width: 400px)"
+        srcset="mid-bp.jpg"
+    />
+    <source
+        media="(max-width: 800px)"
+        srcset="high-bp.jpg"
+    />
+    <img src="highest-bp.jpg" alt="…" />
 </picture>
 ```
 
-When a source is chosen based on the criteria you've specified, the `srcset` attribute on `source` is passed along to the
-`<img>` as though it were defined on `<img>` itself—meaning you're free to use `sizes` to optimize art directed image
-sources as well.
+Когда источник выбирается по заданным критериям, атрибут `srcset` у `source` передается в `<img>`, как если бы он был определен у самого `<img>` - это означает, что вы можете использовать `sizes` для оптимизации источников художественных изображений.
 
 ```html
 <picture>
-   <source media="(min-width: 800px)" srcset="high-bp-1600.jpg 1600w, high-bp-1000.jpg 1000w">
-   <source srcset="lower-bp-1200.jpg 1200w, lower-bp-800.jpg 800w">
-   <img src="fallback.jpg" alt="…" sizes="calc(100vw - 2em)">
+    <source
+        media="(min-width: 800px)"
+        srcset="
+            high-bp-1600.jpg 1600w,
+            high-bp-1000.jpg 1000w
+        "
+    />
+    <source
+        srcset="
+            lower-bp-1200.jpg 1200w,
+            lower-bp-800.jpg   800w
+        "
+    />
+    <img
+        src="fallback.jpg"
+        alt="…"
+        sizes="calc(100vw - 2em)"
+    />
 </picture>
 ```
 
-Of course, an image with proportions that can vary depending on the selected `<source>` element raises a performance issue:
-`<img>` only supports a single `width` and `height` attribute, but [omitting those attributes can lead to a measurably worse user experience](#).
-In order to account for this, a [relatively recent](https://github.com/whatwg/html/pull/5894)—but
-[well supported](https://developer.mozilla.org/docs/Web/HTML/Element/source#browser_compatibility)—addition to the HTML
-specification allows for use of `height` and `width` attributes on `<source>` elements. These work to reduce layout shifts just as well
-as they do on `<img>`, with the appropriate space reserved in your layout for whatever `<source>` element is selected.
+Конечно, изображение с пропорциями, которые могут меняться в зависимости от выбранного элемента `<source>`, вызывает проблему производительности: `<img>` поддерживает только один атрибут `width` и `height`, но отсутствие этих атрибутов может привести к ощутимому ухудшению пользовательского опыта. Чтобы учесть это, [относительно недавно](https://github.com/whatwg/html/pull/5894) - но [хорошо поддерживаемое](https://developer.mozilla.org/docs/Web/HTML/Element/source#browser_compatibility) - дополнение к спецификации HTML позволяет использовать атрибуты `height` и `width` для элементов `<source>`. Они работают для уменьшения смещения макета так же, как и для `<img>`, при этом в макете резервируется соответствующее пространство для выбранного элемента `<source>`.
 
 ```html
 <picture>
-   <source
-      media="(min-width: 800px)"
-      srcset="high-bp-1600.jpg 1600w, high-bp-1000.jpg 1000w"
-      width="1600"
-      height="800">
-   <img src="fallback.jpg"
-      srcset="lower-bp-1200.jpg 1200w, lower-bp-800.jpg 800w"
-      sizes="calc(100vw - 2em)"
-      width="1200"
-      height="750"
-      alt="…">
+    <source
+        media="(min-width: 800px)"
+        srcset="
+            high-bp-1600.jpg 1600w,
+            high-bp-1000.jpg 1000w
+        "
+        width="1600"
+        height="800"
+    />
+    <img
+        src="fallback.jpg"
+        srcset="
+            lower-bp-1200.jpg 1200w,
+            lower-bp-800.jpg   800w
+        "
+        sizes="calc(100vw - 2em)"
+        width="1200"
+        height="750"
+        alt="…"
+    />
 </picture>
 ```
 
-It's important to note that art direction can be used for more than decisions based on viewport-size—and it should, given that
-the majority of those cases can be more efficiently handled with `srcset`/`sizes`. For example, selecting an image source better
-suited to the color scheme dictated by a user's preference:
+Важно отметить, что художественное направление может использоваться не только для принятия решений, основанных на размере области просмотра, и должно, поскольку большинство таких случаев может быть более эффективно обработано с помощью `srcset`/`sizes`. Например, выбор источника изображения, более подходящего для цветовой схемы, продиктованной предпочтениями пользователя:
 
 ```html
 <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="hero-dark.jpg">
-   <img srcset="hero-light.jpg">
+    <source
+        media="(prefers-color-scheme: dark)"
+        srcset="hero-dark.jpg"
+    />
+    <img srcset="hero-light.jpg" />
 </picture>
 ```
-{% Codepen {
-user: 'web-dot-dev',
-id: 'MWBbPJm',
-height: 500,
-theme: dark,
-tab: 'html,result'
-} %}
 
-### The `type` attribute
+<iframe src="https://codepen.io/web-dot-dev/embed/MWBbPJm?height=500&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The `type` attribute allows you to use the `<picture>` element's single-request decision engine to only serve image formats
-to browsers that support them.
+### Атрибут `type`
 
-As you learned in [Image Formats and Compression](/learn/images/avif/#browser-support/), an encoding that the browser can't parse won't even be recognizable as
-image data.
+Атрибут `type` позволяет использовать механизм принятия решения по одному запросу элемента `<picture>` для передачи форматов изображений только тем браузерам, которые их поддерживают.
 
-Before the introduction of the `<picture>` element, the most viable front-end solutions for serving new image formats required
-the browser to request and attempt to parse an image file before determining whether to throw it away and load a fallback. A
-common example was a script along these lines:
+Как вы узнали в разделе [Форматы и сжатие изображений](avif.md#browser-support), кодировка, которую браузер не может разобрать, даже не будет распознаваться как данные изображения.
+
+До появления элемента `<picture>` наиболее жизнеспособные внешние решения для обслуживания новых форматов изображений требовали, чтобы браузер запрашивал и пытался разобрать файл изображения, прежде чем определить, стоит ли его отбрасывать и загружать запасной вариант. Распространенным примером был сценарий следующего содержания:
 
 ```html
-   <img src="image.webp"
-	data-fallback="image.jpg"
-	onerror="this.src=this.getAttribute('data-fallback'); this.onerror=null;"
-	alt="...">
+<img
+    src="image.webp"
+    data-fallback="image.jpg"
+    onerror="this.src=this.getAttribute('data-fallback'); this.onerror=null;"
+    alt="..."
+/>
 ```
 
-With this pattern, a request for `image.webp` would still be made in every browser—meaning a wasted transfer for browsers
-without support for WebP. Browsers that couldn't then parse the WebP encoding would throw an `onerror` event, and swap
-the `data-fallback` value into `src`. It was a wasteful solution, but again, approaches like this one were the only option
-available on the front-end. Remember that the browser begins making requests for images before any custom scripting has a
-chance to run—or even be parsed—so we couldn't preempt this process.
+При таком шаблоне запрос на `image.webp` все равно будет выполнен в каждом браузере, что означает напрасную передачу для браузеров без поддержки WebP. Браузеры, которые не могли разобрать кодировку WebP, выбрасывали событие `onerror` и подменяли значение `data-fallback` в `src`. Это было расточительное решение, но, опять же, подобные подходы были единственным доступным вариантом на внешнем интерфейсе. Помните, что браузер начинает делать запросы к изображениям еще до того, как пользовательский скрипт успеет выполниться или даже быть разобранным, поэтому мы не могли упредить этот процесс.
 
-The `<picture>` element is explicitly designed to avoid those redundant requests. While there's still no way for a browser
-to recognize a format it doesn't support without requesting it, the `type` attribute warns the browser about the source
-encodings up-front, so it can decide whether or not to make a request.
+Элемент `<picture>` явно предназначен для того, чтобы избежать этих лишних запросов. Хотя браузер все еще не может распознать формат, который он не поддерживает, без запроса, атрибут `type` заранее предупреждает браузер об исходных кодировках, чтобы он мог принять решение о необходимости запроса.
 
-In the `type` attribute, you provide the [Media Type (formerly MIME type)](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types)
-of the image source specified in the `srcset` attribute of each `<source>`. This provides the browser with all the information it
-needs to immediately determine whether the image candidate provided by that `source` can be decoded without making any external
-requests—if the media type isn't recognized, the `<source>` and all its candidates are disregarded, and the browser moves on.
+В атрибуте `type` указывается [Media Type (ранее MIME type)](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types) источника изображения, указанного в атрибуте `srcset` каждого `<source>`. Это дает браузеру всю необходимую информацию для немедленного определения возможности декодирования изображения-кандидата, предоставленного этим `source`, без выполнения каких-либо внешних запросов - если тип медиа не распознан, то `<source>` и все его кандидаты игнорируются, и браузер идет дальше.
 
 ```html
 <picture>
- <source type="image/webp" srcset="pic.webp">
- <img src="pic.jpg" alt="...">
+    <source type="image/webp" srcset="pic.webp" />
+    <img src="pic.jpg" alt="..." />
 </picture>
 ```
 
-Here, any browser that supports WebP encoding will recognize the `image/webp` Media Type specified in the `type` attribute
-of the `<source>` element, select that `<source>`, and—since we've only provided a single candidate in `srcset`—instruct the inner
-`<img>` to request, transfer, and render `pic.webp`. Any browser _without_ support for WebP will disregard the `source`, and
-absent any instructions to the contrary, the `<img>` will render the contents of `src` as it has done since 1992.
-You don't need to specify a second `<source>` element with `type="image/jpeg"` here, of course—you can assume universal support for JPEG.
+Здесь любой браузер, поддерживающий кодировку WebP, распознает медиатип `image/webp`, указанный в атрибуте `type` элемента `source>`, выберет этот `<source>` и - поскольку мы предоставили только одного кандидата в `srcset` - поручит внутреннему `<img>` запросить, передать и отобразить `pic.webp`. Любой браузер, не поддерживающий WebP, проигнорирует `source`, и, если не будет никаких указаний на обратное, `<img>` будет отображать содержимое `src`, как он это делал с 1992 года. Второй элемент `<source>` с `type="image/jpeg"` здесь указывать, конечно, не нужно - можно считать, что JPEG поддерживается повсеместно.
 
-Regardless of the user's browsing context, all of this is achieved with a single file transfer, and no bandwidth wasted on
-image sources that can't be rendered. This is forward-thinking, as well: as newer and more efficient file formats will come
-with Media Types of their own, and we'll be able to take advantage of them thanks to `picture`—with no JavaScript, no serverside
-dependencies, and all the speed of `<img>`.
+Независимо от контекста просмотра пользователем, все это достигается при передаче одного файла, и пропускная способность не тратится на источники изображений, которые не могут быть отображены. Это тоже перспективно: в будущем появятся новые, более эффективные форматы файлов с собственными медиатипами, и мы сможем воспользоваться их преимуществами благодаря `picture` - без JavaScript, без зависимостей на стороне сервера и со всей скоростью `<img>`.
 
-## The future of responsive images
+## Будущее отзывчивых изображений
 
-All of the markup patterns discussed here were a heavy lift in terms of standardization: changing the functionality of
-something as established and central to the web as `<img>` was no small feat, and the suite of problems those changes aimed to
-solve were extensive to say the least. If you've caught yourself thinking that there's a lot of room for improvement with these
-markup patterns, you're absolutely right. From the outset, these standards were intended to provide a baseline for future
-technologies to build on.
+Все рассмотренные здесь шаблоны разметки были тяжелым испытанием с точки зрения стандартизации: изменение функциональности такого устоявшегося и центрального для веба элемента, как `<img>`, было нелегким делом, а набор проблем, которые эти изменения призваны были решить, был, мягко говоря, обширным. Если вы поймали себя на мысли, что в этих шаблонах разметки есть много возможностей для совершенствования, то вы абсолютно правы. С самого начала эти стандарты задумывались как базовая основа для будущих технологий.
 
-All of these solutions have necessarily depended on markup, so as to be included in the initial payload from the server,
-and arrive in time for the browser to request image sources—a limitation that led to the admittedly unwieldy `sizes` attribute.
+Все эти решения неизбежно зависели от разметки, которая должна была быть включена в исходную полезную нагрузку от сервера и своевременно доставлена в браузер для запроса источников изображений - это ограничение и привело к появлению, по общему признанию, громоздкого атрибута `sizes`.
 
-However, since these features were introduced to the web platform, a native method of deferring image requests was introduced.
-`<img>` elements with the `loading="lazy"` attribute aren't requested until the layout of the page is known, in order to defer
-requests for images outside of the user's initial viewport until later on in the process of rendering the page, potentially avoiding
-unnecessary requests. Because the browser fully understands the page layout at the time these requests are made, a
-[`sizes="auto"` attribute has been proposed as an addition to the HTML specification](https://github.com/whatwg/html/pull/8008)
-to avoid the chore of manually-written `sizes` attributes in these cases.
+Однако с появлением этих возможностей в веб-платформе появился собственный способ отсрочки запросов изображений. `<img>` элементы с атрибутом `loading="lazy"` не запрашиваются до тех пор, пока не будет известен макет страницы, что позволяет отложить запросы к изображениям, находящимся за пределами начальной области просмотра пользователя, до более поздних этапов рендеринга страницы, что позволяет избежать ненужных запросов. Поскольку браузер полностью понимает макет страницы в момент выполнения таких запросов, в качестве дополнения к спецификации HTML было предложено использовать атрибут [`sizes="auto"`](https://github.com/whatwg/html/pull/8008), чтобы избежать необходимости вручную прописывать атрибуты `sizes` в таких случаях.
 
-There are also additions to the `<picture>` element on the horizon as well, to match some exceptionally exciting changes
-to the way we style out page layouts. While viewport information is a sound basis for high-level layout decisions, it
-prevents us from taking a fully component-level approach to development—meaning, a component that can be dropped into
-any part of a page layout, with styles that respond to the space that the component itself occupies. This concern led
-to the creation of _[container queries](https://www.oddbird.net/2022/08/18/cq-syntax/)_: a method of styling elements
-based on the size of their parent container, rather than the viewport alone.
+Кроме того, на горизонте маячат дополнения к элементу `<picture>`, которые должны соответствовать некоторым исключительно интересным изменениям в стилистике макетов страниц. Хотя информация о видовом экране является надежной основой для принятия высокоуровневых решений по компоновке, она не позволяет нам использовать полностью компонентный подход к разработке - то есть компонент, который может быть помещен в любую часть макета страницы, со стилями, отвечающими пространству, занимаемому самим компонентом. Эта проблема привела к созданию _[контейнерных запросов](https://www.oddbird.net/2022/08/18/cq-syntax/)_: метода стилизации элементов на основе размера их родительского контейнера, а не только области просмотра.
 
-While the container query syntax has only just stabilized—and browser support is [very limited](https://caniuse.com/css-container-queries),
-at the time of writing—the addition of the browser technologies that enable it will provide the `<picture>` element with a
-means of doing the same thing: a potential `container` attribute that allows for `<source>` selection criteria based on the
-space the `<picture>` element's `<img>` occupies, rather than based on the size of the viewport.
+Хотя синтаксис контейнерных запросов только стабилизировался и на момент написания статьи поддерживался браузерами [очень ограниченно](https://caniuse.com/css-container-queries), добавление технологий браузеров, позволяющих это делать, даст элементу `<picture>` возможность делать то же самое: потенциальный атрибут `container`, который позволяет использовать критерии выбора `<source>` на основе пространства, занимаемого элементом `<picture>` `<img>`, а не на основе размера области просмотра.
 
-If that sounds a little vague, well, there's a good reason: these web standards discussions are ongoing, but far from settled—you
-can't use them just yet.
+Если это звучит несколько туманно, то на то есть веская причина: обсуждение этих веб-стандартов продолжается, но еще далеко не завершено, и использовать их пока нельзя.
 
-While responsive image markup promises to only get easier to work with over time, like any web technology, there are a number
-of services, technologies, and frameworks to help ease the burden of hand-writing this markup available. In the next module,
- we'll look at how to integrate everything we've learned about image formats, compression, and responsive images into a modern development workflow.
+Хотя разметка отзывчивых изображений, как и любая другая веб-технология, промис со временем будет становиться только проще, существует ряд сервисов, технологий и фреймворков, позволяющих облегчить бремя ручного написания этой разметки. В следующем модуле мы рассмотрим, как интегрировать все, что мы узнали о форматах изображений, сжатии и отзывчивых изображениях, в современный рабочий процесс разработки.
+
+:information_source: Источник &mdash; [Prescriptive syntaxes](https://web.dev/learn/images/prescriptive/)
