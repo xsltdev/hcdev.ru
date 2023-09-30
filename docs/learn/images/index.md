@@ -162,7 +162,7 @@ hide:
 
 !!!note "Авторы"
 
-    Курс написан [Mat Marquis](https://hire.wil.to) при участии и рецензировании [Rachel Andrew](/authors/rachelandrew/), [Jake Archibald](/authors/jakearchibald/), [Barry Pollard](/authors/tunetheweb/), [Aaron Forinton](https://github.com/aaronforinton), [Eric Portis](https://ericportis.com/), [Zach Leatherman](https://www.zachleat.com/), и [K.Adam White](https://www.kadamwhite.com/).
+    Курс написан [Mat Marquis](https://hire.wil.to) при участии и рецензировании [Rachel Andrew](https://web.dev/authors/rachelandrew/), [Jake Archibald](https://web.dev/authors/jakearchibald/), [Barry Pollard](https://web.dev/authors/tunetheweb/), [Aaron Forinton](https://github.com/aaronforinton), [Eric Portis](https://ericportis.com/), [Zach Leatherman](https://www.zachleat.com/), и [K.Adam White](https://www.kadamwhite.com/).
 
 !!!danger "Перевод"
 
