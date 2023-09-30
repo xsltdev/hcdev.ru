@@ -1,5 +1,5 @@
 ---
-description: Discover raster images, such as JPEG, GIF, PNG, and WebP.
+description: Откройте для себя растровые изображения, такие как JPEG, GIF, PNG и WebP.
 icon: material/image
 ---
 
