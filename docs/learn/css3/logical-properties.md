@@ -49,7 +49,7 @@ Text flows in the direction determined by the document's writing mode. You can c
 
 <iframe src="https://codepen.io/web-dot-dev/embed/ZELeBzM?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-![Диаграмма, показывающая все различные размеры блока и где начинается и заканчивается каждый размерный раздел](logical-properties-3.avif)
+![Диаграмма, показывающая все различные размеры блока и где начинается и заканчивается каждый размерный раздел](logical-properties-3.png)
 
 ## Sizing
 

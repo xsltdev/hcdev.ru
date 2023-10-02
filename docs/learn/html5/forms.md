@@ -230,19 +230,19 @@ https://web.dev/learn/html/forms?chk=on&chk=on&chk=on
 
     Клавиатура iPhone показывает тип ввода=tel.
 
-    ![Клавиатура iPhone показывает тип ввода=tel.](forms-1.avif)
+    ![Клавиатура iPhone показывает тип ввода=tel.](forms-1.png)
 
 === "Android"
 
     Клавиатура Android показывает тип ввода=tel.
 
-    ![Клавиатура Android показывает тип ввода=tel.](forms-2.avif)
+    ![Клавиатура Android показывает тип ввода=tel.](forms-2.png)
 
 === "Android"
 
     Клавиатура Android показывает тип ввода=tel.
 
-    ![Клавиатура Android показывает тип ввода=tel.](forms-3.avif)
+    ![Клавиатура Android показывает тип ввода=tel.](forms-3.png)
 
 Клавиатуры для `<input type="email">` на iPhone и двух разных телефонах Android:
 
@@ -250,19 +250,19 @@ https://web.dev/learn/html/forms?chk=on&chk=on&chk=on
 
     Клавиатура iPhone показывает тип ввода=email.
 
-    ![Клавиатура iPhone показывает тип ввода=email.](forms-4.avif)
+    ![Клавиатура iPhone показывает тип ввода=email.](forms-4.png)
 
 === "Android"
 
     Клавиатура Android показывает тип ввода=email.
 
-    ![Клавиатура Android показывает тип ввода=email.](forms-5.avif)
+    ![Клавиатура Android показывает тип ввода=email.](forms-5.png)
 
 === "Android"
 
     Клавиатура Android показывает тип ввода=email.
 
-    ![Клавиатура Android показывает тип ввода=email.](forms-6.avif)
+    ![Клавиатура Android показывает тип ввода=email.](forms-6.png)
 
 ## Доступ к микрофону и камере
 
@@ -304,7 +304,7 @@ form:invalid [type='submit'] {
 
 Встроенная проверка ограничений относится только к ограничениям, заданным с помощью HTML-атрибутов. Хотя вы можете стилизовать элемент на основе псевдоклассов `:required` и `:valid`/`:invalid`, сообщения об ошибках, возникающих из-за ошибок на основе атрибутов `required`, `pattern`, `min`, `max` и даже `type`, выдаются браузером при отправке формы.
 
-![An error message indicating that a multi-choice field is required.](forms-7.avif)
+![An error message indicating that a multi-choice field is required.](forms-7.png)
 
 Когда мы пытаемся отправить форму, не выбрав требуемого студента-фаворита, валидация ограничений не позволяет отправить форму из-за ошибки [`validityState.valueMissing`](https://developer.mozilla.org/docs/Web/API/ValidityState/valueMissing).
 

@@ -122,7 +122,7 @@ icon: material/table
 
 К сожалению, поддерживается только несколько свойств, стили не наследуются в ячейках, а единственный способ использования элемента `<col>` в таргетинге ячеек — это сложный селектор, включающий реляционный селектор [`:has()`](../../css/has.md).
 
-![Layered rendering of the elements used to design HTML tables.](tables-1.avif)
+![Layered rendering of the elements used to design HTML tables.](tables-1.png)
 
 Если и `<table>`, и `<colgroup>` имеют цвет фона, то 'background-color' `<colgroup>` будет находиться сверху. Порядок отрисовки следующий: таблица, группы столбцов, столбцы, группы строк, строки, причем ячейки располагаются последними и сверху, как показано на [схеме слоев таблицы](https://w3c.github.io/csswg-drafts/css2/#table-layers). Элементы `<td>` и `<th>` не являются потомками элементов `<colgroup>` или `<col>` и не наследуют их стилистику.
 
