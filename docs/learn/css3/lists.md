@@ -11,7 +11,13 @@ icon: material/format-list-numbered
 
     030: Списки
 
-    <audio style="width: 100%;" controls src="/learn/css3/lists.en.ogg"></audio>
+    === "Перевод на русский"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/lists.ru.mp3"></audio>
+
+    === "Английский оригинал"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/lists.en.ogg"></audio>
 
 Представьте, что у вас есть набор товаров, которые вы планируете купить во время следующего похода за продуктами. Одним из распространенных способов визуального представления этого является список, но как добавить стиль в список продуктов?
 

@@ -11,7 +11,13 @@ icon: material/file-table-box-outline
 
     010: Flexbox
 
-    <audio style="width: 100%;" controls src="/learn/css3/flexbox.en.ogg"></audio>
+    === "Перевод на русский"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/flexbox.ru.mp3"></audio>
+
+    === "Английский оригинал"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/flexbox.en.ogg"></audio>
 
 В отзывчивом дизайне может возникнуть проблема с боковой панелью, которая располагается на одной линии с контентом. Там, где есть пространство для просмотра, этот паттерн работает отлично, но там, где пространство сжато, такая жесткая компоновка может стать проблематичной.
 

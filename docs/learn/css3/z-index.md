@@ -11,7 +11,13 @@ icon: material/layers
 
     019: Z-индекс и контексты суммирования
 
-    <audio style="width: 100%;" controls src="/learn/css3/z-index.en.ogg"></audio>
+    === "Перевод на русский"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/z-index.ru.mp3"></audio>
+
+    === "Английский оригинал"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/z-index.en.ogg"></audio>
 
 Допустим, у вас есть несколько элементов, которые абсолютно позиционированы и должны располагаться друг над другом. Вы можете написать HTML примерно так:
 

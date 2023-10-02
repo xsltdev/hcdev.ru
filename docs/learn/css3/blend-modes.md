@@ -11,7 +11,13 @@ icon: material/blender-outline
 
     024: Режимы наложения
 
-    <audio style="width: 100%;" controls src="/learn/css3/blend-modes.en.ogg"></audio>
+    === "Перевод на русский"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/blend-modes.ru.mp3"></audio>
+
+    === "Английский оригинал"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/blend-modes.en.ogg"></audio>
 
 [Duotone](https://en.wikipedia.org/wiki/Duotone) — популярная цветовая обработка фотографий, при которой изображение выглядит так, как будто оно состоит только из двух контрастных цветов: один — для бликов, другой — для низких. Однако как это сделать в CSS?
 

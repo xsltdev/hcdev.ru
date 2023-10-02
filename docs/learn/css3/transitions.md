@@ -11,6 +11,10 @@ icon: material/transition
 
     044: Переходы
 
+    === "Перевод на русский"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/transitions.ru.mp3"></audio>
+
     === "Английский оригинал"
 
     	<audio style="width: 100%;" controls src="/learn/css3/transitions.en.ogg"></audio>

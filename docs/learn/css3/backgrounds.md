@@ -11,6 +11,10 @@ icon: material/image-outline
 
     053: Фон
 
+    === "Перевод на русский"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/backgrounds.ru.mp3"></audio>
+
     === "Английский оригинал"
 
     	<audio style="width: 100%;" controls src="/learn/css3/backgrounds.en.ogg"></audio>

@@ -11,7 +11,13 @@ icon: material/card-bulleted
 
     004: Каскад
 
-    <audio style="width: 100%;" controls src="/learn/css3/the-cascade.en.ogg"></audio>
+    === "Перевод на русский"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/the-cascade.ru.mp3"></audio>
+
+    === "Английский оригинал"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/the-cascade.en.ogg"></audio>
 
 CSS расшифровывается как Cascading Stylesheets (каскадные таблицы стилей). Каскад — это алгоритм разрешения конфликтов, когда к элементу HTML применяется несколько правил CSS. Именно благодаря ему текст кнопки, стилизованной с помощью следующего CSS, будет синим.
 

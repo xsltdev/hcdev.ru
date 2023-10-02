@@ -11,7 +11,13 @@ icon: material/function-variant
 
     020: Функции
 
-    <audio style="width: 100%;" controls src="/learn/css3/functions.en.ogg"></audio>
+    === "Перевод на русский"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/functions.ru.mp3"></audio>
+
+    === "Английский оригинал"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/functions.en.ogg"></audio>
 
 До сих пор в этом курсе вы познакомились с несколькими функциями CSS. В модуле [grid](grid.md) вы познакомились с функциями `minmax()` и `fit-content()`, которые помогают изменять размеры элементов. В модуле [color](color.md) были представлены функции `rgb()` и `hsl()`, помогающие определять цвета.
 

@@ -11,7 +11,13 @@ icon: material/animation-play
 
     022: Анимации
 
-    <audio style="width: 100%;" controls src="/learn/css3/animations.en.ogg"></audio>
+    === "Перевод на русский"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/animations.ru.mp3"></audio>
+
+    === "Английский оригинал"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/animations.en.ogg"></audio>
 
 Иногда на интерфейсах встречаются маленькие помощники, которые при нажатии на них предоставляют полезную информацию о конкретном разделе. Часто они имеют пульсирующую анимацию, чтобы ненавязчиво дать понять, что информация здесь и с ней нужно взаимодействовать. Но как это сделать с помощью CSS?
 

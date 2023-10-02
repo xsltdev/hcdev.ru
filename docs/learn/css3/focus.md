@@ -11,7 +11,13 @@ icon: material/image-filter-center-focus
 
     018: Фокус
 
-    <audio style="width: 100%;" controls src="/learn/css3/focus.en.ogg"></audio>
+    === "Перевод на русский"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/focus.ru.mp3"></audio>
+
+    === "Английский оригинал"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/focus.en.ogg"></audio>
 
 На веб-странице пользователь нажимает на ссылку, которая переводит его к основному содержанию сайта. Такие ссылки часто называют пропускными или якорными. Когда эта ссылка активизируется с клавиатуры клавишами ++tab++ и ++enter++, вокруг контейнера с основным содержимым появляется кольцо фокуса. Почему так происходит?
 
