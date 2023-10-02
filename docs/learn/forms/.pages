@@ -1,4 +1,25 @@
-title: Учебник Формы HTML
+title: Учим формы
 nav:
     - index.md
-    - ...
+    - form-element.md
+    - form-fields.md
+    - auto.md
+    - validation.md
+    - testing.md
+    - design-basics.md
+    - accessibility.md
+    - internationalization.md
+    - security-privacy.md
+    - autofill.md
+    - usability-testing.md
+    - cross-platform-testing.md
+    - data.md
+    - form.md
+    - fields.md
+    - attributes.md
+    - styling.md
+    - styling-form-controls.md
+    - javascript.md
+    - identity.md
+    - payment.md
+    - address.md

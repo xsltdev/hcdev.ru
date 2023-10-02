@@ -11,7 +11,13 @@ icon: material/drawing-box
 
     001: Блочная модель
 
-    <audio style="width: 100%;" controls src="/learn/css3/box-model.en.ogg"></audio>
+    === "Перевод на русский"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/box-model.ru.mp3"></audio>
+
+    === "Английский оригинал"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/box-model.en.ogg"></audio>
 
 Допустим, у вас есть такой фрагмент HTML:
 

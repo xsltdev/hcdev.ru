@@ -11,6 +11,10 @@ icon: material/text-box-outline
 
     036: Текст и типографика
 
+    === "Перевод на русский"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/typography.ru.mp3"></audio>
+
     === "Английский оригинал"
 
     	<audio style="width: 100%;" controls src="/learn/css3/typography.en.ogg"></audio>

@@ -11,6 +11,10 @@ icon: material/format-text-wrapping-overflow
 
     034: Переполнение
 
+    === "Перевод на русский"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/overflow.ru.mp3"></audio>
+
     === "Английский оригинал"
 
     	<audio style="width: 100%;" controls src="/learn/css3/overflow.en.ogg"></audio>

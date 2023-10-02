@@ -1,10 +1,10 @@
 ---
-title: Learn Forms
-authors:
-    - michaelscharnagl
-description: A course about HTML forms to help you improve your web developer expertise.
-date: 2021-11-03
+description: Курс о HTML-формах, который поможет вам повысить квалификацию веб-разработчика.
 ---
+
+# Учим формы
+
+<big>Курс о **HTML-формах**, который поможет вам повысить квалификацию веб-разработчика.</big>
 
 ## Welcome to Learn forms
 

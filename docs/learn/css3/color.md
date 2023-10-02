@@ -11,7 +11,13 @@ icon: material/format-color-fill
 
     006: Цвет Часть первая
 
-    <audio style="width: 100%;" controls src="/learn/css3/color.en.ogg"></audio>
+    === "Перевод на русский"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/color.ru.mp3"></audio>
+
+    === "Английский оригинал"
+
+    	<audio style="width: 100%;" controls src="/learn/css3/color.en.ogg"></audio>
 
 Цвет является важной частью любого сайта, а в CSS существует множество вариантов типов, функций и обработок цвета.
 
