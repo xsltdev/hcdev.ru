@@ -6,37 +6,42 @@ description: Курс о HTML-формах, который поможет вам
 
 <big>Курс о **HTML-формах**, который поможет вам повысить квалификацию веб-разработчика.</big>
 
-## Welcome to Learn forms
+## Добро пожаловать в раздел "Изучение форм".
 
-This course breaks down HTML forms into easy to understand pieces. Over the next few modules, you'll learn how an HTML form works and how to use them effectively in your projects. Use the menu pane by the **Learn Forms** logo to navigate the modules.
+В этом курсе HTML-формы разбиты на простые для понимания части. В течение следующих нескольких модулей вы узнаете, как работает HTML-форма и как эффективно использовать ее в своих проектах. Для навигации по модулям используйте панель меню, расположенную под логотипом **Learn Forms**.
 
-You'll learn how to build a basic HTML form, about HTML form elements, styling forms, help users re-entering data, ensuring the form is accessible, and secure, how to test your forms, and about specific form types.
+Вы узнаете, как создать базовую HTML-форму, об элементах HTML-формы, стилизации форм, помощи пользователям при повторном вводе данных, обеспечении доступности и безопасности формы, тестировании форм, а также о конкретных типах форм.
 
-Each module is full of interactive demos and self-assessments for you to test your knowledge.
+Каждый модуль насыщен интерактивными демонстрациями и заданиями для самопроверки знаний.
 
-This course is suitable for beginners and advanced HTML developers. The first few modules help you get started with building HTML forms, the other modules give more detail. You can go through the series from start to finish to get a general understanding of HTML forms, or pick a specific module you want to learn more about.
+Этот курс подходит как для начинающих, так и для опытных HTML-разработчиков. Первые несколько модулей помогут вам начать работу с созданием HTML-форм, остальные модули будут более подробными. Вы можете пройти весь курс от начала до конца, чтобы получить общее представление о HTML-формах, или выбрать конкретный модуль, о котором хотите узнать больше.
 
-## Prerequisites
+## Предварительные условия
 
-Before starting this course, you should know about HTML. For those new to web development, check out the [intro to HTML](https://developer.mozilla.org/docs/Learn/HTML/Introduction_to_HTML) course from MDN to learn all about how to write markup.
+Прежде чем приступить к изучению этого курса, необходимо знать HTML. Для тех, кто только начинает заниматься веб-разработкой, ознакомьтесь с курсом [Учебник HTML](../html5/index.md), чтобы узнать все о том, как писать разметку.
 
-## Demos
+## Демонстрации {#demos}
 
-For most demos, we use [CodePen](https://codepen.io/).
+Для большинства демонстраций мы используем [CodePen](https://codepen.io/).
 
-Looking at the demos, you might wonder where the styles come from. We use a general stylesheet included in all demos, so only the relevant styles are shown there. In CodePen, you can select included CSS files from Settings.
+Глядя на демонстрационные примеры, вы можете задаться вопросом, откуда берутся стили. Мы используем общую таблицу стилей, включенную во все демонстрации, поэтому в ней отображаются только нужные стили. В CodePen включенные CSS-файлы можно выбрать в Настройках.
 
-## Form controls and form fields
+## Элементы управления и поля формы
 
-A **form control** is an element that enables user interaction and data entry or selection: an `<input>`, `<select>`, `<textarea>` or `<button>`.
+Элемент управления **формой** - это элемент, обеспечивающий взаимодействие с пользователем, ввод или выбор данных: `<input>`, `<select>`, `<textarea>` или `<button>`.
 
-Sometimes **form field** is used to refer to form controls, in particular elements for text entry: `<input>` and `<textarea>`.
+Иногда **поле формы** используется для обозначения элементов управления формой, в частности, элементов для ввода текста: `<input>` и `<textarea>`.
 
-## Here's what you'll learn
+<!--## Here's what you'll learn
 
-{% include 'partials/course-index.njk' %}
+{% include 'partials/course-index.njk' %} -->
 
-So, are you ready to learn about forms? [Let's get started](/learn/forms/form-element/).
+!!!note "Авторы"
 
-{% Aside %}  
-This course is written and edited by forms community experts: [Michael Scharnagl](https://twitter.com/justmarkup), [Sam Dutton](https://twitter.com/sw12), and [Rachel Andrew](https://twitter.com/rachelandrew). <a href="https://twitter.com/rob_dodson">Rob Dodson</a> and <a href="https://twitter.com/jiwoong">Jiwoong Lee</a> shepherded the UX and production build, along with help from <a href="https://twitter.com/devnook">Ewa Gasperowicz</a> and <a href="https://twitter.com/samthor">Sam Thorogood</a>. {% endAside %}
+    Этот курс написан и отредактирован экспертами сообщества форм: [Michael Scharnagl](https://twitter.com/justmarkup), [Sam Dutton](https://twitter.com/sw12) и [Rachel Andrew](https://twitter.com/rachelandrew). [Rob Dodson](https://twitter.com/rob_dodson) и [Jiwoong Lee](https://twitter.com/jiwoong) руководили UX и производственной сборкой, а также помогали [Ewa Gasperowicz](https://twitter.com/devnook) и [Sam Thorogood](https://twitter.com/samthor).
+
+!!!danger "Перевод"
+
+    Перевод этого учебника сделан благодаря [подписчикам на Бусти](https://boosty.to/bndby).
+
+:information_source: Источник &mdash; [Learn Forms](https://web.dev/learn/forms/)

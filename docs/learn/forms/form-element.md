@@ -1,133 +1,102 @@
 ---
-title: Use forms to get data from users
-description: >
-  Learn the basics of using a form on the web with this introduction to the form element.
-authors:
-  - michaelscharnagl
-date: 2021-11-03
+description: Изучите основы использования формы в Интернете с помощью этого введения в элемент формы.
+icon: material/form-textbox
 ---
 
-Imagine you want to ask people on your website about their favorite animal.
-As a first step, you need a way to collect the data.
+# Использование форм для получения данных от пользователей
 
-How do you do this with HTML?
+<big>Изучите основы использования формы в Интернете с помощью этого введения в элемент формы.</big>
 
-{% Glitch 'learn-forms-get-started' %}
+Представьте, что вы хотите спросить людей на своем сайте об их любимом животном. В качестве первого шага вам нужен способ сбора данных.
 
-In HTML, you can build this using the form element (`<form>`),
-an `<input>` with a `<label>`, and a submit `<button>`.
+Как это сделать с помощью HTML?
 
-{% Aside %}
-You may wonder where the styles for this example are coming from.
-They are coming from a general stylesheet
-[included in all demos](/learn/forms#demos).
+<iframe sandbox="allow-scripts allow-modals allow-forms allow-same-origin allow-top-navigation-by-user-activation allow-downloads" data-testid="app-preview-iframe" title="Preview of learn-forms-get-started" src="https://learn-forms-get-started.glitch.me/"></iframe>
 
-Interested in styling forms? You can learn about this in a later
-[module](/learn/forms/styling).
-{% endAside %}
+В HTML для этого можно использовать элемент формы (`<form>`), `<input>` с `<label>` и submit `<button>`.
 
-## What is a form element?
+!!!note ""
+
+    Вы можете задаться вопросом, откуда берутся стили для этого примера. Они взяты из общей таблицы стилей [включенной во все демонстрационные версии](../forms/index.md#demos).
+
+    Вас интересует стилизация форм? Вы можете узнать об этом в следующем [модуле](styling.md).
+
+## Что такое элемент формы?
 
 ```html
 <form>
-  <label for="animal">What is your favorite animal?</label>
-  <input type="text" id="animal" name="animal">
-  <button>Save</button>
+    <label for="animal"
+        >What is your favorite animal?</label
+    >
+    <input type="text" id="animal" name="animal" />
+    <button>Save</button>
 </form>
 ```
 
-The form element consists of the start tag `<form>`,
-optional attributes defined in the start tag, and an end tag `</form>`.
+Элемент формы состоит из начального тега `<form>`, необязательных атрибутов, определенных в начальном теге, и конечного тега `</form>`.
 
-Between the start and end tag, you can include form elements like `<input>` and `<textarea>`
-for different types of user input.
-You will learn more about [form elements](/learn/forms/form-fields) in the next module.
+Между начальным и конечным тегами можно включить такие элементы формы, как `<input>` и `<textarea>` для различных типов пользовательского ввода. Более подробно об [элементах формы](form-fields.md) вы узнаете в следующем модуле.
 
-{% Aside %}
-Use HTTPS to protect all websites and forms,
-not only if you handle sensitive data. This way, all data is encrypted.
+!!!note ""
 
-Find out more: [Secure connections with HTTPS](/secure/#secure-connections-with-https).
-{% endAside %}
+    Используйте HTTPS для защиты всех веб-сайтов и форм, а не только тех, которые работают с конфиденциальными данными. Таким образом, все данные будут зашифрованы.
 
-## Where is the data processed?
+    Подробнее: [Защищенные соединения с HTTPS](https://web.dev/secure/#secure-connections-with-https).
 
-When a form is submitted (for example, when the user clicks the **Submit** button),
-the browser makes a request.
-A script can respond to that request and process the data.
+## Где обрабатываются данные?
 
-{% Aside %}
-A script (running on the server or the client) is needed to process the form.
-It may [validate](/learn/forms/validation) the data, save it into a database,
-or do other operations based on the form data.
-{% endAside %}
+При отправке формы (например, когда пользователь нажимает кнопку **Submit**) браузер делает запрос. Сценарий может ответить на этот запрос и обработать данные.
 
-By default, the request is made to the page where the form is shown.
+!!!note ""
 
-Say you want a script running at `https://web.dev`
-to process the form data—how would you do that?
-[Try it out](https://codepen.io/web-dot-dev/pen/fbf90faccc7a22e208c2a507f33be598?editors=1100)!
+    Для обработки формы необходим скрипт (выполняемый на сервере или клиенте). Он может [валидировать](validation.md) данные, сохранять их в базе данных или выполнять другие операции с данными формы.
 
-{% Details %}
+По умолчанию запрос выполняется к странице, на которой отображается форма.
 
-{% DetailsSummary 'h3' %} Toggle answer {% endDetailsSummary %}
+Допустим, вы хотите, чтобы скрипт, запущенный по адресу `https://web.dev`, обрабатывал данные формы - как вы это сделаете? [Try it out](https://codepen.io/web-dot-dev/pen/fbf90faccc7a22e208c2a507f33be598?editors=1100)!
 
-You can select the location of the script by using the `action` attribute.
+???tip "Показать ответ"
 
-```html
-<form action="https://example.com/animals">
-...
-</form>
-```
+    Выбрать местоположение скрипта можно с помощью атрибута `action`.
 
-{% endDetails %}
+    ```html
+    <form action="https://example.com/animals">...</form>
+    ```
 
-The preceding example makes a request to `https://example.com/animals`.
-A script on the `example.com` backend can handle requests to `/animals`
-and process data from the form.
+В предыдущем примере выполняется запрос к `https://example.com/animals`. Скрипт на бэкенде `example.com` может обрабатывать запросы к `/animals` и обрабатывать данные из формы.
 
-## How is the data transferred?
+## Как передаются данные?
 
-By default, form data is sent as a `GET` request,
-with the submitted data appended to the URL.
-If a user submits 'frog' in the example above, the browser makes a request to the following URL:
+По умолчанию данные из формы передаются в виде запроса `GET`, при этом отправленные данные добавляются к URL. Если в приведенном выше примере пользователь отправляет команду `'frog'`, браузер делает запрос к следующему URL:
 
 ```html
 https://example.com/animals?animal=frog
 ```
 
-In this case, you can access the data on the frontend or the backend by getting the data from the URL.
+В этом случае вы можете получить доступ к данным на фронтенде или бэкенде, получив их из URL.
 
-If you want, you can instruct the form to use a `POST` request by changing the method attribute.
+При желании можно указать форме использовать `POST`-запрос, изменив атрибут method.
 
 ```html
-<form method="post">
-...
-</form>
+<form method="post">...</form>
 ```
 
-Using `POST`, the data is included in the
-[body of the request](https://developer.mozilla.org/docs/Web/HTTP/Methods/POST#example).
+При использовании `POST` данные включаются в [тело запроса](https://developer.mozilla.org/docs/Web/HTTP/Methods/POST#example).
 
-The data will not be visible in the URL and can only be accessed from a frontend or backend script.
+Данные не будут видны в URL и могут быть доступны только из скрипта фронтенда или бэкенда.
 
-### What method should you use?
+### Какой метод следует использовать?
 
-There are use cases for both methods.
+Для обоих методов есть свои варианты использования.
 
-For forms that process sensitive data use the `POST` method.
-The data is encrypted (if you use  HTTPS) and only accessible by the backend script that processes the request.
-The data is not visible in the URL. A common example is a sign-in form.
+Для форм, обрабатывающих конфиденциальные данные, используйте метод `POST`. Данные шифруются (если используется HTTPS) и доступны только бэкенд-скрипту, обрабатывающему запрос. Данные не видны в URL. Распространенным примером является форма входа в систему.
 
-If the data is shareable, you can use the `GET` method.
-This way the data will be added to your browser history as it is included in the URL.
-Search forms often use this. This way you can bookmark a search result page.
+Если данные могут быть переданы, можно использовать метод `GET`. В этом случае данные будут добавлены в историю браузера, поскольку они включены в URL. В поисковых формах часто используется этот метод. Таким образом можно сделать закладку на страницу с результатами поиска.
 
-Now that you've learned about the form element itself, it's time to learn about 
-[form fields](/learn/forms/form-fields) to make your forms interactive.
+Теперь, когда вы узнали о самом элементе формы, пришло время познакомиться с [полями формы](form-fields.md), чтобы сделать ваши формы интерактивными.
 
-{% Assessment 'form-element' %}
+## Ресурсы
 
-## Resources
+-   [Элемент `<form>`](https://developer.mozilla.org/docs/Web/HTML/Element/form).
 
-[The `<form>` element](https://developer.mozilla.org/docs/Web/HTML/Element/form).
+:information_source: Источник &mdash; [Use forms to get data from users](https://web.dev/learn/forms/form-element/)
