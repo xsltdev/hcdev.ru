@@ -1,6 +1,6 @@
 ---
 description: Изучите основы использования формы в Интернете с помощью этого введения в элемент формы.
-icon: material/form-textbox
+icon: material/form-select
 ---
 
 # Использование форм для получения данных от пользователей
@@ -11,7 +11,7 @@ icon: material/form-textbox
 
 Как это сделать с помощью HTML?
 
-<iframe sandbox="allow-scripts allow-modals allow-forms allow-same-origin allow-top-navigation-by-user-activation allow-downloads" data-testid="app-preview-iframe" title="Preview of learn-forms-get-started" src="https://learn-forms-get-started.glitch.me/"></iframe>
+<iframe style="width: 100%; height: 300px;" sandbox="allow-scripts allow-modals allow-forms allow-same-origin allow-top-navigation-by-user-activation allow-downloads" data-testid="app-preview-iframe" title="Preview of learn-forms-get-started" src="https://learn-forms-get-started.glitch.me/"></iframe>
 
 В HTML для этого можно использовать элемент формы (`<form>`), `<input>` с `<label>` и submit `<button>`.
 
@@ -43,7 +43,7 @@ icon: material/form-textbox
 
     Подробнее: [Защищенные соединения с HTTPS](https://web.dev/secure/#secure-connections-with-https).
 
-## Где обрабатываются данные?
+## Где обрабатываются данные? {#where-is-the-data-processed}
 
 При отправке формы (например, когда пользователь нажимает кнопку **Submit**) браузер делает запрос. Сценарий может ответить на этот запрос и обработать данные.
 
@@ -53,7 +53,7 @@ icon: material/form-textbox
 
 По умолчанию запрос выполняется к странице, на которой отображается форма.
 
-Допустим, вы хотите, чтобы скрипт, запущенный по адресу `https://web.dev`, обрабатывал данные формы - как вы это сделаете? [Try it out](https://codepen.io/web-dot-dev/pen/fbf90faccc7a22e208c2a507f33be598?editors=1100)!
+Допустим, вы хотите, чтобы скрипт, запущенный по адресу `https://web.dev`, обрабатывал данные формы - как вы это сделаете? [Попробуйте](https://codepen.io/web-dot-dev/pen/fbf90faccc7a22e208c2a507f33be598?editors=1100)!
 
 ???tip "Показать ответ"
 
@@ -99,4 +99,4 @@ https://example.com/animals?animal=frog
 
 -   [Элемент `<form>`](https://developer.mozilla.org/docs/Web/HTML/Element/form).
 
-:information_source: Источник &mdash; [Use forms to get data from users](https://web.dev/learn/forms/form-element/)
+:material-information-outline: Источник &mdash; [Use forms to get data from users](https://web.dev/learn/forms/form-element/)

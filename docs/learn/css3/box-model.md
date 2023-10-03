@@ -179,4 +179,4 @@ Browser DevTools предоставляет визуализацию расче�
 -   [Firefox](https://searchfox.org/mozilla-central/source/layout/style/res/html.css)
 -   [Webkit](https://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css)
 
-:information_source: Источник: [Box Model](https://web.dev/learn/css/box-model/)
+:material-information-outline: Источник: [Box Model](https://web.dev/learn/css/box-model/)

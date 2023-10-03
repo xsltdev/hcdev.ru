@@ -192,4 +192,4 @@ filename-400.jpg 400w"
 
 Конечно, если вы уже зависите от фреймворка рендеринга на стороне клиента, такого как [React](https://reactdev.ru/) или Vue, то это уже ваш долг, и в этом случае использование Lazysizes означает, что атрибуты `sizes` можно практически полностью абстрагироваться от них. Более того, по мере того как [`sizes="auto"`](https://github.com/whatwg/html/pull/8008) для лениво загружаемых изображений будет набирать консенсус и появятся нативные реализации, Lazysizes фактически станет полифиллом для этого нового стандартизированного поведения браузера.
 
-:information_source: Источник &mdash; [Automating compression and encoding](https://web.dev/learn/images/automating/)
+:material-information-outline: Источник &mdash; [Automating compression and encoding](https://web.dev/learn/images/automating/)

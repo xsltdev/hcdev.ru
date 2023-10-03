@@ -265,4 +265,4 @@ icon: material/text-box-outline
 -   [Лучшие методы работы со шрифтами](https://web.dev/font-best-practices/), где рассматриваются вопросы импорта шрифтов, рендеринга шрифтов и другие лучшие методы использования шрифтов в Интернете.
 -   [MDN Основы стилизации текста и шрифтов](https://developer.mozilla.org/docs/Learn/CSS/Styling_text/Fundamentals).
 
-:information_source: Источник &mdash; [Text and typography](https://web.dev/learn/css/typography/)
+:material-information-outline: Источник &mdash; [Text and typography](https://web.dev/learn/css/typography/)

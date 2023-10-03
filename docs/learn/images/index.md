@@ -168,4 +168,4 @@ hide:
 
     Перевод этого учебника сделан благодаря [подписчикам на Бусти](https://boosty.to/bndby).
 
-:information_source: Источник &mdash; [Learn Images](https://web.dev/learn/images/)
+:material-information-outline: Источник &mdash; [Learn Images](https://web.dev/learn/images/)

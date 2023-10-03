@@ -86,4 +86,4 @@ a:focus {
 -   Устанавливайте положительное значение `tabindex` для HTML-элемента только в случае крайней необходимости.
 -   Убедитесь, что состояние фокуса очень четко отличается от состояния по умолчанию.
 
-:information_source: Источник &mdash; [Focus](https://web.dev/learn/css/focus/)
+:material-information-outline: Источник &mdash; [Focus](https://web.dev/learn/css/focus/)

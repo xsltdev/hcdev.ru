@@ -525,4 +525,4 @@ footer {
 -   [Инспектирование CSS-сетки в Chrome DevTools](https://developer.chrome.com/docs/devtools/css/grid/)
 -   [Полная коллекция учебных материалов по сетке](https://gridbyexample.com/)
 
-:information_source: Источник: [Grid](https://web.dev/learn/css/grid/)
+:material-information-outline: Источник: [Grid](https://web.dev/learn/css/grid/)

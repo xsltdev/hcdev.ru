@@ -113,4 +113,4 @@ icon: material/layers
 -   [Руководство по анимации: принудительное создание слоев](https://web.dev/animations-guide/#force)
 -   [Понимание z-index](https://ishadeed.com/article/understanding-z-index/)
 
-:information_source: Источник &mdash; [Z-index and stacking contexts](https://web.dev/learn/css/z-index/)
+:material-information-outline: Источник &mdash; [Z-index and stacking contexts](https://web.dev/learn/css/z-index/)

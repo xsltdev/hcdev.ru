@@ -159,4 +159,4 @@ HSL расшифровывается как hue, saturation и lightness. **От
 -   [[видео] Объяснение, как читать шестнадцатеричные коды](https://www.youtube.com/watch?v=eqZqx6lRPe0)
 -   [Как работают шестнадцатеричные коды](https://medium.com/basecs/hexs-and-other-magical-numbers-9785bc26b7ee)
 
-:information_source: Источник: [Color](https://web.dev/learn/css/color/)
+:material-information-outline: Источник: [Color](https://web.dev/learn/css/color/)

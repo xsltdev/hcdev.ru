@@ -257,4 +257,4 @@ icon: material/animation-play
 
 <iframe src="https://codepen.io/web-dot-dev/embed/bGqbPwq?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-:information_source: Источник &mdash; [Animations](https://web.dev/learn/css/animations/)
+:material-information-outline: Источник &mdash; [Animations](https://web.dev/learn/css/animations/)

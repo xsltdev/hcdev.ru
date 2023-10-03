@@ -241,4 +241,4 @@ video::cue(i) {
 }
 ```
 
-:information_source: Источник: [Pseudo-elements](https://web.dev/learn/css/pseudo-elements/)
+:material-information-outline: Источник: [Pseudo-elements](https://web.dev/learn/css/pseudo-elements/)

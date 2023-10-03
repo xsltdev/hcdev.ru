@@ -159,4 +159,4 @@ h1 {
 -   [Интерактивное объяснение каскада](https://wattenberger.com/blog/css-cascade)
 -   [Ссылка на каскад в MDN](https://developer.mozilla.org/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance)
 
-:information_source: Источник: [The cascade](https://web.dev/learn/css/the-cascade/)
+:material-information-outline: Источник: [The cascade](https://web.dev/learn/css/the-cascade/)

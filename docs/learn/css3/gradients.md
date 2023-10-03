@@ -153,4 +153,4 @@ icon: material/gradient-vertical
 -   [MDN руководство по градиентам](https://developer.mozilla.org/docs/Web/CSS/CSS_Images/Using_CSS_gradients)
 -   [Генератор градиентов](https://www.colorzilla.com/gradient-editor/)
 
-:information_source: Источник &mdash; [Gradients](https://web.dev/learn/css/gradients/)
+:material-information-outline: Источник &mdash; [Gradients](https://web.dev/learn/css/gradients/)

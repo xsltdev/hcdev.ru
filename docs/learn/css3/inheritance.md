@@ -261,4 +261,4 @@ aside p {
 -   [Ссылка на MDN по вычисляемым значениям](https://developer.mozilla.org/docs/Web/CSS/computed_value)
 -   [Статья о том, как наследование может быть полезно в модульных фронт-эндах](https://www.smashingmagazine.com/2016/11/css-inheritance-cascade-global-scope-new-old-worst-best-friends/)
 
-:information_source: Источник: [Inheritance](https://web.dev/learn/css/inheritance/)
+:material-information-outline: Источник: [Inheritance](https://web.dev/learn/css/inheritance/)

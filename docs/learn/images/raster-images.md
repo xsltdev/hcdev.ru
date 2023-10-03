@@ -35,4 +35,4 @@ icon: material/image
 
 Форматы растровых изображений - это те, с которыми вы, как разработчик, скорее всего, хорошо знакомы: GIF, JPEG, PNG, WebP и другие. О возможностях каждого из них вы узнаете в следующих модулях.
 
-:information_source: Источник &mdash; [Raster images](https://web.dev/learn/images/raster-images/)
+:material-information-outline: Источник &mdash; [Raster images](https://web.dev/learn/images/raster-images/)

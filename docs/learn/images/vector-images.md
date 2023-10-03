@@ -21,4 +21,4 @@ Scalable Vector Graphics (SVG) - язык разметки на основе XML
 
 SVG - это огромная тема: целый язык разметки, созданный для сосуществования с HTML, с уникальными опциями и возможностями стилизации. Более подробное знакомство с SVG можно найти в [MDN SVG tutorial](https://developer.mozilla.org/docs/Web/SVG/Tutorial/Introduction).
 
-:information_source: Источник &mdash; [Vector images](https://web.dev/learn/images/vector-images/)
+:material-information-outline: Источник &mdash; [Vector images](https://web.dev/learn/images/vector-images/)

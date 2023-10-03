@@ -1,243 +1,187 @@
 ---
-title: Help users enter data in forms
-description: >
-  An overview of the various form elements you can choose from to build your form.
-authors:
-  - michaelscharnagl
-date: 2021-11-03
+description: Обзор различных элементов формы, которые можно выбрать для построения формы.
+icon: material/form-textbox
 ---
 
-To make a form interactive, you need to add form elements.
-There are controls to enter and select data, elements that describe controls,
-elements that group fields, and buttons to submit a form.
+# Помощь пользователям при вводе данных в формы
 
-## What are form elements?
+<big>Обзор различных элементов формы, которые можно выбрать для построения формы.</big>
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'a4a252d5c8511f94c0f56cabd2e73178',
-  height: 400,
-  tab: 'html,result'
-} %}
+Чтобы сделать форму интерактивной, необходимо добавить элементы формы. Существуют элементы управления для ввода и выбора данных, элементы, описывающие элементы управления, элементы, группирующие поля, и кнопки для отправки формы.
 
-You see two `<input>` elements, `<input type="text">` and `<input type="file">`. Why do they look different?
+## Что такое элементы формы?
 
-Based on the element name and the [type](/learn/forms/form-fields#type) attribute,
-browsers show different user interfaces, use different
-[validation](/learn/forms/validation) rules,
-and provide many other features.
-Using the appropriate form control helps you build better forms.
+<iframe src="https://codepen.io/web-dot-dev/embed/a4a252d5c8511f94c0f56cabd2e73178?height=400&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Aside %}
-The default styles of form controls differ between browsers,
-operating systems, and platforms.
-You will learn in a later module how to [style forms](/learn/forms/styling) cross-platform.
-{% endAside %}
+Вы видите два элемента `<input>`, `<input type="text">` и `<input type="file">`. Почему они выглядят по-разному?
 
-## Labels for form elements
+На основании имени элемента и атрибута [`type`](form-fields.md#type) браузеры отображают различные пользовательские интерфейсы, используют различные правила [проверки](validation.md) и предоставляют множество других возможностей. Использование соответствующего элемента управления формой помогает создавать более совершенные формы.
 
-Say you want to add an input where the user can enter their favorite color.
-For this, you need to add an [`<input>` element](/learn/forms/form-fields/#input) to your form.
-But, how does the user know that they should fill in their favorite color?
+!!!note ""
 
-To describe form controls, use a `<label>` for each form control.
+    Стили элементов управления формами, используемые по умолчанию, различаются в разных браузерах, операционных системах и платформах. В одном из последующих модулей вы узнаете, как [стили форм](styling.md) сделать кроссплатформенным.
+
+## Метки для элементов формы
+
+Допустим, вы хотите добавить элемент, в котором пользователь может указать свой любимый цвет. Для этого в форму нужно добавить элемент [`<input>`](form-fields.md#input). Но как пользователь узнает, что ему следует ввести свой любимый цвет?
+
+Для описания элементов управления формы используйте `<label>` для каждого элемента управления формы.
 
 ```html
 <label for="color">What is your favorite color?</label>
-<input type="text" id="color" name="color">
+<input type="text" id="color" name="color" />
 ```
 
-The `for` attribute on the label element matches the `id` attribute on the input.
+Атрибут `for` на элементе label совпадает с атрибутом `id` на элементе input.
 
-{% Aside %}
-Describe every form control with a `<label>` rather than using some other HTML element.
-This makes the form control accessible to screen readers, and provides a bigger target, since you 
-can tap or click the label to set focus on the control.
+!!!note ""
 
-[Click the label](https://codepen.io/web-dot-dev/pen/3ce69644635734a084f45350993f4170) in our demo 
-to try this out.
-{% endAside %}
+    Каждый элемент управления формой описывайте с помощью `<label>`, а не с помощью другого элемента HTML. Это делает элемент управления формой доступным для устройств чтения с экрана, а также обеспечивает большую цель, поскольку для установки фокуса на элемент управления можно коснуться или щелкнуть по метке.
 
-## Capturing user input {: #input}
+    [В нашем демонстрационном примере щелкните по метке](https://codepen.io/web-dot-dev/pen/3ce69644635734a084f45350993f4170), чтобы опробовать это.
 
-As the name suggests, the `<input>` element is used to gather input from users.
+## Перехват пользовательского ввода {: #input}
+
+Как следует из названия, элемент `<input>` используется для сбора данных от пользователей.
 
 ```html
 <label for="color">What is your favorite color</label>
-<input type="text" id="color" name="color">
+<input type="text" id="color" name="color" />
 ```
 
-As mentioned before, the `id` attribute connects the `<input>` to the `<label>`.
-What about the name and type attribute in this example?
+Как уже говорилось, атрибут `id` связывает `<input>` с `<label>`. А как насчет атрибутов name и type в этом примере?
 
-### The name attribute
+### Атрибут name
 
-Use the `name` attribute to identify the data the user enters with the control.
-If you submit the form, this name is included in the request.
-Say that you named a form control `mountain` and the user entered `Gutenberg`,
-the request includes this information as `mountain=Gutenberg`.
+Атрибут `name` используется для идентификации данных, которые пользователь вводит с помощью элемента управления. При отправке формы это имя включается в запрос. Скажем, вы назвали элемент управления формы `mountain`, а пользователь ввел `Gutenberg`, то в запрос будет включена эта информация как `mountain=Gutenberg`.
 
-[Try to change](https://codepen.io/web-dot-dev/pen/a9ec1be360c53c5284da27a92fbd7248)
-the name of the form control to `hill`.
-If you do this correctly, and submit the form, `hill` is visible in the URL.
+[Попробуйте изменить](https://codepen.io/web-dot-dev/pen/a9ec1be360c53c5284da27a92fbd7248) имя элемента управления формы на `hill`. Если это сделать правильно и отправить форму, то `hill` будет виден в URL.
 
-### The input type {: #type}
+### Тип ввода {: #type}
 
-There are different
-[types of form controls](https://developer.mozilla.org/docs/Web/HTML/Element/input#input_types), all 
-with useful built-in features that work across different browsers and platforms. Based on the `type` 
-attribute, the browser renders different user interfaces, shows different on-screen keyboards, uses 
-different validation rules, and more. Let's see how to change the type.
+Существуют различные [типы элементов управления формой](../../html/input.md#type), все они имеют полезные встроенные функции, работающие в различных браузерах и платформах. В зависимости от атрибута `type` браузер отображает различные пользовательские интерфейсы, показывает различные экранные клавиатуры, использует различные правила валидации и т.д. Рассмотрим, как изменить тип.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '6a3705c993516bb294dbcddb084f0ba4',
-  height: 300
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/6a3705c993516bb294dbcddb084f0ba4?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-By using `type="checkbox"` the browser now renders a checkbox instead of a text field.
-The checkbox also comes with additional attributes.
-You can set the `checked` attribute, to show it as checked.
+При использовании `type="checkbox"` браузер теперь отображает не текстовое поле, а флажок. Флажок также имеет дополнительные атрибуты. Можно установить атрибут `checked`, чтобы показывать его как отмеченный.
 
-{% Aside %}
-The default value for `type` is `text`. This means that if you simply want a text `<input>`, you can 
-leave out the `type` attribute.
-{% endAside %}
+!!!note ""
 
-There are various other [types](/learn/forms/fields) you can choose.
-We have a detailed look in a later module.
+    По умолчанию для `type` используется значение `text`. Это означает, что если вам нужен просто текстовый `<input>`, то атрибут `type` можно не указывать.
 
-## Allow multiple lines of text
+Существуют и другие [типы](fields.md), которые можно выбрать. Мы подробно рассмотрим их в одном из последующих модулей.
 
-Say, you need a field where a user can write a comment.
-For this, wouldn't it be great if they can enter multiple lines of text?
-This is the purpose of the `<textarea>` element.
+## Разрешить несколько строк текста
+
+Допустим, вам нужно поле, в котором пользователь может написать комментарий. Для этого было бы замечательно, если бы пользователь мог вводить несколько строк текста. Именно для этого предназначен элемент `<textarea>`.
 
 ```html
 <label for="comment">Comment</label>
 <textarea id="comment" name="comment"></textarea>
 ```
 
-## Pick from a list of options
+## Выбор из списка опций
 
-How do you give users a list of options to select from?
-You can use a `<select>` element to achieve this.
+Как предоставить пользователю список вариантов для выбора? Для этого можно использовать элемент `<select>`.
 
-{% Aside %}
-If you want to enable text input with additional predefined options,
-you can also use an `<input>` element together with the 
-[datalist element](https://developer.mozilla.org/docs/Web/HTML/Element/datalist).
-You can try out datalist examples [here](https://simpl.info/datalist/).
-{% endAside %}
+!!!note ""
+
+    Если необходимо обеспечить ввод текста с дополнительными предопределенными опциями, можно также использовать элемент `<input>` вместе с элементом [datalist](../../html/datalist.md). Примеры datalist можно посмотреть [здесь](https://simpl.info/datalist/).
 
 ```html
 <label for="color">Color</label>
 <select id="color" name="color">
-  <option value="orange">Orange</option>
-  <option value="pink">Pink</option>
+    <option value="orange">Orange</option>
+    <option value="pink">Pink</option>
 </select>
 ```
 
-First, you add a `<select>` element.
-As with all other form controls, you connect it to a `<label>` with the `id` attribute
-and give it a unique name using the `name` attribute.
+Сначала добавляется элемент `<select>`. Как и все остальные элементы управления формы, вы связываете его с элементом `<label>` с помощью атрибута `id` и присваиваете ему уникальное имя с помощью атрибута `name`.
 
-In between the start and end tag of the `<select>` element,
-you can add multiple `<option>` elements, each representing one selection.
+Между начальным и конечным тегами элемента `<select>` можно добавить несколько элементов `<option>`, каждый из которых представляет один вариант выбора.
 
-Each option has a unique `value` attribute, so you can tell them apart when processing the form data.
-The text inside the option element is the human-readable value.
+Каждый вариант имеет уникальный атрибут `value`, что позволяет различать их при обработке данных формы. Текст внутри элемента опции является человекочитаемым значением.
 
-If you submit the form using this `<select>` without changing the selection,
-the request will include `color=orange`. But how does the browser know which option should be used?
+Если отправить форму с помощью этого `<select>` без изменения выбора, то в запросе будет указано `color=orange`. Но как браузер узнает, какая опция должна быть использована?
 
-The browser uses the first option in the list, unless:
-- One `<option>` element has the `selected` attribute.
-- The user chooses another option.
+Браузер использует первый вариант в списке, если только:
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '7225931596b7eeafc448ad55d9c980fd',
-  height: 300
-} %}
+-   Один из элементов `<option>` имеет атрибут `selected`.
+-   Пользователь выбирает другой вариант.
 
-## Pre-select an option
+<iframe src="https://codepen.io/web-dot-dev/embed/6a3705c993516bb294dbcddb084f0ba4?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-With the `selected` attribute you can pre-select one option.
-This becomes the default, regardless of the order in which `<option>` elements are defined.
+## Предварительный выбор опции
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '5324a9e3d1c3c695932ee95378b63436',
-  height: 300,
-  tab: 'html,result'
-} %}
+С помощью атрибута `selected` можно предварительно выбрать одну опцию. Он становится вариантом по умолчанию, независимо от того, в каком порядке определены элементы `<option>`.
 
-## Grouping form controls
+<iframe src="https://codepen.io/web-dot-dev/embed/5324a9e3d1c3c695932ee95378b63436?height=300&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Sometimes you need to group form controls. You can use the `<fieldset>` element to do that.
+## Группировка элементов управления формы
+
+Иногда требуется сгруппировать элементы управления формы. Для этого можно использовать элемент `<fieldset>`.
 
 ```html
 <fieldset>
     <legend>What is your favorite web technology</legend>
 
     <label for="html">HTML</label>
-    <input type="radio" name="webfeature" value="html" id="html">
+    <input
+        type="radio"
+        name="webfeature"
+        value="html"
+        id="html"
+    />
 
     <label for="css">CSS</label>
-    <input type="radio" name="webfeature" value="css" id="css">
+    <input
+        type="radio"
+        name="webfeature"
+        value="css"
+        id="css"
+    />
 </fieldset>
 ```
-Did you notice the `<legend>` element inside the `<fieldset>` element? What do you think it is used for?
 
-If your answer is "to describe the group of form controls", you're right!
+Вы заметили элемент `<legend>` внутри элемента `<fieldset>`? Как вы думаете, для чего он используется?
 
-Every `<fieldset>` element requires a `<legend>` element,
-just as every form control needs an associated `<label>` element.
-The `<legend>` also has to be the very first element in the `<fieldset>`.
-After the `<legend>` element, you can define the form controls which should be part of the group.
+Если вы ответили "для описания группы элементов управления формы", то вы правы!
 
-## Submitting a form
+Каждый элемент `<fieldset>` требует элемента `<legend>`, так же как и каждый элемент управления формой требует связанного с ним элемента `<label>`. Элемент `<legend>` также должен быть самым первым элементом в `<fieldset>`. После элемента `<legend>` можно определить элементы управления формы, которые должны входить в группу.
 
-After learning how to add form controls, and group them, you may wonder how a user can submit a form?
+## Отправка формы
 
-The first option is to use a `<button>` element.
+После того как вы научились добавлять элементы управления формами и группировать их, у вас может возникнуть вопрос, как пользователь может отправить форму?
+
+Первый вариант - использовать элемент `<button>`.
 
 ```html
 <button>Submit</button>
 ```
 
-After a user clicks the **Submit** button,
-the browser makes a request to the URL specified in the `<form>` element's
-[action attribute](/learn/forms/form-element#where-is-the-data-processed)
-with all data from the form controls.
+После нажатия пользователем кнопки **Submit** браузер делает запрос на URL, указанный в [атрибуте `action`](form-element.md#where-is-the-data-processed) элемента `<form>` , со всеми данными из элементов управления формы.
 
-{% Aside 'warning' %}
-Every `<button>` element inside a form works as a **Submit** button by default.
+!!!warning ""
 
-Sometimes you don't want this: for example,
-when using a `<button>` to toggle visibility for a password field.
-To disable the default **Submit** behavior, you can add `type="button"` to the `<button>`.
-This tells the browser that the `<button>` should not submit the form.
-{% endAside %}
+    Каждый элемент `<button>` внутри формы по умолчанию работает как кнопка **Submit**.
 
-You can also use an `<input>` element with `type="submit"` instead of a `<button>` element.
-The input looks and behaves just like a `<button>`. Instead of using a `<label>` element to describe 
-the `<input>`, use the `value` attribute instead.
+    Иногда это нежелательно: например, при использовании `<button>` для переключения видимости поля пароля. Чтобы отключить стандартное поведение **Submit**, можно добавить `type="button"` к `<button>`. Это указывает браузеру, что `<button>` не должна отправлять форму.
+
+Вместо элемента `<button>` можно также использовать элемент `<input>` с `type="submit"`. The input выглядит и ведет себя так же, как `<button>`. Вместо того чтобы использовать элемент `<label>` для описания `<input>`, используйте атрибут `value`.
 
 ```html
-<input type="submit" value="Submit">
+<input type="submit" value="Submit" />
 ```
 
-In addition, a form can also be submitted by using the `Enter` key when a form field has focus. 
+Кроме того, форма может быть отправлена с помощью клавиши ++enter++, когда поле формы имеет фокус.
 
-{% Assessment 'form-fields' %}
+## Ресурсы
 
-## Resources
+-   [Элемент label](../../html/label.md)
+-   [Элемент input](../../html/input.md)
+-   [Элемент textarea](../../html/textarea.md)
+-   [Элемент select](../../html/select.md)
+-   [Элемент fieldset](../../html/fieldset.md)
+-   [Элемент button](../../html/button.md)
 
-- [The label element](https://developer.mozilla.org/docs/Web/HTML/Element/label)
-- [The input element](https://developer.mozilla.org/docs/Web/HTML/Element/input)
-- [The textarea element](https://developer.mozilla.org/docs/Web/HTML/Element/textarea)
-- [The select element](https://developer.mozilla.org/docs/Web/HTML/Element/select)
-- [The fieldset element](https://developer.mozilla.org/docs/Web/HTML/Element/fieldset)
-- [The button element](https://developer.mozilla.org/docs/Web/HTML/Element/button)
+:material-information-outline: Источник &mdash; [Help users enter data in forms](https://web.dev/learn/forms/form-fields/)

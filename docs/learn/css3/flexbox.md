@@ -395,4 +395,4 @@ Flexbox принес с собой набор свойств для выравн
 -   [Примеры использования Flexbox](https://www.smashingmagazine.com/2018/10/flexbox-use-cases/)
 -   [Проверка и отладка макетов CSS Flexbox в Chrome DevTools](https://developer.chrome.com/docs/devtools/css/flexbox/)
 
-:information_source: Источник: [Flexbox](https://web.dev/learn/css/flexbox/)
+:material-information-outline: Источник: [Flexbox](https://web.dev/learn/css/flexbox/)

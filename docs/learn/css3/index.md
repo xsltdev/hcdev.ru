@@ -251,4 +251,4 @@ hide: — toc
 
     Перевод этого учебника сделан благодаря [подписчикам на Бусти](https://boosty.to/bndby).
 
-:information_source: Источник &mdash; [Learn CSS](https://web.dev/learn/css/)
+:material-information-outline: Источник &mdash; [Learn CSS](https://web.dev/learn/css/)

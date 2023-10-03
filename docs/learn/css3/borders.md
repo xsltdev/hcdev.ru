@@ -221,4 +221,4 @@ icon: material/border-style
 
 <iframe src="https://codepen.io/web-dot-dev/embed/GRrvBYv?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-:information_source: Источник: [Borders](https://web.dev/learn/css/borders/)
+:material-information-outline: Источник: [Borders](https://web.dev/learn/css/borders/)

@@ -28,4 +28,4 @@ PNG, как и GIF, был разработан для решения задач
 
 Следует отметить, что, несмотря на стандартизацию кодировок, различные средства редактирования используют разные методы их выполнения - одни гораздо эффективнее других. Прежде чем передавать PNG в любом контексте, обязательно прогоните файлы через такие инструменты, как [Squoosh](https://squoosh.app/) или [ImageOptim](https://imageoptim.com).
 
-:information_source: Источник &mdash; [Image formats: PNG](https://web.dev/learn/images/png/)
+:material-information-outline: Источник &mdash; [Image formats: PNG](https://web.dev/learn/images/png/)

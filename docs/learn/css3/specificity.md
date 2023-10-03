@@ -306,4 +306,4 @@ button[onclick] {
 -   [Специфика CSS-специфичности](https://css-tricks.com/specifics-on-css-specificity/)
 -   [Еще один калькулятор специфичности](https://polypane.app/css-specificity-calculator)
 
-:information_source: Источник: [Specificity](https://web.dev/learn/css/specificity/)
+:material-information-outline: Источник: [Specificity](https://web.dev/learn/css/specificity/)

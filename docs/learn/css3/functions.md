@@ -291,4 +291,4 @@ CSS-свойства [`clip-path`](../../css/clip-path.md), [`offset-path`](../.
 
 CSS также предоставляет функции, которые помогают [анимировать](animations.md) элементы, применять к ним [градиенты](gradients.md) и использовать графические [фильтры](filters.md) для изменения их внешнего вида. Чтобы сделать этот модуль как можно более кратким, они рассматриваются в связанных модулях. Все они имеют схожую структуру с функциями, демонстрируемыми в этом модуле.
 
-:information_source: Источник &mdash; [Functions](https://web.dev/learn/css/functions/)
+:material-information-outline: Источник &mdash; [Functions](https://web.dev/learn/css/functions/)

@@ -25,4 +25,4 @@ icon: material/image-plus-outline
 
 В этих случаях необходим явный контроль над тем, какой источник и когда будет показан. Такие гарантии `srcset` и `sizes` не могут дать нам по своей природе. Чтобы получить такой контроль, необходимо использовать элемент [`<picture>`](prescriptive.md).
 
-:information_source: Источник &mdash; [Responsive images](https://web.dev/learn/images/responsive-images/)
+:material-information-outline: Источник &mdash; [Responsive images](https://web.dev/learn/images/responsive-images/)

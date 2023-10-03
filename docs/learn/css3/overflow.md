@@ -170,4 +170,4 @@ overflow: hidden scroll;
 
 [Переполнение и потеря данных в CSS из Smashing Magazine](https://www.smashingmagazine.com/2019/09/overflow-data-loss-css/)
 
-:information_source: Источник: [Overflow](https://web.dev/learn/css/overflow/)
+:material-information-outline: Источник: [Overflow](https://web.dev/learn/css/overflow/)

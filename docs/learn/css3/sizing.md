@@ -244,4 +244,4 @@ div {
 -   [Всё об эммиволах](https://learn.scannerlicker.net/2014/07/31/so-how-much-is-an-em/)
 -   [Объяснение по процентам](https://wattenberger.com/blog/css-percents)
 
-:information_source: Источник: [Sizing Units](https://web.dev/learn/css/sizing/)
+:material-information-outline: Источник: [Sizing Units](https://web.dev/learn/css/sizing/)

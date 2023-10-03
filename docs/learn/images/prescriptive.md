@@ -183,4 +183,4 @@ icon: material/sort-ascending
 
 Хотя разметка отзывчивых изображений, как и любая другая веб-технология, промис со временем будет становиться только проще, существует ряд сервисов, технологий и фреймворков, позволяющих облегчить бремя ручного написания этой разметки. В следующем модуле мы рассмотрим, как интегрировать все, что мы узнали о форматах изображений, сжатии и отзывчивых изображениях, в современный рабочий процесс разработки.
 
-:information_source: Источник &mdash; [Prescriptive syntaxes](https://web.dev/learn/images/prescriptive/)
+:material-information-outline: Источник &mdash; [Prescriptive syntaxes](https://web.dev/learn/images/prescriptive/)

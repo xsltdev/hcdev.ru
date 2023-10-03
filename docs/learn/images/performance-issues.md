@@ -119,4 +119,4 @@ img {
 
 В оставшейся части этого курса вы узнаете о технологиях, на которых основаны наши графические ресурсы, и о методах снижения их влияния на производительность без ущерба для качества.
 
-:information_source: Источник &mdash; [Key performance issues](https://web.dev/learn/images/performance-issues/)
+:material-information-outline: Источник &mdash; [Key performance issues](https://web.dev/learn/images/performance-issues/)

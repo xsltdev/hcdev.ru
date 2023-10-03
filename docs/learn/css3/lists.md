@@ -216,4 +216,4 @@ list-style: unset;
 -   [CSS Списки и счетчики Модуль Уровень 3](https://www.w3.org/TR/css-lists-3/)
 -   [CSS-Tricks: Counting With CSS Counters и CSS Grid](https://css-tricks.com/counting-css-counters-css-grid/)
 
-:information_source: Источник &mdash; [Lists](https://web.dev/learn/css/lists/)
+:material-information-outline: Источник &mdash; [Lists](https://web.dev/learn/css/lists/)

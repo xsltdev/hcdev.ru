@@ -176,4 +176,4 @@ add_filter( 'image_editor_output_format', function( $mappings ) {
 
 Все это справедливо и для таких хостинговых CMS, как Shopify, хотя сами механизмы несколько отличаются: предлагаются аналогичные хуки для [генерации альтернативных источников изображений и соответствующих атрибутов `srcset`](https://performance.shopify.com/blogs/blog/responsive-images-on-shopify-with-liquid#provide-multiple-image-size-options-with-srcset) и [художественного оформления с помощью элемента `<picture>`](https://performance.shopify.com/blogs/blog/responsive-images-on-shopify-with-liquid#art-direction).
 
-:information_source: Источник &mdash; [Site Generators, frameworks, and CMSs](https://web.dev/learn/images/cms/)
+:material-information-outline: Источник &mdash; [Site Generators, frameworks, and CMSs](https://web.dev/learn/images/cms/)

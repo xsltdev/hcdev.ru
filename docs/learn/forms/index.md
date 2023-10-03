@@ -44,4 +44,4 @@ description: Курс о HTML-формах, который поможет вам
 
     Перевод этого учебника сделан благодаря [подписчикам на Бусти](https://boosty.to/bndby).
 
-:information_source: Источник &mdash; [Learn Forms](https://web.dev/learn/forms/)
+:material-information-outline: Источник &mdash; [Learn Forms](https://web.dev/learn/forms/)

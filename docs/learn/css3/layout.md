@@ -277,4 +277,4 @@ img {
 
 CSS-верстка обладает широкими возможностями выбора и гибкости. Чтобы глубже погрузиться в возможности CSS [Flexbox](flexbox.md) и [Grid](grid.md), перейдите к следующим модулям.
 
-:information_source: Источник: [Layout](https://web.dev/learn/css/layout/)
+:material-information-outline: Источник: [Layout](https://web.dev/learn/css/layout/)

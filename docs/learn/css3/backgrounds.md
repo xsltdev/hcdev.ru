@@ -316,4 +316,4 @@ background: url('https://assets.codepen.io/7518/pngaaa.com-1272986.png')
         ) 0% 0% / cover no-repeat content-box;
 ```
 
-:information_source: Источник &mdash; [Backgrounds](https://web.dev/learn/css/backgrounds/)
+:material-information-outline: Источник &mdash; [Backgrounds](https://web.dev/learn/css/backgrounds/)

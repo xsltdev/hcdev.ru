@@ -196,4 +196,4 @@ hide:
 
     Перевод этого учебника сделан благодаря [подписчикам на Бусти](https://boosty.to/bndby).
 
-:information_source: Источник &mdash; [Learn HTML](https://web.dev/learn/html/)
+:material-information-outline: Источник &mdash; [Learn HTML](https://web.dev/learn/html/)

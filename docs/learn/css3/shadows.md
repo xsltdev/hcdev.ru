@@ -179,4 +179,4 @@ icon: material/box-shadow
 
 <iframe src="https://codepen.io/web-dot-dev/embed/vYgeXmW?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-:information_source: Источник: [Shadows](https://web.dev/learn/css/shadows/)
+:material-information-outline: Источник: [Shadows](https://web.dev/learn/css/shadows/)

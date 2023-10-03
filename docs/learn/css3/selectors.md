@@ -387,4 +387,4 @@ a.my-class {
 -   [Справочник по псевдоклассам и псевдоэлементам](https://developer.mozilla.org/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)
 -   [Инструмент, переводящий CSS-селекторы в понятные объяснения на английском языке](https://kittygiraudel.github.io/selectors-explained/)
 
-:information_source: Источник: [Selectors](https://web.dev/learn/css/selectors/)
+:material-information-outline: Источник: [Selectors](https://web.dev/learn/css/selectors/)

@@ -104,4 +104,4 @@ filter level:    |       8 |       6 |      19 |      16 |
 
 Если же вы не склонны к работе с командной строкой, то Squoosh также хорошо подойдет для кодирования WebP. Он позволяет сравнивать различные кодировки, настройки, уровни качества и размер файла, отличающийся от размера файла при кодировании JPEG.
 
-:information_source: Источник &mdash; [Image formats: WebP](https://web.dev/learn/images/webp/)
+:material-information-outline: Источник &mdash; [Image formats: WebP](https://web.dev/learn/images/webp/)

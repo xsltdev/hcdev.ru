@@ -222,4 +222,4 @@ p svg {
 
 Теперь, независимо от направления чтения, значок будет располагаться и занимать соответствующее место.
 
-:information_source: Источник: [Logical Properties](https://web.dev/learn/css/logical-properties/)
+:material-information-outline: Источник: [Logical Properties](https://web.dev/learn/css/logical-properties/)

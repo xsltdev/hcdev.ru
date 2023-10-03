@@ -221,4 +221,4 @@ CSS-свойство [`transform`](../../css/transform.md) часто испол
 
 Ознакомьтесь с нашим [руководством по высокопроизводительной CSS-анимации](https://web.dev/animations-guide/) для более глубокого изучения этой темы.
 
-:information_source: Источник: [Transitions](https://web.dev/learn/css/transitions/)
+:material-information-outline: Источник: [Transitions](https://web.dev/learn/css/transitions/)
