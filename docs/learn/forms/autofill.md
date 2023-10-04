@@ -1,220 +1,134 @@
 ---
-title: Autofill
-description: >
-  Learn all about autofill and the autocomplete attribute.
-authors:
-  - michaelscharnagl
-date: 2021-11-03
+description: Узнайте все об автозаполнении и атрибуте autocomplete.
+icon: material/auto-download
 ---
 
-Having to re-enter your address for the tenth time is tiring. 
-Browsers, and you, as a developer, can help users enter data faster, and avoid re-entering data. 
-This module teaches you how autofill works, and how `autocomplete` and other element attributes can 
-ensure that browsers offer appropriate autofill options.
+# Автозаполнение
 
-## How does autofill work?
+<big>Узнайте все об автозаполнении и атрибуте autocomplete.</big>
 
-In the [intro to autofill](/learn/forms/auto), you already learned the basics of autofill. 
-But why do browsers offer autofill?
+Повторный ввод адреса в десятый раз - это утомительно. Браузеры и вы, как разработчик, можете помочь пользователям быстрее вводить данные и избегать повторного ввода. В этом модуле вы узнаете, как работает автозаполнение и как `autocomplete` и другие атрибуты элементов могут гарантировать, что браузеры предлагают соответствующие опции автозаполнения.
 
-Filling out forms isn't an interesting activity, 
-but still something you do often. 
-Over time, you fill out many forms, 
-and you often fill in the same data. 
-One way to help users fill out forms faster is by offering them the option 
-to automatically fill in form fields with previously entered data. That's autofill. 
+## Как работает автозаполнение?
 
-How do browsers know what data to autofill? 
-Let's have a look at an example form field to find out.
+В разделе [intro to autofill](auto.md) вы уже познакомились с основами автозаполнения. Но почему браузеры предлагают автозаполнение?
+
+Заполнение форм - не самое интересное занятие, но все же частое. Со временем вы заполняете множество форм и часто вводите одни и те же данные. Один из способов помочь пользователям быстрее заполнять формы - предложить им возможность автоматически заполнять поля формы ранее введенными данными. Это и есть автозаполнение.
+
+Как браузеры узнают, какие данные нужно автозаполнять? Для этого рассмотрим пример поля формы.
 
 ```html
 <label for="name">Name</label>
-<input name="name" id="name">
+<input name="name" id="name" />
 ```
 
-If you submit this form field, 
-browsers store the value (the data you entered) along with the value of the `name` attribute (name). 
-Some browsers also look at the `id` attribute when storing and filling in data.
+При отправке этого поля формы браузеры сохраняют его значение (введенные данные) вместе со значением атрибута `name` (имя). Некоторые браузеры при хранении и заполнении данных также обращают внимание на атрибут `id`.
 
-Say, weeks later, you fill out another form on another website. 
-This site also contains a form field with `name="name"`. 
-Your browser can now offer autofill, because a value for name is already stored.
+Допустим, спустя несколько недель Вы заполняете другую форму на другом сайте. Этот сайт также содержит поле формы с `name="name"`. Теперь браузер может предложить автозаполнение, поскольку значение name уже сохранено.
 
-{% Aside %}
-Use the [`:autofill`](https://developer.mozilla.org/docs/Web/CSS/:autofill) 
-CSS pseudo-class to style form controls that the browser has autofilled. 
-Use `:autofill` and the prefixed version `:-webkit-autofill` for best browser compatibility.
-{% endAside %}
+!!!note ""
 
-Autofill is especially useful in forms you regularly use, 
-such as sign-up and sign-in, payment, checkout, 
-and forms where you have to enter your name or address.
+    Используйте CSS-псевдокласс [`:autofill`](../../css/autofill.md) для стилизации элементов управления формами, которые браузер заполнил автоматически. Для лучшей совместимости с браузерами используйте `:autofill` и версию с префиксом `:-webkit-autofill`.
 
-Let's see how you can help browsers offer the best autofill options by using appropriate values for the `autocomplete` attribute.
-Help users to enter their address
-There are many possible values for `autocomplete`. Let's have a look at addresses first.
+Автозаполнение особенно полезно в формах, которые вы регулярно используете, таких как регистрация и вход в систему, оплата, оформление заказа, а также в формах, где нужно ввести свое имя или адрес.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'f6eac7a585a34d0c2de36a365eaa8662',
-  height: 600,
-  tab: 'result,html'
-} %}
+Давайте посмотрим, как можно помочь браузерам предлагать наилучшие варианты автозаполнения, используя соответствующие значения для атрибута `autocomplete`. Помогите пользователям ввести свой адрес Существует множество возможных значений для `autocomplete`. Давайте сначала рассмотрим адреса.
 
-Does your browser already have an address saved for you? 
-Great! After you interact with the first field in the address form, 
-the browser shows you a list of saved addresses. 
-You can choose one, and the browser fills in all fields related to the address. 
-Autofill makes filling out forms fast and easy.
+<iframe src="https://codepen.io/web-dot-dev/embed/f6eac7a585a34d0c2de36a365eaa8662?height=600&amp;theme-id=light&amp;default-tab=result%2Chtml&amp;editable=true" style="height: 600px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Not every address form has the same fields, 
-and the order of fields also varies. 
-Using the correct values for `autocomplete` ensures that the browser fills in the correct values for a form. 
-There are values for `country`, `postal-code`, and 
-[many more](https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete#values).
+В вашем браузере уже есть адрес, сохраненный для вас? Отлично! После того как вы выполните действия с первым полем формы адреса, браузер покажет вам список сохраненных адресов. Вы можете выбрать один из них, и браузер заполнит все поля, относящиеся к этому адресу. Автозаполнение позволяет быстро и легко заполнять формы.
 
-{% Aside %}
-You can define multiple values separated by a space for `autocomplete`. 
-Say, you have a form with a shipping address and another form for a billing address. 
-To tell the browser which is the postal code for the billing address, 
-you can use `autocomplete="billing postal-code"`. 
-For the shipping address, use `shipping` as the first value.
-{% endAside %}
+Не все адресные формы содержат одинаковые поля, порядок полей также различен. Использование правильных значений для `autocomplete` гарантирует, что браузер заполнит правильные значения для формы. Существуют значения для `country`, `postal-code` и [многие другие](https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete#values).
 
-## Ensure users can sign in fast and use secure passwords
+!!!note ""
 
-Many people aren't good at remembering passwords. 
-The 
-[most common password](https://en.wikipedia.org/wiki/List_of_the_most_common_passwords) is '123456', 
-followed by other easy-to-remember combinations. 
-How can you use secure and unique passwords without remembering them all? 
+    Для `autocomplete` можно задать несколько значений, разделенных пробелом. Например, у вас есть форма с адресом доставки и другая форма для адреса выставления счета. Чтобы указать браузеру почтовый индекс для адреса выставления счета, можно использовать `autocomplete="billing postal-code"`. Для адреса доставки в качестве первого значения используйте `shipping`.
 
-Browsers have built-in passwords managers to generate, save, and fill in passwords for you. 
-Let's see how you can help browsers with autofilling emails and managing passwords.
+## Обеспечьте пользователям быстрый вход в систему и используйте надежные пароли
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'e7e95d2d671d577b0a141aaab4388b28',
-  height: 380
-} %}
+Многие люди не умеют запоминать пароли. [Самый распространенный пароль](https://en.wikipedia.org/wiki/List_of_the_most_common_passwords) - '123456', за ним следуют другие легко запоминающиеся комбинации. Как же использовать надежные и уникальные пароли, не запоминая их все?
 
-You can use `autocomplete="email"` for an email field, 
-so users get the autofill option for an email address.
+Браузеры имеют встроенные менеджеры паролей, которые генерируют, сохраняют и заполняют пароли за вас. Рассмотрим, как можно помочь браузерам с автозаполнением писем и управлением паролями.
 
-As this is a sign-up form, users shouldn't get the option to fill in previously used passwords. 
-You can use `autocomplete="new-password"` to ensure browsers offer the option to generate a new password.
+<iframe src="https://codepen.io/web-dot-dev/embed/e7e95d2d671d577b0a141aaab4388b28?height=380&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Aside %}
-To ensure a secure sign-up form it may be better to use a 
-[third-party identity provider](/sign-up-form-best-practices/#federated-login), 
-instead of building your own 
-[authentication](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html) system.
-{% endAside %}
+Вы можете использовать `autocomplete="email"` для поля email, чтобы пользователи получали возможность автозаполнения адреса электронной почты.
 
-On the sign-in form, you can use `autocomplete="current-password"` 
-to tell browsers to offer the option to fill in previously saved passwords for this website. 
+Поскольку это форма регистрации, пользователи не должны получать возможность вводить ранее использованные пароли. Можно использовать `autocomplete="new-password"`, чтобы браузеры предлагали возможность сгенерировать новый пароль.
 
-You can set up two-factor authentication on many websites. 
-In addition to the password, a one-time code is sent via SMS or a two-factor authentication app. 
+!!!note ""
 
-Wouldn't it be great if the code you received in the SMS message was suggested by the on-screen keyboard, 
-and you could directly select it to fill in the value? On Safari 14 or later, you can use 
-[`autocomplete="one-time-code"`](https://developer.apple.com/documentation/security/password_autofill/enabling_password_autofill_on_an_html_input_element) to achieve this. 
-On Chrome on Android, you can use the 
-[WebOTP API](/web-otp) to achieve this with JavaScript.
+    Для обеспечения безопасности формы регистрации лучше использовать [стороннего провайдера идентификации](/sign-up-form-best-practices/#federated-login), а не создавать собственную систему [аутентификации](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html).
 
-Learn more about how to verify phone numbers on the web with the 
-[SMS OTP form best practices](/sms-otp-form/).
+В форме входа в систему можно использовать `autocomplete="current-password"`, чтобы указать браузерам на возможность ввода ранее сохраненных паролей для этого сайта.
 
-{% Aside 'caution' %}
-SMS isn't the most secure method of authentication by itself, 
-because phone numbers can be recycled and hijacked. 
-Consider using other two-factor authentication methods or multifactor authentication.
+На многих сайтах можно настроить двухфакторную аутентификацию. В дополнение к паролю отправляется одноразовый код по SMS или через приложение двухфакторной аутентификации.
 
-Learn more about 
-[multifactor authentication](https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html).
-{% endAside %}
+Было бы здорово, если бы код, полученный в SMS-сообщении, предлагался экранной клавиатурой, и можно было бы сразу выбрать его для ввода значения? В Safari 14 или более поздней версии для этого можно использовать [`autocomplete="one-time-code"`](https://developer.apple.com/documentation/security/password_autofill/enabling_password_autofill_on_an_html_input_element). В Chrome на Android для этого можно использовать [WebOTP API](https://web.dev/web-otp) с помощью JavaScript.
 
-## Help users fill in their credit card information
+Подробнее о том, как проверять телефонные номера в Интернете, можно узнать из статьи [SMS OTP form best practices](https://web.dev/sms-otp-form/).
 
-On many e-commerce websites, you can use your credit card to purchase products. 
-Sites may use third-party payment platforms that provide their own forms, 
-but if you do need to build your own payment forms, 
-make sure people can easily fill in payment information.
+!!!warning ""
 
-You can use the `autocomplete` attribute again, 
-to ensure browsers offer the correct autofill options. 
+    SMS сам по себе не является самым надежным методом аутентификации, поскольку телефонные номера могут быть переработаны и перехвачены. Рассмотрите возможность использования других методов двухфакторной аутентификации или многофакторной аутентификации.
 
-There are values for the credit card number `cc-number`, credit card expiration date `cc-exp`, 
-and [all other information needed](https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete#values) for a credit card payment.
+    Подробнее о [многофакторной аутентификации](https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html).
 
-Use a single input for numbers 
-such as credit card numbers and telephone numbers, 
-to ensure browsers offer autofill. 
-Use standard form elements, for example, 
-a `<select>` for the payment card dates, 
-instead of custom elements, to ensure autocomplete is available.
+## Помогите пользователям заполнить информацию о кредитной карте
 
-Learn more about 
-[helping users to avoid re-entering payment data](/learn/forms/payment/#help-users-enter-their-payment-details).
+На многих сайтах электронной коммерции для покупки товаров можно использовать кредитную карту. Сайты могут использовать сторонние платежные платформы, которые предоставляют свои собственные формы, но если вам необходимо создать собственные формы оплаты, убедитесь, что люди могут легко заполнить платежную информацию.
 
-## Ensure autofill works for all your fields
+Можно снова использовать атрибут `autocomplete`, чтобы браузеры предлагали правильные варианты автозаполнения.
 
-In addition to addresses, account information, and credit card information, 
-there are many more fields where browsers can help users with autofill. 
+Для оплаты кредитной картой существуют значения номера кредитной карты `cc-number`, даты окончания действия кредитной карты `cc-exp` и [вся остальная необходимая информация](https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete#values).
 
-When adding a telephone field to your form check if you can use any of the 
-[available values](https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete#values) for autocomplete. 
-Found an appropriate value for your form field? Add it. 
+Используйте единый ввод для таких чисел, как номера кредитных карт и телефонов, чтобы обеспечить автозаполнение в браузерах. Используйте стандартные элементы формы, например, `<select>` для дат оплаты кредитной картой, вместо пользовательских элементов, чтобы обеспечить возможность автозаполнения.
 
-Using suitable values for the `autocomplete` attribute helps browsers offer the best autofill option, 
-and helps users fill out forms faster.
+Подробнее о том, как [помочь пользователям избежать повторного ввода платежных данных](payment.md#help-users-enter-their-payment-details).
 
-## Help browsers understand that a field shouldn't be autofilled 
+## Убедитесь, что автозаполнение работает для всех ваших полей
 
-You learned how autofill works, how you can help browsers with autofill, 
-and why autofill makes it convenient for users to fill out forms. 
-Sometimes, though, you don't want browsers to offer autofill. Let's have a look.
+Помимо адресов, информации о счетах и кредитных картах, существует множество других полей, в которых браузеры могут помочь пользователям с помощью автозаполнения.
+
+При добавлении в форму телефонного поля проверьте, можно ли использовать для автозаполнения любое из [доступных значений](https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete#values). Нашли подходящее значение для поля вашей формы? Добавьте его.
+
+Использование подходящих значений для атрибута `autocomplete` помогает браузерам предлагать наилучшие варианты автозаполнения и помогает пользователям быстрее заполнять формы.
+
+## Помогите браузерам понять, что поле не должно быть автозаполняемым
+
+Вы узнали, как работает автозаполнение, как можно помочь браузерам с автозаполнением и почему автозаполнение делает заполнение форм удобным для пользователей. Однако иногда бывает так, что браузеры не хотят предлагать автозаполнение. Давайте посмотрим.
 
 ```html
 <label for="one-time-code">One-time code</label>
-<input autocomplete="off" type="text" name="one-time-code" id="one-time-code">
+<input
+    autocomplete="off"
+    type="text"
+    name="one-time-code"
+    id="one-time-code"
+/>
 ```
 
-One place where autofill isn't helpful is when entering one-off, 
-unique values such as a one-time code field. 
-The value is different every time, 
-and the browser shouldn't save values or offer an autofill option. 
-You can use `autocomplete="off"` for such fields to prevent autofill.
+Одно из мест, где автозаполнение не поможет, - это ввод одноразовых, уникальных значений, например, в поле одноразового кода. Значение каждый раз разное, и браузер не должен сохранять значения или предлагать опцию автозаполнения. Для предотвращения автозаполнения таких полей можно использовать `autocomplete="off"`.
 
-{% Aside %}
-Autofill and autocomplete provide accessibility benefits. 
-Using autofill, people don't have to remember information or manually re-enter data. 
+!!!note ""
 
-For more information, see the 
-[W3C accessibility guidelines](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html)
-{% endAside %}
+    Автозаполнение и автокомплит обеспечивают преимущества доступности. Используя автозаполнение, людям не нужно запоминать информацию или вводить ее вручную.
 
-Another use case for `autocomplete="off"` is a honeypot field (see [previous module](/learn/forms/security-privacy/#a-honeypot)). 
-Even though the field isn't visible, browsers may autofill it with the rest of the fields. 
-Turning autofill off ensures a real user isn't identified as a bot, 
-due to the field being completed automatically.
+    Более подробную информацию можно найти в [W3C accessibility guidelines](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html)
 
-{% Aside %}
-You learned how important it is to use unique, and secure passwords. 
-In-browser password managers ensure that you use strong passwords. 
-Therefore browsers will still offer autofill options for passwords, even though `autocomplete="off"` is used, 
-to allow these password managers to do their job. 
+Другим вариантом использования `autocomplete="off"` является поле с медовой точкой (см. [предыдущий модуль](security-privacy.md#a-honeypot)). Даже если это поле не видно, браузеры могут автозаполнять его вместе с остальными полями. Отключение автозаполнения гарантирует, что реальный пользователь не будет идентифицирован как бот из-за того, что поле заполняется автоматически.
 
-Learn more about 
-[the autocomplete attribute and sign-in fields](https://developer.mozilla.org/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion#the_autocomplete_attribute_and_login_fields).
-{% endAside %}
+!!!note ""
 
-You should only disable autofill if you are sure it will help users.
+    Вы узнали, как важно использовать уникальные и надежные пароли. Встроенные в браузеры менеджеры паролей позволяют использовать надежные пароли. Поэтому браузеры будут предлагать опции автозаполнения паролей, даже если используется `autocomplete="off"`, чтобы менеджеры паролей могли выполнять свою работу.
 
-{% Assessment 'autofill' %}
+    Подробнее о [атрибуте автозаполнения и полях регистрации](https://developer.mozilla.org/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion#the_autocomplete_attribute_and_login_fields).
 
-## Resources
+Отключать автозаполнение следует только в том случае, если вы уверены, что это поможет пользователям.
 
-- The [autocomplete attribute](https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete).
-- [Payment and address form best practices](/payment-and-address-form-best-practices)
+## Ресурсы
+
+-   Атрибут [автозаполнения](https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete).
+-   [Лучшие практики использования платежно-адресной формы](https://web.dev/payment-and-address-form-best-practices)
+
+:material-information-outline: Источник &mdash; [Autofill](https://web.dev/learn/forms/autofill/)

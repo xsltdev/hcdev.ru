@@ -1,204 +1,113 @@
 ---
-title: Security and privacy
-description: >
-  Learn how to make your forms secure and keep your users' data private.
-authors:
-  - michaelscharnagl
-date: 2021-11-03
+description: Узнайте, как сделать формы безопасными и сохранить данные пользователей в тайне.
+icon: material/security
 ---
 
-When you create a form, you work with user data.
-Your number one concern should be to ensure that user data is kept private and transferred securely.
-Let's have a look at what can be done.
+# Безопасность и конфиденциальность
 
-{% Aside %}
-A secure form means that all data is encrypted, kept secure, and no unauthorized access can happen.
+<big>Узнайте, как сделать формы безопасными и сохранить данные пользователей в тайне.</big>
 
-To ensure privacy, only save the data you need,
-only save personal data after consent, ensure the user is in full control of their data,
-and never share user data with others without the user's consent.
-{% endAside %}
+Создавая форму, вы работаете с данными пользователя. Ваша главная задача - обеспечить конфиденциальность и безопасность передачи пользовательских данных. Давайте посмотрим, что для этого можно сделать.
 
-## Ensure your form is secure
+!!!note ""
 
-As a first step, make sure to request as little data as possible.
-Don't ask for data you don't need,
-and always question whether you need all of the requested data.
-Less data means less risk, less cost, and less liability.
-In addition, reducing the number of fields in a form makes it less complex,
-easier to fill out, and can reduce abandonment rates.
+    Безопасная форма означает, что все данные зашифрованы, хранятся в безопасности, и несанкционированный доступ к ним невозможен.
 
-[Always use HTTPS](/secure/#secure-connections-with-https),
-especially for pages that include a form.
-With HTTPS, data is encrypted when coming from the server and when going back to the server.
+    Для обеспечения конфиденциальности сохраняйте только необходимые данные, сохраняйте личные данные только после получения согласия, обеспечивайте полный контроль пользователя над своими данными и никогда не передавайте данные пользователя другим лицам без его согласия.
 
-Say you're sitting in a café using public Wi-Fi.
-You open an e-commerce site and fill in your credit card information to purchase something.
-If the website uses HTTP, anyone (with the skills to do so)
-on the same public Wi-Fi could see your credit card information.
-If the website uses HTTPS, the data is encrypted and therefore protected from anyone trying to access it.
+## Убедитесь, что ваша форма безопасна
 
-On your site, you should also make sure to redirect any HTTP requests to HTTPS.
-Learn more about
-[how to redirect all traffic to HTTPS](https://geekflare.com/http-to-https-redirection/).
+Прежде всего, необходимо запрашивать как можно меньше данных. Не запрашивайте данные, которые вам не нужны, и всегда сомневайтесь, нужны ли вам все запрашиваемые данные. Меньшее количество данных означает меньший риск, меньшие затраты и меньшую ответственность. Кроме того, сокращение количества полей в форме делает ее менее сложной, более удобной для заполнения и позволяет снизить количество отказов от заполнения.
 
-## Help users to keep their data private
+[Всегда используйте HTTPS](https://web.dev/secure/#secure-connections-with-https), особенно для страниц, содержащих форму. При использовании HTTPS данные шифруются при получении от сервера и при возвращении на сервер.
 
-In the [first module](/learn/forms/form-element), you learned about two possible ways to transfer data:
-using a `GET` request and using a `POST` request.
+Допустим, вы сидите в кафе, пользуясь общедоступным Wi-Fi. Вы открываете сайт электронной коммерции и вводите данные своей кредитной карты, чтобы что-то купить. Если сайт использует протокол HTTP, то любой человек (обладающий соответствующими навыками), находящийся на этом же сайте, может увидеть информацию о вашей кредитной карте. Если же на сайте используется протокол HTTPS, то данные шифруются и, следовательно, защищены от посторонних.
 
-With a `GET` request, form data is included as a [query string](https://en.wikipedia.org/wiki/Query_string)
-in the request URL. If you submit a form that uses a `GET` request,
-the browser adds the request URL including form data to your browsing history.
-Convenient if you want to look up past form submissions,
-for example for a search form. Not great at all,
-if sensitive data is submitted,
-and everybody with access to your browser history or local network can see this information.
+На своем сайте также следует позаботиться о перенаправлении всех HTTP-запросов на HTTPS. Подробнее о [как перенаправить весь трафик на HTTPS](https://geekflare.com/http-to-https-redirection/).
 
-Use `POST` requests for every form where data that's personal or otherwise sensitive may be submitted.
-This way, the data is only visible to the backend script processing it.
+## Помочь пользователям сохранить конфиденциальность своих данных
 
-What about saving and processing personal data directly in the browser?
-You could use client storage, for example, `localStorage` to store personal data in the browser.
-With regard to privacy, this is less than ideal.
-Again, everyone with access to your browser is able to read this information.
-You should only store encrypted values for personal data.
+В [первом модуле](form-element.md) вы узнали о двух возможных способах передачи данных: с помощью `GET` запроса и с помощью `POST` запроса.
 
-## Ensure users can safely sign up and sign in
+При запросе `GET` данные формы включаются в URL-адрес запроса в виде [строки запроса](https://en.wikipedia.org/wiki/Query_string). При отправке формы, использующей запрос `GET`, браузер добавляет URL запроса, включающий данные формы, в историю просмотров. Удобно, если необходимо просмотреть прошлые отправки формы, например, для формы поиска. Не очень удобно, если отправляются конфиденциальные данные, и все, кто имеет доступ к истории браузера или локальной сети, могут увидеть эту информацию.
 
-User account [authentication](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)
-is a complex issue in terms of privacy and security.
-It may be better to use a
-[third-party identity provider](/sign-up-form-best-practices/#federated-login),
-instead of building your own secure authentication system.
+Используйте запросы `POST` для всех форм, в которых могут быть представлены персональные или другие конфиденциальные данные. В этом случае данные будут видны только бэкенд-скрипту, обрабатывающему их.
 
-Learn more about
-[best practices for account authentication, and password management](https://cloud.google.com/blog/products/identity-security/account-authentication-and-password-management-best-practices).
+А как насчет сохранения и обработки персональных данных непосредственно в браузере? Для хранения персональных данных в браузере можно использовать клиентское хранилище, например, `localStorage`. С точки зрения конфиденциальности это менее чем идеальный вариант. Опять же, каждый, кто имеет доступ к браузеру, может прочитать эту информацию. Для хранения персональных данных следует использовать только зашифрованные значения.
 
-{% Aside %}
-If you do choose to build your own authentication system, make sure to follow best practice for password management:
+## Обеспечение безопасной регистрации и входа пользователей в систему
 
-- Never store or transmit passwords in plain text.
-Make sure to salt and hash passwords—and
-[don't try to invent your own hashing algorithm](https://www.schneier.com/blog/archives/2011/04/schneiers_law.html).
-- Ensure users enter [secure passwords](https://pages.nist.gov/800-63-3/sp800-63b.html#5-authenticator-and-verifier-requirements).
-- Don't allow [compromised passwords](/sign-up-form-best-practices/#no-compromised-passwords).
-- Don't force [password updates](/sign-up-form-best-practices/#no-forced-password-updates).
-- Make it simple for users to change or reset passwords.
-{% endAside %}
+[Аутентификация](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html) учетных записей пользователей - сложный вопрос с точки зрения конфиденциальности и безопасности. Возможно, лучше использовать [стороннего поставщика идентификационных данных](https://web.dev/sign-up-form-best-practices/#federated-login), а не создавать собственную безопасную систему аутентификации.
 
-## Help users access their personal data
+Узнайте больше о [лучших практиках аутентификации учетных записей и управления паролями](https://cloud.google.com/blog/products/identity-security/account-authentication-and-password-management-best-practices).
 
-Many regions have laws and regulations regarding data protection and privacy,
-including the
-[CCPA](https://en.wikipedia.org/wiki/California_Consumer_Privacy_Act) in California and the
-[PDPA](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3244203) in India.
-Every website available in the European Union (EU) has to follow
-[General Data Protection Regulation](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) (GDPR),
-even if the site is not based in the EU.
+!!!note ""
 
-GDPR sets guidelines for the collection and processing of personal information from people living in the EU.
-Consent is required to process personal data,
-users can request personal information that you store at any time,
-and you have to officially announce data leaks.
-A good thing for the user, as this helps to ensure that their privacy is respected. Learn more about
-[GDPR](https://www.smashingmagazine.com/2018/02/gdpr-for-web-developers/).
+    Если вы решили создать собственную систему аутентификации, обязательно следуйте лучшим практикам управления паролями:
 
-Make sure your users know how you plan to process personal data.
-Transparency is the key to trust.
-Users should always be able to access, modify,
-and delete all data you saved for them.
+    -   Никогда не храните и не передавайте пароли в виде обычного текста. Обязательно солить и хешировать пароли - и [не пытайтесь изобрести свой собственный алгоритм хеширования](https://www.schneier.com/blog/archives/2011/04/schneiers_law.html).
+    -   Убедитесь, что пользователи вводят [надежные пароли](https://pages.nist.gov/800-63-3/sp800-63b.html#5-authenticator-and-verifier-requirements).
+    -   Не допускайте [взлома паролей](https://web.dev/sign-up-form-best-practices/#no-compromised-passwords).
+    -   Не принуждайте к [обновлению паролей](https://web.dev/sign-up-form-best-practices/#no-forced-password-updates).
+    -   Обеспечьте пользователям простоту смены или сброса паролей.
 
-## Ensure users can update their personal data
+## Помочь пользователям получить доступ к своим персональным данным
 
-Make it easy for users to update their personal data, including passwords,
-email addresses, and usernames. Notify users about changes to their stored personal data,
-and ensure users can revoke changes.
-For example, send an email to the previous and new email address after users change their email address.
+Во многих регионах действуют законы и нормативные акты, касающиеся защиты данных и конфиденциальности, в том числе [CCPA](https://en.wikipedia.org/wiki/California_Consumer_Privacy_Act) в Калифорнии и [PDPA](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3244203) в Индии. Каждый сайт, доступный в Европейском союзе (ЕС), должен соблюдать [General Data Protection Regulation](https://ru.wikipedia.org/wiki/%D0%9E%D0%B1%D1%89%D0%B8%D0%B9_%D1%80%D0%B5%D0%B3%D0%BB%D0%B0%D0%BC%D0%B5%D0%BD%D1%82_%D0%BF%D0%BE_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B5_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85) (GDPR), даже если сайт расположен не в ЕС.
 
-{% Aside %}
-Separate the concept of user account and user identity to simplify implementing third-party identity provision.
-Allow users to change their username and link multiple identities to a single user account,
-for example if they sign up with an email and password, then sign up with a third-party identity provider.
-{% endAside %}
+GDPR устанавливает правила сбора и обработки персональных данных лиц, проживающих на территории ЕС. Для обработки персональных данных требуется согласие, пользователи могут в любой момент запросить хранящуюся у вас персональную информацию, а также вы должны официально объявлять об утечке данных. Это хорошо для пользователей, так как помогает обеспечить соблюдение их конфиденциальности. Подробнее о [GDPR](https://www.smashingmagazine.com/2018/02/gdpr-for-web-developers/).
 
-Make it easy for users to delete their account, including all associated data,
-and where relevant, make it possible to download data.
-Account deletion is a
-[legal requirement](https://ec.europa.eu/info/law/law-topic/data-protection_en) in some regions.
+Убедитесь, что ваши пользователи знают, как вы планируете обрабатывать персональные данные. Прозрачность - это ключ к доверию. Пользователи всегда должны иметь возможность получить доступ, изменить и удалить все данные, которые вы для них сохранили.
 
-{% Aside %}
-Link to your privacy policy on each page with a form,
-especially if personal data is processed.
-{% endAside %}
+## Обеспечьте пользователям возможность обновлять свои персональные данные
 
-Require an additional authentication step,
-for example, re-entering the current password,
-to view or change personal information on your site.
+Обеспечьте удобство обновления персональных данных пользователей, включая пароли, адреса электронной почты и имена пользователей. Уведомляйте пользователей об изменениях в сохраненных персональных данных и обеспечьте возможность отмены изменений. Например, после изменения адреса электронной почты отправляйте письмо на прежний и новый адреса электронной почты.
 
-Find out more:
-[Web Application Privacy Best Practices](https://www.w3.org/TR/app-privacy-bp/).
+!!!note ""
 
-## Ensure all data is in good shape
+    Разделите понятия "учетная запись пользователя" и "идентификационные данные пользователя", чтобы упростить реализацию предоставления идентификационных данных третьими сторонами. Разрешите пользователям менять имя пользователя и связывать несколько идентификаторов с одной учетной записью, например, если они регистрируются с помощью электронной почты и пароля, а затем регистрируются у стороннего поставщика идентификационных данных.
 
-In a previous module, you learned about [validation on the frontend](/learn/forms/validation).
-Frontend validation is important, but users might still be able to submit invalid data. As a next
-step, you must also validate the data [on the backend](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
-before saving the data in your database. This ensures that no invalid data is saved in your database.
+Обеспечьте пользователям возможность легко удалить свою учетную запись, включая все связанные с ней данные, и, если это необходимо, сделайте возможной загрузку данных. В некоторых регионах удаление учетной записи является [законодательным требованием](https://ec.europa.eu/info/law/law-topic/data-protection_en).
 
-Validation helps to ensure that the data format is valid,
-but you should still not trust data entered by users.
-How can you safely output the data? To prevent
-[Cross Site Scripting](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) (XSS),
-and ensure all data is safe to include in HTML, you must sanitize data before output.
+!!!note ""
 
-Learn more about [sanitizing data before output](https://benhoyt.com/writings/dont-sanitize-do-escape/)
-and, where possible, use the [Sanitizer API](/sanitizer/).
+    Ссылка на политику конфиденциальности на каждой странице с формой, особенно если обрабатываются персональные данные.
 
-## Ensure all submissions come from real people
+Требуйте дополнительного шага аутентификации, например, повторного ввода текущего пароля, для просмотра или изменения персональной информации на вашем сайте.
 
-To help protect your data, you have various options to prevent spam submissions from
-[bots](https://en.wikipedia.org/wiki/Internet_bot#Malicious_bots).
+Подробнее: [Web Application Privacy Best Practices](https://www.w3.org/TR/app-privacy-bp/).
 
-The first option is to use a service such as
-[reCAPTCHA](https://www.google.com/recaptcha/about/),
-to distinguish between real people and bots.
-This requires you to include a JavaScript snippet on your page,
-and add extra attributes to your **Submit** button.
+## Убедитесь, что все данные находятся в хорошем состоянии
 
-reCAPTCHA performs various checks to find out if you are a human.
-For example, it may ask you to identify images.
-Automated software, such as a bot, cannot accomplish these challenges and can't submit the form.
+В предыдущем модуле вы узнали о [проверке на фронтенде](validation.md). Проверка на фронтенде очень важна, но пользователи все равно могут отправлять недостоверные данные. В качестве следующего шага перед сохранением данных в базе данных необходимо выполнить проверку данных [на внутреннем сервере](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html). Это гарантирует, что недействительные данные не будут сохранены в базе данных.
 
-{% Aside %}
-Always make sure your spam protections are accessible.
-Try them out by using a screen reader, and by only using your keyboard.
-The best spam protection is useless if it makes the form unusable for real people.
-{% endAside %}
+Валидация помогает убедиться в правильности формата данных, однако доверять данным, введенным пользователями, все равно не следует. Как обеспечить безопасный вывод данных? Чтобы предотвратить [Cross Site Scripting](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) (XSS) и гарантировать, что все данные безопасно включать в HTML, необходимо санировать данные перед выводом.
 
-### A honeypot
+Узнайте больше о [sanitizing data before output](https://benhoyt.com/writings/dont-sanitize-do-escape/) и, по возможности, используйте [Sanitizer API](https://web.dev/sanitizer/).
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'c8e82763c4ce344eb23dfd3ef621b662',
-  height: 400,
-  tab: 'html,result'
-} %}
+## Убедитесь, что все сообщения поступают от реальных людей.
 
-Another option is to use a so-called 'honeypot': a visually hidden form field.
-Humans won't see a honeypot field, but bots will fill it in.
-On the backend, your processing script can check if the field was completed.
-If it was, the submission was probably from a bot, and you can ignore it.
+Для защиты данных существуют различные варианты предотвращения спама от [ботов](<https://ru.wikipedia. org/wiki/%D0%91%D0%BE%D1%82_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0)#%D0%92%D1%80%D0%B5%D0%B4%D0%BE%D0%BD%D0%BE%D1%81%D0%BD%D0%BE%D0%B5_%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5>).
 
-There are also services like
-[Akismet](https://akismet.com), which can help you with spam protection.
-The Akismet filter works by combining information about spam captured on all participating sites,
-and then using those spam rules to block future spam.
-Akismet is transparent to the user, and catches most spam.
+Первый вариант - использовать сервис, например [reCAPTCHA](https://www.google.com/recaptcha/about/), чтобы отличить реальных людей от ботов. Для этого необходимо разместить на странице сниппет JavaScript и добавить дополнительные атрибуты к кнопке **Submit**.
 
-{% Assessment 'security-privacy' %}
+reCAPTCHA выполняет различные проверки, чтобы выяснить, являетесь ли вы человеком. Например, она может попросить вас идентифицировать изображения. Автоматизированное программное обеспечение, например бот, не может выполнить эти задачи и не сможет отправить форму.
 
-## Resources
+!!!note ""
 
-- [Digital Identity Guidelines](https://pages.nist.gov/800-63-3/sp800-63b.html)
-- [Database Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Database_Security_Cheat_Sheet.html)
+    Всегда следите за тем, чтобы средства защиты от спама были доступны. Опробуйте их с помощью программы чтения с экрана, а также используя только клавиатуру. Самая лучшая защита от спама бесполезна, если она делает форму непригодной для использования реальными людьми.
+
+### Honeypot
+
+<iframe src="https://codepen.io/web-dot-dev/embed/c8e82763c4ce344eb23dfd3ef621b662?height=400&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>.
+
+Другой вариант - использование так называемой "медовой точки": визуально скрытого поля формы. Человек не увидит поле honeypot, но боты заполнят его. На внутреннем сервере скрипт обработки может проверить, было ли заполнено поле. Если оно заполнено, то, скорее всего, это был бот, и его можно проигнорировать.
+
+Существуют также такие сервисы, как [Akismet](https://akismet.com), которые могут помочь вам в защите от спама. Фильтр Akismet работает, объединяя информацию о спаме, полученную на всех участвующих сайтах, и затем используя эти спам-правила для блокировки будущего спама. Akismet прозрачен для пользователя и отлавливает большую часть спама.
+
+## Ресурсы
+
+-   [Руководство по цифровой идентификации](https://pages.nist.gov/800-63-3/sp800-63b.html)
+-   [Шпаргалка по безопасности баз данных](https://cheatsheetseries.owasp.org/cheatsheets/Database_Security_Cheat_Sheet.html)
+
+:material-information-outline: Источник &mdash; [Security and privacy](https://web.dev/learn/forms/security-privacy/)

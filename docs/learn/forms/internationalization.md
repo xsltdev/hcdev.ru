@@ -1,151 +1,115 @@
 ---
-title:  Internationalization and localization
-description: >
-  Be prepared for international data formats, and learn how to plan your form for localization.
-authors:
-  - michaelscharnagl
-date: 2021-11-03
+description: Будьте готовы к работе с международными форматами данных и узнайте, как спланировать форму для локализации.
+icon: material/translate
 ---
 
-If you're reading this, you're using the World Wide Web.
-Your forms may be used by people speaking different languages,
-people from different countries, and people with different cultural backgrounds.
-Learn how to prepare your form for internationalization and localization.
+# Интернационализация и локализация
 
-## Ensure your form works in different languages
+<big>Будьте готовы к работе с международными форматами данных и узнайте, как спланировать форму для локализации.</big>
 
-Let's see how you can make sure your form works with different languages.
+Если вы читаете эти строки, значит, вы пользуетесь Всемирной паутиной. Вашими формами могут пользоваться люди, говорящие на разных языках, люди из разных стран и люди с разными культурными традициями. Узнайте, как подготовить форму к интернационализации и локализации.
 
-The first step to make your site localization-ready is to define the language attribute `lang` on the `<html>` element.
-This attribute enables screen readers to invoke the correct pronunciation,
-and helps browsers offer a translation of the page if the defined language is not the default browser language.
+## Убедитесь, что ваша форма работает на разных языках
 
-```html
-<html lang="en-us">
-```
+Давайте посмотрим, как можно обеспечить работу формы на разных языках.
 
-Learn more about the [`lang`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/lang) attribute.
-
-Say you translated a form to German.
-How can you make sure search engines and browsers know about the translated version?
-You can add `<link>` elements in your site's  `<head>` describing the alternate versions.
+Первым шагом к локализации сайта является определение языкового атрибута `lang` в элементе `<html>`. Этот атрибут позволяет программам чтения с экрана вызывать правильное произношение, а также помогает браузерам предлагать перевод страницы, если заданный язык не является языком браузера по умолчанию.
 
 ```html
-<link rel="alternate" title="The form element"
-  href="https://example.com/en/form" hreflang="en">
-<link rel="alternate" title="Das Formularelement"
-  href="https://example.com/de/form" hreflang="de">
+<html lang="en-us"></html>
 ```
 
-## Help users who speak another language to use your form
+Подробнее об атрибуте [`lang`](../../html/uni-attr.md#lang).
 
-You can't translate your form into every language,
-but you can ensure translation tools can translate it for you.
+Допустим, вы перевели форму на немецкий язык. Как сделать так, чтобы поисковые системы и браузеры узнали о переведенной версии? Вы можете добавить в `<head>` вашего сайта элементы `<link>`, описывающие альтернативные версии.
 
-{% Aside %}
-Try it out! Enter the URL of your form in
-[Google Translate](https://translate.google.com),
-choose a language, and translate it.
-All visible content of your site will be translated.
-This is a good test to see if every text is translatable.
-{% endAside %}
+```html
+<link
+    rel="alternate"
+    title="The form element"
+    href="https://example.com/en/form"
+    hreflang="en"
+/>
+<link
+    rel="alternate"
+    title="Das Formularelement"
+    href="https://example.com/de/form"
+    hreflang="de"
+/>
+```
 
-To ensure translation tools translate all the text on your form,
-make sure all text is defined in HTML and is visible.
-Some tools also work with content defined in JavaScript, but to improve compatibility,
-try to include as much text as possible in HTML.
+## Помогите пользователям, говорящим на другом языке, использовать вашу форму.
 
-{% Aside %}
-Avoid using the `aria-label` attribute to describe elements.
-Many translation tools aren't able to translate the `aria-label` attribute.
+Вы не можете перевести свою форму на все языки, но вы можете обеспечить, чтобы инструменты перевода могли перевести ее для вас.
 
-Learn more why `aria-label` [doesn't translate](https://adrianroselli.com/2019/11/aria-label-does-not-translate.html).
-{% endAside %}
+!!!note ""
 
-## Ensure your form works with different writing systems
+    Попробуйте! Введите URL-адрес вашей формы в [Google Translate](https://translate.google.com), выберите язык и переведите ее. Все видимое содержимое вашего сайта будет переведено. Это хороший тест, чтобы проверить, все ли тексты можно перевести.
 
-Different languages use different writing systems and character sets.
-Some scripts are written from left to right, and some from right to left.
+Чтобы инструменты перевода перевели весь текст на форме, убедитесь, что весь текст определен в HTML и является видимым. Некоторые инструменты работают и с содержимым, заданным на JavaScript, но для улучшения совместимости старайтесь включать как можно больше текста в HTML.
 
-### Make spacing independent of writing systems
+!!!note ""
 
-To ensure your form works for different writing systems,
-you can use [CSS logical properties](https://developer.mozilla.org/docs/Web/CSS/CSS_Logical_Properties).
+    Избегайте использования атрибута `aria-label` для описания элементов. Многие средства перевода не могут перевести атрибут `aria-label`.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '043b19ee429ea0834022967e2207d6b9',
-  height: 300
-} %}
+    Подробнее о том, почему `aria-label` [не переводится](https://adrianroselli.com/2019/11/aria-label-does-not-translate.html).
 
-The input has a border thickness of `1px` on all sides,
-except on the left side, where the border is `4px` thick.
-Now, edit the [CodePen](https://codepen.io/web-dot-dev/pen/043b19ee429ea0834022967e2207d6b9) and change the writing system to right to left
-by adding `dir="rtl"` to the `<main>` element
+## Обеспечение работы формы с различными системами письма
 
-{% Aside %}
-The `dir` attribute indicates the direction of an element's text.
-If the complete site uses the same writing system,
-define the `dir` attribute on the `<html>` element.
-In CodePen you don't have access to the `<html>` element,
-which is why you need to add it to `<main>`.
+В разных языках используются различные системы письма и кодировки. Некоторые шрифты пишутся слева направо, а некоторые - справа налево.
 
-You can also use the CSS `direction` property to achieve the same result.
-{% endAside %}
+### Сделать интервалы независимыми от систем письма
 
-The thick border is now on the right side.
-That's because we defined the border using a logical property.
+Чтобы обеспечить работу формы в различных системах письма, можно использовать [логические свойства CSS](https://developer.mozilla.org/docs/Web/CSS/CSS_Logical_Properties).
+
+<iframe src="https://codepen.io/web-dot-dev/embed/043b19ee429ea0834022967e2207d6b9?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Ввод имеет толщину границы `1px` со всех сторон, за исключением левой стороны, где граница имеет толщину `4px`. Теперь отредактируйте [CodePen](https://codepen.io/web-dot-dev/pen/043b19ee429ea0834022967e2207d6b9) и измените систему письма на право-левую, добавив `dir="rtl"` к элементу `<main>`.
+
+!!!note ""
+
+    Атрибут `dir` указывает направление текста элемента. Если весь сайт использует одну и ту же систему письма, определите атрибут `dir` на элементе `<html>`. В CodePen у вас нет доступа к элементу `<html>`, поэтому его необходимо добавить в `<main>`.
+
+    Для достижения того же результата можно использовать свойство CSS `direction`.
+
+Толстая граница теперь находится с правой стороны. Это связано с тем, что мы определили границу с помощью логического свойства.
 
 ```css
 input {
-  border-inline-start-width: 4px;
+    border-inline-start-width: 4px;
 }
 ```
 
-Learn more about [logical properties](/learn/css/logical-properties/).
+Подробнее о [логических свойствах](../css3/logical-properties.md).
 
-## Ensure your form can handle different name formats
+## Убедитесь, что форма может работать с различными форматами имен
 
-Say you have a form where the user should fill in their name.
-How would you add the field to your form?
+Допустим, у вас есть форма, в которой пользователь должен ввести свое имя. Как добавить это поле в форму?
 
-You could add one field for the first name and one for the surname. However, names are different
-around the world: for example, some people don't have a surname—so how should they fill in the
-surname field?
+Можно добавить одно поле для имени и фамилии. Однако в разных странах мира имена и фамилии различаются: например, у некоторых людей нет фамилии - как же им заполнить поле для фамилии?
 
-To make it quick and easy to enter names—and to ensure everybody can enter their name, whatever the
-format—use a single form field for names wherever possible.
+Чтобы сделать ввод имен быстрым и легким, а также обеспечить возможность каждому ввести свое имя, независимо от его формата, по возможности используйте единое поле формы для имен.
 
-Learn more about [personal names](https://www.w3.org/International/questions/qa-personal-names).
+Подробнее о [личных именах](https://www.w3.org/International/questions/qa-personal-names).
 
-If you have a name with [non-Latin characters](/payment-and-address-form-best-practices/#unicode-matching),
-you may have encountered the issue that your name is reported as `invalid` in some forms. When you
-build forms, make sure to allow all possible characters—and do not assume that a name only consists
-of Latin characters.
+Если ваше имя содержит [нелатинские символы](https://web.dev/payment-and-address-form-best-practices/#unicode-matching), то вы могли столкнуться с проблемой, что в некоторых формах ваше имя выдается как `invalid`. При построении форм необходимо учитывать все возможные символы и не считать, что имя состоит только из латинских символов.
 
-## Allow a variety of address formats
+## Разрешить различные форматы адресов
 
-The headquarters of Google is at 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States.
+Штаб-квартира Google находится по адресу: 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States.
 
-This address includes the street number, street, city, state, postal code, and country.
-In your country, the address format may be totally different.
-How can you ensure everybody can enter their address in your form?
+Этот адрес включает номер улицы, улицу, город, штат, почтовый индекс и страну. В вашей стране формат адреса может быть совершенно иным. Как сделать так, чтобы каждый мог ввести свой адрес в форму?
 
-One way is to use generic inputs.
+Один из способов - использовать типовые входы.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '4d4096f67fe84bc2a8c7640974a0fb21',
-  height: 700
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/4d4096f67fe84bc2a8c7640974a0fb21?height=700&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 700px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Learn more about other ways to work with
-[international address fields](https://www.uxmatters.com/mt/archives/2008/06/international-address-fields-in-web-forms.php).
+Узнайте о других способах работы с [международными адресными полями](https://www.uxmatters.com/mt/archives/2008/06/international-address-fields-in-web-forms.php).
 
-{% Assessment 'internationalization' %}
+## Ресурсы
 
-## Resources
+-   [Статьи и руководства по интернационализации W3C](https://www.w3.org/International/articlelist)
+-   [Навязчивое руководство Фрэнка по почтовым адресам](http://www.columbia.edu/~fdc/postal/) содержит полезные ссылки и подробное руководство по форматам адресов в более чем 200 странах.
+-   [DataHub.io](https://datahub.io/core/country-list) - инструмент для загрузки кодов и названий стран.
 
-- [W3C Internationalization articles and tutorials](https://www.w3.org/International/articlelist)
-- [Frank's Compulsive Guide to Postal Addresses](http://www.columbia.edu/~fdc/postal/) provides useful links and extensive guidance for address formats in over 200 countries.
-- [DataHub.io](https://datahub.io/core/country-list) is a tool for downloading country codes and names.
+:material-information-outline: Источник &mdash; [Internationalization and localization](https://web.dev/learn/forms/internationalization/)

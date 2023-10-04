@@ -7,12 +7,12 @@ nav:
     - validation.md
     - testing.md
     - design-basics.md
-    #- accessibility.md
-    #- internationalization.md
-    #- security-privacy.md
-    #- autofill.md
-    #- usability-testing.md
-    #- cross-platform-testing.md
+    - accessibility.md
+    - internationalization.md
+    - security-privacy.md
+    - autofill.md
+    - usability-testing.md
+    - cross-platform-testing.md
     #- data.md
     #- form.md
     #- fields.md

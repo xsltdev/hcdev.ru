@@ -1,179 +1,104 @@
 ---
-title: Test forms across devices and platforms
-description: >
-  Ensure your form works with different devices, browsers, platforms, and different contexts.
-authors:
-  - michaelscharnagl
-date: 2021-11-03
+description: Убедитесь, что ваша форма работает на различных устройствах, в браузерах, на платформах и в различных контекстах.
+icon: material/devices
 ---
 
-You can fill out a form in many ways.
-People might use your form on their smartphone while standing in a crowded bus,
-or with a screen reader, or from an old laptop.
-Let's see how you can ensure your form works on different devices, and in different contexts.
+# Тестирование форм на различных устройствах и платформах
 
-## Ensure your form works for keyboard users
+<big>Убедитесь, что ваша форма работает на различных устройствах, в браузерах, на платформах и в различных контекстах.</big>
 
-A good first test to ensure your form is accessible is to fill out your form using only your keyboard.
-Open your form and try to navigate with the `tab` key.
-Is it clear what form field is currently active?
-To help users understand which form field is active,
-you can use focus indicators.
+Форму можно заполнить разными способами. Люди могут заполнять форму на смартфоне, стоя в переполненном автобусе, или с помощью устройства чтения с экрана, или со старого ноутбука. Давайте посмотрим, как обеспечить работу формы на разных устройствах и в разных контекстах.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'be0759d9436d84426a795a9ae399eff9',
-  height: 300
-} %}
+## Убедитесь, что ваша форма работает для пользователей клавиатуры
 
-[Try it out](https://codepen.io/web-dot-dev/pen/be0759d9436d84426a795a9ae399eff9).
-Use your `tab` key to navigate to the input.
-Do you see the outline when the input is active?
-That's the focus indicator.
-You can add focus indicators using the
-[`:focus`](https://developer.mozilla.org/docs/Web/CSS/:focus) CSS pseudo-class.
+Хорошим первым тестом для проверки доступности формы является ее заполнение с помощью клавиатуры. Откройте форму и попробуйте перейти по ней с помощью клавиши ++tab++. Понятно ли, какое поле формы активно в данный момент? Чтобы помочь пользователям понять, какое поле формы активно, можно использовать индикаторы фокуса.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/be0759d9436d84426a795a9ae399eff9?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+[Попробуйте самостоятельно](https://codepen.io/web-dot-dev/pen/be0759d9436d84426a795a9ae399eff9). Используйте клавишу `tab` для перехода к вводу. Видите ли вы контур, когда вход активен? Это и есть индикатор фокуса. Добавить индикаторы фокуса можно с помощью CSS-псевдокласса [`:focus`](../../css/focus.md).
 
 ```css
 input:focus {
-  outline: 4px solid #222;
+    outline: 4px solid #222;
 }
 ```
 
-Learn more about
-[designing accessible focus indicators](https://www.sarasoueidan.com/blog/focus-indicators/).
+Подробнее о [разработке доступных целевых индикаторов](https://www.sarasoueidan.com/blog/focus-indicators/).
 
-{% Aside %}
-If you want to remove the default `:focus` styles but still show focus indicators for keyboard users,
-you can use the `:focus-visible` CSS pseudo-class.
+!!!note ""
 
-Learn more about
-[`:focus-visible`](/style-focus/#use-focus-visible-to-selectively-show-a-focus-indicator).
-{% endAside %}
+    Если необходимо убрать стандартные стили `:focus`, но при этом отобразить индикаторы фокуса для пользователей клавиатуры, можно воспользоваться CSS-псевдоклассом `:focus-visible`.
 
-## Help users navigate your form
+    Подробнее о [`:focus-visible`](https://web.dev/style-focus/#use-focus-visible-to-selectively-show-a-focus-indicator).
 
-Another good test of usability and accessibility is to ensure that the logical tab order follows the visual tab order.
-How can you test the tab order?
-Tab completely through your form.
-Do you notice any illogical navigation jumps?
-Make sure the DOM order matches the visual order.
+## Помогите пользователям ориентироваться в вашей форме.
 
-Learn more about how to
-[ensure visual order on the page follows DOM order](/visual-order-follows-dom/).
+Еще одним хорошим тестом на удобство использования и доступность является проверка того, что логический порядок вкладок соответствует визуальному порядку вкладок. Как можно проверить порядок вкладок? Полностью перейдите по вкладкам вашей формы. Заметили ли вы какие-либо нелогичные навигационные переходы? Убедитесь, что порядок в DOM соответствует визуальному порядку.
 
-## Help users complete your form on touch devices
+Подробнее о том, как [обеспечить соответствие визуального порядка на странице порядку DOM](https://web.dev/visual-order-follows-dom/).
 
-Great! You made sure your form works with the keyboard.
-Now, let's see how you can ensure it also works on touch devices such as mobile phones.
+## Помогите пользователям заполнить форму на сенсорных устройствах.
 
-Open your form on your touch device,
-fill in all fields and submit the form.
-Did you have to tap multiple times to select a form control?
-The issue may be that the tap areas are too small.
-Make sure the
-[tap target size](/accessible-tap-targets/) of a button is at least 48px,
-and that each `<input>` and `<select>` is large enough to tap into.
-You can also help users navigate your form on touch devices by adding enough spacing between form controls.
+Отлично! Вы убедились, что ваша форма работает с клавиатурой. Теперь давайте посмотрим, как сделать так, чтобы она работала и на сенсорных устройствах, например на мобильных телефонах.
 
-## Ensure users get an optimized keyboard
+Откройте форму на сенсорном устройстве, заполните все поля и отправьте форму. Приходилось ли вам несколько раз нажимать кнопку мыши, чтобы выбрать элемент управления формы? Возможно, проблема заключается в том, что области отвода слишком малы. Убедитесь, что [размер кнопки](https://web.dev/accessible-tap-targets/) составляет не менее 48px, и что каждый элемент `<input>` и `<select>` достаточно велик для касания. Вы также можете помочь пользователям ориентироваться в форме на сенсорных устройствах, добавив достаточное расстояние между элементами управления формы.
 
-In previous modules, you learned how to activate a different on-screen keyboard
-using the `type` or `inputmode` attributes.
+## Обеспечьте пользователям оптимизированную клавиатуру
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '88f1ffed62ef6bdd513351823b7aaa0f',
-  height: 300,
-  tab: 'html,result'
-} %}
+В предыдущих модулях вы узнали, как активировать различные виды экранной клавиатуры с помощью атрибутов `type` или `inputmode`.
 
-Open
-[the demo](https://codepen.io/web-dot-dev/pen/88f1ffed62ef6bdd513351823b7aaa0f)
-on your phone and tap in the telephone number field.
-Notice that numbers are shown by default on the on-screen keyboard,
-along with other characters you may need for a telephone number.
-Use `type="tel"` to get an on-screen keyboard optimized for entering telephone numbers.
+<iframe src="https://codepen.io/web-dot-dev/embed/88f1ffed62ef6bdd513351823b7aaa0f?height=300&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Img src="image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/nX50IOaBUCP8mcHqr3CT.jpg",
-alt="Two screenshots of an input element with type='tel' on iOS and Android, showing how the type attribute changes the on-screen keyboard.", width="800", height="696" %}
+Откройте [демонстрационную версию](https://codepen.io/web-dot-dev/pen/88f1ffed62ef6bdd513351823b7aaa0f) на телефоне и нажмите в поле телефонного номера. Обратите внимание, что по умолчанию на экранной клавиатуре отображаются цифры, а также другие символы, которые могут понадобиться для ввода телефонного номера. Используйте `type="tel"`, чтобы получить экранную клавиатуру, оптимизированную для ввода телефонных номеров.
 
-Use a phone to [try it out for yourself](https://codepen.io/web-dot-dev/pen/88f1ffed62ef6bdd513351823b7aaa0f),
-and see if you can easily enter every character needed to fill in a telephone number.
-If you're curious how the on-screen keyboard works for another `type`, try `type="email"` in the [demo](https://codepen.io/web-dot-dev/pen/88f1ffed62ef6bdd513351823b7aaa0f).
+![Два скриншота элемента ввода с type='tel' на iOS и Android, показывающие, как атрибут type изменяет экранную клавиатуру.](cross-platform-testing-1.jpg)
 
-## Make sure form buttons aren't hidden
+Воспользуйтесь телефоном, чтобы [опробовать его на практике](https://codepen.io/web-dot-dev/pen/88f1ffed62ef6bdd513351823b7aaa0f), и посмотрите, сможете ли вы легко ввести все символы, необходимые для заполнения телефонного номера. Если вам интересно, как работает экранная клавиатура для другого `type`, попробуйте `type="email"` в [демонстрации](https://codepen.io/web-dot-dev/pen/88f1ffed62ef6bdd513351823b7aaa0f).
 
-Imagine that you filled out a long form,
-and you're ready to submit it. But where is the **Submit** button?
-It may be behind the browser toolbar, located at the bottom of the screen.
-One way to ensure that buttons are visible is to use the [`env()`](https://developer.mozilla.org/docs/Web/CSS/env()) CSS function.
-Learn how to
-[ensure buttons aren't obscured by device user interfaces](https://developer.mozilla.org/docs/Web/CSS/env()#using_env_to_ensure_buttons_are_not_obscured_by_device_ui).
+## Убедитесь, что кнопки формы не скрыты
 
-## Ensure your form works on different platforms
+Представьте себе, что вы заполнили длинную форму и готовы ее отправить. Но где находится кнопка **Submit**? Возможно, она находится за панелью инструментов браузера, расположенной в нижней части экрана. Одним из способов обеспечить видимость кнопок является использование функции [`env()`](<https://developer.mozilla.org/docs/Web/CSS/env()>). Узнайте, как [обеспечить, чтобы кнопки не заслонялись пользовательскими интерфейсами устройств](<https://developer.mozilla.org/docs/Web/CSS/env()#using_env_to_ensure_buttons_are_not_obscured_by_device_ui>).
 
-Try to test your forms on as many devices as possible.
-Have an old laptop? Open the default browser on it and test your form.
-Your friend has a tablet? Borrow it and test your form there as well.
+## Убедитесь, что ваша форма работает на разных платформах
 
-Does some styling look different in one browser?
-You can learn how to ensure your
-[styles work across platforms](/learn/forms/styling) in a later module.
+Постарайтесь протестировать свои формы на как можно большем количестве устройств. У вас есть старый ноутбук? Откройте на нем браузер по умолчанию и протестируйте свою форму. У вашего друга есть планшет? Одолжите его и протестируйте форму на нем.
 
-[BrowserStack](https://www.browserstack.com) offers free test accounts for open source projects,
-and [Browserling](https://www.browserling.com) offers a free trial to test on different browsers,
-devices and operating systems.
+Некоторые стили выглядят по-разному в одном браузере? О том, как обеспечить работу [стилей на разных платформах](styling.md), читайте в одном из следующих модулей.
 
-## Help users complete your forms in different contexts
+[BrowserStack](https://www.browserstack.com) предлагает бесплатные тестовые аккаунты для проектов с открытым исходным кодом, а [Browserling](https://www.browserling.com) - бесплатную пробную версию для тестирования на различных браузерах, устройствах и операционных системах.
 
-People don't just use different browsers, devices and operating systems.
-People also use your forms in different contexts.
-Try it out! Is the sun shining outside right now? Take your phone and go outside.
-Using your form in bright light is a good way to test if contrast ratios are usable.
+## Помогайте пользователям заполнять формы в различных контекстах
 
-Learn more about
-[color and contrast accessibility](/color-and-contrast-accessibility/).
+Люди используют не только различные браузеры, устройства и операционные системы. Люди также используют ваши формы в разных контекстах. Попробуйте! На улице сейчас светит солнце? Возьмите свой телефон и выйдите на улицу. Использование формы при ярком свете - хороший способ проверить, насколько удобны коэффициенты контрастности.
 
-## Ensure your form works with poor connectivity
+Узнайте больше о [доступности цвета и контраста](https://web.dev/color-and-contrast-accessibility/).
 
-Say you travel somewhere on a train.
-You open a web page on your phone.
-You wonder how loading a website can take so long 😕.
+## Обеспечьте работу формы при плохом соединении
 
-You can simulate slow connections and different network types with
-[WebPageTest](https://webpagetest.org/easy) or
-[DevTools](https://developer.chrome.com/docs/devtools/device-mode/#network).
+Допустим, вы едете куда-то в поезде. Вы открываете веб-страницу на своем телефоне. Вы удивляетесь, как загрузка сайта может занимать столько времени 😕.
 
-Learn more about
-[testing with low bandwidth and high latency](/performance-poor-connectivity/#testing).
+Вы можете имитировать медленные соединения и различные типы сетей с помощью [WebPageTest](https://webpagetest.org/easy) или [DevTools](https://developer.chrome.com/docs/devtools/device-mode/#network).
 
-## Help users use your form when they are on the go
+Подробнее о [тестировании с низкой пропускной способностью и высокой задержкой](https://web.dev/performance-poor-connectivity/#testing).
 
-Imagine that you're walking to an appointment.
-Suddenly, your phone rings, you answer the call, and at the same time,
-get an alert from your insurance company to complete the application form you started.
-You open the form, trying to fill it out while still walking and talking.
+## Помогите пользователям использовать вашу форму на ходу
 
-Remember that people will use your forms in many different contexts.
-In stressful situations, while doing other things, while on the go.
-You can help users by ensuring your form is easy to use.
+Представьте, что вы идете на встречу. Вдруг у вас звонит телефон, вы отвечаете на звонок и одновременно получаете уведомление от страховой компании о необходимости заполнить начатую форму заявления. Вы открываете бланк и пытаетесь заполнить его, не переставая при этом ходить и разговаривать.
 
-Try setting yourself a time limit to complete your form.
-Try to simulate imperfect conditions where you can test your form.
+Помните, что люди будут использовать ваши формы в различных ситуациях. В стрессовых ситуациях, при выполнении других дел, на ходу. Вы можете помочь пользователям, обеспечив простоту использования формы.
 
-## Make sure to share test results
+Попробуйте установить для себя лимит времени на заполнение формы. Попробуйте смоделировать несовершенные условия, в которых вы сможете протестировать свою форму.
 
-Document all tests, and share the results with your team.
-This will help prioritize action items,
-to ensure everybody in your team is aware of the most important tasks.
+## Обязательно делитесь результатами тестирования
 
-Learn more about
-[sharing test results](/performance-audit-share/).
+Документируйте все тесты и делитесь результатами с командой. Это поможет определить приоритетность действий, чтобы все члены команды были в курсе наиболее важных задач.
 
-{% Assessment 'cross-platform-testing' %}
+Подробнее о [совместном использовании результатов тестирования](https://web.dev/performance-audit-share/).
 
-## Resources
+## Ресурсы
 
-- [WebPageTest](https://webpagetest.org/easy): Website Performance and Optimization Tests
-- [Testing with low bandwidth and high latency](/performance-poor-connectivity/#testing)
-- [Sharing test results](/performance-audit-share/)
+-   [WebPageTest](https://webpagetest.org/easy): Тесты производительности и оптимизации веб-сайтов
+-   [Тестирование при низкой пропускной способности и высокой задержке](https://web.dev/performance-poor-connectivity/#testing)
+-   [Обмен результатами тестирования](https://web.dev/performance-audit-share/)
+
+:material-information-outline: Источник &mdash; [Test forms across devices and platforms](https://web.dev/learn/forms/cross-platform-testing/)

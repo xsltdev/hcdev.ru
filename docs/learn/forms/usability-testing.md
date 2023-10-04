@@ -1,111 +1,70 @@
 ---
-title: How to test forms for usability
-description: >
-  Discover how to do usability testing and ensure your form works well for all your users.
-authors:
-  - michaelscharnagl
-date: 2021-11-03
+description: Узнайте, как провести тестирование на удобство использования и убедиться, что ваша форма подходит для всех пользователей.
+icon: material/ab-testing
 ---
 
-## What is usability testing?
+# Как тестировать формы на удобство использования
 
-Usability testing is a technique to evaluate a device or product, such as a web form. 
-By testing your form on real users, you can identify issues that automated tools may not find. 
-You learn first-hand where you need to improve your form.
+<big>Узнайте, как провести тестирование на удобство использования и убедиться, что ваша форма подходит для всех пользователей.</big>
 
-To conduct a usability test, 
-you give a person a task such as asking them to complete a form, 
-watch them doing the task, then ask them to 'think aloud'. 
-During the test, you take notes about their interactions. 
-After the test, you ask questions. This way, you find out where your form needs improvements.  
+## Что такое тестирование удобства использования?
 
-## Test your forms with real people
+Тестирование юзабилити - это метод оценки устройства или продукта, например, веб-формы. Тестирование формы на реальных пользователях позволяет выявить проблемы, которые автоматические инструменты могут не обнаружить. Вы на собственном опыте узнаете, где необходимо улучшить форму.
 
-First, you need to find people who can test your form. 
-Ask family members, friends, and colleagues to test your form. 
+Для проведения юзабилити-теста необходимо дать человеку задание, например, попросить его заполнить форму, понаблюдать за его выполнением, а затем попросить его "подумать вслух". Во время тестирования вы делаете записи об их действиях. После тестирования вы задаете вопросы. Таким образом, вы выясняете, где ваша форма нуждается в улучшении.
 
-{% Aside %}
-Testing doesn't have to be difficult. To improve your forms you don't need a usability lab and 
-complex reporting methodologies!
+## Тестирование форм на реальных людях
 
-Testing with one single other person is likely to help you improve your forms. 
-Testing with two or more is even better. Take simple notes and make changes accordingly.
-{% endAside %}
+Прежде всего, необходимо найти людей, которые могли бы протестировать вашу форму. Попросите членов семьи, друзей и коллег протестировать вашу форму.
 
-Try to get as diverse a range of testers as possible: 
-in particular, think about age, and technical experience. 
+!!!note ""
 
-Users may be situationally, temporarily, or permanently impaired. 
-For example, a user could have a vision impairment that makes it difficult for them to read text without sufficient contrast, 
-or a user may have a temporary arm injury that requires them to fill out the form with one hand. 
+    Тестирование не обязательно должно быть сложным. Чтобы улучшить свои формы, вам не нужна лаборатория юзабилити и сложные методики отчетности!
 
-Testing with a diverse range of people helps you find usability issues you may not be aware of. 
-Learn more about [inclusive design](https://www.microsoft.com/design/inclusive/), 
-the linked site provides personas and sample activities to help you with inclusive UX testing.
+    Тестирование с одним-единственным человеком, скорее всего, поможет вам улучшить ваши формы. Тестирование с двумя или более людьми - еще лучше. Делайте простые заметки и вносите соответствующие изменения.
 
-For a high-traffic site, 
-you should work with an accessibility consulting company 
-that can provide comprehensive testing with assistive technologies and expert advice on fixing any issues found.
+Постарайтесь подобрать как можно более разнообразный состав тестировщиков: в частности, подумайте о возрасте и техническом опыте.
 
-## Identify issues
+Пользователи могут быть ситуативно, временно или постоянно неполноценными. Например, у пользователя может быть ослаблено зрение, что затрудняет чтение текста без достаточного контраста, или у него может быть временная травма руки, из-за которой он вынужден заполнять форму одной рукой.
 
-You found people to test your form. How does a usability test work in practice? 
+Тестирование с участием самых разных людей поможет вам обнаружить проблемы с удобством использования, о которых вы, возможно, не подозревали. Подробнее о [инклюзивном дизайне](https://www.microsoft.com/design/inclusive/), на сайте по ссылке представлены персоны и примеры действий, которые помогут вам в проведении инклюзивного UX-тестирования.
 
-Ask people to complete specific tasks. 
-Say you want to test your form. 
-Ask them to fill out your form. 
-Are they able to locate the form from the homepage? 
-Are they able to successfully submit the form? 
-Ask them about their experience. 
-As they fill out the form, ask them to explain what they're doing and any issues they encounter.
+Для сайта с высокой посещаемостью следует обратиться в консалтинговую компанию, которая обеспечит комплексное тестирование с использованием вспомогательных технологий и даст экспертные рекомендации по устранению обнаруженных проблем.
 
-## Ensure your form is accessible
+## Выявление проблем
 
-How can you make sure your form is accessible to all your users?
+Вы нашли людей для тестирования вашей формы. Как проводится тестирование удобства использования на практике?
 
-The best way to ensure your form works as expected is by testing it with real people. 
-Ask a friend or colleague to complete your form. 
-You may be surprised how differently other people use your form, 
-and what is important for them.
+Попросите людей выполнить определенные задания. Допустим, вы хотите протестировать свою форму. Попросите людей заполнить вашу форму. Смогут ли они найти форму на главной странице сайта? Смогут ли они успешно отправить форму? Спросите их об их впечатлениях. По мере заполнения формы попросите их объяснить, что они делают и с какими проблемами сталкиваются.
 
-Finding people with different needs, who can test your form, 
-isn't always possible. 
-You should, however, always do an accessibility review of your own. 
-For example, you can 
-[emulate vision deficiencies](https://developer.chrome.com/blog/new-in-devtools-83/#vision-deficiencies), 
-use a screen reader on your phone or computer, 
-or use only your keyboard to fill out your form. 
-Try navigating your form via a screen reader such as 
-[VoiceOver on Mac](https://www.youtube.com/watch?v=5R-6WvAihms&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=6) or 
-[NVDA](https://www.nvaccess.org/) on Windows.
+## Обеспечение доступности формы
 
-Learn more about 
-[doing an accessibility review](/how-to-review/).
+Как обеспечить доступность формы для всех пользователей?
 
-## Measure and monitor impact of changes
+Лучший способ убедиться в том, что форма работает так, как ожидается, - протестировать ее на реальных людях. Попросите друга или коллегу заполнить форму. Вы можете быть удивлены тем, насколько по-разному другие люди используют вашу форму и что для них важно.
 
-After testing with real people and gathering feedback, 
-it's time to adapt your form to the needs of your users. 
-How can you be sure the new version is better than the previous one? 
+Найти людей с разными потребностями, которые могли бы протестировать вашу форму, не всегда возможно. Тем не менее, вы всегда должны проводить анализ доступности формы самостоятельно. Например, вы можете [эмулировать недостатки зрения](https://developer.chrome.com/blog/new-in-devtools-83/#vision-deficiencies), использовать программу чтения с экрана на телефоне или компьютере или использовать только клавиатуру для заполнения формы. Попробуйте воспользоваться навигацией по форме с помощью программы чтения с экрана, например [VoiceOver на Mac](https://www.youtube.com/watch?v=5R-6WvAihms&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=6) или [NVDA](https://www.nvaccess.org/) на Windows.
 
-You can ask the same people who tested your form before, to test your form again. 
-Give them the same tasks, and ask the same questions afterwards. 
-Was it easier to use this time? Did they encounter any new issues?
+Узнайте больше о [проведении проверки доступности](https://web.dev/how-to-review/).
 
-You tested your forms at home or in the office. 
-How can you test and monitor the experience of your end users? 
-Use analytics, and [real user measurement (RUM)](/user-centric-performance-metrics/). 
-Implement [goal funnels](https://support.google.com/analytics/answer/6180923?hl=en) 
-in analytics to check if changes reduce form abandonment and the time it takes for users to complete your form.
+## Измерение и мониторинг влияния изменений
 
-## Test different form designs with end users
+После тестирования на реальных людях и сбора отзывов пришло время адаптировать форму к потребностям пользователей. Как убедиться, что новая версия лучше предыдущей?
 
-One way to get results quicker is by doing A/B testing. You create two versions of your form, and randomly provide one version or the other to your users: some people get version A, and some get version B. Comparing results for the two versions helps you decide which version to use for later iterations. 
+Вы можете попросить тех же людей, которые тестировали вашу форму раньше, протестировать ее снова. Дайте им те же задания и задайте те же вопросы. Было ли в этот раз легче пользоваться формой? Возникли ли у них какие-либо новые проблемы?
 
-Learn more about [A/B testing](https://www.smashingmagazine.com/2010/06/the-ultimate-guide-to-a-b-testing/).
+Вы тестировали свои формы дома или в офисе. Как вы можете протестировать и проконтролировать работу конечных пользователей? Используйте аналитику и [измерение реальных пользователей (RUM)](https://web.dev/user-centric-performance-metrics/). Внедрите [воронки целей](https://support.google.com/analytics/answer/6180923?hl=en) в аналитику, чтобы проверить, уменьшились ли изменения в оставлении формы и время, необходимое пользователям для заполнения формы.
 
-## Resources
+## Тестирование различных дизайнов форм с участием конечных пользователей
 
-- [Discount Usability Testing](https://www.nngroup.com/articles/discount-usability-20-years/)
-- [Hallway Usability Testing](https://digital.gov/2014/02/19/10-tips-for-better-hallway-usability-testing/)
-- [Doing an accessibility review](/how-to-review/)
+Одним из способов быстрого получения результатов является A/B-тестирование. Вы создаете две версии формы и в случайном порядке предлагаете одну из них пользователям: одни получают версию А, другие - версию Б. Сравнение результатов по двум версиям поможет вам решить, какую версию использовать в последующих итерациях.
+
+Подробнее о [A/B-тестировании](https://www.smashingmagazine.com/2010/06/the-ultimate-guide-to-a-b-testing/).
+
+## Ресурсы
+
+-   [Тестирование удобства использования скидок](https://www.nngroup.com/articles/discount-usability-20-years/)
+-   [Тестирование доступности в коридоре](https://digital.gov/2014/02/19/10-tips-for-better-hallway-usability-testing/)
+-   [Проведение анализа доступности](https://web.dev/how-to-review/)
+
+:material-information-outline: Источник &mdash; [How to test forms for usability](https://web.dev/learn/forms/usability-testing/)
