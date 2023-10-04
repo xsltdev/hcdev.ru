@@ -1,88 +1,62 @@
 ---
-title: Help users avoid re-entering data in forms
-description: >
-  Make it more convenient for users to fill out forms.
-authors:
-  - michaelscharnagl
-date: 2021-11-03
+description: Сделать заполнение форм более удобным для пользователей.
+icon: material/auto-fix
 ---
 
-After learning about the
-[form element](/learn/forms/form-element) and how to make a form
-[interactive](/learn/forms/form-fields),
-let's see how you can help users avoid re-entering data.
+# Помогите пользователям избежать повторного ввода данных в формы
 
-## Make the most of autofill
+<big>Сделать заполнение форм более удобным для пользователей.</big>
 
-Filling out forms can be time-consuming.
-For example, re-entering your address repeatedly on every site where you want to buy something is not a great shopping experience.
+После изучения элемента [форма](form-element.md) и способов создания [интерактивной формы](form-fields.md) давайте посмотрим, как можно помочь пользователям избежать повторного ввода данных.
 
-Autofill can help you here.
-You enter your address once.
-From now on, your browser will offer you the option to fill in the same address for other forms automatically.
+## Используйте автозаполнение по максимуму
 
-You moved to another city?
-Don't worry about getting the old address as an option forever.
-You can edit the address data your browser has saved for you to keep it up-to-date.
+Заполнение форм может отнимать много времени. Например, повторное введение адреса на каждом сайте, где вы хотите что-то купить, - не лучший способ совершения покупок.
 
-{% Aside %}
-Browsers also help with remembering data. You sign up for a site.
-For the password field, you get the option to generate and store a secure password.
-If you want to log in later at the same site, your browser offers you the option to fill in the stored password.
-{% endAside %}
+Здесь вам поможет автозаполнение. Вы вводите свой адрес один раз. С этого момента браузер предложит вам возможность автоматически вводить тот же адрес в другие формы.
 
-## How does autofill work in the browser?
-{% BrowserCompat 'html.global_attributes.autocomplete' %}
+Вы переехали в другой город? Не беспокойтесь о том, что старый адрес навсегда останется в качестве опции. Вы можете отредактировать сохраненные браузером адресные данные, чтобы сохранить их в актуальном состоянии.
 
-An address field can look very different on different sites.
-How does a browser know that it is an address field?
+!!!note ""
 
-Browsers use
-heuristics to identify an address field.
-What are the values of the `name`, `type`, and `id` attributes?
-Is there an [`autocomplete` attribute](/learn/forms/auto#autocomplete) present on the form control?
+    Браузеры также помогают запоминать данные. Вы регистрируетесь на каком-либо сайте. В поле для ввода пароля вам предлагается сгенерировать и сохранить надежный пароль. Если впоследствии вы захотите войти на тот же сайт, браузер предложит вам ввести сохраненный пароль.
 
-Based on this information,
-browsers can offer the option to autofill a field with previously entered data of the same type.
-Browsers can even offer to autofill an entire form.
+## Как работает автозаполнение в браузере?
 
-## Help browsers with autofill
+На разных сайтах адресное поле может выглядеть совершенно по-разному. Как браузер определяет, что это поле адреса?
 
-Let's see what you can do to help browsers offer the correct autofill options.
+Браузеры используют эвристику для идентификации адресного поля. Каковы значения атрибутов `name`, `type` и `id`? Присутствует ли на элементе управления формы атрибут [`автозаполнение`](auto.md#autocomplete)?
 
-### Use sensible attribute values
+На основе этой информации браузеры могут предложить возможность автозаполнения поля ранее введенными данными того же типа. Браузеры могут даже предложить автозаполнение всей формы.
 
-As you learned, browsers can identify the data type by looking at the attributes of a form control.
+## Помощь браузерам с автозаполнением
+
+Давайте посмотрим, что можно сделать, чтобы браузеры предлагали правильные варианты автозаполнения.
+
+### Используйте разумные значения атрибутов
+
+Как вы уже узнали, браузеры могут определять тип данных, глядя на атрибуты элемента управления формы.
 
 ```html
 <label for="email">Email</label>
-<input type="email" name="email" id="email">
+<input type="email" name="email" id="email" />
 ```
-Do you have a field where users should enter their email address?
-Use `email` as a value for the `name`, `id`, and `type` attribute.
-Three hints for the browser that this is an email field.
 
-### The autocomplete attribute {: #autocomplete}
+У вас есть поле, в которое пользователи должны вводить свой адрес электронной почты? Используйте `email` в качестве значения для атрибутов `name`, `id` и `type`. Три подсказки браузеру, что это поле электронной почты.
 
-There are other examples where it can still be hard for browsers to identify the data type solely from the `name`, `id`, and `type` attributes.
-You can help here by using the `autocomplete` attribute.
+### Атрибут автозаполнения {: #autocomplete}
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '9a2262c52b978968f6ce181f32357f31',
-  height: 300,
-  tab: 'html,result'
-} %}
+Существуют и другие примеры, в которых браузеру может быть сложно определить тип данных только по атрибутам `name`, `id` и `type`. Здесь можно помочь, используя атрибут `autocomplete`.
 
-Have you entered a name before in the browser you're using?
-The browser will probably offer you the option to fill it in again for this field in the demo.
+<iframe src="https://codepen.io/web-dot-dev/embed/9a2262c52b978968f6ce181f32357f31?height=300&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-You can learn more about using
-[autocomplete and autofill](/learn/forms/autofill) in a later module.
+Вводили ли вы ранее имя в используемом браузере? Вероятно, в демонстрационном примере браузер предложит вам ввести его снова для этого поля.
 
-{% Assessment 'auto' %}
+Подробнее об использовании [autocomplete и autofill](autofill.md) вы можете узнать в одном из следующих модулей.
 
-## Resources
+## Ресурсы
 
-- [The autocomplete attribute](https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete)
-- [Autofill: What web devs should know, but don't](https://cloudfour.com/thinks/autofill-what-web-devs-should-know-but-dont)
+-   [Атрибут автозаполнения](https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete)
+-   [Автозаполнение: что должны знать веб-разработчики, но не знают](https://cloudfour.com/thinks/autofill-what-web-devs-should-know-but-dont)
+
+:material-information-outline: Источник &mdash; [Help users avoid re-entering data in forms](https://web.dev/learn/forms/auto/)

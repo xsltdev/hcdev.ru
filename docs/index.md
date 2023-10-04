@@ -45,6 +45,8 @@ hide:
 
     **[:octicons-arrow-right-24: Учим картинки](./learn/images/index.md)** <small>web.dev</small>
 
+    **[:octicons-arrow-right-24: Учим формы](./learn/forms/index.md)** <small>web.dev</small>
+
 </div>
 
 ---

@@ -1,283 +1,201 @@
 ---
-title: Help users enter the right data in forms
-description: >
-  Learn how to validate your forms on the frontend.
-authors:
-  - michaelscharnagl
-date: 2021-11-03
+description: Узнайте, как проверять формы на фронтенде.
+icon: material/check
 ---
 
-Browsers have built-in features for validation to check that users have entered data in the correct format.
-You can activate these features by using the correct elements and attributes.
-On top of that, you can enhance form validation with CSS and JavaScript.
+# Помогите пользователям вводить правильные данные в формы
 
-{% Aside %}
-This module is about form validation on the frontend.
-You must also make sure to validate data before storing or sharing it on your backend server:
-[find out more](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html).
-{% endAside %}
+<big>Узнайте, как проверять формы на фронтенде.</big>
 
-## Why should you validate your forms?
+Браузеры имеют встроенные функции проверки правильности вводимых пользователем данных. Активировать эти функции можно с помощью правильных элементов и атрибутов. Кроме того, валидацию формы можно усилить с помощью CSS и JavaScript.
 
-You learned in the previous module how to help users avoid having to repeatedly
-[re-enter information](/learn/forms/auto) in forms.
-How can you help users enter data that's valid?
+!!!note ""
 
-It's frustrating to fill out a form without knowing which fields are required,
-or the constraints of those fields.
-For example, you enter a username and submit a form—only to find out that usernames must have at least eight characters.
+    Этот модуль посвящен проверке форм на фронтенде. Вы также должны убедиться в валидации данных перед их хранением или передачей на внутренний сервер: [узнать больше](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html).
 
-You can help users with that by defining validation rules and communicating them.
+## Зачем нужна валидация форм?
 
-## Help users from accidentally missing required fields
+В предыдущем модуле вы узнали, как помочь пользователям избежать необходимости многократного [повторного ввода информации](auto.md) в формах. Как помочь пользователям вводить корректные данные?
 
-You can use HTML to specify the correct format and constraints for data entered in your forms.
-You also need to specify which fields are mandatory.
+Очень неприятно заполнять форму, не зная, какие поля являются обязательными, и каковы ограничения этих полей. Например, вы вводите имя пользователя и отправляете форму, а затем узнаете, что имя пользователя должно состоять не менее чем из восьми символов.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '1e3e72e4376292ab80ecd8955529806b',
-  height: 300
-} %}
+Вы можете помочь пользователям в этом, определив правила валидации и сообщив о них.
 
-Try to submit this form without entering any data.
-Do you see an error message attached to the `<input>` telling you that the field is required?
+## Помочь пользователям избежать случайного пропуска обязательных полей
 
-This happens because of the `required` attribute.
+С помощью HTML можно задать правильный формат и ограничения для данных, вводимых в формы. Также необходимо указать, какие поля являются обязательными.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/1e3e72e4376292ab80ecd8955529806b?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Попробуйте отправить эту форму, не вводя никаких данных. Появится ли сообщение об ошибке, прикрепленное к `<input>` и сообщающее, что поле является обязательным?
+
+Это происходит из-за атрибута `required`.
 
 ```html
 <label for="name">Name (required)</label>
-<input required type="text" id="name" name="name">
+<input required type="text" id="name" name="name" />
 ```
 
-{% Aside %}
-Different browsers use different text for error messages.
-The wording is also dependent on the browser language of the user.
-If you use Safari and your preferred browser language is German,
-you get a different error message than a user in Chrome with English as their chosen browser language.
+!!!note ""
 
-Find out how to
-[change the default error messages with JavaScript](#javascript)
-later in this module.
-{% endAside %}
+    В разных браузерах используется разный текст сообщений об ошибках. Формулировка также зависит от языка браузера пользователя. Если вы используете Safari и ваш предпочтительный язык браузера - немецкий, то вы получите другое сообщение об ошибке, чем пользователь Chrome, для которого выбран английский язык браузера.
 
-You already learned that you can use many more types, for example, `type="email"`.
-Let's have a look at a required email `<input>`.
+    О том, как [изменить стандартные сообщения об ошибках с помощью JavaScript](#javascript), читайте далее в этом модуле.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '061add379d5159560d2bc6bc037d82da',
-  height: 300
-} %}
+Вы уже узнали, что можно использовать гораздо больше типов, например, `type="email"`. Давайте рассмотрим обязательный email `<input>`.
 
-Try to submit this form without entering any data.
-Is there any difference from the demo before?
-Now insert your name in the email field and try to submit.
-You see a different error message. How is that possible?
-You get a different message because the value you entered isn't a valid email address.
+<iframe src="https://codepen.io/web-dot-dev/embed/061add379d5159560d2bc6bc037d82da?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-The `required` attribute tells the browser that the field is mandatory.
-The browser also tests if the entered data matches the format of the `type`.
-The email field shown in the example is only valid if it's not empty and if the entered data is a valid email address.
+Попробуйте отправить эту форму, не вводя никаких данных. Есть ли какие-либо отличия от предыдущей демонстрации? Теперь вставьте свое имя в поле email и попробуйте отправить форму. Вы видите другое сообщение об ошибке. Как такое возможно? Сообщение отличается тем, что введенное вами значение не является действительным адресом электронной почты.
 
-## Help the user enter the correct format
+Атрибут `required` сообщает браузеру, что поле является обязательным. Браузер также проверяет, соответствуют ли введенные данные формату `type`. Поле email, показанное в примере, является действительным только в том случае, если оно не пусто и если введенные данные являются действительным адресом электронной почты.
 
-You learned how to make a field mandatory.
-How would you instruct the browser that a user must enter at least eight characters for a form field?
+## Помогите пользователю ввести правильный формат.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '0901d502bbe2cc7c4aa0bd73068ddd96',
-  height: 300
-} %}
+Вы узнали, как сделать поле обязательным для заполнения. Как указать браузеру, что пользователь должен ввести в поле формы не менее восьми символов?
 
-Give the demo a try.
-After your change, you should not be able to submit the form if you enter less than eight characters.
+<iframe src="https://codepen.io/web-dot-dev/embed/0901d502bbe2cc7c4aa0bd73068ddd96?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Details %}
+Попробуйте воспользоваться демонстрационной версией. После внесения изменений вы не должны иметь возможности отправить форму, если введено менее восьми символов.
 
-{% DetailsSummary 'h3' %} Toggle answer {% endDetailsSummary %}
+???tip "Показать ответ"
+
+    ```html
+    <label for="password">Password (required)</label>
+    <input
+    	required
+    	minlength="8"
+    	type="password"
+    	id="password"
+    	name="password"
+    />
+    ```
+
+    Имя атрибута - `minlength`. Установите значение `8`, и вы получите желаемое правило валидации. Если требуется обратное, используйте `maxlength`.
+
+    !!!note ""
+
+    	Для числовых типов ввода используйте `min` и `max`, чтобы добиться того же результата.
+
+## Сообщите свои правила валидации
 
 ```html
 <label for="password">Password (required)</label>
-<input required minlength="8" type="password" id="password" name="password">
+<input
+    required
+    minlength="8"
+    type="password"
+    id="password"
+    name="password"
+    aria-describedby="password-minlength"
+/>
+<div id="password-minlength">
+    Enter at least eight characters
+</div>
 ```
 
-The name of the attribute is `minlength`.
-Set the value to `8` and you have the desired validation rule.
-If you want the opposite, use `maxlength`.
+Убедитесь, что все пользователи понимают правила валидации. Для этого соедините элемент управления формой с элементом, поясняющим правила. Для этого добавьте атрибут `aria-describedby` к элементу с `id` формы.
 
-{% Aside %}
-For numerical input types use `min` and `max` to achieve the same result.
-{% endAside %}
+## Атрибут шаблона
 
-{% endDetails %}
-
-## Communicate your validation rules
+Иногда требуется определить более сложные правила валидации. И в этом случае можно воспользоваться атрибутом HTML. Он называется `pattern`, и в качестве его значения можно задать [регулярное выражение](https://regex101.com/).
 
 ```html
-<label for="password">Password (required)</label>
-<input required minlength="8" type="password" id="password"
-  name="password" aria-describedby="password-minlength">
-<div id="password-minlength">Enter at least eight characters</div>
+<label for="animal"
+    >What is your favorite animal? (required)</label
+>
+<input
+    required
+    pattern="[a-z]{2,20}"
+    type="text"
+    id="animal"
+    name="animal"
+/>
 ```
 
-Make sure all users understand your validation rules.
-For this, connect the form control with an element that explains the rules.
-To do so, add an `aria-describedby` attribute to the element with the `id` of the form.
+Здесь разрешены только строчные буквы; пользователь должен ввести не менее двух символов, но не более двадцати.
 
-## Pattern attribute
+Как бы вы изменили `pattern`, чтобы он допускал и прописные буквы? [Try it out](https://codepen.io/web-dot-dev/pen/bc12240b7cb5b52076621d73a8a29cf6).
 
-Sometimes you want to define more advanced validation rules.
-Again, you can use an HTML attribute.
-It's called `pattern`, and you can define a
-[regular expression](https://regex101.com/) as the value.
+???tip "Показать ответ"
 
-```html
-<label for="animal">What is your favorite animal? (required)</label>
-<input required pattern="[a-z]{2,20}" type="text" id="animal" name="animal">
-```
+    Правильный ответ - `pattern="[a-zA-Z]{2,20}"`.
 
-Here, only lowercase letters are allowed;
-the user has to enter at least two characters, and not more than twenty.
+## Добавить стили
 
-How would you change the `pattern` to also allow uppercase letters?
-[Try it out](https://codepen.io/web-dot-dev/pen/bc12240b7cb5b52076621d73a8a29cf6).
+Теперь вы узнали, как добавить проверку в HTML. Было бы замечательно, если бы вы могли также придавать стиль элементам управления формы в зависимости от статуса проверки. Это возможно с помощью CSS.
 
-{% Details %}
+## Как стилизовать обязательное поле формы
 
-{% DetailsSummary 'h3' %} Toggle answer {% endDetailsSummary %}
+Покажите пользователю, что поле является обязательным, прежде чем он начнет работать с формой.
 
-The correct answer is `pattern="[a-zA-Z]{2,20}"`.
+<iframe src="https://codepen.io/web-dot-dev/embed/5a5de1e7dbdcdba86d19e30d42291a27?height=300&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% endDetails %}
-
-## Add styles
-
-You have now learned how to add validation in HTML.
-Wouldn't it be great if you could also style form controls based on the validation status?
-This is possible with CSS.
-
-## How to style a required form field
-
-Show the user that a field is mandatory before they interact with your form.
-
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '5a5de1e7dbdcdba86d19e30d42291a27',
-  height: 300,
-  tab: 'css,result'
-} %}
-
-You can style `required` fields with the `:required` CSS pseudo class.
+Поля `required` можно стилизовать с помощью CSS-псевдокласса `:required`.
 
 ```css
 input:required {
-  border: 2px solid;
+    border: 2px solid;
 }
 ```
 
-## Style invalid form controls
+## Стиль недействительных элементов управления формы
 
-Do you remember what happens if data entered by the user is invalid?
-The error message attached to the form control appears.
-Wouldn't it be great to adapt the appearance of the element when this happens?
+Помните ли вы, что происходит, если данные, введенные пользователем, недействительны? Появляется сообщение об ошибке, прикрепленное к элементу управления формой. Было бы здорово адаптировать внешний вид элемента, когда это происходит?
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'd6bb0f27d1faac3ffd3b594a81fad396',
-  height: 300,
-  tab: 'css,result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/d6bb0f27d1faac3ffd3b594a81fad396?height=300&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-You can use the `:invalid` [pseudo-class](/learn/css/pseudo-classes/)
-to add styles to invalid form controls.
-In addition, there is also the `:valid` pseudo-class for styling valid form elements.
+Для добавления стилей к элементам управления недействительной формы можно использовать [псевдокласс `:invalid`](../css3/pseudo-classes.md). Кроме того, существует псевдокласс `:valid`, предназначенный для стилизации элементов действительной формы.
 
-{% Aside %}
-Sometimes designers color the invalid state red,
-using the `:invalid` pseudo-class.
-However, to communicate error or success you should never rely only on color.
-For people with red-green color blindness a green and a red border look almost the same.
-It's impossible for them to see if there was an error or success. Add text or an icon to make it obvious.
-{% endAside %}
+!!!note ""
 
-There are more ways to adapt your styles based on validation.
-In the module about [CSS](/learn/forms/styling) you will learn more about styling forms.
+    Иногда дизайнеры выделяют состояние `invalid` красным цветом, используя псевдокласс `:invalid`. Однако для передачи информации об ошибке или успехе никогда не следует полагаться только на цвет. Для людей с красно-зеленым дальтонизмом зеленая и красная границы выглядят практически одинаково. Они не смогут понять, произошла ли ошибка или успех. Добавьте текст или значок, чтобы сделать это очевидным.
 
-{% Aside %}
-In practice `:invalid` is tricky to work with.
-Invalid form fields are already marked as `:invalid` before user interaction,
-which may confuse users. The `:user-invalid` pseudo-class solves this issue,
-as the styles are only applied after user interaction.
+Есть и другие способы адаптации стилей на основе валидации. В модуле о [CSS](styling.md) вы узнаете больше о стилизации форм.
 
-Learn more about [`:user-invalid`](https://developer.mozilla.org/docs/Web/CSS/:user-invalid).
-{% endAside %}
+!!!note ""
 
-## Validation with JavaScript {: #javascript}
+    На практике с `:invalid` работать сложно. Недействительные поля формы помечаются как `:invalid` еще до взаимодействия с пользователем, что может сбить его с толку. Псевдокласс `:user-invalid` решает эту проблему, поскольку стили применяются только после взаимодействия с пользователем.
 
-To further enhance validation of your forms you can use the
-[JavaScript Constraint Validation API](https://developer.mozilla.org/docs/Web/API/Constraint_validation).
+    Подробнее о [`:user-invalid`](../../css/user-invalid.md).
 
-### Provide meaningful error messages
+## Валидация с помощью JavaScript {: #javascript}
 
-You learned before that error messages are not identical in every browser.
-How can you show the same message to everyone?
+Для дальнейшего улучшения проверки форм можно использовать [JavaScript Constraint Validation API](https://developer.mozilla.org/docs/Web/API/Constraint_validation).
 
-To achieve this, use the
-[`setCustomValidity()`](https://developer.mozilla.org/docs/Web/API/HTMLObjectElement/setCustomValidity)
-method of the Constraint Validation API.
-Let's see how this works.
+### Предоставление содержательных сообщений об ошибках
+
+Вы уже узнали, что сообщения об ошибках не одинаковы в каждом браузере. Как же показать всем одно и то же сообщение?
+
+Для этого можно воспользоваться методом [`setCustomValidity()`](https://developer.mozilla.org/docs/Web/API/HTMLObjectElement/setCustomValidity) Constraint Validation API. Давайте посмотрим, как это работает.
 
 ```js
 const nameInput = document.querySelector('[name="name"]');
 
 nameInput.addEventListener('invalid', () => {
     nameInput.setCustomValidity('Please enter your name.');
- });
+});
 ```
 
-Query the element where you want to set the custom error message.
-Listen to the `invalid` event of your defined element.
-There you set the message with `setCustomValidity()`.
-This example shows the message `Please enter your name.` if the input is invalid.
+Запросите элемент, для которого необходимо задать пользовательское сообщение об ошибке. Прослушайте событие `invalid` определенного вами элемента. В нем вы устанавливаете сообщение с помощью `setCustomValidity()`. В данном примере при недействительном вводе отображается сообщение `Please enter your name.`.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '7ea31257d7cd8fc28792c7f5cdaba97b',
-  height: 300
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/7ea31257d7cd8fc28792c7f5cdaba97b?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-[Open the demo](https://codepen.io/web-dot-dev/pen/7ea31257d7cd8fc28792c7f5cdaba97b) in different browsers,
-you should see the same message everywhere.
-Now, try to remove the JavaScript and try again.
-You see the default error messages again.
+[Откройте демо-версию](https://codepen.io/web-dot-dev/pen/7ea31257d7cd8fc28792c7f5cdaba97b) в разных браузерах, везде должно появиться одно и то же сообщение. Теперь попробуйте удалить JavaScript и повторить попытку. Вы снова увидите стандартные сообщения об ошибках.
 
-There is much more you can do with the Constraint Validation API.
-You’ll find a detailed look at using
-[validation with JavaScript](/learn/forms/javascript#validation-with-javascript) in a later module.
+С помощью API Constraint Validation можно сделать гораздо больше. Подробное рассмотрение использования [валидации с помощью JavaScript](javascript.md#validation-with-javascript) вы найдете в одном из следующих модулей.
 
-How to validate in real-time
-You can add real-time validation in JavaScript by listening to the `onblur` event of a form control,
-and validate the input immediately when a user leaves a form field.
+Как выполнять проверку в реальном времени Вы можете добавить проверку в реальном времени в JavaScript, прослушивая событие `onblur` элемента управления формой, и проверять вводимые данные сразу же, когда пользователь покидает поле формы.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'b7ed22a0539f9beef4dc03380f51f224',
-  height: 300,
-  tab: 'js,result'
-} %}
+<iframe src="https://codepen.io/web-dot-dev/embed/b7ed22a0539f9beef4dc03380f51f224?height=300&amp;theme-id=light&amp;default-tab=js%2Cresult&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Click the form field in the [demo](https://codepen.io/web-dot-dev/pen/b7ed22a0539f9beef4dc03380f51f224), 
-enter "web" and click somewhere else on the page.
-You see the native error message for `minlength` below the form field.
+Щелкните по полю формы в [demo](https://codepen.io/web-dot-dev/pen/b7ed22a0539f9beef4dc03380f51f224), введите "web" и щелкните в другом месте страницы. Под полем формы появится сообщение об ошибке `minlength`.
 
-Learn more about implementing
-[real-time validation with JavaScript](/learn/forms/javascript#ensure-users-are-notified-about-errors-in-real-time) in an upcoming module.
+Подробнее о реализации [проверки в реальном времени с помощью JavaScript](javascript.md#ensure-users-are-notified-about-errors-in-real-time) читайте в одном из следующих модулей.
 
-{% Assessment 'validation' %}
+## Ресурсы
 
-## Resources
+-   [Отключить кнопку оплаты после отправки формы](https://web.dev/codelab-payment-form-best-practices/#step-4:-disable-the-payment-button-once-the-form-is-submitted)
+-   [Добавьте CSS, чтобы форма работала лучше](https://web.dev/codelab-sign-up-form-best-practices/#step-2:-add-css-to-make-the-form-work-better)
 
-- [Disable the payment button once the form is submitted](/codelab-payment-form-best-practices/#step-4:-disable-the-payment-button-once-the-form-is-submitted)
-- [Add CSS to make the form work better](/codelab-sign-up-form-best-practices/#step-2:-add-css-to-make-the-form-work-better)
+:material-information-outline: Источник &mdash; [Help users enter the right data in forms](https://web.dev/learn/forms/validation/)

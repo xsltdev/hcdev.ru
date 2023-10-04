@@ -1,212 +1,117 @@
 ---
-title: Test your forms
-description: >
-  Learn how to test and analyze your forms.
-authors:
-  - michaelscharnagl
-date: 2021-11-03
-updated: 2022-07-18
+description: Узнайте, как тестировать и анализировать свои формы.
+icon: material/test-tube
 ---
 
-In previous modules, you learned how to build a form,
-help users avoid re-entering data,
-and how to validate form data.
-How can you now make sure the form is usable?
-You can test and analyze your form to answer this question.
+# Тестируйте свои формы
 
-## Does your form work on other devices?
+<big>Узнайте, как тестировать и анализировать свои формы.</big>
 
-You begin by confirming that your form is working on your own device.
-However, there are many types of devices your users may use.
-How can you test if your form works with other devices?
+В предыдущих модулях вы узнали, как создать форму, помочь пользователям избежать повторного ввода данных и как проверить данные формы. Как теперь убедиться в том, что форма пригодна для использования? Вы можете протестировать и проанализировать форму, чтобы ответить на следующие вопросы.
 
-First, test your form on a desktop device.
-Then try only using your keyboard.
-Next, test it on a phone.
-You have now tested your form with different input methods (keyboard, touch, and mouse),
-different screen sizes,
-different browsers and different operating systems.
+## Работает ли ваша форма на других устройствах?
 
-Do you have more devices you can test on? Test your form on all of them.
-The more different devices, browsers, browser versions, and operating systems you can test on, the better!
+Для начала необходимо убедиться, что форма работает на вашем устройстве. Однако существует множество типов устройств, которые могут использовать ваши пользователи. Как проверить, работает ли форма на других устройствах?
 
-You can also use a test service to test your form on lots of different browsers,
-different browser versions, different devices, and different operating systems.
-[BrowserStack](https://www.browserstack.com) offers free test accounts for open source projects,
-to enable testing on different browsers, devices and operating systems.
+Сначала протестируйте форму на настольном устройстве. Затем попробуйте использовать только клавиатуру. Затем протестируйте ее на телефоне. Теперь вы протестировали свою форму на различных устройствах (клавиатура, сенсорный ввод, мышь), на экранах разных размеров, в разных браузерах и операционных системах.
 
-## How can you test if your form works for others?
+Есть ли у вас еще устройства, на которых вы можете протестировать форму? Протестируйте свою форму на всех из них. Чем больше различных устройств, браузеров, версий браузеров и операционных систем вы можете протестировать, тем лучше!
 
-Your first form is ready. You spend a lot of time making sure it works well.
-How can you confirm that your form is usable for everybody else?
-As a first step, you can ask your friends and colleagues to fill out your form.
+Для тестирования формы на множестве различных браузеров, версий браузеров, устройств и операционных систем можно также использовать сервис тестирования. [BrowserStack](https://www.browserstack.com) предлагает бесплатные тестовые учетные записи для проектов с открытым исходным кодом, позволяющие проводить тестирование на различных браузерах, устройствах и операционных системах.
 
-Sit next to each other or share a screen.
-This way, you can see how they interact with your form. Watch them fill out the form.
-Ask them to say out loud what they're doing and if they're experiencing any problems.
-After they complete the task, ask them questions.
-Was it clear what they should fill out?
-Did they have any issues filling out the form?
-Was anything unclear?
-These questions help you build even better forms.
+## Как проверить, работает ли ваша форма для других?
 
-{% Aside %}
-People from all over the world will use your form.
-Do you have an address field in your form?
-Google a city you always wanted to visit, and search for a restaurant there.
-Now enter the address of the restaurant in your address field.
-The format of the address may be totally different from the address format where you live.
-Test with different data to ensure your form can handle diverse formats.
-{% endAside %}
+Ваша первая форма готова. Вы потратили много времени, чтобы убедиться, что она работает хорошо. Как убедиться в том, что ваша форма подходит для всех остальных? В качестве первого шага вы можете попросить своих друзей и коллег заполнить форму.
 
-## How can you measure how your form performs?
+Сядьте рядом друг с другом или разделите экран. Таким образом, вы сможете увидеть, как они взаимодействуют с вашей формой. Наблюдайте за тем, как они заполняют форму. Попросите их сказать вслух, что они делают и не возникает ли у них каких-либо проблем. После того как они выполнят задание, задайте им вопросы. Было ли им понятно, что именно они должны заполнить? Были ли у них какие-либо проблемы при заполнении формы? Было ли что-то непонятно? Эти вопросы помогут вам создать еще более совершенные формы.
 
-You confirmed that your form is usable for other people.
-As a next step, you should measure how your form performs.
-There are free tools available for this. Let's have a look at some of them.
+!!!note ""
 
-{% Aside %}
-You should always measure before and after you change your form.
-This way, you can compare the results, measure the impact of your change, and demonstrate improvements.
-{% endAside %}
+    Вашей формой будут пользоваться люди со всего мира. Есть ли у вас в форме поле для адреса? Наберите в Google город, который вы всегда хотели посетить, и найдите там ресторан. Теперь введите адрес ресторана в поле адреса. Формат адреса может полностью отличаться от формата адреса, в котором вы живете. Чтобы убедиться, что ваша форма может работать с различными форматами, протестируйте ее на разных данных.
+
+## Как вы можете измерить эффективность вашей формы?
+
+Вы подтвердили, что ваша форма пригодна для использования другими людьми. В качестве следующего шага необходимо измерить эффективность работы формы. Для этого существуют бесплатные инструменты. Давайте рассмотрим некоторые из них.
+
+!!!note ""
+
+    Всегда следует проводить измерения до и после изменения формы. Таким образом, можно сравнить результаты, определить влияние изменений и продемонстрировать улучшения.
 
 ### PageSpeed Insights (PSI)
 
-PSI measures the performance of your site and gives you hints on how to improve it.
+PSI измеряет производительность вашего сайта и дает подсказки, как ее улучшить.
 
-[Try it out](https://pagespeed.web.dev/):
-PageSpeed provides a performance report using
-[lab and field data](https://developers.google.com/speed/docs/insights/v5/about/).
-A fast site is the first sign that your form is usable.
-Your site isn't fast yet? PSI shows you recommendations on how to improve performance.
+[Try it out](https://pagespeed.web.dev/): PageSpeed предоставляет отчет о производительности, используя [лабораторные и полевые данные](https://developers.google.com/speed/docs/insights/v5/about/). Быстрый сайт - это первый признак того, что ваша форма удобна для использования. Ваш сайт еще не работает быстро? PSI показывает рекомендации по улучшению производительности.
 
-Look again at the report of your site you tested before with PSI.
-See the information about [Core Web Vitals](/vitals/) (CWV)?
-This is a summary if your site fulfills the CWV criteria.
-CWV helps you understand how users experience a web page.
+Просмотрите еще раз отчет о вашем сайте, который вы уже тестировали с помощью PSI. Видите информацию о [Core Web Vitals](https://web.dev/vitals/) (CWV)? Это краткая информация о том, соответствует ли ваш сайт критериям CWV. CWV помогает понять, как пользователи воспринимают веб-страницу.
 
 ### Lighthouse
 
-Lighthouse helps you identify performance,
-search engine optimization (SEO),
-best practice, and accessibility issues.
+Lighthouse помогает выявить проблемы производительности, поисковой оптимизации (SEO), лучших практик и доступности.
 
-There are different ways to use
-[Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/).
-One option is to run it directly in
-[DevTools](https://developer.chrome.com/docs/lighthouse/overview/#devtools).
-Open the URL with your form in Chrome,
-[open DevTools](https://developer.chrome.com/docs/devtools/shortcuts/#open),
-switch to the Lighthouse tab, and run the audit.
+Использовать [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) можно разными способами. Один из вариантов - запустить его непосредственно в [DevTools](https://developer.chrome.com/docs/lighthouse/overview/#devtools). Откройте URL-адрес с формой в Chrome, [откройте DevTools](https://developer.chrome.com/docs/devtools/shortcuts/#open), переключитесь на вкладку Lighthouse и запустите аудит.
 
-The performance metrics from PSI are displayed.
-In addition, Lighthouse checks your site against SEO, best practice, and accessibility issues.
-Forgot to connect a label to a form control?
-Lighthouse warns you and provides you with a guide to correct the issue.
+На экране появятся показатели производительности, полученные от PSI. Кроме того, Lighthouse проверяет сайт на соответствие требованиям SEO, передовой практики и доступности. Забыли подключить метку к элементу управления формы? Lighthouse предупреждает об этом и предлагает руководство по устранению проблемы.
 
-### Tools to identify common issues
+### Инструменты для выявления общих проблем
 
-There are many tools to identify common issues.
-One way is to use the
-[Form troubleshooter extension](https://chrome.google.com/webstore/detail/form-troubleshooter/lpjhcgjbicfdoijennopbjooigfipfjh).
-It warns you about missing `autocomplete` attributes,
-non-standard attributes, missing or empty labels, and more.
+Существует множество инструментов для выявления типичных проблем. Одним из способов является использование расширения [Form troubleshooter extension](https://chrome.google.com/webstore/detail/form-troubleshooter/lpjhcgjbicfdoijennopbjooigfipfjh). Оно предупреждает об отсутствии атрибутов `autocomplete`, нестандартных атрибутах, отсутствующих или пустых метках и т. д.
 
-You can also use an accessibility evaluation tool like
-[WAVE](https://wave.webaim.org) or
-[axe](https://www.deque.com/axe/). These tools notify you about missing labels,
-missing connections between labels and form controls, insufficient color contrasts,
-and many more accessibility issues.
+Можно также использовать средства оценки доступности, такие как [WAVE](https://wave.webaim.org) или [axe](https://www.deque.com/axe/). Эти инструменты сообщают о недостающих метках, отсутствии связей между метками и элементами управления формы, недостаточном цветовом контрасте и многих других проблемах доступности.
 
-{% Aside %}
-All these tools help you find common issues,
-but they aren't able to detect all issues.
-Always test your forms manually and with real people.
-{% endAside %}
+!!!note ""
 
-## How can you monitor form experience?
+    Все эти инструменты помогают найти общие проблемы, но они не способны выявить все проблемы. Всегда тестируйте свои формы вручную и на реальных людях.
 
-Monitoring real user experience of your forms helps you identify new issues quickly.
-Let's see how you can monitor your form.
+## Как отслеживать работу с формами?
 
-{% Aside %}
-Lab data is measured with a controlled test under ideal conditions.
-Field data comes from real people.
-With field data, you get metrics for real usage in real-world conditions.
+Мониторинг реального пользовательского опыта работы с формами помогает быстро выявить новые проблемы. Давайте посмотрим, как можно отслеживать работу формы.
 
-People use different browsers, operating systems, screen resolutions, and connection speeds.
-They use different devices. With field data, you collect metrics from a variety of different conditions.
+!!!note ""
 
-Learn more about
-[why lab and field data can be different](/lab-and-field-data-differences/).
-{% endAside %}
+    Лабораторные данные измеряются с помощью контролируемого теста в идеальных условиях. Полевые данные получают от реальных людей. При использовании полевых данных вы получаете метрики для реального использования в реальных условиях.
+
+    Люди используют различные браузеры, операционные системы, разрешения экранов и скорости подключения. Они используют различные устройства. Полевые данные позволяют собирать показатели в самых разных условиях.
+
+    Подробнее о [почему лабораторные и полевые данные могут отличаться](https://web.dev/lab-and-field-data-differences/).
 
 ### PSI
 
-One way to monitor experience is to use PSI again.
-You can use the
-[PSI API](https://developers.google.com/speed/docs/insights/v5/get-started)
-to build your own monitoring tool:
-[The PageSpeed Insights API](https://addyosmani.com/blog/pagespeed-insights-api/)
-explains how to do this.
+Одним из способов мониторинга опыта является повторное использование PSI. Вы можете использовать [PSI API](https://developers.google.com/speed/docs/insights/v5/get-started) для создания собственного инструмента мониторинга: [The PageSpeed Insights API](https://addyosmani.com/blog/pagespeed-insights-api/) объясняет, как это сделать.
 
-PSI includes data from the
-[Chrome User Experience Report](https://developer.chrome.com/docs/crux/) (CrUX) dataset,
-if available for the given URL.
-This way, you can also see field data directly in the report.
+PSI включает данные из набора данных [Chrome User Experience Report](https://developer.chrome.com/docs/crux/) (CrUX), если они доступны для данного URL. Таким образом, данные о полях можно также увидеть непосредственно в отчете.
 
 ### Lighthouse
 
-Lighthouse can be used as a command line tool,
-as a [Node module](https://www.npmjs.com/package/lighthouse),
-or with the [Lighthouse CI tools](https://github.com/GoogleChrome/lighthouse-ci).
-[Performance monitoring with the Lighthouse CI](/lighthouse-ci/)
-explains adding Lighthouse to a continuous integration system, such as GitHub Actions.
+Lighthouse может использоваться как инструмент командной строки, как [модуль Node](https://www.npmjs.com/package/lighthouse) или с [инструментами Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci). В статье [Performance monitoring with the Lighthouse CI](https://web.dev/lighthouse-ci/) рассказывается о добавлении Lighthouse в систему непрерывной интеграции, например GitHub Actions.
 
-There are many more
-[tools](/vitals-tools-workflow/) available to measure and monitor your site.
-Some are available as web tools, some let you run the audit on your command line,
-and some offer an API to integrate them into your tools.
+Существует множество других [инструментов](https://web.dev/vitals-tools-workflow/) для измерения и мониторинга вашего сайта. Некоторые из них доступны в виде веб-инструментов, некоторые позволяют запускать аудит в командной строке, а некоторые предлагают API для интеграции в ваши инструменты.
 
-## How to analyze your form
+## Как анализировать свою форму
 
-You tested your form with real users, and learned how to measure and monitor it.
-How can you collect statistics about your users and how they interact with your form?
-You can use an analytics tool. Let's have a look at one and how this works.
+Вы протестировали свою форму на реальных пользователях и узнали, как ее измерять и контролировать. Как собрать статистику о пользователях и их взаимодействии с формой? Можно использовать инструмент аналитики. Давайте рассмотрим один из них и то, как это работает.
 
-### Analytics
+### Аналитика
 
-One tool you can use is
-[Google Analytics](https://developers.google.com/analytics) (GA).
-After setting it up, you get a JavaScript snippet you include in each page on your site.
-From this point on, you can find out how people use your site.
+Одним из инструментов, который можно использовать, является [Google Analytics](https://developers.google.com/analytics) (GA). После его настройки вы получаете фрагмент JavaScript, который включаете в каждую страницу своего сайта. С этого момента вы можете узнать, как люди используют ваш сайт.
 
-How many people visit the page with your form on it?
-How many fill out the form and move to the next page?
-You get answers to these questions by using analytics tools.
+Сколько человек заходит на страницу с вашей формой? Сколько человек заполняют форму и переходят на следующую страницу? Ответы на эти вопросы можно получить с помощью инструментов аналитики.
 
-{% Aside %}
-Monitoring the real-world experience of your users is sometimes called Real User Monitoring
-(RUM).
+!!!note ""
 
-RUM collects performance metrics directly from the end user's browser.
-RUM data shows you how your site performs, and how real users interact with it.
-{% endAside %}
+    Мониторинг реального опыта пользователей иногда называют мониторингом реальных пользователей (Real User Monitoring, RUM).
 
-You can also set up more advanced analytics reports.
-Want to track how many users click the **Submit** button?
-You can define and integrate
-[events](https://developers.google.com/analytics/devguides/collection/gtagjs/events) to analyze this.
+    RUM собирает показатели производительности непосредственно из браузера конечного пользователя. Данные RUM показывают, как работает ваш сайт и как с ним взаимодействуют реальные пользователи.
 
-A wide range of analytics tools is available.
-Some are minimalistic, some offer a lot of options for individualization.
-Try out a range of tools to find the best for your needs.
+Вы также можете настроить более сложные аналитические отчеты. Хотите отследить, сколько пользователей нажимают кнопку **Submit**? Вы можете определить и интегрировать [events](https://developers.google.com/analytics/devguides/collection/gtagjs/events) для анализа этого.
 
-{% Assessment 'testing' %}
+Существует широкий спектр инструментов аналитики. Некоторые из них минималистичны, другие предлагают множество возможностей для индивидуализации. Попробуйте разные инструменты, чтобы найти наиболее подходящий для ваших нужд.
 
-## Resources
+## Ресурсы
 
-- [Getting started with measuring Web Vitals](/vitals-measurement-getting-started/)
-- [Core Web Vitals](/vitals)
-- [Why lab and field data can be different](/lab-and-field-data-differences/)
-- [Google Analytics: About Events](https://support.google.com/analytics/answer/1033068?hl=en#zippy=%2Cin-this-article)
+-   [Начало работы с измерениями Web Vitals](https://web.dev/vitals-measurement-getting-started/)
+-   [Основные показатели Web Vitals](https://web.dev/vitals)
+-   [Почему лабораторные и полевые данные могут отличаться](https://web.dev/lab-and-field-data-differences/)
+-   [Google Analytics: О событиях](https://support.google.com/analytics/answer/1033068?hl=en#zippy=%2Cin-this-article)
+
+:material-information-outline: Источник &mdash; [Test your forms](https://web.dev/learn/forms/testing/)

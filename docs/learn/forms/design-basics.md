@@ -1,210 +1,150 @@
 ---
-title: Design basics
-description: >
-  Learn how to build user-friendly forms.
-authors:
-  - michaelscharnagl
-date: 2021-11-03
+description: Узнайте, как создавать удобные формы.
+icon: material/material-design
 ---
 
-In the first section, you learned how to build a basic form.
-This section is all about best practices.
-In this module, learn about user experience (UX),
-and why a well-implemented user interface (UI) can make a big difference.
+# Основы дизайна
 
-## Creating user-friendly interfaces
+<big>Узнайте, как создавать удобные формы.</big>
 
-Filling out forms can be time-consuming and frustrating.
-It doesn't have to be.
-To guarantee a great UX, make sure the UI is intuitive.
-Ensure you deliver optimal form structure and graphic design (layout, spacing, font size and color),
-and logical UI (such as label wording and appropriate input types).
-Let's have a look at how you can improve your form and make it easy to use.
+В первом разделе вы узнали, как построить базовую форму. Этот раздел посвящен лучшим практикам. В этом модуле вы узнаете о пользовательском опыте (UX) и о том, почему хорошо реализованный пользовательский интерфейс (UI) может иметь большое значение.
 
-## Labels
+## Создание удобных интерфейсов
 
-Do you remember what the `<label>` element is for?
-A label describes a form control.
-A visible and well-written label helps the user understand the purpose of a form control.
+Заполнение форм может отнимать много времени и вызывать разочарование. Но это не так. Чтобы гарантировать отличный UX, убедитесь, что пользовательский интерфейс интуитивно понятен. Обеспечьте оптимальную структуру формы и графический дизайн (расположение, интервалы, размер и цвет шрифта), а также логичный пользовательский интерфейс (например, формулировки ярлыков и соответствующие типы ввода). Давайте посмотрим, как можно улучшить форму и сделать ее удобной в использовании.
 
-### Use a label for every form control
+## Метки
 
-Do you want to add a new form control to your form?
-Start by adding the label for the new field.
-This way, you don't forget to add it.
+Помните ли вы, для чего предназначен элемент `<label>`? Метка описывает элемент управления формой. Видимая и хорошо написанная метка помогает пользователю понять назначение элемента управления формы.
 
-Adding labels first also helps you to focus on the form's goals–what data do I need here?
-Once this is clear, you can focus on helping the user enter data and complete the form.
+### Использование метки для каждого элемента управления формы
 
-{% Aside 'caution' %}
-Never misuse the `placeholder` attribute as a label.
-The placeholder is meant for giving a hint about the type of data you should enter,
-not for describing a form control.
+Вы хотите добавить в форму новый элемент управления? Начните с добавления метки для нового поля. Таким образом, вы не забудете добавить его.
 
-Learn more about why you should consider
-[avoiding placeholders](https://www.smashingmagazine.com/2018/06/placeholder-attribute/).
-{% endAside %}
+Добавление меток вначале также помогает сосредоточиться на целях формы - какие данные мне здесь нужны? Когда это станет ясно, можно сосредоточиться на том, чтобы помочь пользователю ввести данные и заполнить форму.
 
-### Label wording
+!!!warning "Внимание"
 
-Say that you want to describe an email field. You could do so as follows:
+    Никогда не используйте атрибут `placeholder` в качестве метки. Он предназначен для подсказки типа данных, которые необходимо ввести, а не для описания элемента управления формы.
+
+    Подробнее о том, почему следует [избегать placeholder'ов](https://www.smashingmagazine.com/2018/06/placeholder-attribute/).
+
+### Формулировка ярлыка
+
+Допустим, вы хотите описать поле электронной почты. Это можно сделать следующим образом:
 
 ```html
 <label for="email">Enter your email address</label>
 ```
 
-Or you could describe it like this:
+Или можно описать это так:
 
 ```html
 <label for="email">Email address</label>
 ```
 
-Which description do you choose?
+Какое описание вы выберете?
 
-For our example, the wording 'Email address' is preferred,
-since short labels are easier to scan, reduce visual clutter,
-and help users to understand what data is needed faster.
+Для нашего примера предпочтительнее формулировка 'Адрес электронной почты', поскольку короткие метки легче сканируются, уменьшают визуальный беспорядок и помогают пользователям быстрее понять, какие данные нужны.
 
-## Label position
+## Положение метки
 
-With [CSS](/learn/css),
-you can position a label on the top, bottom, left, and right of a form control.
-Where do you place it?
+С помощью [CSS](../css3/index.md) можно расположить метку сверху, снизу, слева и справа от элемента управления формы. Где ее размещать?
 
-[Research shows](https://ai.googleblog.com/2014/07/simple-is-better-making-your-web-forms.html)
-that best practice is to
-[position the label above the form control](https://www.uxmatters.com/mt/archives/2006/07/label-placement-in-forms.php),
-so the user can scan a form quickly and see which label belongs to which form control.
+[Исследования показывают](https://ai.googleblog.com/2014/07/simple-is-better-making-your-web-forms.html), что наилучшей практикой является [размещение метки над элементом управления формы](https://www.uxmatters.com/mt/archives/2006/07/label-placement-in-forms.php), чтобы пользователь мог быстро просканировать форму и увидеть, какая метка принадлежит тому или иному элементу управления формы.
 
-## Designing forms
+## Разработка форм
 
-Good form design can
-[significantly reduce form abandonment rates](https://baymard.com/blog/checkout-flow-average-form-fields).
-Help users enter data by using the appropriate element and input type
-There are various
-[form elements and input types](/learn/forms/fields) you can choose from.
-To offer the best UX, use the most suitable element and input type for your use case.
-If the user should fill in multiple lines of text, use the `<textarea>` element.
-Where they need to accept your site's terms and conditions, use `<input type="checkbox">`.
+Хороший дизайн форм позволяет [значительно снизить количество отказов от использования форм](https://baymard.com/blog/checkout-flow-average-form-fields). Помогите пользователям вводить данные, используя соответствующий элемент и тип ввода Существуют различные [элементы форм и типы ввода] (fields.md), из которых вы можете выбирать. Чтобы обеспечить наилучший пользовательский интерфейс, используйте наиболее подходящий элемент и тип ввода для вашего случая. Если пользователю необходимо заполнить несколько строк текста, используйте элемент `<textarea>`. Если пользователю необходимо принять условия и положения вашего сайта, используйте элемент `<input type="checkbox">`.
 
-{% Aside %}
-Depending on the `type` or `inputmode` attribute (more about this
-[later](/learn/forms/attributes#inputmode))
-a different on-screen keyboard is shown on touch devices.
-If you use `type="tel"`, users on touch devices get a keyboard showing only the characters needed to enter a telephone number.
-By using `type="email"` the mobile device displays a keyboard optimized for entering an email address.
-{% endAside %}
+!!!note ""
 
-You should also visually differentiate between different types of form controls.
-A button should look like a button.
-An input like an input.
-Make it easy for users to recognize the purpose of a form control.
-For example, If something looks like a link, clicking on it should open a new page,
-and not submit a form.
+    В зависимости от атрибута `type` или `inputmode` (подробнее об этом [позже](attributes.md#inputmode)) на сенсорных устройствах отображается различная экранная клавиатура. При использовании `type="tel"` пользователи сенсорных устройств получают клавиатуру, на которой отображаются только символы, необходимые для ввода телефонного номера. При использовании `type="email"` на мобильном устройстве отображается клавиатура, оптимизированная для ввода адреса электронной почты.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'c369bda56ae3bc88aa0116614f79e40d',
-  height: 400
-} %}
+Необходимо также визуально различать различные типы элементов управления формой. Кнопка должна выглядеть как кнопка. Ввод - как ввод. Сделайте так, чтобы пользователи могли легко распознать назначение элемента управления формы. К примеру, если что-то выглядит как ссылка, то при нажатии на нее должна открываться новая страница, а не отправляться форма.
 
-### Help users navigate forms
+<iframe src="https://codepen.io/web-dot-dev/embed/c369bda56ae3bc88aa0116614f79e40d?height=400&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-An extravagant layout can be fun, but may get in the way of completing a form.
+### Помочь пользователям ориентироваться в формах
 
-In particular,
-[research shows](https://baymard.com/blog/avoid-multi-column-forms)
-that it's best to use only a single column.
-Users don't want to spend time searching where the next form control is.
-By using one column, there is only one direction to follow.
+Экстравагантный макет может быть интересным, но может и помешать заполнению формы.
 
-{% Aside %}
-Always ensure that forms are accessible for people who use only the keyboard to navigate websites—either through preference or circumstance.
-Test your form by only using keyboard navigation.
-The tab order should follow the visual order.
-You can view the
-[source order in Chrome DevTools](https://developer.chrome.com/blog/new-in-devtools-92/#source-order).
-{% endAside %}
+В частности, [исследования показывают](https://baymard.com/blog/avoid-multi-column-forms), что лучше всего использовать только одну колонку. Пользователи не хотят тратить время на поиск следующего элемента управления формой. Использование одного столбца позволяет следовать только в одном направлении.
 
-### Help users interact with forms
+!!!note ""
 
-To avoid accidental taps and clicks,
-and help users interact with your form, make your buttons big enough.
-The recommended
-[tap target size](/accessible-tap-targets/) of a button is at least 48px.
-You should also add enough spacing between form controls using the `margin`
-CSS property to help avoid accidental interactions.
+    Всегда следите за тем, чтобы формы были доступны для людей, использующих для навигации по сайту только клавиатуру - по желанию или по обстоятельствам. Протестируйте свою форму, используя только клавиатурную навигацию. Порядок вкладок должен соответствовать визуальному порядку. Порядок [исходных данных можно посмотреть в Chrome DevTools](https://developer.chrome.com/blog/new-in-devtools-92/#source-order).
 
-The default size of form controls is too small to be really usable. You should increase the size by using `padding` and changing the default `font-size`.
+### Помочь пользователям взаимодействовать с формами
 
-{% Aside %}
-Use at least `1rem` (which for most browsers has a default value of 16px)
-as the `font-size` for your form controls.
-This [prevents a page zoom](https://css-tricks.com/16px-or-larger-text-prevents-ios-form-zoom/)
-on iOS Safari when a form control is focused.
-{% endAside %}
+Чтобы избежать случайных нажатий и щелчков и помочь пользователям взаимодействовать с формой, сделайте кнопки достаточно большими. Рекомендуемый [размер кнопки](https://web.dev/accessible-tap-targets/) составляет не менее `48px`. Во избежание случайных нажатий следует также добавлять достаточное расстояние между элементами управления формы с помощью CSS-свойства `margin`.
 
-You can define different sizes for different pointing devices,
-for example, a mouse, using the  `pointer` CSS media feature.
+Размер элементов управления формы по умолчанию слишком мал, чтобы быть действительно удобным для использования. Следует увеличить размер, используя `padding` и изменив стандартный размер шрифта `font-size`.
+
+!!!note ""
+
+    Используйте в качестве `font-size` для элементов управления формы не менее `1rem` (который для большинства браузеров по умолчанию равен `16px`). Это [предотвращает масштабирование страницы](https://css-tricks.com/16px-or-larger-text-prevents-ios-form-zoom/) в iOS Safari, когда элемент управления формы находится в фокусе.
+
+С помощью медиафункции `pointer` CSS можно задать разные размеры для различных устройств, например, мыши.
 
 ```css
 // pointer device, for example, a mouse
 @media (pointer: fine) {
-  input[type="checkbox"] {
-    width: 15px;
-    height: 15px;
-  }
+    input[type='checkbox'] {
+        width: 15px;
+        height: 15px;
+    }
 }
 
 // pointer device of limited accuracy, for example, a touch-based device
 @media (pointer: coarse) {
-  input[type="checkbox"] {
-    width: 30px;
-    height: 30px;
-  }
+    input[type='checkbox'] {
+        width: 30px;
+        height: 30px;
+    }
 }
 ```
 
-Learn more about the
-[`pointer` CSS media feature](https://developer.mozilla.org/docs/Web/CSS/@media/pointer).
+Подробнее о функции [`pointer` CSS media](https://developer.mozilla.org/docs/Web/CSS/@media/pointer).
 
-### Show errors where they happen
+### Показывать ошибки там, где они возникают
 
-To make it straightforward for users to find out which form control needs their attention,
-display error messages next to the form control they refer to.
-When displaying errors on form submission, make sure to navigate to the first invalid form control.
+Чтобы пользователям было проще определить, какой элемент управления формы требует внимания, отображайте сообщения об ошибках рядом с элементом управления формы, к которому они относятся. При отображении ошибок при отправке формы обязательно переходите к первому неправильному элементу управления формой.
 
-### Make it clear to users what data to enter
+### Убедитесь, что пользователям понятно, какие данные необходимо вводить
 
-Make sure users understand how to enter valid data.
-Do they need to enter at least eight characters for a password? Tell them.
+Убедитесь, что пользователи понимают, как вводить корректные данные. Нужно ли вводить не менее восьми символов для пароля? Скажите им об этом.
 
 ```html
 <label for="password">Password (required)</label>
-<input required minlength="8" type="password" id="password" name="password" aria-describedby="password-minlength">
-<span id="password-minlength">Enter at least eight characters</span>
+<input
+    required
+    minlength="8"
+    type="password"
+    id="password"
+    name="password"
+    aria-describedby="password-minlength"
+/>
+<span id="password-minlength"
+    >Enter at least eight characters</span
+>
 ```
 
-### Make it clear to users which fields are required
+### Дайте пользователям понять, какие поля являются обязательными для заполнения
 
 ```html
 <label for="name">Name (required)</label>
-<input name="name" id="name" required>
+<input name="name" id="name" required />
 ```
 
-If a field is mandatory, make it obvious! [The Anatomy of Accessible Forms](https://www.deque.com/blog/anatomy-of-accessible-forms-required-form-fields/) explains alternatives for indicating 
-required fields. If most fields in a form are required, it may be better to 
-[indicate optional fields](https://www.lukew.com/ff/entry.asp?725).
+Если поле является обязательным, сделайте это очевидным! В книге [The Anatomy of Accessible Forms](https://www.deque.com/blog/anatomy-of-accessible-forms-required-form-fields/) описаны альтернативные варианты указания обязательных полей. Если большинство полей в форме являются обязательными, то, возможно, лучше [указать необязательные поля](https://www.lukew.com/ff/entry.asp?725).
 
-How can you connect error messages to form controls to make them accessible for screen readers?
-You can learn about this in [the next module](/learn/forms/accessibility).
+Как подключить сообщения об ошибках к элементам управления формы, чтобы сделать их доступными для считывателей экрана? Об этом можно узнать в [следующем модуле](accessibility.md).
 
-{% Assessment 'design-basics' %}
+## Ресурсы
 
+-   [Лучшие практики проектирования мобильных форм](https://www.smashingmagazine.com/2018/08/best-practices-for-mobile-form-design/)
+-   [Baymard Institute: коммерческие UX-исследования](https://baymard.com/blog)
+-   [Не заставляйте меня думать](https://en.wikipedia.org/wiki/Don%27t_Make_Me_Think)
 
-## Resources
-
-- [Create Amazing Forms](/learn/forms/)
-- [Best Practices For Mobile Form Design](https://www.smashingmagazine.com/2018/08/best-practices-for-mobile-form-design/)
-- [Baymard Institute: E-Commerce UX Research](https://baymard.com/blog)
-- [Don't Make Me Think](https://en.wikipedia.org/wiki/Don%27t_Make_Me_Think) 
+:material-information-outline: Источник &mdash; [Design basics](https://web.dev/learn/forms/design-basics/)
