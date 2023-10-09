@@ -13,9 +13,9 @@ nav:
     - autofill.md
     - usability-testing.md
     - cross-platform-testing.md
-    #- data.md
-    #- form.md
-    #- fields.md
+    - data.md
+    - form.md
+    - fields.md
     #- attributes.md
     #- styling.md
     #- styling-form-controls.md

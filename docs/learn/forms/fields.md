@@ -1,167 +1,106 @@
 ---
-title: Form fields in depth
-description: >
-  Learn about the different form fields you can use, and how to choose the right form element.
-authors:
-  - michaelscharnagl
-date: 2021-11-03
+description: Узнайте о различных полях формы, которые можно использовать, и о том, как выбрать подходящий элемент формы.
+icon: material/form-textbox
 ---
 
-## What form fields can I use?
+# Подробно о полях формы
 
-To provide the best possible user experience,
-make sure to use the element and element `type` that's most appropriate for the data the user is entering.
+<big>Узнайте о различных полях формы, которые можно использовать, и о том, как выбрать подходящий элемент формы.</big>
 
-### Help users fill in text
+## Какие поля формы я могу использовать?
 
-To provide users with a form field for inserting text, use the `<input>` element.
-It's the best choice for single words and short texts.
-For longer text, use the `<textarea>` element.
-This allows multiple lines of text,
-and makes it easier for the user to see the text they entered, as the element is scrollable and resizable.
+Чтобы обеспечить наилучший пользовательский опыт, обязательно используйте элемент и элемент `type`, наиболее подходящие для вводимых пользователем данных.
 
-{% Aside %}
-A `<textarea>` is resizable by default. You can disable the resizing with CSS and the `resize` property: `resize: none`.
+### Помощь пользователям в заполнении текста
 
-However, people may want to see the text they entered all at once.
-At least keep the option to resize an `<textarea>` vertically.
-Use `resize: vertical` to ensure users can resize vertically but not horizontally.
+Чтобы предоставить пользователям поле формы для ввода текста, используйте элемент `<input>`. Он лучше всего подходит для ввода отдельных слов и коротких текстов. Для более длинного текста используйте элемент `<textarea>`. Он позволяет вводить несколько строк текста, а также облегчает пользователю просмотр введенного текста, поскольку этот элемент можно прокручивать и изменять его размеры.
 
-Learn more about [why disabling resize on `<textarea>` is bad for UX](https://catalin.red/css-resize-none-is-bad-for-ux/).
-{% endAside %}
+!!!note ""
 
-### Ensure users enter data in the correct format
+    По умолчанию `<textarea>` имеет изменяемый размер. Вы можете отключить изменение размера с помощью CSS и свойства `resize`: `resize: none`.
 
-Do you want to help users fill in a telephone number?
-Change the `type` attribute to `type="tel"` for the `<input>`.
-Users on mobile devices get an adapted on-screen keyboard,
-ensuring they can enter the telephone number faster and more easily.
+    Однако люди могут захотеть видеть введенный ими текст сразу. По крайней мере, сохраните возможность изменять размер `<textarea>` по вертикали. Используйте `resize: vertical`, чтобы пользователи могли изменять размеры по вертикали, но не по горизонтали.
 
-For an email address, use `type="email"`.
-Again, an adapted on-screen keyboard is shown.
-Use the `required` attribute to make the form field mandatory.
-When the form is submitted, the browser checks that the input has a value and that it's valid: in this case,
-that it's a well-formatted email address.
+    Подробнее о [почему отключение изменения размера в `<textarea>` плохо для UX](https://catalin.red/css-resize-none-is-bad-for-ux/).
 
-Learn more about the different [input types](https://developer.mozilla.org/docs/Web/HTML/Element/input#input_types).
-These also provide built-in [validation features](/learn/forms/validation).
+### Убедитесь, что пользователи вводят данные в правильном формате
 
-### Help users fill in dates
+Хотите помочь пользователям ввести номер телефона? Измените атрибут `type` на `type="tel"` для `<input>`. Пользователи мобильных устройств получат адаптированную экранную клавиатуру, что позволит им быстрее и удобнее вводить номер телефона.
 
-When do you want to start your next trip?
-To help users fill in dates, use `type="date"`.
-Some browsers show the format as a placeholder such as `yyyy-mm-dd`,
-demonstrating how to enter the date.
+Для адреса электронной почты используйте `type="email"`. Опять же, отображается адаптированная экранная клавиатура. Чтобы сделать поле формы обязательным для заполнения, используйте атрибут `required`. При отправке формы браузер проверяет наличие значения и его корректность: в данном случае это правильно отформатированный адрес электронной почты.
 
-All modern browsers provide custom interfaces for selecting dates in the form of a date picker.
+Подробнее о различных [типах ввода](https://developer.mozilla.org/docs/Web/HTML/Element/input#input_types). В них также предусмотрены встроенные [функции проверки](validation.md).
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '93693a7c2ce3d39ec5aa9088159b0601',
-  height: 300
-} %}
+### Помогите пользователям заполнить даты
 
-### Help users select an option
+Когда вы хотите начать свою следующую поездку? Чтобы помочь пользователям вводить даты, используйте `type="date"`. Некоторые браузеры показывают формат в виде заполнителя, например `yyy-mm-dd`, демонстрируя, как вводить дату.
 
-To ensure users can select or unselect one possible option, use `type="checkbox"`.
-Do you want to offer multiple options?
-Depending on your use case, there are various alternatives.
-First, let's look at possible solutions if users should only be able to choose a single option.
+Все современные браузеры предоставляют пользовательские интерфейсы для выбора дат в виде переключателя дат.
 
-You can use multiple `<input>` elements with `type="radio"` and the same `name` value. Users see all options at once, but can only choose one.
+<iframe src="https://codepen.io/web-dot-dev/embed/93693a7c2ce3d39ec5aa9088159b0601?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '617e51cdae8adeca641d289da1a3e8a2',
-  height: 300
-} %}
+### Помощь пользователям в выборе опции
 
-Another option is to use the `<select>` element.
-Users can scroll through a list of available options and choose one.
+Чтобы пользователи могли выбрать или отменить выбор одного из возможных вариантов, используйте `type="checkbox"`. Хотите ли вы предложить несколько вариантов? В зависимости от конкретного случая использования, возможны различные альтернативы. Сначала рассмотрим возможные решения, если пользователи должны иметь возможность выбрать только одну опцию.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '7225931596b7eeafc448ad55d9c980fd',
-  height: 300
-} %}
+Можно использовать несколько элементов `<input>` с `type="radio"` и одинаковым значением `name`. Пользователи видят сразу все варианты, но могут выбрать только один.
 
-For some use cases, such as choosing a range of numbers,
-`<input>` of type `range` may be a good option.
+<iframe src="https://codepen.io/web-dot-dev/embed/617e51cdae8adeca641d289da1a3e8a2?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '242b1ec7ea180c4995711ceabd749c59',
-  height: 300
-} %}
+Другим вариантом является использование элемента `<select>`. Пользователь может прокрутить список доступных вариантов и выбрать один из них.
 
-{% Aside %}
-You can use the [`accent-color`](/accent-color/) CSS property to change the color of form controls,
-including `<input type="range">`.
-{% BrowserCompat 'css.properties.accent-color' %}
-{% endAside %}
+<iframe src="https://codepen.io/web-dot-dev/embed/7225931596b7eeafc448ad55d9c980fd?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-Do you need to offer the ability to select multiple options?
-Use a `<select>` element with the `multiple` attribute or multiple `<input>` elements of type `checkbox`.
+Для некоторых случаев, например, для выбора диапазона чисел, хорошим вариантом может быть `<input>` типа `range`.
 
-You may also use an `<input>` in combination with the [`<datalist>`](https://developer.mozilla.org/docs/Web/HTML/Element/datalist) element.
-This gives you a combination of a text field and a list of `<option>` elements.
+<iframe src="https://codepen.io/web-dot-dev/embed/242b1ec7ea180c4995711ceabd749c59?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-{% Aside 'codelab' %}
-How would you tackle the selection of multiple items?
-Try to implement different versions.
-Use a `<select>` element, `<datalist>` element,
-[multi-select custom element](https://github.com/samdutton/multi-input), or build something completely different.
-{% endAside %}
+!!!note ""
 
-### Ensure users can fill in different types of data
+    Вы можете использовать CSS-свойство [`accent-color`](https://web.dev/accent-color/) для изменения цвета элементов управления формы, в том числе `<input type="range">`.
 
-There are more input types for specific use cases.
+Нужно ли предлагать возможность выбора нескольких вариантов? Используйте элемент `select>` с атрибутом `multiple` или несколько элементов `input>` типа `checkbox`.
 
-There is an `<input>` of type `color` to provide users with a color picker in supported browsers,
-and there are various other types as well. To ensure users can enter their password, use `<input>`
-with `type="password"`. Every character entered is obscured by an asterisk ("*") or a dot ("•"),
-to ensure the password can't be read.
+Можно также использовать элемент `<input>` в сочетании с элементом [`<datalist>`](../../html/datalist.md). Таким образом, получается комбинация текстового поля и списка элементов `<option>`.
 
-Do you want to include a unique security token in the form data?
-Use `<input>` with `type="hidden"`.
-The value of an `<input>` of type `hidden` can't be seen or modified by users.
+!!!note ""
 
-To enable users to upload and submit files, use `<input>` with `type="file"`.
+    Как вы решите проблему выбора нескольких элементов? Попробуйте реализовать различные варианты. Используйте элемент `<select>`, элемент `<datalist>`, [multi-select custom element](https://github.com/samdutton/multi-input) или создайте что-то совершенно другое.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '74f2d88b9185b8fa880ea5a92f48f690',
-  height: 300
-} %}
+### Убедитесь, что пользователи могут заполнять различные типы данных.
 
-{% Aside %}
-An `<input>` of type `file` can also allow multiple uploads at once.
-You can also specify which file formats are allowed.
+Существуют и другие типы ввода для конкретных случаев использования.
 
-Learn more about [`<input type="file">`](https://developer.mozilla.org/docs/Web/HTML/Element/input/file).
-{% endAside %}
+Существует `<input>` типа `color` для предоставления пользователям возможности выбора цвета в поддерживаемых браузерах, а также различные другие типы. Для того чтобы пользователь мог ввести свой пароль, используйте `<input>` с типом `type="password"`. Каждый введенный символ будет скрыт звездочкой ("\*") или точкой ("•"), чтобы пароль нельзя было прочитать.
 
-You can also define [custom elements](/more-capable-form-controls/#form-associated-custom-elements) if you have a special use case,
-where no built-in element or type is suitable.
+Хотите включить в данные формы уникальный токен безопасности? Используйте `<input>` с параметром `type="hidden"`. Значение `<input>` с типом `hidden` не может быть увидено или изменено пользователями.
 
-## Help users fill out your form
+Чтобы дать пользователям возможность загружать и отправлять файлы, используйте `<input>` с `type="file"`.
 
-There are many form elements and types, but which one should you choose?
+<iframe src="https://codepen.io/web-dot-dev/embed/74f2d88b9185b8fa880ea5a92f48f690?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-For some use cases, it's straightforward to choose the appropriate element and type,
-such as `<input type="date">`. For others, it depends.
-For example, you can use multiple `<input>` elements with `type="checkbox"` or a `<select>` element.
-Learn more about [choosing between listboxes and dropdown lists](https://www.nngroup.com/articles/listbox-dropdown/).
+!!!note ""
 
-In general, make sure to
-[test your form with real users](/learn/forms/usability-testing) to find the best form element and type.
+    В `<input>` типа `file` также может быть разрешена одновременная загрузка нескольких файлов. Можно также указать, какие форматы файлов разрешены.
 
-{% Assessment 'fields' %}
+    Подробнее о [`<input type="file">`](https://developer.mozilla.org/docs/Web/HTML/Element/input/file).
 
-## Resources
+Вы также можете определить [пользовательские элементы](https://web.dev/more-capable-form-controls/#form-associated-custom-elements), если у вас есть особый случай использования, для которого не подходит ни один встроенный элемент или тип.
 
-- [The `<input>` element](https://developer.mozilla.org/docs/Web/HTML/Element/Input)
-- [The `<textarea>` element](https://developer.mozilla.org/docs/Web/HTML/Element/textarea)
-- [The `<select>` element](https://developer.mozilla.org/docs/Web/HTML/Element/select)
-- [`<input>` types](https://developer.mozilla.org/docs/Web/HTML/Element/input#input_types)
-- [Custom form elements](/more-capable-form-controls/#form-associated-custom-elements)
+## Помощь пользователям в заполнении формы
+
+Существует множество элементов и типов форм, но какой из них выбрать?
+
+Для некоторых случаев использования формы достаточно просто выбрать подходящий элемент и тип, например `<input type="date">`. Для других это зависит от ситуации. Например, можно использовать несколько элементов `<input>` с `type="checkbox"` или элемент `<select>`. Подробнее о [выборе между listbox'ами и выпадающими списками](https://www.nngroup.com/articles/listbox-dropdown/).
+
+В целом, обязательно [тестируйте форму на реальных пользователях](usability-testing.md), чтобы найти оптимальный элемент и тип формы.
+
+## Ресурсы
+
+-   [Элемент `<input>`](../../html/input.md)
+-   [Элемент `<textarea>`](../../html/textarea.md)
+-   [Элемент `<select>`](../../html/select.md)
+-   [`<input>` types](../../html/input.md#type)
+-   [Пользовательские элементы формы](https://web.dev/more-capable-form-controls/#form-associated-custom-elements)
+
+:material-information-outline: Источник &mdash; [Form fields in depth](https://web.dev/learn/forms/fields/)
