@@ -1,26 +1,23 @@
 ---
 description: Узнайте, как использовать JavaScript для улучшения форм.
+icon: material/language-javascript
 ---
 
 # JavaScript
 
 <big>Узнайте, как использовать JavaScript для улучшения форм.</big>
 
-## Respond to form events
+## Реакция на события формы
 
-You can use JavaScript to respond to user interactions on your form, reveal additional form fields, submit a form, and much more.
+С помощью JavaScript можно реагировать на действия пользователя в форме, открывать дополнительные поля формы, отправлять форму и многое другое.
 
-### Help users fill in additional form controls
+### Помогите пользователям заполнить дополнительные элементы управления формой
 
-Imagine that you built a survey form. After a user selects one option, you want to show an additional `<input>` to ask a specific question related to the selection. How can you only show the relevant `<input>` element?
+Представьте, что вы создали форму опроса. После того как пользователь выбирает один из вариантов, вы хотите показать дополнительный `<input>`, чтобы задать конкретный вопрос, связанный с этим выбором. Как можно показать только соответствующий элемент `<input>`?
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '8e1e7a38790c75c267a978efa1d8e937',
-  height: 350
-} %}
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/8e1e7a38790c75c267a978efa1d8e937?height=350&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;"></iframe>
 
-You can use JavaScript to reveal an `<input>` only when the associated `<input type="radio">` is currently selected.
+С помощью JavaScript можно раскрыть `<input>` только в том случае, если связанный с ним `<input type="radio">` выбран в данный момент.
 
 ```js
 if (event.target.checked) {
@@ -30,28 +27,37 @@ if (event.target.checked) {
 }
 ```
 
-{% Aside 'caution' %} Make sure your form is still usable [if JavaScript isn't available](https://kryogenix.org/code/browser/everyonehasjs.html). The core experience should be the same for all users, with JavaScript used only as an enhancement. {% endAside %}
+!!!warning ""
 
-Let's look at the [JavaScript code](https://codepen.io/web-dot-dev/pen/8e1e7a38790c75c267a978efa1d8e937?editors=0010) for the demo. Have you noticed the `aria-controls`, and `aria-expanded` attributes? Use these [ARIA attributes](https://developer.mozilla.org/docs/Web/Accessibility/ARIA) to help screen reader users understand when an additional form control is shown or hidden.
+    Убедитесь, что ваша форма по-прежнему пригодна для использования [если JavaScript недоступен](https://kryogenix.org/code/browser/everyonehasjs.html). Основные возможности должны быть одинаковыми для всех пользователей, а JavaScript должен использоваться только в качестве дополнения.
 
-{% Aside 'caution' %} The `aria-expanded` attribute for `<input type="radio">` isn't [correctly announced by every screen reader](https://accessibility.blog.gov.uk/2021/09/21/an-update-on-the-accessibility-of-conditionally-revealed-questions/). {% endAside %}
+Давайте посмотрим на [JavaScript-код](https://codepen.io/web-dot-dev/pen/8e1e7a38790c75c267a978efa1d8e937?editors=0010) для демонстрации. Заметили ли вы атрибуты `aria-controls` и `aria-expanded`? Используйте эти [ARIA-атрибуты](https://developer.mozilla.org/docs/Web/Accessibility/ARIA), чтобы помочь пользователям программ чтения с экрана понять, когда дополнительный элемент управления формы отображается или скрывается.
 
-### Ensure users can submit a form without leaving a page
+!!!warning ""
 
-Imagine you have a comment form. When a reader adds a comment and submits the form, it would be ideal if they could immediately see the comment without a page refresh.
+    Атрибут `aria-expanded` для `<input type="radio">` не [корректно объявляется всеми программами чтения с экрана](https://accessibility.blog.gov.uk/2021/09/21/an-update-on-the-accessibility-of-conditionally-revealed-questions/).
 
-To achieve this, listen to the `onsubmit` event, then use `event.preventDefault()` to prevent the default behavior, and send the `FormData` using the [Fetch API](https://developer.mozilla.org/docs/Web/API/Fetch_API). {% BrowserCompat 'api.fetch' %}
+### Убедитесь, что пользователи могут отправить форму, не покидая страницу
 
-{% Aside %} `FormData` is a set of key/value pairs representing form fields and their values. You can add all your form fields to the `FormData` object, or only send some form fields and their values. {% endAside %}
+Представьте, что у вас есть форма комментариев. Когда читатель добавляет комментарий и отправляет форму, было бы идеально, если бы он мог сразу увидеть комментарий, не обновляя страницу.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'b499a861d7b1fee74464a690cf0ff97e',
-  height: 400,
-  tab: 'js,result'
-} %}
+Для этого необходимо прослушать событие `onsubmit`, затем использовать `event.preventDefault()` для предотвращения поведения по умолчанию и отправить `FormData` с помощью [Fetch API](https://developer.mozilla.org/docs/Web/API/Fetch_API).
 
-Your backend script can check if a `POST` request appears to be from the browser (using the `action` attribute of a form element, where `method="post"`) or from JavaScript, such as a `fetch()` request.
+<p class="ciu_embed" data-feature="fetch" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+<picture>
+<source type="image/webp" srcset="https://caniuse.bitsofco.de/image/fetch.webp">
+<source type="image/png" srcset="https://caniuse.bitsofco.de/image/fetch.png">
+<img src="https://caniuse.bitsofco.de/image/fetch.jpg" alt="Data on support for the fetch feature across the major browsers from caniuse.com">
+</picture>
+</p>
+
+!!!note ""
+
+    `FormData` - это набор пар ключ/значение, представляющих поля формы и их значения. Вы можете добавить все поля формы в объект `FormData` или передать только некоторые поля формы и их значения.
+
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/b499a861d7b1fee74464a690cf0ff97e?height=400&amp;theme-id=light&amp;default-tab=js%2Cresult&amp;editable=true" style="height: 400px; width: 100%; border: 0;"></iframe>
+
+Ваш сценарий бэкенда может проверить, является ли запрос `POST` запросом от браузера (используя атрибут `action` элемента формы, где `method="post"`) или от JavaScript, например, как запрос `fetch()`.
 
 ```js
 if (req.xhr || req.headers.accept.indexOf('json') !== -1) {
@@ -61,57 +67,49 @@ if (req.xhr || req.headers.accept.indexOf('json') !== -1) {
 }
 ```
 
-Always notify screen reader users about dynamic content changes. Add an element with the `aria-live="polite"` attribute to your HTML, and update the content of the element after a change. For example, update the text to 'Your comment was successfully posted', after a user submits a comment.
+Всегда уведомляйте пользователей программ чтения с экрана об изменении динамического содержимого. Добавьте в HTML элемент с атрибутом `aria-live="polite"` и обновляйте содержимое элемента после изменения. Например, обновите текст до 'Your comment was successfully posted' после того, как пользователь отправит комментарий.
 
-Learn more about [ARIA live regions](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/ARIA_Live_Regions).
+Подробнее о [ARIA live regions](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/ARIA_Live_Regions).
 
-## Validation with JavaScript
+## Валидация с помощью JavaScript
 
-### Ensure error messages align with your site style and tone
+### Убедитесь, что сообщения об ошибках соответствуют стилю и тону вашего сайта
 
-The wording of default error messages differs between browsers. How can you make sure the same message is shown to all users, and that the message aligns with your site's [style and tone](https://developers.google.com/style/tone)? Use the [`setCustomValidity()`](https://developer.mozilla.org/docs/Web/API/HTMLObjectElement/setCustomValidity) method of the [Constraint Validation API](https://developer.mozilla.org/docs/Web/API/Constraint_validation) to define your own error messages.
+Формулировки стандартных сообщений об ошибках в разных браузерах различаются. Как сделать так, чтобы всем пользователям показывалось одно и то же сообщение и чтобы оно соответствовало [стилю и тону](https://developers.google.com/style/tone) вашего сайта? Используйте метод [`setCustomValidity()`](https://developer.mozilla.org/docs/Web/API/HTMLObjectElement/setCustomValidity) из [Constraint Validation API](https://developer.mozilla.org/docs/Web/API/Constraint_validation) для определения собственных сообщений об ошибках.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '7ea31257d7cd8fc28792c7f5cdaba97b',
-  height: 300,
-  tab: 'js,result'
-} %}
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/7ea31257d7cd8fc28792c7f5cdaba97b?height=300&amp;theme-id=light&amp;default-tab=js%2Cresult&amp;editable=true" style="height: 300px; width: 100%; border: 0;"></iframe>
 
-{% Aside %} Make sure to translate and localize your error messages if you have a multi-language website. {% endAside %}
+!!!note ""
 
-### Ensure users are notified about errors in real time
+    Обязательно переведите и локализуйте сообщения об ошибках, если у вас мультиязычный сайт.
 
-The built-in HTML features for form validation are great for notifying users about invalid form fields before the data is sent to your backend. Wouldn't it be great to notify users as soon as they leave a form field?
+### Обеспечьте уведомление пользователей об ошибках в реальном времени
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'b7ed22a0539f9beef4dc03380f51f224',
-  height: 300,
-  tab: 'js,result'
-} %}
+Встроенные в HTML функции проверки форм отлично подходят для уведомления пользователей о недействительных полях формы до того, как данные будут отправлены в бэкенд. Было бы здорово уведомлять пользователей сразу после того, как они покидают поле формы.
 
-Listen for the [`blur`](https://developer.mozilla.org/docs/Web/API/Element/blur_event) event which fires when an element loses focus, and use the [`ValidityState`](https://developer.mozilla.org/docs/Web/API/ValidityState) interface to detect if a form control is invalid.
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/b7ed22a0539f9beef4dc03380f51f224?height=300&amp;theme-id=light&amp;default-tab=js%2Cresult&amp;editable=true" style="height: 300px; width: 100%; border: 0;"></iframe>
 
-### Ensure users can see the password they entered
+Слушайте событие [`blur`](https://developer.mozilla.org/docs/Web/API/Element/blur_event), которое срабатывает, когда элемент теряет фокус, и используйте интерфейс [`ValidityState`](https://developer.mozilla.org/docs/Web/API/ValidityState), чтобы определить, является ли элемент формы недействительным.
 
-The text entered for `<input type="password">` is obscured by default, to respect the privacy of users. Help users to enter their password, by showing a `<button>` to toggle the visibility of the entered text.
+### Убедитесь, что пользователи видят введенный ими пароль
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'bd8577c5380c436dba2788c7a2c8652a',
-  height: 300
-} %}
+Текст, вводимый в поле `<input type="password">`, по умолчанию скрыт, чтобы соблюсти конфиденциальность пользователей. Помогите пользователям ввести свой пароль, показав кнопку `<button>` для переключения видимости введенного текста.
 
-[Try out the demo](https://codepen.io/web-dot-dev/pen/bd8577c5380c436dba2788c7a2c8652a). Toggle the visibility of the entered text, by using the **Show Password** `<button>`. How does this work? Clicking on **Show Password**, changes the `type` attribute of the password field from `type="password"` to `type="text"`, and the `<button>` text changes to 'Hide Password'.
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/bd8577c5380c436dba2788c7a2c8652a?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;"></iframe>
 
-{% Aside 'codelab' %} [Try to improve the **Show Password** `<button>`](https://codepen.io/web-dot-dev/pen/bd8577c5380c436dba2788c7a2c8652a). Where would you position the `<button>`? Could you use only an icon and still make sure the `<button>` is accessible? {% endAside %}
+[Попробуйте демо-версию](https://codepen.io/web-dot-dev/pen/bd8577c5380c436dba2788c7a2c8652a). Переключение видимости введенного текста осуществляется с помощью **Show Password** `<button>`. Как это работает? При нажатии на кнопку **Show Password** атрибут `type` поля пароля изменяется с `type="password"` на `type="text"`, а текст `<button>` меняется на 'Hide Password'.
 
-It's important to make the **Show Password** button accessible. Connect the `<button>` with the `<input type="password">` using the `aria-controls` attribute.
+!!!tip ""
 
-{% Aside 'caution' %} The `aria-controls` attribute is not supported by every screen reader, but for those that do support it, it's a great enhancement. {% endAside %}
+    [Попробуйте улучшить **Показать пароль** `<button>`](https://codepen.io/web-dot-dev/pen/bd8577c5380c436dba2788c7a2c8652a). Где бы вы разместили `<button>`? Можно ли использовать только пиктограмму и при этом обеспечить доступ к `<button>`?
 
-To notify screen reader users if the password is currently shown or hidden, use a hidden element with `aria-live="polite"`, and change its text accordingly. It's important to enable screen reader users to know when a password is displayed and visible to someone else looking at their screen.
+Важно сделать кнопку **Показать пароль** доступной. Свяжите `<button>` с `<input type="password">` с помощью атрибута `aria-controls`.
+
+!!!warning ""
+
+    Атрибут `aria-controls` поддерживается не всеми программами чтения с экрана, но для тех, которые его поддерживают, он является отличным дополнением.
+
+Чтобы уведомить пользователей, читающих с экрана, о том, показан или скрыт пароль в данный момент, используйте элемент `hidden` с параметром `aria-live="polite"` и соответствующим образом измените его текст. Важно, чтобы пользователи программ чтения с экрана знали, когда пароль отображается и виден другому человеку, смотрящему на их экран.
 
 ```html
 <span class="visually-hidden" aria-live="polite">
@@ -119,22 +117,24 @@ To notify screen reader users if the password is currently shown or hidden, use 
 </span>
 ```
 
-{% Aside %} Microsoft Edge shows a built-in password reveal control for `<input type="password">`. To prevent having two reveal buttons, hide the built-in control with:
+!!!note ""
 
-```css
-::-ms-reveal {
-    display: none;
-}
-```
+    В Microsoft Edge отображается встроенный элемент управления раскрытием пароля для `<input type="password">`. Чтобы не иметь двух кнопок раскрытия, скройте встроенный элемент управления с помощью:
 
-Learn more about [customizing the password reveal button](https://docs.microsoft.com/en-us/microsoft-edge/web-platform/password-reveal). {% endAside %}
+    ```css
+    ::-ms-reveal {
+    	display: none;
+    }
+    ```
 
-Learn more about [implementing a show password option](https://technology.blog.gov.uk/2021/04/19/simple-things-are-complicated-making-a-show-password-option/).
+    Подробнее о [настройке кнопки раскрытия пароля](https://docs.microsoft.com/en-us/microsoft-edge/web-platform/password-reveal).
 
-## Resources
+Подробнее о [реализации опции показа пароля](https://technology.blog.gov.uk/2021/04/19/simple-things-are-complicated-making-a-show-password-option/).
+
+## Ресурсы
 
 -   [FormData](https://developer.mozilla.org/docs/Web/API/FormData)
--   [Constraint Validation API](https://developer.mozilla.org/docs/Web/API/Constraint_validation)
+-   [API проверки ограничений](https://developer.mozilla.org/docs/Web/API/Constraint_validation)
 -   [`<input type="password">`](https://developer.mozilla.org/docs/Web/HTML/Element/input/password)
 
 :material-information-outline: Источник &mdash; [JavaScript](https://web.dev/learn/forms/javascript/)

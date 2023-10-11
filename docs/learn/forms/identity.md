@@ -1,179 +1,111 @@
 ---
-title: Identity
-description: >
-  Learn how to build secure and accessible sign-up and sign-in forms, and find out how to help users change their account settings.
-authors:
-  - michaelscharnagl
-date: 2021-11-03
+description: Узнайте, как построить безопасные и доступные формы регистрации и входа в систему, а также как помочь пользователям изменить настройки учетной записи.
+icon: material/account
 ---
 
-{% Aside 'warning' %}  
-User account [authentication](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html) 
-is a complex issue in terms of privacy and security. 
-To guarantee the safety of user accounts, it may be better to use a 
-[third-party identity provider](/sign-up-form-best-practices/#federated-login), 
-instead of building your own secure authentication system.
+# Идентификация
 
-Learn more about 
-[best practices for account authentication, and password management](https://cloud.google.com/blog/products/identity-security/account-authentication-and-password-management-best-practices).  
-{% endAside %}
+<big>Узнайте, как построить безопасные и доступные формы регистрации и входа в систему, а также как помочь пользователям изменить настройки учетной записи.</big>
 
-## Help users sign up
+!!!warning ""
 
-The sign-up form is often the first interaction with a form on your website. 
-Good sign-up form design is critical, and a secure form is essential. 
+    Аутентификация учетных записей пользователей [https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html] - сложный вопрос с точки зрения конфиденциальности и безопасности. Чтобы гарантировать безопасность учетных записей пользователей, возможно, лучше использовать [стороннего провайдера идентификации](https://web.dev/articles/sign-up-form-best-practices#federated-login), а не создавать собственную безопасную систему аутентификации.
 
-{% Aside %}  
-Only require sign-up if you really need to. 
-If you only want to store information between navigations, 
-consider [using client-side storage](/storage-for-the-web/). 
-For checkout forms, add a guest checkout by default. 
-You can ask new customers if they want to sign up after they've completed a purchase, 
-or when they enter address details.  
-{% endAside %}
+    Подробнее о [лучших практиках аутентификации учетных записей и управления паролями](https://cloud.google.com/blog/products/identity-security/account-authentication-and-password-management-best-practices).
 
-Let's look at a sign-up form, and how you can help users sign up on your website.
+## Помогите пользователям при регистрации
 
-{% Codepen {  
-  user: 'web-dot-dev',  
-  id: '42a33b97484873a214f8a945a3b55f71',  
-  height: 450  
-} %}
+Форма регистрации - это часто первое взаимодействие с формой на вашем сайте. Хороший дизайн формы регистрации имеет решающее значение, а безопасная форма является обязательным условием.
 
-Keep the sign-up form minimal and only show the required form controls to create an account. 
-Don't double up your form controls to help users get their account details right. 
-Send a confirmation email instead.
+!!!note ""
 
-### Help users fill in their account details
+    Требуйте регистрации только в том случае, если это действительно необходимо. Если вы хотите хранить информацию только между переходами, рассмотрите вариант [использования хранилища на стороне клиента](https://web.dev/articles/storage-for-the-web). Для форм оформления заказа по умолчанию добавьте гостевую регистрацию. Вы можете спросить новых покупателей, хотят ли они зарегистрироваться после совершения покупки или при вводе адресных данных.
 
-You can help users fill in their account details by using the appropriate `autocomplete` attribute. 
-Use `autocomplete="email"` for the email field, and `autocomplete="new-password"` for a new-password field. 
+Давайте рассмотрим форму регистрации и то, как можно помочь пользователям зарегистрироваться на вашем сайте.
 
-Learn more about [autofilling input controls](/learn/forms/autofill).
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/42a33b97484873a214f8a945a3b55f71?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;"></iframe>
 
-{% Aside 'warning' %}  
-Don't disallow pasting into password fields. 
-It's annoying for users, encourages passwords that are memorable and less secure, 
-and makes it harder for password managers to suggest and autofill a secure password.
+Форма регистрации должна быть минимальной и отображать только необходимые элементы управления для создания учетной записи. Не стоит дублировать элементы управления формой, чтобы помочь пользователям правильно указать данные учетной записи. Вместо этого отправьте подтверждение по электронной почте.
 
-Learn more about why you should always 
-[allow pasting passwords](https://www.ncsc.gov.uk/blog-post/let-them-paste-passwords).  
-{% endAside %}
+### Помогите пользователям в заполнении учетных данных
 
-You can also help users enter a secure password by offering a reveal-password `<button>`.  
-Learn more about the [reveal-password pattern](/learn/forms/javascript#ensure-users-can-see-the-password-they-entered).
+Вы можете помочь пользователям заполнить данные учетной записи, используя соответствующий атрибут `autocomplete`. Используйте `autocomplete="email"` для поля `email` и `autocomplete="new-password"` для поля `new-password`.
 
-### Ensure your sign-up form is secure
+Подробнее о [элементах управления вводом с автозаполнением](autofill.md).
 
-Never store or transmit passwords in plain text. 
-Make sure to [salt and hash](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#Use_a_cryptographically_strong_credential-specific_salt) 
-passwords—and [don't try to invent your own hashing algorithm](https://www.schneier.com/blog/archives/2011/04/schneiers_law.html).
+!!!warning ""
 
-Offer [multi-factor authentication](https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html), 
-especially if you store personal or sensitive data. 
-[SMS OTP best practices](/sms-otp-form) and 
-[Enabling Strong Authentication with WebAuthn](https://developer.chrome.com/blog/webauthn/) 
-explain how to implement multi-factor authentication.
+    Не запрещайте вставку в поля паролей. Это раздражает пользователей, способствует созданию запоминающихся и менее надежных паролей, а также усложняет работу менеджеров паролей, предлагающих и автоматически заполняющих надежные пароли.
 
-Ensure users don't use compromised passwords. 
-For example, use the API from [Have I Been Pwned](https://haveibeenpwned.com/API/) 
-to detect compromised passwords, 
-and suggest your users fill in a different new password, 
-or warn them if their password becomes compromised.
+    Подробнее о том, почему всегда следует [разрешать вставку паролей](https://www.ncsc.gov.uk/blog-post/let-them-paste-passwords).
 
-## Help users sign in
+Вы также можете помочь пользователям ввести надежный пароль, предложив кнопку раскрытия пароля `<button>`. Подробнее о шаблоне [reveal-password](javascript.md#ensure-users-can-see-the-password-they-entered).
 
-Let's see how to build a sign-in form to ensure users can easily sign in to your website.
+### Обеспечьте безопасность формы регистрации
 
-{% Codepen {  
-  user: 'web-dot-dev',  
-  id: '89610184f6c51990ab9484b593e1d951',  
-  height: 500  
-} %}
+Никогда не храните и не передавайте пароли в виде обычного текста. Обязательно используйте [соль и хеширование](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#Use_a_cryptographically_strong_credential-specific_salt) паролей - и [не пытайтесь изобрести свой собственный алгоритм хеширования](https://www.schneier.com/blog/archives/2011/04/schneiers_law.html).
 
-Make the location of sign-up and sign-in buttons obvious. 
-Ensure your form is usable on touch devices:
+Предлагайте [многофакторную аутентификацию](https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html), особенно если вы храните личные или конфиденциальные данные. В [SMS OTP best practices](https://web.dev/articles/sms-otp-form) и [Enabling Strong Authentication with WebAuthn](https://developer.chrome.com/blog/webauthn/) описано, как реализовать многофакторную аутентификацию.
 
--  The [tap target size](/accessible-tap-targets/) of buttons is at least 48px.
--  The `font-size` of your form elements is big enough (`20px` is about right on mobile).
--  There is enough space (`margin`) between form controls, and that inputs are large enough (use at least `padding: 15px` on mobile).
+Убедитесь, что пользователи не используют скомпрометированные пароли. Например, используйте API из [Have I Been Pwned](https://haveibeenpwned.com/API/) для обнаружения скомпрометированных паролей и предложите пользователям ввести другой пароль или предупредите их о том, что их пароль скомпрометирован.
 
-### Help users fill in their email and password
+## Помогите пользователям при входе в систему
 
-Help browsers and password managers autofill account details. 
-Use `autocomplete="email"` for the email field, 
-and `autocomplete="current-password"` for a current password field.
+Давайте посмотрим, как построить форму входа, чтобы пользователи могли легко войти на ваш сайт.
 
-To help users manually fill in their account details, use `type="email"` 
-for the email field to show the appropriate on-screen keyboard on mobile devices. 
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/89610184f6c51990ab9484b593e1d951?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;"></iframe>
 
-Use the `required` attribute for your email and password field so you can warn of invalid values when the user submits the form. 
-Consider using [real-time validation](/learn/forms/javascript#ensure-users-are-notified-about-errors-in-real-time) 
-to help users correct invalid data as soon as they have entered it, rather than waiting for form 
-submission.
+Сделайте расположение кнопок регистрации и входа очевидным. Убедитесь, что форма удобна для использования на сенсорных устройствах:
 
-### Ensure users can see the password they entered
+-   [tap target size](https://web.dev/articles/accessible-tap-targets) кнопок должен быть не менее 48px.
+-   Размер шрифта `font-size` элементов формы достаточно большой (`20px` как раз подходит для мобильных устройств).
+-   Между элементами формы достаточно пространства (`margin`), а вводимые данные достаточно крупные (используйте по крайней мере `padding: 15px` на мобильных устройствах).
 
-The text you fill in for `<input type="password">` is obscured by default, 
-to respect the privacy of users. 
-Help users to enter their password, 
-by showing a `<button>` to toggle the visibility of the entered text.
+### Помогите пользователям в заполнении электронной почты и пароля
 
-{% Codepen {  
-  user: 'web-dot-dev',  
-  id: 'bd8577c5380c436dba2788c7a2c8652a',  
-  height: 300  
-} %}
+Помогите браузерам и менеджерам паролей автоматически заполнять данные учетной записи. Используйте `autocomplete="email"` для поля email и `autocomplete="current-password"` для поля текущего пароля.
 
-Learn more about 
-[implementing a password-reveal `<button>`](/learn/forms/javascript/#ensure-users-can-see-the-password-they-entered).
+Чтобы помочь пользователям вручную заполнять данные учетной записи, используйте атрибут `type="email"` для поля email, чтобы на мобильных устройствах отображалась соответствующая экранная клавиатура.
 
-## Ensure your sign-in and sign-up forms are usable
+Используйте атрибут `required` для полей электронной почты и пароля, чтобы предупреждать о недопустимых значениях при отправке формы пользователем. Рассмотрите возможность использования [проверки в реальном времени](javascript.md#ensure-users-are-notified-about-errors-in-real-time), чтобы помочь пользователям исправлять недействительные данные сразу после их ввода, а не дожидаться отправки формы.
 
-Test your sign-in and sign-up forms regularly with real people to make sure that authentication works as expected. 
-Use analytics and [real user measurement (RUM)](/user-centric-performance-metrics/) to collect field data, 
-and tools such as [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) 
-and [PageSpeed Insights](https://pagespeed.web.dev/) to run tests yourself. 
-Learn more about [testing for usability](/learn/forms/usability-testing) and 
-[gathering analytics data](/learn/forms/data).
+### Убедитесь, что пользователи могут видеть введенный ими пароль
 
-Ensure your forms work in different browsers and on different platforms. 
-Test your form on different screen sizes, using only your keyboard, 
-or using a screen reader such as 
-[VoiceOver](https://www.youtube.com/watch?v=5R-6WvAihms&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=6) on Mac or 
-[NVDA](https://www.nvaccess.org/) on Windows.
+Текст, который вы вводите в поле `<input type="password">`, по умолчанию скрыт, чтобы соблюсти конфиденциальность пользователей. Помогите пользователям ввести пароль, показав кнопку `<button>` для переключения видимости введенного текста.
 
-## Help users change their account settings
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/bd8577c5380c436dba2788c7a2c8652a?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" ></iframe>
 
-Make sure that users can change every account setting, 
-including email addresses, passwords, and usernames.
+Подробнее о [реализации функции раскрытия пароля `<кнопки>`] (javascript.md#ensure-users-can-see-the-password-they-entered).
 
-Make it transparent what data you are storing, 
-and help users download all their personal data at any time. 
-Ensure users can delete their account if that's what they want. 
-Account management features such as these may be a legal requirement in some regions.
+## Убедитесь в работоспособности форм входа и регистрации
 
-### Ensure users can update their passwords
+Регулярно тестируйте формы входа и регистрации на реальных людях, чтобы убедиться, что аутентификация работает так, как ожидается. Используйте аналитику и [Real User Measurement (RUM)](https://web.dev/articles/user-centric-performance-metrics) для сбора полевых данных, а также такие инструменты, как [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) и [PageSpeed Insights](https://pagespeed.web.dev/), для самостоятельного проведения тестов. Подробнее о [тестировании на удобство использования](usability-testing.md) и [сборе аналитических данных](data.md).
 
-Make it easy for users to update their password.
+Убедитесь, что формы работают в разных браузерах и на разных платформах. Проверьте работу формы на экранах разных размеров, с использованием только клавиатуры или с помощью программы чтения с экрана, например [VoiceOver](https://www.youtube.com/watch?v=5R-6WvAihms&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=6) на Mac или [NVDA](https://www.nvaccess.org/) на Windows.
 
-{% Codepen {  
-  user: 'web-dot-dev',  
-  id: 'dd3ac6198324f644774583c02bf0fbd8',  
-  height: 450  
-} %}
+## Помогите пользователям изменить настройки учетной записи
 
-Ask users for the current password before changing it, 
-and send an email about a password change with the option to revert and lock the account.  
+Убедитесь, что пользователи могут изменить все параметры учетной записи, включая адреса электронной почты, пароли и имена пользователей.
 
-Add the option to request a new password, 
-and consider providing a [`.well-known` URL](/change-password-url/) for requesting a new password.
+Обеспечьте прозрачность хранения данных и возможность в любой момент загрузить все свои персональные данные. Убедитесь, что пользователи могут удалить свою учетную запись, если они этого хотят. В некоторых регионах такие функции управления учетными записями могут быть обязательными.
 
-## Resources
+### Обеспечьте пользователям возможность обновлять свои пароли
 
--  [Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
--  [Understanding the root cause of account takeover](https://security.googleblog.com/2017/11/new-research-understanding-root-cause.html)
--  [Password security: Complexity vs. length](https://resources.infosecinstitute.com/topic/password-security-complexity-vs-length/)
--  [Sign-up form best practices](/sign-up-form-best-practices)
--  [Sign-in form best practices](/sign-in-form-best-practices)
--  [Effective password management | Session](https://www.youtube.com/watch?v=4Ve2kw_AN84)
+Обеспечьте пользователям возможность легко обновлять свои пароли.
+
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/dd3ac6198324f644774583c02bf0fbd8?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;"></iframe>
+
+Запрашивать у пользователей текущий пароль перед его сменой, а также отправлять по электронной почте сообщение о смене пароля с возможностью отмены и блокировки учетной записи.
+
+Добавьте возможность запроса нового пароля и рассмотрите возможность предоставления [`.well-known` URL](https://web.dev/articles/change-password-url) для запроса нового пароля.
+
+## Ресурсы
+
+-   [Шпаргалка по хранению паролей](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
+-   [Понимание основной причины захвата учетных записей](https://security.googleblog.com/2017/11/new-research-understanding-root-cause.html)
+-   [Безопасность пароля: сложность против длины](https://resources.infosecinstitute.com/topic/password-security-complexity-vs-length/)
+-   [Лучшие практики использования формы регистрации](https://web.dev/articles/sign-up-form-best-practices)
+-   [Лучшие практики работы с формой регистрации](https://web.dev/articles/sign-in-form-best-practices)
+-   [Эффективное управление паролями | Сессия](https://www.youtube.com/watch?v=4Ve2kw_AN84)
+
+:material-information-outline: Источник &mdash; [Identity](https://web.dev/learn/forms/identity)

@@ -19,7 +19,7 @@ nav:
     - attributes.md
     - styling.md
     - styling-form-controls.md
-    #- javascript.md
-    #- identity.md
+    - javascript.md
+    - identity.md
     #- payment.md
     #- address.md
