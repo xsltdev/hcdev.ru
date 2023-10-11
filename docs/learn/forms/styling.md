@@ -1,38 +1,33 @@
 ---
 description: Стилизовать формы с помощью CSS, обеспечивая при этом их удобство и читаемость для всех.
+icon: material/border-style
 ---
 
 # Стилизация форм
 
 <big>Стилизовать формы с помощью CSS, обеспечивая при этом их удобство и читаемость для всех.</big>
 
-## Help users use your form with their preferred browser
+## Помогите пользователям использовать вашу форму с помощью предпочитаемого браузера
 
-To ensure that your form is accessible to as many people as possible, use the elements built for the job: `<input>`, `<textarea>`, `<select>`, and `<button>`. This is the baseline for a usable form.
+Для того чтобы ваша форма была доступна как можно большему числу людей, используйте элементы, созданные для этой цели: `<input>`, `<textarea>`, `<select>` и `<button>`. Это базовые элементы для создания удобной формы.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '9d0576454b3b2d0fc001addab70d25bc',
-  height: 250
-} %}
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/9d0576454b3b2d0fc001addab70d25bc?height=250&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;"></iframe>
 
-The default browser styles don't look great! Let's change that.
+Стили браузера по умолчанию выглядят не лучшим образом! Давайте изменим это.
 
-{% Aside %} Progressive enhancement is a strategy that provides a baseline of essential content and features for as many users as possible. It ensures the best possible experience for users on modern browsers.
+!!!note ""
 
-You start with content, use [semantic HTML](https://developer.mozilla.org/docs/Glossary/Semantics#semantics_in_html), add future-proof CSS, and add robust JavaScript as a last step. {% endAside %}
+    Прогрессивное улучшение - это стратегия, обеспечивающая базовый уровень необходимого контента и функций для максимально возможного числа пользователей. Она обеспечивает наилучшие возможности для пользователей современных браузеров.
 
-## Ensure form controls are readable for everyone
+    Вы начинаете с контента, используете [семантический HTML](https://developer.mozilla.org/docs/Glossary/Semantics#semantics_in_html), добавляете перспективный CSS и в качестве последнего шага добавляете надежный JavaScript. {% endAside %}
 
-The default font size for form controls in most browsers is too small. To ensure your form controls are readable, change the font size with CSS:
+## Убедитесь, что элементы управления формами читаемы для всех
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '477f5e58a406c6f86bfbfc9da1f18a69',
-  height: 300
-} %}
+Размер шрифта по умолчанию для элементов управления формами в большинстве браузеров слишком мал. Чтобы элементы управления формы были читаемы, измените размер шрифта с помощью CSS:
 
-Increase the `font-size` and `line-height` to improve readability.
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/477f5e58a406c6f86bfbfc9da1f18a69?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;"></iframe>
+
+Увеличьте `font-size` и `line-height` для улучшения читабельности.
 
 ```css
 .form-element {
@@ -41,35 +36,31 @@ Increase the `font-size` and `line-height` to improve readability.
 }
 ```
 
-{% Aside %} For `font-size` use relative units such as `em` (relative to the base size of the element's parent) or `rem` (relative to the base size of the document) to ensure that size responds to user preference. Users can change the base `font-size` and all elements with a relative `font-size` will adjust automatically. For `line-height` use a [unitless value](https://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/) such as `1.5`, to keep the line height relative to the font size.
+!!!note ""
 
-Learn more about [pixels vs. relative units in CSS](https://www.24a11y.com/2019/pixels-vs-relative-units-in-css-why-its-still-a-big-deal/). {% endAside %}
+    Для `font-size` используются относительные единицы измерения, такие как `em` (относительно базового размера родительского элемента) или `rem` (относительно базового размера документа), чтобы размер соответствовал предпочтениям пользователя. Пользователи могут изменять базовый `font-size`, и все элементы с относительным `font-size` будут автоматически подстраиваться под него. Для `line-height` используйте [unitless value](https://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/), например `1.5`, чтобы сохранить высоту строки относительно размера шрифта.
 
-## Help users navigate through your form
+    Подробнее о [пиксели против относительных единиц в CSS](https://www.24a11y.com/2019/pixels-vs-relative-units-in-css-why-its-still-a-big-deal/).
 
-As a next step, change the layout of your form, and increase the spacing of form elements, to help users understand which elements belong together.
+## Помогите пользователям ориентироваться в форме
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'f2aca03916816074010e896f064f456a',
-  height: 450
-} %}
+В качестве следующего шага измените расположение формы и увеличьте расстояние между элементами формы, чтобы помочь пользователям понять, какие элементы находятся вместе.
 
-The `margin` CSS property increases space between elements, and the `padding` property increases space around the element's content.
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/f2aca03916816074010e896f064f456a?height=450&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;"></iframe>
 
-For the general layout, use [Flexbox](/learn/css/flexbox/) or [Grid](/learn/css/grid/). Learn more about [CSS layout methods](/learn/css/layout/).
+CSS-свойство `margin` увеличивает пространство между элементами, а свойство `padding` - пространство вокруг содержимого элемента.
 
-## Ensure form controls look like form controls
+Для общей компоновки используйте [Flexbox](../css3/flexbox.md) или [Grid](../css3/grid.md). Подробнее о [CSS методах компоновки](../css3/layout.md).
 
-Make it easy for people to fill out your form by using well-understood styles for your form controls. For example, style `<input>` elements with a solid border.
+## Убедитесь, что элементы управления формой выглядят как элементы управления формой
 
-{% Aside %} The default `<input>` border color is too light in many browsers. The lack of contrast can make the element hard to see, especially on mobile. [Open this demo](https://codepen.io/web-dot-dev/pen/9d0576454b3b2d0fc001addab70d25bc) in Chrome on Android to see the default styles. {% endAside %}
+Чтобы людям было удобно заполнять форму, используйте хорошо понятные стили для элементов управления формы. Например, для элементов `<input>` следует использовать сплошную границу.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'd0740e968b5c72a0cf180359e80f5efc',
-  height: 500
-} %}
+!!!note ""
+
+    Цвет границы `<input>`, используемый по умолчанию, во многих браузерах слишком светлый. Из-за недостаточного контраста элемент может быть плохо различим, особенно на мобильных устройствах. [Откройте эту демонстрацию](https://codepen.io/web-dot-dev/pen/9d0576454b3b2d0fc001addab70d25bc) в Chrome на Android, чтобы увидеть стили по умолчанию.
+
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/d0740e968b5c72a0cf180359e80f5efc?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;"></iframe>
 
 ```css
 input,
@@ -78,23 +69,21 @@ textarea {
 }
 ```
 
-## Help users submit your form
+## Помогите пользователям отправить вашу форму
 
-Consider using a `background` for your `<button>` to match your site style, and override or remove the default `border` styles.
+Рассмотрите возможность использования `background` для `<button>` в соответствии со стилем сайта, а также переопределите или удалите стили `border`, используемые по умолчанию.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'f0052d40806fd750362fa0abaab01dcf',
-  height: 500
-} %}
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/f0052d40806fd750362fa0abaab01dcf?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;"></iframe>
 
-{% Aside %} In modern browsers, you can style a `<button>` like any other element, so you should always use a semantic `<button>`, or `<input type="submit">`. Using the element built for the job provides many built-in usability and accessibility benefits that you won't get when using a generic element such as a `<div>`. You'll learn about the built-in features in other modules.
+!!!note ""
 
-Learn more about [reverting the default style of a `<button>`](https://archive.hankchizljaw.com/wrote/introducing-the-button-element/#heading-oh-these-are-hard-to-style-though). {% endAside %}
+    В современных браузерах `<button>` можно стилизовать, как и любой другой элемент, поэтому всегда следует использовать семантический `<button>` или `<input type="submit">`. Использование элемента, созданного для этой задачи, дает множество встроенных преимуществ в плане удобства использования и доступности, которые вы не получите при использовании типового элемента, такого как `<div>`. О встроенных возможностях вы узнаете в других модулях.
 
-## Help users understand the current state
+    Подробнее о [изменении стиля по умолчанию для `<button>`](https://archive.hankchizljaw.com/wrote/introducing-the-button-element/#heading-oh-these-are-hard-to-style-though).
 
-Browsers apply a default style for `:focus`. You can override the styles for `:focus` to match the color to your brand.
+## Помочь пользователям понять текущее состояние
+
+Браузеры применяют стиль по умолчанию для `:focus`. Вы можете переопределить стили для `:focus`, чтобы подобрать цвет в соответствии с вашим брендом.
 
 ```css
 button:focus {
@@ -102,17 +91,17 @@ button:focus {
 }
 ```
 
-{% Aside %} Only remove the `outline` on `:focus` if you also add other appropriate focus styles, to ensure that default and focus styles are distinguishable.
+!!!note ""
 
-Learn more about [designing focus indicators](https://www.sarasoueidan.com/blog/focus-indicators/). {% endAside %}
+    Удаляйте `outline` в `:focus` только в том случае, если вы также добавили другие соответствующие стили фокуса, чтобы обеспечить различимость стилей по умолчанию и фокуса.
 
-{% Assessment 'styling' %}
+    Подробнее о [разработке индикаторов фокуса](https://www.sarasoueidan.com/blog/focus-indicators/).
 
-## Resources
+## Ресурсы
 
--   [Learn CSS](/learn/css)
--   [CSS layout methods](/learn/css/layout)
--   [Designing focus indicators](https://www.sarasoueidan.com/blog/focus-indicators/)
--   [Reverting the default style of a `<button>`](https://archive.hankchizljaw.com/wrote/introducing-the-button-element/#heading-oh-these-are-hard-to-style-though).
+-   [Учим CSS](../css3/index.md)
+-   [Методы верстки CSS](../css3/layout.md)
+-   [Проектирование индикаторов фокуса](https://www.sarasoueidan.com/blog/focus-indicators/)
+-   [Изменение стиля по умолчанию для `<button>`](https://archive.hankchizljaw.com/wrote/introducing-the-button-element/#heading-oh-these-are-hard-to-style-though).
 
 :material-information-outline: Источник &mdash; [Styling forms](https://web.dev/learn/forms/styling/)

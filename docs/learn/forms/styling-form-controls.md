@@ -1,30 +1,31 @@
 ---
 description: Узнайте, как реализовать элементы управления формами с помощью CSS.
+icon: material/border-style
 ---
 
 # Стилизация элементов управления формы
 
 <big>Узнайте, как реализовать элементы управления формами с помощью CSS.</big>
 
-In this module you learn how to style form controls, and how to match your other site styles.
+В этом модуле вы узнаете, как придать стиль элементам управления формы и как совместить их со стилями других сайтов.
 
-{% Aside 'caution' %} Styling HTML form controls can be a challenge, but you should still use built-in elements wherever possible. Elements such as `<input>` and `<button>` are widely supported across browsers and platforms, and have built-in features that enhance usability and accessibility, which you don't need to implement yourself. Using a `<div>` instead doesn't provide these benefits. {% endAside %}
+!!!warning ""
 
-## Help users select an option
+    Стилизация HTML элементов управления формами может быть непростой задачей, но все же по возможности следует использовать встроенные элементы. Такие элементы, как `<input>` и `<button>`, широко поддерживаются всеми браузерами и платформами и имеют встроенные функции, повышающие удобство использования и доступность, которые не нужно реализовывать самостоятельно. Использование вместо них `<div>` не дает таких преимуществ.
 
-### The `<select>` element
+## Помогите пользователям выбрать вариант
 
-The default styles of a `<select>` element don't look great, and the appearance is inconsistent between browsers.
+### Элемент `<select>`
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: 'eea33ada7ec976aa5791a5cd14756c34',
-  height: 300
-} %}
+Стили элемента `<select>`, используемые по умолчанию, выглядят не лучшим образом, и в разных браузерах они несовместимы.
 
-{% Aside %} You can also use an `<input>` in combination with the [`<datalist>`](https://developer.mozilla.org/docs/Web/HTML/Element/datalist) element. This gives you a combination of a text field and a list of `<option>` elements. You can see examples of [`<datalist>`](http://simpl.info/datalist) here. {% endAside %}
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/eea33ada7ec976aa5791a5cd14756c34?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;"></iframe>
 
-First, let's change the arrows.
+!!!note ""
+
+    Можно также использовать `<input>` в сочетании с элементом [`<datalist>`](../../html/datalist.md). Это позволяет получить комбинацию текстового поля и списка элементов `<option>`. Примеры использования элемента [`<datalist>`](http://simpl.info/datalist) можно посмотреть здесь.
+
+Для начала изменим стрелки.
 
 ```css
 select {
@@ -39,45 +40,41 @@ select {
 }
 ```
 
-To remove the default arrows of a `<select>` element, use the CSS [`appearance`](https://developer.mozilla.org/docs/Web/CSS/appearance) property. To show the arrow of your choice, define the arrow as a `background`.
+Чтобы убрать стрелки, установленные по умолчанию в элементе `<select>`, используйте свойство CSS [`appearance`](../../css/appearance.md). Чтобы показать стрелку по своему выбору, определите ее как `background`.
 
-{% Aside %} To ensure the best cross-browser compatibility, you must also include the prefixed versions of `appearance`: `-moz-appearance` and `-webkit-appearance`.
+!!!note ""
 
-[Learn more about vendor prefixes](https://developer.mozilla.org/docs/Glossary/Vendor_Prefix#css_prefixes). {% endAside %}
+    Для обеспечения наилучшей кроссбраузерной совместимости необходимо также включить версии `appearance` с префиксами: `-moz-appearance` и `-webkit-appearance`.
 
-You should also change the `font-size` to at least `1rem` (which for most browsers has a default value of 16px) for your `<select>` element. Doing so will prevent a page zoom on iOS Safari when the form control is focused.
+    [Подробнее о префиксах производителей](https://developer.mozilla.org/docs/Glossary/Vendor_Prefix#css_prefixes).
 
-You can, of course, also change the element colors to match your brand colors. After adding some more styles for spacing, `:hover`, and `:focus`, the appearance of the `<select>` element is now consistent between browsers.
+Для элемента `<select>` также следует изменить `font-size` на значение не менее `1rem` (которое для большинства браузеров по умолчанию равно `16px`). Это позволит предотвратить масштабирование страницы в iOS Safari при фокусировке элемента управления формой.
 
-See this in the following demo from [Styling a Select Like It’s 2019](https://www.filamentgroup.com/lab/select-css.html)
+Разумеется, можно также изменить цвета элементов в соответствии с фирменными цветами. После добавления еще нескольких стилей для интервалов, `:hover` и `:focus` внешний вид элемента `<select>` стал единообразным в разных браузерах.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '2f6101907a292463bccd8d7a72d09554',
-  height: 300
-} %}
+В этом можно убедиться на примере следующей демонстрации из [Styling a Select Like It's 2019](https://www.filamentgroup.com/lab/select-css.html)
 
-What about the `<option>` element? The `<option>` element is a so-called [replaced element](https://developer.mozilla.org/docs/Web/CSS/Replaced_element) whose representation is outside the scope of CSS. As of this writing, you can't style the `<option>` element.
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/2f6101907a292463bccd8d7a72d09554?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;"></iframe>
 
-{% Aside %} There is an ongoing proposal to allow web developers to style and extend built-in web UI controls, including `<select>` and `<option>` elements. This would make it easier to style form controls in the future.
+Что касается элемента `<option>`? Элемент `<option>` - это так называемый [замененный элемент](https://developer.mozilla.org/docs/Web/CSS/Replaced_element), представление которого находится за пределами CSS. На данный момент стилизация элемента `<option>` невозможна.
 
-Learn more about [Open UI](https://open-ui.org). {% endAside %}
+!!!note ""
 
-### Checkboxes and Radio buttons
+    В настоящее время существует предложение разрешить веб-разработчикам стилизовать и расширять встроенные элементы управления веб-интерфейсом, включая элементы `<select>` и `<option>`. Это позволит в будущем упростить стилизацию элементов управления формами.
 
-The appearance of `<input type="checkbox">` and `<input type="radio">` varies across browsers.
+    Подробнее о [Open UI](https://open-ui.org).
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '74d28931d0c0e9aacc89f62380f365e4',
-  height: 400
-} %}
+### Чекбоксы и радиокнопки
 
-Open the [demo](https://codepen.io/web-dot-dev/pen/74d28931d0c0e9aacc89f62380f365e4) on various browsers to see the difference. Let's see how to make sure that checkboxes and radio buttons match your brand and look the same cross-browser.
+Внешний вид кнопок `<input type="checkbox">` и `<input type="radio">` различается в разных браузерах.
 
-In the past, developers could not style `<input type="checkbox">` and `<input type="radio">` controls directly. [Checkboxes and radio buttons can be styled via their pseudo elements](https://www.scottohara.me/blog/2021/09/24/custom-radio-checkbox-again.html), now. Or the following replacement technique can be used to create custom styles for these elements.
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/74d28931d0c0e9aacc89f62380f365e4?height=400&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;"></iframe>
 
-First, hide the default checkbox and radio button visually.
+Откройте [demo](https://codepen.io/web-dot-dev/pen/74d28931d0c0e9aacc89f62380f365e4) в разных браузерах, чтобы увидеть разницу. Давайте посмотрим, как сделать так, чтобы флажки и радиокнопки соответствовали вашему бренду и выглядели одинаково в разных браузерах.
+
+Раньше разработчики не могли напрямую стилизовать элементы управления `<input type="checkbox">` и `<input type="radio">`. Теперь же [Checkbox'ы и радиокнопки можно стилизовать через их псевдоэлементы](https://www.scottohara.me/blog/2021/09/24/custom-radio-checkbox-again.html). Или же для создания пользовательских стилей для этих элементов можно использовать следующую технику замены.
+
+Сначала визуально скройте стандартные флажок и радиокнопку.
 
 ```css
 input[type='radio'],
@@ -87,9 +84,9 @@ input[type='checkbox'] {
 }
 ```
 
-It's important to use `position: absolute` in combination with `opacity: 0` instead of `display: none` or `visibility: hidden` so that the controls are only visually hidden. This will ensure they are still exposed by the browser's [accessibility tree](/the-accessibility-tree/). Note that further styling may be needed to ensure that the visually hidden form controls remain positioned "on top" of their replacement elements. Doing so will help ensure that hovering over one of these elements, when a screen reader is on, or when using touch devices with screen readers enabled, the visually hidden controls will be discoverable if exploring by touch, and the screen reader's visible focus indicator will generally appear in the location the controls are rendered on screen.
+Важно использовать `position: absolute` в сочетании с `opacity: 0` вместо `display: none` или `visibility: hidden`, чтобы элементы управления были скрыты только визуально. Это обеспечит их отображение в дереве доступности браузера. Обратите внимание, что может потребоваться дополнительная стилизация для того, чтобы визуально скрытые элементы управления формой оставались расположенными "поверх" элементов-заменителей. Это поможет обеспечить наведение курсора на один из этих элементов при включенном устройстве чтения с экрана или при использовании сенсорных устройств с включенными устройствами чтения с экрана, при этом визуально скрытые элементы управления можно будет обнаружить при исследовании с помощью прикосновения, а видимый индикатор фокуса устройства чтения с экрана, как правило, будет отображаться в том месте, где элементы управления отображаются на экране.
 
-To show your custom checkboxes and radio buttons, you have different options. You use the `::before` CSS pseudo-element and the CSS `background` property, or use inline SVG images.
+Для отображения пользовательских флажков и радиокнопок существуют различные варианты. Можно использовать псевдоэлемент CSS `::before` и свойство CSS `background`, а также использовать встроенные SVG-изображения.
 
 ```css
 input[type='radio'] + label::before {
@@ -107,21 +104,19 @@ input[type='radio']:checked + label::before {
 }
 ```
 
-{% Aside %} Styled form controls must be easy to understand and use. People are used to a checkbox that looks like a checkbox, so make sure when you style a form control that users still understand how to use it. {% endAside %}
+!!!note ""
 
-There are a lot of possibilities with CSS to ensure checkboxes and radio buttons match your brand styles.
+    Стилизованные элементы управления формой должны быть просты для понимания и использования. Люди привыкли к флажку, который выглядит как флажок, поэтому при стилизации элемента управления формы убедитесь, что пользователи все равно понимают, как им пользоваться.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '433b6d50b9d7d706e31ee5a638790c3d',
-  height: 400
-} %}
+С помощью CSS существует множество возможностей для обеспечения соответствия флажков и радиокнопок фирменному стилю.
 
-Learn more about [styling `<input type="checkbox">`, and `<input type="radio">`](https://www.sarasoueidan.com/blog/inclusively-hiding-and-styling-checkboxes-and-radio-buttons/) and [custom checkbox styles](https://moderncss.dev/pure-css-custom-checkbox-style/).
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/433b6d50b9d7d706e31ee5a638790c3d?height=400&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;"></iframe>
 
-## How to use your site's colors for form controls
+Подробнее о [стилях `<input type="checkbox">` и `<input type="radio">`](https://www.sarasoueidan.com/blog/inclusively-hiding-and-styling-checkboxes-and-radio-buttons/) и [пользовательских стилях чекбоксов](https://moderncss.dev/pure-css-custom-checkbox-style/).
 
-Do you want to bring your site styles to form controls with one line of code? You can use the [`accent-color`](/accent-color/) CSS property to achieve this.
+## Как использовать цвета сайта для элементов управления формы
+
+Хотите привнести стили сайта в элементы управления формы с помощью одной строки кода? Для этого можно использовать CSS-свойство `accent-color`.
 
 ```css
 checkbox {
@@ -129,15 +124,15 @@ checkbox {
 }
 ```
 
-{% Aside %} As of this writing, only Chrome, Firefox and Edge support `accent-color`. To ensure cross-browser compatibility, you might want to use workarounds until `accent-color` is supported in all platforms. {% endAside %}
+!!!note ""
 
-{% Assessment 'styling-form-controls' %}
+    На данный момент только Chrome, Firefox и Edge поддерживают `accent-color`. Чтобы обеспечить кроссбраузерную совместимость, до тех пор, пока `accent-color` не будет поддерживаться на всех платформах, лучше использовать обходные пути.
 
-## Resources
+## Ресурсы
 
--   [Accent color](/accent-color/)
--   [Styling the `<select>` element](https://www.filamentgroup.com/lab/select-css.html)
--   [The Accessibility of Styled Form Controls](https://scottaohara.github.io/a11y_styled_form_controls/)
+-   [Accent color](https://web.dev/articles/accent-color)
+-   [Стилизация элемента `<select>`](https://www.filamentgroup.com/lab/select-css.html)
+-   [Доступность элементов управления стилизованных форм](https://scottaohara.github.io/a11y_styled_form_controls/)
 -   [Open UI](https://open-ui.org)
 
 :material-information-outline: Источник &mdash; [Styling form controls](https://web.dev/learn/forms/styling-form-controls/)

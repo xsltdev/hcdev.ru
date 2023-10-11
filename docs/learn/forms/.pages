@@ -16,9 +16,9 @@ nav:
     - data.md
     - form.md
     - fields.md
-    #- attributes.md
-    #- styling.md
-    #- styling-form-controls.md
+    - attributes.md
+    - styling.md
+    - styling-form-controls.md
     #- javascript.md
     #- identity.md
     #- payment.md

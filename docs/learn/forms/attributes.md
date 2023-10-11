@@ -1,69 +1,74 @@
 ---
 description: Узнайте все об атрибутах формы - как изменить расположение экранных клавиатур, активировать встроенную валидацию и многое другое.
+icon: material/attachment
 ---
 
 # Подробно об атрибутах формы
 
 <big>Узнайте все об атрибутах формы: как изменить расположение экранных клавиатур, активировать встроенную валидацию и многое другое.</big>
 
-HTML element attributes can enhance your `<form>` and form controls.
+Атрибуты HTML-элементов могут улучшить `<form>` и элементы управления формы.
 
-## Help users fill in form controls
+## Помогите пользователям заполнять элементы управления формами
 
-To make it easier for users to fill out forms, use an appropriate `type` attribute for your `<input>` elements.
+Чтобы облегчить пользователям заполнение форм, используйте соответствующий атрибут `type` для элементов `<input>`.
 
-Browsers display a user interface appropriate for the `type`, such as a date picker for an `<input>` of type `date`. Browsers on mobile devices show an adapted on-screen keyboard, such as a telephone number keypad for `type="tel"`.
+Браузеры отображают пользовательский интерфейс, соответствующий `типу`, например, переключатель даты для `<input>` типа `date`. Браузеры на мобильных устройствах отображают адаптированную экранную клавиатуру, например, клавиатуру телефонного номера для `type="tel"`.
 
-Some `<input>` types also change validation rules for an element when its form is submitted. `<input type="url">`, for example, is only valid if it's not empty and the value is a URL.
+Некоторые типы `<input>` также изменяют правила валидации элемента при отправке формы. `<input type="url">`, например, действителен только в том случае, если он не пуст и его значением является URL.
 
-## Ensure users enter data
+## Обеспечьте ввод данных пользователями
 
-There are different attributes for providing an appropriate on-screen keyboard on touch devices. The first option is to use the `type` attribute, as mentioned above.
+Существуют различные атрибуты для обеспечения соответствующей экранной клавиатуры на сенсорных устройствах. Первый вариант - это использование атрибута `type`, о котором говорилось выше.
 
-Another option is the `inputmode` attribute supported on [Android and iOS](https://caniuse.com/?search=inputmode). In contrast to the `type` attribute, the `inputmode` attribute only changes the on-screen keyboard provided, not the behavior of the element itself. Using `inputmode` is a good option if you want to keep the default user interface and the default validation rules of an `<input>`, but still want an optimized on-screen keyboard.
+Другой вариант - атрибут `inputmode`, поддерживаемый на [Android и iOS](https://caniuse.com/?search=inputmode). В отличие от атрибута `type`, атрибут `inputmode` изменяет только предоставляемую экранную клавиатуру, а не поведение самого элемента. Использование `inputmode` является хорошим вариантом, если вы хотите сохранить стандартный пользовательский интерфейс и стандартные правила валидации для `<input>`, но при этом хотите получить оптимизированную экранную клавиатуру.
 
-{% Aside 'caution' %} Use `type="number"` only for incremental fields such as the quantity of a product. Browsers show an up/down arrow for `type="number"` which makes no sense for telephone numbers, payment card or account numbers. For telephone numbers, use `type="tel"`. For other numbers, use `inputmode="numeric"` to get a numeric on-screen keyboard. {% endAside %}
+!!!note ""
 
-{% Img src="image/tcFciHGuF3MxnTr1y5ue01OGLBn2/bi7J9Z1TLP4IsQLyhbQm.jpg",
-alt="Two screenshots of Android phones, showing a keyboard appropriate for entering an email addresses (using type=email) and for entering a telephone number (with type=tel).", width="800", height="696" %}
+    Используйте `type="number"` только для инкрементных полей, таких как количество товара. Браузеры показывают стрелку вверх/вниз для `type="number"`, что не имеет смысла для телефонных номеров, номеров платежных карт или счетов. Для телефонных номеров используйте `type="tel"`. Для других номеров используйте `inputmode="numeric"`, чтобы получить цифровую экранную клавиатуру.
 
-You can change the `Enter` key on on-screen keyboards with the `enterkeyhint` attribute. For example, `enterkeyhint="next"` or `enterkeyhint="done"` changes the button label to an appropriate icon. This helps make it clearer for users what happens when they submit the current form.
+![Два скриншота телефонов на платформе Android, на которых показана клавиатура, предназначенная для ввода адреса электронной почты (с type=email) и для ввода номера телефона (с type=tel).](attributes-1.jpg)
 
-{% Img src="image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QoY8Oynpw0CqjPACtCdG.png",
-alt="Two screenshots of an address form on Android showing how the enterkeyhint input attribute changes the enter key button icon.", width="800", height="696" %}
+С помощью атрибута `enterkeyhint` можно изменить значение клавиши `Enter` на экранных клавиатурах. Например, `enterkeyhint="next"` или `enterkeyhint="done"` изменяет метку кнопки на соответствующий значок. Таким образом, пользователю становится понятнее, что происходит при отправке текущей формы.
 
-{% Aside 'warning' %} Automatically focusing a form control using the `autofocus` attribute can confuse people, including screen reader users and people with cognitive impairments. Therefore, our advice is that you should not use the `autofocus` attribute. {% endAside %}
+![Два скриншота формы адреса на Android, показывающие, как атрибут ввода enterkeyhint изменяет значок кнопки ввода.](attributes-2.png)
 
-## Ensure users can submit a form
+!!!warning ""
 
-Say, you fill out a `<form>`, click the **Submit** button, but nothing happens. The issue may be that the button has been disabled with the `disabled` attribute. It's a common pattern to disable the **Submit** button until the form is valid.
+    Автоматическая фокусировка элемента управления формы с помощью атрибута `autofocus` может сбить с толку людей, в том числе пользователей программ чтения с экрана и людей с когнитивными нарушениями. Поэтому мы рекомендуем не использовать атрибут `autofocus`.
 
-In theory this sounds sensible, but you shouldn't disable a **Submit** button while waiting on complete and valid user input. Instead, highlight invalid data when it's entered, and highlight problematic fields to the user when they submit the form.
+## Убедитесь, что пользователи могут отправить форму
 
-However, you may want to disable the **Submit** button once the form is successfully submitted, but not yet processed. Learn more about [disabled buttons](https://www.smashingmagazine.com/2021/08/frustrating-design-patterns-disabled-buttons/#when-disabled-buttons-and-states-work-well).
+Допустим, вы заполнили `<form>`, нажали кнопку **Submit**, но ничего не произошло. Проблема может заключаться в том, что кнопка была отключена с помощью атрибута `disabled`. Обычно кнопка **Submit** отключается до тех пор, пока форма не станет действительной.
 
-## Help users by showing the data they previously entered
+Теоретически это звучит разумно, но не стоит отключать кнопку **Submit** в ожидании полного и корректного ввода данных пользователем. Вместо этого выделите недопустимые данные при их вводе и выделите проблемные поля при отправке формы пользователю.
 
-Imagine you have a checkout form with multiple steps. How do you ensure the previously entered values are still there when the user returns to a previous step? Use the `value` attribute to show values already completed.
+Однако вы можете отключить кнопку **Submit** после того, как форма успешно отправлена, но еще не обработана. Подробнее о [отключенных кнопках](https://www.smashingmagazine.com/2021/08/frustrating-design-patterns-disabled-buttons/#when-disabled-buttons-and-states-work-well).
+
+## Помогите пользователям, показывая введенные ими ранее данные
+
+Представьте, что у вас есть форма оформления заказа, состоящая из нескольких шагов. Как обеспечить сохранение ранее введенных значений, когда пользователь возвращается на предыдущий шаг? Используйте атрибут `value` для отображения уже введенных значений.
 
 ```html
 <label for="name">Name</label>
 <input value="Hilda" name="name" id="name" type="text" />
 ```
 
-There are multiple ways to retrieve the value of a form control in JavaScript. You can use the [`value`](https://developer.mozilla.org/docs/Web/HTML/Element/input#attr-value) property, or you can access the value with [`getAttribute('value')`](https://developer.mozilla.org/docs/Web/API/Element/getAttribute). There is one big difference, the `value` property always returns the current value, and using `getAttribute()` always returns the initial value.
+В JavaScript существует несколько способов получения значения элемента управления формы. Можно использовать свойство [`value`](https://developer.mozilla.org/docs/Web/HTML/Element/input#attr-value), а можно получить доступ к значению с помощью [`getAttribute('value')`](https://developer.mozilla.org/docs/Web/API/Element/getAttribute). Есть одно существенное отличие - свойство `value` всегда возвращает текущее значение, а использование `getAttribute()` всегда возвращает начальное значение.
 
-[Try it out](https://codepen.io/web-dot-dev/pen/20359edfc39a65c291c3c186a33ab0db?editors=0011)! Change the text of the name field and watch the console. Notice how the `value` property returns the currently visible text, while `getAttribute('value')` always returns the initial value.
+[Попробуйте](https://codepen.io/web-dot-dev/pen/20359edfc39a65c291c3c186a33ab0db?editors=0011)! Измените текст поля name и посмотрите в консоль. Обратите внимание, что свойство `value` возвращает текущий видимый текст, а `getAttribute('value')` всегда возвращает начальное значение.
 
-Learn more about the difference between [DOM attributes and DOM properties](https://stackoverflow.com/questions/6003819/what-is-the-difference-between-properties-and-attributes-in-html/6004028#6004028).
+Подробнее о разнице между [DOM-атрибутами и DOM-свойствами](https://stackoverflow.com/questions/6003819/what-is-the-difference-between-properties-and-attributes-in-html/6004028#6004028).
 
-{% Aside %} To get all form control values use [`FormData`](https://developer.mozilla.org/docs/Web/API/FormData). The `FormData` object is a set of key/value pairs representing the form controls, and the format is the same as the [`submit()`](https://developer.mozilla.org/docs/Web/API/HTMLFormElement/submit) method uses. {% endAside %}
+!!!note ""
 
-For `<input>` elements of type `checkbox` or `radio` use the `checked` attribute. Add it if the user selected an option and remove it otherwise.
+    Чтобы получить все значения элементов управления формы, используйте метод [`FormData`](https://developer.mozilla.org/docs/Web/API/FormData). Объект `FormData` представляет собой набор пар ключ/значение, представляющих элементы управления формы, и имеет тот же формат, что и метод [`submit()`](https://developer.mozilla.org/docs/Web/API/HTMLFormElement/submit).
 
-## Ensure users understand the expected format
+Для элементов `<input>` типа `checkbox` или `radio` используется атрибут `checked`. Добавьте его, если пользователь выбрал опцию, и удалите в противном случае.
 
-The value of the `placeholder` attribute is a hint for what kind of information is expected.
+## Убедитесь, что пользователи понимают ожидаемый формат.
+
+Значение атрибута `placeholder` является подсказкой, какого рода информация ожидается.
 
 ```html
 <label for="name">Name</label>
@@ -75,31 +80,25 @@ The value of the `placeholder` attribute is a hint for what kind of information 
 />
 ```
 
-This may confuse users, as it may seem illogical why a form control appears to be already prefilled. In addition, adding a placeholder can make it difficult to see which form fields still need to be completed. Furthermore, the default style of placeholder text can be hard to read.
+Это может ввести пользователей в заблуждение, поскольку может показаться нелогичным, почему элемент управления формы оказывается уже заполненным. Кроме того, добавление заполнителя может затруднить понимание того, какие поля формы еще необходимо заполнить. Кроме того, стандартный стиль текста заполнителя может быть трудночитаемым.
 
-In general, be cautious when using the `placeholder` attribute and never use the `placeholder` attribute to explain a form control. Use the `<label>` element instead. Learn more about [why you should consider avoiding the `placeholder` attribute](https://www.smashingmagazine.com/2018/06/placeholder-attribute/).
+В общем, будьте осторожны при использовании атрибута `placeholder` и никогда не используйте атрибут `placeholder` для пояснения элемента управления формой. Вместо него используйте элемент `<label>`. Подробнее о [почему следует избегать атрибута `placeholder`](https://www.smashingmagazine.com/2018/06/placeholder-attribute/).
 
-A better way to give users a hint about what kind of information is expected is to use an extra HTML element beneath the form control to add an explanation or example.
+Лучший способ дать пользователям подсказку о том, какая информация ожидается, - использовать дополнительный HTML-элемент под элементом управления формой, чтобы добавить пояснение или пример.
 
-{% Codepen {
-  user: 'web-dot-dev',
-  id: '90199b1fdcbfbcea425686884344352d',
-  height: 300
-} %}
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/90199b1fdcbfbcea425686884344352d?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;"></iframe>
 
-## Ensure form controls are ready for validation
+## Убедитесь, что элементы управления формы готовы к валидации
 
-There are various HTML attributes available to activate built-in validation. Use the `required` attribute to prevent the submission of empty fields. Additional validations can be enforced with the `type` attribute. For example, the value of a required `<input>` of `type="url"` must be a URL.
+Для активации встроенной проверки существуют различные HTML-атрибуты. Для предотвращения ввода пустых полей используйте атрибут `required`. Дополнительные проверки могут быть выполнены с помощью атрибута `type`. Например, значение обязательного `<input>` с `type="url"` должно быть URL.
 
-To ensure a user enters a minimum number of characters, use the `minlength` attribute. To disallow any value with more than a maximum number of characters, use the `maxlength` attribute. For numeric input types such as `<input type="number">`, use the `min` and `max` attribute instead.
+Чтобы убедиться, что пользователь вводит минимальное количество символов, используйте атрибут `minlength`. Чтобы запретить ввод значения, превышающего максимальное количество символов, используйте атрибут `maxlength`. Для числовых типов ввода, таких как `<input type="number">`, вместо этого используйте атрибуты `min` и `max`.
 
-Find out more about validation: [Help users enter the right data in forms](/learn/forms/validation/).
-
-{% Assessment 'attributes' %}
+Подробнее о валидации: [Помогите пользователям вводить правильные данные в формы](validation.md).
 
 ## Resources
 
--   [`<input>` HTML attributes](https://developer.mozilla.org/docs/Web/HTML/Element/input#attributes)
--   [Global HTML attributes](https://developer.mozilla.org/docs/Web/HTML/Global_attributes)
+-   [Атрибуты `<input>`](../../html/input.md#атрибуты)
+-   [Глобальные атрибуты](../../html/uni-attr.md)
 
 :material-information-outline: Источник &mdash; [Form attributes in depth](https://web.dev/learn/forms/attributes/)
