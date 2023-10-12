@@ -1,100 +1,71 @@
 ---
-title: Payment forms
-description: >
-  Improve conversion rates by building better payment forms.
-authors:
-  - michaelscharnagl
-date: 2021-11-03
+description: Повышение конверсии за счет создания более совершенных форм оплаты.
+icon: material/hand-coin-outline
 ---
 
-{% Aside %}  
-This module is about payment forms and doesn't explain how to implement transactions on your site. 
-You can add payment functionality by implementing [Web Payments](/payments/), 
-or using a third-party payment platform.  
-{% endAside %}
+# Формы оплаты
 
-The payment form is often the last step before completing a purchase. 
-To maximize conversions, ensure your payment form is user-friendly and secure.
+<big>Повышение конверсии за счет создания более совершенных форм оплаты.</big>
 
-{% Codepen {  
-  user: 'web-dot-dev',  
-  id: '0f0da240784a36da7fa958018af29f3f',  
-  height: 500  
-} %}
+!!!note ""
 
-## Ensure users know what to fill in
+    Этот модуль посвящен формам оплаты и не объясняет, как реализовать транзакции на вашем сайте. Вы можете добавить платежную функциональность, реализовав [Web Payments](https://web.dev/explore/payments) или используя стороннюю платежную платформу.
 
-Keep your payment form as simple as possible, 
-showing only required fields.
+Форма оплаты часто является последним шагом перед совершением покупки. Чтобы максимально увеличить конверсию, убедитесь, что форма оплаты удобна для пользователя и безопасна.
 
-{% Aside %}  
-You don't need to add a selector for the card type—that's worked out automatically by the payment processor from the card number. 
-However, you may want to enhance your card number field by indicating the card type based on the entered number. 
-You can use a [regex](https://gist.github.com/michaelkeevildown/9096cd3aac9029c4e6e05588448a8841) to test the card type, 
-and show the brand logo next to the card number `<input>`.  
-{% endAside %}
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/0f0da240784a36da7fa958018af29f3f?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;"></iframe>
 
-Indicate the payment amount. 
-The **Submit** button is ideal for that.
+## Убедитесь, что пользователи знают, что нужно заполнять
 
-```html  
-<button>Pay $300.00</button>  
+Максимально упростите форму оплаты, отображая только обязательные поля.
+
+!!!note ""
+
+    Нет необходимости добавлять селектор для типа карты - он автоматически вычисляется платежным процессором на основе номера карты. Однако, возможно, вы захотите расширить поле номера карты, указав тип карты на основе введенного номера. Для проверки типа карты можно использовать [regex](https://gist.github.com/michaelkeevildown/9096cd3aac9029c4e6e05588448a8841), а рядом с номером карты `<input>` показать логотип бренда.
+
+Укажите сумму платежа. Для этого идеально подходит кнопка **Submit**.
+
+```html
+<button>Pay $300.00</button>
 ```
 
-Use self-explanatory wordings for your `<label>` elements. 
-For example, use 'Security code', 
-instead of an acronym like 'CVV' that's only used by some brands.
+Используйте для элементов `<label>` формулировки, не требующие пояснений. Например, используйте "Код безопасности", а не аббревиатуру типа "CVV", которая используется только некоторыми брендами.
 
-{% Aside %}  
-Use a single `<input>` for each of the name and card number fields. Keep the user in typing mode, 
-and don't waste their time by forcing them to jump between multiple name or card number fields.  
-{% endAside %}
+!!!note ""
 
-## Help users enter their payment details
+    Используйте один элемент `<input>` для каждого из полей имени и номера карты. Держите пользователя в режиме набора текста и не тратьте его время, заставляя переходить между несколькими полями имени или номера карты.
 
-To maximize conversions, ensure users can fill out your payment form as quickly as possible.
+## Помогите пользователям ввести платежные реквизиты
 
-Use `inputmode="numeric"` for the card number and security code fields 
-to show an optimized on-screen keyboard for entering numbers.
+Чтобы увеличить конверсию, позаботьтесь о том, чтобы пользователи могли заполнить платежную форму как можно быстрее.
 
-{% Aside 'caution' %}  
-Use `type="number"` only for incremental fields, 
-for example, the quantity of a product. 
-Browsers show an up/down arrow for `type="number"` 
-which makes no sense for payment card numbers.   
-{% endAside %}
+Используйте `inputmode="numeric"` для полей номера карты и кода безопасности, чтобы отобразить оптимизированную экранную клавиатуру для ввода цифр.
 
-Add appropriate `autocomplete` values for your payment form controls to ensure browsers offer autofill. 
-Use `autocomplete="cc-name"` for the name, 
-`autocomplete="cc-number"` for the card number, and `autocomplete="cc-exp"` for the expiry date.
+!!!warning ""
 
-{% Aside %}  
-You can help users fill in the correct format for expiry date by using an 
-[input mask](https://css-tricks.com/input-masking/). 
-Test with real users, using only your keyboard, 
-and a screen reader such as [VoiceOver](https://www.youtube.com/watch?v=5R-6WvAihms&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=6) 
-on Mac or [NVDA](https://www.nvaccess.org/) on Windows to ensure the input is still accessible.  
-{% endAside %}
+    Используйте `type="number"` только для инкрементных полей, например, количества товара. Браузеры показывают стрелку вверх/вниз для `type="number"`, что не имеет смысла для номеров платежных карт.
 
-## Ensure users enter data in the correct format
+Добавьте соответствующие значения `autocomplete` для элементов управления платежной формы, чтобы браузеры обеспечивали автозаполнение. Используйте `autocomplete="cc-name"` для имени, `autocomplete="cc-number"` для номера карты и `autocomplete="cc-exp"` для даты истечения срока действия.
 
-Use the `required` attribute for every `<input>` to ensure users fill out the complete form. 
+!!!note ""
 
-Payment card security codes can be three or four digits. 
-Use `minlength="3"` and `maxlength="4"` to only allow three and four digits.
+    Помочь пользователям заполнить правильный формат даты истечения срока действия можно с помощью [маски ввода](https://css-tricks.com/input-masking/). Чтобы убедиться в доступности ввода, протестируйте его на реальных пользователях, используя только клавиатуру и программу чтения с экрана, например [VoiceOver](https://www.youtube.com/watch?v=5R-6WvAihms&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=6) на Mac или [NVDA](https://www.nvaccess.org/) на Windows.
 
-Ensure users only enter numbers for the card number and security code. 
-Use `pattern="[0-9 ]+"` to allow users to include spaces when entering a card number, 
-since this is how the numbers are displayed on the physical cards. 
+## Убедитесь, что пользователи вводят данные в правильном формате
 
-{% Aside %}  
-Payment card brands use different formats, 
-for example, for card numbers and security codes. 
-Always test your payment form with every card type you support. 
-Ensure your validation rules consider every possible format.  
-{% endAside %}
+Используйте атрибут `required` для каждого `<input>`, чтобы пользователи заполняли форму полностью.
 
-## Resources
+Коды безопасности платежных карт могут состоять из трех или четырех цифр. Используйте `minlength="3"` и `maxlength="4"`, чтобы разрешить ввод только трех и четырех цифр.
 
--  [Payment and address forms best practices](/payment-and-address-form-best-practices).
--  [Web Payments](/payments/).
+Убедитесь, что пользователи вводят только цифры для номера карты и кода безопасности. Используйте `pattern="[0-9 ]+"`, чтобы разрешить пользователям включать пробелы при вводе номера карты, поскольку именно так они отображаются на физических картах.
+
+!!!note ""
+
+    Бренды платежных карт используют различные форматы, например, для номеров карт и кодов безопасности. Всегда тестируйте свою платежную форму с каждым поддерживаемым типом карт. Убедитесь, что правила валидации учитывают все возможные форматы.
+
+## Ресурсы
+
+-   [Лучшие практики использования платежных и адресных форм](https://web.dev/articles/payment-and-address-form-best-practices).
+-   [Платежные веб-формы](https://web.dev/explore/payments).
+
+:material-information-outline: Источник &mdash; [Payment forms](https://web.dev/learn/forms/payment)

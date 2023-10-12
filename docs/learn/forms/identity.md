@@ -75,7 +75,7 @@ icon: material/account
 
 <iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/bd8577c5380c436dba2788c7a2c8652a?height=300&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" ></iframe>
 
-Подробнее о [реализации функции раскрытия пароля `<кнопки>`] (javascript.md#ensure-users-can-see-the-password-they-entered).
+Подробнее о [реализации функции раскрытия пароля `<button>`](javascript.md#ensure-users-can-see-the-password-they-entered).
 
 ## Убедитесь в работоспособности форм входа и регистрации
 

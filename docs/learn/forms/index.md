@@ -1,12 +1,14 @@
 ---
 description: Курс о HTML-формах, который поможет вам повысить квалификацию веб-разработчика.
+hide:
+    - toc
 ---
 
 # Учим формы
 
 <big>Курс о **HTML-формах**, который поможет вам повысить квалификацию веб-разработчика.</big>
 
-## Добро пожаловать в раздел "Изучение форм".
+## Добро пожаловать в раздел "Учим формы"
 
 В этом курсе HTML-формы разбиты на простые для понимания части. В течение следующих нескольких модулей вы узнаете, как работает HTML-форма и как эффективно использовать ее в своих проектах. Для навигации по модулям используйте панель меню, расположенную под логотипом **Learn Forms**.
 
@@ -35,6 +37,224 @@ description: Курс о HTML-формах, который поможет вам
 <!--## Here's what you'll learn
 
 {% include 'partials/course-index.njk' %} -->
+
+## Начало работы с формами
+
+<div class="grid cards" style="margin-top: 1.6em" markdown>
+
+-   :material-form-select:{ .lg .middle } **Использование форм для получения данных**
+
+    ***
+
+    Изучите основы использования формы в Интернете с помощью этого введения в элемент формы.
+
+    [:octicons-arrow-right-24: Использование форм для получения данных](form-element.md)
+
+-   :material-form-textbox:{ .lg .middle } **Помогите при вводе данных**
+
+    ***
+
+    Обзор различных элементов формы, которые можно выбрать для построения формы.
+
+    [:octicons-arrow-right-24: Помогите при вводе данных](form-fields.md)
+
+-   :material-auto-fix:{ .lg .middle } **Помогите избежать повторного ввода**
+
+    ***
+
+    Сделайте заполнение форм более удобным для пользователей.
+
+    [:octicons-arrow-right-24: Помогите избежать повторного ввода](auto.md)
+
+-   :material-check:{ .lg .middle } **Помогите вводить правильные данные**
+
+    ***
+
+    Узнайте, как проверять формы на фронтенде.
+
+    [:octicons-arrow-right-24: Помогите вводить правильные данные](validation.md)
+
+-   :material-test-tube:{ .lg .middle } **Тестируйте свои формы**
+
+    ***
+
+    Узнайте, как тестировать и анализировать свои формы.
+
+    [:octicons-arrow-right-24: Тестируйте свои формы](testing.md)
+
+</div>
+
+## Общие рекомендации
+
+<div class="grid cards" style="margin-top: 1.6em" markdown>
+
+-   :material-material-design:{ .lg .middle } **Основы дизайна**
+
+    ***
+
+    Узнайте, как создавать удобные формы.
+
+    [:octicons-arrow-right-24: Основы дизайна](design-basics.md)
+
+-   :material-wheelchair-accessibility:{ .lg .middle } **Доступность**
+
+    ***
+
+    Как построить инклюзивные формы.
+
+    [:octicons-arrow-right-24: Доступность](accessibility.md)
+
+-   :material-translate:{ .lg .middle } **Интернационализация и локализация**
+
+    ***
+
+    Будьте готовы к работе с международными форматами данных и узнайте, как спланировать форму для локализации.
+
+    [:octicons-arrow-right-24: Интернационализация и локализация](internationalization.md)
+
+-   :material-security:{ .lg .middle } **Безопасность и конфиденциальность**
+
+    ***
+
+    Узнайте, как сделать формы безопасными и сохранить данные пользователей в тайне.
+
+    [:octicons-arrow-right-24: Безопасность и конфиденциальность](security-privacy.md)
+
+-   :material-auto-download:{ .lg .middle } **Автозаполнение**
+
+    ***
+
+    Узнайте все об автозаполнении и атрибуте autocomplete.
+
+    [:octicons-arrow-right-24: Автозаполнение](autofill.md)
+
+</div>
+
+## Тестирование и мониторинг
+
+<div class="grid cards" style="margin-top: 1.6em" markdown>
+
+-   :material-ab-testing:{ .lg .middle } **Как тестировать формы на удобство**
+
+    ***
+
+    Узнайте, как провести тестирование на удобство использования и убедиться, что ваша форма подходит для всех пользователей.
+
+    [:octicons-arrow-right-24: Как тестировать формы на удобство](usability-testing.md)
+
+-   :material-devices:{ .lg .middle } **Тестирование форм на различных устройствах**
+
+    ***
+
+    Убедитесь, что ваша форма работает на различных устройствах, в браузерах, на платформах и в различных контекстах.
+
+    [:octicons-arrow-right-24: Тестирование форм на различных устройствах](cross-platform-testing.md)
+
+-   :material-database-import:{ .lg .middle } **Сбор данных**
+
+    ***
+
+    Узнайте, как измерять и анализировать свою форму.
+
+    [:octicons-arrow-right-24: Сбор данных](data.md)
+
+</div>
+
+## Элементы и атрибуты
+
+<div class="grid cards" style="margin-top: 1.6em" markdown>
+
+-   :material-form-textbox-lock:{ .lg .middle } **Углубленное изучение элемента формы**
+
+    ***
+
+    Узнайте все об элементе формы, о том, когда следует использовать форму и как она работает.
+
+    [:octicons-arrow-right-24: Углубленное изучение элемента формы](form.md)
+
+-   :material-form-textbox:{ .lg .middle } **Подробно о полях формы**
+
+    ***
+
+    Узнайте о различных полях формы, которые можно использовать, и о том, как выбрать подходящий элемент формы.
+
+    [:octicons-arrow-right-24: Подробно о полях формы](fields.md)
+
+-   :material-attachment:{ .lg .middle } **Подробно об атрибутах формы**
+
+    ***
+
+    Узнайте все об атрибутах формы - как изменить расположение экранных клавиатур, активировать встроенную валидацию и многое другое.
+
+    [:octicons-arrow-right-24: Подробно об атрибутах формы](attributes.md)
+
+</div>
+
+## CSS
+
+<div class="grid cards" style="margin-top: 1.6em" markdown>
+
+-   :material-border-style:{ .lg .middle } **Стилизация форм**
+
+    ***
+
+    Стилизовать формы с помощью CSS, обеспечивая при этом их удобство и читаемость для всех.
+
+    [:octicons-arrow-right-24: Стилизация форм](styling.md)
+
+-   :material-border-style:{ .lg .middle } **Стилизация элементов формы**
+
+    ***
+
+    Узнайте, как реализовать элементы управления формами с помощью CSS.
+
+    [:octicons-arrow-right-24: Стилизация элементов формы](styling-form-controls.md)
+
+</div>
+
+## Javascript
+
+<div class="grid cards" style="margin-top: 1.6em" markdown>
+
+-   :material-language-javascript:{ .lg .middle } **JavaScript**
+
+    ***
+
+    Узнайте, как использовать JavaScript для улучшения форм.
+
+    [:octicons-arrow-right-24: JavaScript](javascript.md)
+
+</div>
+
+## Специфические типы форм
+
+<div class="grid cards" style="margin-top: 1.6em" markdown>
+
+-   :material-account:{ .lg .middle } **Идентификация**
+
+    ***
+
+    Узнайте, как построить безопасные и доступные формы регистрации и входа в систему, а также как помочь пользователям изменить настройки учетной записи.
+
+    [:octicons-arrow-right-24: Идентификация](identity.md)
+
+-   :material-hand-coin-outline:{ .lg .middle } **Формы оплаты**
+
+    ***
+
+    Повышение конверсии за счет создания более совершенных форм оплаты.
+
+    [:octicons-arrow-right-24: Формы оплаты](payment.md)
+
+-   :material-map-search:{ .lg .middle } **Формы адреса**
+
+    ***
+
+    Помогите пользователям быстро и легко заполнять формы адресов.
+
+    [:octicons-arrow-right-24: Формы адреса](address.md)
+
+</div>
 
 !!!note "Авторы"
 

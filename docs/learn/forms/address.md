@@ -1,87 +1,59 @@
 ---
-title: Address forms
-description: >
-  Help users fill out address forms quickly and easily.
-authors:
-  - michaelscharnagl
-date: 2021-11-03
+description: Помогите пользователям быстро и легко заполнять формы адресов.
+icon: material/map-search
 ---
 
-Filling in an address can be time-consuming and frustrating. 
-What is an **Address line 2**? 
-You may not have a surname, so what should you enter in a **Surname** field? 
-Avoid these confusions and help users fill out address forms.
+# Формы адреса
 
-{% Codepen {  
-  user: 'web-dot-dev',  
-  id: '6af9430bd0fc87b3850bb187409ce312',  
-  height: 650  
-} %}
+<big>Помогите пользователям быстро и легко заполнять формы адресов.</big>
 
-## Ensure your address form is easy to use
+Заполнение адреса может отнимать много времени и приносить разочарование. Что такое **Адресная строка 2**? Возможно, у вас нет фамилии, тогда что нужно ввести в поле **Фамилия**? Избегайте этих недоразумений и помогайте пользователям заполнять адресные формы.
 
-Many forms use one field for first name and one for surname. 
-However, some people don't have a surname, or their names don't have two parts, 
-so how should they fill in the surname field? Use a single `<input>` for the name field. 
-Learn more about [handling different name formats](/learn/forms/internationalization/#ensure-your-form-can-handle-different-name-formats).
+<iframe loading="lazy" src="https://codepen.io/web-dot-dev/embed/6af9430bd0fc87b3850bb187409ce312?height=650&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 700px; width: 100%; border: 0;"></iframe>
 
-{% Aside 'caution' %}  
-Never restrict the allowed characters for names to 
-[Latin-only](https://en.wikipedia.org/wiki/Latin_alphabet). 
-Allow [Unicode characters](/payment-and-address-form-best-practices/#unicode-matching) 
-for the name `<input>` to ensure everybody can fill in their name.  
-{% endAside %}
+## Убедитесь, что ваша адресная форма проста в использовании
 
-Also use a single `<input>` for the street address–not every address has a street number.
+Во многих формах используется одно поле для имени и фамилии. Однако у некоторых людей нет фамилии или их имена не состоят из двух частей, поэтому как им заполнять поле фамилии? Используйте единый `<input>` для поля фамилии. Подробнее о [обработке различных форматов имен](internationalization.md#ensure-your-form-can-handle-different-name-formats).
 
-{% Aside %}  
-According to [research](https://baymard.com/blog/address-line-2), 
-**Address line 2** can be confusing for users. 
-Consider using a `<textarea>` for the whole address, 
-or hide the **Address line 2** field behind a reveal `<button>`.  
-{% endAside %}
+!!!warning "" Никогда не ограничивайте допустимые символы для имен только [латиницей](https://ru.wikipedia.org/wiki/%D0%9B%D0%B0%D1%82%D0%B8%D0%BD%D0%B8%D1%86%D0%B0). Разрешите [символы Юникода](https://web.dev/articles/payment-and-address-form-best-practices#unicode-matching) для имени `<input>`, чтобы каждый мог заполнить свое имя.
 
-Be careful with form control descriptions. 
-For example, users in the US say **ZIP**, in the UK **postcode**. 
-Use `<label for="zip">ZIP or postal code (optional)</label>` 
-to make sure users know what data to enter. 
-Make the postal code field optional–not every address has a postal code.
+Также используйте один `<input>` для адреса улицы - не каждый адрес имеет номер улицы.
 
-{% Aside %}  
-You can use services like 
-[Place Autocomplete](https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform) or 
-[Loqate](https://www.loqate.com/en-us/) to help users look up addresses. 
-Consider [avoiding postcode address lookup](/payment-and-address-form-best-practices/#postal-code-address-lookup), 
-and only provide address lookup as an extra option: don't force people to use it.  
-{% endAside %}
+!!!note ""
 
-## Help users enter their address
+    По данным [исследования](https://baymard.com/blog/address-line-2), **Адресная строка 2** может сбивать пользователей с толку. Рассмотрите возможность использования `<textarea>` для всего адреса, или спрячьте поле **Адресная строка 2** за раскрывающейся `<button>`.
 
-The `autocomplete` attribute can help users re-enter their address: 
-* `autocomplete="name"`
-* `autocomplete="street-address"`
-* `autocomplete="postal-code"`
-* `autocomplete="country"`
+Будьте осторожны с описаниями элементов управления формы. Например, пользователи в США говорят **ZIP**, а в Великобритании **postcode**. Используйте `<label for="zip">ZIP или почтовый индекс (необязательно)</label>`, чтобы убедиться, что пользователи знают, какие данные нужно вводить. Поле почтового индекса можно сделать необязательным - не каждый адрес имеет почтовый индекс.
 
-{% Aside %}  
-There are two possible `autocomplete` values for the country: 
-* `country`: country or territory code
-* `country-name`: country or territory name 
+!!!note ""
 
-Use `autocomplete="country"` for `<select>` where the `value` for the `<option>` is the country code. 
-Want to use an `<input>` for the country name? Use `autocomplete="country-name"`.  
-{% endAside %}
+    Для поиска адресов можно использовать такие сервисы, как [Place Autocomplete](https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform) или [Loqate](https://www.loqate.com/en-us/). Рассмотрите возможность [исключения поиска адреса по почтовому индексу](https://web.dev/articles/payment-and-address-form-best-practices#postal-code-address-lookup) и предоставляйте поиск адреса только в качестве дополнительной опции: не заставляйте людей использовать его.
 
-You can define multiple values separated by a space for `autocomplete`. 
-Say you have a form with a shipping address and another form for a billing address. 
-To tell the browser which postal code is for the billing address, 
-you can use `autocomplete="billing postal-code"`. 
-For the shipping address, use `shipping` as the first value.
+## Помогите пользователям ввести свой адрес
 
-Change the label for the `Enter` key on on-screen keyboards with the `enterkeyhint` attribute. 
-Use `enterkeyhint="done"` for the last form control, and `enterkeyhint="next"` for the other form controls.
+Атрибут `autocomplete` может помочь пользователям повторно ввести свой адрес:
 
-## Resources
+-   `autocomplete="name"`
+-   `autocomplete="street-address"`
+-   `autocomplete="postal-code"`
+-   `autocomplete="country"`
 
--  [Payment and address forms best practices](/payment-and-address-form-best-practices)
--  [Form Usability: Getting ‘Address Line 2' Right](https://baymard.com/blog/address-line-2)
+!!!note ""
+
+    Для страны возможны два значения `autocomplete`:
+
+    -   `country`: код страны или территории
+    -   `country-name`: название страны или территории.
+
+    Используйте `autocomplete="country"` для `<select>`, где `значением` для `<option>` является код страны. Хотите использовать `<input>` для названия страны? Используйте `autocomplete="country-name"`.
+
+Для `autocomplete` можно задать несколько значений, разделенных пробелом. Например, у вас есть форма с адресом доставки и другая форма для адреса выставления счета. Чтобы указать браузеру, какой почтовый индекс используется для адреса выставления счета, можно использовать `autocomplete="billing postal-code"`. Для адреса доставки в качестве первого значения используйте `shipping`.
+
+Измените метку для клавиши `Enter` на экранных клавиатурах с помощью атрибута `enterkeyhint`. Используйте `enterkeyhint="done"` для последнего элемента управления формы и `enterkeyhint="next"` для остальных элементов управления формы.
+
+## Ресурсы
+
+-   [Лучшие практики использования платежных и адресных форм](https://web.dev/articles/payment-and-address-form-best-practices)
+-   [Юзабилити формы: как правильно заполнить 'Адресную строку 2'](https://baymard.com/blog/address-line-2)
+
+:material-information-outline: Источник &mdash; [Address forms](https://web.dev/learn/forms/address)
