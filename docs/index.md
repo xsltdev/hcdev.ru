@@ -39,13 +39,15 @@ hide:
 
     Учебники по веб-технологиям
 
-    **[:octicons-arrow-right-24: Учебник HTML5](./learn/html5/index.md)** <small>web.dev</small>
+    **[:octicons-arrow-right-24: Учим HTML5](./learn/html5/index.md)** <small>web.dev</small>
 
-    **[:octicons-arrow-right-24: Учебник CSS3](./learn/css3/index.md)** <small>web.dev</small>
+    **[:octicons-arrow-right-24: Учим CSS3](./learn/css3/index.md)** <small>web.dev</small>
 
-    **[:octicons-arrow-right-24: Учим картинки](./learn/images/index.md)** <small>web.dev</small>
+    [:octicons-arrow-right-24: Учим картинки](./learn/images/index.md) <small>web.dev</small>
 
-    **[:octicons-arrow-right-24: Учим формы](./learn/forms/index.md)** <small>web.dev</small>
+    [:octicons-arrow-right-24: Учим формы](./learn/forms/index.md) <small>web.dev</small>
+
+    [:octicons-arrow-right-24: Учим PWA](./learn/pwa/index.md) <small>web.dev</small>
 
 </div>
 

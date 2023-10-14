@@ -1,115 +1,113 @@
 ---
-title: Caching
-description: >
-  You can use the Cache Storage API to download, store, delete or update assets on the device. Then these assets can be served on the device without needing a network request.
-authors:
-  - firt
-date: 2021-12-03
-updated: 2022-03-02
+description: Вы можете использовать API Cache Storage для загрузки, хранения, удаления или обновления ресурсов на устройстве. Затем эти ресурсы могут обслуживаться на устройстве без необходимости сетевого запроса.
+icon: material/cached
 ---
 
-Cache storage is a powerful tool. It makes your apps less dependent on network conditions. With good use of caches you can make your web app available offline and serve your assets as fast as possible in any network condition. As mentioned in [Assets and Data](/learn/pwa/assets-and-data/) you can decide the best strategy for caching the necessary assets. To manage the cache your service worker interacts with the [Cache Storage API](https://developer.mozilla.org/docs/Web/API/CacheStorage).
-{% BrowserCompat 'api.CacheStorage' %}
+# Кэширование
 
-{% Aside %}
-When installing platform-specific apps, the device stores the icon and other app assets in the operating system, in one step. For PWAs, the process has two separate steps. A PWA can store assets on your device any time after the first visit in the browser, even without installation. Install is a separate action that is covered later in this course.
-{% endAside %}
+<big>Вы можете использовать API Cache Storage для загрузки, хранения, удаления или обновления ресурсов на устройстве. Затем эти ресурсы могут обслуживаться на устройстве без необходимости сетевого запроса.</big>
 
-The Cache Storage API is available from different contexts:
+Кэш-хранилище - это мощный инструмент. Оно делает ваши приложения менее зависимыми от состояния сети. При правильном использовании кэшей можно сделать веб-приложение доступным в автономном режиме и обслуживать ресурсы максимально быстро при любых условиях работы сети. Как указано в [Assets and Data](assets-and-data.md), вы можете выбрать оптимальную стратегию кэширования необходимых ресурсов. Для управления кэшем сервис-воркер взаимодействует с [Cache Storage API](https://developer.mozilla.org/docs/Web/API/CacheStorage).
 
-- The window context (your PWA's main thread).
-- The service worker.
-- Any other workers you use.
+<p class="ciu_embed" data-feature="mdn-api__CacheStorage" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-One advantage of managing your cache using service workers is that its lifecycle is not tied to the window, which means you are not blocking the main thread. Be aware that to use the Cache Storage API most of these contexts have to be under a TLS connection.
+!!!note ""
 
-## What to cache
+    При установке приложений для конкретной платформы устройство сохраняет значок и другие ресурсы приложения в операционной системе за один шаг. Для PWA этот процесс состоит из двух отдельных этапов. PWA может сохранять ресурсы на устройстве в любое время после первого посещения браузера, даже без установки. Установка - это отдельное действие, которое будет рассмотрено далее в этом курсе.
 
-The first question you may have about caching is what to cache. While there is no single answer to that question, you can start with all the minimum resources that you need to render the user interface.
+Cache Storage API доступен из различных контекстов:
 
-Those resources should include:
+-   Контекст окна (главный поток вашего PWA).
+-   Сервис-воркер.
+-   Любые другие рабочие, которые вы используете.
 
-- The main page HTML (your app's start_url).
-- CSS stylesheets needed for the main user interface.
-- Images used in the user interface.
-- JavaScript files required to render the user interface.
-- Data, such as a JSON file, required to render a basic experience.
-- Web fonts.
-- On a multi-page application, other HTML documents that you want to serve fast or while offline.
+Одним из преимуществ управления кэшем с помощью сервис-воркеров является то, что его жизненный цикл не привязан к окну, а значит, вы не блокируете главный поток. Следует помнить, что для использования Cache Storage API большинство из этих контекстов должны находиться под TLS-соединением.
 
-{% Aside 'warning' %}
-Remember that you are downloading and storing assets on users' devices, so use that space and bandwidth responsibly. You need to find the balance between having enough on-device assets to render a fast or offline experience without consuming too much data.
-{% endAside %}
+## Что кэшировать
 
-### Offline-ready
+Первый вопрос, который может возникнуть в связи с кэшированием, - что кэшировать. Хотя единого ответа на этот вопрос не существует, можно начать с минимальных ресурсов, необходимых для визуализации пользовательского интерфейса.
 
-While being offline-capable is one of the requirements for a Progressive Web App, it's essential to understand that not every PWA needs a full offline experience, for example cloud gaming solutions or crypto assets apps. Therefore, it's OK to offer a basic user interface guiding your users through those situations.
+Эти ресурсы должны включать:
 
-Your PWA should not render a browser's error message saying that the web rendering engine couldn't load the page. Instead use your service worker to show your own messaging, avoiding a generic and confusing browser error.
+-   HTML главной страницы (`start_url` вашего приложения).
+-   Таблицы стилей CSS, необходимые для основного интерфейса пользователя.
+-   Изображения, используемые в пользовательском интерфейсе.
+-   Файлы JavaScript, необходимые для визуализации пользовательского интерфейса.
+-   Данные, например, JSON-файл, необходимые для визуализации основного интерфейса.
+-   Веб-шрифты.
+-   В многостраничном приложении - другие HTML-документы, которые необходимо обслуживать быстро или в автономном режиме.
 
-{% Aside 'caution' %}
-If you [publish your PWA to Google Play Store](https://chromeos.dev/en/publish/pwa-in-play), your PWA should never render an HTTP error message from the browser to avoid penalizations within the store listings. Check [Changes to Quality Criteria for PWAs](https://blog.chromium.org/2020/06/changes-to-quality-criteria-for-pwas.html) for more information.
-{% endAside %}
+!!!warning ""
 
-There are many different caching strategies you could use depending on the needs of your PWA. That's why it is important to design your cache usage to provide a fast and reliable experience. For example if all your app assets will download fast, don't consume a lot of space, and don't need to be updated in every request, caching all your assets would be a valid strategy. If on the other hand you have resources that need to be the latest version you might want to consider not caching those assets at all.
+    Помните, что вы загружаете и храните ресурсы на устройствах пользователей, поэтому используйте это пространство и пропускную способность ответственно. Необходимо найти баланс между достаточным количеством ресурсов на устройстве для быстрой или автономной работы, не потребляя при этом слишком много данных.
 
-{% Aside 'caution' %}
-The cache storage content and eviction rules are set per origin and not per PWA, since it's possible to have more than one in a single origin. If you share your origin for many PWAs, it's a good idea to add a prefix to your cache names to avoid collision problems between each PWA's data storage.
-{% endAside %}
+### Возможность работы в автономном режиме
 
-## Using the API
+Хотя возможность работы в автономном режиме является одним из требований к прогрессивному веб-приложению, важно понимать, что не каждый PWA требует полноценной работы в автономном режиме, например, облачные игровые решения или приложения для работы с криптовалютными ресурсами. Поэтому вполне допустимо предложить базовый пользовательский интерфейс, позволяющий пользователям ориентироваться в таких ситуациях.
 
-Use the Cache Storage API to define a set of caches within your origin, each identified with a string name you can define. Access the API through the `caches` object, and the `open` method enables the creation, or opening of an already created cache. The open method returns a promise for the cache object.
+Ваш PWA не должен выдавать сообщение об ошибке браузера, говорящее о том, что движок веб-рендеринга не смог загрузить страницу. Вместо этого используйте сервис-воркер для отображения собственного сообщения, избегая общей и непонятной ошибки браузера.
+
+!!!note ""
+
+    При [публикации PWA в Google Play Store](https://chromeos.dev/en/publish/pwa-in-play) PWA никогда не должен выдавать сообщение об ошибке HTTP в браузере, чтобы избежать пенализации в листинге магазина. Дополнительную информацию см. в разделе [Изменения в критериях качества для PWA](https://blog.chromium.org/2020/06/changes-to-quality-criteria-for-pwas.html).
+
+Существует множество различных стратегий кэширования, которые можно использовать в зависимости от потребностей вашего PWA. Поэтому важно продумать использование кэша так, чтобы обеспечить быстрое и надежное функционирование. Например, если все ресурсы вашего приложения загружаются быстро, не занимают много места и не требуют обновления при каждом запросе, то кэширование всех ресурсов будет правильной стратегией. С другой стороны, если у вас есть ресурсы, которые должны иметь самую последнюю версию, то лучше отказаться от кэширования этих ресурсов.
+
+!!!note ""
+
+    Содержимое кэш-хранилища и правила вытеснения устанавливаются для каждого `origin`, а не для каждого PWA, поскольку в одном `origin` может быть несколько `origin`. Если вы используете общий `origin` для многих PWA, то во избежание проблем с коллизиями между хранилищами данных каждого PWA следует добавить префикс к именам кэшей.
+
+## Использование API
+
+Используйте API Cache Storage для определения набора кэшей в вашем origin, каждый из которых идентифицируется строковым именем, которое вы можете задать. Доступ к API осуществляется через объект `caches`, а метод `open` позволяет создать или открыть уже созданный кэш. Метод open возвращает обещание для объекта кэша.
 
 ```js
-caches.open("pwa-assets")
-.then(cache => {
-  // you can download and store, delete or update resources with cache arguments
+caches.open('pwa-assets').then((cache) => {
+    // you can download and store, delete or update resources with cache arguments
 });
 ```
 
-### Downloading and storing assets
+### Загрузка и хранение ресурсов
 
-To ask the browser to download and store the assets use the `add` or `addAll` methods. The `add` method makes a request and stores one HTTP response, and `addAll` a group of HTTP responses as a transaction based on an array of requests or URLs.
+Чтобы попросить браузер загрузить и сохранить ресурсы, используйте методы `add` или `addAll`. Метод `add` выполняет запрос и сохраняет один HTTP-ответ, а `addAll` - группу HTTP-ответов в виде транзакции на основе массива запросов или URL.
 
 ```js
-caches.open("pwa-assets")
-.then(cache => {
-  cache.add("styles.css"); // it stores only one resource
-  cache.addAll(["styles.css", "app.js"]); // it stores two resources
+caches.open('pwa-assets').then((cache) => {
+    cache.add('styles.css'); // it stores only one resource
+    cache.addAll(['styles.css', 'app.js']); // it stores two resources
 });
 ```
 
-{% Aside %}
-Both `add()` and `addAll()` return a promise with no arguments; if it's fulfilled, you know the assets were downloaded and cached, and if it fails, the API couldn't download one or more resources, and it didn't modify the cache.
-{% endAside %}
+!!!note ""
 
-The cache storage interface stores the entirety of a response including all the headers and the body. Consequently, you can retrieve it later using an HTTP request or a URL as a key. You will see how to do that in [the Serving chapter](/learn/pwa/serving).
+    И `add()`, и `addAll()` возвращают обещание без аргументов; если оно выполнено, то вы знаете, что ресурсы были загружены и закешированы, а если нет, то API не смог загрузить один или несколько ресурсов и не модифицировал кеш.
 
-{% Aside %}
-To download and store the assets, you must specify all the URLs explicitly. Otherwise the API cannot know all the assets you need or want to cache.
-{% endAside %}
+Интерфейс хранения кэша хранит весь ответ, включая все заголовки и тело. Следовательно, в дальнейшем его можно получить, используя в качестве ключа HTTP-запрос или URL. Как это сделать, вы увидите в [главе "Сервировка"](serving.md).
 
-### When to cache
+!!!note ""
 
-In your PWA, you are in charge of deciding when to cache files. While one approach is to store as many assets as possible when the service worker is installed, it is usually not the best idea. Caching unnecessary resources wastes bandwidth and storage space and could cause your app to serve unintended outdated resources.
+    Для загрузки и хранения ресурсов необходимо явно указать все URL-адреса. В противном случае API не сможет узнать все ресурсы, которые необходимо или нужно кэшировать.
 
-You don't need to cache all the assets at once, you can cache assets many times during the lifecycle of your PWA, such as:
+### Когда кэшировать
 
-- On installation of the service worker.
-- After the first page load.
-- When the user navigates to a section or route.
-- When the network is idle.
+В своем PWA вы сами решаете, когда кэшировать файлы. Хотя один из подходов заключается в том, чтобы хранить как можно больше ресурсов в момент установки сервис-воркера, обычно это не самая лучшая идея. Кэширование ненужных ресурсов приводит к расходованию пропускной способности и дискового пространства, а также может привести к тому, что ваше приложение будет обслуживать нежелательные устаревшие ресурсы.
 
-You can request caching new files in the main thread or within the service worker context.
+Не обязательно кэшировать все ресурсы сразу, можно кэшировать их много раз в течение жизненного цикла PWA, например:
 
-### Caching assets in a service worker
+-   При установке сервис-воркера.
+-   После первой загрузки страницы.
+-   При переходе пользователя к разделу или маршруту.
+-   Когда сеть простаивает.
 
-One of the most common scenarios is to cache a minimum set of assets when the service worker is installed. To do that, you can use the cache storage interface within the `install` event in the service worker.
+Можно запросить кэширование новых файлов в главном потоке или в контексте сервис-воркера.
 
-Because the service worker thread can be stopped at any time, you can request the browser to wait for the `addAll` promise to finish to increase the opportunity of storing all the assets and keeping the app consistent. The following example demonstrates how to do this, using the  `waitUntil` method of the event argument received in the service worker event listener.
+### Кэширование ресурсов в сервис-воркере
 
-```js/3,5
+Одним из наиболее распространенных сценариев является кэширование минимального набора ресурсов при установке сервис-воркера. Для этого можно использовать интерфейс хранения кэша в событии `install` в сервисе-воркере.
+
+Поскольку поток сервис-воркера может быть остановлен в любой момент, можно попросить браузер дождаться завершения выполнения обещания `addAll`, чтобы увеличить вероятность сохранения всех ресурсов и сохранить целостность приложения. В следующем примере показано, как это сделать, используя метод `waitUntil` аргумента события, полученного в слушателе событий сервис-воркера.
+
+```js
 const urlsToCache = ["/", "app.js", "styles.css", "logo.svg"];
 self.addEventListener("install", event => {
    event.waitUntil(
@@ -121,53 +119,61 @@ self.addEventListener("install", event => {
 });
 ```
 
-The [`waitUntil()` method](https://developer.mozilla.org/docs/Web/API/ExtendableEvent/waitUntil) receives a promise and asks the browser to wait for the task in the promise to resolve (fulfilled or failed) before terminating the service worker process. You may need to chain promises and return the `add()` or `addAll()` calls so that a single result gets to the `waitUntil()` method.
+Метод [`waitUntil()`](https://developer.mozilla.org/docs/Web/API/ExtendableEvent/waitUntil) получает обещание и просит браузер дождаться решения задачи, указанной в обещании (выполнено или не выполнено), прежде чем завершить процесс сервис-воркера. Возможно, потребуется составить цепочку обещаний и вернуть вызовы `add()` или `addAll()`, чтобы в метод `waitUntil()` попал один результат.
 
-You can also handle promises using the async/await syntax. In that case, `waitUntil()` needs a promise-based function as an argument, so you need to create a function that returns the promise to make it work, as in the following example:
+Можно также работать с обещаниями, используя синтаксис async/await. В этом случае функция `waitUntil()` требует в качестве аргумента функцию, основанную на обещаниях, поэтому для ее работы необходимо создать функцию, возвращающую обещание, как показано в следующем примере:
 
-```js/3
-const urlsToCache = ["/", "app.js", "styles.css", "logo.svg"];
-self.addEventListener("install", (event) => {
-   event.waitUntil(async () => {
-      const cache = await caches.open("pwa-assets");
-      return cache.addAll(urlsToCache);
-   });
+```js
+const urlsToCache = [
+    '/',
+    'app.js',
+    'styles.css',
+    'logo.svg',
+];
+self.addEventListener('install', (event) => {
+    event.waitUntil(async () => {
+        const cache = await caches.open('pwa-assets');
+        return cache.addAll(urlsToCache);
+    });
 });
 ```
 
-### Cross-domain requests and opaque responses
+### Междоменные запросы и непрозрачные ответы
 
-Your PWA can download and cache assets from your origin and cross-domains, such as content from third-party CDNs. With a cross-domain app, the cache interaction is very similar to same-origin requests. The request is executed and a copy of the response is stored in your cache. As with other cached assets it is only available to be used in your app's origin.
+Ваш PWA может загружать и кэшировать ресурсы с исходного и междоменных сайтов, например, контент из сторонних CDN. При работе с междоменными приложениями взаимодействие с кэшем очень похоже на работу с однодоменными запросами. Запрос выполняется, а копия ответа сохраняется в кэше. Как и другие кэшированные ресурсы, она может быть использована только в оригинале вашего приложения.
 
-The asset will be stored as an [opaque response](https://fetch.spec.whatwg.org/#concept-filtered-response-opaque), which means your code won't be able to see or modify the contents or headers of that response. Also, opaque responses don't expose their actual size in the storage API, affecting quotas. Some browsers expose large sizes, such as 7Mb no matter if the file is just 1Kb.
+Ресурс будет сохранен как [непрозрачный ответ](https://fetch.spec.whatwg.org/#concept-filtered-response-opaque), что означает, что ваш код не сможет увидеть или изменить содержимое или заголовки этого ответа. Кроме того, непрозрачные ответы не отображают свой реальный размер в API хранилища, что влияет на квоты. Некоторые браузеры показывают большие размеры, например 7 Мб, независимо от того, что файл имеет размер всего 1 Кб.
 
-{% Aside 'caution' %}
-Remember that when you cache opaque responses from cross-domains, `cache.add()` and `cache.addAll()` will fail if those responses don't return with a 2xx status code. Therefore, if one CDN or cross-domain fails, all the assets you are downloading will be discarded, even successful downloads in the same operation.
-{% endAside %}
+!!!note ""
 
-### Updating and deleting assets
+    Помните, что при кэшировании непрозрачных ответов от кросс-доменов функции `cache.add()` и `cache.addAll()` не сработают, если эти ответы не вернутся с кодом состояния 2xx. Таким образом, при сбое одной CDN или кросс-домена все загружаемые ресурсы будут отброшены, даже успешные загрузки в рамках одной операции.
 
-You can update assets using `cache.put(request, response)` and delete assets with `delete(request)`.
+### Обновление и удаление ресурсов
 
-{% Aside 'caution' %}
-The Cache Storage API doesn't update your assets if you change them on your server nor does it delete them. Your code should manage both situations, and for that, there are different design patterns. You'll learn about a library to help with these situations in the [Workbox chapter](/learn/pwa/workbox).
-{% endAside %}
+Обновить ресурсы можно с помощью `cache.put(request, response)`, а удалить - с помощью `delete(request)`.
 
-Check the [Cache object documentation](https://developer.mozilla.org/docs/Web/API/Cache) for more details.
+!!!warning ""
 
-{% Glitch 'learn-pwa-asset-caching' %}
+    Cache Storage API не обновляет ваши ресурсы, если вы изменили их на своем сервере, и не удаляет их. Ваш код должен управлять обеими ситуациями, и для этого существуют различные паттерны проектирования. В главе [Workbox](workbox.md) вы узнаете о библиотеке, помогающей справиться с этими ситуациями.
 
-## Debugging Cache Storage
-Many browsers offer a way to debug the contents of cache storage within their DevTools Application tab. There, you can see the contents of every cache within the current origin. We'll cover more about these tools in the [Tools and Debug chapter](/learn/pwa/tools-and-debug/).
+Более подробную информацию можно найти в документации [Cache object documentation](https://developer.mozilla.org/docs/Web/API/Cache).
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/wY3mk9ILrGxlM9xEbfHh.png", alt="Chrome DevTools debugging Cache Storage contents.", width="800", height="506" %}
+<iframe style="width: 100%; height: 350px;" allow="geolocation; microphone; camera; midi; encrypted-media; xr-spatial-tracking; fullscreen" allowfullscreen="" sandbox="allow-scripts allow-modals allow-forms allow-same-origin allow-top-navigation-by-user-activation allow-downloads" data-testid="app-preview-iframe" title="Preview of learn-pwa-asset-caching" src="https://learn-pwa-asset-caching.glitch.me/"></iframe>
 
-{% Aside %}
-Web Inspector on Safari on macOS doesn't have a way to see the contents of cache storage. For that purpose, you can use the free [Service Worker Detector Safari extension](https://apps.apple.com/app/service-worker-detector/id1530808337?l=en&mt=12) created by [Thomas Steiner](https://twitter.com/tomayac).
-{% endAside %}
+## Отладка кэш-хранилища
 
-##  Resources
+Многие браузеры предлагают возможность отладки содержимого кэш-памяти на вкладке DevTools Application. Там можно просмотреть содержимое каждого кэша в текущем origin. Подробнее об этих инструментах мы поговорим в главе [Инструменты и отладка](tools-and-debug.md).
 
-- [Cache Storage on MDN](https://developer.mozilla.org/docs/Web/API/CacheStorage)
-- [The Cache API: A quick guide](/cache-api-quick-guide/)
-- [The Offline Cookbook](/offline-cookbook/)
+![Chrome DevTools отлаживает содержимое кэш-хранилища.](caching-1.png)
+
+!!!note ""
+
+    В Web Inspector в Safari на macOS нет возможности посмотреть содержимое кэш-хранилища. Для этого можно использовать бесплатное расширение [Service-воркер Detector Safari](https://apps.apple.com/app/service-worker-detector/id1530808337?l=en&mt=12), созданное [Томасом Штайнером](https://twitter.com/tomayac).
+
+## Ресурсы
+
+-   [Cache Storage на MDN](https://developer.mozilla.org/docs/Web/API/CacheStorage)
+-   [The Cache API: Краткое руководство](https://web.dev/articles/cache-api-quick-guide)
+-   [Поваренная книга Offline](https://web.dev/articles/offline-cookbook)
+
+:material-information-outline: Источник &mdash; [Caching](https://web.dev/learn/pwa/caching)

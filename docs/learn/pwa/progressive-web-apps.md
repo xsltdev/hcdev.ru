@@ -1,288 +1,188 @@
 ---
-title: Progressive Web Apps
-description: >
-  Progressive Web Apps (PWAs) are web apps built and enhanced with modern APIs to deliver enhanced capabilities, reliability, and installability while reaching anyone, anywhere, on any device, all with a single codebase.
-authors:
-  - firt
-date: 2021-11-03
-updated: 2022-05-16
+description: Прогрессивные веб-приложения (PWA) - это веб-приложения, созданные и усовершенствованные с помощью современных API-интерфейсов, обеспечивающие расширенные возможности, надежность и удобство установки, позволяющие работать с любым человеком, в любом месте, на любом устройстве, и все это на единой кодовой базе.
+icon: simple/pwa
 ---
 
-A Progressive Web App (PWA) is a web app that uses progressive enhancement to provide users with a more reliable experience,
-uses new capabilities to provide a more integrated experience, and can be installed.
-And, because it's a web app, it can reach anyone, anywhere, on any device, all with a single codebase.
-Once installed, a PWA looks like any other app, specifically:
+# Прогрессивные веб-приложения
 
-- It has an icon on the home screen, app launcher, launchpad, or start menu.
-- It appears when you search for apps on the device.
-- It opens in a standalone window, wholly separated from a browser's user interface.
-- It has access to higher levels of integration with the OS, for example, URL handling or title bar customization.
-- It works offline.
+<big>**Прогрессивные веб-приложения** (PWA) - это веб-приложения, созданные и усовершенствованные с помощью современных API-интерфейсов, обеспечивающие расширенные возможности, надежность и удобство установки, позволяющие работать с любым человеком, в любом месте, на любом устройстве, и все это на единой кодовой базе.</big>
 
-## The web platform
+_Прогрессивное веб-приложение (PWA)_ - это веб-приложение, которое использует прогрессивные улучшения для обеспечения более надежной работы пользователей, использует новые возможности для обеспечения более интегрированного опыта и может быть установлено. А поскольку это веб-приложение, оно может быть доступно любому человеку, в любом месте, на любом устройстве, и все это с единой кодовой базой. После установки PWA выглядит как любое другое приложение:
 
-The web is an incredible platform.
-Its mix of universality across devices and operating systems,
-its user-centered security model,
-and the fact that no single company controls its specification or implementation make it a powerful platform
-for delivering software.
+-   У него есть значок на главном экране, в программе запуска приложений, на панели запуска или в меню "Пуск".
+-   Оно появляется при поиске приложений на устройстве.
+-   Оно открывается в отдельном окне, полностью отделенном от пользовательского интерфейса браузера.
+-   Он имеет доступ к более высоким уровням интеграции с ОС, например, к обработке URL-адресов или настройке строки заголовка.
+-   Работает в автономном режиме.
 
-Combined with the web's inherent linkability,
-it's possible to search across it and share what you've found with anyone, anywhere.
-Whenever you go to a website,
-it's the latest version the publisher deployed,
-and your experience with that site can be as temporary or as permanent as you'd like.
+## Веб-платформа
 
-Web applications can reach anyone, anywhere, on any device with a single codebase.
-For developers, the web also offers a transparent and straightforward deploying mechanism.
-There is no need for packaging, no extra content review, or delays on updates.
-Users always get the latest version when they visit your app.
-With new capabilities and techniques, a web app can now allow you to interact or see content even when offline,
-a hurdle that was impossible to overcome a few years ago.
+Веб - это невероятная платформа. Сочетание универсальности для различных устройств и операционных систем, ориентированная на пользователя модель безопасности, а также тот факт, что ни одна компания не контролирует ее спецификацию или реализацию, делают ее мощной платформой для создания программного обеспечения.
 
-## Platform-specific apps
+В сочетании с присущей Интернету связностью можно осуществлять поиск по всему Интернету и делиться найденным с кем угодно и где угодно. Всякий раз, когда вы заходите на сайт, это последняя версия, выпущенная издателем, и ваш опыт работы с этим сайтом может быть как временным, так и постоянным, как вы того пожелаете.
 
-Platform-specific apps, on both mobile and desktop,
-are known for being rich and reliable. They're ever-present, on home screens, docks, and taskbars.
-They work regardless of network connection, and launch in their own standalone experience.
-They can read and write files from the local file system,
-access hardware connected via USB, serial, or Bluetooth,
-and interact with data stored on your devices, such as contacts and calendar events.
-In platform-specific applications, you can take pictures, play songs listed on the home screen, or control media playback while in another app.
-These applications feel like part of the device they run on.
+Веб-приложения могут быть доступны любому человеку, в любом месте, на любом устройстве с единой кодовой базой. Для разработчиков веб также предлагает прозрачный и простой механизм развертывания. Нет необходимости в упаковке, дополнительной проверке содержимого или задержке обновлений. Пользователи всегда получают последнюю версию при посещении вашего приложения. Благодаря новым возможностям и технологиям веб-приложения теперь позволяют взаимодействовать и просматривать содержимое даже в автономном режиме, что еще несколько лет назад было невозможно.
 
-{% Aside %}
-In modern mobile operating systems,
-platform-specific apps are installed mostly from app stores,
-with rules and limitations on who can publish and what can be published for their users.
-These apps are typically shipped as a large, indivisible package, and every update needs re-packaging, re-signing, re-approval, and on-device re-installation.
-{% endAside %}
+## Приложения для конкретных платформ
 
-A challenge for platform-specific apps is that they are not compatible with multiple platforms and devices,
-so it's not easy, if even possible,
-to move an Android app to iOS or an iOS to Windows or ChromeOS without creating a new app from scratch.
+Приложения для конкретных платформ, как на мобильных, так и на настольных компьютерах, известны своей насыщенностью и надежностью. Они постоянно присутствуют на домашних экранах, доках и панелях задач. Они работают независимо от сетевого подключения и запускаются в автономном режиме. Они могут читать и записывать файлы из локальной файловой системы, обращаться к аппаратным средствам, подключенным через USB, последовательный порт или Bluetooth, и взаимодействовать с данными, хранящимися на устройствах, например, с контактами и событиями календаря. В приложениях, ориентированных на конкретную платформу, можно делать снимки, воспроизводить композиции, перечисленные на главном экране, или управлять воспроизведением мультимедиа, находясь в другом приложении. Эти приложения ощущаются как часть устройства, на котором они работают.
 
-## Bringing the best of both worlds
+!!!note ""
 
-If you think about platform apps and web apps in terms of capabilities and reach,
-platform apps represent the best of capabilities,
-whereas web apps represent the best of reach.
-Progressive Web Apps sit at the intersection of the capabilities of platform apps and the reach of web apps.
-A Progressive Web App includes features from both worlds.
+    В современных мобильных операционных системах платформоспецифичные приложения устанавливаются в основном из магазинов приложений, где действуют правила и ограничения на то, кто и что может публиковать для своих пользователей. Эти приложения обычно поставляются в виде большого неделимого пакета, и каждое обновление требует повторной упаковки, повторного подписания, повторного утверждения и повторной установки на устройство.
 
-<div class="switcher">
-<div>
+Проблема платформозависимых приложений заключается в том, что они не совместимы с несколькими платформами и устройствами, поэтому нелегко, да и невозможно, перенести приложение для Android на iOS или iOS на Windows или ChromeOS, не создавая новое приложение с нуля.
 
-### Web
+## Лучшее из двух миров
 
-- Linkability
-- Accessible by default
-- Ubiquitous
-- Easy to Deploy
-- Easy to Update
-- Everyone can publish
+Если рассматривать платформенные и веб-приложения с точки зрения возможностей и охвата, то платформенные приложения представляют собой лучшие возможности, в то время как веб-приложения - лучшие возможности. Прогрессивные веб-приложения находятся на пересечении возможностей платформенных приложений и возможностей веб-приложений. Прогрессивное веб-приложение включает в себя функции из обоих миров.
+
+<div class="grid cards" style="margin-top: 1.6em" markdown>
+
+-   :material-history:{ .lg .middle } **Web**
+
+    ***
+
+    -   Связность
+    -   Доступность по умолчанию
+    -   Повсеместно
+    -   Простота развертывания
+    -   Легко обновлять
+    -   Каждый может опубликовать
+
+-   :material-power:{ .lg .middle } **Платформенные приложения**
+
+    ***
+
+    -   Возможность работы в автономном режиме
+    -   Высокая производительность
+    -   Интеграция устройств
+    -   Автономная работа
+    -   Установленный значок
+    -   Богатая и надежная
 
 </div>
-<div>
 
-### Platform apps
+!!!note ""
 
-- Offline-capable
-- High performance
-- Device Integration
-- Standalone experience
-- Installed Icon
-- Rich and reliable
-</div>
-</div>
+    Прогрессивные веб-приложения обычно рассматриваются как приложения, которые пользователь может установить из браузера, а не из магазина приложений. Однако сегодня PWA может быть размещено во многих магазинах приложений в качестве дополнительного канала распространения, включая Google Play Store (для Android и ChromeOS), Microsoft Store (для Windows 10 и 11) и Apple AppStore (для iOS, iPadOS и macOS). В этих случаях необходимо соблюдать все правила и требования магазина, но при этом вы получаете некоторые преимущества PWA.
 
-{% Aside %}
-People tend to think of Progressive Web Apps as an app that the user can install from a browser instead of an app store.
-However, a PWA can be listed in many app stores today as an optional distribution channel,
-including Google Play Store (for Android and ChromeOS), Microsoft Store (for Windows 10 and 11),
-and Apple AppStore (for iOS, iPadOS, and macOS). For these cases, you must follow all store rules and requirements,
-but you will still get some of the advantages of a PWA.
-{% endAside %}
+## Внедрение имеет свои преимущества
 
-## Adoption has its benefits
+Компания Hulu, американский сервис потокового видео, создала версию Progressive Web App для замены своих настольных приложений, которые имели плохие отзывы пользователей и плохо использовались. Как было показано на конференции [Google I/O 2019](https://blog.chromium.org/2019/05/google-io-2019-whats-new-with-chrome.html), один разработчик мог изучить и внедрить этот опыт на базе существующего веб-приложения за две недели.
 
-Hulu, a video streaming service in the USA,
-created a Progressive Web App version of their experience to replace their desktop apps which had poor user reviews and poor usage.
-As shared at [Google I/O 2019](https://blog.chromium.org/2019/05/google-io-2019-whats-new-with-chrome.html),
-one developer could research and implement this experience from their existing web application in two weeks.
+В течение пяти месяцев 96% пользователей их старых приложений перешли на PWA, что привело к увеличению числа повторных посещений на 27% и росту вовлеченности на 5,5%. Поскольку PWA находятся в пусковой установке и на панели задач, к ним легче вернуться, чем если бы они просто жили на вкладке".
 
-Within five months, 96% of their legacy app users had adopted the PWA,
-with a 27% increase in return visits and a 5.5% increase in engagement.
-Because it's in the launcher and on taskbars, PWAs are easier to return to than if they just lived in a tab.
+[JD.ID](https://web.dev/case-studies/jdid), платформа электронной коммерции в Индонезии, предоставляющая услуги по доставке многих товаров, хотела расширить свое присутствие в Интернете, сосредоточившись на производительности и независимом от сети удобстве работы с PWA. Благодаря этому улучшению они увеличили общий коэффициент конверсии на 53%, 200% для установленных пользователей и на 26% увеличили количество ежедневных активных пользователей.
 
-[JD.ID](/jdid/), an e-commerce platform in Indonesia providing delivery services for many products,
-wanted to expand its online presence by focusing on performance and a network-independent solid experience for their PWA.
-With this enhanced experience, they increased their overall mobile conversion rate by 53%,
-200% for installed users, and increased their daily active users by 26%.
+[Clipchamp](https://web.dev/case-studies/clipchamp) - браузерный онлайн-видеоредактор настольного класса, позволяющий любому человеку рассказывать истории, которыми стоит поделиться с помощью видео. По сравнению с пользователями обычного десктопного приложения, число удержанных пользователей PWA увеличилось на 9%, а за первые пять месяцев работы PWA-установки росли на 97% каждый месяц.
 
-[Clipchamp](/clipchamp/) is an in-browser,
-desktop-class online video editor that empowers anyone to tell stories worth sharing through video.
-They saw 9% higher user retention with their PWA versus their standard desktop app users and have seen their PWA installations increasing at a rate of 97% each month in its first five months launched.
+[Gravit Designer](https://web.dev/case-studies/gravit-designer) от Corel Corporation - это мощный инструмент векторного дизайна настольного класса, который ежедневно обслуживает десятки тысяч активных пользователей, нуждающихся в доступном и недорогом программном обеспечении для создания векторных иллюстраций. После добавления PWA в качестве опции установки пользователи стали на 24% активнее, на 31% больше повторных пользователей, а вероятность приобретения Gravit Designer PRO у пользователей PWA в 2,5 раза выше по сравнению с другими платформами и опциями установки.
 
-Corel Corporation's [Gravit Designer](/gravit-designer/) is a powerful,
-desktop-class vector design tool that serves tens of thousands of daily active users demanding rich,
-affordable, accessible vector illustration software.
-Since adding a PWA as an install option for users,
-they've seen PWA users are 24% more active,
-the PWA accounts for 31% more repeat users, and PWA users are 2.5 times more likely to purchase Gravit Designer PRO,
-as compared to their other platforms and install options.
+!!!note ""
 
-{% Aside %}
-Many other companies have implemented PWA and seen a benefit.
-Large companies have already published PWAs on various products, including Apple (AppStore Connect, Feedback Assistant), Microsoft (Office 365, Windows 365), Google (Duo, YouTube Music, Drive), Amazon (Luna), Facebook (Instagram Lite, Gaming).
-{% endAside %}
+    Многие другие компании уже внедрили PWA и убедились в их преимуществах. Крупные компании уже опубликовали PWA на различных продуктах, включая Apple (AppStore Connect, Feedback Assistant), Microsoft (Office 365, Windows 365), Google (Duo, YouTube Music, Drive), Amazon (Luna), Facebook (Instagram Lite, Gaming).
 
-### The streaming game changer
+### Потоковая передача данных
 
-A great example of the power of Progressive Web Apps is the industry of streaming platforms,
-including cloud gaming and remote computing.
-Since 2021, most cloud game providers have launched Progressive Web Apps,
-letting you play console games from any device and just a browser or a PWA installation:
-iPhone, Android, iPad, laptops, Macs, or PCs.
-Amazon Luna, Microsoft Xbox Cloud Gaming, Facebook Gaming, Google Stadia, Nvidia GeForce Now, and BlueStacks X offer cloud gaming solutions over the browser as PWAs.
-They all provide a great experience with performance close to native on all platforms thanks to web technologies such as WebRTC, WebAssembly, and GamePad APIs.
+Отличным примером возможностей Progressive Web Apps является индустрия стриминговых платформ, в том числе облачных игр и удаленных вычислений. С 2021 года большинство провайдеров облачных игр запустили Progressive Web Apps, позволяющие играть в консольные игры с любого устройства и только через браузер или установку PWA: iPhone, Android, iPad, ноутбуки, Mac или PC. Amazon Luna, Microsoft Xbox Cloud Gaming, Facebook Gaming, Google Stadia, Nvidia GeForce Now и BlueStacks X предлагают облачные игровые решения через браузер в виде PWA. Все они обеспечивают отличную работу с производительностью, близкой к "родной", на всех платформах благодаря таким веб-технологиям, как WebRTC, WebAssembly и GamePad API.
 
-## Challenges
+## Проблемы
 
-Having covered the advantages of using the web platform to publish PWAs,
-it's also important to be aware of the challenges you may face.
+Рассмотрев преимущества использования веб-платформы для публикации PWA, важно также знать о проблемах, с которыми вы можете столкнуться.
 
-### Cross-browser compatibility
+### Кросс-браузерная совместимость
 
-Apple is a crucial company for the multi-device world,
-owning iOS, iPadOS, macOS, and Safari.
-While Apple has never used the term PWA in public,
-they've been supporting the technologies to make a PWA installable and offline-capable since 2018 on Safari for iPhones and iPads.
+Компания Apple является ключевой компанией в мире мультидевайсов, владея iOS, iPadOS, macOS и Safari. Хотя компания Apple никогда не использовала термин PWA публично, с 2018 года она поддерживает технологии, позволяющие сделать PWA устанавливаемым и поддерживаемым в автономном режиме в Safari для iPhone и iPad.
 
-However, Apple's implementation of the PWA specs misses many features possessed by other browsers,
-in particular browsers powered by the Chromium engine.
+Однако в реализации Apple спецификации PWA не хватает многих функций, которыми обладают другие браузеры, в частности браузеры на движке Chromium.
 
-In the middle, we also have Firefox and its Gecko engine with implementations including more PWA specs on Android,
-and fewer installation capabilities on desktop.
+В середине также находится Firefox с его движком Gecko, в котором реализовано больше PWA-спецификаций на Android и меньше возможностей установки на десктопе.
 
-Limitations include the lack of push notifications, integration APIs (such as Web Bluetooth or WebNFC),
-and installation promotion techniques that help users know they can install the current website to get an app experience.
-In addition, there are several bugs with implemented features.
+К недостаткам можно отнести отсутствие push-уведомлений, интеграционных API (таких как Web Bluetooth или WebNFC), а также методов продвижения установки, которые помогают пользователям узнать, что они могут установить текущий сайт, чтобы получить опыт работы с приложением. Кроме того, есть несколько ошибок в реализованных функциях.
 
-As with all web development, testing your experience on every platform is mandatory when releasing your PWA,
-and when a major new browser or OS version is released.
-You should always provide fallback solutions or alternative experiences when a feature is not available.
+Как и при любой другой веб-разработке, тестирование работы на всех платформах является обязательным при выпуске PWA, а также при выходе новой версии браузера или ОС. Всегда следует предусмотреть запасные варианты или альтернативные возможности, когда та или иная функция недоступна.
 
-### Awareness of PWAs
+### Осведомленность о PWA
 
-As a PWA developer,
-you will probably encounter an awareness problem,
-both on the business and user sides.
-Some business owners won't know about PWAs or will have misconceptions about the power and challenges of Progressive Web Apps.
+Будучи разработчиком PWA, вы, скорее всего, столкнетесь с проблемой осведомленности как со стороны бизнеса, так и со стороны пользователей. Некоторые владельцы компаний не знают о PWA или имеют неверные представления о возможностях и проблемах прогрессивных веб-приложений.
 
-When you publish a PWA,
-your next challenge is ensuring users understand that the website is installable, leading to an installed app experience.
+Когда вы публикуете PWA, ваша следующая задача - убедиться в том, что пользователи понимают, что сайт можно установить, что приведет к появлению возможности установки приложения.
 
-The installation challenge is more significant on some platforms, such as iOS and iPadOS,
-and sometimes UX designers include screens that explain to the user how to install the app.
+Проблема установки более актуальна для некоторых платформ, например iOS и iPadOS, поэтому иногда UX-дизайнеры включают экраны, объясняющие пользователю, как установить приложение.
 
-## Compatibility
+## Совместимость
 
-You need to remember that a Progressive Web App is just a web app,
-so content and services are running on top of standard specs and protocols.
-Therefore, a PWA technically runs everywhere the web runs; you don't need the platform to be compatible with any "PWA spec."
+Необходимо помнить, что Progressive Web App - это всего лишь веб-приложение, поэтому контент и сервисы работают поверх стандартных спецификаций и протоколов. Поэтому PWA технически работает везде, где работает веб; вам не нужно, чтобы платформа была совместима с какой-либо "спецификацией PWA".
 
-However, when we are talking about PWA and compatibility, typically, we are thinking about the capabilities to cross the boundaries of the browser and online-only contexts: icon installation and offline support.
+Однако когда мы говорим о PWA и совместимости, то, как правило, имеем в виду возможности преодоления границ браузера и контекста "только онлайн": установку иконок и поддержку офлайн.
 
-{% Aside %}
-A PWA should work everywhere, even when the icon installation or the offline support capabilities are unavailable.
-Always plan your PWA to work without capabilities by checking support and offering fallback solutions.
-{% endAside %}
+!!!note ""
 
-On top of the classic web platform support, let's check the support for basic app functionality, such as icon installation and offline capabilities.
+    PWA должен работать везде, даже если установка иконок или поддержка офлайн недоступны. Всегда планируйте работу PWA при отсутствии таких возможностей, проверяя поддержку и предлагая запасные варианты.
 
-<ul class="stats auto-grid bg-state-good-bg color-state-good-text">
-  <div class="stats__item flow">
-    <p class="font-brand text-size-6">
-      97
-      <sub>%</sub>
-    </p>
-    <p>Offline-ready browsers</p>
-  </div>
-  <div class="stats__item flow">
-    <p class="font-brand text-size-6">
-      88
-      <sub>%</sub>
-    </p>
-    <p>Web users can install a PWA</p>
-  </div>
-</ul>
+В дополнение к классической поддержке веб-платформы проверим поддержку основных функций приложения, таких как установка значков и возможность работы в автономном режиме:
 
-_Data sourced from StatCounter and Can I Use._
+-   97% - Браузеры, готовые к работе в автономном режиме
+-   88% - Веб-пользователи могут установить PWA
 
-### Desktop and laptops
+_Данные взяты из StatCounter и Can I Use._
 
-In a world of multifactor devices,
-it's challenging to know what a desktop device is anymore.
-Still, at least from an operating system point of view,
-these browsers and stores are compatible with PWA installation and offline capabilities:
+### Настольные компьютеры и ноутбуки
 
-Windows 10 and 11
-: Google Chrome (from version 73), Microsoft Edge (from version 79), Microsoft Store
+В мире многофакторных устройств уже сложно определить, что такое настольный компьютер. Тем не менее, по крайней мере с точки зрения операционной системы, эти браузеры и магазины совместимы с установкой PWA и возможностью работы в автономном режиме:
 
-ChromeOS
-: built-in Chrome browser  (from version 72), Play Store (from version 85)
+Windows 10 и 11 : Google Chrome (с версии 73), Microsoft Edge (с версии 79), Microsoft Store
 
-macOS, Linux, and Windows 7 and 8.x
-: Google Chrome (from version 73), Microsoft Edge
+ChromeOS : встроенный браузер Chrome (с версии 72), Play Store (с версии 85)
 
-In the following video the user installs a PWA from the browser on a desktop computer,
-and then accesses it like any other app with its standalone window.
+macOS, Linux и Windows 7 и 8.x : Google Chrome (с версии 73), Microsoft Edge
 
-{% Video src="video/RK2djpBgopg9kzCyJbUSjhEGmnw1/d0cR0VyUhy30DkXEgGOt.mp4", alt="the user can install a PWA from the browser on a desktop computer, and then the user can access it like any other app with its standalone window", autoplay="true", loop="true", muted="true" %}
+В следующем видеоролике пользователь устанавливает PWA из браузера на настольном компьютере, а затем обращается к нему, как к любому другому приложению, с помощью отдельного окна.
 
-{% Aside 'caution' %}
-On desktop, Safari and Firefox do not support PWA installation.
-They do support offline capabilities, but the experience will always start within the browser user interface.
-It may get fullscreen, but never a standalone window on desktop.
-{% endAside %}
+<video controls autoplay loop muted>
+<source src="/learn/pwa/progressive-web-apps-1.mp4" />
+</video>
 
-### Mobile devices
+!!!warning ""
 
-Talking about mobile phones and tablets,
-a Progressive Web App is installable with offline capabilities using the following browsers and app stores:
+    На настольных компьютерах Safari и Firefox не поддерживают установку PWA. Они поддерживают возможность работы в автономном режиме, но работа всегда будет начинаться в пользовательском интерфейсе браузера. Он может стать полноэкранным, но никогда не будет отдельным окном на настольном компьютере.
 
-iOS and iPadOS
-: Safari (since iOS 11.3), AppStore (since iOS/iPadOS 14, with some limitations), mobile configuration for enterprise distribution.
+### Мобильные устройства
 
-Android
-: Firefox, Google Chrome, Samsung Internet, Microsoft Edge, Opera, Brave, Huawei Browser, Baidu, UCWeb, Play Store (from version 72 with Google Chrome installed, or browsers compatible with TWA), Galaxy Store, Managed Play iframe for enterprise distribution.
+Если говорить о мобильных телефонах и планшетах, то Progressive Web App можно установить с возможностью работы в автономном режиме с помощью следующих браузеров и магазинов приложений:
 
-{% Aside 'caution' %}
-On iOS and iPadOS, PWAs are only installable if the user is using Safari. That means that users won't install PWAs if they use different browser apps, such as Google Chrome, Firefox, or Microsoft Edge. On both Android and iOS, users can't install PWAs from many in-app browsers, such as Facebook Mobile Browser, Instagram, Google Search App, or Gmail.
-{% endAside %}
+iOS и iPadOS : Safari (начиная с iOS 11.3), AppStore (начиная с iOS/iPadOS 14, с некоторыми ограничениями), мобильная конфигурация для корпоративного распространения.
 
-In the following video the user installs a PWA from the browser on a mobile device using the browser dialog, and also using the **Add to Home screen** menu.
+Android : Firefox, Google Chrome, Samsung Internet, Microsoft Edge, Opera, Brave, Huawei Browser, Baidu, UCWeb, Play Store (начиная с версии 72 с установленным Google Chrome или браузерами, совместимыми с TWA), Galaxy Store, Managed Play iframe для корпоративного распространения.
 
-{% Video src="video/RK2djpBgopg9kzCyJbUSjhEGmnw1/Nj9yCzWOm6wWqpNN9Ojz.mp4", alt="the user can install a PWA from the browser on mobile devices on Android and iPhones, using the browser dialog or the 'Add to Home screen' menu.", autoplay="true", loop="true", muted="true" %}
+!!!warning ""
 
-### Other devices
+    На iOS и iPadOS PWA могут быть установлены только в том случае, если пользователь использует Safari. Это означает, что пользователи не смогут установить PWA, если они используют другие браузеры, такие как Google Chrome, Firefox или Microsoft Edge. Как на Android, так и на iOS пользователи не могут установить PWA из многих встроенных браузеров, таких как Facebook Mobile Browser, Instagram, Google Search App или Gmail.
 
-Some other small devices support PWAs, such as game consoles (Xbox with Microsoft Store) or XR devices (Microsoft Hololens, plans for Facebook's Oculus). However, the rest of the devices with a browser do not typically accept PWAs, including:
+В следующем видеоролике пользователь устанавливает PWA из браузера на мобильном устройстве с помощью диалогового окна браузера, а также с помощью меню **Добавить на главный экран**.
 
-- Game consoles
-- Smart TVs
-- Smartwatches
-- Cars
+<video controls autoplay loop muted>
+<source src="/learn/pwa/progressive-web-apps-2.mp4" />
+</video>
 
-Your PWA will always work in the browser of all devices with their specific limitations.
-This ability to work in many devices, lets you create multi-device journeys,
-where the user can start a task in one device and complete it on another device, with data synced across them, with the exact same deployed app.
+### Другие устройства
 
-##  Resources
+Некоторые другие небольшие устройства поддерживают PWA, например, игровые консоли (Xbox с Microsoft Store) или XR-устройства (Microsoft Hololens, планы Oculus от Facebook). Однако остальные устройства с браузером, как правило, не поддерживают PWA, в том числе:
 
-- [Introduction to Progressive Web Apps on MDN](https://developer.mozilla.org/docs/Web/Progressive_web_apps/Introduction)
-- [Progressive Web Apps Compatibility list](https://firt.dev/notes/pwa)
-- [How Progressive Web Apps can drive business success](/drive-business-success/)
-- [Clipchamp's video editor PWA installs see a 97% monthly growth](/clipchamp/)
-- [PWA users are 2.5x more likely to purchase Gravit Designer PRO](/gravit-designer/)
+-   Игровые консоли
+-   интеллектуальные телевизоры
+-   Смарт-часы
+-   Автомобили
+
+Ваш PWA всегда будет работать в браузере всех устройств с их специфическими ограничениями. Эта способность работать на многих устройствах позволяет создавать путешествия с использованием нескольких устройств, когда пользователь может начать выполнение задачи на одном устройстве и завершить ее на другом, при этом данные синхронизируются между ними с помощью одного и того же развернутого приложения.
+
+## Ресурсы
+
+-   [Введение в прогрессивные веб-приложения на MDN](https://developer.mozilla.org/docs/Web/Progressive_web_apps/Introduction)
+-   [Список совместимости прогрессивных веб-приложений](https://firt.dev/notes/pwa)
+-   [Как прогрессивные веб-приложения могут способствовать успеху бизнеса](https://web.dev/articles/drive-business-success)
+-   [Число установок PWA-видеоредактора Clipchamp выросло на 97% в месяц](https://web.dev/case-studies/clipchamp)
+-   [Пользователи PWA в 2,5 раза чаще приобретают Gravit Designer PRO](https://web.dev/case-studies/gravit-designer)
+
+:material-information-outline: Источник &mdash; [Progressive Web Apps](https://web.dev/learn/pwa/progressive-web-apps)

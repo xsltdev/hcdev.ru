@@ -1,79 +1,71 @@
 ---
-title: Workbox
-description: >
-  Workbox is a set of modules that simplify common service worker interactions such as routing and caching. Each module addresses a specific aspect of service worker development. Workbox aims to make using service workers as easy as possible while allowing the flexibility to accommodate complex application requirements where needed.
-authors:
-  - firt
-date: 2022-01-10
-updated: 2022-02-23
+description: Workbox представляет собой набор модулей, упрощающих такие распространенные виды взаимодействия сервис-воркеров, как маршрутизация и кэширование. Каждый модуль посвящен определенному аспекту разработки сервис-воркеров. Цель Workbox - максимально упростить использование сервис-воркеров, обеспечив при этом гибкость, позволяющую при необходимости учитывать сложные требования приложений.
+icon: material/cog-box
 ---
 
-Maintaining your service worker and cache storage logic can be a challenge as your PWA grows. [Workbox](https://developer.chrome.com/docs/workbox/what-is-workbox/), is a set of open-source libraries to help with that. Workbox encapsulates the low-level APIs, like the Service Worker API and Cache Storage API, and exposes more developer-friendly interfaces.
+# Workbox
 
-Some tasks that it can help with are matching caching strategies to paths (or routing patterns), working with streams, and using features like background sync with proper fallbacks.
+<big>**Workbox** представляет собой набор модулей, упрощающих такие распространенные виды взаимодействия сервис-воркеров, как маршрутизация и кэширование. Каждый модуль посвящен определенному аспекту разработки сервис-воркеров. Цель Workbox - максимально упростить использование сервис-воркеров, обеспечив при этом гибкость, позволяющую при необходимости учитывать сложные требования приложений.</big>
 
-Workbox can help you with managing your asset caching and serving needs. It's also the most used library for service workers; used by [54% of mobile sites](https://almanac.httparchive.org/en/2022/pwa#workbox-usage) and it is used in many build tools and CLIs, including the Angular CLI, Create-React-App, and Vue CLI. There are plugins to most other libraries and frameworks, too, such as Next.js.
+Поддержание логики работы сервис-воркера и кэш-хранилища может стать сложной задачей по мере роста PWA. [Workbox](https://developer.chrome.com/docs/workbox/what-is-workbox/) - это набор библиотек с открытым исходным кодом, помогающий решить эту задачу. Workbox инкапсулирует низкоуровневые API, такие как API сервис-воркера и API кэш-хранилища, и предоставляет более удобные для разработчика интерфейсы.
 
-<div class="w-stats">
-  <div class="w-stat">
-    <p class="w-stat__figure">54<sub class="w-stat__sub">%</sub></p>
-    <p class="w-stat__desc">Mobile sites with service workers use the Workbox library</p>
-  </div>
- </div>
+С его помощью можно решать такие задачи, как подбор стратегий кэширования к путям (или шаблонам маршрутизации), работа с потоками и использование таких функций, как фоновая синхронизация с соответствующими обратными связями.
 
-{% Aside %}
-While Workbox is the most common set of libraries for service workers in the PWA community, there are other solutions such as [sw-tools](https://github.com/veiss-com/sw-tools) and [UpUp](https://www.talater.com/upup/)
-{% endAside %}
+Workbox может помочь вам в управлении кэшированием и обслуживанием ресурсов. Это также самая распространенная библиотека для сервис-воркеров; ее используют [54% мобильных сайтов](https://almanac.httparchive.org/en/2022/pwa#workbox-usage), и она используется во многих инструментах сборки и CLI, включая Angular CLI, Create-React-App и Vue CLI. Существуют плагины и к большинству других библиотек и фреймворков, например к Next.js.
 
-## Workbox modules
+!!!note ""
 
-Workbox includes several [libraries](https://developer.chrome.com/docs/workbox/modules/)&mdash;called modules internally&mdash;each focused on a different aspect of managing your assets and service worker behavior.
+    Хотя Workbox является наиболее распространенным набором библиотек для сервис-воркеров в сообществе PWA, существуют и другие решения, такие как [sw-tools](https://github.com/veiss-com/sw-tools) и [UpUp](https://www.talater.com/upup/)
 
-Workbox modules work in different contexts, such as:
+## Модули Workbox
 
-- **Within a service worker context**: you import the modules you need and use them from your service worker file, for example to help manage caching and serve files with different strategies.
-- **Within the main `window` context**: helping to register a service worker and communicating with it
-- **As part of a build system**: for example, webpack, for purposes such as creating a manifest of your assets, or even generating your entire service worker.
+Workbox включает в себя несколько [библиотек](https://developer.chrome.com/docs/workbox/modules/) &mdash;называемых внутри компании модулями &mdash; каждая из которых ориентирована на различные аспекты управления ресурсами и поведением сервис-воркеров.
 
-Some popular modules are:
+Модули Workbox работают в различных контекстах, например:
 
-- [workbox-routing](https://developer.chrome.com/docs/workbox/modules/workbox-routing/): When the service worker intercepts requests this module routes those requests to different functions that provide responses; it's an implementation of the `fetch` event handler as mentioned in the [Serving chapter](/learn/pwa/serving).
-- [workbox-strategies](https://developer.chrome.com/docs/workbox/modules/workbox-strategies/): A set of runtime caching strategies that handle responding to a request, such as cache first and stale while revalidate; it's an implementation of the different strategies mentioned in the [Serving chapter](/learn/pwa/serving).
-- [workbox-precaching](https://developer.chrome.com/docs/workbox/modules/workbox-precaching/): It's an implementation of caching files in the `install` event handler of the service worker (also known as precaching), as mentioned in the [Caching chapter](/learn/pwa/caching). With this module you can easily precache a set of files and efficiently manage updates to those assets. We'll cover updating assets in the [Update chapter](/learn/pwa/update).
-- [workbox-expiration](https://developer.chrome.com/docs/workbox/modules/workbox-expiration/): It is a plugin used with the caching strategies to remove cached requests based on the number of items in a cache or based on the age of the cached request. It helps manage your caches and sets limits on time and the number of items in each cache.
-- [workbox-window](https://developer.chrome.com/docs/workbox/modules/workbox-window/): A set of modules intended to run in the window context, which is to say, inside of your PWA web pages. You can simplify the process of service worker registration and updates and enable easier communication between code running in the service worker context and the window context.
+-   **В контексте сервис-воркера**: вы импортируете нужные вам модули и используете их в файле сервис-воркера, например, для управления кэшированием и обслуживанием файлов с различными стратегиями.
+-   **В рамках основного контекста `window`**: помощь в регистрации сервиса-воркера и взаимодействие с ним
+-   **Как часть системы сборки**: например, webpack, для создания манифеста ваших ресурсов или даже генерации всего сервис-воркера.
 
-## Using Workbox
+К числу популярных модулей относятся:
 
-Workbox provides different ways to integrate into your PWA. You can choose which fits best with your app's architecture:
+-   [workbox-routing](https://developer.chrome.com/docs/workbox/modules/workbox-routing/): Когда сервис-воркер перехватывает запросы, этот модуль направляет их к различным функциям, предоставляющим ответы; это реализация обработчика события `fetch`, о котором говорится в главе [Обслуживание](serving.md).
+-   [workbox-strategies](https://developer.chrome.com/docs/workbox/modules/workbox-strategies/): Набор стратегий кэширования во время выполнения запроса, таких как cache first и stale while revalidate; это реализация различных стратегий, упомянутых в главе [Обслуживание](serving.md).
+-   [workbox-precaching](https://developer.chrome.com/docs/workbox/modules/workbox-precaching/): Это реализация кэширования файлов в обработчике события `install` сервиса-воркера (также известного как прекэширование), о чем говорится в главе [Кеширование](caching.md). С помощью этого модуля можно легко обеспечить предварительное кэширование набора файлов и эффективно управлять обновлением этих ресурсов. Об обновлении ресурсов мы поговорим в главе [Обновление](update.md).
+-   [workbox-expiration](https://developer.chrome.com/docs/workbox/modules/workbox-expiration/): Это плагин, используемый со стратегиями кэширования для удаления кэшированных запросов на основе количества элементов в кэше или на основе возраста кэшированного запроса. Он помогает управлять кэшем и устанавливает ограничения по времени и количеству элементов в каждом кэше.
+-   [workbox-window](https://developer.chrome.com/docs/workbox/modules/workbox-window/): Набор модулей, предназначенных для работы в оконном контексте, то есть внутри веб-страниц PWA. С их помощью можно упростить процесс регистрации и обновления сервис-воркеров и обеспечить более удобное взаимодействие между кодом, выполняющимся в контексте сервис-воркера и в контексте окна.
 
-- [Workbox CLI](https://developer.chrome.com/docs/workbox/modules/workbox-cli/): A command-line utility that generates a complete service worker, injects a precache manifest, or copies needed Workbox files.
-- [Workbox Build](https://developer.chrome.com/docs/workbox/modules/workbox-build/): An npm module that generates a complete service worker, injects a precache manifest, and copies the Workbox files. This is meant to be integrated with your own build process.
-- [workbox-sw](https://developer.chrome.com/docs/workbox/modules/workbox-sw/): A way to load Workbox service worker packages from a CDN that doesn't use a build process.
+## Использование Workbox
 
-Workbox CLI provides a wizard that steps you through creating your service worker. To run the wizard, type the following at a command line:
+Workbox предоставляет различные способы интеграции в PWA. Вы можете выбрать тот, который лучше всего вписывается в архитектуру вашего приложения:
+
+-   [Workbox CLI](https://developer.chrome.com/docs/workbox/modules/workbox-cli/): Утилита командной строки, которая генерирует полный сервис-воркер, инжектирует манифест предварительного кэша или копирует необходимые файлы Workbox.
+-   [Workbox Build](https://developer.chrome.com/docs/workbox/modules/workbox-build/): Модуль npm, который генерирует полный сервис-воркер, инжектирует манифест precache и копирует файлы Workbox. Он предназначен для интеграции с собственным процессом сборки.
+-   [workbox-sw](https://developer.chrome.com/docs/workbox/modules/workbox-sw/): Способ загрузки пакетов сервис-воркеров Workbox из CDN, не использующий процесс сборки.
+
+Workbox CLI предоставляет мастер создания сервис-воркера. Чтобы запустить мастер, введите в командной строке следующее:
 
 ```bash
 npx workbox-cli wizard
 ```
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/GTRYFMjNWIGjgp3Sqzba.png", alt="Workbox CLI in action in a terminal", width="800", height="394" %}
+![Workbox CLI в действии в терминале](workbox-1.png)
 
-## Caching and serving with Workbox
+## Кэширование и обслуживание с помощью Workbox
 
-A common use of Workbox is using the routing and strategies modules together to cache and serve files.
+Частым применением Workbox является совместное использование модулей маршрутизации и стратегий для кэширования и обслуживания файлов.
 
-The module [*workbox-strategies*](https://developer.chrome.com/docs/workbox/modules/workbox-strategies/) provides, out of the box, the caching strategies discussed in the [Assets and data](/learn/pwa/assets-and-data) and [Serving](/learn/pwa/serving) chapters.
+Модуль [_workbox-strategies_](https://developer.chrome.com/docs/workbox/modules/workbox-strategies/) предоставляет из коробки стратегии кэширования, рассмотренные в главах [Ресурсы и данные](assets-and-data.md) и [Обслуживание](serving.md).
 
-The [*workbox-routing*](https://developer.chrome.com/docs/workbox/modules/workbox-routing/) module helps to sort incoming requests to your service worker and match them to the caching strategies or functions to get responses for those requests.
+Модуль [_workbox-routing_](https://developer.chrome.com/docs/workbox/modules/workbox-routing/) помогает сортировать входящие запросы к сервису-воркеру и сопоставлять их со стратегиями или функциями кэширования для получения ответов на эти запросы.
 
-After the matching of routes to strategies, Workbox also offers the ability to filter which responses will be added to the cache with the [*workbox-cacheable-response* plugin](https://developer.chrome.com/docs/workbox/modules/workbox-cacheable-response/). With this plugin you can for example cache only responses that returned without errors.
+После сопоставления маршрутов со стратегиями Workbox также предлагает возможность фильтровать, какие ответы будут добавлены в кэш, с помощью плагина [_workbox-cacheable-response_](https://developer.chrome.com/docs/workbox/modules/workbox-cacheable-response/). С помощью этого плагина можно, например, кэшировать только те ответы, которые вернулись без ошибок.
 
-{% Aside 'caution' %}
-While Workbox is distributed as npm modules, service workers themselves don't support ES modules syntax in every browser, so it's better to compile this sample code with a bundler before deploying it.
-{% endAside %}
+!!!warning ""
 
-The following code sample uses a cache first strategy (via the `CacheFirst` module) to cache and serve page navigations.
+    Хотя Workbox распространяется в виде модулей npm, сами сервис-воркеры поддерживают синтаксис ES-модулей не во всех браузерах, поэтому перед развертыванием лучше скомпилировать этот пример кода с помощью бандлера.
+
+Следующий пример кода использует стратегию cache first (с помощью модуля `CacheFirst`) для кэширования и обслуживания переходов по страницам.
 
 ```js
 import { registerRoute } from 'workbox-routing';
@@ -81,82 +73,90 @@ import { CacheFirst } from 'workbox-strategies';
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 
 const pageStrategy = new CacheFirst({
-  // Put all cached files in a cache named 'pages'
-  cacheName: 'pages',
-  plugins: [
-    // Only requests that return with a 200 status are cached
-    new CacheableResponsePlugin({
-      statuses: [200],
-    }),
-  ],
+    // Put all cached files in a cache named 'pages'
+    cacheName: 'pages',
+    plugins: [
+        // Only requests that return with a 200 status are cached
+        new CacheableResponsePlugin({
+            statuses: [200],
+        }),
+    ],
 });
 ```
 
-The plugin allows you to tap into Workbox's caching and request resolution lifecycle. Here, the `CacheableResponsePlugin` is used to only cache requests that result in a 200 status, preventing bad requests from being saved into the cache.
+Этот плагин позволяет использовать жизненный цикл кэширования и разрешения запросов в Workbox. В данном случае плагин `CacheableResponsePlugin` используется для кэширования только тех запросов, которые приводят к статусу 200, что предотвращает сохранение в кэше плохих запросов.
 
-With the strategy created, it's time to register a route to use it. The following example calls `registerRoute()`, passing a Request object to its callback. If `request.mode` is `"navigate"` it uses the `CacheFirst` strategy (here called `pageStrategy`) defined in the previous code example.
+Когда стратегия создана, настало время зарегистрировать маршрут для ее использования. В следующем примере вызывается функция `registerRoute()`, передающая в обратный вызов объект Request. Если `request.mode` имеет значение `"navigate"`, то используется стратегия `CacheFirst` (здесь она называется `pageStrategy`), определенная в предыдущем примере.
 
 ```js
 // Cache page navigations (HTML) with a Cache First strategy
-registerRoute( ({ request }) => request.mode === 'navigate',
-  pageStrategy );
+registerRoute(
+    ({ request }) => request.mode === 'navigate',
+    pageStrategy
+);
 ```
 
-Read the [Workbox documentation](https://developer.chrome.com/docs/workbox/) for more examples and best practices.
+Ознакомьтесь с документацией по [Workbox](https://developer.chrome.com/docs/workbox/) для получения дополнительной информации о примерах и лучших практиках.
 
-## Offline fallback
+## Откат в автономном режиме
 
-The _workbox-routing_ module also has an exported `setCatchHandler()`, that provides handling if a route throws an error. You can use this to set up an offline fallback to notify users that their requested route isn't currently available.
+Модуль _workbox-routing_ также имеет экспортируемую функцию `setCatchHandler()`, которая обеспечивает обработку в случае, если маршрут выдает ошибку. Это можно использовать для настройки автономного отката, чтобы уведомить пользователей о том, что запрашиваемый ими маршрут в данный момент недоступен.
 
-Here, a combination of Workbox and the Cache Storage API provides an offline fallback using a cache-only strategy.
-First, during the service worker's install lifecycle, the `offline-fallbacks` cache is opened, and the array of offline fallbacks is added to the cache.
+В данном случае комбинация Workbox и Cache Storage API обеспечивает автономный откат с использованием стратегии, основанной только на кэшировании. Сначала во время жизненного цикла установки сервис-воркера открывается кэш `offline-fallbacks` и в него добавляется массив оффлайн-возвратов.
 
 ```js
 import { setCatchHandler } from 'workbox-routing';
 
 // Warm the cache when the service worker installs
-self.addEventListener('install', event => {
-  const files = ['/offline.html']; // you can add more resources here
-  event.waitUntil(
-    self.caches.open('offline-fallbacks')
-        .then(cache => cache.addAll(files))
-  );
+self.addEventListener('install', (event) => {
+    const files = ['/offline.html']; // you can add more resources here
+    event.waitUntil(
+        self.caches
+            .open('offline-fallbacks')
+            .then((cache) => cache.addAll(files))
+    );
 });
 ```
 
-Then, in `setCatchHandler()`, the destination of the request that threw an error is determined, and the `offline-fallbacks` cache is opened. If the destination is a document, the content of the offline fallback is returned to the user. If that doesn't exist, or the destination isn't a document (such as an image or stylesheet), an error response is returned. You can extend this pattern not just for documents but for images, videos, fonts, really anything that you'd want to provide as an offline fallback.
+Затем в `setCatchHandler()` определяется назначение запроса, вызвавшего ошибку, и открывается кэш `offline-fallbacks`. Если местом назначения является документ, то пользователю возвращается содержимое автономного фаллабека. Если такого документа не существует или он не является документом (например, изображением или таблицей стилей), то возвращается ответ об ошибке. Вы можете расширить этот шаблон не только для документов, но и для изображений, видео, шрифтов - в общем, для всего, что вы хотите предоставить в качестве автономного резервного копирования.
 
 ```js
 // Respond with the fallback if a route throws an error
 setCatchHandler(async (options) => {
-  const destination = options.request.destination;
-  const cache = await self.caches.open('offline-fallbacks');
-  if (destination === 'document') {
-    return (await cache.match('/offline.html')) || Response.error();
-  }
-  return Response.error();
+    const destination = options.request.destination;
+    const cache = await self.caches.open(
+        'offline-fallbacks'
+    );
+    if (destination === 'document') {
+        return (
+            (await cache.match('/offline.html')) ||
+            Response.error()
+        );
+    }
+    return Response.error();
 });
 ```
 
-## Recipes
+## Рецепты
 
-Several routing and caching patterns, like `NetworkFirst` navigations and offline fallbacks, are common enough to be encapsulated into reusable recipes. Check [workbox-recipes](https://developer.chrome.com/docs/workbox/modules/workbox-recipes/) as they can help you if they provide a solution suitable for your architecture. They are usually available as one line of code that you need to add to your service worker's code.
+Некоторые шаблоны маршрутизации и кэширования, такие как навигация `NetworkFirst` и возврат в автономный режим, достаточно распространены, чтобы быть заключенными в рецепты многократного использования. Ознакомьтесь с [workbox-recipes](https://developer.chrome.com/docs/workbox/modules/workbox-recipes/), поскольку они могут помочь вам, если в них содержится решение, подходящее для вашей архитектуры. Обычно они доступны в виде одной строки кода, которую необходимо добавить в код сервис-воркера.
 
-### Caching and updating assets
+### Кэширование и обновление ресурсов
 
-Caching assets also involves updating them. Workbox helps with updating your assets in whatever way you decide is best. It could be keeping them updated if they change on the server, or waiting until you have a new version of your app.
-You'll learn more about updating in the [Update chapter](/learn/pwa/update).
+Кэширование ресурсов также подразумевает их обновление. Workbox помогает обновлять ресурсы любым удобным для вас способом. Это может быть обновление при изменении на сервере или ожидание выхода новой версии приложения. Подробнее об обновлении вы узнаете в главе [Обновление](update.md).
 
-## Play with Workbox
+## Играем с Workbox
 
-You can play with Workbox right away using the following code lab:
+Вы можете сразу же начать работать с Workbox, используя следующую кодовую лабораторию:
 
-{% Aside 'codelab' %}
-[Working With Workbox](https://developers.google.com/codelabs/pwa-training/pwa03--working-with-workbox?hl=pt#).
-{% endAside %}
+!!!note ""
 
-## Resources
+    [Working With Workbox](https://developers.google.com/codelabs/pwa-training/pwa03--working-with-workbox?hl=pt#).
 
-- [Get Started with Workbox](https://developer.chrome.com/docs/workbox/)
-- [Workbox Modules](https://developer.chrome.com/docs/workbox/modules/)
-- [The ways of Workbox](https://developer.chrome.com/docs/workbox/the-ways-of-workbox/)
+## Ресурсы
+
+-   [Начало работы с Workbox](https://developer.chrome.com/docs/workbox/)
+-   [Модули Workbox](https://developer.chrome.com/docs/workbox/modules/)
+-   [Способы работы с Workbox](https://developer.chrome.com/docs/workbox/the-ways-of-workbox/)
+
+:material-information-outline: Источник &mdash; [Workbox](https://web.dev/learn/pwa/workbox)

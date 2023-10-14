@@ -7,6 +7,6 @@ nav:
     - images
     - forms
     #- accessibility
-    #- pwa
+    - pwa
     - flex
     - grid

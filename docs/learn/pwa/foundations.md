@@ -1,221 +1,187 @@
 ---
-title: Foundations
-description: >
-  All Progressive Web Apps are, at their core, modern websites, so it's important that your website has a solid foundation in responsive design, mobile and everything first, intrinsic design, and web performance.
-authors:
-  - firt
-date: 2021-11-03
-updated: 2021-11-05
-
+description: Все прогрессивные веб-приложения по своей сути являются современными веб-сайтами, поэтому важно, чтобы ваш сайт имел прочную основу в области отзывчивого дизайна, мобильных устройств и всего остального, внутреннего дизайна и веб-производительности.
+icon: simple/scpfoundation
 ---
 
-## A solid foundation
+# Основы
 
- A solid foundation is the base requirement for building great PWAs. 
- To implement this foundation you need to design and code for the constraints of the web using a couple of principles:
+<big>Все прогрессивные веб-приложения по своей сути являются современными веб-сайтами, поэтому важно, чтобы ваш сайт имел прочную основу в области отзывчивого дизайна, мобильных устройств и всего остального, внутреннего дизайна и веб-производительности.</big>
 
-- Use mobile as a focusing constraint. Make sure each view of your design focuses only on the essential content and interactions.
-- Emphasize content and core functionality in the design process. 
-- Progressively enhance when needed. Start by building a component's core content and functionality with the most straightforward, most widely available tools. Make it accessible. Then, test for advanced features you'd like to use and enhance your component with them.
-- Offer a fast and good user experience focused on user-centric web performance metrics, get real user metrics, and push performance for all your users, no matter their network connection, input type, CPU, or GPU power.
+## Надежная основа
 
-{% Aside %}
-Accessibility is key for a successful PWA. Please follow [these guidelines](/pwa-checklist/#:~:text=to%20cached%20content%20or%20an%20offline%20indicator%20as%20needed.-,is%20fully%20accessible) to make sure your app is accessible to anyone, anywhere.
-{% endAside %}
+Надежная основа - это базовое требование для создания отличных PWA. Чтобы реализовать эту основу, необходимо проектировать и кодировать с учетом ограничений веба, используя несколько принципов:
 
-By following these principles and enhancing with modern patterns and web features, 
-you can create great and fast experiences with truly intrinsic designs. 
-Designs that are powered by constraints instead of pixels, 
-allowing every user access to your content and core functionality in a way that's best suited for their particular browsing context. 
+-   Используйте мобильные возможности как фокусирующее ограничение. Убедитесь, что каждый вид дизайна фокусируется только на важном контенте и взаимодействии.
+-   В процессе проектирования делайте акцент на контенте и основной функциональности.
+-   При необходимости постепенно улучшайте их. Начните с создания основного содержания и функциональности компонента с помощью самых простых и доступных инструментов. Сделайте его доступным. Затем протестируйте расширенные возможности, которые вы хотели бы использовать, и доработайте компонент с их помощью.
+-   Предлагайте быстрый и качественный пользовательский опыт, ориентированный на показатели веб-производительности, получайте реальные показатели пользователей и повышайте производительность для всех пользователей, независимо от их сетевого подключения, типа ввода, мощности CPU или GPU.
 
-## Responsive web design
+!!!note ""
 
-Since Ethan Marcotte's 2010 A List Apart article, 
-[Responsive Web Design](https://alistapart.com/article/responsive-web-design/), 
-designers and developers have been encouraged to create experiences that flex, 
-making user interfaces that work across a spectrum of screen sizes and devices. 
+    Доступность - ключевой фактор успешного PWA. Следуйте [этим рекомендациям](https://web.dev/articles/pwa-checklist#:~:text=to%20cached%20content%20or%20an%20offline%20indicator%20as%20needed.-,is%20fully%20accessible), чтобы убедиться, что ваше приложение доступно для всех и везде.
 
-Somewhere along the way, though, that became shortened to mobile, tablet, and desktop sizes, 
-with widths heavily influenced by iOS screen sizes. 
-With modern CSS and a renewed focus on responsive design's original intent, we can put the squish back in squishy sites.
+Следуя этим принципам и используя современные паттерны и веб-функции, вы сможете создавать отличные и быстрые приложения с действительно внутренним дизайном. Дизайн, основанный на ограничениях, а не на пикселях, позволяет каждому пользователю получить доступ к контенту и основной функциональности в том виде, который наилучшим образом подходит для его конкретного контекста просмотра.
 
-Responsive web design introduces three technical ingredients:
+## Отзывчивый веб-дизайн
 
-- Fluid grids
-- Flexible media
-- Media queries
+Начиная со статьи Итана Маркотта [Responsive Web Design](https://alistapart.com/article/responsive-web-design/), опубликованной в 2010 г. на сайте A List Apart, дизайнерам и разработчикам рекомендуется создавать гибкие пользовательские интерфейсы, работающие на разных размерах экранов и устройствах.
 
-Ethan concludes that these technical requirements aren't enough; 
-the way forward also requires a different way of thinking.
+Однако с некоторых пор это понятие сократилось до размеров мобильных, планшетных и настольных компьютеров, а на ширину экранов в значительной степени повлияли размеры экранов iOS. С помощью современного CSS и повторного фокусирования на первоначальном замысле отзывчивого дизайна мы можем вернуть "сплюснутость" в "сплюснутые" сайты.
 
-### The mobile user myth
+Отзывчивый веб-дизайн включает в себя три технических компонента:
 
-In the early days of responsive design assumptions were made in the name of making sites easier to design. 
-For example, small experiences were for phones, and they had a 320px width, 
-medium experiences were for tablets, and they had a 1024px width, and anything larger than that was for desktops. 
-Small screens had touch abilities, large screens didn't. Phone users were rushed and distracted and therefore needed a "light" experience. 
+-   Жидкие сетки
+-   гибкие медиа
+-   Медиа-запросы
 
-None of this is true; 
-they are mobile myths perpetuated by the assumption that a user's needs are fundamentally different based solely on screen size or device type. 
-This doesn't hold up to scrutiny.
+Итан приходит к выводу, что этих технических требований недостаточно; для продвижения вперед также необходимо иное мышление.
 
-Take, for example, a social network PWA that you can install today on mobile and desktop. 
-On desktop, many users can keep a narrow window with the feed at one side of the screen while working, 
-and assuming they are on a mobile device because of the available width would be wrong.
+### Миф о мобильном пользователе
 
-The PWA world that is out of the browser's tab is even adding new challenges to a responsive design world, such as the mini-mode and working with foldable devices.
+На заре развития отзывчивого дизайна делались предположения о том, что сайты легче проектировать. Например, маленькие сайты предназначались для телефонов и имели ширину `320px`, средние - для планшетов и имели ширину `1024px`, а все, что больше, предназначалось для настольных компьютеров. Маленькие экраны имели сенсорные возможности, а большие - нет. Пользователи телефонов спешат и отвлекаются и поэтому нуждаются в "легком" опыте.
 
-### Mini-mode
-With a PWA installed on a desktop device, 
-a window can get really small; smaller than a browser's window, smaller than a mobile viewport. 
-This is something new on the web: we can support a mini-mode, a window that can be as small as 200x100 CSS pixels. 
+Все это неправда, это мифы о мобильных устройствах, которые основаны на предположении, что потребности пользователя принципиально отличаются только в зависимости от размера экрана или типа устройства. Это не выдерживает критики.
 
-When creating a PWA these days, it's a good idea to think about what to offer in mini-mode, 
-thanks to responsive web design, such as just control buttons on a music player, dashboard information, or quick actions.
+Возьмем, к примеру, социальную сеть PWA, которую сегодня можно установить как на мобильный, так и на настольный компьютер. На настольном компьютере многие пользователи во время работы могут держать узкое окно с лентой в одной стороне экрана, и предполагать, что они находятся на мобильном устройстве из-за доступной ширины, было бы неверно.
 
-{% Video src="video/RK2djpBgopg9kzCyJbUSjhEGmnw1/hPR7t2kr42boNc4MfSGQ.mp4", alt="On desktop, a PWA can be rendered in a smaller window than the smallest window you've ever designed for the browser. It adds a new breakpoint for your responsive web design: the mini-mode.", autoplay="true", loop="true", muted="true" %}
+Мир PWA, выходящий за пределы вкладки браузера, даже добавляет новые проблемы в мир отзывчивого дизайна, такие как мини-режим и работа со складными устройствами.
 
-On desktop, a PWA can be rendered in a smaller window than the smallest window you've ever designed for the browser. It adds a new breakpoint for your responsive web design: the mini-mode.
+### Мини-режим
 
-### Foldables and hybrid
+При установке PWA на настольное устройство окно может стать очень маленьким: меньше, чем окно браузера, меньше, чем область просмотра мобильного устройства. Это нечто новое в Интернете: мы можем поддерживать мини-режим, окно которого может быть размером `200x100` CSS-пикселей.
 
-Foldable and hybrid devices are also common these days:
+При создании PWA в наши дни неплохо подумать о том, что можно предложить в мини-режиме благодаря отзывчивому веб-дизайну, например, кнопки управления музыкальным плеером, информацию на приборной панели или быстрые действия.
 
-- Small clamshell phones.
-- Foldable devices that can be used as phones or tablets.
-- Laptops that can be transformed into tablets.
-- Tablets that can act as laptops with keyboard and trackpad.
-- Phones then can be converted to desktop with a hub.
+<video controls autoplay loop muted>
+<source src="/learn/pwa/foundations-1.mp4" />
+</video>
 
-While the challenge exists for every website, with a Progressive Web App you are in control and responsible for the window when the app is installed. Therefore, your design should react and offer the best experience in every context.
+На настольных компьютерах PWA может отображаться в окне меньшего размера, чем самое маленькое окно, которое вы когда-либо проектировали для браузера. Это добавляет новую точку разрыва для вашего отзывчивого веб-дизайна: мини-режим.
 
-{% Aside %}
-It's becoming common to transfer an app's navigation between devices, so your PWA can be rendered in a smartwatch after receiving notification; the navigation can be transferred to a phone, and then to a laptop. Supporting all modes and devices is key to avoiding user frustration.
-{% endAside %}
+### Складные и гибридные устройства
 
-## Everything first
+Складные и гибридные устройства также широко распространены в наши дни:
 
-But where should you get started? Mobile first, content first, offline first? When designing for the flexibility of the web, which is it? Well, the answer is yes, *everything first*.
-The term _mobile first_ has been interpreted in many ways since Luke Wroblewski first coined it in 2009: from emulating platform-specific UI and UX patterns on the web to building mobile apps before building web apps to just using min-width media queries and calling it a day. Its original intent, though, is this: *mobile forces you to focus*. As Luke said:
+-   Маленькие телефоны-ракушки.
+-   Складные устройства, которые можно использовать как телефоны или планшеты.
+-   Ноутбуки, трансформирующиеся в планшеты.
+-   Планшеты, которые могут работать как ноутбуки с клавиатурой и трекпадом.
+-   Телефоны, которые можно превратить в настольные компьютеры с помощью концентратора.
 
-{% Blockquote 'Luke Wroblewski' %}
-Mobile devices require software development teams to focus on only the most important data and actions in an application. There simply isn't room in a 320 by 480-pixel screen for extraneous, unnecessary elements. You have to prioritize.
-So when a team designs Mobile First, the result is an experience focused on the key tasks users want to accomplish without the detours and interface debris that litter today's desktop-accessed websites. That's a good user experience and good for business.
-{% endBlockquote %}
+Хотя эта проблема существует для каждого веб-сайта, в случае с Progressive Web App вы контролируете и отвечаете за окно, когда приложение установлено. Поэтому ваш дизайн должен реагировать и предлагать наилучшие возможности в любом контексте.
 
-Focus each view of your website on only the essential tasks a user wants to accomplish there, 
-and don't add more stuff to the idea just because they have more screen real estate.
+!!!note ""
 
-The second principle is hinted at in Responsive Web Design: the "gradient of different experiences." 
-A single, identical, pixel-perfect experience for every single user should not be the goal of your work; it's all but impossible. 
+    Передача навигации приложения между устройствами становится обычным делом, поэтому PWA-приложение может отображаться на смарт-часах после получения уведомления, навигация может быть перенесена на телефон, а затем на ноутбук. Поддержка всех режимов и устройств - это ключ к тому, чтобы избежать разочарования пользователей.
 
-{% Aside 'caution' %}
-There are countless combinations of screen sizes, capabilities, devices, and contexts a user may be browsing with, and as a designer, you do not control what that final mix will be. 
-{% endAside %}
+## Все сначала
 
-Instead of thinking about your web experiences as a fixed thing, 
-think of it as a set of recommendations that the user's device will use to build the best experience for their current context. To do so, progressive enhancement needs to be embraced. 
+Но с чего же начать? С мобильных устройств, с контента, с офлайна? Что выбрать при проектировании с учетом гибкости веба? Ответ - да, _всё сначала_. Термин _mobile first_ получил множество толкований с тех пор, как Люк Вроблевски впервые ввел его в 2009 г.: от эмуляции специфических для конкретной платформы паттернов UI и UX в вебе до создания мобильных приложений перед созданием веб-приложений и просто использования медиазапросов min-width и на этом все. Однако его первоначальный смысл заключается в следующем: мобильность заставляет вас сосредоточиться. Как сказал Люк:
 
-### Progressive enhancement
+> Мобильные устройства требуют от команд разработчиков программного обеспечения сосредоточиться только на самых важных данных и действиях в приложении. На экране размером 320 на 480 пикселей просто нет места для лишних, ненужных элементов. Приходится расставлять приоритеты. Поэтому, когда команда разрабатывает Mobile First, в результате получается приложение, сфокусированное на ключевых задачах, которые пользователи хотят решить, без обходных путей и засорения интерфейса, которыми изобилуют современные сайты для настольных компьютеров. Это хорошо для пользователей и полезно для бизнеса.
+>
+> &mdash; Luke Wroblewski
 
-Progressive Enhancement is a pattern that lets us write code that runs everywhere, starting from standard HTML, CSS, and JavaScript, and adding layers of capabilities on top of that with proper fallbacks when an API is not available.
+Сосредоточьте каждый вид вашего сайта только на основных задачах, которые пользователь хочет на нем выполнить, и не добавляйте в него лишнего только потому, что у него больше экранной площади.
 
-How do you enhance? Feature detection is a pattern where you perform a test for support and react based on that test results. There are several built-in web platform tools and practices for doing this.
+На второй принцип намекает Responsive Web Design: "градиент различных впечатлений". Единый, одинаковый, пиксельно идеальный опыт для каждого отдельного пользователя не должен быть целью вашей работы - это практически невозможно.
 
-Using `@supports`, check for browser support of a CSS feature, and apply rules based on the result. 
-This applies to both CSS properties and values; if a property is supported and a value is not, it will fail, as will an unsupported property. JavaScript code can access this through the [`CSSSupportsRule`](https://developer.mozilla.org/docs/Web/API/CSSSupportsRule)
+!!!warning ""
 
-Most new web platform features are attached to existing objects, so ‘feature' in object style detection works well in JavaScript, as will other similar lookups, like checking for properties or methods on elements.
+    Существует бесчисленное множество комбинаций размеров экранов, возможностей, устройств и контекстов, в которых может работать пользователь, и вы, как дизайнер, не можете контролировать, каким будет конечное сочетание.
 
-To ship modern JavaScript, you can use the module/nomodule pattern to provide more robust features with a smaller payload to more modern browsers and a fallback experience to older browsers. This has the bonus of guaranteeing a new baseline of JavaScript features, like promises, classes, arrow functions, and `const` and `let` are available for browsers that support ES Modules. 
+Вместо того чтобы думать о своем веб-опыте как о чем-то неизменном, подумайте о нем как о наборе рекомендаций, которые будут использоваться устройством пользователя для создания наилучшего опыта для его текущего контекста. Для этого необходимо использовать прогрессивное улучшение.
 
-You can even combine multiple forms of feature detection to create your enhanced baseline. Coined by the BBC News team, this is called Cutting the Mustard and lets you ship a core experience to everyone and start enhancing the experience only after a specific feature-detected bar is reached.
+### Прогрессивное улучшение
 
-{% Aside %}
-The P in PWA comes from Progressive, and it emphasizes the idea of adding features and abilities progressively, and using Feature Detection is key for that goal.
-{% endAside %}
+Прогрессивное улучшение - это паттерн, позволяющий писать код, который работает везде, начиная со стандартных HTML, CSS и JavaScript и добавляя поверх них слои возможностей с соответствующими отступлениями, когда API недоступно.
 
-#### Avoid device detection
+Как вы улучшаете возможности? Обнаружение возможностей - это паттерн, в котором вы выполняете тест на поддержку и реагируете на результаты этого теста. Для этого существует несколько встроенных в веб-платформу инструментов и практик.
 
-You should directly test for feature support instead of making support assumptions based on the User-Agent string. 
+Используя `@supports`, можно проверить поддержку браузером функции CSS и применить правила на основе полученных результатов. Это относится как к свойствам, так и к значениям CSS; если свойство поддерживается, а значение - нет, то проверка будет неудачной, как и в случае с неподдерживаемым свойством. JavaScript-код может получить доступ к этому через [`CSSSupportsRule`](https://developer.mozilla.org/docs/Web/API/CSSSupportsRule).
 
-User-agent strings have never been truly reliable. 
-They rely on having near-perfect knowledge of every browser, operating system, 
-and device combination in existence to "guess right". 
-Even then they are susceptible to user spoofing, for example, desktop site redirects on mobile browsers are often as simple as spoofing a desktop user-agent string.
+Большинство новых функций веб-платформы привязаны к существующим объектам, поэтому определение стиля объекта 'feature' хорошо работает в JavaScript, как и другие подобные поиски, например, проверка свойств или методов элементов.
 
-Moreover, browsers are working on freezing their User-Agent strings, 
-with user-agent strings for feature detection specifically called out as a reason for deprecation, 
-making them even more unreliable than they previously were for identifying a user and device.
+Чтобы поставлять современный JavaScript, можно использовать паттерн модуль/номодуль для предоставления более надежных функций с меньшей полезной нагрузкой для более современных браузеров и возможностью отката для старых браузеров. При этом гарантируется, что новые базовые возможности JavaScript, такие как обещания, классы, стрелочные функции, а также `const` и `let` будут доступны для браузеров, поддерживающих ES-модули.
 
-{% Aside %}
-After saying that device detection is a bad practice, it's also important to clarify that there are still situations where we don't have any other solution, such as detecting iOS devices to offer specific platform instructions. Treat these practices as hacks and be careful to re-test and update these hacks on every new version of the browser on these platforms.
-{% endAside %}
+Вы даже можете комбинировать несколько форм обнаружения возможностей для создания расширенного базового уровня. Команда BBC News назвала этот метод "срезанием горчицы" (Cutting the Mustard). Он позволяет предоставлять базовый опыт всем желающим и начинать улучшать его только после достижения определенной планки обнаружения возможностей.
 
-### Content first
+!!!note ""
 
-Another principle of designing for the web is: start with *your content first*. For example, a real-time  stock ticker with a graph of a stock's prices is, at its core, a table of stocks with their price over some time, maybe with a link to refresh the site. 
+    Буква P в слове PWA означает Progressive, что подчеркивает идею постепенного добавления функций и возможностей, и использование Feature Detection является ключевым для достижения этой цели.
 
-That can then be enhanced with JavaScript and fetch requests to update the table's values on a timer or enhanced with sockets to provide real-time push-based updates. It can be enhanced again to graph the results, maybe with CSS, maybe with SVG, maybe with Canvas. But the core starts with content.
+#### Избегайте обнаружения устройств
 
-## Intrinsic design
+Необходимо напрямую тестировать поддержку функций, а не делать предположения о поддержке на основе строки User-Agent.
 
-- Mobile as a focusing constraint for user experience.
-- Emphasizing content and core functionality in the design process.
-- Progressively enhancing with advanced functionality where available.
+Строки User-agent никогда не были по-настоящему надежными. Для того чтобы "угадать", необходимо обладать практически идеальными знаниями обо всех существующих браузерах, операционных системах и устройствах. Но даже в этом случае они подвержены подделке пользователей, например, перенаправление сайтов настольных систем на мобильные браузеры часто осуществляется просто подменой строки user-agent настольного компьютера.
 
-These principles combine to give us something new: _intrinsic design_.
-In her talk [Designing Intrinsic Layouts](https://www.youtube.com/watch?v=AMPKmh98XLY), Jen Simmons talks about using modern CSS tools, like Grid, Flexbox, flow layout, and writing modes, to design and build user interfaces. With these tools, she says:
+Более того, браузеры работают над замораживанием своих строк User-Agent, причем строки user-agent для определения функций специально указываются в качестве причины для устаревания, что делает их еще более ненадежными для идентификации пользователя и устройства, чем раньше.
 
-{% Blockquote 'Jen Simmons' %}
-You can really make the layout be intrinsic to the content that we have and the design that we want to do.
-{% endBlockquote %}
+!!!note ""
 
-This new CSS allows designers to regain some control over layout but do so in a way that aligns with the latest web design principles. Instead of creating fixed forms based on fixed screen sizes, you define content-based rules by which layout  happens by tapping into intrinsic properties of that content, like how small or large it can be, the size of the text, and the available space, all at once. They allow you to realize your design as it interacts with your content without needing to control every pixel's placement.
+    Сказав, что обнаружение устройств - плохая практика, важно также пояснить, что все еще существуют ситуации, когда у нас нет другого решения, например, обнаружение iOS-устройств для предложения конкретных инструкций по работе с платформой. Относитесь к этим практикам как к хакам и будьте внимательны, перепроверяйте и обновляйте эти хаки на каждой новой версии браузера на этих платформах.
 
-Intrinsic layouts bring the conversation about control on the web full-circle, giving it definition. Control on the web isn't about dictating devices or screen sizes or colors or fonts or layouts or capabilities for each visitor to your site. Control on the web is about writing the rules a browser will use to assemble your experience, building it uniquely for each user in your Progressive Web App.
+### Контент превыше всего
 
-## Web performance
+Еще один принцип проектирования для Web: начинайте с _своего контента_. Например, биржевой тикер с графиком цен акций в реальном времени - это, по сути, таблица акций с их ценами за определенное время, возможно, со ссылкой на обновление сайта.
 
-The last but not least important foundation for our PWA is Web Performance. 
-Having a great experience for users is mandatory; 
-it will lead to more conversions in every possible way.
+Затем эта таблица может быть дополнена JavaScript и fetch-запросами для обновления значений в таблице по таймеру или сокетами для обеспечения push-обновлений в реальном времени. Его можно еще раз расширить, чтобы представить результаты на графике, возможно, с помощью CSS, возможно, с помощью SVG, возможно, с помощью Canvas. Но ядро начинается с контента.
 
-Web performance involves several steps:
+## Внутренний дизайн
 
-- Understand the key user-centric metrics available.
-- Set goals for every metric.
-- Measure our PWA.
-- Improve our metrics by applying techniques and best practices statically in our code or server.
-- Measure again.
-- Improve the experience to each user, live, based on the user's context.
+-   Мобильность как ограничитель пользовательского опыта.
+-   Акцент на содержание и основную функциональность в процессе проектирования.
+-   Постепенное расширение функциональности, если она доступна.
 
-Web performance metrics today measure how fast your content appears on the screen, 
-but also how interactive your website is and how users perceive the experience.
+В совокупности эти принципы дают нам нечто новое: _внутренний дизайн_. В своем докладе [Designing Intrinsic Layouts](https://www.youtube.com/watch?v=AMPKmh98XLY) Джен Симмонс рассказывает об использовании современных инструментов CSS, таких как Grid, Flexbox, flow layout и writing modes, для проектирования и создания пользовательских интерфейсов. С помощью этих инструментов, по ее словам:
+
+> Вы можете сделать так, чтобы макет действительно соответствовал содержимому, которое у нас есть, и дизайну, который мы хотим сделать.
+>
+> &mdash; Jen Simmons
+
+Новый CSS позволяет дизайнерам восстановить контроль над макетом, но при этом сделать это в соответствии с новейшими принципами веб-дизайна. Вместо того чтобы создавать фиксированные формы, основанные на фиксированных размерах экрана, вы определяете правила верстки на основе контента, используя свойства, присущие этому контенту, такие как размер, размер текста и доступное пространство. Они позволяют реализовать дизайн в процессе его взаимодействия с содержимым, не контролируя размещение каждого пикселя.
+
+Внутренние макеты позволяют перевести разговор о контроле в Интернете на новый уровень и дать ему определение. Контроль в Интернете - это не диктовка устройств, размеров экрана, цветов, шрифтов, макетов и возможностей для каждого посетителя вашего сайта. Контроль в Интернете - это написание правил, по которым браузер будет собирать ваш опыт, создавая его уникальным образом для каждого пользователя в вашем прогрессивном веб-приложении.
+
+## Веб-производительность
+
+Последняя, но не менее важная основа PWA - это веб-производительность. Отличный опыт для пользователей - обязательное условие, которое приведет к увеличению конверсии во всех возможных случаях.
+
+Оценка веб-эффективности включает в себя несколько этапов:
+
+-   Понять, какие существуют ключевые метрики, ориентированные на пользователя.
+-   Установить цели для каждой метрики.
+-   Измерить наш PWA.
+-   Улучшить показатели путем применения методик и лучших практик в коде или на сервере.
+-   Измерить еще раз.
+-   Улучшать опыт каждого пользователя в реальном времени, основываясь на его контексте.
+
+Сегодня показатели веб-производительности измеряют не только скорость появления контента на экране, но и интерактивность сайта и восприятие его пользователями.
 
 ### Web Vitals
 
-During the past decade, we've been dealing with different metrics to measure success in web performance. 
-Today, a set of recommended metrics are grouped under the project [Web Vitals](/vitals/). 
-Web Vitals focus metrics in three key areas affecting web performance and perception:
+В последнее десятилетие мы имеем дело с различными метриками для оценки успешности работы в Интернете. Сегодня набор рекомендуемых метрик сгруппирован в рамках проекта [Web Vitals](https://web.dev/articles/vitals). Web Vitals фокусирует метрики в трех ключевых областях, влияющих на производительность и восприятие веб-сайтов:
 
-- Loading
-- Interactive
-- Visual Stability
+-   Загрузка
+-   интерактивность
+-   Визуальная стабильность
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/gu948vCUtGMKb6dKcSpZ.png", alt="A set of metrics from Core Web Vitals showing a website's performance results.", width="800", height="225" %}
+![Набор метрик от Core Web Vitals, показывающий результаты работы сайта.](foundations-2.png)
 
+С помощью Core Web Vitals вы можете с первого взгляда определить, насколько хороша или плоха ваша PWA с точки зрения веб-производительности и пользовательского опыта.
 
-With Core Web Vitals, you can see at a glance, how good or bad is your PWA in web performance and user experience.
+## Основы PWA
 
-## PWA foundations
-It's important that your PWA has a solid foundation in responsive design, mobile and everything first, intrinsic design, and web performance as a foundation for a great experience for all your users.
+Важно, чтобы ваш PWA имел прочную основу в виде отзывчивого дизайна, мобильных устройств и всего остального, оригинального дизайна и веб-производительности как основы для отличного опыта для всех ваших пользователей.
 
-##  Resources
+## Ресурсы
 
-- [Learn Responsive Web Design](/learn/design)
-- [The new responsive: Web design in a component-driven world](/new-responsive/)
-- [Progressive Enhancement](https://developer.mozilla.org/docs/Glossary/Progressive_Enhancement) 
-- [Ten modern layouts in one line of CSS](/one-line-layouts/)
-- [Web Vitals](/vitals/)
-- [Designing Intrinsic Layouts talk](https://www.youtube.com/watch?v=AMPKmh98XLY)
+-   [Изучаем отзывчивый веб-дизайн](../design/index.md)
+-   [Новый отзывчивый: веб-дизайн в мире, управляемом компонентами](https://web.dev/articles/new-responsive)
+-   [Прогрессивное улучшение](https://developer.mozilla.org/docs/Glossary/Progressive_Enhancement)
+-   [Десять современных макетов в одной строке CSS](https://web.dev/articles/one-line-layouts)
+-   [Web Vitals](https://web.dev/articles/vitals)
+-   [Разговор о проектировании внутренних макетов](https://www.youtube.com/watch?v=AMPKmh98XLY)
+
+:material-information-outline: Источник &mdash; [Foundations](https://web.dev/learn/pwa/foundations)

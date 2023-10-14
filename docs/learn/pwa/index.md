@@ -1,28 +1,55 @@
 ---
-title: Learn PWA
-authors:
-    - firt
-description: A course that breaks down every aspect of modern progressive web app development.
-date: 2021-11-03
-updated: 2022-05-16
+description: Курс, в котором рассматриваются все аспекты разработки современных прогрессивных веб-приложений.
+hide:
+    - toc
 ---
 
-## Welcome to Learn Progressive Web Apps!
+# Учим PWA
 
-Welcome to Learn Progressive Web Apps!
+<big>Курс, в котором рассматриваются все аспекты разработки современных прогрессивных веб-приложений.</big>
 
-This course covers the fundamentals of Progressive Web App development in easy-to-understand pieces. Over the following modules, you'll learn what a Progressive Web App is, how to create one or upgrade your existing web content, and how to add all the pieces for an offline, installable app. Use the menu pane to navigate the modules. (The menu is at left on desktop or behind the hamburger menu on mobile.)
+## Добро пожаловать на сайт "Изучение прогрессивных веб-приложений"!
 
-You'll learn PWA fundamentals like the Web App Manifest, service workers, how to design with an app in mind, how to use other tools to test and debug your PWA. After these fundamentals, you'll learn about integration with the platform and operating system, how to enhance your PWA's installation and usage experience, and how to offer an offline experience.
+Добро пожаловать на курс "Изучение прогрессивных веб-приложений"!
 
-Each module includes interactive demos and self-assessments for you to test your knowledge. You will be able to test and try demos on your mobile phone, tablet, or laptop while playing with code to understand the fundamentals of what makes a Progressive Web App.
+В этом курсе рассматриваются основы разработки прогрессивных веб-приложений в виде простых и понятных фрагментов. В следующих модулях вы узнаете, что такое прогрессивное веб-приложение, как его создать или обновить существующий веб-контент, а также как добавить все компоненты для автономного, устанавливаемого приложения. Для навигации по модулям используйте панель меню.
 
-This course is created for a beginner and advanced web developers alike. You can go through the series from start to finish to get a general understanding of PWA from top to bottom, or you can use it as a reference for specific subjects. For those new to web development you will need a grounding in HTML, CSS, and JavaScript to follow along. Check out [Learn CSS](/learn/css), and the [HTML](https://developer.mozilla.org/docs/Learn/HTML) and [JavaScript](https://developer.mozilla.org/docs/Learn/JavaScript) courses on MDN.
+Вы узнаете об основах PWA, таких как манифест веб-приложения, рабочие службы, о том, как проектировать с учетом особенностей приложения, как использовать другие инструменты для тестирования и отладки PWA. После этих основ вы узнаете об интеграции с платформой и операционной системой, о том, как повысить удобство установки и использования PWA, а также о возможности работы в автономном режиме.
 
-Here's what you'll learn:
+Каждый модуль включает интерактивные демонстрации и задания для самопроверки знаний. Вы сможете протестировать и опробовать демо-версии на своем мобильном телефоне, планшете или ноутбуке, играя с кодом, чтобы понять основы того, что представляет собой Progressive Web App.
 
-{% include 'partials/course-index.njk' %}
+Этот курс создан как для начинающих, так и для опытных веб-разработчиков. Вы можете пройти весь курс от начала до конца, чтобы получить общее представление о PWA сверху донизу, или использовать его в качестве справочника по конкретным темам. Для тех, кто только начинает заниматься веб-разработкой, потребуются знания HTML, CSS и JavaScript. Посмотрите [Учим CSS](../css3/index.md), а также курсы [HTML](https://developer.mozilla.org/docs/Learn/HTML) и [JavaScript](https://developer.mozilla.org/docs/Learn/JavaScript) на MDN.
 
-So, are you ready to learn PWA?
+<!-- Вот что вы узнаете:
 
-{% Aside %} This course was written by [Maximiliano Firtman](https://twitter.com/firt), with input and review from [Rachel Andrew](https://twitter.com/rachelandrew), [Adriana Jara](https://twitter.com/tropicadri), [Pete LePage](https://twitter.com/petele), [Sam Richard](https://twitter.com/snugug), and [Joe Medley](https://twitter.com/medleyjp). {% endAside %}
+<div class="grid cards" style="margin-top: 1.6em" markdown>
+
+-   :material-history:{ .lg .middle } **Краткая история изображений**
+
+    ***
+
+    История изображений в Интернете, начиная с элемента image в 1993 году
+
+    [:octicons-arrow-right-24: Краткая история изображений](history.md)
+
+-   :material-power:{ .lg .middle } **Ключевые вопросы производительности**
+
+    ***
+
+    Узнайте, как сделать так, чтобы ваши запросы к изображениям были как можно меньше и производительнее.
+
+    [:octicons-arrow-right-24: Ключевые вопросы производительности](performance-issues.md)
+
+</div>
+
+{% include 'partials/course-index.njk' %} -->
+
+!!!note "Авторы"
+
+    Этот курс был написан [Максимилиано Фиртманом](https://twitter.com/firt) при участии [Рэйчел Эндрю](https://twitter.com/rachelandrew), [Адриана Джара](https://twitter.com/tropicadri), [Пит ЛеПейдж](https://twitter.com/petele), [Сэм Ричард](https://twitter.com/snugug), и [Джо Медли](https://twitter.com/medleyjp).
+
+!!!danger "Перевод"
+
+    Перевод этого учебника сделан благодаря [подписчикам на Бусти](https://boosty.to/bndby).
+
+:material-information-outline: Источник &mdash; [Learn PWA](https://web.dev/learn/pwa)

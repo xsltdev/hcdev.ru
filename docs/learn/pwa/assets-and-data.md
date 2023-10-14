@@ -1,140 +1,118 @@
 ---
-title: Assets and data
-description: >
-  A Progressive Web App is a website; all its assets are the same as on the web, but with new tools to make those assets load fast when online and available when offline.
-authors:
-  - firt
-date: 2021-11-18
-updated: 2022-02-23
-
+description: Прогрессивное веб-приложение - это веб-сайт, все ресурсы которого такие же, как и в Интернете, но с новыми инструментами, позволяющими быстро загружать эти ресурсы в режиме онлайн и делать их доступными в режиме офлайн.
+icon: material/cable-data
 ---
 
-## App components
+# Ресурсы и данные
 
-Developing an application typically involves several assets and resources,
-from the logic and code (compiled or not) to the user interface elements such as screen designs, images, logos, and fonts.
+<big>Прогрессивное веб-приложение - это веб-сайт, все ресурсы которого такие же, как и в Интернете, но с новыми инструментами, позволяющими быстро загружать эти ресурсы в режиме онлайн и делать их доступными в режиме офлайн.</big>
 
-A Progressive Web App is a website, so all its assets are the same as on the web:
+## Компоненты приложения
 
-- HTML for content and initial page rendering.
-- JavaScript for logic, including the ability to run WebAssembly modules (compiled code) and render 2D and 3D hardware-optimized graphics.
-- CSS for layout, styling, and animations.
-- Images in web formats, such as PNG, JPEG, WebP, and SVG.
-- Videos in web formats, such as MPEG-4 and WebM.
-- Web fonts.
-- Data in JSON or other formats.
+При разработке приложения обычно используется несколько активов и ресурсов: от логики и кода (скомпилированного или нет) до элементов пользовательского интерфейса, таких как дизайн экрана, изображения, логотипы и шрифты.
 
-By default, websites download assets over the network,
-[starting with HTML](/critical-rendering-path/)
-and continuing to the rest of the resources.
+Прогрессивное веб-приложение - это веб-сайт, поэтому все его ресурсы такие же, как и в Интернете:
 
-Managing those resources to load fast and be available offline has been a challenge for the web.
-Nowadays, PWAs use capabilities previously associated only with platform-specific apps.
+-   HTML для содержимого и первоначального рендеринга страницы.
+-   JavaScript для логики, включая возможность запуска модулей WebAssembly (скомпилированный код) и рендеринга 2D- и 3D-графики, оптимизированной для аппаратного обеспечения.
+-   CSS для верстки, стилизации и анимации.
+-   Изображения в веб-форматах, таких как PNG, JPEG, WebP и SVG.
+-   Видео в веб-форматах, таких как MPEG-4 и WebM.
+-   Веб-шрифты.
+-   Данные в формате JSON или других форматах.
 
-### Platform-specific apps vs. PWA
+По умолчанию веб-сайты загружают ресурсы по сети, [начиная с HTML](https://web.dev/articles/critical-rendering-path) и заканчивая остальными ресурсами.
 
-When you install a platform-specific app you are typically downloading a package that includes all the app's assets: code, images, fonts, videos, and so on.
-Therefore, all these resources are available, from your device storage, even when the app is offline.
+Управление этими ресурсами, чтобы они быстро загружались и были доступны в автономном режиме, было сложной задачей для Интернета. В настоящее время PWA используют возможности, которые раньше ассоциировались только с приложениями для конкретных платформ.
 
-On the other hand, a classic website needs a network connection to download the assets when required.
-If you are offline, you will see an error from the browser as there are no assets client-side.
+### Платформоспецифичные приложения против PWA
 
-The PWA approach enhances the traditional web experience by making some or all the assets available client-side as with platform-specific apps. Therefore, when you open a PWA, the initial rendering can be as instantaneous as a platform app because the assets are available without going to the network.
+При установке приложения для конкретной платформы обычно загружается пакет, включающий все ресурсы приложения: код, изображения, шрифты, видео и т.д. Таким образом, все эти ресурсы доступны из хранилища вашего устройства, даже когда приложение находится в автономном режиме.
 
-{% Aside %}
-An app that is available offline will always render a basic user interface instead of a technical error from the operating system or browser. Some apps still offer all their functionality, some a limited experience, and others a simple message with the app's branding. This applies to both platform-specific apps and PWAs.
-{% endAside %}
+С другой стороны, классический веб-сайт требует подключения к сети для загрузки ресурсов в случае необходимости. Если вы находитесь в автономном режиме, браузер выдаст ошибку, поскольку на стороне клиента нет никаких ресурсов.
 
-## Caches and storage
+Подход PWA расширяет возможности традиционного веб-сайта, делая некоторые или все активы доступными на стороне клиента, как в приложениях для конкретной платформы. Поэтому, когда вы открываете PWA, начальный рендеринг может быть таким же мгновенным, как и в платформенном приложении, поскольку активы доступны без обращения к сети.
 
-Since the beginning of the web, developers have not had complete control of how a resource is cached.
-The browser is in charge of the HTTP cache and it may or may not cache and serve resources based on different policies.
-Other storage options like Web Storage and IndexedDB were meant to save simple data and objects.
+!!!note ""
 
-PWAs don't need to rely on those policies alone for their content.
-Instead, we have solutions today to gain better control over when and how to cache resources and when and how to deliver them locally: the Cache Storage API.
-The web has a few of client-side storage solutions available:
+    Приложение, доступное в автономном режиме, всегда будет отображать базовый пользовательский интерфейс, а не техническую ошибку операционной системы или браузера. Некоторые приложения по-прежнему предлагают весь свой функционал, некоторые - ограниченный, а другие - простое сообщение с брендингом приложения. Это относится как к приложениям для конкретных платформ, так и к PWA.
 
-* **Web storage**: Includes `localStorage` and `sessionStorage`. These APIs store simple key/value string pairs. Web storage is limited, and has a synchronous API, so it should be avoided whenever possible.
-* **IndexedDB**: An object-based database (No-SQL) with an asynchronous API that is good for web performance. IndexedDB can store structured and binary data client-side. It is typically what you will use to store data, like what you'd get from or send as an API request. It's also useful to save data locally immediately and later on sync it to the server. The [IndexedDB API](https://developer.mozilla.org/docs/Web/API/IndexedDB_API) is used to interact with the database.
-* **Cache storage**: A collection of HTTP request and response pairs you can use to store and retrieve resources — with their HTTP headers — exactly as they are delivered from the server. The [Cache Storage API](https://developer.mozilla.org/docs/Web/API/CacheStorage) allows you to store, retrieve, update and delete network requests, for example for your assets, even when offline.
+## Кэши и хранение
 
-{% Aside 'warning' %}
-You may have heard about WebSQL and ApplicationCache. These two solutions are deprecated, and you shouldn't use them in your PWA.
-{% endAside %}
+С момента появления Интернета разработчики не имели полного контроля над тем, как кэшируется тот или иной ресурс. За кэш HTTP отвечает браузер, который может кэшировать и обслуживать ресурсы в соответствии с различными политиками, а может и не кэшировать. Другие варианты хранения, такие как Web Storage и IndexedDB, предназначались для сохранения простых данных и объектов.
 
-### The need for service workers
+PWA не нужно полагаться только на эти политики для хранения своего содержимого. Вместо этого сегодня у нас есть решения, позволяющие лучше контролировать, когда и как кэшировать ресурсы и когда и как доставлять их локально: Cache Storage API. В Интернете существует несколько решений для хранения данных на стороне клиента:
 
-A PWA can store its assets in Cache Storage and IndexedDB,
-but how can we use those assets to deliver a fast and offline experience to your users. The answer? Service workers.
+-   **Веб-хранилище**: Включает в себя `localStorage` и `sessionStorage`. Эти API хранят простые пары строк ключ/значение. Веб-хранилище имеет ограниченные возможности и синхронный API, поэтому по возможности его следует избегать.
+-   **IndexedDB**: Объектно-ориентированная база данных (No-SQL) с асинхронным API, которая хорошо подходит для работы в Интернете. IndexedDB может хранить структурированные и двоичные данные на стороне клиента. Как правило, она используется для хранения данных, например, полученных или отправленных в виде API-запроса. Также полезно сохранять данные локально, а затем синхронизировать их с сервером. Для взаимодействия с базой данных используется [IndexedDB API](https://developer.mozilla.org/docs/Web/API/IndexedDB_API).
+-   **Хранилище кэша**: Коллекция пар HTTP-запросов и ответов, которые можно использовать для хранения и извлечения ресурсов - с их HTTP-заголовками - точно в том виде, в котором они были доставлены с сервера. API [Cache Storage API](https://developer.mozilla.org/docs/Web/API/CacheStorage) позволяет хранить, извлекать, обновлять и удалять сетевые запросы, например, для ваших активов, даже в автономном режиме.
 
-With a service worker, you can serve assets without going to the network, send notifications to a user, add a badge to your PWA icon, update content in the background, and even make your whole PWA work offline. Learn more about service workers in the [next chapter](/learn/pwa/service-workers/).
+!!!warning ""
 
-## Offline-ready
+    Возможно, вы слышали о WebSQL и ApplicationCache. Эти два решения устарели, и их не следует использовать в PWA.
 
-Users expect your application to offer a fast and always-ready experience.
-That means your app should work offline.
+### Необходимость в рабочих службах
 
-Being offline-ready doesn't mean that all your content or services should be available without a network connection.
-However having at least a basic experience when the user is offline, like a page that asks you to connect to the Internet to continue, will provide for a better user experience, keeping the user within the experience of your app instead of a generic browser error.
-In some browsers this is a must-have feature to pass the PWA installation criteria.
-Displaying your PWA's user interface, along with cached content, is better.
-Letting users continue using your whole PWA and syncing server changes when they're back online is the gold standard for working offline.
+PWA может хранить свои активы в Cache Storage и IndexedDB, но как использовать эти активы для обеспечения быстрого и автономного взаимодействия с пользователями. Ответ. Рабочие службы.
 
-To make your app available offline, you will need to cache the assets necessary for your offline experience and make your service worker serve them later. Make sure to add the offline assets to your cache before you need them. This is a particular case where you cannot cache them when requested.
+С помощью рабочих служб можно обслуживать активы, не обращаясь к сети, отправлять уведомления пользователям, добавлять значок к значку PWA, обновлять содержимое в фоновом режиме и даже заставить весь PWA работать в автономном режиме. Подробнее о рабочих службах читайте в [следующей главе](service-workers.md).
 
-{% Aside %}
-Asset caching happens independently from PWA installation,
-and will work even from a browser tab, allowing for faster asset delivery and an offline experience regardless of how a user chooses to use your PWA.
-{% endAside %}
+## Готовность к работе в автономном режиме
 
-### Frequently used cache approaches
+Пользователи ожидают, что ваше приложение будет работать быстро и всегда готово к работе. Это означает, что приложение должно работать в автономном режиме.
 
-In your PWA, you are in charge of all the decisions. You can choose the best approach to cache or install assets based on your needs.
-Some decisions to make are:
+Возможность работы в автономном режиме не означает, что весь ваш контент или сервисы должны быть доступны без подключения к сети. Однако наличие хотя бы базовых возможностей работы в автономном режиме, например, страницы с запросом на подключение к Интернету для продолжения работы, обеспечит лучший пользовательский опыт, удерживая пользователя в рамках опыта работы с вашим приложением вместо общей ошибки браузера. В некоторых браузерах эта функция является обязательной для прохождения критериев установки PWA. Отображение пользовательского интерфейса PWA вместе с кэшированным содержимым лучше. Позволить пользователям продолжать использовать весь PWA и синхронизировать изменения на сервере, когда они возвращаются в сеть, - это золотой стандарт работы в автономном режиме.
 
-* Precaching: pick the assets you'd like to install on the first load; those should include the HTML and the minimal assets to render the app. When using precache keep in mind you are using the device's space and network. Be conscious and responsible when downloading assets and caching them.
-* Cache as needed: used to add assets to the cache when they are requested. Typically these are assets that can change independently of your app version, like images or content. See the [caching](/learn/pwa/caching) section for different strategies on how to cache as needed.
-* APIs and web services: API calls can be cached; or, instead of caching the API responses, you can store their data in IndexedDB.
+Чтобы сделать приложение доступным в автономном режиме, необходимо кэшировать активы, необходимые для работы в автономном режиме, и заставить сервисный работник обслуживать их позже. Обязательно добавляйте автономные активы в кэш до того, как они понадобятся. В данном случае речь идет о конкретном случае, когда их нельзя кэшировать при запросе.
 
-{% Aside 'gotchas' %}
-With platform-specific apps, the most common pattern is to include all the app's assets in its package; that's why these apps are commonly larger than 500 MB. On the other hand, A PWA can initially install only the minimum set of resources to offer an offline and fast experience and download the rest later, with PWAs using considerably less storage on installation.
-{% endAside %}
+!!!note ""
 
-### Updating assets
-In the standard app model for app catalog installed apps, when developers need to update their app, they publish a new package. Users need to download the whole package again, even if most of the assets haven't changed.
-With PWAs, using the approaches on the section above, you decide how and when to update assets.
-Here are different options for how to update assets:
+    Кэширование активов происходит независимо от установки PWA и работает даже во вкладке браузера, обеспечивая более быструю доставку активов и работу в автономном режиме независимо от того, как пользователь решил использовать ваш PWA.
 
-* Full Update: in this case, every time you make a change in the app, even a minor one, your code will download all the assets again in the cache.
-* Partial Update: in this approach, you create a method to define which assets have been updated, and you update only those, with or without the user's intervention.
-* Continuous Update: using this technique, your assets will be checked and updated automatically on every PWA usage individually
+### Часто используемые подходы к кэшированию
 
-{% Aside %}
-When caching assets, you need to decide on a cache swap or clean up policy that defines when the user will see an updated asset; taking into account storage usage and the balance between a fast experience and displaying a slightly stale asset.
-{% endAside %}
+В своем PWA вы сами принимаете все решения. Вы можете выбрать наилучший подход к кэшированию или установке активов, исходя из своих потребностей. Вот некоторые решения, которые необходимо принять:
 
-## Size and Lifespan
+-   Предварительное кэширование: выберите активы, которые вы хотите установить при первой загрузке; они должны включать HTML и минимальные активы для рендеринга приложения. При использовании прекэширования не забывайте, что вы используете пространство устройства и сеть. Будьте сознательны и ответственны при загрузке активов и их кэшировании.
+-   Cache as needed: используется для добавления активов в кэш при поступлении запроса. Обычно это активы, которые могут изменяться независимо от версии приложения, например изображения или контент. Различные стратегии кэширования по мере необходимости описаны в разделе [caching](caching.md).
+-   API и веб-службы: Вызовы API можно кэшировать, а вместо кэширования ответов API можно хранить их данные в IndexedDB.
 
-Usually platform-specific apps don't deal with size limits; at installation, apps can be gigabytes or more in size. As long as the device has the capacity the installation will be allowed. Also, while the app is installed, it will use that total amount of storage no matter if you use the app or not.
-Storage is handled differently for PWAs. The browser will store your assets based on policies that you define in your PWA's logic.
+!!!tip ""
 
-{% Aside %}
-The users are always in control, and they can delete the assets at any time. For PWAs, manual eviction happens via the browser's settings.
-{% endAside %}
+    Для приложений, ориентированных на конкретную платформу, наиболее распространенной схемой является включение всех активов приложения в его пакет; именно поэтому размер таких приложений обычно превышает 500 МБ. С другой стороны, PWA может изначально установить только минимальный набор ресурсов для обеспечения автономной и быстрой работы, а остальное загрузить позже, при этом PWA используют значительно меньше памяти при установке.
 
-Size limits depend on the browser.
-It's not as flexible as for platform-specific apps, but it's typically good enough for most web apps. You can find the specific limitations by browser in [this article](/storage-for-the-web/#how-much).
+### Обновление ресурсов
 
-Browsers can evict assets based on storage pressure, or after some weeks of inactivity, if the user is using your PWA in the browser. On some platforms, if the user installs your PWA, eviction won't happen. Where available, code can request persistent storage through an API to avoid that eviction.
+В стандартной модели приложений для установленных в каталоге приложений, когда разработчикам необходимо обновить свое приложение, они публикуют новый пакет. Пользователям приходится заново загружать весь пакет, даже если большинство ресурсов остались неизменными. В PWA, используя подходы, описанные в разделе выше, вы сами решаете, как и когда обновлять ресурсы. Ниже приведены различные варианты обновления ресурсов: "Полное обновление":
 
-{% Aside %}
-If storage eviction happens for any reason and the user installed your PWA, the PWA will still work if you have a network connection. When you open that app again, the browser will start the service worker lifecycle again, loading your app from the network.
-{% endAside %}
+-   Полное обновление: в этом случае при каждом, даже незначительном, изменении в приложении ваш код будет заново загружать все ресурсы в кэш.
+-   Частичное обновление: в этом случае создается метод, определяющий, какие ресурсы были обновлены, и обновляются только они, с вмешательством или без вмешательства пользователя.
+-   Непрерывное обновление: при использовании этого метода ресурсы будут проверяться и обновляться автоматически при каждом использовании PWA в отдельности.
 
-##  Resources
+!!!note ""
 
-- [Storage on the Web](/storage-for-the-web/)
-- [MDN: Web Storage](https://developer.mozilla.org/docs/Web/API/Web_Storage_API)
-- [MDN: IndexedDB](https://developer.mozilla.org/docs/Web/API/IndexedDB_API)
+    При кэшировании ресурсов необходимо определить политику замены или очистки кэша, которая определяет, когда пользователь увидит обновленный ресурс; при этом учитывается использование памяти и баланс между быстрой работой и отображением немного устаревшего ресурса.
 
+## Размер и продолжительность жизни
+
+Обычно приложения для конкретных платформ не имеют ограничений по размеру; при установке размер приложений может составлять гигабайты и более. Пока устройство имеет достаточный объем памяти, установка будет разрешена. Кроме того, пока приложение установлено, оно будет использовать весь объем памяти независимо от того, используете вы его или нет. В случае PWA хранение данных осуществляется по-другому. Браузер будет хранить ваши ресурсы в соответствии с политиками, которые вы определите в логике PWA.
+
+!!!note ""
+
+    Пользователи всегда контролируют ситуацию и могут удалить активы в любой момент. Для PWA ручное удаление происходит через настройки браузера.
+
+Ограничения по размеру зависят от браузера. Они не такие гибкие, как для приложений, ориентированных на конкретную платформу, но обычно их достаточно для большинства веб-приложений. Конкретные ограничения для каждого браузера можно найти в [этой статье](https://web.dev/articles/storage-for-the-web#how-much).
+
+Если пользователь использует PWA в браузере, браузеры могут удалять активы, основываясь на нагрузке на хранилище, или после нескольких недель бездействия. На некоторых платформах, если пользователь установит ваш PWA, выселение не произойдет. Там, где это возможно, код может запрашивать постоянное хранилище через API, чтобы избежать такого вытеснения.
+
+!!!note ""
+
+    Если по какой-либо причине произойдет вытеснение хранилища, а пользователь установил ваш PWA, то при наличии сетевого подключения он будет продолжать работать. Когда вы снова откроете это приложение, браузер снова запустит жизненный цикл Service Worker, загрузив ваше приложение из сети.
+
+## Ресурсы
+
+-   [Хранилище в Интернете](https://web.dev/articles/storage-for-the-web)
+-   [MDN: Веб-хранилище](https://developer.mozilla.org/docs/Web/API/Web_Storage_API)
+-   [MDN: IndexedDB](https://developer.mozilla.org/docs/Web/API/IndexedDB_API)
+
+:material-information-outline: Источник &mdash; [Assets and data](https://web.dev/learn/pwa/assets-and-data)

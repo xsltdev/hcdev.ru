@@ -1,143 +1,130 @@
 ---
-title: App design
-description: >
-  One of the key differences between Progressive Web Apps and classic websites and web apps is installability. This creates a standalone experience more integrated into the platform and operating system. Installation enables new flexibility and new responsibility, as we won't have a browser's user interface around our content.
-authors:
-  - firt
-date: 2021-11-18
+description: Одним из ключевых отличий Progressive Web Apps от классических веб-сайтов и веб-приложений является возможность установки. Это позволяет создать автономный опыт, более интегрированный в платформу и операционную систему. Установка обеспечивает новую гибкость и новую ответственность, поскольку вокруг нашего контента не будет пользовательского интерфейса браузера.
+icon: material/material-design
 ---
 
-This chapter focuses on some critical aspects of rendering content outside of the browser tab.
+# Дизайн приложений
 
-## The window
+<big>Одним из ключевых отличий Progressive Web Apps от классических веб-сайтов и веб-приложений является возможность установки. Это позволяет создать автономный опыт, более интегрированный в платформу и операционную систему. Установка обеспечивает новую гибкость и новую ответственность, поскольку вокруг нашего контента не будет пользовательского интерфейса браузера.</big>
 
-Different operating systems have different ideas about what an application window is.
-For example, on iPhones, an application always takes up 100% of the screen. On Android and iPads applications usually run fullscreen but it is possible to share the screen between two apps, however there is only one app instance open at a time.
-In contrast, on a desktop device, an application can have more than one instance open at a time.
-It shares the available screen real estate with all other open applications.
-Each application instance can be resized and positioned anywhere on the screen, even overlapping other applications.
+В этой главе рассматриваются некоторые важные аспекты вывода содержимого за пределы вкладки браузера.
 
-## The icon
+## Окно
 
-We recognize apps by their icon. That icon appears when you search for apps, in settings, wherever you launch apps, and where you see running apps.
+В разных операционных системах существуют различные представления об окне приложения. Например, на телефонах iPhone приложение всегда занимает 100% экрана. На Android и iPad приложения обычно работают в полноэкранном режиме, но есть возможность разделить экран между двумя приложениями, при этом одновременно может быть открыт только один экземпляр приложения. На настольных компьютерах, напротив, одновременно может быть открыто более одного экземпляра приложения. Оно делит доступное пространство экрана со всеми остальными открытыми приложениями. Каждый экземпляр приложения может быть изменен по размеру и размещен в любом месте экрана, даже перекрывая другие приложения.
 
-These include:
+## Иконка
 
-- Home screen (iOS, iPadOS, Android).
-- App Launcher (macOS, Android).
-- Start Menu or App Menu (Windows, ChromeOS, Linux).
-- Dock, TaskBar, or Multi-task panels (all operating systems).
+Мы узнаем приложения по их значку. Этот значок появляется при поиске приложений, в настройках, при запуске приложений, а также при отображении запущенных приложений.
 
-When creating the icon for your Progressive Web App
-make sure its icon is platform-agnostic, as each operating system can render icons and apply different shape masks to them, like the ones in the image below.
+К ним относятся:
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/geo6MZwaWvNDRFJe6cvF.png", alt="PWA icons in different shapes for different platforms.", width="800", height="207" %}
+-   Главный экран (iOS, iPadOS, Android).
+-   App Launcher (macOS, Android).
+-   Меню "Пуск" или "Меню приложений" (Windows, ChromeOS, Linux).
+-   Dock, TaskBar или многозадачные панели (все операционные системы).
 
-## Theming your app
+При создании иконки для своего Progressive Web App убедитесь, что она не зависит от платформы, поскольку каждая операционная система может отображать иконки и применять к ним различные маски формы, как на рисунке ниже.
 
-There are a number of ways you can customize app styling in your PWA's, including:
+![Иконки PWA различных форм для разных платформ.](app-design-1.png)
 
-* Theme color: defines the color of the window's title bar on the desktop and the color of the status bar on mobile devices. Using a meta tag, you can have options for different schemes, such as dark or light mode and they will be used based on the user's preference.
-* Background color: defines the color of the window before the app and its CSS are loaded.
-* Accent color: defines the color of built-in browser components, such as form controls.
+## Оформление приложения
 
-<figure>
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/fW7mXimvH0Djb637xDH8.png", alt="A desktop PWA showing theme and accent colors, and an Android PWA splash screen showing theme and background colors.", width="800", height="526" %}
-<figcaption>A desktop PWA showing theme and accent colors, and an Android PWA splash screen showing theme and background colors.</figcaption>
-</figure>
-{% Aside %}
+Существует несколько способов настройки стиля приложения в PWA, в том числе:
 
-When planning your Progressive Web App user interface, beware that you can't use images, or gradients for your theme, just plain colors. It's best to pick colors without transparency,
-and  use the `rgb` or `hsl` colors, hex codes, or named colors.
-Theming your app may also affect browser theming even without installing the app, such as when using the [`<meta name="theme-color">`](/add-manifest/#theme-color) element.
-{% endAside %}
+-   Цвет темы: определяет цвет строки заголовка окна на настольных компьютерах и цвет строки состояния на мобильных устройствах. С помощью метатега можно выбрать различные схемы, например, темный или светлый режим, и они будут использоваться в зависимости от предпочтений пользователя.
+-   Цвет фона: определяет цвет окна до загрузки приложения и его CSS.
+-   Цвет акцента: определяет цвет встроенных компонентов браузера, таких как элементы управления формами.
 
-## Display modes
-
-You can define what kind of window experience you'd like for your Progressive Web App. There are three options to choose from:
-
-* Fullscreen
-* Standalone
-* Minimal User Interface
-
-{% Aside %}
-If a particular display mode isn't supported or otherwise can't be used to display your PWA, it'll fall back to the next available display mode. Fullscreen will fall back to standalone, standalone will fall back to minimal user interface, and minimal user interface will fall back to browser, the default. The browser display mode doesn't show up as its own window, but rather displays your PWA in a tab in the browser it was installed from, like a web bookmark on a home screen.
-{% endAside %}
-
-### Fullscreen experience
-
-A fullscreen experience is suitable for immersive experiences, such as games, VR, or AR experiences. It's currently only available on Android devices, and it hides the status bar and the navigation bar, giving your PWA 100% of the screen for your content.
-
-On desktop and iPadOS, fullscreen PWAs are not supported; however, you can use the [Fullscreen API](https://developer.mozilla.org/docs/Web/API/Fullscreen_API) from within your PWA to display your app fullscreen at a user's request.
-
-### Standalone experience
-
-The most common option for a Progressive Web App, standalone mode displays your PWA in an OS-standard window without any browser navigation UI. The window may also include a  browser-controlled menu where the user can:
-
-* Copy the current URL.
-* See, apply, or disable browser extensions.
-* See and change permissions.
-* Check current origin and the SSL certificate.
-
-The title bar may also show permissions and hardware usage replacing the omnibox or URL bar when the PWA renders in the tab.
-
-<figure>
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/0496WcZmxpNXE35jOGEw.png", alt="A PWA installed with Microsoft Edge on desktop showing its menu.", width="800", height="459" %}
-
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/2RmIdDEe4gm99lTzwLCa.png", alt="A PWA installed with Google Chrome on desktop showing the drop-down menu and the plugins-icon.", width="800", height="640" %}
-  <figcaption>The images above show how a PWA displays in standalone mode on the desktop in Microsoft Edge, and Chrome.</figcaption>
+<figure markdown>
+![PWA для настольных ПК, демонстрирующий тему и акцентные цвета, и заставка PWA для Android, демонстрирующая тему и фоновые цвета.](app-design-2.png)
+<figcaption>PWA для настольных ПК, демонстрирующий тему и акцентные цвета, и заставка PWA для Android, демонстрирующая тему и фоновые цвета.</figcaption>
 </figure>
 
-On mobile devices, a standalone PWA experience will create a standard screen that keeps the status bar visible, so the user can still see notifications, time, and battery level. It often does not have any browser-controlled menu like desktop standalone experiences may include.
+При планировании пользовательского интерфейса Progressive Web App следует помнить, что для темы нельзя использовать изображения или градиенты, только обычные цвета. Лучше всего выбирать цвета без прозрачности, использовать цвета `rgb` или `hsl`, шестнадцатеричные коды или именованные цвета. Тематизация приложения может также влиять на тематизацию браузера даже без установки приложения, например, при использовании элемента [`<meta name="theme-color">`](https://web.dev/articles/add-manifest#theme-color).
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/sNa6aVY2ZayRqPZhpfIl.png", alt="An iOS device rendering a standalone app.", width="800", height="476" %}
+## Режимы отображения
 
-Some browsers on Android create a fixed and silent notification while the PWA is in the foreground that lets the user copy the current URL or other options.
+Вы можете определить, какой вид окна вы хотите получить для своего Progressive Web App. На выбор предлагается три варианта:
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/iE1jwkZq1VWMJC8RZxJs.png", alt="An Android notification rendered by Chrome showing some actions over the current active PWA.", width="730", height="428" %}
+-   Полноэкранный
+-   Автономный
+-   Минимальный пользовательский интерфейс
 
-### Minimal user interface
+!!!note ""
 
-This mode is available for Progressive Web Apps on Android and desktop operating systems.
-When you use it, the browser rendering your PWA will show a minimal user interface to help the user navigate within the application.
+    Если тот или иной режим отображения не поддерживается или по каким-либо другим причинам не может быть использован для отображения PWA, он переходит в следующий доступный режим отображения. Fullscreen переходит в standalone, standalone - в минимальный пользовательский интерфейс, а минимальный пользовательский интерфейс - в браузер, используемый по умолчанию. В режиме браузера PWA не отображается в виде собственного окна, а выводится на вкладку браузера, из которого он был установлен, подобно веб-закладке на домашнем экране.
 
-On Android, you will get a title bar that renders the current `<title>` element and the origin with a small drop-down menu available. On desktop, you will get a set of buttons in the title bar to help with navigation, including a back button and a control that swaps between a stop and a reload action, based on the current loading status.
+### Полноэкранный режим
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/nzzjXh6YK5GzP6K2Sfb5.png", alt="A desktop minimal-ui on Microsoft Edge with back and reload buttons", width="800", height="399" %}
+Полноэкранный режим работы подходит для иммерсивного опыта, такого как игры, VR или AR. В настоящее время он доступен только на устройствах Android. Он скрывает строку состояния и навигационную панель, предоставляя вашему PWA 100% экрана для контента.
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/wu1S51rlQpgBcDkJgEvG.png", alt="On Android, browsers use a read-only themed navigation bar for minimal-ui, here Firefox and Chrome", width="800", height="249" %}
+На настольных компьютерах и iPadOS полноэкранные PWA не поддерживаются, однако вы можете использовать [Fullscreen API](https://developer.mozilla.org/docs/Web/API/Fullscreen_API) внутри своего PWA для отображения приложения в полноэкранном режиме по запросу пользователя.
 
-{% Aside 'warning' %}
-Safari on iOS and iPadOS doesn't support Minimal UI mode for PWAs. Instead, a browser shortcut is used as a fallback. The user can add an icon to the home screen, but that icon will point to Safari as a bookmark, and they won't have an app experience out of the browser tab.
-{% endAside %}
+### Автономный режим
 
-## Optimizing design for desktop
+Наиболее распространенный вариант для Progressive Web App - автономный режим, при котором PWA отображается в стандартном для ОС окне без навигационного пользовательского интерфейса браузера. В окне также может присутствовать меню, управляемое браузером, в котором пользователь может:
 
-When you design a Progressive Web App to work on a desktop,
-you need to think about the endless possibilities for window size as compared to being in the browser's tab or as an app in a mobile operating system.
+-   Скопировать текущий URL-адрес.
+-   Посмотреть, применить или отключить расширения браузера.
+-   Посмотреть и изменить разрешения.
+-   Проверить текущее происхождение и SSL-сертификат.
 
-In [Chapter 3](/learn/pwa/foundations/), we mentioned mini-mode: a desktop app can be as small as 200 by 100 pixels. This window will use the `<title>` element's content in your HTML as the title of the window. That content is also rendered when you **alt-tab**"** between apps and in other places.
+В строке заголовка вместо омнибокса или строки URL может также отображаться информация о разрешениях и использовании оборудования, когда PWA отображается на вкладке.
 
-Pay attention to your HTML's `<title>` element and rethink how you use it. The `<title>` isn't just for SEO or to render just the first characters in a browser's tab; it will be part of the user experience of your standalone desktop window.
+<figure markdown>
+![PWA, установленный в Microsoft Edge на рабочем столе, показывает свое меню.](app-design-3.png)
+![PWA, установленный в Google Chrome на настольном компьютере, демонстрирует выпадающее меню и иконку плагинов.](app-design-4.png)
+<figcaption>На изображениях выше показано, как PWA отображается в автономном режиме на рабочем столе в Microsoft Edge и Chrome.</figcaption>
+</figure>
 
-{% Aside %}
-If you are developing your app using a client-side library, such as React or Vue, don't forget to change the `<title>` to some practical value when moving between sections or routes of your app. It's time to reimagine the `<title>`!
-{% endAside %}
+На мобильных устройствах автономные PWA-системы создают стандартный экран, на котором сохраняется строка состояния, что позволяет пользователю видеть уведомления, время и уровень заряда батареи. При этом часто отсутствует какое-либо меню, управляемое браузером, как это может быть в автономных решениях для настольных ПК.
 
-## CSS best practices
+![Рендеринг автономного приложения на iOS-устройстве.](app-design-5.png)
 
-All your experience with [CSS layout, design, and animation](/learn/css) is valid when your content is rendered in its standalone experience. However, there are a couple of tips and tricks to making the experience better for a standalone window.
+Некоторые браузеры на Android создают фиксированное и бесшумное уведомление, когда PWA находится на переднем плане, которое позволяет пользователю скопировать текущий URL-адрес или воспользоваться другими опциями.
 
-{% Aside 'gotchas' %}
-Remember that CSS only defines styles for the content of the PWA; later in this course, we will see how to specify style declarations for the window around your content, such as properties in the [web app manifest](/learn/pwa/web-app-manifest/).
-{% endAside %}
+![Уведомление для Android, отображаемое в Chrome и показывающее некоторые действия над текущим активным PWA.](app-design-6.png)
 
-### Media Queries
+### Минимальный пользовательский интерфейс
 
-The first [media query](/learn/design/media-queries/) that you can take advantage of in your PWA is the `display-mode` property accepting the values `browser`, `standalone`, `minimal-ui`, or `fullscreen`.
+Этот режим доступен для Progressive Web Apps на Android и настольных операционных системах. При его использовании браузер, отображающий PWA, будет показывать минимальный пользовательский интерфейс, помогающий пользователю ориентироваться в приложении.
 
-This media query applies different styles to each mode.
-For example, you could render an [installation invitation](/learn/pwa/installation/) only when in browser mode, or render one particular piece of information only when the user uses your app from the system icon. This might include adding a back button to use when your app launches in standalone mode.
+На Android отображается строка заголовка, в которой отображается текущий элемент `<title>` и начало страницы с небольшим выпадающим меню. На настольных компьютерах в строке заголовка отображается набор кнопок для навигации, включая кнопку "Назад" и элемент управления, который переключается между остановкой и перезагрузкой в зависимости от текущего состояния загрузки.
+
+![A desktop minimal-ui on Microsoft Edge with back and reload buttons](app-design-7.png)
+
+![On Android, browsers use a read-only themed navigation bar for minimal-ui, here Firefox and Chrome](app-design-8.png)
+
+!!!warning ""
+
+    Safari на iOS и iPadOS не поддерживает режим минимального пользовательского интерфейса для PWA. Вместо этого в качестве запасного варианта используется ярлык браузера. Пользователь может добавить значок на главный экран, но этот значок будет указывать на Safari как на закладку, и у него не будет возможности пользоваться приложением из вкладки браузера.
+
+## Оптимизация дизайна для настольных компьютеров
+
+При разработке Progressive Web App для работы на настольном компьютере необходимо подумать о безграничных возможностях размера окна по сравнению с размещением во вкладке браузера или в виде приложения в мобильной операционной системе.
+
+В [Главе 3](foundations.md) мы упоминали о мини-режиме: приложение для настольных компьютеров может быть размером всего 200 на 100 пикселей. В качестве заголовка этого окна будет использоваться содержимое элемента `<title>` в вашем HTML. Это содержимое также будет отображаться при переходе между приложениями и в других местах при помощи ++alt+tab++.
+
+Обратите внимание на элемент `<title>` в HTML и переосмыслите его использование. Элемент `<title>` нужен не только для SEO или для отображения первых символов на вкладке браузера; он будет частью пользовательского опыта вашего отдельного окна на рабочем столе.
+
+!!!note ""
+
+    Если вы разрабатываете приложение с использованием библиотеки клиент-сайд, например React или Vue, не забудьте изменить `<title>` на какую-то практическую ценность при переходе между разделами или маршрутами вашего приложения. Пришло время переосмыслить `<title>`!
+
+## Лучшие практики CSS
+
+Весь ваш опыт работы с [CSS-макетом, дизайном и анимацией](../css3/index.md) действителен при отображении содержимого в автономном режиме. Тем не менее, существует несколько советов и приемов, позволяющих улучшить работу с автономным окном.
+
+!!!note ""
+
+    Помните, что CSS определяет стили только для содержимого PWA; позже в этом курсе мы рассмотрим, как задать декларации стилей для окна вокруг вашего содержимого, например, свойства в [манифесте веб-приложения](web-app-manifest.md).
+
+### Медиазапросы
+
+Первый [media query](../design/media-queries.md), который вы можете использовать в своем PWA, - это свойство `display-mode`, принимающее значения `browser`, `standalone`, `minimal-ui` или `fullscreen`.
+
+Этот медиазапрос применяет различные стили для каждого режима. Например, можно отобразить [приглашение к установке](installation.md) только в режиме браузера, или отобразить определенную информацию только тогда, когда пользователь использует ваше приложение с системного значка. Сюда же можно отнести добавление кнопки "Назад", которая будет использоваться при запуске приложения в автономном режиме.
 
 ```css
 /* It targets only the app used within the browser */
@@ -147,83 +134,87 @@ For example, you could render an [installation invitation](/learn/pwa/installati
 @media (display-mode: standalone) {
 }
 /* It targets only the app used with a system icon in all mode */
-@media (display-mode: standalone), (display-mode: fullscreen), (display-mode: minimal-ui) {
+@media (display-mode: standalone),
+    (display-mode: fullscreen),
+    (display-mode: minimal-ui) {
 }
 ```
 
-{% Aside %}
-Users expect apps to integrate with the platform, so consider offering dark and light modes using [`prefers-colors-scheme`](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-color-scheme) and honoring [`prefers-reduced-motion`](/prefers-reduced-motion/) media queries to disable or reduce transitions and animations.
-{% endAside %}
+!!!note ""
 
-## The app experience
+    Пользователи ожидают от приложений интеграции с платформой, поэтому следует предусмотреть темный и светлый режимы с использованием [`prefers-colors-scheme`](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-color-scheme) и соблюдение медиазапросов [`prefers-reduced-motion`](https://web.dev/articles/prefers-reduced-motion) для отключения или уменьшения переходов и анимации.
 
-When the users are using an installed PWA, they expect app behavior. While it's not simple to define what it means, the default web behavior doesn't give the best experience in some situations.
+## Работа с приложениями
 
-### User selection
+Когда пользователи используют установленный PWA, они ожидают поведения приложения. Хотя определить, что оно означает, не так просто, в некоторых ситуациях веб-поведение по умолчанию не дает наилучшего опыта.
 
-Content is generally selectable with a mouse or pointer, or a press and hold touch gesture. While helpful for content, it doesn't provide the best experience for navigation items, menus, and buttons within your PWA.
+### Выделение
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/F9HCkRrmPyGFjlpTJhNz.png", alt="A calculator PWA where you can select every interactive button, such as the numbers.", width="800", height="739" %}
+Контент обычно выделяется с помощью мыши или указателя, либо жестом нажатия и удержания. Хотя это и полезно для контента, это не обеспечивает наилучшего опыта для элементов навигации, меню и кнопок в PWA.
 
-Therefore, it's a good idea to disable user selection on these elements using `user-select: none` and it's `-webkit-` prefix version:
+![PWA-калькулятор, в котором можно выбрать каждую интерактивную кнопку, например, цифры.](app-design-9.png)
+
+Поэтому целесообразно отключить возможность выделения пользователем этих элементов с помощью `user-select: none` и его префиксной версии `-webkit-`:
 
 ```css
 .unselectable {
-   user-select: none;
+    user-select: none;
 }
 ```
 
-{% Aside 'gotchas' %}
-User selection is a vital feature of every web app for usability and accessibility. Do not disable user selection on all content, only on UI elements when not doing so creates a poor or unexpected experience.
-{% endAside %}
+!!!note ""
 
-### Accent color
+    Выбор пользователя - важнейшая функция любого веб-приложения, обеспечивающая удобство и доступность. Не отключайте выбор пользователя для всего содержимого, а только для элементов пользовательского интерфейса, если отказ от этого приводит к плохому или неожиданному опыту.
 
-In your PWA, you can define a color to match your brand within HTML form controls using the property [`accent-color`](/accent-color/).
+### Акцентный цвет
 
-### System fonts
+В PWA вы можете задать цвет, соответствующий вашему бренду, в элементах управления HTML-формы с помощью свойства [`accent-color`](https://web.dev/articles/accent-color).
 
-If you want an element, like dialogs or messages, to match the user's default platform font, you can use the following font family:
+### Системные шрифты
+
+Если вы хотите, чтобы элементы, например диалоги или сообщения, соответствовали шрифту платформы, используемому пользователем по умолчанию, вы можете использовать следующее семейство шрифтов:
 
 ```css
 selector {
-  font-family: -apple-system, BlinkMacSystemFont,
-    "Segoe UI", system-ui, Roboto, Oxygen-Sans, Ubuntu, Cantarell,
-    "Helvetica Neue", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont,
+        'Segoe UI', system-ui, Roboto, Oxygen-Sans, Ubuntu,
+        Cantarell, 'Helvetica Neue', sans-serif;
 }
 ```
 
-### Pull to refresh
+### Потянуть для обновления
 
-Modern mobile browsers, such as Google Chrome and Safari, have a feature that refreshes the page when it is pulled down. On some browsers, such as Chrome on Android, that behavior is also enabled on standalone PWAs.
+Современные мобильные браузеры, такие как Google Chrome и Safari, оснащены функцией обновления страницы, когда она тянется вниз. В некоторых браузерах, например в Chrome на Android, эта функция включена и для автономных PWA.
 
-You may want to disable this action. For example when providing your own gesture management or refresh action, or if there is a possibility that your user will trigger the action unintentionally.
+Возможно, вы захотите отключить это действие. Например, если вы предоставляете собственное управление жестами или действие обновления, или если есть вероятность, что пользователь вызовет это действие непреднамеренно.
 
-It's possible to disable this behavior by using `overscroll-behavior-y: contain`:.
+Отключить это действие можно с помощью `overscroll-behavior-y: contain`:
 
 ```css
-  body {
+body {
     overscroll-behavior-y: contain;
-  }
+}
 ```
 
-### Safe areas
+### Безопасные области
 
-Some devices do not have unobstructed rectangular screens; instead, their screen may be a different shape, like a circle, or have portions of the screen that can't be used, like the iPhone 13's notch. In these cases, some browsers will expose [environment variables](https://developer.mozilla.org/docs/Web/CSS/env()) with safe areas that can display content.
+Некоторые устройства не имеют беспрепятственных прямоугольных экранов; вместо этого их экран может иметь другую форму, например круг, или иметь части экрана, которые не могут быть использованы, как, например, вырез iPhone 13. В таких случаях некоторые браузеры открывают [переменные окружения](<https://developer.mozilla.org/docs/Web/CSS/env()>) с безопасными областями, в которых может отображаться содержимое.
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/hKWqUXIbvvH05WHQEccm.png", alt="At top, a notch-based device in landscape with a standard viewport showing unrendered areas at the sides; at bottom, a device with full viewport access thanks to viewport-fit=cover.", width="800", height="1006" %}
+![Вверху - устройство с вырезом в альбомном режиме со стандартным окном просмотра, в котором видны нерендерированные области по бокам; внизу - устройство с полным доступом к окну просмотра благодаря функции viewport-fit=cover.](app-design-10.png)
 
-If you want full access to the screen, even the invisible area, to render your color or image, include `viewport-fit=cover` in the content of your `<meta name="viewport">` tag. Then use the `safe-area-inset-*` environment variables to extend your content safely into those areas.
+Если вы хотите получить полный доступ к экрану, даже к невидимой области, для отображения цвета или изображения, включите `viewport-fit=cover` в содержимое тега `<meta name="viewport">`. Затем используйте переменные окружения `safe-area-inset-*` для безопасного расширения содержимого в эти области.
 
-{% Aside 'caution' %}
-When you apply `viewport-fit=cover`, remember that you can now render pixels behind rounded corners and notches, so you should always use safe margins or paddings for the critical content and interactive elements.
-{% endAside %}
+!!!warning ""
 
-##  Resources
+    Применяя `viewport-fit=cover`, помните, что теперь можно выводить пиксели за закругленными углами и выемками, поэтому всегда используйте безопасные поля или отступы для критически важного содержимого и интерактивных элементов.
 
-- [CSS display-mode media query](https://developer.mozilla.org/docs/Web/CSS/@media/display-mode)
-- [Take control of your scroll: customizing pull-to-refresh and overflow effects](https://developer.chrome.com/blog/overscroll-behavior)
-- [prefers-color-scheme: Hello darkness, my old friend](/prefers-color-scheme/)
-- [prefers-reduced-motion: Sometimes less movement is more](/prefers-reduced-motion/)
-- [env() CSS function](https://developer.mozilla.org/docs/Web/CSS/env())
-- [CSS Accent Color](/accent-color/)
+## Ресурсы
+
+-   [CSS display-mode медиазапрос](https://developer.mozilla.org/docs/Web/CSS/@media/display-mode)
+-   [Возьмите под контроль прокрутку: настройка эффектов pull-to-refresh и overflow](https://developer.chrome.com/blog/overscroll-behavior)
+-   [prefers-color-scheme: Здравствуй, тьма, мой старый друг](https://web.dev/articles/prefers-color-scheme)
+-   [prefers-reduced-motion: Иногда меньше движения - больше](https://web.dev/articles/prefers-reduced-motion)
+-   [env() CSS-функция](<https://developer.mozilla.org/docs/Web/CSS/env()>)
+-   [CSS Цвет акцента](https://web.dev/articles/accent-color)
+
+:material-information-outline: Источник &mdash; [App design](https://web.dev/learn/pwa/app-design)

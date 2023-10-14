@@ -16,11 +16,11 @@ hide:
 
     Учебники HTML5
 
-    **[:octicons-arrow-right-24: Учебник HTML5](./html5/index.md)** <small>web.dev</small>
+    **[:octicons-arrow-right-24: Учим HTML5](./html5/index.md)** <small>web.dev</small>
 
-    **[:octicons-arrow-right-24: Учим картинки](./images/index.md)** <small>web.dev</small>
+    [:octicons-arrow-right-24: Учим картинки](./images/index.md) <small>web.dev</small>
 
-    **[:octicons-arrow-right-24: Учим формы](./forms/index.md)** <small>web.dev</small>
+    [:octicons-arrow-right-24: Учим формы](./forms/index.md) <small>web.dev</small>
 
 -   :simple-css3:{ .lg .middle } **CSS**
 
@@ -28,10 +28,18 @@ hide:
 
     Учебники CSS3
 
-    **[:octicons-arrow-right-24: Учебник CSS3](./css3/index.md)** <small>web.dev</small>
+    **[:octicons-arrow-right-24: Учим CSS3](./css3/index.md)** <small>web.dev</small>
 
     [:octicons-arrow-right-24: Flexbox](./flex/index.md)
 
     [:octicons-arrow-right-24: Grid](./grid/index.md)
+
+-   :simple-css3:{ .lg .middle } **Дополнительно**
+
+    ***
+
+    Дополнительные материалы
+
+    [:octicons-arrow-right-24: Учим PWA](./pwa/index.md) <small>web.dev</small>
 
 </div>
