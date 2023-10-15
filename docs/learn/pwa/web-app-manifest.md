@@ -1,128 +1,118 @@
 ---
-title: Web app manifest
-description: >
-  The web app manifest is a JSON file that defines how the PWA should be treated as an installed application, including the look and feel and basic behavior within the operating system.
-authors:
-  - firt
-date: 2022-01-10
-updated: 2022-05-10
+description: Манифест веб-приложения - это JSON-файл, определяющий, как PWA должен восприниматься в качестве установленного приложения, включая внешний вид и базовое поведение в операционной системе.
+icon: material/web
 ---
 
-The web app manifest is a file you create that tells the browser how you want your web content to display as an app in the operating system. The manifest can include basic information such as the app's name, icon, and theme color; advanced preferences, such as desired orientation and app shortcuts; and catalog metadata, such as screenshots.
+# Манифест Web-приложения
 
-{% Aside 'warning' %}
-A web app manifest is a required [installability criteria](/learn/pwa/installation/#installation-criteria) in every browser. Your PWA will not install without it.
-{% endAside %}
+<big>**Манифест веб-приложения** - это JSON-файл, определяющий, как PWA должен восприниматься в качестве установленного приложения, включая внешний вид и базовое поведение в операционной системе.</big>
 
-Each PWA should include a single manifest per application, typically hosted in the root folder, and linked on all HTML pages your PWA can be installed from. Its official extension is `.webmanifest`, so you could name your manifest something like `app.webmanifest`.
+Манифест веб-приложения - это создаваемый файл, который указывает браузеру, как он должен отображать веб-контент в виде приложения в операционной системе. Манифест может содержать базовую информацию, такую как название приложения, значок и цвет темы; расширенные настройки, такие как желаемая ориентация и ярлыки приложений; метаданные каталога, такие как скриншоты.
 
-{% Aside %}
-While the recommended extension is `.webmanifest`, any filename will work as long as it's delivered with the `application/manifest+json` content type or another JSON-valid content type, such as `text/json`. As such, many PWAs, particularly older ones, use `manifest.json` instead.
-{% endAside %}
+!!!warning ""
 
-## Adding a web app manifest to your PWA
+    Манифест веб-приложения является обязательным [критерием устанавливаемости](installation.md#installation-criteria) в каждом браузере. Без него ваш PWA не установится.
 
-To create a web app manifest, first make a text file with a JSON object that contains at least a `name` field with a string value:
-{% Label %}app.webmanifest:{% endLabel %}
+Каждый PWA должен содержать один манифест для каждого приложения, обычно размещаемый в корневой папке и размещаемый на всех HTML-страницах, с которых может быть установлен ваш PWA. Его официальное расширение - `.webmanifest`, поэтому вы можете назвать свой манифест как-нибудь вроде `app.webmanifest`.
 
-```json
+!!!note ""
+
+    Хотя рекомендуемым расширением является `.webmanifest`, подойдет любое имя файла, если он поставляется с типом содержимого `application/manifest+json` или другим JSON-валидным типом содержимого, например `text/json`. Поэтому многие PWA, особенно старые, используют вместо него `manifest.json`.
+
+## Добавление манифеста веб-приложения в PWA
+
+Чтобы создать манифест веб-приложения, сначала создайте текстовый файл с JSON-объектом, содержащим, по крайней мере, поле `name` со строковым значением:
+
+```json title="app.webmanifest"
 {
-   "name": "My First Application"
+    "name": "My First Application"
 }
 ```
 
-But creating the file is not enough, the browser needs to know it exists, too.
+Но создать файл недостаточно, браузеру также необходимо знать о его существовании.
 
-### Linking to your manifest
+### Ссылка на манифест
 
-To make the browser aware of your web app manifest, you need to link it to your PWA using a `<link>` HTML element and the `rel` attribute set to `manifest` on all of your PWA's HTML pages. This is similar to how you link a CSS stylesheet to a document.
+Чтобы браузер знал о существовании манифеста вашего веб-приложения, необходимо связать его с PWA с помощью HTML-элемента `<link>` и атрибута `rel`, установленного на `manifest`, на всех HTML-страницах PWA. Это аналогично тому, как вы связываете таблицу стилей CSS с документом.
 
-{% Label %}index.html:{% endLabel %}
-
-```html/3
+```html title="index.html"
 <html lang="en">
-  <title>This is my first PWA</title>
-  <link rel="manifest" href="/app.webmanifest">
+    <title>This is my first PWA</title>
+    <link rel="manifest" href="/app.webmanifest" />
+</html>
 ```
 
-{% Aside 'caution' %}
-If your PWA includes multiple HTML pages, make sure to link its manifest to all of them.
-{% endAside %}
+!!!warning ""
 
-### Debugging the manifest
+    Если PWA включает в себя несколько HTML-страниц, не забудьте связать его манифест со всеми ними.
 
-To ensure the manifest is set up correctly, you can use Inspector in Firefox and DevTools in every Chromium-based browser.
+### Отладка манифеста
 
-{% Aside 'gotchas' %}
-If you see a message saying that the browser detected no manifest and you've included a `<link>` to it correctly, check to make sure you can load the manifest in the browser and that its content type is correctly set. You can also try renaming it to `manifest.json`.
-{% endAside %}
+Чтобы убедиться, что манифест настроен правильно, можно использовать Inspector в Firefox и DevTools в каждом браузере на базе Chromium.
 
+!!!note ""
 
-### For Chromium browsers
+    Если вы видите сообщение о том, что браузер не обнаружил манифеста, а вы правильно включили в него `<link>`, проверьте, можно ли загрузить манифест в браузер и правильно ли задан тип его содержимого. Можно также попробовать переименовать его в `manifest.json`.
 
-In DevTools
+### Для браузеров Chromium
 
-1. In the left pane, under **Application**, select **Manifest**.
-1. Check the fields of the manifest as parsed by the browser.
+В DevTools
 
-### For Firefox
+1.  На левой панели в разделе **Application** выберите **Manifest**.
+2.  Проверьте поля манифеста в том виде, в котором они были разобраны браузером.
 
-1. Open the Inspector.
-1. Go to the Application tab.
-1. Select the Manifest option in the left panel.
-1. Check the fields of the manifest as parsed by the browser.
+### Для Firefox
 
-{% Aside 'caution' %}
-It's not possible to debug web app manifests in Safari, the only option you have to see if it's working is to try to install your PWA on iOS or iPadOS.
-{% endAside %}
+1.  Откройте Инспектор.
+2.  Перейдите на вкладку "Приложение".
+3.  Выберите опцию Manifest на левой панели.
+4.  Проверьте поля манифеста в том виде, в котором они были разобраны браузером.
 
-## Designing your PWA experience
+!!!warning ""
 
-With your PWA now connected to its manifest, it's time to fill out the rest of the fields to define the experience for your users.
+    Отладка манифестов веб-приложений в Safari невозможна, поэтому единственная возможность проверить работоспособность - попробовать установить PWA на iOS или iPadOS.
 
-{% Aside 'warning' %}
-Before the web app manifest spec was defined, several browsers, including Safari on iOS/iPadOS and Chrome on Android, supported custom `<meta>` elements to describe the application experience, such as `apple-mobile-web-app-capable`. Do not use these `<meta>` elements today; it's no longer recommended, and may harm the installation experience when the browser can't load the manifest properly; the experience you get as a fallback may be different and unexpected.
-{% endAside %}
+## Разработка дизайна PWA
 
-### Basic fields
+Теперь, когда ваш PWA подключен к манифесту, пришло время заполнить остальные поля, чтобы определить, как он будет работать для ваших пользователей.
 
-The first set of fields represents the core information about your PWA. They are used to build the installed PWA's icon and window and determine how it starts up. They are:
+!!!warning ""
 
-`name`
-: Full name of your PWA. It will appear along with the icon in the operating system's home screen, launcher, dock, or menu.
+    До появления спецификации манифеста веб-приложений некоторые браузеры, включая Safari на iOS/iPadOS и Chrome на Android, поддерживали пользовательские элементы `<meta>` для описания возможностей приложения, например `apple-mobile-web-app-capable`. Не используйте эти элементы `<meta>` сегодня; это больше не рекомендуется и может навредить установке, если браузер не сможет загрузить манифест должным образом; опыт, который вы получите в качестве резервного варианта, может быть другим и неожиданным.
 
-`short_name`
-: Optional, a shorter name of your PWA, used when there is not enough room to display the full value of the `name` field. Keep it under 12 characters to minimize the possibility of truncation.
+### Основные поля
 
-`icons`
-: Array of icon objects with `src`, `type`, `sizes`, and optional `purpose` fields, describing what images should represent the PWA.
+Первый набор полей представляет собой основную информацию о PWA. Они используются для создания иконки и окна установленного PWA и определяют способ его запуска. К ним относятся:
 
-`start_url`
-: The URL the PWA should load when the user starts it from the installed icon. An absolute path is recommended, so if your PWA's home page is the root of your site, you could set this to ‘/' to open it when your app starts. If you don't provide a start URL, the browser can use the URL the PWA was installed from as a start. It can be a deep link, such as the details of a product instead of your home screen.
+`name` : Полное имя вашего PWA. Оно будет отображаться вместе со значком на главном экране операционной системы, в пусковой установке, доке или меню.
 
-`display`
-: One of `fullscreen`, `standalone`,  `minimal-ui`, or `browser`, describing how the OS should draw the PWA window. You can read more about the different display modes in the [App Design chapter](/learn/pwa/app-design/#display-modes). [Most](https://almanac.httparchive.org/en/2021/pwa#top-manifest-display-values) use cases implement `standalone`.
+`short_name`: необязательное, более короткое название PWA, используемое в тех случаях, когда не хватает места для отображения полного значения поля `name`. Не превышайте 12 символов, чтобы свести к минимуму вероятность усечения.
 
-`id`
-: A string that uniquely identifies this PWA against others that may be hosted on the same origin. If it's not set, the `start_url` will be used as a fallback value. Keep in mind that by changing the `start_url` in the future (such as when changing a query string value) you may be removing the browser's ability to detect that a PWA is already installed.
+`icons` : Массив объектов иконок с полями `src`, `type`, `sizes` и необязательным полем `purpose`, описывающими, какие изображения должны представлять PWA.
 
-{% Aside 'caution' %}
-If you published a PWA before September 2021 read about the best practice for adding an `id` property now in [Uniquely identifying PWAs with the web app manifest id property](https://developer.chrome.com/blog/pwa-manifest-id/).
-{% endAside %}
+`start_url` : URL, по которому должен загружаться PWA, когда пользователь запускает его с установленной иконки. Рекомендуется указывать абсолютный путь, поэтому, если домашняя страница PWA является корнем сайта, можно задать значение '/', чтобы открывать ее при запуске приложения. Если начальный URL не указан, браузер может использовать в качестве начального URL, с которого был установлен PWA. Это может быть глубокая ссылка, например, подробная информация о продукте, а не домашний экран.
 
-{% Aside 'caution' %}
-Some manifest fields are not supported by every browser. When a browser doesn't support a field, it's just ignored and your manifest is still valid. You can learn more about each field at [Web App Manifests](https://developer.mozilla.org/docs/Web/Manifest).
-{% endAside %}
+`display` : Один из вариантов `fullscreen`, `standalone`, `minimal-ui` или `browser`, описывающий, как ОС должна отображать окно PWA. Подробнее о различных режимах отображения можно прочитать в главе [App Design](/learn/pwa/app-design/#display-modes). [Большинство](https://almanac.httparchive.org/en/2021/pwa#top-manifest-display-values) вариантов использования реализуют `standalone`.
 
-#### Icons
+`id` : строка, которая однозначно идентифицирует данный PWA среди других, которые могут быть размещены на том же источнике. Если она не задана, то в качестве запасного значения будет использоваться `start_url`. Следует помнить, что, изменяя `start_url` в будущем (например, при изменении значения строки запроса), вы можете лишить браузер возможности определять, что PWA уже установлен.
 
-Your PWA's icon is its visual identity across your users' devices when installed, so it's important to define at least one. Because the `icons` property is a collection of icon objects, you can define several icons in different formats to provide the best icon experience for your users. Each browser will pick one or more icons based on its needs and the operating system it's installed on, the icons closer to the specifications needed.
+!!!warning ""
 
-{% Aside 'caution' %}
-While PNGs can include transparency, providing transparent icons may cause unexpected issues on some operating systems. For example, iOS, iPadOS, and Android 8 and later fill in the transparency with a background color out of your control. For better compatibility, use a square non-transparent icon.
-{% endAside %}
+    Если вы опубликовали PWA до сентября 2021 года, прочитайте о лучшей практике добавления свойства `id` сейчас в статье [Уникальная идентификация PWA с помощью свойства id манифеста веб-приложений](https://developer.chrome.com/blog/pwa-manifest-id/).
 
-If you need to pick only one icon size, it should be 512 by 512 pixels. However, providing more sizes is recommended including 192 by 192, 384 by 384, and 1024 by 1024 pixel-sized images, too.
+!!!warning ""
+
+    Некоторые поля манифеста поддерживаются не всеми браузерами. Если браузер не поддерживает какое-либо поле, оно просто игнорируется, и ваш манифест остается в силе. Подробнее о каждом поле можно узнать в разделе [Web App Manifests](https://developer.mozilla.org/docs/Web/Manifest).
+
+#### Иконки
+
+Иконка PWA является его визуальной идентификацией на устройствах пользователей при установке, поэтому очень важно определить хотя бы одну. Поскольку свойство `icons` представляет собой коллекцию объектов иконок, вы можете определить несколько иконок в различных форматах, чтобы обеспечить наилучшее восприятие иконок вашими пользователями. Каждый браузер выберет один или несколько значков в зависимости от своих потребностей и операционной системы, на которой он установлен, причем значки будут ближе к необходимым спецификациям.
+
+!!!warning ""
+
+    Хотя PNG могут включать прозрачность, предоставление прозрачных значков может вызвать неожиданные проблемы в некоторых операционных системах. Например, в iOS, iPadOS и Android 8 и более поздних версиях прозрачность заполняется цветом фона, который невозможно контролировать. Для лучшей совместимости используйте квадратный непрозрачный значок.
+
+Если необходимо выбрать только один размер пиктограммы, то он должен составлять 512 на 512 пикселей. Однако рекомендуется предоставлять и другие размеры, в том числе 192 на 192, 384 на 384 и 1024 на 1024 пикселей.
 
 ```json
 "icons": [
@@ -139,40 +129,37 @@ If you need to pick only one icon size, it should be 512 by 512 pixels. However,
 ]
 ```
 
-{% Aside 'caution' %}
-Some resources will suggest you add more icon sizes for Android, such as 48 by 48, 72 by 72, 96 by 96, 144 by 144, 168 by 168, 256 by 256. While you can add as many sizes as you want, these are no longer necessary as they are Android icon sizes for legacy devices; even if you still have some users expecting those resolutions, the browser will resize one of your shipped icons.
-{% endAside %}
+!!!warning ""
 
-If you don't provide an icon or the icons are not in the recommended sizes, on some platforms you won't pass [installation criteria](/learn/pwa/installation#installation-criteria). On other platforms, the icon will be automatically generated, for instance from a screenshot of the PWA or by using a generic icon.
+    Некоторые ресурсы предлагают добавить больше размеров значков для Android, например 48 на 48, 72 на 72, 96 на 96, 144 на 144, 168 на 168, 256 на 256. Хотя вы можете добавить столько размеров, сколько захотите, эти размеры больше не нужны, поскольку это размеры значков Android для устаревших устройств; даже если некоторые пользователи все еще ожидают таких разрешений, браузер изменит размер одного из ваших отправленных значков.
 
-##### Maskable icons
+Если вы не предоставите пиктограмму или пиктограммы не будут иметь рекомендуемых размеров, то на некоторых платформах вы не пройдете [критерии установки](installation.md#installation-criteria). На других платформах значок будет сгенерирован автоматически, например, на основе скриншота PWA или с использованием типового значка.
 
-Some operating systems, such as Android, adapt icons to different sizes and shapes. For example, on Android 12, different manufacturers or settings can change the shape of icons from circles to squares to rounded-corner squares. To support these kinds of adaptive icons, you can provide a maskable icon using the `purpose` field.
+##### Маскируемые значки
 
-To do so, provide a square image file that has its main icon contained within a “safe zone”, a circle centered in the icon with a radius of 40 percent of the width of the icon. (See the image below.) Devices that support maskable icons will mask your icon as needed.
+Некоторые операционные системы, например Android, адаптируют значки к различным размерам и формам. Например, в Android 12 различные производители или настройки могут изменять форму значков от кругов до квадратов и квадратов с закругленными углами. Для поддержки такого рода адаптивных значков можно предоставить маскируемый значок, используя поле `цель`.
 
+Для этого необходимо предоставить файл квадратного изображения, основной значок которого находится в "безопасной зоне" - окружности, расположенной по центру значка и имеющей радиус, равный 40% от ширины значка. Устройства, поддерживающие маскируемые значки, замаскируют ваш значок при необходимости.
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/TcH5a39fkg9wYN34V4Qg.png", alt="The safe area marked as a 40 percent radius centered circle within the square icon", width="800", height="533" %}
+![Безопасная зона обозначена как окружность с радиусом 40 процентов внутри квадратного значка](web-app-manifest-1.png)
 
+!!!warning ""
 
-{% Aside 'caution' %}
-If you don't provide a maskable icon, devices that expect them may shrink your icon and make it into the shape they need with a white background.
-{% endAside %}
+    Если вы не предоставите маскируемый значок, устройства, ожидающие его появления, могут уменьшить ваш значок и сделать его нужной формы с белым фоном.
 
-Here's an example of a maskable icon rendered in a number of commonly used shapes:
+Приведем пример маскируемого значка, выполненного в нескольких часто используемых формах:
 
-In the following image, if you use the icon at the left as a maskable icon, you will end up with poor results on devices when a shape mask is applied.
+На следующем изображении, если использовать в качестве маскируемого значка значок слева, то при применении маски формы на устройствах будут получены плохие результаты.
 
+![Значок, который не подходит для маскируемого значка.](web-app-manifest-2.png)
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/kKuLmXu1wuztin157EeD.png", alt="An icon that is not suitable for a maskable icon.", width="800", height="533" %}
+Это изображение можно было бы сделать более пригодным для использования, если бы в нем было больше прокладок.
 
-This image could be made usable with more padding.
+![Для масок подходит значок с большей площадью.](web-app-manifest-3.webp)
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/KVcK8eRlJBlvlfOt3BbG.png", alt="The icon with more padding is suitable for masks.", width="800", height="533" %}
+Маскируемые иконки должны иметь размер не менее 512 на 512. Создав один такой значок, вы можете добавить его в коллекцию `icons`, чтобы улучшить работу с поддерживаемыми устройствами:
 
-Maskable icons should be 512 by 512 at least. With one created, you can add it to your `icons` collection to improve the experience for supported devices:
-
-```json/13
+```json
 "icons": [
    {
       "src": "/icons/512.png",
@@ -192,108 +179,102 @@ Maskable icons should be 512 by 512 at least. With one created, you can add it t
    },
 ]
 ```
-In most cases, if your maskable icon isn't displaying well, you can improve it by adding more padding. [Maskable.app](https://maskable.app) is a free online tool to test and create a maskable version of your icon.
 
-### Recommended fields
+В большинстве случаев, если маскируемый значок отображается не очень хорошо, его можно улучшить, добавив дополнительную подложку. [Maskable.app](https://maskable.app) - это бесплатный онлайн-инструмент для тестирования и создания маскируемой версии вашего значка.
 
-The next set of fields to include are ones that will improve your user's experience, even though they're not required for installability.
+### Рекомендуемые поля
 
-`theme_color`
-: Default color for the application, sometimes affecting how the OS displays the site (for instance, the window and title bar color on desktop, or the status bar color on mobile devices). This color can be overridden by the HTML `theme-color` `<meta>` element.
+Следующий набор полей, которые необходимо включить, - это поля, которые улучшат работу пользователя, хотя они и не обязательны для установки.
 
-`background_color`
-: Placeholder color to display in the application's background before its stylesheet is loaded. Safari on iOS and iPadOS and most desktop browsers currently ignore this field.
+`theme_color`: Цвет по умолчанию для приложения, иногда влияющий на то, как ОС отображает сайт (например, цвет окна и строки заголовка на настольных компьютерах или цвет строки состояния на мобильных устройствах). Этот цвет может быть переопределен с помощью элемента HTML `theme-color` `<meta>`.
 
-`scope`
-: Changes the navigation scope of the PWA, allowing you to define what is and isn't displayed within the installed app's window. For example, if you link to a page outside of the scope, it will be rendered in an in-app browser instead of within your PWA window. This will not, however, change the scope of your service worker.
+`background_color` : Цвет-заполнитель для отображения фона приложения до загрузки таблицы стилей. Safari на iOS и iPadOS и большинство настольных браузеров в настоящее время игнорируют это поле.
 
-The next image shows how the `theme_color` field is used for the title bar on a desktop device when you install a PWA.
+`scope`: изменяет область навигации PWA, позволяя определить, что будет отображаться в окне установленного приложения, а что нет. Например, если вы ссылаетесь на страницу, находящуюся за пределами области навигации, то она будет отображаться не в окне PWA, а в браузере приложения. Однако это не приведет к изменению области действия вашего сервис-воркера.
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/KWRGFZ2yIb0KNSGG3fI0.png", alt="The same PWA installed on desktop with a different theme color.", width="800", height="533" %}
+На следующем изображении показано, как поле `theme_color` используется для строки заголовка на настольном устройстве при установке PWA.
 
-{% Aside %}
-If you want to provide different theme colors for dark and light modes, you can override the manifest's value with a meta tag in the HTML using a media query, such as with `<meta name="theme-color" content="red" media="(prefers-color-scheme: dark)">`
-{% endAside %}
+![Тот же PWA, установленный на рабочем столе, с другим цветом темы.](web-app-manifest-4.png)
 
-When defining colors in the manifest, such as within `theme_color` and `background_color`, you should use CSS named colors, such as `salmon` or `orange`, RGB colors such as `#FF5500`, or color functions without transparency such as `rgb()` or `hsl()`. Check the [App design chapter](/learn/pwa/app-design/#theming-your-app) for more information.
+!!!note ""
 
-{% Aside 'warning' %}
-Do not use transparency, CSS variables, gradient functions, or color functions with transparency (such as `rgba()`) as they are not supported by most browsers. You will get inconsistent results.
-{% endAside %}
+    Если необходимо обеспечить разные цвета темы для темного и светлого режимов, можно переопределить значение манифеста с помощью метатега в HTML, используя медиазапрос, например, так: `<meta name="theme-color" content="red" media="(prefers-color-scheme: dark)">`
 
-#### Try it
+При определении цветов в манифесте, например, в рамках `theme_color` и `background_color`, следует использовать именованные цвета CSS, такие как `salmon` или `orange`, цвета RGB, такие как `#FF5500`, или функции цвета без прозрачности, такие как `rgb()` или `hsl()`. Дополнительную информацию можно найти в главе [App design chapter](app-design.md#theming-your-app).
 
-{% Glitch 'learn-pwa-web-app-manifest' %}
+!!!warning ""
 
-#### Splash screens
+    Не используйте прозрачность, переменные CSS, функции градиента или функции цвета с прозрачностью (например, `rgba()`), поскольку они не поддерживаются большинством браузеров. Вы получите несовместимые результаты.
 
-On some devices, a static image is rendered while your PWA is being loaded to provide immediate feedback to the user.
+#### Попробуйте
 
-Android uses the `theme_color`, `background_color`, and `icon` values to generate the splash screen.
+<iframe width="100%" height="400" allow="geolocation; microphone; camera; midi; encrypted-media; xr-spatial-tracking; fullscreen" allowfullscreen="" sandbox="allow-scripts allow-modals allow-forms allow-same-origin allow-top-navigation-by-user-activation allow-downloads" data-testid="app-preview-iframe" title="Preview of learn-pwa-web-app-manifest" src="https://learn-pwa-web-app-manifest.glitch.me/"></iframe>
 
-When you install a PWA on Android, the device will generate a splash screen with the information that comes from your manifest as seen in the following diagram.
+#### Всплывающие экраны
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/uO7fu1MHNzfipVZnbS7H.png", alt="A PWA on Android splash screen taking different values from the manifest.", width="800", height="533" %}
+На некоторых устройствах во время загрузки PWA отображается статическое изображение, чтобы сразу же предоставить пользователю обратную связь.
 
-Safari on iOS and iPadOS, on the other hand, doesn't use the web app manifest to generate splash screens. Instead, they use an image linked from a proprietary `<link>` element similar to how they handle icons. Check the [Enhancement chapter](/learn/pwa/enhancements) for more details.
+Для создания заставки в Android используются значения `theme_color`, `background_color` и `icon`.
 
-### Extended fields
+Когда вы устанавливаете PWA на Android, устройство генерирует заставку с информацией, полученной из вашего манифеста, как показано на следующей схеме.
 
-The next set of fields offers additional information about your PWA. They are all optional.
+![Заставка PWA на Android, принимающая различные значения из манифеста.](web-app-manifest-5.png)
 
-`lang`
-: A language tag specifying the primary language of the manifest's values, such as `en` for English, `pt-BR` for Brazilian Portuguese, or `in` for Hindi.
+Safari на iOS и iPadOS, напротив, не использует манифест веб-приложения для создания заставки. Вместо этого используется изображение, связанное с собственным элементом `<link>`, аналогично тому, как это делается с иконками. Более подробную информацию можно найти в [Главе об улучшениях](enhancements.md).
 
-`dir`
-: The direction to display direction-capable manifest fields (such as `name`, `short_name`, and `description`). Valid values are `auto`, `ltr` (left-to-right), and `rtl` (right-to-left).
+### Расширенные поля
 
-`orientation`
-: Desired orientation for the app once installed. A game may set this to request a landscape-only orientation. [Several values](https://developer.mozilla.org/docs/Web/Manifest/orientation#values) are accepted, but if included it's typically `portrait` or `landscape` explicitly.
+Следующий набор полей содержит дополнительную информацию о PWA. Все они являются необязательными.
 
-{% Aside %}
-The Web Application Manifest spec doesn't allow internationalization within the file to localize fields' values and images. To support multilingual PWAs with different web app manifest values you need to implement a custom solution to change those values per language. Watch [5 tips for your PWA](https://www.youtube.com/watch?v=baSiSIyTGSk&ab_channel=GoogleChromeDevelopers) for more ideas.
-{% endAside %}
+`lang` : Языковой тег, указывающий основной язык значений манифеста, например `en` для английского, `pt-BR` для бразильского португальского или `in` для хинди.
 
-### Promotional fields
+`dir` : Направление отображения полей манифеста (таких как `name`, `short_name` и `description`), поддерживающих направление. Допустимые значения: `auto`, `ltr` (слева направо) и `rtl` (справа налево).
 
-The fourth set of fields lets you provide promotional information about your PWA, for instance, in install flows, listings, and search results.
+`orientation`: желаемая ориентация приложения после установки. Игра может установить это значение для запроса ориентации только на ландшафт. [Принимается несколько значений](https://developer.mozilla.org/docs/Web/Manifest/orientation#values), но если оно включено, то обычно это `portrait` или `landscape` в явном виде.
 
-`description`
-: An explanation of what the PWA does.
+!!!note ""
 
-`screenshots`
-: Array of screenshot objects with `src`, `type`, and `sizes` (similar to the `icons` object) intended to showcase the PWA. There are no size restrictions.
+    Спецификация Web Application Manifest не допускает интернационализации внутри файла для локализации значений полей и изображений. Для поддержки многоязычных PWA с различными значениями манифеста веб-приложений необходимо реализовать специальное решение для изменения значений для каждого языка. Посмотрите [5 советов для вашего PWA](https://www.youtube.com/watch?v=baSiSIyTGSk&ab_channel=GoogleChromeDevelopers), чтобы получить больше идей.
 
-`categories`
-: Array of categories the PWA should belong to be used as hints for listings, optionally from the list of [known categories](https://www.w3.org/TR/manifest-app-info/#categories-member)]. These values are typically lowercase.
+### Рекламные поля
 
-`iarc_rating_id`
-: The International Age Rating Coalition certification code for the PWA, if you have one. It is intended to be used to determine which ages your PWA is appropriate for.
+Четвертый набор полей позволяет предоставлять рекламную информацию о PWA, например, в потоках установки, объявлениях и результатах поиска.
 
-{% Aside 'caution' %}
-Promotional fields have been moved to their own spec: [Web App Manifest - Application Information](https://www.w3.org/TR/manifest-app-info/). Check that spec for the latest additions to these fields.
-{% endAside %}
+`description` : Объяснение того, что делает PWA.
 
-You can see these promotional fields in action today. On Android, for example, if your PWA is installable and you provide values for at least the `description` and `screenshots` fields, the installation dialog experience transforms from a simple "Add to the home screen" info bar, to a richer installation dialog similar to the one from an app store.
+`screenshots` : Массив объектов скриншотов с `src`, `type` и `sizes` (аналогично объекту `icons`), предназначенных для демонстрации PWA. Ограничений по размеру нет.
 
-On Android, you can get a nicer installation UI if you provide values for the promotional fields, as you can see in the next video
+`categories` : Массив категорий, к которым должен принадлежать PWA для использования в качестве подсказок для объявлений, опционально из списка [известных категорий](https://www.w3.org/TR/manifest-app-info/#categories-member). Эти значения обычно строчные.
 
-{% Video src="video/RK2djpBgopg9kzCyJbUSjhEGmnw1/eU7EiYjZKtVsBrQ3xfBz.mp4" %}
+`iarc_rating_id` : Код сертификации PWA Международной коалицией по возрастным рейтингам, если таковой имеется. Он используется для определения возраста, для которого предназначен ваш PWA.
 
-See these promotional fields in action:
+!!!warning ""
 
-{% Glitch 'learn-pwa-web-app-manifest-promotional' %}
+    Рекламные поля были перенесены в отдельную спецификацию: [Web App Manifest - Application Information](https://www.w3.org/TR/manifest-app-info/). Проверьте эту спецификацию на предмет последних дополнений к этим полям.
 
+Вы можете увидеть эти рекламные поля в действии уже сегодня. Например, на Android, если ваш PWA является устанавливаемым и вы указали значения хотя бы для полей `description` и `screenshots`, то диалог установки превращается из простой информационной панели "Добавить на главный экран" в более богатый диалог установки, похожий на диалог из магазина приложений.
 
-### Capabilities Fields
+На Android можно получить более красивый пользовательский интерфейс установки, если указать значения для рекламных полей, как показано в следующем видеоролике
 
-Finally, there are a number of fields related to different capabilities that your PWA can use in supported browsers, such as the `shortcuts`, `share_target`, `display_overrides` fields as we cover in the [Capabilities chapter](/learn/pwa/capabilities). There are also fields, like `related_apps` and `prefer_related_apps` (see the [Detection chapter](/learn/pwa/detection) for more information), to connect your PWA to installed apps, often from an app store.
+<video controls>
+<sourcsrc="/learn/pwa/web-app-manifest-6.mp4" />
+</video>
 
-Many new fields may appear in the future while browsers add more capabilities to Progressive Web Apps.
+Посмотрите на эти рекламные поля в действии:
 
-##  Resources
+<iframe width="100%" height="400" allow="geolocation; microphone; camera; midi; encrypted-media; xr-spatial-tracking; fullscreen" allowfullscreen="" sandbox="allow-scripts allow-modals allow-forms allow-same-origin allow-top-navigation-by-user-activation allow-downloads" data-testid="app-preview-iframe" title="Preview of learn-pwa-web-app-manifest-promotional" src="https://learn-pwa-web-app-manifest-promotional.glitch.me/"></iframe>
 
-- [Add a Web App Manifest](/add-manifest/)
-- [Adaptive icon support in PWAs with maskable icons](/maskable-icon/)
-- [Richer PWA installation UI](https://developer.chrome.com/blog/richer-pwa-installation/)
-- [MDN: Web App Manifest](https://developer.mozilla.org/docs/Web/Manifest)
+### Поля возможностей
+
+Наконец, существует ряд полей, связанных с различными возможностями, которые ваш PWA может использовать в поддерживаемых браузерах, например, поля `shortcuts`, `share_target`, `display_overrides`, о которых мы рассказываем в главе [Capabilities](capabilities.md). Существуют также поля `related_apps` и `prefer_related_apps` (см. главу [Detection](detection.md) для получения дополнительной информации), позволяющие связать PWA с установленными приложениями, часто из магазина приложений.
+
+Многие новые поля могут появиться в будущем, пока браузеры будут добавлять новые возможности в Progressive Web Apps.
+
+## Ресурсы
+
+-   [Добавление манифеста веб-приложения](https://web.dev/articles/add-manifest)
+-   [Адаптивная поддержка значков в PWA с маскируемыми значками](https://web.dev/articles/maskable-icon)
+-   [Более богатый пользовательский интерфейс установки PWA](https://developer.chrome.com/blog/richer-pwa-installation/)
+-   [MDN: Web App Manifest](https://developer.mozilla.org/docs/Web/Manifest)
+
+:material-information-outline: Источник &mdash; [Web app manifest](https://web.dev/learn/pwa/web-app-manifest)

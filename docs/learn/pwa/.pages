@@ -10,9 +10,9 @@ nav:
     - caching.md
     - serving.md
     - workbox.md
-    #- offline-data.md
-    #- installation.md
-    #- web-app-manifest.md
+    - offline-data.md
+    - installation.md
+    - web-app-manifest.md
     #- installation-prompt.md
     #- update.md
     #- enhancements.md
