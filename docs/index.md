@@ -73,4 +73,6 @@ hide:
 
 - [MongoDB](https://github.com/jsmarkus/the-little-mongodb-book/blob/master/ru/mongodb.markdown)
 - [MariaDB](https://oracleplsql.ru/mariadb-manual.html)
+
+- [30 days of PWA](https://microsoft.github.io/win-student-devs/#/30DaysOfPWA/kickoff)
 -->

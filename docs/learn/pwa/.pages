@@ -16,8 +16,8 @@ nav:
     - installation-prompt.md
     - update.md
     - enhancements.md
-    #- detection.md
-    #- os-integration.md
+    - detection.md
+    - os-integration.md
     #- windows.md
     #- experimental.md
     #- tools-and-debug.md

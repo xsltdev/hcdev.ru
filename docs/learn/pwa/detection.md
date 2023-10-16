@@ -1,157 +1,157 @@
 ---
-title: Detection
-description: >
-  Identifying how your users interact with your app is useful in customizing and improving the user experience. For example, you can check whether your app is already installed on the user's device and implement features such as transferring navigation to the standalone app from the browser.
-authors:
-  - firt
-date: 2022-03-10
-updated: 2022-03-14
+description: Определение того, как пользователи взаимодействуют с вашим приложением, полезно для настройки и улучшения пользовательского опыта. Например, вы можете проверить, установлено ли уже ваше приложение на устройстве пользователя, и реализовать такие функции, как перенос навигации в отдельное приложение из браузера.
+icon: material/smoke-detector-variant-alert
 ---
 
-You can detect if the user is using your PWA in the browser or in standalone mode. On Chromium-based browsers (Android and desktop), you can also detect the following events:
+# Обнаружение
 
-* Installation invitation dialog status and result.
-* Installation finished.
-* Navigation transfer from browser to PWA window and conversely.
-* PWA installation status.
-* Related app installed from an app store.
+<big>Определение того, как пользователи взаимодействуют с вашим приложением, полезно для настройки и улучшения пользовательского опыта. Например, вы можете проверить, установлено ли уже ваше приложение на устройстве пользователя, и реализовать такие функции, как перенос навигации в отдельное приложение из браузера.</big>
 
-You can use this data for analytics, to understand your user's preferences, and to customize their experience. To capture these events, you can use tools such as media queries, events from the `window`, or using the capabilities APIs that you can find [listed here](https://developer.chrome.com/blog/fugu-status/).
+Вы можете определить, использует ли пользователь ваш PWA в браузере или в автономном режиме. В браузерах на базе Chromium (Android и настольных) можно также обнаружить следующие события:
 
-## Detecting display mode
+-   Состояние и результат диалога приглашения к установке.
+-   Завершение установки.
+-   Перенос навигации из браузера в окно PWA и наоборот.
+-   Статус установки PWA.
+-   Установка сопутствующего приложения из магазина приложений.
 
-To track how users launch your PWA, you can use `matchMedia()` to test the `display-mode` media query.
+Эти данные можно использовать для аналитики, чтобы понять предпочтения пользователей и настроить их работу. Для перехвата этих событий можно использовать такие инструменты, как медиазапросы, события из `window` или API-возможности, которые можно найти [приведены здесь](https://developer.chrome.com/blog/fugu-status/).
+
+## Определение режима отображения
+
+Чтобы отследить, как пользователи запускают PWA, можно использовать `matchMedia()` для проверки медиазапроса `display-mode`.
 
 ```js
 window.addEventListener('DOMContentLoaded', () => {
-  let displayMode = 'browser tab';
-  if (window.matchMedia('(display-mode: standalone)').matches) {
-    displayMode = 'standalone';
-  }
-  // Log launch display mode to analytics
-  console.log('DISPLAY_MODE_LAUNCH:', displayMode);
+    let displayMode = 'browser tab';
+    if (
+        window.matchMedia('(display-mode: standalone)')
+            .matches
+    ) {
+        displayMode = 'standalone';
+    }
+    // Log launch display mode to analytics
+    console.log('DISPLAY_MODE_LAUNCH:', displayMode);
 });
 ```
 
-If you use this example, remember to match the display mode from your web app manifest, for instance, `standalone`, `minimal-ui` or `fullscreen`. You can also match multiple queries in the media query string using comma-separated conditions.
+Если вы используете этот пример, не забудьте указать режим отображения из манифеста вашего веб-приложения, например, `standalone`, `minimal-ui` или `fullscreen`. В строке медиазапроса можно также сопоставить несколько запросов, используя условия, разделенные запятыми.
 
-You can also add a query parameter to your manifest's `start_url` that you can capture with analytics to track stats about when, in what way, and how much your PWA is being used.
+Кроме того, в манифест можно добавить параметр запроса `start_url`, который можно перехватить с помощью аналитики для отслеживания статистики того, когда, каким образом и как часто используется ваш PWA.
 
-{% Aside 'caution' %}
-If you use a query parameter on your `start_url` to capture metrics, make sure to set the `id` field on your manifest to uniquely identify your app. Read how to set up this field in [Uniquely identifying PWAs with the web app manifest id property](https://developer.chrome.com/blog/pwa-manifest-id/)
-{% endAside %}
+!!!warning ""
 
-## App installation
+    Если вы используете параметр запроса `start_url` для сбора метрик, не забудьте задать поле `id` в манифесте для уникальной идентификации вашего приложения. О том, как настроить это поле, читайте в статье [Уникальная идентификация PWA с помощью свойства id манифеста веб-приложений](https://developer.chrome.com/blog/pwa-manifest-id/)
 
-When a user accepts the install prompt in the browser, the `appinstalled` event fires on Chromium-based browsers. A great use for this event handler is to remove any in-app installation promotion you've added.
+## Установка приложения
+
+Когда пользователь принимает приглашение на установку в браузере, в браузерах на базе Chromium срабатывает событие `appinstalled`. Этот обработчик события может быть использован для удаления всех добавленных вами подсказок по установке приложения.
 
 ```js
 window.addEventListener('appinstalled', () => {
-  // If visible, hide the install promotion
-  hideInAppInstallPromotion();
-  // Log install to analytics
-  console.log('INSTALL: Success');
+    // If visible, hide the install promotion
+    hideInAppInstallPromotion();
+    // Log install to analytics
+    console.log('INSTALL: Success');
 });
 ```
 
-Remember, on Android devices with WebAPK, the event is fired when the user accepts the dialog, and not after the WebAPK is minted and installed. There may be a delay of some seconds before the app is fully installed.
+Помните, что на Android-устройствах с WebAPK событие срабатывает, когда пользователь принимает диалог, а не после того, как WebAPK отчеканен и установлен. Может возникнуть задержка в несколько секунд, прежде чем приложение будет полностью установлено.
 
-The [Installation Prompt chapter](/learn/pwa/installation-prompt) explains how to detect if the installation prompt is available and what choice the user makes.
+В главе [Installation Prompt chapter](installation-prompt.md) объясняется, как определить наличие приглашения к установке и какой выбор делает пользователь.
 
-{% Aside 'warning' %}
-The `appinstalled` event is available only in Chromium-based browsers, and it's part of an [incubator for the manifest spec](https://wicg.github.io/manifest-incubations/#onappinstalled-attribute)
-{% endAside %}
+!!!warning ""
 
-## Session transfer
+    Событие `appinstalled` доступно только в браузерах на базе Chromium, и оно является частью [incubator for the manifest spec](https://wicg.github.io/manifest-incubations/#onappinstalled-attribute)
 
-Users can use your PWA within the browser and in the installed standalone form. On desktop browsers, you can transfer the current navigation between these contexts using badges or menu items, as seen in the following image.
+## Передача сеанса
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/260YbAY9W4qFitqUHhQ5.png", alt="Navigation transfer between a browser tab and a PWA window.", width="800", height="321" %}
+Пользователи могут использовать ваш PWA как внутри браузера, так и в установленном автономном виде. В настольных браузерах текущую навигацию между этими контекстами можно передавать с помощью значков или пунктов меню, как показано на следующем изображении.
 
-On Android, there is a menu item similar to the one on desktop from the browser that transfers the navigation to the app. In this case, the current URL is opened but it will be a new page navigation in the app.
+![Перенос навигации между вкладкой браузера и окном PWA.](detection-1.png)
 
-In the following image you can see the menu item in Android when the app is already installed.
+На Android существует пункт меню из браузера, аналогичный тому, что есть на настольном компьютере, который переносит навигацию в приложение. В этом случае открывается текущий URL-адрес, но в приложении это будет навигация по новой странице.
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/rpMHjK1uhwwJONJKTj2r.png", alt="Chrome on Android shows menu item to open a new navigation in a PWA window.", width="800", height="1689" %}
+На следующем изображении показан пункт меню в Android, когда приложение уже установлено.
 
-### Transfer after installation
+![Chrome на Android показывает пункт меню для открытия новой навигации в окне PWA.](detection-2.png)
 
-From desktop browsers, the current navigation is immediately transferred to the app on installation. The browser's tab is closed, and the newly installed app is opened, continuing what the user was doing.
+### Перенос после установки
 
-On mobile browsers, your current navigation stays in the browser when you install the app. If the users want to move to the app, they need to open the app manually, and it will be a new navigation.
+В браузерах настольных компьютеров текущая навигация сразу же переносится в приложение при установке. Вкладка браузера закрывается, и открывается только что установленное приложение, продолжая работу пользователя.
 
-### Detecting the transfer
+В мобильных браузерах при установке приложения текущая навигация остается в браузере. Если пользователь хочет перейти к приложению, ему необходимо открыть его вручную, и это будет новая навигация.
 
-To detect the transfer between browser and window, you can use a media query:
+### Обнаружение переноса
+
+Для обнаружения перехода между браузером и окном можно использовать медиазапрос:
 
 ```js
 window.addEventListener('DOMContentLoaded', () => {
-  // replace standalone with your display used in manifest
-  window.matchMedia('(display-mode: standalone)')
-      .addListener(event => {
-          if (event.matches) {
-             // From browser to standalone
-          } else {
-             // From standalone to browser
-          }
-      });
+    // replace standalone with your display used in manifest
+    window
+        .matchMedia('(display-mode: standalone)')
+        .addListener((event) => {
+            if (event.matches) {
+                // From browser to standalone
+            } else {
+                // From standalone to browser
+            }
+        });
 });
 ```
 
-### iOS and iPadOS storage isolation
+### Изоляция хранилища в iOS и iPadOS
 
-On iOS and iPadOS, there is no navigation or URL transfer between the browser and the installed icon. Even if it's the same PWA, every PWA icon that the user installs will have its own storage, isolated from Safari's tab and other icons.
-When a user opens the installed icon, no storage is shared with Safari. If your PWA needs a login, the user will need to log in again. If the app was added to the home screen several times, for each PWA instance, the user has a different session.
+На iOS и iPadOS между браузером и установленной иконкой нет навигации и передачи URL. Даже если это один и тот же PWA, каждый установленный пользователем значок PWA будет иметь собственное хранилище, изолированное от вкладки Safari и других значков. Когда пользователь открывает установленный значок, хранилище не передается Safari. Если PWA требует входа в систему, пользователю придется войти в систему еще раз. Если приложение было добавлено на главный экран несколько раз, то для каждого экземпляра PWA у пользователя будет своя сессия.
 
-## Related applications
-{% BrowserCompat 'html.manifest.related_applications' %}
+## Связанные приложения
 
-A website indicates a relationship with an app via the manifest. To do so, use the [`related_applications` member](https://developer.mozilla.org/docs/Web/Manifest/related_applications) of the Web App Manifest spec.
-The `related_applications` key is an array of objects that represent each related application. Each entry contains `platform`, `url`, and an optional `id`.
+<p class="ciu_embed" data-feature="mdn-html__manifest__related_applications" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-These are the possible [platform values](https://github.com/w3c/manifest/wiki/Platforms):
-* `play`: Google Play apps (Android and ChromeOS).
-* `itunes`: Apple App Store (macOS, iOS, and iPadOS).
-* `windows`: Microsoft Store (Windows 10 and 11).
-* `amazon`: Amazon AppStore (FireOS).
-* `webapp`: installed PWA.
+Сайт указывает на связь с приложением через манифест. Для этого используется член [`related_applications`](https://developer.mozilla.org/docs/Web/Manifest/related_applications) спецификации Web App Manifest. Ключ `related_applications` - это массив объектов, представляющих каждое связанное приложение. Каждая запись содержит `платформу`, `url` и необязательный `id`.
 
-### Prefer a related app
+Вот возможные [значения платформы](https://github.com/w3c/manifest/wiki/Platforms):
 
-When the user installs an app, you can redirect the user to a related app if you set the `prefer_related_applications` field to `true` in your manifest. With this setup, on compatible browsers the install flows won't install the PWA; instead they trigger a store installation from the `url` or `id` that you specified in the `related_applications` entry.
+-   `play`: приложения Google Play (Android и ChromeOS).
+-   `itunes`: Apple App Store (macOS, iOS и iPadOS).
+-   `windows`: Microsoft Store (Windows 10 и 11).
+-   `amazon`: Amazon AppStore (FireOS).
+-   `webapp`: установленное PWA.
 
-The related application could be your PWA and it will be installed via an app store. One advantage of this configuration is that, at the moment, only apps installed through the app store are recovered with a backup or when you switch to a new device.
+### Предложите связанное приложение
+
+Когда пользователь устанавливает приложение, вы можете перенаправить его на связанное приложение, если установите в манифесте поле `prefer_related_applications` в значение `true`. При такой настройке на совместимых браузерах потоки установки не будут устанавливать PWA, а будут запускать установку магазина с `url` или `id`, указанных в поле `related_applications`.
+
+Связанное приложение может быть вашим PWA, и оно будет установлено через магазин приложений. Одним из преимуществ такой конфигурации является то, что в настоящее время только приложения, установленные через магазин приложений, восстанавливаются при резервном копировании или при переходе на новое устройство.
 
 ```json
 {
-  ...
-  "related_applications:" [
-     {
-       "platform": "play",
-       "url": "https://play.google.com/..."
-     }
-  ],
-  "prefer_related_applications": true
+    ..."related_applications:"[
+        {
+            "platform": "play",
+            "url": "https://play.google.com/..."
+        }
+    ],
+    "prefer_related_applications": true
 }
 ```
 
-{% Aside %}
-Using `prefer_related_applications: true` with only a `webapp` preferred application doesn't make any difference in how your PWA is offered and installed.
-{% endAside %}
+!!!note ""
 
-#### Apple Smart App Banners
+    Использование `prefer_related_applications: true` только с предпочтительным приложением `webapp` никак не влияет на то, как будет предлагаться и устанавливаться ваш PWA.
 
-Safari doesn't support the `related_applications` member, but it offers [Smart App Banners](https://developer.apple.com/documentation/webkit/promoting_apps_with_smart_app_banners) for apps in the App Store. So if you want to promote a PWA or other app you have published in the App Store, you can include meta tags in your PWA's HTML to invite the user to install the app (see the link just provided), or transfer the navigation if it is already installed.
+#### Баннеры Apple Smart App.
 
-### Detecting related installed apps
+Safari не поддерживает член `related_applications`, но предлагает [Smart App Banners](https://developer.apple.com/documentation/webkit/promoting_apps_with_smart_app_banners) для приложений в App Store. Поэтому, если вы хотите продвинуть PWA или другое приложение, опубликованное в App Store, вы можете включить в HTML вашего PWA метатеги, предлагающие пользователю установить приложение (см. только что приведенную ссылку), или перенести навигацию, если оно уже установлено.
 
-The [`getInstalledRelatedApps()`](/get-installed-related-apps/) method allows your website to check whether your iOS/Android/desktop app or PWA is installed on the user's device.
+### Обнаружение связанных установленных приложений
 
-Checking if a related app is installed already helps you to implement features such as hiding custom-installed prompts or redirecting the user directly to the installed app, instead of going to a general purpose website.
-To use the `getInstalledRelatedApps()` method, both the installed app and the website need to configure their connection with each other. Each app, depending on its platform, includes metadata to recognize the website and the website includes the expected installed app in the `related_applications` field in the manifest.
+Метод [`getInstalledRelatedApps()`](https://web.dev/articles/get-installed-related-apps) позволяет вашему сайту проверить, установлено ли ваше iOS/Android/десктопное приложение или PWA на устройстве пользователя.
 
-Tools such as [BubbleWrap](https://github.com/GoogleChromeLabs/bubblewrap) or [PWA Builder](https://www.pwabuilder.com/), which allow you to publish your PWA to app stores, already add the required metadata so your website can use `getInstalledRelatedApps()` right away.
-To detect whether a PWA is already installed using `getInstalledRelatedApps()`, define `webapp` in the manifest `related_applications` field with the URL to your manifest:
+Проверка наличия установленного связанного приложения позволяет реализовать такие возможности, как скрытие пользовательских подсказок или перенаправление пользователя непосредственно на установленное приложение, а не на сайт общего назначения. Для использования метода `getInstalledRelatedApps()` необходимо, чтобы и установленное приложение, и веб-сайт настроили связь друг с другом. Каждое приложение, в зависимости от своей платформы, включает метаданные для распознавания сайта, а сайт включает ожидаемое установленное приложение в поле `related_applications` в манифесте.
+
+Такие инструменты, как [BubbleWrap](https://github.com/GoogleChromeLabs/bubblewrap) или [PWA Builder](https://www.pwabuilder.com/), позволяющие публиковать PWA в магазинах приложений, уже добавляют необходимые метаданные, поэтому ваш сайт может сразу же использовать `getInstalledRelatedApps()`. Чтобы определить, установлен ли уже PWA с помощью `getInstalledRelatedApps()`, определите `webapp` в поле манифеста `related_applications` с указанием URL-адреса вашего манифеста:
 
 ```json
 ...
@@ -162,21 +162,22 @@ To detect whether a PWA is already installed using `getInstalledRelatedApps()`, 
 ...
 ```
 
-`getInstalledRelatedApps()` returns an array of app objects. If the array is empty, the related app is not installed.
+`getInstalledRelatedApps()` возвращает массив объектов приложений. Если массив пуст, то связанное приложение не установлено.
 
 ```js
 const relatedApps = await navigator.getInstalledRelatedApps();
 const PWAisInstalled = relatedApps.length > 0;
 ```
 
-#### Detect installation from outside the PWA's scope
+#### Обнаружение установки из-за пределов области действия PWA
 
-From Chrome on Android 89, you can detect if a PWA is installed, even from outside the PWA's scope. Your PWA must set a JSON file within the `/.well-known/` folder, giving permission to the other scope, as described in [this article](/get-installed-related-apps/#check-pwa-out-of-scope).
+В Chrome на Android 89 можно обнаружить установку PWA даже из-за пределов области действия PWA. Ваш PWA должен установить JSON-файл в папке `/.well-known/`, дающий разрешение на установку из другой области видимости, как описано в [этой статье](https://web.dev/articles/get-installed-related-apps#check-pwa-out-of-scope).
 
-##  Resources
+## Ресурсы
 
-- [Is your app installed? getInstalledRelatedApps() will tell you!](/get-installed-related-apps/)
-- [MDN: Related Applications](https://developer.mozilla.org/docs/Web/Manifest/related_applications)
-- [MDN: AppInstalled event](https://developer.mozilla.org/docs/Web/API/Window/appinstalled_event)
-- [Apple: Promoting Apps with Smart App Banners](https://developer.apple.com/documentation/webkit/promoting_apps_with_smart_app_banners)
+-   [Установлено ли ваше приложение? getInstalledRelatedApps() подскажет вам!](https://web.dev/articles/get-installed-related-apps)
+-   [MDN: Связанные приложения](https://developer.mozilla.org/docs/Web/Manifest/related_applications)
+-   [MDN: Событие AppInstalled](https://developer.mozilla.org/docs/Web/API/Window/appinstalled_event)
+-   [Apple: Продвижение приложений с помощью баннеров Smart App Banners](https://developer.apple.com/documentation/webkit/promoting_apps_with_smart_app_banners)
 
+:material-information-outline: Источник &mdash; [Detection](https://web.dev/learn/pwa/detection)

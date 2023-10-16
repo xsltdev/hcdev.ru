@@ -1,32 +1,34 @@
 ---
-title: OS Integration
-authors:
-  - firt
-description: >
-  Your PWA now works outside the browser. This chapter covers how to integrate further with the operating system once users install your app.
-date: 2022-04-15
+description: Теперь ваше PWA работает вне браузера. В этой главе рассматривается дальнейшая интеграция с операционной системой после того, как пользователи установят ваше приложение.
+icon: material/microsoft-windows-classic
 ---
 
-Web apps have a big reach. They run on multiple platforms. They are easy to share via links. But traditionally they lacked integration with the operating system. Not long ago they were not even installable. Luckily that has changed and now we can take advantage of that integration to add useful features to our PWAs. Let's explore some of those options.
+# Интеграция с ОС
 
-## Working with the file system
+<big>Теперь ваше PWA работает вне браузера. В этой главе рассматривается дальнейшая интеграция с операционной системой после того, как пользователи установят ваше приложение.</big>
 
-A typical user workflow using files looks like this:
-* Pick a file or folder from the device and open it directly.
-* Make changes to those files or folders, and save the changes back directly.
-* Make new files and folders.
+Веб-приложения имеют большой охват. Они работают на различных платформах. Их легко распространять с помощью ссылок. Однако традиционно им не хватало интеграции с операционной системой. Не так давно их даже нельзя было установить. К счастью, ситуация изменилась, и теперь мы можем воспользоваться этой интеграцией для добавления полезных функций в наши PWA. Давайте рассмотрим некоторые из этих возможностей.
 
-Before the [File System Access API](/file-system-access/), web apps couldn't do this. Opening files required a file upload, saving changes required users to download them, and the web had no access at all to make new files and folders in the user's filesystem.
+## Работа с файловой системой
 
-### Opening a file
+Типичный процесс работы пользователя с файлами выглядит следующим образом:
 
-To open a file we use the `window.showOpenFilePicker()` method. Note that this method requires a user gesture, such as a button click. Here is the rest of the setup for opening a file:
-1. Capture the [file handle](https://developer.mozilla.org/docs/Web/API/FileSystemHandle) from the file system access's file picker API. This gives you basic information about the file.
-2. Using the handle's `getFile()` method, you'll get a special kind of [`Blob`](https://developer.mozilla.org/docs/Web/API/Blob) called a [`File`](https://developer.mozilla.org/docs/Web/API/File) that includes additional read-only properties (such as name and last modified date) about the file. Because it's a Blob, Blob methods can be called on it, such as `text()`, to get its content.
+-   Выбрать файл или папку с устройства и открыть его напрямую.
+-   Внести изменения в эти файлы или папки и сохранить их обратно.
+-   Создание новых файлов и папок.
+
+До появления [API доступа к файловой системе](https://developer.chrome.com/articles/file-system-access/) веб-приложения не могли этого делать. Для открытия файлов требовалась загрузка файлов, для сохранения изменений - их загрузка, а для создания новых файлов и папок в файловой системе пользователя у веб-приложений вообще не было доступа.
+
+### Открытие файла
+
+Для открытия файла мы используем метод `window.showOpenFilePicker()`. Обратите внимание, что этот метод требует жеста пользователя, например, нажатия кнопки. Ниже приведены остальные настройки для открытия файла:
+
+1.  Захват [file handle](https://developer.mozilla.org/docs/Web/API/FileSystemHandle) из API файловой системы доступа к file picker. Это позволяет получить основную информацию о файле.
+2.  Используя метод дескриптора `getFile()`, получить специальный вид [`Blob`](https://developer.mozilla.org/docs/Web/API/Blob), называемый [`File`](https://developer.mozilla.org/docs/Web/API/File), который содержит дополнительные свойства файла, доступные только для чтения (такие как имя и дата последнего изменения). Поскольку файл является блобом, для получения его содержимого можно вызывать методы блоба, например, `text()`.
 
 ```js
 // Have the user select a file.
-const [ handle ] = await window.showOpenFilePicker();
+const [handle] = await window.showOpenFilePicker();
 // Get the File object from the handle.
 const file = await handle.getFile();
 // Get the file content.
@@ -34,14 +36,15 @@ const file = await handle.getFile();
 const content = await file.text();
 ```
 
-### Saving changes
+### Сохранение изменений
 
-To save changes to a file, you also need a user gesture; then:
-1. Use the file handle to create a [`FileSystemWritableFileStream`](https://developer.mozilla.org/docs/Web/API/FileSystemWritableFileStream).
-1. Make changes to the stream. This won't update the file in place; instead, a temporary file is typically created.
-1. Finally, when you've finished making changes, you close the stream, which moves the changes from temporary to permanent.
+Для сохранения изменений в файле также необходим жест пользователя; тогда:
 
-Let's see this in code:
+1.  Используйте хэндл файла для создания [`FileSystemWritableFileStream`](https://developer.mozilla.org/docs/Web/API/FileSystemWritableFileStream).
+2.  Внести изменения в поток. При этом файл не будет обновляться на месте; вместо него обычно создается временный файл.
+3.  Наконец, по окончании внесения изменений закрываем поток, что переводит изменения из временных в постоянные.
+
+Рассмотрим это в коде:
 
 ```js
 // Make a writable stream from the handle.
@@ -52,19 +55,18 @@ await writable.write(contents);
 await writable.close();
 ```
 
-{% Glitch 'mlearn-pwa-os-integration-file' %}
+<iframe width="100%" height="400" allow="geolocation; microphone; camera; midi; encrypted-media; xr-spatial-tracking; fullscreen" allowfullscreen="" sandbox="allow-scripts allow-modals allow-forms allow-same-origin allow-top-navigation-by-user-activation allow-downloads" data-testid="app-preview-iframe" title="Preview of mlearn-pwa-os-integration-file" src="https://mlearn-pwa-os-integration-file.glitch.me/"></iframe>
 
-{% Aside 'caution' %}
-Safari implements the File System Access API, not for the public system, but as an [origin-private sandbox](/file-system-access/#accessing-files-optimized-for-performance-from-the-origin-private-file-system). You can only read and write files in that virtual file system using this API.
-{% endAside %}
+!!!warning ""
 
-## File handling
+    Safari реализует API доступа к файловой системе не для общедоступной системы, а в виде [origin-private sandbox](https://developer.chrome.com/articles/file-system-access/#accessing-files-optimized-for-performance-from-the-origin-private-file-system). С помощью этого API можно читать и записывать файлы только в этой виртуальной файловой системе.
 
-The File System Access API lets you open files from within your app, but what about the other way around? Users want to set their favorite app as their default to open files with. The [file handling API](/file-handling/) is an experimental API that lets installed PWAs:
-Register as a file handler on a user's device, specifying the MIME type and file extension that your PWA supports in your web app manifest. You can specify custom file icons for your supported extensions.
+## Работа с файлами
 
-Once registered, your installed PWA will show up as an option from the user's file system, allowing them to open the file directly into it.
-Here is an example of the manifest setup for a PWA to read text files:
+API доступа к файловой системе позволяет открывать файлы из приложения, но как быть в обратном случае? Пользователи хотят установить свое любимое приложение в качестве приложения по умолчанию для открытия файлов. API [file handling API](https://developer.chrome.com/articles/file-handling/) - это экспериментальный API, позволяющий установленным PWA: Зарегистрироваться в качестве обработчика файлов на устройстве пользователя, указав в манифесте веб-приложения тип MIME и расширение файла, поддерживаемые вашим PWA. Для поддерживаемых расширений можно указать собственные значки файлов.
+
+После регистрации установленный вами PWA будет отображаться как опция файловой системы пользователя, позволяя ему открыть файл непосредственно в ней. Ниже приведен пример настройки манифеста для PWA, предназначенного для чтения текстовых файлов:
+
 ```json
 ...
 "file_handlers": [
@@ -78,22 +80,21 @@ Here is an example of the manifest setup for a PWA to read text files:
 ...
 ```
 
+## Работа с URL
 
-## URL handling
+С помощью функции обработки URL-адресов PWA может перехватывать ссылки, входящие в область действия операционной системы, и отображать их в окне PWA, а не на вкладке браузера по умолчанию. Например, если вы получаете сообщение со ссылкой на PWA или нажимаете на глубокую ссылку (URL-адрес, указывающий на определенный фрагмент содержимого) в PWA, содержимое откроется в отдельном окне.
 
-With URL handling, your PWA can capture links that are part of its scope from the operating system and render them within a PWA window, instead of the default browser's tab. For example, if you receive a message linking to the PWA, or click on a deep link (a URL that points to a specific piece of content) in your PWA, the content will open in a standalone window.
+Такое поведение автоматически доступно на Android при использовании WebAPK, например, когда пользователи устанавливают PWA с помощью Chrome. Перехват URL-адресов в PWA, установленных на iOS и iPadOS, из Safari невозможен.
 
-This behavior is automatically available on Android when WebAPK is used, such as when users install a PWA with Chrome. It's impossible to capture URLs on PWAs installed on iOS and iPadOS from Safari.
-
-For desktop browsers, the web browser community created a new spec. This spec is currently [experimental](/learn/pwa/experimental); it adds a new manifest file member: `url_handlers`. This property expects an array of origins that the PWA wants to capture. The origin of your PWA will be granted automatically, and each other origin must accept that handling operating through a file named `web-app-origin-association`.
-For example, if your PWA's manifest is hosted on the web.dev, and you want to add the app.web.dev origin, it would look like this:
+Для настольных браузеров сообщество веб-браузеров создало новую спецификацию. В настоящее время эта спецификация является [экспериментальной](experimental.md); она добавляет новый член файла манифеста: `url_handlers`. Это свойство ожидает массив исходных кодов, которые PWA хочет перехватить. Происхождение вашего PWA будет предоставлено автоматически, а все остальные происхождения должны принять эту обработку, действующую через файл с именем `web-app-origin-association`. Например, если манифест вашего PWA размещен на web.dev, и вы хотите добавить origin app.web.dev, то это будет выглядеть следующим образом:
 
 ```json
 "url_handlers": [
     {"origin": "https://app.web.dev"},
 ]
 ```
-In this case, the browser will check if a file exists at `app.web.dev/.well-known/web-app-origin-association`, accepting the URL handling from the PWA scope URL. The developer has to create this file. In the following example, the file looks like this:
+
+В этом случае браузер будет проверять наличие файла по адресу `app.web.dev/.well-known/web-app-origin-association`, принимая обработку URL из URL области действия PWA. Разработчик должен создать этот файл. В следующем примере файл выглядит следующим образом:
 
 ```json
 {
@@ -101,28 +102,28 @@ In this case, the browser will check if a file exists at `app.web.dev/.well-know
         {
             "manifest": "/mypwa/app.webmanifest",
             "details": {
-                "paths": [ "/*" ]
+                "paths": ["/*"]
             }
         }
     ]
 }
 ```
 
-{% Aside 'gotchas' %}
-On Android with WebAPKs, PWAs are automatically registered as handlers for the manifest's scope with an Android intent filter, and it is not possible to add more origins or scopes to it. For iOS and iPadOS, you can only handle URLs with PWAs published in the AppStore, such as those created with [PWABuilder](https://pwabuilder.com).
-{% endAside %}
+!!!warning ""
 
-## URL protocol handling
+    На Android с WebAPK PWA автоматически регистрируются в качестве обработчиков для области действия манифеста с помощью фильтра намерений Android, и добавить к нему другие origins или области действия невозможно. Для iOS и iPadOS можно обрабатывать только URL-адреса PWA, опубликованных в AppStore, например созданных с помощью [PWABuilder](https://pwabuilder.com).
 
-URL handling works with standard `https` protocol URLs, but it is possible to use custom URI-schemes, such as `pwa://`. In several operating systems, installed apps gain this ability by apps registering their schemes.
+## Работа с протоколом URL
 
-For PWA, this capability is enabled using the [URL protocol handler API](/url-protocol-handler/), available only on desktop devices. You can only allow custom protocols for mobile devices by distributing your PWA on app stores.
+Работа с URL работает со стандартными URL протокола `https`, но возможно использование и пользовательских URI-схем, таких как `pwa://`. В некоторых операционных системах установленные приложения получают такую возможность, регистрируя свои схемы.
 
-{% Aside 'caution' %}
-For PWAs using the URL protocol handler API, the protocol name has to be one of the [safelisted schemes](https://html.spec.whatwg.org/multipage/system-state.html#safelisted-scheme), or it must use a `web+` prefix. So, in our example, a link should point to `web+pwa://` to open our PWA.
-{% endAside %}
+Для PWA эта возможность реализуется с помощью [URL protocol handler API](https://developer.chrome.com/articles/url-protocol-handler/), доступного только на настольных устройствах. Разрешить использование пользовательских протоколов для мобильных устройств можно только путем распространения PWA в магазинах приложений.
 
-To register, you can use the [registerProtocolHandler() method](https://developer.mozilla.org/docs/Web/API/Navigator/registerProtocolHandler), or use the `protocol_handlers` member in your manifest, with the desired scheme and the URL you want to load in your PWA's context, such as:
+!!!warning ""
+
+    Для PWA, использующих API-обработчик протокола URL, имя протокола должно быть одним из [безопасных схем](https://html.spec.whatwg.org/multipage/system-state.html#safelisted-scheme), либо использовать префикс `web+`. Таким образом, в нашем примере ссылка должна указывать на `web+pwa://`, чтобы открыть наш PWA.
+
+Для регистрации можно воспользоваться методом [registerProtocolHandler()](https://developer.mozilla.org/docs/Web/API/Navigator/registerProtocolHandler) или использовать член `protocol_handlers` в манифесте, указав нужную схему и URL, который вы хотите загрузить в контекст PWA, например:
 
 ```json
 ...
@@ -137,62 +138,59 @@ To register, you can use the [registerProtocolHandler() method](https://develope
 ...
 ```
 
-You can route the URL `from-protocol` to the correct handler and get the query string `value` in your PWA. The `%s` is a placeholder for the escaped URL that triggered the operation, so if you have a link somewhere such as `<a href="web+pwa://testing">`, your PWA will open `/from-protocol?value=testing`.
+Вы можете направить URL `from-protocol` в нужный обработчик и получить строку запроса `value` в своем PWA. `%s` - это заполнитель для эскейпированного URL, который вызвал операцию, поэтому если у вас есть ссылка, например `<a href="web+pwa://testing">`, ваш PWA откроет `/from-protocol?value=testing`.
 
-### Calling other apps
+### Вызов других приложений
 
-You can use URI schemes to connect to any other installed app (PWA or not) in users' devices on every platform. You just need to create a link or use `navigator.href` and point to the URI scheme you want, passing the arguments in URL-escaped form.
+Вы можете использовать схемы URI для подключения к любому другому установленному приложению (PWA или нет) на устройствах пользователей на любой платформе. Для этого достаточно создать ссылку или использовать `navigator.href` и указать на нужную URI-схему, передав аргументы в виде URL-escaped.
 
-You can use well known standard schemes, such as `tel:` for phone calls, `mailto:` for email sending, or `sms:` for text messaging; or you can learn about other apps' URL schemes, for example from well known messaging, maps, navigation, online meetings, social networks, and app stores.
+Можно использовать известные стандартные схемы, такие как `tel:` для телефонных звонков, `mailto:` для отправки электронной почты или `ms:` для обмена текстовыми сообщениями, а можно изучить схемы URL других приложений, например, известных приложений для обмена сообщениями, карт, навигации, онлайн-встреч, социальных сетей и магазинов приложений.
 
-{% Aside %}
-Instead of using private URI schemes to communicate with messaging and social media apps, you can use the generic Web Share API
-{% endAside %}
+!!!note ""
+
+    Вместо использования частных схем URI для взаимодействия с приложениями для обмена сообщениями и социальными сетями можно воспользоваться общим API Web Share
 
 ## Web Share
-{% BrowserCompat 'api.Navigator.share' %}
 
-With the [Web Share API](https://developer.mozilla.org/docs/Web/API/Web_Share_API), your PWA can send content to other installed apps in the device through the shared channel.
+<p class="ciu_embed" data-feature="web-share" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+<picture>
+<source type="image/webp" srcset="https://caniuse.bitsofco.de/image/web-share.webp">
+<source type="image/png" srcset="https://caniuse.bitsofco.de/image/web-share.png">
+<img src="https://caniuse.bitsofco.de/image/web-share.jpg" alt="Data on support for the web-share feature across the major browsers from caniuse.com">
+</picture>
+</p>
 
-The API is only available on operating systems with a `share` mechanism, including Android, iOS, iPadOS, Windows, and ChromeOS.
-You can share an object containing:
+С помощью [Web Share API](https://developer.mozilla.org/docs/Web/API/Web_Share_API) ваш PWA может отправлять содержимое другим установленным на устройстве приложениям через общий канал.
 
-* Text (`title` and `text` properties)
-* A URL (`url` property)
-* Files (`files` property).
+API доступен только в операционных системах с механизмом `share`, включая Android, iOS, iPadOS, Windows и ChromeOS. В общий доступ можно передать объект, содержащий:
 
-To check if the current device can share, for simple data, like text, you check for the presence of the `navigator.share()` method, to share files you check for the presence of the `navigator.canShare()` method.
+-   Текст (свойства `title` и `text`)
+-   URL (свойство `url`)
+-   Файлы (свойство `files`).
 
-You request the share action by calling [`navigator.share(objectToShare)`](https://developer.mozilla.org/docs/Web/API/Navigator/share). That call returns a Promise that resolves with `undefined` or rejects with an exception.
+Чтобы проверить, может ли текущее устройство предоставлять общий доступ, для простых данных, таких как текст, проверяется наличие метода `navigator.share()`, для предоставления общего доступа к файлам проверяется наличие метода `navigator.canShare()`.
 
-{% Glitch 'mlearn-pwa-os-integration-web-share' %}
+Вы запрашиваете действие share, вызывая [`navigator.share(objectToShare)`](https://developer.mozilla.org/docs/Web/API/Navigator/share). Этот вызов возвращает промис, который разрешается с `undefined` или отклоняется с исключением.
 
+<iframe width="100%" height="400" allow="geolocation; microphone; camera; midi; encrypted-media; xr-spatial-tracking; fullscreen" allowfullscreen="" sandbox="allow-scripts allow-modals allow-forms allow-same-origin allow-top-navigation-by-user-activation allow-downloads" data-testid="app-preview-iframe" title="Preview of mlearn-pwa-os-integration-web-share" src="https://mlearn-pwa-os-integration-web-share.glitch.me/"></iframe>
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/wpB9v8QQTw4wB1iEGqvT.png", alt="Chrome on Android and Safari on iOS opening the Share Sheet thanks to Web Share.", width="800", height="661" %}
+![Chrome на Android и Safari на iOS открывают лист общего доступа благодаря Web Share.](os-integration-1.png)
 
 ## Web Share Target
 
-[Web Share Target API](/web-share-target/) lets your PWA be a target of a share operation from another app on that device whether it is a PWA or not. Your PWA receives the data shared by another app.
+[Web Share Target API](https://developer.chrome.com/articles/web-share-target/) позволяет вашему PWA быть целью операции обмена данными от другого приложения на данном устройстве, независимо от того, является оно PWA или нет. При этом ваш PWA получает данные, которыми делится другое приложение.
 
-It's currently available on Android with WebAPK and ChromeOS, and it works only after the user has installed your PWA. The browser registers the share target within the operating system when the app is installed.
+В настоящее время эта функция доступна на Android с WebAPK и ChromeOS, и работает она только после того, как пользователь установит ваш PWA. При установке приложения браузер регистрирует цель общего доступа в операционной системе.
 
-You set up web share target in the manifest with the `share_target` member defined in the [Web Share Target draft spec](https://w3c.github.io/web-share-target/). `share_target` is set to an object with some properties:
+Целевой веб-ресурс задается в манифесте с помощью элемента `share_target`, определенного в [Web Share Target draft spec](https://w3c.github.io/web-share-target/). `share_target` задается объектом с некоторыми свойствами:
 
-`action`
-: URL that will be loaded in a PWA window that is expected to receive the shared data.
-`method`
-: HTTP verb method will be used for the action, such as `GET`, `POST`, or `PUT`.
-`enctype`
-: (Optional) Encoding type for the parameters, by default is `application/x-www-form-urlencoded`, but it can also be set as `multipart/form-data` for methods such as `POST`.
-`params`
-: An object that will map share data (from the keys: `title`, `text`, `url` and `files` from Web Share) to arguments that the browser will pass in the URL (on `method: 'GET'`) or in the body of the request using the selected encoding.
+`action` : URL-адрес, который будет загружен в окно PWA, которое должно получить общие данные. `method` : метод HTTP-глагола, который будет использоваться для действия, например `GET`, `POST` или `PUT`. `enctype` : (Необязательно) Тип кодировки для параметров, по умолчанию это `application/x-www-form-urlencoded`, но также может быть установлен как `multipart/form-data` для таких методов, как `POST`. `params` : объект, который сопоставляет данные ресурса (из ключей: `title`, `text`, `url` и `files` из Web Share) с аргументами, которые браузер будет передавать в URL (при `method: 'GET'`) или в теле запроса, используя выбранную кодировку.
 
+!!!note ""
 
-{% Aside %}
-You can parse a `POST` request server-side or within your service worker if you want to avoid a trip to the network. Check [this sample](/web-share-target/#processing-post-shares) for further details.
-{% endAside %}
+    Вы можете разобрать `POST`-запрос на стороне сервера или внутри своего сервис-воркера, если хотите избежать обращения к сети. Более подробную информацию можно найти в [этом примере](https://developer.chrome.com/articles/web-share-target/#processing-post-shares).
 
-For example, you can define for your PWA that you want to receive shared data (title and url only) by adding in your manifest:
+Например, вы можете определить для своего PWA, что хотите получать общие данные (только заголовок и url), добавив их в свой манифест:
 
 ```json
 ...
@@ -206,54 +204,59 @@ For example, you can define for your PWA that you want to receive shared data (t
 }
 ...
 ```
-From the previous sample, if any app in the system is sharing a URL with a title, and the user picks your PWA from the dialog, the browser will create a new navigation to your origin's `/receive-share/?shared_title=AAA&shared_url=BBB`, where AAA is the shared title, and BBB is the shared URL. You can use JavaScript to read that data from the `window.location` string by parsing it with the [`URL` constructor](https://developer.mozilla.org/docs/Web/API/URL/URL).
 
-The browser will use the PWA name and icon from your manifest to feed the operating system's share entry. You can't pick a different set for that purpose.
+Из предыдущего примера видно, что если какое-либо приложение в системе имеет общий URL с заголовком, и пользователь выбирает из диалога ваш PWA, то браузер создаст новую навигацию к вашему origin'у `/receive-share/?shared_title=AAA&shared_url=BBB`, где AAA - это общий заголовок, а BBB - общий URL. Вы можете использовать JavaScript для чтения этих данных из строки `window.location`, разобрав ее с помощью конструктора [`URL`](https://developer.mozilla.org/docs/Web/API/URL/URL).
 
-{% Aside %}
-Make sure the page that handles the shared data is accessible offline. You don't want users choosing your app and finding an error because they don't have a connection at the moment.
-{% endAside %}
+Браузер будет использовать имя и иконку PWA из вашего манифеста, чтобы передать запись в общий ресурс операционной системы. Выбрать другой набор для этой цели нельзя.
 
-For more detailed examples and how to receive files, check [Receiving shared data with the Web Share Target API](/web-share-target/)
+!!!note ""
 
-## Contact Picker
-{% BrowserCompat 'api.ContactsManager' %}
+    Убедитесь, что страница, на которой обрабатываются общие данные, доступна в автономном режиме. Вы же не хотите, чтобы пользователи, выбрав ваше приложение, обнаружили ошибку, потому что у них в данный момент нет соединения.
 
-With the [Contact Picker API](https://developer.mozilla.org/docs/Web/API/Contact_Picker_API), you can request the device to render a native dialog with all the user's contacts so the user can choose one or more. Your PWA can then receive the data you want from those contacts.
+Более подробные примеры и способы получения файлов можно найти в статье [Получение общих данных с помощью Web Share Target API](https://developer.chrome.com/articles/web-share-target/)
 
-The Contact Picker API is mainly available on mobile devices, and everything is done through the [`navigator.contacts`](https://developer.mozilla.org/docs/Web/API/Navigator/contacts) interface on compatible platforms.
+## Выборка контактов
 
-You can request the available properties to query with `navigator.contacts.getProperties()`, and request a single or multiple contact selection with a list of desired properties.
+С помощью [Contact Picker API](https://developer.mozilla.org/docs/Web/API/Contact_Picker_API) можно запросить у устройства диалоговое окно со всеми контактами пользователя, чтобы пользователь мог выбрать один или несколько. Затем ваш PWA может получить нужные данные от этих контактов.
 
-Some sample properties are `name`, `email`, `address`, and `tel`. When you ask the user to pick one or more contacts, you can call `navigator.contacts.select(properties)`, passing an array of properties you want to get in return.
+API Contact Picker доступен в основном на мобильных устройствах, а на совместимых платформах все делается через интерфейс [`navigator.contacts`](https://developer.mozilla.org/docs/Web/API/Navigator/contacts).
 
-{% Aside 'caution' %}
-The API doesn't guarantee that the returned objects will have all the requested properties, so you should recheck for their presence.
-{% endAside %}
+Вы можете запросить доступные свойства для запроса с помощью `navigator.contacts.getProperties()` и запросить выборку одного или нескольких контактов со списком нужных свойств.
 
-The following sample will list the contacts received by the picker.
+В качестве примера можно привести такие свойства, как `name`, `email`, `address` и `tel`. Когда вы просите пользователя выбрать один или несколько контактов, вы можете вызвать `navigator.contacts.select(properties)`, передав массив свойств, которые вы хотите получить в ответ.
+
+!!!warning ""
+
+    API не гарантирует, что возвращаемые объекты будут иметь все запрошенные свойства, поэтому необходимо перепроверять их наличие.
+
+Следующий пример выводит список контактов, полученных пикером.
 
 ```js
 async function getContacts() {
-   const properties = ['name', 'email', 'tel'];
-   const options = { multiple: true };
-   try {
-     const contacts = await navigator.contacts.select(properties, options);
-     console.log(contacts);
-   } catch (ex) {
-     // Handle any errors here.
-   }
+    const properties = ['name', 'email', 'tel'];
+    const options = { multiple: true };
+    try {
+        const contacts = await navigator.contacts.select(
+            properties,
+            options
+        );
+        console.log(contacts);
+    } catch (ex) {
+        // Handle any errors here.
+    }
 }
 ```
 
-{% Glitch 'mlearn-pwa-os-integration-contacts' %}
+<iframe width="100%" height="400" allow="geolocation; microphone; camera; midi; encrypted-media; xr-spatial-tracking; fullscreen" allowfullscreen="" sandbox="allow-scripts allow-modals allow-forms allow-same-origin allow-top-navigation-by-user-activation allow-downloads" data-testid="app-preview-iframe" title="Preview of mlearn-pwa-os-integration-contacts" src="https://mlearn-pwa-os-integration-contacts.glitch.me/"></iframe>
 
-##  Resources
+## Ресурсы
 
-- [The File System Access API: simplifying access to local files](/file-system-access/)
-- [Let installed web applications be file handlers](/file-handling/)
-- [Handle files in Progressive Web Apps](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/handle-files)
-- [Integrate with the OS Sharing UI with the Web Share API](/web-share/)
-- [Share content with other apps](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/share)
-- [Receiving shared data with the Web Share Target API](/web-share-target/)
-- [A contact picker for the web](/contact-picker/)
+-   [The File System Access API: упрощение доступа к локальным файлам](https://web.dev/file-system-access)
+-   [Пусть установленные веб-приложения будут обработчиками файлов](https://web.dev/file-handling)
+-   [Работа с файлами в прогрессивных веб-приложениях](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/handle-files)
+-   [Интеграция с пользовательским интерфейсом OS Sharing UI с помощью Web Share API](https://web.dev/articles/web-share)
+-   [Обмен содержимым с другими приложениями](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/share)
+-   [Получение общих данных с помощью Web Share Target API](https://developer.chrome.com/articles/web-share-target/)
+-   [Подборщик контактов для Web](https://web.dev/contact-picker)
+
+:material-information-outline: Источник &mdash; [OS Integration](https://web.dev/learn/pwa/os-integration)
