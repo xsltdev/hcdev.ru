@@ -1,149 +1,151 @@
 ---
-title: Enhancements
-description: >
-  Your user expects a good experience. In this chapter, you will see how to enhance your PWA with splash screens, app shortcuts, and how sessions work.
-authors:
-  - firt
-date: 2022-03-10
-updated: 2022-03-14
+description: Пользователь ожидает хорошего опыта. В этой главе мы рассмотрим, как улучшить PWA с помощью заставки, ярлыков приложений, а также как работают сессии.
+icon: material/cellphone-charging
 ---
 
-There are many enhancements that can improve the conversion and usage of your PWA.
+# Улучшения
 
-## App shortcuts
+<big>Пользователь ожидает хорошего опыта. В этой главе мы рассмотрим, как улучшить PWA с помощью заставки, ярлыков приложений, а также как работают сессии.</big>
 
-[App shortcuts](https://w3c.github.io/manifest/#shortcuts-member) is a static list of deep links to your PWA, they are written in your manifest. [Web App Manifest spec](/learn/pwa/web-app-manifest). It lets you define a list of shortcuts to different parts or features in your PWA, they accelerate navigation to frequently accessed sections.
+Существует множество усовершенствований, которые могут улучшить конверсию и использование вашего PWA.
 
-App shortcuts are available on most desktop operating systems and Android with WebAPK, and they appear in a contextual menu on the app's icon in the home screen, dock, or taskbar, as in the following image:
+## Ярлыки приложений
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/SYm7meKqd286Z62gehX9.png", alt="App shortcuts in Android and macOS.", width="800", height="280" %}
+[Ярлыки приложений](https://w3c.github.io/manifest/#shortcuts-member) - это статический список глубоких ссылок на ваш PWA, они прописаны в вашем манифесте ([Спецификация манифеста Web App Manifest](web-app-manifest.md)). Позволяет определить список ярлыков для различных частей или функций PWA, ускоряющих навигацию по часто используемым разделам.
 
-To access this menu, users have to right-click or long-press on the PWA's icon.
+Ярлыки приложений доступны в большинстве настольных операционных систем и в Android с WebAPK. Они появляются в контекстном меню на значке приложения на главном экране, в доке или на панели задач, как показано на следующем рисунке:
 
-{% Aside %}
-App shortcuts are only available if the user installs your PWA.
-{% endAside %}
+![Ярлыки приложений в Android и macOS.](enhancements-1.png)
 
-{% Aside 'warning' %}
-Once the user has installed your PWA, you can't add or remove shortcuts until you update your manifest on the server and the [update algorithm](/learn/pwa/update) is triggered.
-{% endAside %}
+Чтобы получить доступ к этому меню, необходимо щелкнуть правой кнопкой мыши или нажать длинную клавишу на иконке PWA.
 
-Shortcuts are defined in the `shortcuts` member of the manifest. It takes an array of members with the following properties:
-`name`
-: The text that will be shown to the user, typically in a context menu.
-`start_url`.
-: The URL the PWA should load when the user starts it from this shortcut. It should be a URL within your PWA scope, and it should deep-link to the feature the `name` or `short_name` describes.
-`short_name`
-(Optional) A shorter name used when there is not enough room to display the full value of the `name` field.
-`description`
-: (Optional) A description of what this shortcut will do
-`icons`
-: (Optional) An array of icon objects with `src`, `type`, `sizes`, and optional `purpose` fields, describing what images should represent the shortcut
+!!!note ""
 
-You should treat App shortcuts as a best-effort ability. That means that you can't rely on these shortcuts to appear consistently, and even if they appear, you don't know how many shortcuts will appear or if the platform will ignore the icons as its at the discretion of the browsers. A full discussion per platform is out of scope but below you have an idea of how it works on Android and desktop. The best way to deal with this uncertainty is to order the items by priority.
+    Ярлыки приложений доступны только в том случае, если пользователь установил ваш PWA.
 
-{% Aside 'caution' %}
-Chrome and Edge on desktop renders the first 10 items, while Chrome on Android only renders the first three shortcuts in the manifest's list, so it's better if you order them by priority. Chrome on Android also adds access to "App Info" and "Site Settings" from the menu after your custom list.
-{% endAside %}
+!!!warning ""
 
-{% Aside %}
-If you publish your PWA to app catalogs and stores, you can convert the shortcuts in the manifest to platform-specific implementations using APIs specific to each operating system, such as Quick Actions on iOS and shortcuts on Android. [BubbleWrap](https://github.com/GoogleChromeLabs/bubblewrap) supports App shortcuts for Android and ChromeOS and [PWA Builder](https://www.pwabuilder.com/) for Android, ChromeOS, iOS and iPadOS.
-{% endAside %}
+    После установки PWA пользователь не сможет добавить или удалить ярлыки, пока не обновит манифест на сервере и не сработает [алгоритм обновления](update.md).
 
-The following code sample defines different app shortcuts you can try if you install the app on Android with Chrome or on desktop with Edge or Chrome.
+Ярлыки определяются в члене `shortcuts` манифеста. Он принимает массив членов со следующими свойствами: `name` : Текст, который будет показан пользователю, обычно в контекстном меню. `start_url` : URL, который должен загружаться при запуске PWA с этого ярлыка. Это должен быть URL в области видимости PWA, и он должен содержать глубокую ссылку на функцию, которую описывает `имя` или `короткое_имя`. `short_name` (необязательно) Сокращенное название, используемое, когда недостаточно места для отображения полного значения поля `name`. `description` : (Необязательно) Описание того, что будет делать данный ярлык `icons` : (Необязательно) Массив объектов иконок с полями `src`, `type`, `sizes` и необязательным полем `purpose`, описывающими, какие изображения должны представлять данный ярлык.
 
-{% Glitch 'mlearn-pwa-app-shortcuts' %}
+К ярлыкам приложений следует относиться как к возможностям, которые можно реализовать наилучшим образом. Это означает, что вы не можете рассчитывать на постоянное появление таких ярлыков, и даже если они появятся, вы не знаете, сколько ярлыков появится и будет ли платформа игнорировать иконки, поскольку это зависит от браузера. Полноценное обсуждение каждой платформы не представляется возможным, но ниже вы получите представление о том, как это работает на Android и настольных компьютерах. Лучший способ справиться с этой неопределенностью - упорядочить элементы по приоритету.
 
-## iOS and iPadOS
+!!!warning ""
 
-When publishing PWAs, there are some enhancements that can improve the experience for users on Safari on iOS/iPadOS.
+    Chrome и Edge на настольном компьютере отображают первые 10 элементов, в то время как Chrome на Android отображает только первые три ярлыка в списке манифеста, поэтому лучше упорядочить их по приоритету. В Chrome на Android также добавлен доступ к "Информации о приложении" и "Настройкам сайта" из меню после пользовательского списка.
 
-{% Aside 'warning' %}
-As we mentioned in previous chapters, PWAs on iOS and iPadOS are only installable from Safari; other browsers are not able to install PWAs in the home screen.
-{% endAside %}
+!!!note ""
 
-### Splash screens
+    При публикации PWA в каталогах и магазинах приложений можно преобразовать ярлыки в манифесте в платформенные реализации, используя API, специфичные для каждой операционной системы, например, Quick Actions на iOS и ярлыки на Android. [BubbleWrap](https://github.com/GoogleChromeLabs/bubblewrap) поддерживает ярлыки App для Android и ChromeOS, а [PWA Builder](https://www.pwabuilder.com/) - для Android, ChromeOS, iOS и iPadOS.
 
-As seen in the [Web App Manifest chapter](/learn/pwa/web-app-manifest), Android creates splash screens automatically based on the manifest's values. That's not the case for iOS and iPadOS. In these devices, you should define the splash screens in the HTML as static images using `<link>` elements.
+Следующий пример кода определяет различные ярлыки приложений, которые можно попробовать, если установить приложение на Android с Chrome или на настольном компьютере с Edge или Chrome.
 
-These images are known as startup images on Apple devices and they use the `rel` property with `apple-touch-startup-image` value, as in:
+<iframe width="100%" height="400" allow="geolocation; microphone; camera; midi; encrypted-media; xr-spatial-tracking; fullscreen" allowfullscreen="" sandbox="allow-scripts allow-modals allow-forms allow-same-origin allow-top-navigation-by-user-activation allow-downloads" data-testid="app-preview-iframe" title="Preview of mlearn-pwa-app-shortcuts" src="https://mlearn-pwa-app-shortcuts.glitch.me/"></iframe>
+
+## iOS и iPadOS
+
+При публикации PWA есть некоторые усовершенствования, которые могут улучшить работу пользователей в Safari на iOS/iPadOS.
+
+!!!warning ""
+
+    Как мы уже упоминали в предыдущих главах, PWA на iOS и iPadOS можно устанавливать только из Safari; другие браузеры не могут устанавливать PWA на главный экран.
+
+### Всплывающие экраны
+
+Как показано в главе [Web App Manifest](web-app-manifest.md), в Android заставки создаются автоматически на основе значений манифеста. Этого нельзя сказать об iOS и iPadOS. В этих устройствах заставки следует задавать в HTML как статические изображения с помощью элементов `<link>`.
+
+На устройствах Apple эти изображения называются стартовыми и используют свойство `rel` со значением `apple-touch-startup-image`, как показано на рисунке:
 
 ```html
-<link rel="apple-touch-startup-image" href="ios-startup.png">
+<link
+    rel="apple-touch-startup-image"
+    href="ios-startup.png"
+/>
 ```
 
-The challenge is that the startup image must have the exact window size that your PWA will have on opening. So, different iOS and iPadOS devices will need different images. More situations need to be covered on the iPad, such as landscape/portrait openings and rendering the PWA in multitask mode (such as 1/3,1/2, or 2/3 of the screen).
+Сложность заключается в том, что стартовое изображение должно иметь точный размер окна, которое будет открываться на вашем PWA. Таким образом, на разных устройствах iOS и iPadOS потребуются разные изображения. Для iPad необходимо предусмотреть больше ситуаций, таких как открытие в ландшафтном/портретном режиме и отображение PWA в режиме многозадачности (например, на 1/3, 1/2 или 2/3 экрана).
 
-You can check an updated list of iOS and iPadOS screen sizes at the [Apple Human Interface Guidelines]( https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/adaptivity-and-layout/)
+Обновленный список размеров экранов iOS и iPadOS можно посмотреть на сайте [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/adaptivity-and-layout/).
 
-Different versions of the launch image can be set with a media query inside the `media` attribute:
+Различные версии изображения запуска могут быть заданы с помощью медиазапроса внутри атрибута `media`:
 
 ```html
-<link rel="apple-touch-startup-image" href="ios-startup.png"
-      media="orientation: portrait">
-<link rel="apple-touch-startup-image" href="ios-startup-landscape.png"
-      media="orientation: landscape">
+<link
+    rel="apple-touch-startup-image"
+    href="ios-startup.png"
+    media="orientation: portrait"
+/>
+<link
+    rel="apple-touch-startup-image"
+    href="ios-startup-landscape.png"
+    media="orientation: landscape"
+/>
 ```
-{% Aside 'warning' %}
-If you want to provide all possible options combining screen definitions, orientations, and multitask mode, you will end up with more than 25 different images you need to create and link in your HTML. If you don't provide a startup image for your user's iOS or iPadOS context, a white screen will appear instead in the opening animation, and while your PWA is loading
-{% endAside %}
 
-#### Design patterns for iOS startup images
+!!!warning ""
 
-Defining startup images is hard work, so we have a couple of tools for automated generation and configuration:
+    Если вы хотите предоставить все возможные варианты, сочетающие в себе определение экрана, ориентацию и многозадачный режим, то в итоге у вас получится более 25 различных изображений, которые необходимо создать и связать в HTML. Если вы не предоставите начальное изображение для контекста iOS или iPadOS, то в анимации открытия появится белый экран, а во время загрузки вашего PWA
 
-* Static generation integrates with your build system, creates all the PNG static images and gives you the HTML code with `<link>` elements to inject into your document. [PWA Asset Generator](https://github.com/onderceylan/pwa-asset-generator) is an example of such a tool.
-* Client-side generator, a JavaScript tool that can embed one or more base64 versions of the startup image into `<link>` injected elements based on the current device's type and screen size. You can use an in-memory canvas, render the image and convert it into a `data:` URI with a PNG file. The [PWA Compat library](https://github.com/GoogleChromeLabs/pwacompat) is an easy-to-use client-side library that does this by cloning the Android's typical launch screen.
+#### Шаблоны проектирования стартовых изображений для iOS
 
-### Detecting a PWA on Apple mobile platforms
+Определение начальных образов - сложная работа, поэтому мы предлагаем несколько инструментов для их автоматической генерации и настройки:
 
-While you should use Progressive Enhancement and feature detection in your PWA, there may be some edge cases where we need to know if the user is in a PWA on Apple mobile platforms, such as when you want to offer installation instructions or add links to platform-specific apps that are iOS-only.
+-   Статическая генерация интегрируется с вашей системой сборки, создает все статические изображения PNG и предоставляет вам HTML-код с элементами `<link>` для вставки в документ. Примером такого инструмента является [PWA Asset Generator](https://github.com/onderceylan/pwa-asset-generator).
+-   Генератор на стороне клиента - JavaScript-инструмент, который может встраивать одну или несколько base64-версий начального изображения в инжектируемые элементы `<link>` в зависимости от типа и размера экрана текущего устройства. Можно использовать холст в памяти, рендерить изображение и преобразовывать его в `data:` URI с PNG-файлом. Библиотека [PWA Compat](https://github.com/GoogleChromeLabs/pwacompat) - это простая в использовании клиентская библиотека, которая делает это путем клонирования типичного экрана запуска Android.
 
-To avoid reading the user agent string, check the `standalone` property of the `navigator` object. This is a non-standard property, and it's only available on the WebKit engine on iOS and iPadOS.
+### Обнаружение PWA на мобильных платформах Apple
 
-* If `navigator.standalone` is `undefined` it means the user is not on an iPadOS or iOS device.
-* If `navigator.standalone` is `false` it means the user opened the PWA in the browser and is using it there.
-* If `navigator.standalone` is `true` it means the user opened the PWA from the home screen and is getting the standalone PWA experience.
+Несмотря на то, что в PWA следует использовать прогрессивное улучшение и обнаружение особенностей, в некоторых случаях необходимо знать, находится ли пользователь в PWA на мобильных платформах Apple, например, когда требуется предложить инструкции по установке или добавить ссылки на приложения, предназначенные только для iOS.
 
-### Fullscreen support
+Чтобы избежать чтения строки агента пользователя, проверьте свойство `standalone` объекта `navigator`. Это нестандартное свойство, и оно доступно только для движка WebKit на iOS и iPadOS.
 
-On Safari on iOS and iPads, only `display: standalone` is supported as a [display mode for your PWA's icon](/learn/pwa/app-design/#display-modes). While `display: fullscreen` is not supported as on Android devices, it's possible to use a non-standard meta-tag to make your PWA enter fullscreen mode.
+-   Если `navigator.standalone` имеет значение `undefined`, это означает, что пользователь не находится на устройстве iPadOS или iOS.
+-   Если `navigator.standalone` имеет значение `false`, это означает, что пользователь открыл PWA в браузере и использует его там.
+-   Если `navigator.standalone` имеет значение `true`, то это означает, что пользователь открыл PWA с главного экрана и получает опыт работы с автономным PWA.
 
-In the next image, you can see at the left a default standalone design with a theme color, and at the right a PWA with a fullscreen iOS mode that lets you render content behind the status bar.
+### Поддержка полноэкранного режима
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/SYjZ1upKyQaMuF1nrv7Y.png", alt="A standalone default behavior (left) and a fullscreen iOS screen (right).", width="800", height="216" %}
+В Safari на iOS и iPad в качестве [режима отображения иконки PWA](app-design.md#display-modes) поддерживается только `display: standalone` . Хотя `display: fullscreen` не поддерживается, как на устройствах Android, можно использовать нестандартный мета-тег, чтобы заставить PWA переходить в полноэкранный режим.
 
-If you add the following tag in your HTML your PWA on iOS and iPadOS will enter full-screen mode, but it is different from Android.
+На следующем изображении слева показан стандартный автономный дизайн с цветом темы, а справа - PWA с полноэкранным режимом iOS, позволяющим выводить содержимое за строку состояния.
+
+![Автономное поведение по умолчанию (слева) и полноэкранный экран iOS (справа).](enhancements-2.png)
+
+Если добавить в HTML следующий тег, то ваш PWA на iOS и iPadOS перейдет в полноэкранный режим, но это не так, как на Android.
 
 ```html
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
+/>
 ```
 
-In this mode, the device's status bar (the top where you see the clock, battery level, and notification icons) is still visible but rendered on top of your content with a transparent background.
+В этом режиме строка состояния устройства (верхняя часть, где отображаются часы, уровень заряда батареи и значки уведомлений) остается видимой, но отображается поверх содержимого с прозрачным фоном.
 
-{% Aside 'warning' %}
-The theme color is ignored in this mode, and the notification bar is rendered over a transparent background. Also, your app's [0, 0] pixel is now the [0, 0] pixel of the physical screen and not after the safe area.
-{% endAside %}
+!!!warning ""
 
-When using this mode, be careful with your design because the operating system will always render the icons in white, so you should always contrast your backgrounds for the top of the screen with light content. Also, it's important to use [CSS environment variables](https://developer.mozilla.org/docs/Web/CSS/env()) to render content in the safe area, as seen in [App Design Chapter](/learn/pwa/app-design/#safe-areas).
+    В этом режиме цвет темы игнорируется, а панель уведомлений отображается на прозрачном фоне. Кроме того, пиксель [0, 0] вашего приложения теперь находится на [0, 0] физического экрана, а не после безопасной области.
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/WZSHybaKkUvpLcphGJ8y.png", alt="The top 0px of your viewport is below the status bar by default; if you add a black-translucent meta tag, the top 0px of your viewport will match the physical top of the screen", width="800", height="219" %}
+При использовании этого режима будьте осторожны с дизайном, поскольку операционная система всегда будет отображать значки белым цветом, поэтому всегда следует контрастировать фоны для верхней части экрана со светлым содержимым. Кроме того, важно использовать [переменные окружения CSS](<https://developer.mozilla.org/docs/Web/CSS/env()>) для вывода содержимого в безопасной области, как показано в [Главе "Дизайн приложений"](app-design.md#safe-areas).
 
+![По умолчанию верхний 0px области просмотра находится ниже строки состояния; если добавить метатег black-translucent, верхний 0px области просмотра будет соответствовать физическому верху экрана](enhancements-3.png)
 
-### Installation reliability
+### Надежность установки
 
-Safari on iOS and iPadOS before 15.4 only loads the manifest file from the network when the user opens the share sheet -using the share icon within the browser- and not when the page loads. Therefore, Safari doesn't check if your website is a PWA until that moment, which can lead to situations where the manifest can't be loaded or takes too much time, and Safari ignores it.
+Safari на iOS и iPadOS до версии 15.4 загружает файл манифеста из сети только тогда, когда пользователь открывает лист общего доступа - с помощью значка общего доступа в браузере, - а не в момент загрузки страницы. Поэтому Safari не проверяет, является ли ваш сайт PWA, до этого момента, что может привести к ситуации, когда манифест не может быть загружен или занимает слишком много времени, и Safari игнорирует его.
 
-When Safari can't load the manifest on time, pressing "Add to Home Screen" places an icon on the home screen, but does not provide an app experience; it will merely be a shortcut to a Safari tab.
+Если Safari не может вовремя загрузить манифест, нажатие кнопки "Добавить на главный экран" помещает значок на главный экран, но не обеспечивает работу с приложением; это будет просто ярлык вкладки Safari.
 
-{% Aside 'warning' %}
-If Safari can't load the manifest, it will fall back to check if your PWA has some deprecated meta tags, such as `apple-mobile-web-app-capable`. You should not use these metatags. They provide a home screen app experience without essential attributes for your PWA, such as honoring the `start_url` or the `scope` attributes, making a terrible app experience.
-{% endAside %}
+!!!warning ""
 
-##  Resources
+    Если Safari не удается загрузить манифест, он возвращается к проверке наличия в PWA устаревших метатегов, таких как `apple-mobile-web-app-capable`. Не следует использовать эти метатеги. Они обеспечивают работу приложения на домашнем экране без существенных для PWA атрибутов, таких как атрибуты `start_url` или `scope`, что делает работу приложения ужасной.
 
-- [PWA Asset Generator](https://github.com/onderceylan/pwa-asset-generator)
-- [Get things done quickly with app shortcuts](/app-shortcuts)
-- [PWA Compat Library](https://github.com/GoogleChromeLabs/pwacompat)
-- [Define App Shortcuts](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/shortcuts)
+## Ресурсы
 
+-   [Генератор ресурсов PWA](https://github.com/onderceylan/pwa-asset-generator)
+-   [Быстрое выполнение задач с помощью ярлыков приложений](https://web.dev/articles/app-shortcuts)
+-   [Библиотека PWA Compat](https://github.com/GoogleChromeLabs/pwacompat)
+-   [Определение ярлыков приложений](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/shortcuts)
+
+:material-information-outline: Источник &mdash; [Enhancements](https://web.dev/learn/pwa/enhancements)

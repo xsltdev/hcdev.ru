@@ -1,221 +1,226 @@
 ---
-title: Update
-description: >
-  Chances are your PWA needs updating. This chapter gives you the tools to update different parts of your PWA, from assets to metadata.
-authors:
-  - firt
-date: 2022-03-10
-updated: 2022-03-14
+description: Скорее всего, ваш PWA нуждается в обновлении. В этой главе представлены инструменты для обновления различных частей PWA, от ресурсов до метаданных.
+icon: material/arrow-up-bold-hexagon-outline
 ---
 
-You have published your PWA: some users use it from the browser, others install it on their devices. When you update the app, it's important to apply best practices to avoid pitfalls.
+# Обновление
 
-You may update:
+<big>Скорее всего, ваш PWA нуждается в обновлении. В этой главе представлены инструменты для обновления различных частей PWA, от ресурсов до метаданных.</big>
 
-* App data.
-* Assets already cached in devices.
-* The service worker file, or its dependencies.
-* Manifest metadata.
+Вы опубликовали свое PWA: одни пользователи используют его из браузера, другие устанавливают на свои устройства. При обновлении приложения важно применять лучшие практики, чтобы избежать "подводных камней".
 
-Let's check out the best practices for each of these elements.
+Вы можете обновлять:
 
-## Updating data
+-   Данные приложения.
+-   Ресурсы, уже кэшированные на устройствах.
+-   Рабочий файл службы или его зависимости.
+-   Метаданные манифеста.
 
-To update data, such as that stored in IndexedDB, you can use tools such as Fetch, WebRTC, or WebSockets API. If your app supports any offline features, remember to keep the data that supports the features updated too.
+Рассмотрим лучшие практики для каждого из этих элементов.
 
-On compatible browsers, there are options to sync data, not only when the user opens the PWA but also in the background. These options are:
+## Обновление данных
 
-* [Background synchronization](https://developer.mozilla.org/docs/Web/API/Background_Synchronization_API): saves requests that failed and retries them using sync from the service worker.
-* [Web periodic background sync](https://developer.mozilla.org/docs/Web/API/Web_Periodic_Background_Synchronization_API): syncs data periodically in the background, at specific times, allowing the app to provide updated data even if the user hasn't opened the app yet.
-* [Background Fetch](https://developer.mozilla.org/docs/Web/API/Background_Fetch_API): downloads large files, even when the PWA is closed.
-* [Web push](https://developer.mozilla.org/docs/Web/API/Push_API): sends a message from the server that wakes up the service worker and notifies the user. This is commonly called a 'push notification'. This API requires the user's permission.
+Для обновления данных, например хранящихся в IndexedDB, можно использовать такие средства, как Fetch, WebRTC или WebSockets API. Если ваше приложение поддерживает какие-либо автономные функции, не забывайте обновлять и данные, которые поддерживают эти функции.
 
-All these APIs are executed from the service worker context. They are currently available only on Chromium-based browsers, on Android, and desktop operating systems. When you use one of these APIs, you can run code in the service worker thread; for example, to download data from your server and update your IndexedDB data.
+В совместимых браузерах есть возможность синхронизировать данные не только при открытии PWA, но и в фоновом режиме. К таким опциям относятся:
 
-{% Aside %}
-The Web Push API is the only API to notify the user from the background and its `push` message can include a small amount of data: it can carry a payload of up to around 2KB.
-{% endAside %}
+-   [Фоновая синхронизация](https://developer.mozilla.org/docs/Web/API/Background_Synchronization_API): сохраняет неудачные запросы и повторяет их, используя синхронизацию с сервис-воркером.
+-   [Периодическая фоновая синхронизация](https://developer.mozilla.org/docs/Web/API/Web_Periodic_Background_Synchronization_API): периодическая синхронизация данных в фоновом режиме в определенное время, что позволяет приложению предоставлять обновленные данные, даже если пользователь еще не открыл приложение.
+-   [Фоновая загрузка](https://developer.mozilla.org/docs/Web/API/Background_Fetch_API): загрузка больших файлов, даже когда PWA закрыто.
+-   [Веб-push](https://developer.mozilla.org/docs/Web/API/Push_API): отправка сообщения с сервера, которое пробуждает сервис-воркер и уведомляет пользователя. Это обычно называется "push-уведомлением". Этот API требует разрешения пользователя.
 
-## Updating assets
+Все эти API выполняются из контекста сервис-воркера. В настоящее время они доступны только в браузерах на базе Chromium, на Android и в настольных операционных системах. При использовании одного из этих API можно запускать код в потоке сервис-воркера, например, для загрузки данных с сервера и обновления данных в IndexedDB.
 
-Updating assets includes any changes to files you use to render the app's interface, such as HTML, CSS, JavaScript, and images. For example, a change in your app's logic, an image that is part of your interface, or a CSS stylesheet.
+!!!note ""
 
-### Update patterns
+    Web Push API - это единственный API, который уведомляет пользователя из фонового режима, и его сообщение `push` может содержать небольшой объем данных: оно может нести полезную нагрузку размером около 2 КБ.
 
-Here are some common patterns to handle app updates, but you can always customize the process to your own needs:
+## Обновление ресурсов
 
-* Full update: every change, even a minor one, triggers the replacement of the entire cache content. This pattern mimics how device-specific apps handle updates, and it will consume more bandwidth and will take more time.
-* Changed assets update: only the assets that have changed since the last update get replaced in cache. It is often implemented using a library such as [Workbox](/learn/pwa/workbox). It involves creating a list of cached files, a hash representation of the file, and timestamps. With this information, the service worker compares this list with the cached assets and decides which assets to update.
-* Individual assets update: each asset is updated individually when it changes. The stale while revalidate strategy described in the [Serving chapter](/learn/pwa/serve) is an example of updating assets individually.
+Обновление ресурсов включает в себя любые изменения в файлах, используемых для визуализации интерфейса приложения, таких как HTML, CSS, JavaScript и изображения. Например, изменение логики приложения, изображения, являющегося частью интерфейса, или таблицы стилей CSS.
 
-### When to update
+### Шаблоны обновления
 
-Another good practice is to find a good time to check for updates and apply them. Here are some options:
+Ниже приведены некоторые общие схемы работы с обновлениями приложений, но вы всегда можете адаптировать этот процесс под свои нужды:
 
-* When the service worker wakes up. There is no event to listen for this moment, but the browser will execute any code in the service worker's global scope when it wakes up.
-* In the main window context of your PWA, after the browser loaded the page, to avoid making the app load slower.
-* When background events are triggered, such as when your PWA receives a push notification or a background sync fires. You can update your cache then and your users will have the asset's new version the next time they open the app.
+-   Полное обновление: каждое изменение, даже незначительное, приводит к замене всего содержимого кэша. Эта схема имитирует работу с обновлениями в приложениях для конкретных устройств, поэтому она потребляет больше пропускной способности и занимает больше времени.
+-   Обновление измененных ресурсов: в кэше заменяются только те ресурсы, которые изменились с момента последнего обновления. Часто реализуется с помощью библиотеки, например [Workbox](workbox.md). Она предполагает создание списка кэшируемых файлов, хэш-представления файла и временных меток. Имея эту информацию, сервис-воркер сравнивает этот список с кэшированными ресурсами и решает, какие ресурсы необходимо обновить.
+-   Обновление отдельных ресурсов: каждый ресурс обновляется отдельно при его изменении. Примером индивидуального обновления ресурсов является стратегия stale while revalidate, описанная в главе [Serving chapter](serve.md).
 
-{% Aside 'warning' %}
-When checking for updates, make sure you don't interrupt the loading process and impact your app's performance. Do not wait for an update check before rendering the app as it will harm your user experience and reflect on your [core web vitals](/web-vitals). If you need to update part of your app frequently, use the [stale while revalidate](/learn/pwa/serving/#stale-while-revalidate) caching strategy.
-{% endAside %}
+### Когда обновлять
 
-### Live updates
+Еще одна хорошая практика заключается в том, чтобы найти удобное время для проверки обновлений и их применения. Вот некоторые варианты:
 
-You can also choose whether to apply an update when the app is open (live) or closed. With the app closed approach, even though the app has downloaded new assets, it won't make any changes and will use the new versions on the next load.
+-   Когда сервис-воркер просыпается. Для этого момента нет события, но браузер выполнит любой код в глобальной области видимости сервис-воркера, когда тот проснется.
+-   В контексте главного окна PWA, после того как браузер загрузил страницу, чтобы не замедлять загрузку приложения.
+-   При срабатывании фоновых событий, например, когда PWA получает push-уведомление или выполняется фоновая синхронизация. В этом случае можно обновить кэш, и при следующем открытии приложения пользователи получат новую версию ресурса.
 
-A live update means as soon as the asset is updated in the cache, your PWA replaces the asset in the current load. It is a complex task not covered in this course. Some tools that help to implement this update are [livereload-js](https://www.npmjs.com/package/livereload-js) and CSS asset update [CSSStyleSheet.replace() API](https://developer.mozilla.org/docs/Web/API/CSSStyleSheet/replace).
+!!!warning ""
 
-## Updating the service worker
+    Проверяя наличие обновлений, не прерывайте процесс загрузки и не влияйте на производительность приложения. Не ждите проверки обновлений перед рендерингом приложения, так как это ухудшит пользовательский опыт и отразится на ваших [core web vitals](https://web.dev/articles/vitals). Если вам необходимо часто обновлять часть приложения, используйте стратегию кэширования [stale while revalidate](serving.md#stale-while-revalidate).
 
-The browser triggers an update algorithm when your service worker or its dependencies change. The browser detects updates using a byte-by-byte comparison between the cached files and the resources coming from the network.
+### Живые обновления
 
-Then the browser tries to install the new version of the service worker, and the new service worker will be in the *waiting* state, as described in the [Service workers chapter](/learn/pwa/service-workers/#updating-a-service-worker). The new installation will run the `install` event for the new service worker. If you are caching assets in that event handler, assets will also be re-cached.
+Вы также можете выбрать способ применения обновлений: когда приложение открыто (в реальном времени) или закрыто. При закрытом приложении, даже если приложение загрузило новые ресурсы, оно не внесет никаких изменений и будет использовать новые версии при следующей загрузке.
 
-{% Aside 'caution' %}
-If you delete or rename your service worker file, the browser won't remove the previously registered service worker from its clients. To completely remove a service worker, you need to use the [getRegistrations()](https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistrations) and the [unregister()](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/unregister) methods.
-{% endAside %}
+Живое обновление означает, что как только ресурс обновляется в кэше, ваш PWA заменяет его в текущей загрузке. Это сложная задача, которая не рассматривается в данном курсе. Некоторые инструменты, помогающие реализовать такое обновление, - это [livereload-js](https://www.npmjs.com/package/livereload-js) и обновление ресурсов CSS [CSSStyleSheet.replace() API](https://developer.mozilla.org/docs/Web/API/CSSStyleSheet/replace).
 
+## Обновление сервиса-воркера
 
-{% Aside %}
-Installing a new service worker version doesn't automatically remove previously cached assets. You should explicitly delete assets you no longer need.
-{% endAside %}
+Браузер запускает алгоритм обновления, когда изменяется сервис-воркер или его зависимости. Браузер обнаруживает обновления, используя побайтовое сравнение кэшированных файлов и ресурсов, поступающих из сети.
 
-### Detecting service worker changes
+Затем браузер пытается установить новую версию сервис-воркера, при этом новый сервис-воркер будет находиться в состоянии _ожидания_, как описано в главе [Service workers chapter](service-workers.md#updating-a-service-worker). При новой установке будет запущено событие `install` для нового сервис-воркера. Если в обработчике этого события кэшируются ресурсы, то они также будут повторно кэшированы.
 
-To detect that a new service worker is ready and installed, we use the `updatefound` event from the service worker registration. This event is fired when the new service worker starts installing. We need to wait for its state to change to `installed` with the `statechange` event; see the following:
+!!!warning ""
+
+    Если вы удалите или переименуете файл сервис-воркера, браузер не удалит ранее зарегистрированный сервис-воркер из своих клиентов. Для полного удаления сервис-воркера необходимо использовать методы [getRegistrations()](https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistrations) и [unregister()](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/unregister).
+
+!!!note ""
+
+    Установка новой версии сервис-воркера не приводит к автоматическому удалению ранее кэшированных ресурсов. Необходимо явно удалить ненужные ресурсы.
+
+### Обнаружение изменений сервис-воркера
+
+Для обнаружения готовности и установки нового сервис-воркера мы используем событие `updatefound` из регистрации сервис-воркера. Это событие запускается, когда новый сервис-воркер начинает установку. Нам необходимо дождаться изменения его состояния на `installed` с помощью события `statechange`; см. следующее:
 
 ```js
 async function detectSWUpdate() {
-  const registration = await navigator.serviceWorker.ready;
+    const registration = await navigator.serviceWorker
+        .ready;
 
-  registration.addEventListener("updatefound", event => {
-    const newSW = registration.installing;
-    newSW.addEventListener("statechange", event => {
-      if (newSW.state == "installed") {
-         // New service worker is installed, but waiting activation
-      }
-    });
-  })
+    registration.addEventListener(
+        'updatefound',
+        (event) => {
+            const newSW = registration.installing;
+            newSW.addEventListener(
+                'statechange',
+                (event) => {
+                    if (newSW.state == 'installed') {
+                        // New service worker is installed, but waiting activation
+                    }
+                }
+            );
+        }
+    );
 }
 ```
 
 ### Force override
 
-The new service worker will be installed but waiting for activation by default. The wait prevents the new service worker from taking over old clients that might not be compatible with the new version.
+По умолчанию новый сервис-воркер будет установлен, но будет ожидать активации. Ожидание не позволит новому сервису-воркеру занять старых клиентов, которые могут быть несовместимы с новой версией.
 
-Even though it is not recommended, the new service worker can skip that waiting period and start the activation immediately.
+Хотя это и не рекомендуется, новый сервис-воркер может пропустить этот период ожидания и начать активацию немедленно.
 
-{% Aside 'caution' %}
-`skipWaiting()` means that your new service worker is probably controlling pages that were loaded with an older version. This means some of your page's fetches will have been handled by your old service worker, but your new service worker will be handling subsequent fetches. If this might prevent your app from working, don't use `skipWaiting()`.
-This warning comes from [service worker lifecycle](/service-worker-lifecycle/). Check out the article for more best practice advice.
-{% endAside %}
+!!!warning ""
+
+    `skipWaiting()` означает, что ваш новый сервис-воркер, вероятно, управляет страницами, которые были загружены в старой версии. Это означает, что часть запросов страницы была выполнена старым сервис-воркером, а последующие запросы будут выполняться новым сервис-воркером. Если это может помешать работе вашего приложения, не используйте `skipWaiting()`. Это предупреждение взято из статьи [Жизненный цикл сервис-воркера](https://web.dev/articles/service-worker-lifecycle). Ознакомьтесь с этой статьей, чтобы узнать больше о лучших практиках.
 
 ```js
-self.addEventListener("install", event => {
-   // forces a service worker to activate immediately
-   self.skipWaiting();
-  });
+self.addEventListener('install', (event) => {
+    // forces a service worker to activate immediately
+    self.skipWaiting();
+});
 
-self.addEventListener("activate", event => {
-  // when this SW becomes activated, we claim all the opened clients
-  // they can be standalone PWA windows or browser tabs
-  event.waitUntil(clients.claim());
+self.addEventListener('activate', (event) => {
+    // when this SW becomes activated, we claim all the opened clients
+    // they can be standalone PWA windows or browser tabs
+    event.waitUntil(clients.claim());
 });
 ```
 
-The `controllerchange` event fires when the service worker controlling the current page changes. For example, a new worker has skipped waiting and become the new active worker.
+Событие `controllerchange` срабатывает при смене сервис-воркера, управляющего текущей страницей. Например, новый рабочий пропустил ожидание и стал новым активным рабочим.
 
 ```js
-navigator.serviceWorker.addEventListener("controllerchange", event => {
-   // The service worker controller has changed
- });
+navigator.serviceWorker.addEventListener(
+    'controllerchange',
+    (event) => {
+        // The service worker controller has changed
+    }
+);
 ```
 
-## Updating metadata
+## Обновление метаданных
 
-You can also update your app's metadata, which is mainly set in the [web app manifest](/learn/pwa/web-app-manifest). For example, update its icon, name, or start URL, or you can add a new feature such as [app shortcuts](/app-shortcuts/).
-But what happens with all the users who have already installed the app with the old icon on their devices? How and when do they get the updated version?
+Вы также можете обновить метаданные своего приложения, которые в основном задаются в манифесте [Web App manifest](web-app-manifest.md). Например, обновить его значок, название или стартовый URL-адрес, или добавить новую функцию, такую как [ярлыки приложений](https://web.dev/articles/app-shortcuts). Но что будет с теми пользователями, которые уже установили приложение со старым значком на свои устройства? Как и когда они получат обновленную версию?
 
-The answer depends on the platform. Let's cover the options available.
+Ответ зависит от платформы. Давайте рассмотрим возможные варианты.
 
-{% Aside 'gotchas' %}
-The `id` property uniquely identifies your PWA; changing `id` means your PWA will be considered a completely new PWA. To avoid unexpected behavior, before you set or change the `id` property, read [Uniquely identifying PWAs with the web app manifest id property](https://developer.chrome.com/blog/pwa-manifest-id/).
-{% endAside %}
+!!!note ""
 
-### Safari on iOS, iPadOS, and Android browsers
+    Свойство `id` однозначно идентифицирует ваш PWA; изменение `id` означает, что ваш PWA будет считаться совершенно новым PWA. Чтобы избежать неожиданного поведения, прежде чем устанавливать или изменять свойство `id`, прочитайте [Уникальная идентификация PWA с помощью свойства id манифеста веб-приложений](https://developer.chrome.com/blog/pwa-manifest-id/).
 
-On these platforms, the only way to get the new manifest metadata is to re-install the app from the browser.
+### Safari в браузерах для iOS, iPadOS и Android.
 
-{% Aside %}
-If you modify your `start_url` the browser may install the app as a completely new app. However, it has been a common practice to add a manual version identifier within the `start_url` property, such as `/?version=3` to identify the version. From Chrome 96 [you can add an `id` into the manifest](​​https://developer.chrome.com/blog/pwa-manifest-id/) to identify your app.
-{% endAside %}
+На этих платформах единственный способ получить новые метаданные манифеста - переустановить приложение из браузера.
 
-### Google Chrome on Android with WebAPK
+!!!note ""
 
-When the user has installed your PWA on Android using Google Chrome with [WebAPK](/learn/pwa/installation/#webapks) activated (most of the Chrome PWA installations), the update will be detected and applied based on an algorithm. Check out  the details in this [manifest updates](/manifest-updates/) article.
+    При изменении `start_url` браузер может установить приложение как совершенно новое. Однако в последнее время принято добавлять в свойство `start_url` ручной идентификатор версии, например `/?version=3`, чтобы определить версию. Из Chrome 96 [для идентификации приложения можно добавить `id` в манифест](https://developer.chrome.com/blog/pwa-manifest-id/).
 
-Some additional notes about the process:
+### Google Chrome на Android с WebAPK
 
-If the user doesn't open your PWA, its WebAPK won't be updated.
-If the server doesn't respond with the manifest file (there is a 404 error), Chrome won't check for updates for a minimum of 30 days, even if the user opens the PWA.
+Если пользователь установил ваш PWA на Android с помощью Google Chrome с активированным [WebAPK](installation.md#webapks) (большинство установок Chrome PWA), обновление будет обнаружено и применено на основе алгоритма. Подробности можно узнать в этой статье [манифеста обновлений](https://web.dev/articles/manifest-updates).
 
-Go to `about:webapks` in Chrome on Android to see the status of the "needing update" flag, and request an update. In the [Tools and debug chapter](/learn/pwa/tools-and-debug), you can read more about this debugging tool.
+Некоторые дополнительные замечания по процессу:
 
+Если пользователь не открывает ваш PWA, его WebAPK не будет обновлен. Если сервер не отвечает на запрос файла манифеста (возникает ошибка 404), Chrome не будет проверять наличие обновлений в течение как минимум 30 дней, даже если пользователь откроет PWA.
 
-### Samsung Internet on Android with WebAPK
+Перейдите в раздел `about:webapks` в Chrome на Android, чтобы посмотреть состояние флага "требуется обновление", и запросите обновление. В главе [Инструменты и отладка](tools-and-debug.md) можно подробнее ознакомиться с этим инструментом отладки.
 
-The process is similar to the Chrome version. In this case, if the PWA manifest requires an update, during the next 24 hours the WebAPK will be updated on Wi-Fi after [minting the updated WebAPK](/learn/pwa/installation/#webapks).
+### Samsung Internet на Android с помощью WebAPK
 
-### Google Chrome and Microsoft Edge on desktop
+Процесс аналогичен версии для Chrome. В этом случае, если манифест PWA требует обновления, в течение следующих 24 часов WebAPK будет обновлен по Wi-Fi после того, как будет выполнена [минификация обновленного WebAPK](installation.md#webapks).
 
-On desktop devices, when the PWA is launched, the browser determines the last time it checked the local manifest for changes. If the manifest hasn't been reviewed since the browser last started or hasn't been checked in the last 24 hours, the browser will make a network request for the manifest and then compare it against the local copy.
+### Google Chrome и Microsoft Edge на настольных компьютерах
 
-When [selected properties](/manifest-updates/#cr-desktop-trigger) are updated, it will trigger an update after all windows have been closed.
+На настольных устройствах при запуске PWA браузер определяет, когда в последний раз он проверял локальный манифест на наличие изменений. Если манифест не просматривался с момента последнего запуска браузера или не проверялся в течение последних 24 часов, браузер выполняет сетевой запрос манифеста и затем сравнивает его с локальной копией.
 
-## Alerting the user
+При обновлении [выбранных свойств](https://web.dev/articles/manifest-updates#cr-desktop-trigger) срабатывает обновление после закрытия всех окон.
 
-Some updating strategies need a reload or a new navigation from the clients. You'll want to let the user know there is an update waiting but give them the chance to update the page when it is best for them.
+## Предупреждение пользователя
 
-To inform the user, there are these options:
+Некоторые стратегии обновления требуют перезагрузки или новой навигации от клиентов. Необходимо сообщить пользователю, что он ожидает обновления, но при этом дать ему возможность обновить страницу в удобное для него время.
 
-* Use the DOM or [canvas API](https://developer.mozilla.org/docs/Web/API/Canvas_API) to render a notice on the screen.
-* Use the [Web Notifications API](https://developer.mozilla.org/docs/Web/API/notification). This API is part of the push permission to generate a notification in the operating system. You will need to request web push permission to use it, even if you don't use the push messaging protocol from your server. This is the only option we have if the PWA is not opened.
-* Use the [Badging API](/badging-api/) to show that updates are available in the PWA's installed icon
+Для информирования пользователя существуют следующие варианты:
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/s20eK3XJWqdxYvH4HwZV.png", alt="An update notification shown in the DOM.", width="800", height="821" %}.
+-   Использовать DOM или [canvas API](https://developer.mozilla.org/docs/Web/API/Canvas_API) для вывода уведомления на экран.
+-   Использовать [Web Notifications API](https://developer.mozilla.org/docs/Web/API/notification). Этот API является частью разрешения push для генерации уведомления в операционной системе. Для его использования необходимо запросить разрешение web push, даже если вы не используете протокол push-сообщений со своего сервера. Это единственный возможный вариант, если PWA не открывается.
+-   Использование [Badging API](https://developer.chrome.com/articles/badging-api/) для отображения информации о наличии обновлений в значке установленного PWA
 
+![Уведомление об обновлении, отображаемое в DOM.](update-1.png)
 
-### More about the Badging API
+### Подробнее о Badging API
 
-The [Badging API](/badging-api/) lets you mark your PWA's icon with a badge number, or a badge dot on compatible browsers. A badge dot is a tiny mark within the installed icon that expresses something is waiting inside the app.
+API [Badging API](https://developer.chrome.com/articles/badging-api/) позволяет помечать иконку вашего PWA номером бейджа или точкой бейджа в совместимых браузерах. Точка бейджа - это крошечная метка внутри установленного значка, которая говорит о том, что внутри приложения что-то ждет.
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/yicjcQZkdbS2sj732BEp.webp", alt="Example of Twitter with eight notifications and another app showing a flag type badge.", width="800", height="252" %}
+![Пример Twitter с восемью уведомлениями и другого приложения, показывающего значок типа флага.](update-2.webp)
 
-You need to call `setAppBadge(count)` on the `navigator` object to set a badge number. You can do this from the window or service worker's context when you know there is an update to alert the user.
+Для установки номера бейджа необходимо вызвать команду `setAppBadge(count)` на объекте `navigator`. Это можно сделать из контекста окна или сервис-воркера, когда известно, что происходит обновление, чтобы предупредить пользователя.
 
 ```js
 let unreadCount = 125;
 navigator.setAppBadge(unreadCount);
 ```
-To clear the badge, you call `clearAppBadge()` on the same object:
+
+Чтобы очистить бейдж, необходимо вызвать `clearAppBadge()` на том же объекте:
 
 ```js
 navigator.clearAppBadge();
 ```
 
-{% Aside %}
-The Badging API works on a best-effort mechanism; the browser will do its best to match your request, but sometimes the browser will revert to a different approach. For example, a badge number is not available on some Android devices, so a dot badge is used, no matter the number you specify.
-{% endAside %}
+!!!note ""
 
-##  Resources
+    API Badging API работает по принципу best-effort; браузер будет делать все возможное, чтобы удовлетворить ваш запрос, но иногда браузер будет использовать другой подход. Например, номер бейджа недоступен на некоторых устройствах Android, поэтому используется бейдж с точкой, независимо от того, какой номер вы указываете.
 
-- [Service Worker Lifecycle](/service-worker-lifecycle/)
-- [How Chrome handles updates to the web app manifest](/manifest-updates/)
-- [Synchronize and update a PWA in the Background](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/background-syncs)
-- [Richer offline experiences with the Periodic Background Sync API](/periodic-background-sync/)
-- [Push API](https://developer.mozilla.org/docs/Web/API/Push_API)
-- [Push notifications overview](/push-notifications-overview/)
-- [Badging for app icons](/badging-api/)
-- [Workbox 4: Implementing refresh-to-update-version flow using the workbox-window module](https://medium.com/google-developer-experts/workbox-4-implementing-refresh-to-update-version-flow-using-the-workbox-window-module-41284967e79c)
+## Ресурсы
 
+-   [Жизненный цикл сервис-воркера](https://web.dev/articles/service-worker-lifecycle)
+-   [Как Chrome обрабатывает обновления манифеста веб-приложения](https://web.dev/articles/manifest-updates)
+-   [Синхронизация и обновление PWA в фоновом режиме](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/background-syncs)
+-   [Более богатый опыт работы в автономном режиме с помощью API периодической фоновой синхронизации](https://web.dev/periodic-background-sync)
+-   [Push API](https://developer.mozilla.org/docs/Web/API/Push_API)
+-   [Обзор Push-уведомлений](https://web.dev/articles/push-notifications-overview)
+-   [Значки для иконок приложений](https://web.dev/badging-api)
+-   [Workbox 4: Реализация потока refresh-to-update-version с помощью модуля workbox-window](https://medium.com/google-developer-experts/workbox-4-implementing-refresh-to-update-version-flow-using-the-workbox-window-module-41284967e79c)
+
+:material-information-outline: Источник &mdash; [Update](https://web.dev/learn/pwa/update)

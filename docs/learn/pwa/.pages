@@ -13,9 +13,9 @@ nav:
     - offline-data.md
     - installation.md
     - web-app-manifest.md
-    #- installation-prompt.md
-    #- update.md
-    #- enhancements.md
+    - installation-prompt.md
+    - update.md
+    - enhancements.md
     #- detection.md
     #- os-integration.md
     #- windows.md
