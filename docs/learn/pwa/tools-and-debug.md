@@ -1,253 +1,253 @@
 ---
-title: Tools and debug
-Authors:
-  - firt
-description: >
-  We will explore the tools available to develop, debug, and test your Progressive Web Apps.
-date: 2022-05-15
+description: Мы рассмотрим доступные инструменты для разработки, отладки и тестирования прогрессивных веб-приложений.
+icon: material/tools
 ---
 
-All the tools available for web development are also helpful for progressive web app development, including libraries, frameworks, code editors, builders, developer tools, debuggers, and more. But when working with PWA-specific abilities, such as installability, service workers, offline support, and more, certain tools for PWA are extra helpful. Let's see them in action.
+# Инструменты и отладка
 
-## Simulators and devices
+<big>Мы рассмотрим доступные инструменты для разработки, отладки и тестирования прогрессивных веб-приложений.</big>
 
-As mentioned in the [Foundations chapter](/learn/pwa/foundations), you should use agnostic design patterns to offer the best experience to every user in every context. However, it's good practice to test your experiences on different devices.
+Все инструменты, доступные для веб-разработки, полезны и для разработки прогрессивных веб-приложений, включая библиотеки, фреймворки, редакторы кода, конструкторы, инструменты разработчика, отладчики и многое другое. Но при работе со специфическими для PWA возможностями, такими как возможность установки, сервис-воркеры, поддержка офлайн и т.д., некоторые инструменты для PWA оказываются особенно полезными. Давайте посмотрим на них в действии.
 
-{% Aside 'caution' %}
-Installed PWAs are new experiences for web developers to test and debug, but keep in mind that not every tool is compatible with this mode.
-{% endAside %}
+## Симуляторы и устройства
 
-You probably won't own dozens of physical devices, including iPhones, Android phones, tablets, and desktops or laptops with different operating systems. That's why simulators and emulators exist.
+Как уже говорилось в главе [Основы](foundations.md), следует использовать агностические паттерны проектирования, чтобы предложить наилучший опыт каждому пользователю в любом контексте. Тем не менее, нелишним будет протестировать свои возможности на различных устройствах.
 
-### Simple simulators
+!!!warning ""
 
-Most developer tools within browsers let you test your PWAs in different screen sizes or network conditions while using a single desktop browser engine. Some of these tools can also force a different user agent under these simulations.
+    Установленные PWA - это новый опыт тестирования и отладки для веб-разработчиков, но следует помнить, что не все инструменты совместимы с этим режимом.
 
-Some available simulators are:
+Вероятно, вы не владеете десятками физических устройств, включая iPhone, телефоны на базе Android, планшеты, а также настольные компьютеры или ноутбуки с различными операционными системами. Именно поэтому существуют симуляторы и эмуляторы.
 
-* Chromium DevTools: [Device Mode](https://developer.chrome.com/docs/devtools/device-mode/), network throttling and several sensor simulations available
-* Firefox Developer Tools: [Responsive Design Mode](https://developer.mozilla.org/docs/Tools/Responsive_Design_Mode)
-* Safari Web Inspector: [Responsive Design Mode](https://developer.apple.com/safari/tools/)
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/gnIHqhnkBZcz1loMEcMG.png", alt="Chromium DevTools simulating mobile devices.", width="800", height="513" %}
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/fheSiDVxegbRD6oxERQ1.png", alt="Firefox DevTools simulating mobile devices.", width="800", height="629" %}
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/Opi0TXLgyl6v6PfQ06MM.png", alt="Safari Web Inspector Responsive Design mode.", width="800", height="810" %}
-Some commercial and free solutions are optimized for developers and designers, such as the open source [Responsively app](https://responsively.app).
-{% Aside 'gotchas' %}
-Simple simulators can't simulate and test installation-related abilities, such as `display-mode` related media queries, iOS web app meta tags, app shortcuts, or web share target.
-{% endAside %}
+### Простые симуляторы
 
-### Apple simulators
+Большинство инструментов для разработчиков в браузерах позволяют тестировать PWA при различных размерах экрана или сетевых условиях, используя при этом один движок браузера. Некоторые из этих инструментов также могут принудительно использовать другой пользовательский агент в таких симуляторах.
 
-Apple offers the Simulator app (formerly known as iOS Simulator) which allows you to test your web app on different iPhones and iPads on various operating system versions.
+К числу доступных симуляторов относятся:
 
-The Simulator app is only available for macOS computers, and it comes with [Xcode, available in [AppStore](https://apps.apple.com/us/app/xcode/id497799835); it simulates iOS and iPadOS with different device configurations. It includes the real Mobile Safari app and the Web.app engine used when your PWA is installed on the home screen, so the final experience you see is fairly representative of an actual device.
+-   Chromium DevTools: [Device Mode](https://developer.chrome.com/docs/devtools/device-mode/), сетевой throttling и несколько сенсорных симуляторов.
+-   Firefox Developer Tools: [Responsive Design Mode](https://developer.mozilla.org/docs/Tools/Responsive_Design_Mode).
+-   Safari Web Inspector: [Responsive Design Mode](https://developer.apple.com/safari/tools/)
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/aa4SAqNofV2d1nw3btVF.png", alt="Simulator with Safari rendering websites on iPhones and iPad.", width="800", height="376" %}
+![Chromium DevTools, имитирующий мобильные устройства.](tools-and-debug-1.png)
 
-To launch the app, once you have installed Xcode, you can open the Simulator in the `Xcode` menu, by selecting `Open Developer Tools` then `Simulator`. Once in the simulator, you can open Safari as if you are in a real iPhone or iPad. You can open other devices by selecting `File` then `Open Simulator` menu.
+![Firefox DevTools, имитирующий мобильные устройства.](tools-and-debug-2.png)
 
-Some useful shortcuts for web developers while using Simulator to test PWAs are:
+![Safari Web Inspector Режим отзывчивого дизайна.](tools-and-debug-3.png)
 
-* `Command-Shift-H`: go to the Home screen.
-* `Control-Command-Shift-H`: access the App Switcher.
-* `Command-Right` and `Command-Left`: rotate the device.
+Некоторые коммерческие и бесплатные решения оптимизированы для разработчиков и дизайнеров, например, приложение с открытым кодом [Responsively app](https://responsively.app).
 
-Simulator is not a virtual machine, but an app running on top of your macOS that looks like an iPhone or iPad, so it doesn't have its own TCP stack. Therefore, if you use `localhost` within Simulator, Safari will point to your macOS `localhost` device.
+!!!warning ""
 
+    Простые симуляторы не могут имитировать и тестировать возможности, связанные с установкой, такие как медиа-запросы, связанные с `display-mode`, мета-теги веб-приложений iOS, ярлыки приложений или цели веб-ресурсов.
 
-By default, Xcode only installs the latest version of iOS, but you can go to Xcode, use the `Preferences` menu, and download older Simulators from the `Components` tab.
+### Симуляторы Apple
 
-It's good practice to test your PWA on the latest version of iOS, the previous minor version, and at least one previous major version.
+Компания Apple предлагает приложение Simulator (ранее известное как iOS Simulator), которое позволяет тестировать веб-приложение на различных iPhone и iPad с разными версиями операционной системы.
 
-### Android emulators
+Приложение Simulator доступно только для компьютеров с macOS и поставляется вместе с [Xcode, доступно в [AppStore](https://apps.apple.com/us/app/xcode/id497799835); оно имитирует iOS и iPadOS с различными конфигурациями устройств. Оно включает в себя реальное приложение Mobile Safari и движок Web.app, используемый при установке PWA на главный экран, поэтому конечный результат работы устройства достаточно точно соответствует реальному.
 
-The Android ecosystem offers different emulators, but the ones available within the [Android SDK](https://developer.android.com/studio/run/emulator) are the most commonly used.
+![Симулятор рендеринга веб-сайтов в Safari на iPhone и iPad.](tools-and-debug-4.png)
 
-As a PWA developer, you also need browsers in your Android emulator, which will add a layer of complexity to testing, because AOSP (Android Open Source Project) doesn't include Google Chrome or Play Store to download browsers. Therefore, not every Android emulator is helpful for PWA testing.
+Для запуска приложения после установки Xcode можно открыть симулятор в меню `Xcode`, выбрав `Open Developer Tools`, а затем `Simulator`. Оказавшись в симуляторе, можно открыть Safari, как на настоящем iPhone или iPad. Открыть другие устройства можно, выбрав в меню `File`, затем `Open Simulator`.
 
-The Android SDK comes with two tools useful for emulation:
+Некоторые полезные сочетания клавиш для веб-разработчиков при использовании симулятора для тестирования PWA:
 
-* SDK Manager: downloads and updates different operating system versions and plugins.
-* AVD Manager: adds, edits, and deletes Android Virtual Devices (AVDs), each of them representing one device with one Android OS installed, similar to a virtual machine instance.
+-   `Command-Shift-H`: переход на главный экран.
+-   `Control-Command-Shift-H`: доступ к переключателю приложений.
+-   `Команда-Вправо` и `Команда-Лево`: поворот устройства.
 
-You can only install the Android SDK or [Android Studio](https://developer.android.com/studio), a free IDE including the Android SDK with the emulators. With the SDK, you will have to use the command line to open and set up your emulators. With Android Studio, you can open the tools needed from the Welcome screen's menu.
-Once in the AVD Manager, you can create as many devices as you want, with different combinations of screen size, abilities, and Android OS version.
+Симулятор - это не виртуальная машина, а приложение, работающее поверх macOS и похожее на iPhone или iPad, поэтому у него нет собственного стека TCP. Поэтому, если вы используете `localhost` в Simulator, Safari будет указывать на ваше устройство macOS `localhost`.
 
-{% Aside 'caution' %}
-Each Android Virtual Device can take more than 5GB of your hard drive. Be mindful of that when creating images.
-{% endAside %}
+По умолчанию Xcode устанавливает только последнюю версию iOS, но вы можете зайти в Xcode, воспользоваться меню `Preferences` и загрузить более старые версии симуляторов с вкладки `Components`.
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/QQH4XtxtnRe7UmgCG47D.png", alt="The AVD manager with an Android Virtual device browsing a website", width="800", height="569" %}
+Хорошей практикой является тестирование PWA на последней версии iOS, предыдущей минорной версии и хотя бы одной предыдущей мажорной версии.
 
-{% Aside 'caution' %}
-Android devices are virtual machines on top of your host computers, so they have their own TCP stacks. Therefore, `localhost` in an Android browser within an AVD won't be the same as your `localhost` in your host desktop computer. Later in this chapter, we will see how to solve this restriction with port forwarding.
-{% endAside %}
+### Эмуляторы Android
 
-With an Android emulator, you can check your PWA installation support, the entire user experience, and if the abilities you are using are working as expected.
+Экосистема Android предлагает различные эмуляторы, но наиболее часто используются те, которые доступны в рамках [Android SDK](https://developer.android.com/studio/run/emulator).
 
-#### Using Google Chrome
+Как разработчику PWA, вам также необходимы браузеры в эмуляторе Android, что добавляет сложности при тестировании, поскольку AOSP (Android Open Source Project) не включает Google Chrome или Play Store для загрузки браузеров. Поэтому не каждый эмулятор Android подходит для тестирования PWA.
 
-To use Google Chrome in the Android emulator, you have to create an AVD with Play Services inside. To do that, make sure the SDK you use for your AVD has the Play icon, as you can see in the following image:
+Android SDK поставляется с двумя инструментами, полезными для эмуляции:
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/KNBWJ3Nu8SYFbh8KemT9.png", alt="Creating AVDs with an operating system including Play services.", width="800", height="560" %}
+-   SDK Manager: загружает и обновляет различные версии операционных систем и плагинов.
+-   AVD Manager: добавляет, редактирует и удаляет виртуальные устройства Android (AVD), каждое из которых представляет собой одно устройство с установленной ОС Android, аналогично экземпляру виртуальной машины.
 
-AVDs with Play services also include Play Store, so you can update your Chrome with the latest version after setting up your account with your Google account.
+Вы можете установить только Android SDK или [Android Studio](https://developer.android.com/studio), бесплатную IDE, включающую Android SDK с эмуляторами. При использовании SDK для открытия и настройки эмуляторов придется использовать командную строку. В Android Studio необходимые инструменты можно открыть из меню экрана приветствия. Попав в менеджер AVD, можно создать сколько угодно устройств с различными сочетаниями размеров экрана, возможностей и версий ОС Android.
 
-#### Using other browsers
+!!!warning ""
 
-If you use an AVD with Play services, you can also download browsers from the Play Store.
+    Каждое виртуальное устройство Android может занимать более 5 ГБ на жестком диске. Помните об этом при создании изображений.
 
-Most of the browsers available for Android, including Samsung Internet, Microsoft Edge, Opera, Firefox, and Brave, are available as APKs (Android Packages). If you have the APK for the browser you want to test, you can just drag the file to the emulator or install it through the command-line [using ADB](https://developer.android.com/studio/command-line/adb).
+![Менеджер AVD с виртуальным устройством Android, просматривающим веб-сайт](tools-and-debug-5.png)
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/Ngc9KZO0UdLiGYF2TGt0.png", alt="Android emulator installing Microsoft Edge from Play store.", width="780", height="746" %}
+!!!warning ""
 
-### Desktop emulators
+    Устройства Android представляют собой виртуальные машины поверх хост-компьютеров, поэтому они имеют собственные стеки TCP. Поэтому `localhost` в браузере Android в AVD не будет совпадать с `localhost` на настольном компьютере. Позже в этой главе мы рассмотрим, как решить это ограничение с помощью проброса портов.
 
-Emulating a different desktop computer is typically done via a virtual machine system, such as VirtualBox or VMWare. Even with these tools, emulating some environments is impossible, such as emulating macOS on Windows or Linux, and some other options may require a license, such as emulating Windows on macOS or Windows.
+С помощью эмулятора Android вы можете проверить поддержку установки PWA, весь пользовательский опыт, а также проверить, работают ли используемые вами возможности так, как ожидалось.
 
-### Using physical devices
+#### Использование Google Chrome
 
-Using actual devices to test your PWA is also a good idea. We don't need to own several devices as there are some cloud-based solutions where you can use physical devices remotely. There are some free solutions and some commercial solutions with a free-tier available.
+Чтобы использовать Google Chrome в эмуляторе Android, необходимо создать AVD с Play Services внутри. Для этого убедитесь, что в SDK, используемом для AVD, есть значок Play, как показано на следующем изображении:
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/R6nJTg2Uoh5EstlZdr21.png", alt="Remote Test Lab from Samsung with a foldable phone.", width="800", height="460" %}
+![Создание AVD с операционной системой, включающей сервисы Play.](tools-and-debug-6.png)
 
-One of the available solutions is [Samsung Remote Test Lab](https://developer.samsung.com/remote-test-lab), a free solution to test your PWA on Samsung devices, including phones, tablets, and foldable devices.
+AVD с сервисами Play также включают Play Store, поэтому после настройки учетной записи с помощью аккаунта Google можно обновить Chrome до последней версии.
 
-{% Aside 'gotchas' %}
-Some cloud-based device lab solutions are suitable for device-specific app testing. They are not optimized for PWAs, so you can only use them if you plan to create a package to distribute your PWA in an app store.
-{% endAside %}
+#### Использование других браузеров
 
-### Remote inspection
+Если вы используете AVD с сервисами Play, вы также можете загрузить браузеры из Play Store.
 
-When you want to debug your Progressive Web App in an actual device, a simulator, or an emulator, you may want to connect a remote inspection session with your desktop's browser tools.
+Большинство браузеров, доступных для Android, включая Samsung Internet, Microsoft Edge, Opera, Firefox и Brave, доступны в виде APK (пакетов для Android). Если у вас есть APK для браузера, который вы хотите протестировать, вы можете просто перетащить файл в эмулятор или установить его через командную строку [с помощью ADB](https://developer.android.com/studio/command-line/adb).
 
-There are commercial tools available, but all the browsers also offer ways to do it, including:
+![Эмулятор Android, устанавливающий Microsoft Edge из магазина Play.](tools-and-debug-7.png)
 
-* [WebKit Remote Inspector](https://webkit.org/web-inspector/enabling-web-inspector/) to connect to Safari and installed PWAs on iOS- and iPadOS-connected devices and simulators.
-* [Chromium DevTools Remote Debugging](https://developer.chrome.com/docs/devtools/remote-debugging/) to connect to Chrome, Edge, Samsung Internet, and other Chromium-based browsers on Android and PWAs installed from those browsers, including connected physical devices and emulators.
-* [Firefox Remote Debugging](https://developer.mozilla.org/docs/Tools/Remote_Debugging) to connect to Firefox for Android on connected actual devices and emulators.
+### Эмуляторы настольных компьютеров
 
-#### Port forwarding for Android
+Эмуляция другого настольного компьютера обычно осуществляется с помощью системы виртуальных машин, таких как VirtualBox или VMWare. Даже с помощью этих инструментов эмуляция некоторых сред невозможна, например эмуляция macOS на Windows или Linux, а для некоторых других вариантов может потребоваться лицензия, например для эмуляции Windows на macOS или Windows.
 
-When testing PWAs available on `localhost` on Android physical devices or emulators, you will have a problem, as `localhost` will point to the Android TCP stack and not your development machine.
+### Использование физических устройств
 
-You may want to use your local IP address as a replacement to `localhost`, but that's not a good idea as service workers and many abilities will only work with HTTPS connections, with the exception of `localhost`, so your PWA won't work offline or pass PWA criteria.
+Использование реальных устройств для тестирования PWA также является хорошей идеей. При этом не обязательно иметь несколько устройств, поскольку существуют некоторые облачные решения, позволяющие использовать физические устройства удаленно. Существуют как бесплатные, так и коммерческие решения с бесплатным уровнем.
 
+![Удаленная тестовая лаборатория Samsung с раскладным телефоном.](tools-and-debug-8.png)
 
-You can solve the problem by enabling port forwarding on a Chromium browser on your desktop computer. In that case, you can bridge a port on `localhost` on the Android device to any origin and port from your host computer, including your development computer's `localhost`. Check [this guide](https://developer.chrome.com/docs/devtools/remote-debugging/local-server/) for more information.
+Одним из доступных решений является [Samsung Remote Test Lab](https://developer.samsung.com/remote-test-lab) - бесплатное решение для тестирования PWA на устройствах Samsung, включая телефоны, планшеты и складные устройства.
 
-## Chromium browsers
+!!!warning ""
 
-Chromium browsers offer many tools for debugging and testing Progressive Web Apps, starting from DevTools.
+    Некоторые "облачные" решения для тестирования устройств подходят для тестирования приложений на конкретных устройствах. Они не оптимизированы для PWA, поэтому их можно использовать только в том случае, если вы планируете создать пакет для распространения PWA в магазине приложений.
 
-Most Chromium-based browsers, including Samsung Internet, Microsoft Edge, and Google Chrome, offer different channels, such as Stable, Beta, and Canary. You can install separate versions on desktop and Android to test your PWA on future versions of the browser. This allows you to build and test features that are not yet widely available, or to test deprecations and changes, and work out how your app will behave in newer versions.
+### Удаленная проверка
 
+Когда требуется отладить Progressive Web App на реальном устройстве, симуляторе или эмуляторе, можно подключить сеанс удаленной проверки с помощью средств браузера на рабочем столе.
 
-Using remote inspection, you can use all these tools to debug and test your PWA on desktop and Android devices.
+Существуют коммерческие инструменты, но все браузеры также предлагают способы сделать это, включая:
 
+-   [WebKit Remote Inspector](https://webkit.org/web-inspector/enabling-web-inspector/) для подключения к Safari и установленным PWA на устройствах и эмуляторах, подключенных к iOS и iPadOS.
+-   [Chromium DevTools Remote Debugging](https://developer.chrome.com/docs/devtools/remote-debugging/) для подключения к Chrome, Edge, Samsung Internet и другим браузерам на базе Chromium на Android и PWA, установленным из этих браузеров, включая подключенные физические устройства и эмуляторы.
+-   [Firefox Remote Debugging](https://developer.mozilla.org/docs/Tools/Remote_Debugging) для подключения к Firefox для Android на подключенных реальных устройствах и эмуляторах.
 
-### Service worker tools
+#### Перенаправление портов для Android
 
-Chromium DevTools has a complete set of tools to debug service workers and their APIs' "Application" tab. From the "Service Workers" section, you can:
+При тестировании PWA, доступных на `localhost`, на физических устройствах или эмуляторах Android возникает проблема, поскольку `localhost` будет указывать на TCP-стек Android, а не на вашу машину разработки.
 
-* See service workers' installation status and lifecycle.
-* Update and unregister the service worker.
-* Follow the update cycle.
-* See current service workers' clients.
-* Send a push message to a service worker.
-* Register Background Sync and Periodic Background Sync operations.
+Возможно, вы захотите использовать локальный IP-адрес вместо `localhost`, но это не очень хорошая идея, поскольку сервис-воркеры и многие возможности будут работать только с HTTPS-соединениями, за исключением `localhost`, поэтому ваш PWA не будет работать в автономном режиме и не будет соответствовать критериям PWA.
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/WJ0fBXggrFnhifcAIcBb.png", alt="Service Worker debugging tools con Chromium DevTools.", width="800", height="491" %}
+Решить проблему можно, включив проброс портов в браузере Chromium на настольном компьютере. В этом случае можно пробросить порт `localhost` на Android-устройстве на любой origin и порт с хост-компьютера, включая `localhost` на компьютере разработчика. Более подробную информацию можно найти в [этом руководстве](https://developer.chrome.com/docs/devtools/remote-debugging/local-server/).
 
-[Read more about these tools](https://developer.chrome.com/docs/devtools/progressive-web-apps/#service-workers).
+## Браузеры Chromium
 
-### Storage tools
+Браузеры Chromium предлагают множество инструментов для отладки и тестирования Progressive Web Apps, начиная с DevTools.
 
-Within `Application` then `Storage`, you can see, preview, update, and delete data from your origin, such as Web Storage entries or IndexedDB stores.
-Inside `Application`, `Cache` then `Cache Storage`, you can see all the caches stored in current origin, preview content, and delete entries. [Read more about the cache tool](https://developer.chrome.com/docs/devtools/storage/cache/).
+Большинство браузеров на базе Chromium, включая Samsung Internet, Microsoft Edge и Google Chrome, предлагают различные каналы, такие как Stable, Beta и Canary. Вы можете установить отдельные версии на настольный компьютер и Android, чтобы протестировать свой PWA на будущих версиях браузера. Это позволяет создавать и тестировать функции, которые еще не получили широкого распространения, или проверять утраты и изменения, а также выяснять, как будет вести себя ваше приложение в новых версиях.
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/WJ0fBXggrFnhifcAIcBb.png", alt="Cache Inspector in Chromium DevTools", width="800", height="491" %}
+С помощью удаленной проверки можно использовать все эти инструменты для отладки и тестирования PWA на настольных компьютерах и устройствах Android.
 
-Also, selecting from `Application` then `Storage`, you can see the current quota used, simulate custom quota storage, and clear all your data, including the service worker registration, using `Clear site data`.
+### Инструменты для сервис-воркеров
 
-#### Background services
+На вкладке "Приложение" Chromium DevTools имеется полный набор инструментов для отладки сервис-воркеров и их API. В разделе "Сервис-воркеры" вы можете:
 
-Chromium DevTools also has a set of background services event recording tools, found by clicking `Application` then `Background Services`. This lets you see what happens with some events in the background on top of the service workers' API. [Read more about these tools](https://developer.chrome.com/docs/devtools/javascript/background-services/).
+-   Просмотреть статус установки и жизненный цикл сервис-воркеров.
+-   Обновлять и снимать с регистрации сервис-воркер.
+-   Проследить за циклом обновления.
+-   Просмотреть текущих клиентов сервис-воркеров.
+-   Отправить сервис-воркеру push-сообщение.
+-   Зарегистрировать операции Background Sync и Periodic Background Sync.
 
-### Web app manifest tools
+![Средства отладки сервис-воркеров con Chromium DevTools.](tools-and-debug-9.png)
 
-Chromium DevTools has a section for Web App Manifest and installability criteria under `Application`, `Manifest`. In this section, you can check whether the manifest has loaded correctly, the manifest's values, how the icons look, the [app id](/learn/pwa/web-app-manifest/#basic-fields), and a quick checker for [maskable icons](/learn/pwa/web-app-manifest/#maskable-icons).
+[Подробнее об этих инструментах](https://developer.chrome.com/docs/devtools/progressive-web-apps/#service-workers).
 
-Warnings and errors around [installability criteria](/learn/pwa/installation/#installation-criteria) issues are also shown in this section.
+### Инструменты для хранения данных
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/uBOt9BBbF15lX7Cxju6t.png", alt="Debugging Web App Manifest in Chromium DevTools.", width="800", height="713" %}
+Внутри `Application`, затем `Storage` можно просматривать, обновлять и удалять данные из origin, такие как записи Web Storage или хранилища IndexedDB. Внутри `Application`, `Cache`, затем `Cache Storage`, можно просмотреть все кэши, хранящиеся в текущем origin, предварительно просмотреть содержимое и удалить записи. [Подробнее об инструменте для работы с кэшем](https://developer.chrome.com/docs/devtools/storage/cache/).
 
-[Read more about these tools](https://developer.chrome.com/docs/devtools/progressive-web-apps/).
+![Инспектор кэша в Chromium DevTools](tools-and-debug-10.png)
 
-{% Aside %}
-Chromium-based browsers have some flags that may be useful while testing PWAs. Check all the available options by browsing to `about://flags/`
-{% endAside %}
+Также, выбрав в меню `Application`, затем `Storage`, можно посмотреть текущую используемую квоту, смоделировать хранение пользовательской квоты, а также очистить все данные, включая регистрацию сервис-воркера, с помощью команды `Clear site data`.
 
-### Installation debugging
+#### Фоновые сервисы
 
-On Android devices using [WebAPK installation mode](/learn/pwa/installation/#webapks), you can access a list of installed apps by browsing to `about:webapk` on Chromium browsers.
+В Chromium DevTools также есть набор инструментов для записи событий фоновых служб, которые можно найти, нажав `Application`, затем `Background Services`. Это позволяет увидеть, что происходит с некоторыми событиями в фоновом режиме поверх API сервис-воркеров. [Подробнее об этих инструментах](https://developer.chrome.com/docs/devtools/javascript/background-services/).
 
-You will see the current update status and request a WebAPK update from here.
+### Инструменты манифеста веб-приложений
 
-On desktop computers, you can see a user-friendly list of installed PWAs by browsing to `about:apps`, and a debug version by browsing to `about:app-service-internals`.
+В Chromium DevTools в разделе `Application`, `Manifest` есть секция для Web App Manifest и критериев устанавливаемости. В этом разделе можно проверить корректность загрузки манифеста, значения манифеста, внешний вид иконок, идентификатор [app id](web-app-manifest.md#basic-fields), а также быструю проверку на наличие [маскируемых иконок](web-app-manifest.md#maskable-icons).
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/exwzkevoGROml8uH5ZxL.png", alt="Google Chrome WebAPK debug screen on Android.", width="800", height="400" %}
+Также в этом разделе отображаются предупреждения и ошибки, связанные с проблемами [критериев устанавливаемости](installation.md#installation-criteria).
+
+![Отладка манифеста веб-приложения в Chromium DevTools.](tools-and-debug-11.png)
+
+[Подробнее об этих инструментах](https://developer.chrome.com/docs/devtools/progressive-web-apps/).
+
+!!!note ""
+
+    В браузерах на базе Chromium есть несколько флагов, которые могут быть полезны при тестировании PWA. Ознакомьтесь со всеми доступными опциями, перейдя по адресу `about://flags/`
+
+### Отладка установки
+
+На устройствах Android, использующих режим установки [WebAPK](installation.md#webapks), можно получить доступ к списку установленных приложений, перейдя по адресу `about:webapk` в браузерах Chromium.
+
+Здесь можно увидеть текущий статус обновления и запросить обновление WebAPK.
+
+На настольных компьютерах список установленных PWA можно посмотреть по адресу `about:apps`, а отладочную версию - по адресу `about:app-service-internals`.
+
+![Экран отладки Google Chrome WebAPK на Android.](tools-and-debug-12.png)
 
 ## Safari
 
-At the time of writing, Safari has a more limited set of tools available for PWA testing and debugging. There are no tools to see and debug the state and lifecycle of service workers, no inspector for the  cache's content, and no tools for web app manifest support and installability on iOS and iPadOS.
+На момент написания статьи Safari имеет более ограниченный набор инструментов для тестирования и отладки PWA. В нем нет инструментов для просмотра и отладки состояния и жизненного цикла сервис-воркеров, нет инспектора содержимого кэша, а также нет инструментов для поддержки манифеста веб-приложений и возможности его установки на iOS и iPadOS.
 
-{% Aside 'gotchas' %}
-You can only inspect and debug PWAs on iOS and iPadOS if you have a macOS computer with an updated OS using Safari desktop or Safari Technology Preview. There are some commercial tools such as [Inspect](https://inspect.dev) that allow you to inspect web apps on iOS and iPadOS from other operating systems.
-{% endAside %}
+!!!warning ""
 
+    Проверка и отладка PWA на iOS и iPadOS возможна только при наличии компьютера с обновленной ОС macOS, на котором используется Safari desktop или Safari Technology Preview. Существуют некоторые коммерческие инструменты, например [Inspect](https://inspect.dev), которые позволяют проверять веб-приложения на iOS и iPadOS из других операционных систем.
 
-Safari is available only on stable, while [Safari Technology Preview](https://developer.apple.com/safari/technology-preview/) available for macOS will only let you try abilities of future versions of Safari beforehand. The [iOS and iPadOS beta programs](https://beta.apple.com/sp/betaprogram) sometimes include new versions of Safari that you can use for testing.
+Safari доступен только на стабильной версии, а [Safari Technology Preview](https://developer.apple.com/safari/technology-preview/), доступный для macOS, позволяет лишь предварительно опробовать возможности будущих версий Safari. В [Программы бета-тестирования iOS и iPadOS](https://beta.apple.com/sp/betaprogram) иногда включаются новые версии Safari, которые можно использовать для тестирования.
 
-### Service worker tools
+### Инструменты для сервис-воркеров Safari
 
-What you can do on Safari (both on macOS and remotely for iOS and iPadOS) is to open an inspector window for a service worker that is currently running.
+В Safari (как в macOS, так и в удаленном режиме для iOS и iPadOS) можно открыть окно инспектора для запущенного сервис-воркера.
 
-From Safari on macOS, the `Develop`, `Service Workers` menu will list all the currently running service worker sessions. You have to select the device to inspect in the `Develop` menu for remote inspection. Service workers' contexts will appear in the same submenu as window contexts under the origin's or PWA's installed name.
+В Safari на macOS в меню `Develop`, `Service Workers` будут перечислены все запущенные в данный момент сессии сервис-воркеров. Для удаленного инспектирования необходимо выбрать устройство для проверки в меню `Develop`. Контексты сервис-воркеров будут отображаться в том же подменю, что и контексты окон, под установленным именем origin или PWA.
 
-If you select one of them, Safari will open a new window with a restricted inspector, including only `Consoles`, `Sources`, and `Network Tabs`.
+При выборе одного из них Safari откроет новое окно с ограниченным инспектором, включающим только `Консоли`, `Источники` и `Сетевые вкладки`.
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/jho0nKOzPq9XPH8g24Hk.png", alt="A Service Worker Web Inspector from a PWA in Safari.", width="800", height="427" %}
+![Веб-инспектор сервис-воркера из PWA в Safari.](tools-and-debug-13.png)
 
-{% Aside %}
-[Service Worker Detector](https://apps.apple.com/app/service-worker-detector/id1530808337) is a free Safari extension available in AppStore that will let you see service worker registration status and the cache storages available under the current origin, abilities which are not available on WebKit's Inspector.
-{% endAside %}
+!!!note ""
+
+    [Service Worker Detector](https://apps.apple.com/app/service-worker-detector/id1530808337) - бесплатное расширение для Safari, доступное в AppStore, которое позволяет увидеть статус регистрации сервис-воркера и доступные под текущим origin хранилища кэша, что недоступно в Инспекторе WebKit.
 
 ## Firefox
 
-Firefox supports service workers on all platforms and App Manifest for installation only on Android. You can access the tools for PWAs on desktop and Android by a [USB remote inspection session](https://developer.mozilla.org/docs/Tools/about:debugging).
+Firefox поддерживает сервис-ворк на всех платформах, а App Manifest для установки - только на Android. Доступ к инструментам для работы с PWA на настольных компьютерах и Android можно получить с помощью [USB remote inspection session](https://developer.mozilla.org/docs/Tools/about:debugging).
 
-You can use the desktop version known as [Firefox Developer Edition](https://www.mozilla.org/firefox/developer/). As with Chromium browser, Firefox has versions in different channels on desktop and Android, including stable, beta, and dev versions.
+Для настольных компьютеров можно использовать версию, известную как [Firefox Developer Edition](https://www.mozilla.org/firefox/developer/). Как и браузер Chromium, Firefox имеет версии для настольных компьютеров и Android, включая стабильную, бета- и dev-версии.
 
-### Tools for PWAs
+### Инструменты для PWA
 
-The service worker inspector on Firefox is a basic tool available in Developer Tools under `Application`, `Service Workers`. It lets you see the currently registered service worker, check its running status, and unregister it. Debugging the service worker's code may only be available on some developer versions of Firefox.
+Инспектор сервис-воркеров в Firefox - это базовый инструмент, доступный в Developer Tools в разделе `Application`, `Service Workers`. Он позволяет увидеть зарегистрированный в данный момент сервис-воркер, проверить его состояние и снять с регистрации. Отладка кода сервис-воркера может быть доступна только в некоторых версиях Firefox для разработчиков.
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/AihFdYbhvY7mpqWVQCuH.png", alt="Firefox Developer Tools for Service Worker and Manifest.", width="800", height="454" %}
+![Инструменты разработчика Firefox для сервис-воркеров и Manifest.](tools-and-debug-14.png)
 
-The manifest tool is available under `Application`, `Manifest`, and it only renders the manifest's values with a preview of the icons.
+Инструмент манифеста доступен в разделе `Application`, `Manifest`, он отображает только значения манифеста с предварительным просмотром значков.
 
-Under `Storage`, you can manage the origin's storage, including IndexedDB and Cache Storage.
+В разделе `Storage` можно управлять хранилищем origin, включая IndexedDB и Cache Storage.
 
-You can read more about [Firefox developer tooling for web apps](https://developer.mozilla.org/docs/Tools/Application).
+Подробнее об этом можно прочитать на сайте [Firefox developer tooling for web apps](https://developer.mozilla.org/docs/Tools/Application).
 
-{% Aside %}
-To develop your PWA, you can use any code editor, IDE, and toolchain of your choice. If you are using Visual Studio code as your code editor, you may want to check the [PWA Studio](https://blog.pwabuilder.com/posts/announcing-pwa-studio-the-vs-code-extension-for-building-progressive-web-apps!/?WT.mc_id=M365-MVP-4025164) free extension from the PWABuilder team. This has many tools for PWA developers such as an icon resizer, a service worker generator, and a quick way to create PWAs launchers–useful for app store distribution.
-{% endAside %}
+!!!note ""
 
-##  Resources
+    Для разработки PWA можно использовать любой редактор кода, IDE и инструментарий по своему выбору. Если в качестве редактора кода вы используете Visual Studio, то вам стоит обратить внимание на бесплатное расширение [PWA Studio](https://blog.pwabuilder.com/posts/announcing-pwa-studio-the-vs-code-extension-for-building-progressive-web-apps!/?WT.mc_id=M365-MVP-4025164) от команды PWABuilder. Оно содержит множество инструментов для разработчиков PWA, таких как редактор иконок, генератор сервис-воркеров и быстрый способ создания пусковых установок PWA, полезных для распространения в магазинах приложений.
 
-- [Chrome DevTools: Debug Progressive Web Apps](https://developer.chrome.com/docs/devtools/progressive-web-apps/)
-- [Debug PWAs on Edge](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/progressive-web-apps/)
-- [Firefox Developer Tools: Application Tab](https://developer.mozilla.org/docs/Tools/Application)
-- [Debugging Service Workers in Chrome (video)](https://www.youtube.com/watch?v=tuRPSaSiK_c)
+## Ресурсы
+
+-   [Chrome DevTools: Отладка прогрессивных веб-приложений](https://developer.chrome.com/docs/devtools/progressive-web-apps/)
+-   [Отладка PWA на Edge](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/progressive-web-apps/)
+-   [Firefox Developer Tools: Application Tab](https://developer.mozilla.org/docs/Tools/Application)
+-   [Отладка сервис-воркеров в Chrome (видео)](https://www.youtube.com/watch?v=tuRPSaSiK_c)
+
+:material-information-outline: Источник &mdash; [Tools and debug](https://web.dev/learn/pwa/tools-and-debug)

@@ -1,185 +1,188 @@
 ---
-title: Architecture
-Authors:
-  - firt
-description: >
-  You make some decisions when developing a PWA, such as whether to create a single page application or a multi-page application, and whether you will host it in the root of your domain or within a folder.
-date: 2022-04-15
+description: При разработке PWA необходимо принять ряд решений, например, создать одностраничное или многостраничное приложение, разместить его в корне домена или в папке.
+icon: material/instrument-triangle
 ---
 
-Designing your application to make the most out of the technology that makes PWAs reliable, installable, and capable starts with understanding your application and its constraints, and choosing an appropriate architecture for both.
+# Архитектура
 
-## SPA versus MPA
+<big>При разработке PWA необходимо принять ряд решений, например, создать одностраничное или многостраничное приложение, разместить его в корне домена или в папке.</big>
 
-Today, there are two primary architectural patterns in web development: single-page apps, or SPAs, and multi-page apps, or MPAs.
+Проектирование приложения с целью максимального использования технологий, которые делают PWA надежными, инсталлируемыми и функциональными, начинается с понимания приложения и его ограничений, а также выбора подходящей архитектуры для обоих вариантов.
 
-Single-page apps are defined by having client-side JavaScript control most or all of the HTML rendering of a page based on data retrieved by or provided to the app. The app overrides the browser's built-in navigation, replacing it with its routing and view handling functionality.
+## SPA против MPA
 
-Multi-page apps usually have pre-rendered HTML sent directly to the browser, often enhanced with client-side JavaScript after the browser has finished loading the HTML, and relying on the browser's built-in navigation mechanisms to display subsequent views.
+Сегодня в веб-разработке существует два основных архитектурных паттерна: одностраничные приложения, или SPA, и многостраничные приложения, или MPA.
 
-Both architectures can be used to create PWAs.
+Одностраничные приложения определяются тем, что JavaScript на стороне клиента управляет большей частью или всем HTML-рендерингом страницы на основе данных, полученных приложением или предоставленных ему. Приложение переопределяет встроенную навигацию браузера, заменяя ее своей функциональностью маршрутизации и обработки представлений.
 
-Each has advantages and disadvantages, and selecting the right one for your use case and context is key to providing a fast and reliable experience for your users.
+Многостраничные приложения обычно имеют предварительно отрендеренный HTML, отправляемый непосредственно в браузер, часто дополняемый клиентским JavaScript после завершения загрузки HTML, и полагаются на встроенные в браузер механизмы навигации для отображения последующих представлений.
 
-### Single page apps
+Для создания PWA могут использоваться обе архитектуры.
 
-{% Compare 'better', 'Pros' %}
-* Mostly atomic in-page updates.
-* Client-side dependencies loaded on start-up.
-* Subsequent loads are fast, because of cache usage.
-{% endCompare %}
+Каждая из них имеет свои преимущества и недостатки, и выбор подходящей для конкретного случая использования и контекста является ключевым фактором для обеспечения быстрой и надежной работы пользователей.
 
-{% Compare 'worse', 'Cons' %}
-* High initial load cost.
-* Performance depends on device hardware and network connection.
-* Additional app complexity is required.
-{% endCompare %}
+### Одностраничные приложения
 
-Single page apps are a good architectural fit if:
+:material-thumb-up:{: style="color: green"} Плюсы
 
-* User interaction is mainly centered around atomic updates of interconnected data displayed on the same page, for instance, a real-time data dashboard or a video-editing app.
-* Your application has client-side-only initialization dependencies, for instance, a third-party authentication provider with a prohibitively high startup cost.
-* The data required for a view to load relies on a specific client-side-only context, for instance, displaying controls for a piece of connected hardware.
-* The app is small and simple enough that its size and complexity do not have an impact on the cons listed above.
+-   В основном атомарные обновления внутри страницы.
+-   Зависимости на стороне клиента загружаются при запуске.
+-   Последующие загрузки происходят быстро благодаря использованию кэша.
 
-SPAs might not be a good architecture choice if:
+:material-thumb-down:{: style="color: red"} Минусы
 
-* Initial load performance is essential. SPAs usually need to load more JavaScript to determine what to load and how to display it. The parsing and execution time of this JavaScript, combined with retrieving content, is slower than sending rendered HTML.
-* Your app runs mostly on low-to-average-powered devices. Because SPAs depend on JavaScript for rendering, the user experience depends much more significantly on the power of their specific device than it would in an MPA.
+-   Высокая стоимость начальной загрузки.
+-   Производительность зависит от аппаратного обеспечения устройства и сетевого подключения.
+-   Требуется дополнительная сложность приложения.
 
-Because SPAs need to replace the browser's built-in navigation with their routing, SPAs require a minimum level of complexity around efficiently updating the current view, managing navigation changes, and cleaning up previous views that would otherwise be handled by the browser, making them harder overall to maintain and more taxing on the user's device.
+Одностраничные приложения хорошо подходят для архитектуры, если:
 
-### Multi-page apps
+-   Взаимодействие с пользователем в основном сосредоточено на атомарном обновлении взаимосвязанных данных, отображаемых на одной странице, например, приборная панель данных в реальном времени или приложение для редактирования видео.
+-   Ваше приложение имеет зависимости инициализации только со стороны клиента, например, сторонний провайдер аутентификации с непомерно высокими затратами на запуск.
+-   Данные, необходимые для загрузки представления, зависят от определенного контекста, доступного только клиенту, например, отображение элементов управления для подключенного оборудования.
+-   Приложение небольшое и простое настолько, что его размер и сложность не влияют на перечисленные выше недостатки.
 
-{% Compare 'better', 'Pros' %}
-* Mostly full-page updates.
-* Initial render speed is critical.
-* Client-side scripting can be an enhancement.
-{% endCompare %}
+SPA может оказаться не самым удачным выбором архитектуры, если:
 
-{% Compare 'worse', 'Cons' %}
-* Secondary views require another server call.
-* Context doesn't carry over between views.
-* Requires a server or pre-rendering.
-{% endCompare %}
+-   Важна производительность при начальной загрузке. SPA обычно требуют загрузки большего количества JavaScript для определения того, что загружать и как это отображать. Разбор и выполнение этого JavaScript в сочетании с получением содержимого происходит медленнее, чем отправка HTML.
+-   Ваше приложение работает в основном на устройствах с низким и средним уровнем мощности. Поскольку SPA зависят от JavaScript для рендеринга, пользовательский опыт зависит от мощности конкретного устройства гораздо сильнее, чем в случае с MPA.
 
+Поскольку SPA должны заменять встроенную навигацию браузера своей маршрутизацией, SPA требуют минимального уровня сложности для эффективного обновления текущего представления, управления изменениями навигации и очистки предыдущих представлений, которые в противном случае выполнялись бы браузером, что делает их в целом более сложными в обслуживании и более нагружающими пользовательское устройство.
 
-Multi-page apps are a good architectural choice if:
+### Многостраничные приложения
 
-* User interaction is mainly centered around views of a single piece of data with optional context-based data, for instance, a news or e-commerce app.
-* Initial render speed is critical, as sending already rendered HTML to the browser is faster than assembling it from a data request after loading, parsing, and executing a JavaScript-based alternative.
-* Client-side interactivity or context can be included as an enhancement after initial load, for instance, layering a profile onto a rendered page or adding secondary client-side context-dependent components.
+:material-thumb-up:{: style="color: green"} Плюсы
 
-MPAs might not be a good architecture choice if:
+-   В основном полностраничные обновления.
+-   Скорость начального рендеринга критична.
+-   Сценарии на стороне клиента могут быть улучшением.
 
-* Re-downloading, re-parsing, and re-executing your JavaScript or CSS is prohibitively expensive. This con is mitigated in PWAs with service workers.
-* Client-side context, such as user location, doesn't seamlessly carry over between views, and re-obtaining that context may be expensive. It either needs to be captured and retrieved, or re-requested between views.
+:material-thumb-down:{: style="color: red"} Минусы
 
-Because individual views need to be dynamically rendered by a server or pre-rendered before access, potentially limiting hosting or adding data complexity.
+-   Вторичные представления требуют еще одного вызова сервера.
+-   Контекст не переносится между представлениями.
+-   Требуется сервер или предварительный рендеринг.
 
-### Which one to choose?
+Многостраничные приложения являются хорошим архитектурным выбором, если:
 
-Even with these pros and cons, both architectures are valid for creating your PWA. You can even mix them for different parts of your app, depending on its needs, for instance, having store listings follow an MPA architecture and the checkout flow follow an SPA architecture.
+-   Взаимодействие с пользователем в основном сосредоточено на просмотре одного фрагмента данных с дополнительными контекстными данными, например, в новостях или приложении электронной коммерции.
+-   Скорость первоначального рендеринга критична, поскольку отправка уже отрендеренного HTML в браузер быстрее, чем сборка его из запроса данных после загрузки, разбора и выполнения альтернативы на основе JavaScript.
+-   Интерактивность или контекст на стороне клиента могут быть включены в качестве дополнения после первоначальной загрузки, например, наложение профиля на отрисованную страницу или добавление вторичных компонентов, зависящих от контекста на стороне клиента.
 
-Regardless of choice, the next step is understanding how to best use service workers to provide the best experience.
+MPA может оказаться не самым удачным выбором архитектуры, если:
 
-## The power of service worker
+-   Повторная загрузка, повторный разбор и повторное выполнение JavaScript или CSS являются непомерно дорогими. Эта проблема решается в PWA с помощью сервис-воркеров.
+-   Контекст на стороне клиента, например, местоположение пользователя, не переносится между представлениями, и повторное получение этого контекста может быть дорогостоящим. Его нужно либо перехватывать и извлекать, либо повторно запрашивать между представлениями.
 
-The service worker has a lot of power beyond basic routing and delivery of cached and network responses. We can create complex algorithms that can improve the user's experience and performance.
+Поскольку отдельные представления должны динамически отображаться на сервере или предварительно рендериться перед доступом, это может ограничить хостинг или усложнить работу с данными.
 
-### Service worker includes (SWI)
+### Что выбрать?
 
-An emerging pattern for using service workers as an integral part of a site's architecture is service worker includes (SWI).
-SWI divides individual assets, usually an HTML page, into pieces based on their caching needs, then stitches them back together in the service worker to improve consistency, performance, and reliability, while reducing cache size.
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/xDjYv2TYJik4xm1h7nyS.png", alt="A website with a global header, a content area, a sidebar and a footer.", width="800", height="520" %}
+Несмотря на все эти плюсы и минусы, обе архитектуры подходят для создания PWA. Можно даже смешивать их для разных частей приложения в зависимости от его потребностей, например, для размещения объявлений в магазине использовать архитектуру MPA, а для оформления заказа - архитектуру SPA.
 
-This image is a sample web page. It has five different sections that break the page down into:
+Независимо от выбора, следующим шагом будет понимание того, как лучше использовать сервис-ворк для обеспечения наилучшего опыта.
 
-* Overall layout.
-* Global header (top dark bar).
-* Content area (middle left lines and image).
-* Sidebar (tall medium-dark bar on the middle right).
-* Footer (dark bottom bar).
+## Возможности сервис-воркера
 
-#### Overall layout
+Сервис-воркер обладает большими возможностями, чем базовая маршрутизация и доставка кэшированных и сетевых ответов. Мы можем создавать сложные алгоритмы, способные улучшить пользовательский опыт и производительность.
 
-The overall layout isn't likely to change often and has no dependencies. It's a good candidate for [precaching](/learn/pwa/assets-and-data/#frequently-used-cache-approaches).
+### Сервис-воркер включает (SWI)
 
-#### Header and footer
+Появившийся паттерн использования сервис-воркеров в качестве неотъемлемой части архитектуры сайта - это сервис-ворк includes (SWI). SWI разделяет отдельные ресурсы, обычно HTML-страницы, на части в соответствии с их потребностями в кэшировании, а затем сшивает их вместе в сервисе-воркере для повышения согласованности, производительности и надежности, уменьшая при этом размер кэша.
 
-The global header and footer contain things like the top menu and site footer, and present a particular challenge: if the page were to be cached as a whole, these might change between page loads, depending on when the given page was cached.
+![Сайт с глобальным заголовком, областью содержания, боковой панелью и нижним колонтитулом.](architecture-1.png)
 
-By separating them and caching them independently of the content, you can ensure that users will always get the same version, regardless of when they are cached. Because they are infrequently updated, they're good candidates for precaching, too. They have a dependency, though: the site's CSS and JavaScript.
+Это изображение представляет собой образец веб-страницы. Она состоит из пяти различных разделов, на которые разбита страница:
 
-#### CSS and JavaScript
+-   Общий макет.
+-   Глобальный заголовок (верхняя темная полоса).
+-   Область содержимого (средние левые строки и изображение).
+-   Боковая панель (высокая средне-темная полоса справа посередине).
+-   Нижний колонтитул (темная нижняя полоса).
 
-Ideally, the site's CSS and JavaScript should be cached with a stale while revalidate strategy to allow incremental updates without needing to update the service worker, as it is the case with precached assets. Still, they also need to be kept at a minimum version whenever the service worker updates with a new global header or footer. Because of this, their cache should also be updated with the latest version of assets when the service worker installs.
+#### Общий макет
 
-#### Content area
+Общий макет вряд ли будет часто меняться и не имеет зависимостей. Это хороший кандидат для [предварительного кэширования](assets-and-data.md#frequently-used-cache-approaches).
 
-Next is the content area. Depending on the frequency of updates, either network first or stale while revalidate is a good strategy here. Images should be cached with a cache first strategy, as has been previously [discussed](/learn/pwa/serving/#caching-strategies).
+#### Верхний и нижний колонтитулы
 
-#### Sidebar
+Глобальные верхний и нижний колонтитулы содержат такие элементы, как верхнее меню и нижний колонтитул сайта, и представляют собой особую проблему: если бы страница кэшировалась как единое целое, они могли бы меняться между загрузками страницы в зависимости от того, когда была кэширована данная страница.
 
-Finally, presuming the sidebar content contains secondary content such as tags and related items, it's not critical enough to pull from the network. A stale while revalidate strategy works for this.
+Разделив их и кэшировав независимо от содержимого, можно гарантировать, что пользователи всегда будут получать одну и ту же версию, независимо от того, когда она была кэширована. Поскольку они обновляются нечасто, они также являются хорошими кандидатами для предварительного кэширования. Однако у них есть зависимость: CSS и JavaScript сайта.
 
-Now, after going through all that, you may be thinking that you can only do this kind of per-section caching for single-page apps. But, by adopting patterns inspired by [edge side includes](https://en.wikipedia.org/wiki/Edge_Side_Includes) or [server side includes](https://en.wikipedia.org/wiki/Server_Side_Includes) in your service worker, with some advanced service worker features, you can do this for either architecture.
+#### CSS и JavaScript
 
-#### Try it yourself
+В идеале CSS и JavaScript сайта должны кэшироваться со стратегией stale while revalidate, чтобы обеспечить возможность инкрементных обновлений без необходимости обновления сервис-воркера, как это происходит в случае с ресурсами с предварительным кэшированием. Тем не менее, они также должны поддерживаться в минимальной версии каждый раз, когда сервис-воркер обновляет новый глобальный заголовок или нижний колонтитул. В связи с этим при установке сервис-воркера его кэш также должен обновляться последней версией ресурсов.
 
-You can try the service worker includes with the next codelab:
+#### Область содержимого
 
-{% Aside 'codelab' %}
-[Service worker includes](https://developers.google.com/codelabs/pwa-training/pwa06--service-worker-includes).
-{% endAside %}
+Далее находится область содержимого. В зависимости от частоты обновлений хорошей стратегией здесь будет либо "сначала сеть", либо "устаревшее с последующей проверкой". Изображения следует кэшировать по стратегии "кэш в первую очередь", как это уже [обсуждалось ранее](serving.md#caching-strategies).
 
-### Streaming responses
+#### Боковая панель
 
-The previous page could be created using the app shell model in the SPA world, where the app shell is cached, then served, and content is loaded on the client side. With the introduction and wide availability of the [Streams API](https://developer.mozilla.org/docs/Web/API/Streams_API), both app shell and content can be combined in the service worker and streamed to the browser, giving you the caching flexibility of app shell with the speed of MPAs.
+Наконец, если предположить, что содержимое боковой панели содержит вторичное содержимое, такое как теги и связанные элементы, то оно не настолько критично, чтобы извлекать его из сети. В этом случае работает стратегия "устаревание при перепроверке".
 
-It does this because:
+Теперь, после всего вышесказанного, вы можете подумать, что подобное кэширование для каждого раздела возможно только в одностраничных приложениях. Но, приняв паттерны, вдохновленные [edge side includes](https://en.wikipedia.org/wiki/Edge_Side_Includes) или [server side includes](<https://ru.wikipedia. org/wiki/SSI_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)>) в вашем сервис-воркере, с некоторыми расширенными возможностями сервис-воркера, вы можете сделать это для любой архитектуры.
 
-* Streams can be built asynchronously, allowing different pieces of a stream to come from other sources.
-* The requester of a stream can start working on the response as soon as the first chunk of data is available, instead of waiting for the entire item to be complete.
-* Parsers optimized for streaming, including the browser, can progressively display the content of the stream before it's complete, speeding up the perceived performance of the response.
+#### Попробуйте сами
 
-Thanks to these three properties of streams, architectures built around streaming usually have a faster perceived performance than those that aren't.
+Вы можете попробовать включить сервис-воркер в следующий коделаб:
 
-Working with the Streams API can be challenging as it's complex and low level. Fortunately, there's a [Workbox module](https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-streams) that can help with setting up streaming responses for your service workers.
+!!!note ""
 
-## Domains, origins, and PWA scope
+    [Сервис-воркер включает](https://developers.google.com/codelabs/pwa-training/pwa06--service-worker-includes).
 
-Web workers, including service workers, storage, even an installed PWA's window, are all governed by one of the most critical security mechanisms on the web: the same-origin policy. Within the same origin, permissions are granted, data can be shared, and the service worker can talk to different clients. Outside of the same origin, permissions are not automatically granted and data is isolated and not accessible between different origins.
+### Потоковые ответы
 
-### Same-origin policy
+Предыдущая страница могла быть создана с использованием модели оболочки приложения в мире SPA, когда оболочка приложения кэшируется, затем обслуживается, а содержимое загружается на стороне клиента. С появлением и широкой доступностью [Streams API](https://developer.mozilla.org/docs/Web/API/Streams_API) оболочка приложения и контент могут быть объединены в сервисе-воркере и переданы в браузер, что обеспечивает гибкость кэширования оболочки приложения и скорость работы MPA.
 
-Two URLs are defined as having the exact origin if the protocol, port, and host are the same.
+Это происходит потому, что:
 
-For example: `https://squoosh.app`, and `https://squoosh.app/v2` have the same origin, but `http://squoosh.app`, `https://squoosh.com`, `https://app.squoosh.app` and `https://squoosh.app:8080` are in different origins. Check the [same-origin policy MDN reference](https://developer.mozilla.org/docs/Web/Security/Same-origin_policy) for more information and examples.
+-   Потоки могут быть построены асинхронно, что позволяет различным частям потока поступать из других источников.
+-   Запросчик потока может начать работу над ответом, как только первый фрагмент данных будет доступен, вместо того чтобы ждать, пока весь элемент будет завершен.
+-   Парсеры, оптимизированные для работы с потоками, в том числе браузер, могут постепенно отображать содержимое потока до его завершения, что ускоряет воспринимаемую производительность ответа.
 
-Changing subdomains isn't the only way a host can change. Each host is made up of a top-level domain (TLD), a secondary level domain (SLD), and zero or more labels (sometimes called subdomains), separated by dots in between and read from right to left in an URL. A change in any of the items results in a different host.
+Благодаря этим трем свойствам потоков архитектуры, построенные на их основе, обычно имеют более высокую воспринимаемую производительность, чем те, в которых потоки не используются.
 
-In the [window management module](/learn/pwa/window), we've already seen how the in-app browser looks when a user navigates to a different origin from an installed PWA.
+Работа с Streams API может быть сложной, поскольку он имеет сложный и низкий уровень. К счастью, существует модуль [Workbox](https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-streams), который может помочь в настройке потоковых ответов для ваших сервис-воркеров.
 
-That in-app browser will appear even if the websites have the same TLD and SLD, but with different labels, as they are then considered different origins.
+## Домены, происхождение и область действия PWA
 
-One of the key aspects of an origin in a web-browsing context is how storage and permissions work. One origin shares many features among all content and PWAs within it, including:
+Работа сервисов-воркеров, включая сервис-воркеры, хранилище и даже окно установленного PWA, регулируется одним из наиболее важных механизмов безопасности в Интернете - политикой "одного происхождения". В пределах одного источника права доступа предоставляются, данные могут совместно использоваться, а сервис-воркер может общаться с различными клиентами. За пределами одного источника разрешения автоматически не предоставляются, а данные изолированы и недоступны между различными источниками.
 
-- Storage quota and data (IndexedDB, cookies, web storage, cache storage).
-- Service worker registrations.
-- Permissions granted or denied (such as web push, geolocation, sensors).
-- Web push registrations.
+### Политика одинакового происхождения
 
-When you move from one origin to another, all the previous access is revoked, so permissions have to be granted again, and your PWA can't access all the data saved in the storage.
+Два URL-адреса определяются как имеющие одинаковое происхождение, если протокол, порт и хост совпадают.
 
-{% Aside 'caution' %}
-Having different subdomains for different parts of a website or different TLDs for other locales, such as `admin.example.com` or `example.co.uk`, makes building PWAs harder, each subdomain will have isolated storage, its own service worker registration, and web app manifest. It may also lead to a disjointed experience if the subdomains are designed to look like the same app, as one will be displayed in the in-app browser while the main PWA won't.
-{% endAside %}
+Например: `https://squoosh.app` и `https://squoosh.app/v2` имеют одинаковое происхождение, но `http://squoosh.app`, `https://squoosh.com`, `https://app.squoosh.app` и `https://squoosh.app:8080` находятся в разных источниках. Дополнительную информацию и примеры можно найти в [same-origin policy MDN reference](https://developer.mozilla.org/docs/Web/Security/Same-origin_policy).
 
-{% Video src="video/RK2djpBgopg9kzCyJbUSjhEGmnw1/V1OWWZnCGpwVcaZE152Z.mp4", autoplay=true, controls=true, loop=true %}
+Смена поддоменов - не единственный способ изменения хоста. Каждый хост состоит из домена верхнего уровня (TLD), домена вторичного уровня (SLD) и нуля или более меток (иногда называемых субдоменами), разделенных точками между собой и читаемых в URL справа налево. Изменение любого из этих элементов приводит к появлению другого хоста.
 
-##  Resources
+В модуле [Управление окнами](window.md) мы уже видели, как выглядит встроенный браузер, когда пользователь переходит на хост, отличный от установленного PWA.
 
-- [Beyond SPAs: Alternative architectures for your PWA](https://developer.chrome.com/blog/beyond-spa)
-- [Progressive web apps Structure](https://developer.mozilla.org/docs/Web/Progressive_web_apps/App_structure)
-- [Streams: The definitive guide](/streams/)
+Этот in-app браузер будет отображаться даже в том случае, если сайты имеют одинаковые TLD и SLD, но разные метки, поскольку в этом случае они считаются разными по происхождению.
+
+Одним из ключевых аспектов происхождения в контексте веб-браузинга является работа с хранилищем и разрешениями. Одно происхождение имеет много общих характеристик для всего содержимого и PWA, входящих в него, в том числе:
+
+-   Квота хранения и данные (IndexedDB, cookies, веб-хранилище, кэш-хранилище).
+-   Регистрации сервис-воркеров.
+-   Разрешенные или запрещенные разрешения (например, web push, геолокация, датчики).
+-   Регистрации Web push.
+
+При переходе от одного источника к другому весь предыдущий доступ аннулируется, поэтому разрешения приходится предоставлять заново, и PWA не может получить доступ ко всем данным, сохраненным в хранилище.
+
+!!!warning ""
+
+    Наличие различных поддоменов для разных частей сайта или различных TLD для других локализаций, например `admin.example.com` или `example.co.uk`, усложняет создание PWA, поскольку каждый поддомен будет иметь изолированное хранилище, собственную регистрацию сервис-воркера и манифест веб-приложения. Кроме того, это может привести к разрозненности, если поддомены созданы как одно и то же приложение, поскольку один из них будет отображаться в браузере приложения, а основной PWA - нет.
+
+<video controls autoplay loop>
+<source src="/learn/pwa/architecture-2.mp4" />
+</video>
+
+## Ресурсы
+
+-   [Beyond SPAs: Альтернативные архитектуры для вашего PWA](https://developer.chrome.com/blog/beyond-spa)
+-   [Структура прогрессивных веб-приложений](https://developer.mozilla.org/docs/Web/Progressive_web_apps/App_structure)
+-   [Streams: Полное руководство](https://web.dev/articles/streams)
+
+:material-information-outline: Источник &mdash; [Architecture](https://web.dev/learn/pwa/architecture)

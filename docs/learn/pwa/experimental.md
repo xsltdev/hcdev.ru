@@ -1,92 +1,91 @@
 ---
-title: Experimental features
-Authors:
-  - firt
-description: >
-  There are PWA capabilities that are still under construction and you can be part of their development. In this chapter you'll learn about the Fugu project, how to sign-up for an origin trial, and how to use experimental APIs
-
-date: 2022-04-15
+description: Существуют возможности PWA, которые еще находятся в стадии разработки, и вы можете принять участие в их развитии. В этой главе вы узнаете о проекте Fugu, о том, как подписаться на пробную версию и как использовать экспериментальные API.
+icon: material/test-tube-off
 ---
 
-The web is a powerful platform, but there are still gaps in what it can solve. Those who want to develop for the web but need more different capabilities are forced to bundle their web apps in wrappers and publish them in app stores.
+# Экспериментальные возможности
 
-Developers may choose to ship their own custom browser as platform-specific apps, which disproportionately increases the size of their web apps. This will also  force them to take on the additional security and maintenance burden of keeping both the browser fork and wrapper up to date.
+<big>Существуют возможности PWA, которые еще находятся в стадии разработки, и вы можете принять участие в их развитии. В этой главе вы узнаете о проекте Fugu, о том, как подписаться на пробную версию и как использовать экспериментальные API.</big>
 
-This approach also loses the reach of the web, often being forced to choose what devices and operating systems to support, which often require different wrappers, and which further expands the security and maintenance burden.
+Веб - мощная платформа, но в ее возможностях все еще есть пробелы. Те, кто хочет разрабатывать для Web, но нуждается в более широких возможностях, вынуждены упаковывать свои веб-приложения в обертки и публиковать их в магазинах приложений.
 
-Filling these capabilities gaps is the key to fixing this and thereby enabling the web to be the software platform of the future, covering as many use cases as possible, in comparison with platform-specific SDKs.
+Разработчики могут решить поставлять свой собственный браузер в виде приложений для конкретной платформы, что непропорционально увеличивает размер их веб-приложений. Это также заставит их взять на себя дополнительную нагрузку по обеспечению безопасности и сопровождению, связанную с поддержанием в актуальном состоянии как форка браузера, так и обертки.
 
-## Project Fugu
+Кроме того, при таком подходе теряется охват веб-среды, часто приходится выбирать, какие устройства и операционные системы поддерживать, для чего часто требуются различные обертки, что еще больше увеличивает нагрузку на безопасность и обслуживание.
 
-This is where the capabilities project, known as [Project Fugu](https://www.chromium.org/teams/web-capabilities-fugu), comes in.
-The [capabilities project](https://developer.chrome.com/blog/fugu-status/), or Project Fugu, is a cross-company effort to make it possible for web apps to have the same capabilities as platform-specific apps by exposing the capabilities of these platforms to the web, while maintaining user security, privacy, trust, and other core tenets of the web.
+Устранение этих пробелов в возможностях - ключ к исправлению ситуации и, таким образом, к тому, чтобы веб стал программной платформой будущего, охватывающей максимальное количество вариантов использования, по сравнению с SDK, ориентированными на конкретные платформы.
 
-### Track capabilities
+## Проект Fugu
 
-There is a [public tracker](https://goo.gle/fugu-api-tracker) to keep up with all the work to ship new capabilities.
-On the tracker, you can see:
+Именно в этом случае на помощь приходит проект возможностей, известный как [Project Fugu](https://www.chromium.org/teams/web-capabilities-fugu). Проект [capabilities project](https://developer.chrome.com/blog/fugu-status/), или Project Fugu, - это межкорпоративная работа, направленная на то, чтобы веб-приложения обладали теми же возможностями, что и приложения для конкретных платформ, путем раскрытия возможностей этих платформ в Интернете, сохраняя при этом безопасность пользователей, конфиденциальность, доверие и другие основные принципы Интернета.
 
-* The status of each API being worked on or considered.
-* Platforms the API is targeted for.
-* Links and additional information for each API.
-* Search and filter capabilities.
-* A timeline view.
+### Отслеживание функций
 
-### Request a capability
+Для отслеживания всех работ по выпуску новых функций существует [публичный трекер](https://goo.gle/fugu-api-tracker). На трекере можно увидеть:
 
-What if you want to request a new capability? You can file an issue in the [Chromium bug tracker](https://bugs.chromium.org/p/chromium/issues/list), or you can go to [webwewant.fyi](https://webwewant.fyi) and fill out a form to reach the corresponding  browser vendors.
+-   Статус каждого API, над которым ведется работа или который рассматривается.
+-   Платформы, для которых предназначен API.
+-   Ссылки и дополнительная информация по каждому API.
+-   Возможности поиска и фильтрации.
+-   Временная шкала.
 
-### The process for each capability
+### Запрос функциональности
 
-Before launch, there are two states an in-progress API could be in, and both allow you to test them.
+Что делать, если вы хотите запросить новую функциональность? Вы можете подать заявку в [Chromium bug tracker](https://bugs.chromium.org/p/chromium/issues/list), или зайти на [webwewant.fyi](https://webwewant.fyi) и заполнить форму, чтобы связаться с соответствующими производителями браузеров.
 
-* A developer trial: the feature is behind a flag, the API isn't necessarily stable, and you shouldn't implement it for real users. You can enable or disable flags on Chromium-based browsers by going to `about:flags`, allowing you to test on your own browser instance.
+### Процесс для каждой функциональности
 
-{% Aside 'important' %}
-Under no circumstances should users ever be told to turn flags on or off. Because such features are still under development, changing flag defaults can have unanticipated consequences for the stability of the browser.
-{% endAside %}
+Перед запуском API может находиться в двух состояниях, и оба позволяют протестировать его.
 
-* An origin trial: a state where features can be enabled by origin, developers can run tests for a wider audience than their single browser instance, but the feature is still being tested and the implementation can change, more details below.
+-   Пробная версия для разработчиков: функция находится под флагом, API не обязательно стабилен, и не стоит внедрять его для реальных пользователей. Включить или отключить флаги в браузерах на базе Chromium можно, перейдя в раздел `about:flags`, что позволит провести тестирование на собственном экземпляре браузера.
 
-## Origin trials
+!!!danger ""
 
-Origin trials allow you to try out new features and give feedback to the web standards community on usability, practicality, and effectiveness. APIs available under origin trial are:
+    Ни при каких обстоятельствах не следует сообщать пользователям о необходимости включения или отключения флагов. Поскольку такие функции находятся в стадии разработки, изменение флагов по умолчанию может привести к непредвиденным последствиям для стабильности работы браузера.
 
-* Experimental, they may change and may become unavailable, including not extending beyond the experiment, and may be unavailable for some time, even if they are eventually enabled for all users. So where possible, you should implement feature detection or graceful degradation to handle the case when the feature is unavailable.
-* Stable enough to use with real users, but they may change throughout the course of the trial.
-* [Limited across all users globally](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/explainer.md#monitoring-and-limiting-usage) to ensure they don't become a de facto standard, so it's recommended you activate the feature in your codebase following each browser's trial guidelines for a subset of your users.
-* Limited to the browser vendor which starts the origin trial, so a Chrome origin trial will not work in Safari, Firefox, or Edge, for instance.
+-   Пробная версия origin: состояние, когда функции могут быть включены в origin, разработчики могут проводить тесты для более широкой аудитории, чем их единственный экземпляр браузера, но функция все еще тестируется, и ее реализация может измениться, подробнее об этом ниже.
 
-If these requirements are OK for you, you can register an origin to participate in a trial. You can find instructions to sign up for an origin trial in Chrome [here](https://developer.chrome.com/blog/origin-trials/) and for Microsoft Edge follow [this link](https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/OriginTrialsGuide/explainer.md)
+## Тестирование Origin
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/d5ueJjfbepXwq72v2UjU.png", alt="A list of available origin trials for Google Chrome.", width="800", height="510" %}
+Пробные версии Origin позволяют опробовать новые возможности и дать обратную связь сообществу разработчиков веб-стандартов по вопросам удобства, практичности и эффективности. API, доступные в рамках программы origin trial, являются:
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/hSzBgQsAvgkCUN6h1RQN.png", alt="A list of available origin trials for Microsoft Edge.", width="800", height="541" %}
+-   Экспериментальными, они могут изменяться и становиться недоступными, в том числе не выходя за рамки эксперимента, и могут быть недоступны в течение некоторого времени, даже если в конечном итоге они будут включены для всех пользователей. Поэтому там, где это возможно, следует реализовать обнаружение функции или ее плавную деградацию, чтобы справиться с ситуацией, когда функция недоступна.
+-   Достаточно стабильны для использования с реальными пользователями, но могут меняться в ходе испытаний.
+-   [Ограничено для всех пользователей в мире](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/explainer.md#monitoring-and-limiting-usage), чтобы не стать стандартом де-факто, рекомендуется активировать функцию в кодовой базе, следуя рекомендациям по тестированию каждого браузера для подмножества пользователей.
+-   Ограничения распространяются только на тот браузер, в котором запущена пробная версия, поэтому пробная версия Chrome не будет работать, например, в Safari, Firefox или Edge.
 
-## Safari experimental features
+Если эти требования вас устраивают, вы можете зарегистрировать origin для участия в тестировании. Инструкции по регистрации для участия в тестировании origin в Chrome можно найти [здесь](https://developer.chrome.com/blog/origin-trials/), а для Microsoft Edge - по [этой ссылке](https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/OriginTrialsGuide/explainer.md).
 
-Safari also allows developers to try and test new and unfinished APIs and capabilities, but it doesn't provide origin trials. You can't enable Safari's experimental features for users.
+![Список доступных пробных версий оригиналов для Google Chrome.](experimental-1.png)
 
-Safari's solution is similar to flags, known as experimental features. Every new version of Safari comes with many experimental features, some of them enabled and some disabled by default.
+![Список доступных пробных версий оригиналов для Microsoft Edge.](experimental-2.png)
 
-As a developer, you can change those default settings using:
+## Экспериментальные возможности Safari
 
-* The develop, experimental features menu in Safari for macOS.
-* The iOS and iPadOS Settings App, by going to Safari, Advanced, Experimental Features.
+Safari также позволяет разработчикам опробовать и протестировать новые и недоработанные API и возможности, но не предоставляет возможности тестирования оригиналов. Включить экспериментальные возможности Safari для пользователей нельзя.
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/Y6agrnMYlpbQ970kYyYp.png", alt="Experimental features available on Safari on iPadOS.", width="800", height="525" %}
+Решение Safari аналогично флажкам, известным как экспериментальные возможности. Каждая новая версия Safari поставляется с множеством экспериментальных функций, некоторые из которых включены, а некоторые отключены по умолчанию.
 
-## Firefox experimental features
+Как разработчик, вы можете изменить эти настройки по умолчанию:
 
-Firefox offers [experimental features](https://developer.mozilla.org/docs/Mozilla/Firefox/Experimental_features) through settings that you can enable or disable by accessing the Configuration Editor using `about:config`.
+-   Меню "Разработка, экспериментальные функции" в Safari для macOS.
+-   В приложении настроек iOS и iPadOS перейдите в раздел Safari, Advanced, Experimental Features.
 
-##  Resources
+![Экспериментальные функции, доступные в Safari на iPadOS.](experimental-3.png)
 
-- [The capabilities project](https://developer.chrome.com/blog/capabilities/)
-- [New capabilities status](https://developer.chrome.com/blog/fugu-status/)
-- [Fugu Public Tracker](https://goo.gle/fugu-api-tracker)
-- [Getting started with Chrome origin trials](https://developer.chrome.com/blog/origin-trials/)
-- [Microsoft Edge Origin Trials Guide](https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/OriginTrialsGuide/explainer.md)
-- [The Web We Want, feedback form](https://webwewant.fyi)
-- [Firefox experimental features](https://developer.mozilla.org/docs/Mozilla/Firefox/Experimental_features)
-- [WebKit blog](https://webkit.org/blog/)
+## Экспериментальные возможности Firefox
+
+Firefox предлагает [экспериментальные возможности](https://developer.mozilla.org/docs/Mozilla/Firefox/Experimental_features) через настройки, которые можно включить или отключить, обратившись к редактору конфигурации с помощью `about:config`.
+
+## Ресурсы
+
+-   [Проект возможностей](https://developer.chrome.com/blog/capabilities/)
+-   [Статус новых возможностей](https://developer.chrome.com/blog/fugu-status/)
+-   [Fugu Public Tracker](https://goo.gle/fugu-api-tracker)
+-   [Руководство по началу работы с Chrome origin trials](https://developer.chrome.com/blog/origin-trials/)
+-   [Руководство по испытаниям Microsoft Edge Origin](https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/OriginTrialsGuide/explainer.md)
+-   [The Web We Want, форма обратной связи](https://webwewant.fyi)
+-   [Экспериментальные возможности Firefox](https://developer.mozilla.org/docs/Mozilla/Firefox/Experimental_features)
+-   [Блог WebKit](https://webkit.org/blog/)
+
+:material-information-outline: Источник &mdash; [Experimental features](https://web.dev/learn/pwa/experimental)

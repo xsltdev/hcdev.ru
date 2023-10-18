@@ -1,196 +1,186 @@
 ---
-title: Window management
-Authors:
-  -
-description: >
-  A PWA outside of the browser manages its own window. In this chapter, you will understand the APIs and capabilities for managing a window within the operating system.
-
-date: 2022-04-15
+description: PWA вне браузера управляет собственным окном. В этой главе мы рассмотрим API-интерфейсы и возможности управления окном в операционной системе.
+icon: material/dock-window
 ---
 
-## The PWA window
+# Управление окнами
 
-Running on your own window, managed by your PWA, has all the advantages and responsibilities of any window in that operating system, such as:
+<big>PWA вне браузера управляет собственным окном. В этой главе мы рассмотрим API-интерфейсы и возможности управления окном в операционной системе.</big>
 
-* The ability to resize and move the window around on multi-window operating systems, like Windows or ChromeOS.
-* Sharing the screen with other app windows, as in iPadOS split mode or Android split-screen mode.
-* Appearing in docks, taskbars, and in the alt-tab menu on desktop, and multi-task window lists on mobile devices.
-* The ability to minimize, move the window across screens and desktops, and close it at any time.
+## Окно PWA
 
-### Moving and resizing the window
+Запуск в собственном окне, управляемом PWA, обладает всеми преимуществами и обязанностями любого окна в этой операционной системе, например:
 
-Your PWA window can be of any size and positioned anywhere on the screen on desktop operating systems. By default, when the user opens the PWA for the first time after installation, the PWA gets a default window size of a percentage of the current screen, with a maximum resolution of 1920x1080 positioned at the top-left corner of the screen.
+-   Возможность изменять размеры и перемещать окно в многооконных операционных системах, таких как Windows или ChromeOS.
+-   Разделение экрана с окнами других приложений, как в режиме разделения экрана в iPadOS или в режиме разделения экрана в Android.
+-   Появление в доках, панелях задач и в меню ++alt+tab++ на настольных компьютерах, а также в списках многозадачных окон на мобильных устройствах.
+-   Возможность сворачивать, перемещать окно по экранам и рабочим столам, а также закрывать его в любой момент.
 
-The user can move and resize the window, and the browser will remember the last preference, so the next time the user opens the app, the window will retain the size and position from the previous usage.
+### Перемещение и изменение размеров окна
 
-There is no way to define your PWA's preferred size and position within the manifest. You can only reposition and resize the window using the JavaScript API. From your code, you can move and resize your own PWA window using the [`moveTo(x, y)`](https://developer.mozilla.org/docs/Web/API/Window/moveTo) and [`resizeTo(x, y)`](https://developer.mozilla.org/docs/Web/API/Window/resizeTo) functions of the `window` object.
+Окно PWA может иметь любой размер и располагаться в любом месте экрана в настольных операционных системах. По умолчанию, когда пользователь открывает PWA впервые после установки, окно PWA получает размер в процентах от текущего экрана, с максимальным разрешением 1920x1080, расположенное в левом верхнем углу экрана.
 
-For example, you can resize and move your PWA window when the PWA loads using:
+Пользователь может перемещать и изменять размер окна, при этом браузер запоминает последнее предпочтение, поэтому при следующем открытии приложения окно сохранит размер и положение, заданные при предыдущем использовании.
+
+В манифесте нет возможности определить предпочтительный размер и положение окна PWA. Вы можете изменять положение и размер окна только с помощью JavaScript API. В своем коде вы можете перемещать и изменять размеры собственного окна PWA с помощью функций [`moveTo(x, y)`](https://developer.mozilla.org/docs/Web/API/Window/moveTo) и [`resizeTo(x, y)`](https://developer.mozilla.org/docs/Web/API/Window/resizeTo) объекта `window`.
+
+Например, можно изменять размеры и перемещать окно PWA при его загрузке, используя:
 
 ```js
-document.addEventListener("DOMContentLoaded", event => {
-   // we can move only if we are not in a browser's tab
-   isBrowser = matchMedia("(display-mode: browser)").matches;
-   if (!isBrowser) {
-      window.moveTo(16, 16);
-      window.resizeTo(800, 600);
-   }
+document.addEventListener('DOMContentLoaded', (event) => {
+    // we can move only if we are not in a browser's tab
+    isBrowser = matchMedia('(display-mode: browser)')
+        .matches;
+    if (!isBrowser) {
+        window.moveTo(16, 16);
+        window.resizeTo(800, 600);
+    }
 });
 ```
 
-You can query the current screen size and position using the `window.screen` object; you can detect when the window is resized using the `resize` event from the `window` object. There is no event for capturing the window move, so your option is to query the position frequently.
+Текущий размер и положение экрана можно запросить с помощью объекта `window.screen`; определить изменение размера окна можно с помощью события `resize` объекта `window`. Событие, фиксирующее перемещение окна, не предусмотрено, поэтому можно часто запрашивать позицию.
 
-{% Aside %}
-Instead of moving and resizing the window absolutely, you can move relatively and resize using `moveBy()` and `resizeBy()`.
-{% endAside %}
+!!!note ""
 
+    Вместо абсолютного перемещения и изменения размеров окна можно перемещать относительно и изменять размеры с помощью `moveBy()` и `resizeBy()`.
 
-{% Aside %}
-On mobile devices, moving or resizing your window won't make any changes on the screen.
-{% endAside %}
+!!!note ""На мобильных устройствах перемещение или изменение размеров окна не приведет к каким-либо изменениям на экране.
 
-### Browsing to other sites
-If you want to send the user to an external site that is out of the scope of your PWA, you can do so with a standard `<a href>` HTML element, using `location.href` or opening a new window on compatible platforms.
+### Переход на другие сайты
 
-Currently on all browsers, if your PWA is installed, when you browse to a URL that is out of the [scope of your manifest](/learn/pwa/web-app-manifest/#recommended-fields), the browser engine of your PWA will render an in-app browser within the context of your window.
+Если вы хотите отправить пользователя на внешний сайт, не входящий в область действия вашего PWA, это можно сделать с помощью стандартного HTML-элемента `<a href>`, используя `location.href` или открывая новое окно на совместимых платформах.
 
-Some features of the in-app browsers are:
+В настоящее время во всех браузерах, если PWA установлен, при переходе на URL, выходящий за рамки [области действия вашего манифеста](web-app-manifest.md#recommended-fields), браузерный движок вашего PWA отобразит in-app браузер в контексте вашего окна.
 
-* They appear on top of your content.
-* They have a static URL bar showing the current origin, the window's title, and a menu. Typically, they're themed with the `theme_color` of your manifest.
-* From the contextual menu, you can open that URL in the browser.
-* Users can close the browser or go back.
+Некоторые особенности in-app браузеров таковы:
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/0SsThiNz4GDkJy6OiTHj.png", alt="An in-app browser on a desktop PWA when browsing a URL that is out-of-scope.", width="800", height="497" %}
+-   Они отображаются поверх вашего содержимого.
+-   Они имеют статическую строку URL, показывающую текущее происхождение, заголовок окна и меню. Обычно они оформлены в соответствии с `theme_color` вашего манифеста.
+-   Из контекстного меню можно открыть этот URL в браузере.
+-   Пользователь может закрыть браузер или вернуться назад.
 
-{% Aside %}
-While the in-app browser is on the screen, your PWA is waiting in the background, as if another window is obscuring it.
-{% endAside %}
+![При просмотре URL-адреса, выходящего за пределы области действия, на настольном PWA появляется встроенный браузер.](windows-1.png)
 
-{% Aside 'gotchas' %}
-On iOS and iPadOS, the in-app browser uses SafariViewController, a Safari-rendering engine isolated from your PWA storage. Therefore, if the user has a session in Safari, it won't appear in your PWA, but it will appear within an in-app browser in your PWA.
-{% endAside %}
+!!!note ""
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/Gr4qJUx6hAFMyPLPyfQY.png", alt="An in-app browser on an iPhone when browsing a URL that is out-of-scope within a standalone PWA.", width="800", height="370" %}
+    В то время как браузер приложения находится на экране, ваш PWA ожидает в фоновом режиме, как будто его заслоняет другое окно.
 
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/UyohW4R5Sy79ffHri8cz.png", alt="An in-app browser on Android when browsing a URL that is out-of-scope within a standalone PWA.", width="800", height="1644" %}
+!!!tip ""
 
+    На iOS и iPadOS встроенный браузер использует SafariViewController, движок рендеринга Safari, изолированный от хранилища PWA. Поэтому, если у пользователя есть сессия в Safari, она не будет отображаться в вашем PWA, но она будет отображаться в браузере in-app в вашем PWA.
 
-#### Authorization flows
+![Встроенный браузер на iPhone при просмотре URL-адреса, находящегося вне зоны действия отдельного PWA.](windows-2.png)
 
-Many web authentication and authorization flows involve redirecting the user to a different URL in a different origin to acquire a token that will return to your PWA's origin, such as using [OAuth 2.0](https://oauth.net/2/).
+![Встроенный браузер на Android при просмотре URL-адреса, находящегося вне зоны действия автономного PWA.](windows-3.png)
 
-In these cases, the in-app browser follows the following process:
+#### Потоки авторизации
 
-1. The user opens your PWA and clicks login.
-1. Your PWA redirects the user to a URL that is out of the scope of the PWA so that the rendering engine will open an in-app browser within your PWA.
-1. The user can cancel the in-app browser and go back to your PWA at any time.
-1. The user logs into the in-app browser. The authentication server redirects the user to your PWA origin, sending the token as an argument.
-1. The in-app browser closes itself when it detects a URL that is part of the scope of the PWA.
-1. The engine redirects the main PWA window navigation to the URL that the authentication server went to while in the in-app browser.
-1. Your PWA gets the token, stores the token, and renders the PWA.
+Многие потоки веб-аутентификации и авторизации предполагают перенаправление пользователя на другой URL-адрес в другом месте происхождения для получения маркера, который возвращается в место происхождения вашего PWA, например, при использовании [OAuth 2.0](https://oauth.net/2/).
 
-#### Forcing a browser's navigation
+В этих случаях внутриприкладной браузер выполняет следующие действия:
 
-If you want to force open the browser with a URL and not an in-app browser, you can use the `_blank` target of `<a href>` elements. This works only on desktop PWAs; on mobile devices, there is no option to open a browser with a URL.
+1.  Пользователь открывает ваш PWA и нажимает кнопку входа.
+2.  Ваш PWA перенаправляет пользователя на URL-адрес, выходящий за рамки PWA, чтобы механизм рендеринга открыл in-app браузер внутри вашего PWA.
+3.  Пользователь может в любой момент выйти из встроенного браузера и вернуться в PWA.
+4.  Пользователь входит в систему с помощью встроенного браузера. Сервер аутентификации перенаправляет пользователя на ваш PWA-сайт, передавая в качестве аргумента токен.
+5.  In-app браузер закрывается при обнаружении URL-адреса, входящего в область действия PWA.
+6.  Движок перенаправляет навигацию главного окна PWA на URL, на который перешел сервер аутентификации, находясь в in-app браузере.
+7.  Ваш PWA получает токен, сохраняет его и отображает PWA.
+
+#### Принудительное открытие навигации браузера
+
+Если вы хотите принудительно открыть браузер с URL, а не in-app браузер, вы можете использовать цель `_blank` для элементов `<a href>`. Это работает только для настольных PWA; на мобильных устройствах возможность принудительного открытия браузера по URL отсутствует.
 
 ```js
 function openBrowser(url) {
-	window.open("url", "_blank", "");
+    window.open('url', '_blank', '');
 }
 ```
 
-### Opening new windows
+### Открытие новых окон
 
-On desktop, users can open more than one window of the same PWA. Each window will be a different navigation to the same `start_url`, as if you were opening two browser tabs of the same URL.
-From the menu in the PWA, users can select File then New window, and from your PWA code, you can open a new window with the `open()` function. Check the [documentation](https://developer.mozilla.org/docs/Web/API/Window/open) for details.
+На настольных компьютерах пользователи могут открывать несколько окон одного и того же PWA. Каждое окно будет представлять собой отдельную навигацию к одному и тому же `start_url`, как если бы вы открыли две вкладки браузера с одним и тем же URL. В меню PWA пользователь может выбрать пункт File, затем New window, а в коде PWA можно открыть новое окно с помощью функции `open()`. Подробности см. в [документации](https://developer.mozilla.org/docs/Web/API/Window/open).
 
 ```js
 function openNewWindow() {
-	window.open("/", "new-window", "width=600,height=600");
+    window.open('/', 'new-window', 'width=600,height=600');
 }
 ```
-{% Img src="image/RK2djpBgopg9kzCyJbUSjhEGmnw1/CURym4RD66CqcTw4iPl5.png", alt="The same installed PWA with several windows opened on a desktop operating system.", width="800", height="580" %}
 
-Calling `open()` within a PWA window on iOS or iPadOS returns `null` and doesn't open a window. Opening new windows on Android creates a new in-app browser for the URL—even if the URL is within the scope of your PWA—that typically doesn't trigger an external browsing experience.
+![Тот же установленный PWA с несколькими открытыми окнами на настольной операционной системе.](windows-4.png)
 
-{% Aside 'warning' %}
-The second argument of `open()` is the window's name. If the name you used is already opened, the engine will replace the opened window with that name with a new navigation. If you always want to open a new window, you must use different string values for a name.
-{% endAside %}
+Вызов `open()` внутри окна PWA на iOS или iPadOS возвращает `null` и не открывает окно. Открытие новых окон на Android создает новый встроенный браузер для URL-адреса, даже если URL-адрес находится в пределах области действия PWA, что обычно не приводит к открытию внешнего браузера.
 
+!!!warning ""
 
-{% Glitch 'mlearn-pwa-windows-basic' %}
+    Вторым аргументом функции `open()` является имя окна. Если окно с указанным именем уже открыто, движок заменит открытое окно с таким именем на новое навигационное. Если требуется всегда открывать новое окно, то необходимо использовать различные строковые значения для имени.
 
+<iframe width="100%" height="400" allow="geolocation; microphone; camera; midi; encrypted-media; xr-spatial-tracking; fullscreen" allowfullscreen="" sandbox="allow-scripts allow-modals allow-forms allow-same-origin allow-top-navigation-by-user-activation allow-downloads" data-testid="app-preview-iframe" title="Preview of mlearn-pwa-windows-basic" src="https://mlearn-pwa-windows-basic.glitch.me/"></iframe>
 
-{% Aside 'gotchas' %}
-The functions `open()`, `moveTo()`, and `resizeTo()` don't need the `window.` prefix when writing JavaScript because `window` is the global object. You can just call `moveTo(0, 0)`. However, calling `window.moveTo(0, 0)` makes the code easier to understand.
-{% endAside %}
+!!!tip ""
 
-### Window title
+    Функции `open()`, `moveTo()` и `resizeTo()` не нуждаются в префиксе `window.` при написании JavaScript, поскольку `window` - это глобальный объект. Можно просто вызвать `moveTo(0, 0)`. Однако вызов `window.moveTo(0, 0)` делает код более понятным.
 
-The `<title>` element was primarily used for SEO purposes as the space within a browser tab is limited. When you move from the browser to your window in a PWA, all the title bar space is available to you.
+### Заголовок окна
 
-You can define the contents of the title bar:
+Элемент `<title>` был использован в первую очередь для SEO-целей, поскольку пространство внутри вкладки браузера ограничено. При переходе из браузера в окно в PWA все пространство строки заголовка становится доступным.
 
-* Statically in your HTML `<title>` element.
-* Dynamically changing the `document.title` string property at any time.
+Вы можете определить содержимое строки заголовка:
 
-On desktop PWAs, the title is essential, and it's used in the title bar of the window and sometimes in the task manager or multi-task selection. If you have a single-page application, you may want to update your title on every route.
+-   Статически в элементе HTML `<title>`.
+-   Динамически, изменяя строковое свойство `document.title` в любой момент времени.
 
-{% Aside %}
-To reduce phishing within PWAs, some desktop browsers may have additional measures on the window's title. For example, if you don't use your app's name in the title, the browser may add a prefix with your PWA's name on it. Other browsers may render the current origin in the title bar for a few seconds when you change the title to highlight where the user navigated.
-{% endAside %}
+В настольных PWA заголовок очень важен, он используется в строке заголовка окна и иногда в диспетчере задач или многозадачном выборе. Если у вас одностраничное приложение, то вы можете захотеть обновлять заголовок на каждом маршруте.
+
+!!!note ""
+
+    Для уменьшения фишинга в PWA некоторые браузеры для настольных компьютеров могут предусматривать дополнительные меры в отношении заголовка окна. Например, если вы не используете название своего приложения в заголовке, браузер может добавить префикс с названием вашего PWA. Другие браузеры при изменении заголовка могут на несколько секунд отобразить в строке заголовка текущий источник, чтобы подчеркнуть, куда перешел пользователь.
 
 ### Tabbed mode
 
-An experimental capability, known as *tabbed mode*​ will let your PWA have a tab-based design similar to a web browser. In this case, the user can have several tabs opened from the same PWA but all tied together in the same operating system window, as you can see in the following video:
+Экспериментальная возможность, известная как _tabbed mode_, позволит вашему PWA иметь дизайн на основе вкладок, подобный веб-браузеру. В этом случае пользователь может иметь несколько вкладок, открытых в одном и том же PWA, но связанных между собой в одном окне операционной системы, как показано на следующем видео:
 
-{% Video src="video/W3z1f5ZkBJSgL1V1IfloTIctbIF3/b1SL9QwJcgRXrVDeLKmK.mp4",
-loop="true",
-muted="true",
-playsinline="true",
-controls="true",
-poster="image/W3z1f5ZkBJSgL1V1IfloTIctbIF3/emg7quu4DyvYwlyzgDE1.png"
-%}
+<video controls loop muted>
+<source src="/learn/pwa/windows-5.mp4" />
+</video>
 
-You can read more about this experimental capability at [Tabbed application mode for PWA](/tabbed-application-mode/).
+Подробнее об этой экспериментальной возможности можно прочитать на сайте [Tabbed application mode for PWA](https://web.dev/articles/tabbed-application-mode).
 
-{% Aside %}
-In the [Experimental chapter](/learn/pwa/experimental), you will see how you can start using experimental capabilities.
-{% endAside %}
+!!!note ""
 
-### Window controls overlay
+    В главе [Experimental chapter](experimental.md) показано, как можно начать использовать экспериментальные возможности.
 
-We've mentioned that you can change the window's title by defining the value of the `<title>` element or the `document.title` property. But it's always a string value. What if we could design the title bar as we wish, with HTML, CSS, and images?
-That's where Window Controls Overlay comes in, a new experimental capability in Microsoft Edge and Google Chrome for desktop PWAs.
+### Наложение элементов управления окном
 
-{% Aside %}
-Tabbed mode and window controls overlay capabilities define new values for the manifest's `display` member. To create compatibility with all devices, the manifest group has created a way to replace the [fallback `display` chain](/learn/pwa/app-design/#display-modes), so you can specify what `display` value to use if your first option is not available. Read more about it at [Preparing for the display modes of tomorrow](/display-override/).
-{% endAside %}
+Мы уже упоминали, что заголовок окна можно изменить, определив значение элемента `<title>` или свойства `document.title`. Но это всегда строковое значение. А что, если бы мы могли оформлять строку заголовка по своему усмотрению, с помощью HTML, CSS и изображений? Вот тут-то и приходит на помощь Window Controls Overlay - новая экспериментальная возможность в Microsoft Edge и Google Chrome для настольных PWA.
 
-You can read more about this capability at [Customize the window controls overlay of your PWA's title bar](/window-controls-overlay/).
+!!!note ""
 
-{% Img src="image/kheDArv5csY6rvQUJDbWRscckLr1/B5UDAJzKTqCRdSy6B5is.png", alt="With window controls overlay, you can render content in the title bar.", width="800", height="544" %}
+    Возможности режима вкладок и наложения элементов управления окнами определяют новые значения для члена манифеста `display`. Для обеспечения совместимости со всеми устройствами группа разработчиков манифеста создала способ замены цепочки [fallback `display`](app-design.md#display-modes), чтобы вы могли указать, какое значение `display` использовать, если первый вариант недоступен. Подробнее об этом читайте в [Preparing for the display modes of tomorrow](https://developer.chrome.com/articles/display-override/).
 
-## Multi-screen window placement
+Подробнее об этой возможности можно прочитать в статье [Настройка наложения элементов управления окном на строку заголовка вашего PWA](https://web.dev/articles/window-controls-overlay).
 
-With multiple screens, users will want to use all the space available to them. Users may:
+![С помощью наложения элементов управления окном можно выводить содержимое в строку заголовка.](windows-6.png)
 
-* Open a presentation on an external monitor.
-* Restore an opened window's position on the screen.
-* Favor screens that support touch.
+## Размещение окон на нескольких экранах
 
-The [Multi-Screen Window Placement API](/multi-screen-window-placement/) allows PWAs to do just that and more.
+При наличии нескольких экранов пользователи хотят использовать все доступное им пространство. Пользователи могут:
 
-### Getting screen details
+-   Открыть презентацию на внешнем мониторе.
+-   Восстанавливать положение открытого окна на экране.
+-   Отдавать предпочтение экранам, поддерживающим сенсорное управление.
 
-The Multi-Screen Window Placement API adds a new method, `window.getScreenDetails()`, that returns an object with screens as an immutable array of attached screens. There's also a live object accessible from `ScreenDetails.currentScreen`, corresponding to the current `window.screen`.
+API [Multi-Screen Window Placement API](https://developer.chrome.com/articles/window-management/) позволяет PWA делать все это и даже больше.
 
-{% Aside 'gotchas' %}
-On some browsers, calling `window.getScreenDetails()` requires the user to grant permission to your PWAs.
-{% endAside %}
+### Получение информации об экране
 
-The returned object also fires a [`screenschange` event](/multi-screen-window-placement/#the-screenschange-event) when the `screens` array changes. (This does not happen when attributes on individual screens are changed.) Individual screens, either `window.screen` or a screen in the `screens` array, also fire a `change` event when their attributes change.
+Multi-Screen Window Placement API добавляет новый метод `window.getScreenDetails()`, который возвращает объект с экранами в виде неизменяемого массива присоединенных экранов. Также имеется живой объект, доступный из `ScreenDetails.currentScreen`, соответствующий текущему `window.screen`.
+
+!!!tip ""
+
+    В некоторых браузерах вызов `window.getScreenDetails()` требует от пользователя разрешения на использование PWA.
+
+Возвращаемый объект также вызывает событие [`screenschange`](https://developer.chrome.com/articles/window-management/#the-screenschange-event) при изменении массива `screens`. (Этого не происходит при изменении атрибутов отдельных экранов). Отдельные экраны, либо `window.screen`, либо экран в массиве `screens`, также вызывают событие `change` при изменении своих атрибутов.
 
 ```js
 // Request an object with a screen objects
@@ -210,19 +200,19 @@ screenDetails.addEventListener('screenschange', function() {
 });
 ```
 
-If the user or the operating system moves your PWA's window from one screen to another, a [`currentscreenchange` event](/multi-screen-window-placement/#the-currentscreenchange-event) will also be fired from the screen details object.
+Если пользователь или операционная система перемещает окно PWA с одного экрана на другой, то от объекта screen details также будет получено событие [`currentscreenchange`](https://developer.chrome.com/articles/window-management/#the-currentscreenchange-event).
 
-{% Aside %}
-You may also want to check the [Presentation API](https://developer.mozilla.org/docs/Web/API/Presentation_API) to display web content through large presentation devices such as projectors and network-connected televisions.
-{% BrowserCompat 'api.Presentation' %}
-{% endAside %}
+!!!note ""
 
-{% Glitch 'mlearn-pwa-windows-screens' %}
+    Для отображения веб-содержимого на больших презентационных устройствах, таких как проекторы и телевизоры, подключенные к сети, можно также воспользоваться [Presentation API](https://developer.mozilla.org/docs/Web/API/Presentation_API).
 
+    <p class="ciu_embed" data-feature="mdn-api__Presentation" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false"></p>
 
-## Screen wake lock
+<iframe width="100%" height="400" allow="geolocation; microphone; camera; midi; encrypted-media; xr-spatial-tracking; fullscreen" allowfullscreen="" sandbox="allow-scripts allow-modals allow-forms allow-same-origin allow-top-navigation-by-user-activation allow-downloads" data-testid="app-preview-iframe" title="Preview of mlearn-pwa-windows-screens" src="https://mlearn-pwa-windows-screens.glitch.me/"></iframe>
 
-Imagine this: you're in the kitchen following a recipe on your tablet. You've just finished prepping your ingredients. Your hands are a mess, and you turn back to your device to read the next step. Disaster! The screen's gone black! The [Screen Wake Lock API](https://developer.mozilla.org/docs/Web/API/Screen_Wake_Lock_API) is here for you and lets a PWA prevent screens from dimming, sleeping, or locking, allowing users to stop, start, leave, and return without worry.
+## Блокировка выключения экрана
+
+Представьте себе, что вы находитесь на кухне, следуя рецепту на своем планшете. Вы только что закончили подготовку ингредиентов. Руки в беспорядке, и вы возвращаетесь к планшету, чтобы прочитать следующий шаг. Катастрофа! Экран стал черным! API [Screen Wake Lock API](https://developer.mozilla.org/docs/Web/API/Screen_Wake_Lock_API) создан для вас и позволяет PWA предотвратить затемнение, спящий режим или блокировку экрана, позволяя пользователям останавливаться, запускаться, уходить и возвращаться без опасений.
 
 ```js
 // Request a screen wake lock
@@ -230,31 +220,35 @@ const wakeLock = await navigator.wakeLock.request();
 
 // Listen for wake lock release
 wakeLock.addEventListener('release', () => {
- console.log(`Screen Wake Lock released: ${wakeLock.released}`);
+    console.log(
+        `Screen Wake Lock released: ${wakeLock.released}`
+    );
 });
 // Manually release the wake lock
 wakeLock.release();
 ```
 
-## Virtual keyboard
+## Виртуальная клавиатура
 
-Touch-based devices, such as phones and tablets, offer a virtual on-screen keyboard so the user can type when form elements of your PWA are in focus.
+Сенсорные устройства, такие как телефоны и планшеты, предлагают виртуальную экранную клавиатуру, позволяющую пользователю набирать текст, когда элементы формы вашего PWA находятся в фокусе.
 
-Thanks to the [VirtualKeyboard API](/virtualkeyboard/), your PWA can now have more control of the keyboard on compatible platforms using the `navigator.virtualKeyboard` interface, including:
+Благодаря [VirtualKeyboard API](https://developer.chrome.com/docs/web-platform/virtual-keyboard/) ваш PWA теперь может получить больше возможностей для управления клавиатурой на совместимых платформах с помощью интерфейса `navigator.virtualKeyboard`, включая:
 
-* Showing and hiding the virtual keyboard with the functions `navigator.virtualKeyboard.show()` and `navigator.virtualKeyboard.hide()`.
-* Telling the browser that you are taking care of closing the virtual keyboard yourself by setting `navigator.virtualKeyboard.overlaysContent` equal to `true`.
-* Knowing when the keyboard appears and disappears with the event `geometrychange` of `navigator.virtualKeyboard`.
-* Setting the virtual keyboard policy on editing host elements (using `contenteditable`) with the `virtualkeyboardpolicy` HTML attribute. A policy lets you decide if you want the virtual keyboard to be handled automatically by the browser using the `auto` value, or handled by your script using the `manual` value.
-* Using CSS environmental variables for getting information about the virtual keyboard appearance, such as `keyboard-inset-height` and `keyboard-inset-top`.
+-   Показ и скрытие виртуальной клавиатуры с помощью функций `navigator.virtualKeyboard.show()` и `navigator.virtualKeyboard.hide()`.
+-   Сообщение браузеру о том, что вы сами заботитесь о закрытии виртуальной клавиатуры, путем установки значения `navigator.virtualKeyboard.overlaysContent` равным `true`.
+-   Узнавать о появлении и исчезновении клавиатуры по событию `geometrychange` из `navigator.virtualKeyboard`.
+-   Задание политики виртуальной клавиатуры при редактировании элементов хоста (с помощью `contenteditable`) с помощью HTML-атрибута `virtualkeyboardpolicy`. Политика позволяет определить, будет ли виртуальная клавиатура обрабатываться браузером автоматически, используя значение `auto`, или с помощью вашего скрипта, используя значение `manual`.
+-   Использование переменных окружения CSS для получения информации о внешнем виде виртуальной клавиатуры, таких как `keyboard-inset-height` и `keyboard-inset-top`.
 
-You can read more about this API on [Full control with the VirtualKeyboard API](/virtualkeyboard/).
+Подробнее об этом API можно прочитать в разделе [Полный контроль с помощью VirtualKeyboard API](https://developer.chrome.com/docs/web-platform/virtual-keyboard/).
 
-##  Resources
+## Ресурсы
 
-- [Managing several displays with the Multi-Screen Window Placement API](/multi-screen-window-placement/)
-- [Tabbed application mode for PWAs](/tabbed-application-mode/)
-- [Stay awake with the Screen Wake Lock API](/wake-lock/)
-- [Full control with the VirtualKeyboard API](/virtualkeyboard/)
-- [Customize the window controls overlay of your PWA's title bar](/window-controls-overlay/)
-- [Display content in the title bar](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/window-controls-overlay)
+-   [Управление несколькими дисплеями с помощью Multi-Screen Window Placement API](https://developer.chrome.com/articles/window-management/)
+-   [Режим работы приложений с вкладками для PWA](https://web.dev/articles/tabbed-application-mode)
+-   [Не спать с помощью API блокировки экрана](https://developer.chrome.com/articles/wake-lock/)
+-   [Полный контроль с помощью API VirtualKeyboard](https://developer.chrome.com/docs/web-platform/virtual-keyboard/)
+-   [Настройка наложения элементов управления окном на строку заголовка PWA](https://web.dev/articles/window-controls-overlay)
+-   [Отображение содержимого в строке заголовка](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/window-controls-overlay)
+
+:material-information-outline: Источник &mdash; [Window management](https://web.dev/learn/pwa/windows)

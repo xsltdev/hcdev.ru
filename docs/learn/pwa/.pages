@@ -18,9 +18,9 @@ nav:
     - enhancements.md
     - detection.md
     - os-integration.md
-    #- windows.md
-    #- experimental.md
-    #- tools-and-debug.md
-    #- architecture.md
-    #- complexity.md
-    #- capabilities.md
+    - windows.md
+    - experimental.md
+    - tools-and-debug.md
+    - architecture.md
+    - complexity.md
+    - capabilities.md

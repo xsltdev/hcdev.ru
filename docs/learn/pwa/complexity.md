@@ -1,126 +1,127 @@
 ---
-title: Complexity management
-Authors:
-  - firt
-description: >
-  Keeping a web app simple can be surprisingly complicated. In this module, you will learn how web APIs work with threading and how you can use this for common PWA patterns such as state management.
-date: 2022-04-15
+description: Простота веб-приложения может быть удивительно сложной. В этом модуле вы узнаете, как веб-интерфейсы работают с потоками и как это можно использовать для таких распространенных паттернов PWA, как управление состоянием.
+icon: material/timer-sand-complete
 ---
 
-## Simplicity and complexity
+# Управление сложностью
 
-In his talk [Simple Made Easy](https://www.infoq.com/presentations/Simple-Made-Easy/), Rich Hickey discusses the qualities of simple versus complex things. He describes simple things as focusing on:
+<big>Простота веб-приложения может быть удивительно сложной. В этом модуле вы узнаете, как веб-интерфейсы работают с потоками и как это можно использовать для таких распространенных паттернов PWA, как управление состоянием.</big>
 
-> "One role, one task, one concept, or one dimension."
+## Простота и сложность
 
-But emphasizes that simplicity isn't about:
+В своем докладе [Simple Made Easy](https://www.infoq.com/presentations/Simple-Made-Easy/) Рич Хики обсуждает качества простых и сложных вещей. Он описывает простые вещи как сосредоточенные на:
 
-> "Having one instance or performing one operation."
+> "Одна роль, одна задача, одна концепция или одно измерение".
 
-Whether or not something is simple is about how interconnected it is.
+Однако он подчеркивает, что простота не означает:
 
-Complexity comes from binding, weaving, or, to use Rich's term, complecting things together. You can calculate complexity by counting the number of roles, tasks, concepts, or dimensions something manages.
+> "наличие одного экземпляра или выполнение одной операции".
 
-Simplicity is essential in software development because simple code is easier to understand and maintain. Simplicity is also necessary for web apps because it may help to make our app fast and accessible in every possible context.
+Простота или нет - это то, насколько все взаимосвязано.
 
-## Managing PWA complexity
-All JavaScript we write for the web touches the main thread at one point. The main thread, though, comes with a lot of complexity out-of-the-box that you, as a developer, have no control over.
+Сложность возникает в результате связывания, переплетения или, если воспользоваться термином Рича, комплексирования вещей. Сложность можно рассчитать, подсчитав количество ролей, задач, концепций или измерений, которыми управляет что-то.
 
-The main thread is:
+Простота необходима при разработке программного обеспечения, поскольку простой код легче понять и поддерживать. Простота необходима и для веб-приложений, поскольку она может помочь сделать наше приложение быстрым и доступным во всех возможных контекстах.
 
-* Responsible for drawing the page, which itself is a complex, multi-step process involving calculating styles, updating and compositing layers, and painting to screen.
-* Responsible for listening to and reacting to events, including events such as scrolling.
-* Responsible for loading and unloading the page.
-* Managing media, security, and identity.
-That's all before any code you write can even execute on that thread, such as:
-* Manipulating the DOM.
-* Accessing sensitive APIs, for example, device capabilities, or media/security/identity.
+## Управление сложностью PWA
 
-As Surma put it in his [2019 Chrome Dev Summit talk](https://www.youtube.com/watch?v=7Rrv9qFMWNM&ab_channel=GoogleChromeDevelopers), the main thread is overworked and underpaid.
+Весь JavaScript, который мы пишем для Интернета, в какой-то момент затрагивает основной поток. Однако основной поток поставляется с большим количеством сложностей, которые вы, как разработчик, не можете контролировать.
 
-And yet, most application code lives on the main thread too.
+Главный поток:
 
-All that code adds to the complexity of the main thread. The main thread is the only one that the browser can use to lay out and render content on the screen. Therefore, when your code requires more and more processing power to complete, we need to run it quickly, because every second it takes to perform application logic is a second the browser can't respond to user input or redraw the page.
+-   Отвечает за отрисовку страницы, что само по себе является сложным, многоступенчатым процессом, включающим в себя расчет стилей, обновление и компоновку слоев, а также отрисовку на экране.
+-   Отвечает за прослушивание и реакцию на события, включая такие, как прокрутка.
+-   Отвечает за загрузку и выгрузку страницы.
+-   Управление мультимедиа, безопасностью и идентификацией. И все это еще до того, как написанный вами код сможет выполняться в этом потоке, например:
+-   Манипулирование DOM.
+-   Доступ к чувствительным API, например, к возможностям устройства или медиа/безопасности/идентификации.
 
-When interactions don't connect to input, when frames drop, or when it takes too long to use a site, users get frustrated, they feel the application is broken, and their confidence in it decreases.
+Как сказал Сурма в своем выступлении [2019 Chrome Dev Summit talk](https://www.youtube.com/watch?v=7Rrv9qFMWNM&ab_channel=GoogleChromeDevelopers), главный поток перегружен работой и недополучает зарплату.
 
-The bad news? Adding complexity to the main thread is an almost sure-fire way to make meeting these goals difficult. The good news? Because what the main thread needs to do is clear: it can be used as a guide to help reduce reliance on it for the rest of your application.
+И все же большая часть кода приложений тоже живет в главном потоке.
 
-### Separations of concerns
+Весь этот код увеличивает сложность главного потока. Главный поток - единственный, который браузер может использовать для компоновки и вывода содержимого на экран. Поэтому, когда для выполнения кода требуется все больше и больше вычислительной мощности, нам необходимо запускать его быстро, поскольку каждая секунда, затраченная на выполнение логики приложения, - это секунда, в течение которой браузер не может ответить на ввод пользователя или перерисовать страницу.
 
-There are lots of different kinds of work that web applications do, but broadly speaking, you can break it down into work that directly touches the UI and work that doesn't. UI work is work that:
+Когда взаимодействие не соответствует введенным данным, когда кадры падают или когда работа с сайтом занимает слишком много времени, пользователи разочаровываются, чувствуют, что приложение не работает, и их доверие к нему снижается.
 
-* Directly touches the DOM.
-* Uses APIs that touch device capabilities, for example, notifications or file system access.
-* Touches identity, for example, user cookies, local, or session storage.
-* Manages media, for example, images, audio, or video.
-* Has security implications that would require user intervention to approve, such as the web serial API.
+Плохие новости? Добавление сложности в основной поток - почти верный способ усложнить достижение этих целей. Хорошая новость? Потому что то, что должен делать главный поток, понятно: его можно использовать как руководство к действию, чтобы уменьшить зависимость от него остальных частей приложения.
 
-Non-UI work can include things such as:
+### Разделение задач
 
-* Pure calculations.
-* Data access (fetch, IndexedDB, etc.).
-* Crypto.
-* Messaging.
-* Blob or stream creation, or manipulation.
+Существует множество различных видов работ, выполняемых веб-приложениями, но в общем случае их можно разделить на те, которые непосредственно касаются пользовательского интерфейса, и те, которые его не касаются. Работа с пользовательским интерфейсом - это работа, которая:
 
-Non-UI work is often bookended by UI work: a user clicks a button that triggers a network request for an API that returns parsed results that are then used to update the DOM. When writing code, this end-to-end experience is often considered, but where each part of that flow lives usually is not.
-The boundaries between UI work and non-UI work are as important to consider as the end-to-end experiences, as they are the first place you can reduce main thread complexity.
+-   Непосредственно обращается к DOM.
+-   Использует API, затрагивающие возможности устройства, например, уведомления или доступ к файловой системе.
+-   Затрагивает идентификационные данные, например, пользовательские cookies, локальное или сеансовое хранилище.
+-   Управление мультимедиа, например, изображениями, аудио или видео.
+-   Имеет последствия для безопасности, требующие вмешательства пользователя для утверждения, например, последовательный веб-интерфейс.
 
-#### Focus on a single task
+Работа, не связанная с пользовательским интерфейсом, может включать такие вещи, как:
 
-One of the most straightforward ways of simplifying code is breaking out functions so each focuses on a single task. Tasks can be determined by the boundaries identified by walking through the end-to-end experience:
+-   Чистые вычисления.
+-   Доступ к данным (fetch, IndexedDB и т.д.).
+-   Криптография.
+-   Обмен сообщениями.
+-   Создание или манипулирование блобами или потоками.
 
-* First, respond to user input. This is UI work.
-* Next, make an API request. This is non-UI work.
-* Next, parse the API request. This again is non-UI work.
-* Next, determine changes to the DOM. This may be UI work, or if you're using something such as a virtual DOM implementation, it may not be UI work.
-* Finally, make changes to the DOM. This is UI work.
+Работа, не связанная с пользовательским интерфейсом, часто дополняется работой с пользовательским интерфейсом: пользователь нажимает кнопку, которая запускает сетевой запрос к API, возвращающий разобранные результаты, которые затем используются для обновления DOM. При написании кода этот сквозной процесс часто рассматривается, но где находится каждая часть этого потока, обычно не учитывается. Границы между работой пользовательского интерфейса и работой, не связанной с пользовательским интерфейсом, также важны для рассмотрения, как и сквозной опыт, поскольку это первое место, где можно уменьшить сложность главного потока.
 
-The first clear boundaries are between UI work and non-UI work. Then there are judgment calls that need to be made: is making and parsing an API request one task or two? If DOM changes are non-UI work, are they bundled with the API work? In the same thread? In a different thread? The proper level of separation here is key to both simplifying your codebase and being able to successfully move pieces of it off the main thread.
+#### Сосредоточение на одной задаче
 
-#### Composability
-To break up large end-to-end workflows into smaller parts, you need to think about your codebase's composability. Taking cues from functional programming, consider:
+Одним из наиболее простых способов упрощения кода является разделение функций таким образом, чтобы каждая из них была нацелена на выполнение одной задачи. Задачи можно определить по границам, выявленным в ходе сквозного анализа:
 
-* Categorizing the types of work your application does.
-* Building common input and output interfaces for them.
+-   Во-первых, реагировать на ввод пользователя. Это работа с пользовательским интерфейсом.
+-   Затем выполнить запрос к API. Это работа, не связанная с пользовательским интерфейсом.
+-   Далее - разбор запроса API. Это снова работа, не связанная с пользовательским интерфейсом.
+-   Далее необходимо определить изменения в DOM. Это может быть работа с пользовательским интерфейсом, или, если вы используете что-то вроде реализации виртуального DOM, это может быть не работа с пользовательским интерфейсом.
+-   Наконец, внесите изменения в DOM. Это и есть работа с пользовательским интерфейсом.
 
-For instance, all API retrieval tasks take in the API endpoint and return an array of standard objects, and all data-processing functions take in and return an array of standard objects.
+Первые четкие границы проходят между работой пользовательского интерфейса и работой, не связанной с пользовательским интерфейсом. Затем необходимо принять решение: создание и разбор API-запроса - это одна задача или две? Если изменения в DOM - это работа, не связанная с пользовательским интерфейсом, то следует ли их объединить с работой API? В одном потоке? В другом потоке? Правильный уровень разделения здесь является ключом как к упрощению кодовой базы, так и к успешному перемещению ее частей за пределы основного потока.
 
-JavaScript has a [structured clone algorithm](https://developer.mozilla.org/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) meant for copying complex JavaScript objects. Web workers use it when sending messages and IndexedDB uses it to store objects. Choosing interfaces that you can use with the structured cloning algorithm will make them even more flexible to run.
+#### Совместимость
 
-With this in mind, you can create a library of composable functionality by categorizing your code and creating common I/O interfaces for those categories. Composable code is a hallmark of simple codebases: loosely coupled, interchangeable pieces that can sit “next” to each other and build on each other, as opposed to complex code that is deeply interconnected and therefore cannot be easily separated. And on the web, composable code can mean the difference between overworking the main thread or not.
+Чтобы разбить большие сквозные рабочие процессы на более мелкие части, необходимо подумать о композиционности кодовой базы. Взяв за основу функциональное программирование, рассмотрим:
 
-With composable code in hand, it's time to get some of it off the main thread.
+-   Классифицировать типы работ, выполняемых вашим приложением.
+-   Построение для них общих интерфейсов ввода и вывода.
 
-### Using web workers to reduce complexity
+Например, все задачи получения API принимают конечную точку API и возвращают массив стандартных объектов, а все функции обработки данных принимают и возвращают массив стандартных объектов.
 
-Web workers, an often underutilized but widely available web capability, let you move work off the main thread.
+В JavaScript существует [структурированный алгоритм клонирования](https://developer.mozilla.org/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), предназначенный для копирования сложных объектов JavaScript. Web-рабочие используют его при отправке сообщений, а IndexedDB - для хранения объектов. Выбор интерфейсов, которые можно использовать со структурированным алгоритмом клонирования, сделает их еще более гибкими в работе.
 
-Web workers let a PWA run (some) JavaScript outside of the main thread.
+Учитывая это, можно создать библиотеку композитной функциональности, разбив код на категории и создав общие интерфейсы ввода/вывода для этих категорий. Композитный код является отличительной чертой простых кодовых баз: слабосвязанные, взаимозаменяемые части, которые могут располагаться "рядом" друг с другом и опираться друг на друга, в отличие от сложного кода, который глубоко взаимосвязан и поэтому не может быть легко разделен. А в Интернете композитный код может означать разницу между перегрузкой основного потока и его отсутствием.
 
-There are three kinds of workers.
+Имея на руках композитный код, пора снять часть его с основного потока.
 
-*Dedicated workers*, what's most commonly thought of when describing web workers, can be used by a single script in a single running instance of a PWA. Whenever possible, work that doesn't directly interact with the DOM should be moved to a web worker to improve performance.
+### Использование веб-рабочих для снижения сложности
 
-*Shared workers* are similar to dedicated workers, except multiple scripts can share them across multiple open windows. This provides the benefits of a dedicated worker but with a shared state and internal context between windows and scripts.
+Веб-рабочие (Web workers) - часто недоиспользуемая, но широко доступная веб-возможность - позволяют перемещать работу из основного потока.
 
-A shared worker could, for instance, manage access and transactions for a PWA's IndexedDB and broadcast transaction results across all calling scripts to let them react to changes.
+Web-рабочие позволяют PWA выполнять (некоторые) JavaScript вне основного потока.
 
-The final web worker is one covered extensively in this course: *service workers*, which act as a proxy for network requests and are shared between all instances of a PWA.
+Существует три вида рабочих.
 
-### Try it yourself
+Выделенные рабочие (_Dedicated workers_), о которых чаще всего говорят при описании веб-рабочих, могут использоваться одним скриптом в одном запущенном экземпляре PWA. По возможности, работа, которая не взаимодействует напрямую с DOM, должна быть перенесена в веб-рабочий для повышения производительности.
 
-It's code time! Build a PWA from scratch based on everything you've learned in this module.
+_Shared workers_ аналогичны выделенным рабочим, за исключением того, что несколько скриптов могут совместно использовать их в нескольких открытых окнах. Это обеспечивает преимущества выделенного рабочего, но с общим состоянием и внутренним контекстом между окнами и скриптами.
 
-{% Aside 'codelab' %}
-[Progressive Web Apps: Working with Workers](https://developers.google.com/codelabs/pwa-training/pwa06--working-with-workers#0)
-{% endAside %}
+Например, общий рабочий может управлять доступом и транзакциями для индексированной базы данных PWA и транслировать результаты транзакций всем вызывающим скриптам, чтобы они могли реагировать на изменения.
 
-##  Resources
+Последний веб-рабочий - это тот, который подробно рассматривается в данном курсе: _рабочие службы_, которые выступают в качестве прокси для сетевых запросов и являются общими для всех экземпляров PWA.
 
-- [Simple Made Easy (video)](https://www.infoq.com/presentations/Simple-Made-Easy/)
-- [Using Web Workers](https://developer.mozilla.org/docs/Web/API/Web_Workers_API/Using_web_workers)
-- [Workers overview](/workers-overview/)
-- [Use web workers to run JavaScript off the browser's main thread](/off-main-thread/)
+### Попробуйте сами
 
+Настало время кода! Создайте PWA с нуля, основываясь на том, что вы узнали в этом модуле.
+
+!!!note ""
+
+    [Progressive Web Apps: Working with Workers](https://developers.google.com/codelabs/pwa-training/pwa06--working-with-workers#0)
+
+## Ресурсы
+
+-   [Simple Made Easy (видео)](https://www.infoq.com/presentations/Simple-Made-Easy/)
+-   [Использование Web Workers](https://developer.mozilla.org/docs/Web/API/Web_Workers_API/Using_web_workers)
+-   [Workers обзор](https://web.dev/articles/workers-overview)
+-   [Использование веб-рабочих для выполнения JavaScript вне основного потока браузера](https://web.dev/articles/off-main-thread)
+
+:material-information-outline: Источник &mdash; [Complexity management](https://web.dev/learn/pwa/complexity)
