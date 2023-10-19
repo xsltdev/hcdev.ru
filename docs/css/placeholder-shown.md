@@ -4,7 +4,7 @@ description: Псевдокласс :placeholder-shown определяет ст
 
 # :placeholder-shown
 
-Псевдокласс **`:placeholder-shown`** определяет стиль элемента [`<input>`](/html/input/) или [`<textarea>`](/html/textarea/), который в данный момент отображает текст подсказки, заданной атрибутом `placeholder`.
+Псевдокласс **`:placeholder-shown`** определяет стиль элемента [`<input>`](../html/input.md) или [`<textarea>`](../html/textarea.md), который в данный момент отображает текст подсказки, заданной атрибутом `placeholder`.
 
 Такая подсказка обычно исчезает при наборе текста.
 
@@ -79,13 +79,13 @@ description: Псевдокласс :placeholder-shown определяет ст
 ```css
 /* Выбирает любой элемент с активным плейсхолдером */
 :placeholder-shown {
-  border: 2px solid silver;
+    border: 2px solid silver;
 }
 ```
 
 ## Спецификация
 
-- [Selectors Level 4](https://drafts.csswg.org/selectors-4/#placeholder)
+-   [Selectors Level 4](https://drafts.csswg.org/selectors-4/#placeholder)
 
 ## Примеры
 
@@ -163,37 +163,41 @@ description: Псевдокласс :placeholder-shown определяет ст
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>:placeholder-shown</title>
-    <style>
-      input {
-        border: 1px solid green; /* Зелёная рамка */
-      }
-      input:placeholder-shown {
-        border-color: red; /* Красная рамка */
-      }
-    </style>
-  </head>
-  <body>
-    <form action="/example/handler.php">
-      <input type="text" name="login" placeholder="Логин" />
-      <input
-        type="password"
-        name="pass"
-        placeholder="Пароль"
-      />
-    </form>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>:placeholder-shown</title>
+        <style>
+            input {
+                border: 1px solid green; /* Зелёная рамка */
+            }
+            input:placeholder-shown {
+                border-color: red; /* Красная рамка */
+            }
+        </style>
+    </head>
+    <body>
+        <form action="/example/handler.php">
+            <input
+                type="text"
+                name="login"
+                placeholder="Логин"
+            />
+            <input
+                type="password"
+                name="pass"
+                placeholder="Пароль"
+            />
+        </form>
+    </body>
 </html>
 ```
 
 ## См. также
 
-- [`::placeholder`](placeholder.md)
-- [`<input>`](/html/input/)
-- [`<textarea>`](/html/textarea/)
+-   [`::placeholder`](placeholder.md)
+-   [`<input>`](../html/input.md)
+-   [`<textarea>`](../html/textarea.md)
 
 ## Ссылки
 
-- Псевдо-класс [`:placeholder-shown`](https://developer.mozilla.org/ru/docs/Web/CSS/:placeholder-shown) <sup><small>MDN (рус.)</small></sup>
+-   Псевдо-класс [`:placeholder-shown`](https://developer.mozilla.org/ru/docs/Web/CSS/:placeholder-shown) <sup><small>MDN (рус.)</small></sup>

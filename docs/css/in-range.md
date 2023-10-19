@@ -4,7 +4,7 @@ description: Псевдокласс :in-range представляет собо�
 
 # :in-range
 
-Псевдокласс **`:in-range`** представляет собой элемент [`<input>`](/html/input/), текущее значение которого находится в пределах диапазона, заданных атрибутами `min` и `max`.
+Псевдокласс **`:in-range`** представляет собой элемент [`<input>`](../html/input.md), текущее значение которого находится в пределах диапазона, заданных атрибутами `min` и `max`.
 
 Этот псевдокласс полезен для предоставления пользователю визуальной информации о том, что текущее значение поля находится в допустимых пределах.
 
@@ -82,14 +82,14 @@ description: Псевдокласс :in-range представляет собо�
 /* Selects any <input>, but only when it has a range
 	   specified, and its value is inside that range */
 input:in-range {
-  background-color: rgba(0, 255, 0, 0.25);
+    background-color: rgba(0, 255, 0, 0.25);
 }
 ```
 
 ## Спецификации
 
-- [HTML Living Standard](https://html.spec.whatwg.org/multipage/scripting.html#selector-in-range)
-- [Selectors Level 4](https://drafts.csswg.org/selectors-4/#in-range-pseudo)
+-   [HTML Living Standard](https://html.spec.whatwg.org/multipage/scripting.html#selector-in-range)
+-   [Selectors Level 4](https://drafts.csswg.org/selectors-4/#in-range-pseudo)
 
 ## Пример
 

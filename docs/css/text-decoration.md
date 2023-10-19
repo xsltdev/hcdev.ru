@@ -71,13 +71,13 @@ text-decoration: unset;
 
 ## Определение
 
-|                      |                                                                                                                                                                                                                    |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Начальное значение   | как каждое их свойств сокращения:<br>`text-decoration-color: currentcolor`<br>`text-decoration-style: solid`<br>`text-decoration-line: none`                                                                       |
-| Применяется ко       | всем элементам и псевдо-элементам `::first-letter` и `::first-line`                                                                                                                                                |
-| Наследуется          | нет                                                                                                                                                                                                                |
+|  |  |
+| --- | --- |
+| Начальное значение | как каждое их свойств сокращения:<br>`text-decoration-color: currentcolor`<br>`text-decoration-style: solid`<br>`text-decoration-line: none` |
+| Применяется ко | всем элементам и псевдо-элементам `::first-letter` и `::first-line` |
+| Наследуется | нет |
 | Вычисленное значение | как каждое их свойств сокращения:<br>`text-decoration-line`: как определено<br>`text-decoration-style`: как определено<br>`text-decoration-color`: вычисленный цвет<br>`text-decoration-thickness`: как определено |
-| Тип анимации         | как каждое их свойств сокращения:<br>`text-decoration-color`: цвет<br>`text-decoration-style`: дискретный<br>`text-decoration-line`: дискретный<br>`text-decoration-thickness`: вычисленное значение типа          |
+| Тип анимации | как каждое их свойств сокращения:<br>`text-decoration-color`: цвет<br>`text-decoration-style`: дискретный<br>`text-decoration-line`: дискретный<br>`text-decoration-thickness`: вычисленное значение типа |
 
 ## Поддержка браузерами
 
@@ -158,39 +158,41 @@ text-decoration: unset;
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>text-decoration</title>
-    <style>
-      a {
-        /* Убираем подчеркивание у ссылок */
-        text-decoration: none;
-      }
-      a:hover {
-        /* Добавляем подчёркивание 
+    <head>
+        <meta charset="utf-8" />
+        <title>text-decoration</title>
+        <style>
+            a {
+                /* Убираем подчеркивание у ссылок */
+                text-decoration: none;
+            }
+            a:hover {
+                /* Добавляем подчёркивание 
 		при наведении курсора мыши на ссылку */
-        text-decoration: underline;
-      }
-    </style>
-  </head>
-  <body>
-    <p>
-      <a href="page/1.html">Стратегическое нападение</a>
-    </p>
-  </body>
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            <a href="page/1.html"
+                >Стратегическое нападение</a
+            >
+        </p>
+    </body>
 </html>
 ```
 
 ## См. также
 
-- Элемент [`a`](/html/a/) — текст <a href="#">ссылки</a>
-- Элемент [`u`](/html/u/) — <u>подчеркнутый</u> текст
-- Элемент [`s`](/html/s/) — <s>зачеркнутый</s> текст
+-   Элемент [`a`](../html/a.md) — текст <a href="#">ссылки</a>
+-   Элемент [`u`](../html/u.md) — <u>подчеркнутый</u> текст
+-   Элемент [`s`](../html/s.md) — <s>зачеркнутый</s> текст
 
 ## Ссылки
 
-- Свойство [`text-decoration`](https://developer.mozilla.org/ru/docs/Web/CSS/text-decoration) <sup><small>MDN (рус.)</small></sup>
-- [CSS Text Decoration Module Level 4](https://drafts.csswg.org/css-text-decor-4/) <sup><small>Спецификация (eng.)</small></sup>
-- [CSS Text Decoration Module Level 3](https://w3c.github.io/csswg-drafts/css-text-decor/#text-decoration-property) <sup><small>Спецификация (eng.)</small></sup>
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/text.html#lining-striking-props) <sup><small>Спецификация (eng.)</small></sup>
-- [CSS Level 1](http://www.w3.org/TR/CSS1/#text-decoration) <sup><small>Спецификация (eng.)</small></sup>
+-   Свойство [`text-decoration`](https://developer.mozilla.org/ru/docs/Web/CSS/text-decoration) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Text Decoration Module Level 4](https://drafts.csswg.org/css-text-decor-4/) <sup><small>Спецификация (eng.)</small></sup>
+-   [CSS Text Decoration Module Level 3](https://w3c.github.io/csswg-drafts/css-text-decor/#text-decoration-property) <sup><small>Спецификация (eng.)</small></sup>
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/text.html#lining-striking-props) <sup><small>Спецификация (eng.)</small></sup>
+-   [CSS Level 1](http://www.w3.org/TR/CSS1/#text-decoration) <sup><small>Спецификация (eng.)</small></sup>

@@ -77,7 +77,7 @@ description: Псевдо-класс :indeterminate представляет л�
 ```css
 /* Selects any <input> whose state is indeterminate */
 input:indeterminate {
-  background: lime;
+    background: lime;
 }
 ```
 
@@ -85,16 +85,16 @@ input:indeterminate {
 
 Элементы, предназначенные для этого селектора:
 
-- [`<input type="checkbox">`](/html/input/) элементы, неопределенное свойство которых установлено в JavaScript
-- [`<input type="radio">`](/html/input/), когда все переключатели с одинаковым именем в форме не отмечены
-- [`<progress>`](/html/progress/) в неопределенном состоянии
+-   [`<input type="checkbox">`](../html/input.md) элементы, неопределенное свойство которых установлено в JavaScript
+-   [`<input type="radio">`](../html/input.md), когда все переключатели с одинаковым именем в форме не отмечены
+-   [`<progress>`](../html/progress.md) в неопределенном состоянии
 
 ## Спецификации
 
-- [HTML Living Standard](https://html.spec.whatwg.org/multipage/#selector-indeterminate)
-- [HTML5](http://www.w3.org/TR/html5/#selector-indeterminate)
-- [Selectors Level 4](https://drafts.csswg.org/selectors-4/#indeterminate)
-- [CSS Basic User Interface Module Level 3](https://drafts.csswg.org/css-ui-3/#indeterminate)
+-   [HTML Living Standard](https://html.spec.whatwg.org/multipage/#selector-indeterminate)
+-   [HTML5](http://www.w3.org/TR/html5/#selector-indeterminate)
+-   [Selectors Level 4](https://drafts.csswg.org/selectors-4/#indeterminate)
+-   [CSS Basic User Interface Module Level 3](https://drafts.csswg.org/css-ui-3/#indeterminate)
 
 ## Пример
 

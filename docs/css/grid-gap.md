@@ -64,19 +64,18 @@ grid-gap: unset;
 
 Значение по-умолчанию:
 
-- [`grid-row-gap`](grid-row-gap.md): `0`
-- [`grid-column-gap`](grid-column-gap.md): `0`
+-   [`grid-row-gap`](grid-row-gap.md): `0`
+-   [`grid-column-gap`](grid-column-gap.md): `0`
 
 Применяется к grid-контейнерам
 
 Анимируется: да
 
-`<grid-row-gap>` `<grid-column-gap>`
-: значения размеров;
+`<grid-row-gap>` `<grid-column-gap>` : значения размеров;
 
 ## Спецификации
 
-- [CSS Grid Layout](https://drafts.csswg.org/css-grid/#propdef-grid-gap)
+-   [CSS Grid Layout](https://drafts.csswg.org/css-grid/#propdef-grid-gap)
 
 ## Поддержка браузерами
 
@@ -88,9 +87,9 @@ grid-gap: unset;
 
 ```css
 .container {
-  grid-template-columns: 100px 50px 100px;
-  grid-template-rows: 80px auto 80px;
-  grid-gap: 10px 15px;
+    grid-template-columns: 100px 50px 100px;
+    grid-template-rows: 80px auto 80px;
+    grid-gap: 10px 15px;
 }
 ```
 
@@ -98,4 +97,4 @@ grid-gap: unset;
 
 ## См. также
 
-- [Руководство по Grid Layout](/grid/)
+-   [Руководство по Grid Layout](../learn/grid/index.md)

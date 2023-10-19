@@ -66,17 +66,16 @@ grid-column: unset;
 
 ## Значения
 
-`<start-line> / <end-line>`
-: каждый из них принимает тоже самое, что и в длинной версии, включая охват;
+`<start-line> / <end-line>` : каждый из них принимает тоже самое, что и в длинной версии, включая охват;
 
 Значение по-умолчанию:
 
-- [`grid-column-start`](grid-column-start.md): `auto`
-- [`grid-column-end`](grid-column-end.md): `auto`
+-   [`grid-column-start`](grid-column-start.md): `auto`
+-   [`grid-column-end`](grid-column-end.md): `auto`
 
 ## Спецификации
 
-- [CSS Grid Layout](https://drafts.csswg.org/css-grid/#propdef-grid-column)
+-   [CSS Grid Layout](https://drafts.csswg.org/css-grid/#propdef-grid-column)
 
 ## Поддержка браузерами
 
@@ -88,8 +87,8 @@ grid-column: unset;
 
 ```css
 .item-c {
-  grid-column: 3 / span 2;
-  grid-row: third-line / 4;
+    grid-column: 3 / span 2;
+    grid-row: third-line / 4;
 }
 ```
 
@@ -99,4 +98,4 @@ grid-column: unset;
 
 ## См. также
 
-- [Руководство по Grid Layout](/grid/)
+-   [Руководство по Grid Layout](../learn/grid/index.md)

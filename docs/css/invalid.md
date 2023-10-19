@@ -4,7 +4,7 @@ description: Псевдо-класс :invalid находит любые input и
 
 # :invalid
 
-Псевдо-класс **`:invalid`** находит любые [`<input>`](/html/input/) или [`<form>`](/html/form/) элементы, контент которых не проходит валидацию, в соответствии с типом поля. Он позволяет вам легко менять внешний вид полей, что позволяет пользователю видеть и исправлять ошибки.
+Псевдо-класс **`:invalid`** находит любые [`<input>`](../html/input.md) или [`<form>`](../html/form.md) элементы, контент которых не проходит валидацию, в соответствии с типом поля. Он позволяет вам легко менять внешний вид полей, что позволяет пользователю видеть и исправлять ошибки.
 
 !!! warn "Замечание"
 
@@ -78,10 +78,10 @@ description: Псевдо-класс :invalid находит любые input и
 
 ## Спецификации
 
-- [HTML Living Standard](https://html.spec.whatwg.org/multipage/#selector-invalid)
-- [HTML5](https://www.w3.org/TR/html50/#selector-invalid)
-- [Selectors Level 4](https://drafts.csswg.org/selectors-4/#validity-pseudos)
-- [CSS Basic User Interface Module Level 3](https://drafts.csswg.org/css-ui-3/#pseudo-validity)
+-   [HTML Living Standard](https://html.spec.whatwg.org/multipage/#selector-invalid)
+-   [HTML5](https://www.w3.org/TR/html50/#selector-invalid)
+-   [Selectors Level 4](https://drafts.csswg.org/selectors-4/#validity-pseudos)
+-   [CSS Basic User Interface Module Level 3](https://drafts.csswg.org/css-ui-3/#pseudo-validity)
 
 ## Пример 1
 
@@ -166,10 +166,10 @@ description: Псевдо-класс :invalid находит любые input и
 
 ## См. также
 
-- [`:valid`](valid.md)
-- [`:required`](required.md)
-- [`:optional`](optional.md)
+-   [`:valid`](valid.md)
+-   [`:required`](required.md)
+-   [`:optional`](optional.md)
 
 ## Ссылки
 
-- Псевдо-класс [`:invalid`](https://developer.mozilla.org/ru/docs/Web/CSS/:invalid) <sup><small>MDN (рус.)</small></sup>
+-   Псевдо-класс [`:invalid`](https://developer.mozilla.org/ru/docs/Web/CSS/:invalid) <sup><small>MDN (рус.)</small></sup>

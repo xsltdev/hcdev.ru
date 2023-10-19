@@ -32,22 +32,22 @@ description: С помощью псевдоэлемента ::placeholder зад
 
 ```css
 ::placeholder {
-  color: blue;
-  font-size: 1.5em;
+    color: blue;
+    font-size: 1.5em;
 }
 ```
 
 ## Спецификация
 
-- [CSS Pseudo-Elements Level 4](https://drafts.csswg.org/css-pseudo-4/#placeholder-pseudo)
+-   [CSS Pseudo-Elements Level 4](https://drafts.csswg.org/css-pseudo-4/#placeholder-pseudo)
 
 ## Примечания
 
-- Internet Explorer использует псевдокласс `:-ms-input-placeholder`.
-- Microsoft Edge использует псевдоэлемент `::-ms-input-placeholder`.
-- Chrome, до версии 57, Opera до версии 44, Safari до версии 10.1 и Android используют псевдоэлемент `::-webkit-input-placeholder`.
-- Firefox с версии 4 и до 19 использует псевдокласс `:-moz-placeholder`.
-- Firefox до версии 51 использует псевдоэлемент `::-moz-placeholder`.
+-   Internet Explorer использует псевдокласс `:-ms-input-placeholder`.
+-   Microsoft Edge использует псевдоэлемент `::-ms-input-placeholder`.
+-   Chrome, до версии 57, Opera до версии 44, Safari до версии 10.1 и Android используют псевдоэлемент `::-webkit-input-placeholder`.
+-   Firefox с версии 4 и до 19 использует псевдокласс `:-moz-placeholder`.
+-   Firefox до версии 51 использует псевдоэлемент `::-moz-placeholder`.
 
 ## Пример 1
 
@@ -72,48 +72,48 @@ description: С помощью псевдоэлемента ::placeholder зад
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>placeholder</title>
-    <style>
-      body {
-        background: #053f38;
-      }
-      input[type='search'] {
-        border: 1px solid #98baba; /* Параметры рамки */
-        background: transparent; /* Прозрачный фон */
-        padding: 1px 4px; /* Поля вокруг текста */
-        color: #fff; /* Цвет текста */
-      }
-      input[type='search']::-moz-placeholder {
-        color: #ffd595; /* Цвет подсказывающего текста */
-      }
-      input[type='search']::-webkit-input-placeholder {
-        color: #ffd595;
-      }
-      input[type='search']:-ms-input-placeholder {
-        color: #ffd595;
-      }
-      input[type='search']::-ms-input-placeholder {
-        color: #ffd595;
-      }
-      input[type='search']::placeholder {
-        color: #ffd595;
-      }
-    </style>
-  </head>
-  <body>
-    <form action="handler.php">
-      <p>
-        <input
-          type="search"
-          placeholder="Поиск по сайту"
-          name="q"
-        />
-        <input type="submit" value="Найти" />
-      </p>
-    </form>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>placeholder</title>
+        <style>
+            body {
+                background: #053f38;
+            }
+            input[type='search'] {
+                border: 1px solid #98baba; /* Параметры рамки */
+                background: transparent; /* Прозрачный фон */
+                padding: 1px 4px; /* Поля вокруг текста */
+                color: #fff; /* Цвет текста */
+            }
+            input[type='search']::-moz-placeholder {
+                color: #ffd595; /* Цвет подсказывающего текста */
+            }
+            input[type='search']::-webkit-input-placeholder {
+                color: #ffd595;
+            }
+            input[type='search']:-ms-input-placeholder {
+                color: #ffd595;
+            }
+            input[type='search']::-ms-input-placeholder {
+                color: #ffd595;
+            }
+            input[type='search']::placeholder {
+                color: #ffd595;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="handler.php">
+            <p>
+                <input
+                    type="search"
+                    placeholder="Поиск по сайту"
+                    name="q"
+                />
+                <input type="submit" value="Найти" />
+            </p>
+        </form>
+    </body>
 </html>
 ```
 
@@ -123,10 +123,10 @@ description: С помощью псевдоэлемента ::placeholder зад
 
 ## См. также
 
-- [`:placeholder-shown`](placeholder-shown.md)
-- [`<input>`](/html/input/)
-- [`<textarea>`](/html/textarea/)
+-   [`:placeholder-shown`](placeholder-shown.md)
+-   [`<input>`](../html/input.md)
+-   [`<textarea>`](../html/textarea.md)
 
 ## Ссылки
 
-- Псевдо-элемент [`::placeholder`](https://developer.mozilla.org/en-US/docs/Web/CSS/::placeholder) <sup><small>MDN (рус.)</small></sup>
+-   Псевдо-элемент [`::placeholder`](https://developer.mozilla.org/en-US/docs/Web/CSS/::placeholder) <sup><small>MDN (рус.)</small></sup>

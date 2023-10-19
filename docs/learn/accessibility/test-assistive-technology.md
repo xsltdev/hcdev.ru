@@ -1,25 +1,23 @@
 ---
 title: 'Assistive Technology testing'
 authors:
-  - cariefisher
+    - cariefisher
 description: How to test with Assistive Technology (AT).
 date: 2023-01-12
 tags:
-  - accessibility
+    - accessibility
 ---
 
-{% Aside %}
-This module is a continuation of the previous two testing modules, [automated accessibility testing](/learn/accessibility/automated-test/) and [manual accessibility testing](/learn/accessibility/manual-test/). If you have not gone through the exercises in those modules yet, we encourage you to do so, as this module starts where they left off.
-{% endAside %}
+{% Aside %} This module is a continuation of the previous two testing modules, [automated accessibility testing](test-automated.md) and [manual accessibility testing](test-manual.md). If you have not gone through the exercises in those modules yet, we encourage you to do so, as this module starts where they left off. {% endAside %}
 
 This module focuses on using assistive technology (AT) for accessibility testing. A person with disabilities can use AT to help increase, maintain, or improve the capabilities of performing a task.
 
 In the digital space, ATs can be:
 
-* No/Low-tech: head/mouth sticks, hand-held magnifiers, devices with large buttons
-* High-tech: voice-activated devices, eye-tracking devices, adaptive keyboards/mice
-* Hardware: switch buttons, ergonomic keyboards, auto-refreshing Braille device
-* Software: text-to-speech programs, live captions, screen readers
+-   No/Low-tech: head/mouth sticks, hand-held magnifiers, devices with large buttons
+-   High-tech: voice-activated devices, eye-tracking devices, adaptive keyboards/mice
+-   Hardware: switch buttons, ergonomic keyboards, auto-refreshing Braille device
+-   Software: text-to-speech programs, live captions, screen readers
 
 We encourage you to use multiple types of ATs in your overall testing workflow.
 
@@ -33,7 +31,7 @@ Screen readers are essential for people who are blind and deafblind, but they al
 
 There are multiple screen reader options available. The [most popular screen readers](https://webaim.org/projects/screenreadersurvey9) today are JAWS, NVDA, and VoiceOver for desktop computers and VoiceOver and Talkback for mobile devices.
 
-Depending on your operating system (OS), favorite browser, and the device that you use, one screen reader may stand out as the best option. Most screen readers are  built with specific hardware and web browsers in mind. When you use a screen reader with a browser it was not calibrated for, you may encounter more "bugs" or unexpected behavior. Screen readers work best when used in the following combinations.
+Depending on your operating system (OS), favorite browser, and the device that you use, one screen reader may stand out as the best option. Most screen readers are built with specific hardware and web browsers in mind. When you use a screen reader with a browser it was not calibrated for, you may encounter more "bugs" or unexpected behavior. Screen readers work best when used in the following combinations.
 
 <div class="table-wrapper scrollbar">
   <table>
@@ -242,13 +240,9 @@ To test our demo, we used a Safari on a laptop running MacOS and capture sound. 
 
 ### Step 1
 
-Visit the updated [CodePen](https://codepen.io/web-dot-dev/pen/eYjZdve), which
-has all the automated and manual accessibility updates applied.
+Visit the updated [CodePen](https://codepen.io/web-dot-dev/pen/eYjZdve), which has all the automated and manual accessibility updates applied.
 
-View it in [debug mode](https://cdpn.io/pen/debug/eYjZdve) to proceed with the
-next tests. This is important, as it removes the `<iframe>` which surrounds the
-demo webpage, which may interfere with some testing tools. Learn more about
-[CodePen's debug mode](https://blog.codepen.io/documentation/debug-view/#getting-to-debug-view-3).
+View it in [debug mode](https://cdpn.io/pen/debug/eYjZdve) to proceed with the next tests. This is important, as it removes the `<iframe>` which surrounds the demo webpage, which may interfere with some testing tools. Learn more about [CodePen's debug mode](https://blog.codepen.io/documentation/debug-view/#getting-to-debug-view-3).
 
 ### Step 2
 
@@ -260,8 +254,8 @@ We've recorded the our screen reader for each issue, before and after the fixes 
 
 Headings and landmarks are one of the primary ways people navigate using screen readers. If these are not present, a screen reader user has to read the entire page to understand the context. This can take a lot of time and cause frustration. If you try to navigate by either element in the demo, you will quickly discover that they do not exist.
 
-* Landmark example: `<div class="main">...</div>`
-* Heading example: `<p class="h1">Join the Club</p>`
+-   Landmark example: `<div class="main">...</div>`
+-   Heading example: `<p class="h1">Join the Club</p>`
 
 If you have updated everything correctly, there should not be any visual changes, but your screen reader experience will have dramatically improved.
 
@@ -276,7 +270,7 @@ If you have updated everything correctly, there should not be any visual changes
   </figure> <strong>Let's fix it.</strong>
 </span>
 
-Some inaccessible elements can't be observed by just looking at the site. You may remember the importance of heading levels and semantic HTML from the [Content structure](/learn/accessibility/structure) module. A piece of content may look like a heading, but the content is actually wrapped in a stylized `<div>`.
+Some inaccessible elements can't be observed by just looking at the site. You may remember the importance of heading levels and semantic HTML from the [Content structure](structure.md) module. A piece of content may look like a heading, but the content is actually wrapped in a stylized `<div>`.
 
 To fix the issue with headings and landmarks, you must first identify each element that should be marked up as such and update the related HTML. Be sure to update the related CSS as well.
 
@@ -298,8 +292,10 @@ It's important to give content to screen reader users about the purpose of a lin
 In our demo, we fixed most of the links when we updated the active image alternative text, but there are a few additional links about the various rare diseases that could benefit from additional context—especially since they redirect to a new location.
 
 ```html
-<a href="https://rarediseases.org/rare-diseases/maple-syrup-urine-disease">
-  Maple syrup urine disease (MSUD)
+<a
+    href="https://rarediseases.org/rare-diseases/maple-syrup-urine-disease"
+>
+    Maple syrup urine disease (MSUD)
 </a>
 ```
 
@@ -319,9 +315,11 @@ To fix this issue for screen reader users, we update the code to add more inform
 There are many different patterns we may consider to add additional link information. Based on our simple environment that supports just one language, an ARIA label is a straightforward option in this situation. You may notice that the ARIA label overrides the original link text, so make sure to include that information in your update.
 
 ```html
-<a href="https://rarediseases.org/rare-diseases/maple-syrup-urine-disease"
-  aria-label="Learn more about Maple syrup urine disease on the Rare Diseases website.">
-  Maple syrup urine disease (MSUD)
+<a
+    href="https://rarediseases.org/rare-diseases/maple-syrup-urine-disease"
+    aria-label="Learn more about Maple syrup urine disease on the Rare Diseases website."
+>
+    Maple syrup urine disease (MSUD)
 </a>
 ```
 
@@ -336,7 +334,7 @@ In our automated testing module, Lighthouse was unable to pick up on the inline 
 
 ```html
 <div class="section-right">
-  <svg>...</svg>
+    <svg>...</svg>
 </div>
 ```
 
@@ -351,13 +349,13 @@ In our automated testing module, Lighthouse was unable to pick up on the inline 
   </figure> <strong>Let's fix it.</strong>
 </span>
 
-To fix this issue, we first need to decide if the image is [informative](/learn/accessibility/images/#informative-images) or [decorative](/learn/accessibility/images/#decorative-images). Based on that decision, we need to add the appropriate image alternative text (informative image) or hide the image from screen reader users (decorative).
+To fix this issue, we first need to decide if the image is [informative](images.md#informative-images) or [decorative](images.md#decorative-images). Based on that decision, we need to add the appropriate image alternative text (informative image) or hide the image from screen reader users (decorative).
 
 We weighed the pros and cons of how best to categorize the image and decided it was decorative, which means we want to add or modify the code to hide the image. A quick method is to add a `role="presentation"` to the SVG image directly. This sends a signal to the screen reader to skip over this image and not list it in the images group.
 
 ```html
 <div class="section-right">
-  <svg role="presentation">...</svg>
+    <svg role="presentation">...</svg>
 </div>
 ```
 
@@ -368,10 +366,7 @@ We weighed the pros and cons of how best to categorize the image and decided it 
 
 ### Issue 4: Bullet decoration {: #bullet-decoration}
 
-You may have noticed that the screen reader reads the CSS bullet image under
-the rare diseases sections. While not the traditional type of image we
-discussed in the Images module, the image still must be modified as it disrupts
-the flow of the content and could distract or confuse a screen reader user.
+You may have noticed that the screen reader reads the CSS bullet image under the rare diseases sections. While not the traditional type of image we discussed in the Images module, the image still must be modified as it disrupts the flow of the content and could distract or confuse a screen reader user.
 
 ```html
 <p class="bullet">...</p>
@@ -396,18 +391,20 @@ Much like the decorative image example discussed earlier, you can add a `role="p
 
 ### Issue 5: Form field
 
-In the [Forms](/learn/accessibility/forms/) module, we learned that all form
-fields must also have a visual and programmatic label. This label must remain
-visible at all times.
+In the [Forms](forms.md) module, we learned that all form fields must also have a visual and programmatic label. This label must remain visible at all times.
 
 In our demo, we're missing both a visual and programmatic label on our newsletter sign-up email field. There is a text placeholder element, but this does not replace the label as it's not visually persistent and is not fully compatible with all screen readers.
 
 ```html
 <form>
-  <div class="form-group">
-    <input type="email" placeholder="Enter your e-mail address" required>
-    <button type="submit">Subscribe</button>
-  </div>
+    <div class="form-group">
+        <input
+            type="email"
+            placeholder="Enter your e-mail address"
+            required
+        />
+        <button type="submit">Subscribe</button>
+    </div>
 </form>
 ```
 
@@ -426,11 +423,24 @@ To fix this issue, replace the text placeholder with a look-alike label element.
 
 ```html
 <form>
-  <div class="form-group">
-    <input type="email" required id="youremail" name="youremail" type="text">
-    <label for="youremail">Enter your e-mail address</label>
-    <button type="submit" aria-label="Subscribe to our newsletter">Subscribe</button>
-  </div>
+    <div class="form-group">
+        <input
+            type="email"
+            required
+            id="youremail"
+            name="youremail"
+            type="text"
+        />
+        <label for="youremail"
+            >Enter your e-mail address</label
+        >
+        <button
+            type="submit"
+            aria-label="Subscribe to our newsletter"
+        >
+            Subscribe
+        </button>
+    </div>
 </form>
 ```
 
@@ -443,13 +453,8 @@ To fix this issue, replace the text placeholder with a look-alike label element.
 
 Congratulations! You have completed all of the testing for this demo. You can look at all of these changes in the [updated Codepen for this demo](https://codepen.io/web-dot-dev/pen/PoBZgrW).
 
-Now, you can use what you've learned to review the accessibility of your own
-websites and apps.
+Now, you can use what you've learned to review the accessibility of your own websites and apps.
 
-The goal of all of this accessibility testing is to address as many possible
-issues that a user may potentially encounter. However, this does not mean that your website or app
-will be perfectly accessible when you're finished. You'll find the most success by
-designing your website or app with accessibility throughout the process, and
-incorporating these tests with your other pre-launch testing.
+The goal of all of this accessibility testing is to address as many possible issues that a user may potentially encounter. However, this does not mean that your website or app will be perfectly accessible when you're finished. You'll find the most success by designing your website or app with accessibility throughout the process, and incorporating these tests with your other pre-launch testing.
 
 {% Assessment 'at' %}

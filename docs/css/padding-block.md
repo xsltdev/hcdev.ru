@@ -12,8 +12,8 @@ description: Сокращенное свойство CSS padding-block опре�
 
 Это свойство является сокращением для следующих свойств CSS:
 
-- [`padding-block-end`](padding-block-end.md)
-- [`padding-block-start`](padding-block-start)
+-   [`padding-block-end`](padding-block-end.md)
+-   [`padding-block-start`](padding-block-start.md)
 
 ??? info "Логические блоки"
 
@@ -70,5 +70,5 @@ padding-block: unset;
 
 ## Ссылки
 
-- Свойство [`padding-block`](https://developer.mozilla.org/ru/docs/Web/CSS/padding-block) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#propdef-padding-block) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`padding-block`](https://developer.mozilla.org/ru/docs/Web/CSS/padding-block) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#propdef-padding-block) <sup><small>Spec (англ.)</small></sup>

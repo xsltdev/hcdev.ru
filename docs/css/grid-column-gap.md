@@ -57,12 +57,11 @@ grid-column-gap: unset;
 
 Анимируется: да
 
-`<line-size>`
-: значение размера;
+`<line-size>` : значение размера;
 
 ## Спецификации
 
-- [CSS Grid Layout](https://drafts.csswg.org/css-grid/#propdef-grid-column-gap)
+-   [CSS Grid Layout](https://drafts.csswg.org/css-grid/#propdef-grid-column-gap)
 
 ## Поддержка браузерами
 
@@ -74,10 +73,10 @@ grid-column-gap: unset;
 
 ```css
 .container {
-  grid-template-columns: 100px 50px 100px;
-  grid-template-rows: 80px auto 80px;
-  grid-column-gap: 10px;
-  grid-row-gap: 15px;
+    grid-template-columns: 100px 50px 100px;
+    grid-template-rows: 80px auto 80px;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
 }
 ```
 
@@ -87,4 +86,4 @@ grid-column-gap: unset;
 
 ## См. также
 
-- [Руководство по Grid Layout](/grid/)
+-   [Руководство по Grid Layout](../learn/grid/index.md)

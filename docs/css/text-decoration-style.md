@@ -10,7 +10,7 @@ description: CSS-свойство text-decoration-style задает стиль 
 
 <iframe class="interactive is-default-height" height="200" src="https://interactive-examples.mdn.mozilla.net/pages/css/text-decoration-style.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
 
-Если указанное украшение имеет определенное семантическое значение, например сквозная строка, означающая, что какой-то текст был удален, авторам рекомендуется обозначать это значение с помощью тега HTML, например [`<del>`](/html/del/) или [`<s>`](/html/s/). Поскольку в некоторых случаях браузеры могут отключать стилизацию, смысловое значение в такой ситуации не исчезнет.
+Если указанное украшение имеет определенное семантическое значение, например сквозная строка, означающая, что какой-то текст был удален, авторам рекомендуется обозначать это значение с помощью тега HTML, например [`<del>`](../html/del.md) или [`<s>`](../html/s.md). Поскольку в некоторых случаях браузеры могут отключать стилизацию, смысловое значение в такой ситуации не исчезнет.
 
 При одновременной настройке нескольких свойств `line-decoration` может оказаться более удобным вместо этого использовать сокращенное свойство [`text-decoration`](text-decoration.md).
 
@@ -81,7 +81,7 @@ text-decoration-style: unset;
 
 ## Спецификация
 
-- [CSS Text Decoration Module Level 3](https://w3c.github.io/csswg-drafts/css-text-decor/#text-decoration-style-property)
+-   [CSS Text Decoration Module Level 3](https://w3c.github.io/csswg-drafts/css-text-decor/#text-decoration-style-property)
 
 ## Поддержка браузерами
 

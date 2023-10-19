@@ -63,21 +63,17 @@ grid-column-start: unset;
 
 Значение по-умолчанию: `auto`
 
-`<line>`
-: может быть числом ссылающимся на пронумерованную линию, или названием ссылающимся на именованую линию;
+`<line>` : может быть числом ссылающимся на пронумерованную линию, или названием ссылающимся на именованую линию;
 
-`span <number>`
-: элемент, который будет охватывать предоставленное количество треков;
+`span <number>` : элемент, который будет охватывать предоставленное количество треков;
 
-`span <name>`
-: элемент будет будет охватывать пока не достигнет линии с указанным названием;
+`span <name>` : элемент будет будет охватывать пока не достигнет линии с указанным названием;
 
-`auto`
-: указывает автоматическое размещения, автоматическое охват, или охват по умолчанию;
+`auto` : указывает автоматическое размещения, автоматическое охват, или охват по умолчанию;
 
 ## Спецификации
 
-- [CSS Grid Layout](https://drafts.csswg.org/css-grid/#propdef-grid-column-start)
+-   [CSS Grid Layout](https://drafts.csswg.org/css-grid/#propdef-grid-column-start)
 
 ## Поддержка браузерами
 
@@ -91,10 +87,10 @@ grid-column-start: unset;
 
 ```css
 .item-a {
-  grid-column-start: 2;
-  grid-column-end: five;
-  grid-row-start: row1-start;
-  grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: five;
+    grid-row-start: row1-start;
+    grid-row-end: 3;
 }
 ```
 
@@ -102,10 +98,10 @@ grid-column-start: unset;
 
 ```css
 .item-b {
-  grid-column-start: 1;
-  grid-column-end: span col4-start;
-  grid-row-start: 2;
-  grid-row-end: span 2;
+    grid-column-start: 1;
+    grid-column-end: span col4-start;
+    grid-row-start: 2;
+    grid-row-end: span 2;
 }
 ```
 
@@ -117,4 +113,4 @@ grid-column-start: unset;
 
 ## См. также
 
-- [Руководство по Grid Layout](/grid/)
+-   [Руководство по Grid Layout](../learn/grid/index.md)

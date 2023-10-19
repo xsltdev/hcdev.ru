@@ -55,8 +55,8 @@ grid: 200px / auto-flow;
 grid: 30% / auto-flow dense;
 grid: repeat(3, [line1 line2 line3] 200px) / auto-flow 300px;
 grid:
-  [line1] minmax(20em, max-content)
-  / auto-flow dense 40%;
+    [line1] minmax(20em, max-content)
+    / auto-flow dense 40%;
 
 /* [ auto-flow && dense? ] <'grid-auto-rows'>? /
 	<'grid-template-columns'> values */
@@ -75,14 +75,14 @@ grid: unset;
 
 Значение по-умолчанию:
 
-- [`grid-template-rows: none`](grid-template-rows.md)
-- [`grid-template-columns: none`](grid-template-columns.md)
-- [`grid-template-areas: none`](grid-template-areas.md)
-- [`grid-auto-rows: auto`](grid-auto-rows.md)
-- [`grid-auto-columns: auto`](grid-auto-columns.md)
-- [`grid-auto-flow: row`](grid-auto-flow.md)
-- [`grid-column-gap: 0`](grid-column-gap.md)
-- [`grid-row-gap: 0`](grid-row-gap.md)
+-   [`grid-template-rows: none`](grid-template-rows.md)
+-   [`grid-template-columns: none`](grid-template-columns.md)
+-   [`grid-template-areas: none`](grid-template-areas.md)
+-   [`grid-auto-rows: auto`](grid-auto-rows.md)
+-   [`grid-auto-columns: auto`](grid-auto-columns.md)
+-   [`grid-auto-flow: row`](grid-auto-flow.md)
+-   [`grid-column-gap: 0`](grid-column-gap.md)
+-   [`grid-row-gap: 0`](grid-row-gap.md)
 
 Наследуется: нет
 
@@ -92,18 +92,15 @@ grid: unset;
 
 Объектная модель: `object.style.grid`
 
-`<'grid-template'>`
-: Определяет grid-template (шаблон сетки) включая grid-template-columns (столбцы), grid-template-rows (ряды) и grid-template-areas (области).
+`<'grid-template'>` : Определяет grid-template (шаблон сетки) включая grid-template-columns (столбцы), grid-template-rows (ряды) и grid-template-areas (области).
 
-`<'grid-template-rows'> / [ auto-flow && dense? ] <'grid-auto-columns'>?`
-: Устанавливает auto-flow явно задавая размещение по рядам с помощью свойства grid-template-rows (и устанавливая свойство grid-template-columns в значение none) и уточняет, как должно работать авто-повторение столбцов при помощи свойства grid-auto-columns (и устанавливая grid-auto-rows в значение auto). Свойство grid-auto-flow может быть так же установлено для столбцев со свойством dense если оно определено. Все остальные подсвойства grid сбрасываются в их начальные значения.
+`<'grid-template-rows'> / [ auto-flow && dense? ] <'grid-auto-columns'>?` : Устанавливает auto-flow явно задавая размещение по рядам с помощью свойства grid-template-rows (и устанавливая свойство grid-template-columns в значение none) и уточняет, как должно работать авто-повторение столбцов при помощи свойства grid-auto-columns (и устанавливая grid-auto-rows в значение auto). Свойство grid-auto-flow может быть так же установлено для столбцев со свойством dense если оно определено. Все остальные подсвойства grid сбрасываются в их начальные значения.
 
-`[ auto-flow && dense? ] <'grid-auto-rows'>? / <'grid-template-columns'>`
-: Устанавливает auto-flow явно задавая размещение по столбцам с помощью свойства grid-template-columns (и устанавливая свойство grid-template-rows в значение none) и уточняет, как должно работать авто-повторение рядов при помощи свойства grid-auto-rows (и устанавливая grid-auto-columns в значение auto). Свойство grid-auto-flow может быть так же установлено для рядов со свойством dense если оно определено. Все остальные подсвойства grid сбрасываются в их начальные значения.
+`[ auto-flow && dense? ] <'grid-auto-rows'>? / <'grid-template-columns'>` : Устанавливает auto-flow явно задавая размещение по столбцам с помощью свойства grid-template-columns (и устанавливая свойство grid-template-rows в значение none) и уточняет, как должно работать авто-повторение рядов при помощи свойства grid-auto-rows (и устанавливая grid-auto-columns в значение auto). Свойство grid-auto-flow может быть так же установлено для рядов со свойством dense если оно определено. Все остальные подсвойства grid сбрасываются в их начальные значения.
 
 ## Спецификации
 
-- [CSS Grid Layout](https://drafts.csswg.org/css-grid/#propdef-grid)
+-   [CSS Grid Layout](https://drafts.csswg.org/css-grid/#propdef-grid)
 
 ## Поддержка браузерами
 
@@ -117,14 +114,14 @@ HTML
 
 ```html
 <div id="container">
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
 </div>
 ```
 
@@ -132,14 +129,14 @@ CSS
 
 ```css
 #container {
-  display: grid;
-  grid: repeat(2, 60px) / auto-flow 80px;
+    display: grid;
+    grid: repeat(2, 60px) / auto-flow 80px;
 }
 
 #container > div {
-  background-color: #8ca0ff;
-  width: 50px;
-  height: 50px;
+    background-color: #8ca0ff;
+    width: 50px;
+    height: 50px;
 }
 ```
 
@@ -149,4 +146,4 @@ CSS
 
 ## См. также
 
-- [Руководство по Grid Layout](/grid/)
+-   [Руководство по Grid Layout](../learn/grid/index.md)

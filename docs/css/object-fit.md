@@ -4,7 +4,7 @@ description: Свойство object-fit управляет соотношени
 
 # object-fit
 
-Свойство **`object-fit`** управляет соотношением сторон заменяемых элементов, таких как [`<img>`](/html/img/) и [`<video>`](/html/video/), когда у них задана ширина или высота, а также способом масштабирования.
+Свойство **`object-fit`** управляет соотношением сторон заменяемых элементов, таких как [`<img>`](../html/img.md) и [`<video>`](../html/video.md), когда у них задана ширина или высота, а также способом масштабирования.
 
 Свойство `object-fit` может сохранять исходные пропорции элемента или наоборот, искажать пропорции, в угоду соблюдения размеров.
 
@@ -89,29 +89,24 @@ object-fit: unset;
 
 ## Значения
 
-`fill`
-: Элемент масштабируется, чтобы соответствовать заданным размерам, при этом пропорции игнорируются.
+`fill` : Элемент масштабируется, чтобы соответствовать заданным размерам, при этом пропорции игнорируются.
 
-`contain`
-: Элемент масштабируется, чтобы целиком уместиться в заданные размеры с соблюдением пропорций.
+`contain` : Элемент масштабируется, чтобы целиком уместиться в заданные размеры с соблюдением пропорций.
 
-`cover`
-: Элемент увеличивается или уменьшается, чтобы целиком заполнить заданную область с сохранением пропорций.
+`cover` : Элемент увеличивается или уменьшается, чтобы целиком заполнить заданную область с сохранением пропорций.
 
-`none`
-: Сохраняются исходные пропорции элемента, установленные значения ширины или высоты не влияют на содержимое.
+`none` : Сохраняются исходные пропорции элемента, установленные значения ширины или высоты не влияют на содержимое.
 
-`scale-down`
-: Содержимое имеет такой размер, как если бы не было указано `none` или `contains`, в зависимости от того, что привело бы к меньшему размеру конкретного объекта.
+`scale-down` : Содержимое имеет такой размер, как если бы не было указано `none` или `contains`, в зависимости от того, что привело бы к меньшему размеру конкретного объекта.
 
 Влияние разных значений на фотографии продемонстрировано на рис. 1. Был использован следующий стиль.
 
 ```css
 img {
-  background: #ccc;
-  overflow: hidden;
-  width: 200px;
-  height: 200px;
+    background: #ccc;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
 }
 ```
 
@@ -141,8 +136,8 @@ object-fit: fill;
 
 ## Спецификации
 
-- [CSS Images Module Level 4](https://drafts.csswg.org/css-images-4/#the-object-fit)
-- [CSS Images Module Level 3](https://drafts.csswg.org/css-images-3/#the-object-fit)
+-   [CSS Images Module Level 4](https://drafts.csswg.org/css-images-4/#the-object-fit)
+-   [CSS Images Module Level 3](https://drafts.csswg.org/css-images-3/#the-object-fit)
 
 ## Поддержка браузерами
 
@@ -155,21 +150,21 @@ object-fit: fill;
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>object-fit</title>
-    <style>
-      .dolphin img {
-        object-fit: cover;
-        height: 400px;
-        width: 300px;
-      }
-    </style>
-  </head>
-  <body>
-    <p class="dolphin">
-      <img src="image/dolphin.jpg" alt="Дельфин" />
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>object-fit</title>
+        <style>
+            .dolphin img {
+                object-fit: cover;
+                height: 400px;
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="dolphin">
+            <img src="image/dolphin.jpg" alt="Дельфин" />
+        </p>
+    </body>
 </html>
 ```
