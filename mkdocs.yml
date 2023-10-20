@@ -119,6 +119,8 @@ plugins:
           htmlmin_opts:
               remove_comments: true
           cache_safe: true
+    - glightbox:
+          auto_caption: true
 
 extra_javascript:
     - 'https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js'
