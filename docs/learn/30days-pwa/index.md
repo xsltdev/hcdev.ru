@@ -1,109 +1,101 @@
-# Kickoff - Announcing "30 Days of PWA" Blog Series
-
-**Author: Beth Pan | [@beth_panx](https://twitter.com/beth_panx)**
-
-Welcome to our new learning series focused on the fascinating world of Progressive Web Apps (PWA)!
-
-![It's time to fall in love with PWA banner with author list.](_media/kickoff.jpg)
-
-Starting February 14th, 2022, for 30 days, we will publish articles that aim to introduce developers to Progressive Web App. We will have content that covers 0-level to 200-level topics. Each post should take you 5-10 minutes to read and is followed by a sample snippet or exercise. You will need some basic web development knowledge to follow along. We hope that beginners will quickly pick up the content and that experts will also learn a few new things. 
-
-## The Roadmap
-
-The series of #30DaysOfPWA is structured into 4 top-level topics:
-* `Core Concepts`: Learn the fundamental concepts and components of a PWA.
-* `Advanced Capabilities`: Explore web capabilities APIs, status, and examples of use.
-* `Developer Tools`: Learn about key authoring, debugging, auditing, testing and packaging tools for PWA.
-* `Platforms & Practices`: Learn good practices and platform-specific support for PWA.
-
-## The Schedule
-
-Please be sure to bookmark this page or the homepage of this project (https://aka.ms/learn-pwa/30Days-blog) as the below list of topics will be updated as each blog post is published. 
-
-> **Kickoff** – Announcing "30 Days of PWA" Blog Series (this post)
-
-> **Week 1 (2/14-2/21)** `Core Concepts`
-
-* Week 1 Day 1 - [Introduction to Progressive Web Apps](core-concepts/01.md)
-* Week 1 Day 2 - [Building Blocks: Core Components of PWAs](core-concepts/02.md)
-* Week 1 Day 3 - [HTTPS: Make PWAs Secure](core-concepts/03.md)
-* Week 1 Day 4 - [Service Workers: Make PWAs Reliable, Work Offline](core-concepts/04.md)
-* Week 1 Day 5 - [Web App Manifest: Make PWAs Installable](core-concepts/05.md)
-* Week 1 Day 6 - [Web Capabilities: Drive Rich Platform Experiences](core-concepts/06.md)
-* Week 1 Day 7 - [QuickStart: Build and Audit Your First PWA](core-concepts/07.md)
-
-> **Week 2 (2/21-2/28)**`Advanced Capabilities`
-
-* Week 2 Day 1 - [Introducing the Advanced Capabilities of Progressive Web Apps](advanced-capabilities/01.md)
-* Week 2 Day 2 - [Creating Application Shortcuts](advanced-capabilities/02.md)
-* Week 2 Day 3 - [Sharing Content from and with Your App](advanced-capabilities/03.md)
-* Week 2 Day 4 - [Display Content in the Title Bar](advanced-capabilities/04.md)
-* Week 2 Day 5 - [Caching Your App's Data](advanced-capabilities/05.md)
-* Week 2 Day 6 - [Synchronizing App Data in the Background](advanced-capabilities/06.md)
-* Week 2 Day 7 - [Notifying Your Users of Updates](advanced-capabilities/07.md)
-
-> **Week 3 (3/1-3/7)**`Developer Tools`
-
-* Week 3 Day 1 - [Getting Started Tools](dev-tools/01.md)
-* Week 3 Day 2 - [Authoring Tools](dev-tools/02.md)
-* Week 3 Day 3 - [Debugging Tools (Part 1)](dev-tools/03.md)
-* Week 3 Day 4 - [Debugging Tools (Part 2)](dev-tools/04.md)
-* Week 3 Day 5 - [Auditing Tools](dev-tools/05.md)
-* Week 3 Day 6 - [Test Automation Tools](dev-tools/06.md)
-* Week 3 Day 7 - [Packaging Tools](dev-tools/07.md)
-
-> **Week 4 (3/8-3/14)**`Platforms & Practices`
-
-* Week 4 Day 1 - [Installability for PWAs](platforms-practices/01.md)
-* Week 4 Day 2 - [Best Practices for PWA Engagement](platforms-practices/02.md)
-* Week 4 Day 3 - [Distributing Your PWA](platforms-practices/03.md)
-* Week 4 Day 4 - [Best Practices for PWA Reliability](platforms-practices/04.md)
-* Week 4 Day 5 - [PWAs and Maintainability](platforms-practices/05.md)
-* Week 4 Day 6 - [PWA Maintainability Part 2: Web Component](platforms-practices/06.md)
-* Week 4 Day 7 - [Best Practices for PWA UI/UX](platforms-practices/07.md)
-
-> **Summary** - We conclude with a [wrap-up](summary.md) post summarizing learnings from this journey, and outlining resources and next steps you can take from here.
-
-
-## Brought to you by:
-
-This is a multi-team effort from folks across the Microsoft Edge, Windows, and Developer Relations teams. We welcome contributions from the broader community - learn [how you can contribute](https://github.com/microsoft/win-student-devs#contributing) to help us make this a better resource for the community.
-
- Here are the current contributors, in alphabetical order:
-
- * Aaron Gustafson | [@aarongustafson](https://twitter.com/AaronGustafson) - _Microsoft Edge_
- * Amrutha Srinivasan | [@amruthasrin​](https://twitter.com/amruthasrin) - _Microsoft Windows_
- * Beth Pan | [@beth_panx](https://twitter.com/beth_panx) - _Microsoft Windows_
- * Chait Pinnamaneni | [@noobtiger11](https://twitter.com/noobtiger11) - _Microsoft Edge_
- * Diego González​ | [@diekus](https://twitter.com/diekus) - _Microsoft Edge_
- * Jaylyn Barbee | [@jaylynsatwork](https://twitter.com/jaylynsatwork) - _Microsoft Windows_
- * Judah Himango | [@JudahGabriel](https://twitter.com/JudahGabriel) - _Microsoft Windows_
- * Justin Willis | [@JustinWillis96](https://twitter.com/Justinwillis96) - _Microsoft Windows_
- * Kenneth Rohde Christiansen​ | [@kennethrohde​](https://twitter.com/kennethrohde) - _Intel Web Platform Engineering_
- * Marcus Felling | [@MarcusFelling](https://twitter.com/MarcusFelling) - _Microsoft .NET_
- * Maxim Salnikov | [@webmaxru](https://twitter.com/webmaxru) - _Microsoft Norway Developer Relations_
- * Nikola Metulev | [@metulev](https://twitter.com/metulev) - _Microsoft Windows_
- * Nitya Narasimhan | [@nitya](https://twitter.com/nitya) - _Microsoft Cloud Advocacy / DevRel_
- * Patrick Brosset | [@patrickbrosset](https://twitter.com/patrickbrosset) - _Microsoft Edge_
- * Stephanie Stimac | [@seaotta](https://twitter.com/seaotta) - _Microsoft Edge_
- * Zachary Teutsch | [@devteutsch](https://twitter.com/devteutsch) - _Microsoft Windows_
-
+---
+description: Добро пожаловать в нашу новую обучающую серию, посвященную увлекательному миру Progressive Web Apps (PWA)
 ---
 
+# 30 дней PWA
 
-## We Need Your Help!
+<big>Добро пожаловать в нашу новую обучающую серию, посвященную увлекательному миру **Progressive Web Apps** (PWA)!</big>
 
-We would love to make this a more useful resource for students and beginners of all backgrounds - and we need your help! Consider taking one or more of the following actions:
+![Пришло время влюбиться в PWA Баннер со списком авторов](_media/kickoff.jpg)
 
-* 1️⃣ _Did you find this content useful?_
-    - Give us a 🌟 on [GitHub](https://aka.ms/learn-PWA/30Days-github). 
-    - Share a blog post describing your experience.
-* 2️⃣ _Do you have feedback to help us improve it?_  
-    - Join the 💬 Discussion on [GitHub](https://aka.ms/learn-pwa/30Days-ghd).
-    - Leave Comments on [dev.to](https://aka.ms/learn-PWA/30Days-devto) (link goes live on 2/14). 
-    - Leave Comments on [Tech Community](https://aka.ms/learn-PWA/30Days-tc) (link goes live on 2/14).
-* 3️⃣ _Have something you built or wrote in context?_ 
-    * Tag us 🏷 on Twitter with [#30DaysOfPWA](https://aka.ms/learn-PWA/tag-twitter). 
-    * Join the [PWA community](https://aka.ms/learn-PWA/join-twitter) on Twitter.
-    * Share your [feedback and suggestions](https://aka.ms/learn-pwa/30Days-survey) on anything and everything related to this series! We greatly appreciate your feedback as we reflect on lessons learned, what went well, and what we can do to improve this experience for future projects.
-    * [Reach out to us](mailto:30DaysOfPWA-help@microsoft.com) with any questions or comments.
+Начиная с 14 февраля 2022 г., в течение 30 дней мы будем публиковать статьи, цель которых - познакомить разработчиков с Progressive Web App. Мы будем публиковать материалы, охватывающие темы от 0 до 200 уровня. На прочтение каждой статьи отводится 5-10 минут, после чего приводится пример фрагмента или упражнение. Для изучения материала вам потребуются базовые знания в области веб-разработки. Мы надеемся, что новички быстро разберутся в материале, а эксперты узнают несколько новых вещей.
+
+## Дорожная карта
+
+Серия #30DaysOfPWA состоит из 4 основных тем:
+
+-   Основные концепции: Изучение фундаментальных концепций и компонентов PWA.
+-   Дополнительные возможности: Изучение API веб-возможностей, статуса и примеров использования.
+-   Инструменты разработчика: Узнайте об основных инструментах для создания, отладки, аудита, тестирования и упаковки PWA.
+-   Платформы и практика: Узнайте о передовом опыте и поддержке PWA на конкретных платформах.
+
+## Расписание
+
+-   День 0 - Старт курса (этот документ)
+
+### Неделя 1: Основные концепции
+
+-   День 1 - [Введение в прогрессивные веб-приложения](core-concepts/01.md)
+-   День 2 - [Строительные блоки: Основные компоненты PWA](core-concepts/02.md)
+-   День 3 - [HTTPS: делаем PWA безопасными](core-concepts/03.md)
+-   День 4 - [Сервис-воркеры: обеспечение надежности PWA, работа в автономном режиме](core-concepts/04.md)
+-   День 5 - [Манифест веб-приложения: Обеспечение возможности установки PWA](core-concepts/05.md)
+-   День 6 - [Веб-возможности: Создание богатого опыта работы с платформой](core-concepts/06.md)
+-   День 7 - [Быстрый старт: Создание и аудит первого PWA](core-concepts/07.md)
+
+<!--
+
+### Неделя 2: Дополнительные возможности
+
+-   День 8 - [Знакомство с расширенными возможностями Progressive Web Apps](advanced-capabilities/01.md)
+-   День 9 - [Создание ярлыков приложений](advanced-capabilities/02.md)
+-   День 10 - [Совместное использование контента из приложения и с его помощью](advanced-capabilities/03.md)
+-   День 11 - [Отображение содержимого в строке заголовка](advanced-capabilities/04.md)
+-   День 12 - [Кэширование данных вашего приложения](advanced-capabilities/05.md)
+-   День 13 - [Синхронизация данных приложения в фоновом режиме](advanced-capabilities/06.md)
+-   День 14 - [Уведомление пользователей об обновлениях](advanced-capabilities/07.md)
+
+### Неделя 3: Инструменты разработчика
+
+-   День 15 - [Начало работы с инструментами](dev-tools/01.md)
+-   День 16 - [Средства разработки](dev-tools/02.md)
+-   День 17 - [Средства отладки (часть 1)](dev-tools/03.md)
+-   День 18 - [Средства отладки (часть 2)](dev-tools/04.md)
+-   День 19 - [Средства аудита](dev-tools/05.md)
+-   День 20 - [Средства автоматизации тестирования](dev-tools/06.md)
+-   День 21 - [Средства упаковки](dev-tools/07.md)
+
+### Неделя 4: Платформы и практики
+
+-   День 22 - [Устанавливаемость для PWA](platforms-practices/01.md)
+-   День 23 - [Лучшие практики по взаимодействию с PWA](platforms-practices/02.md)
+-   День 24 - [Распространение PWA](platforms-practices/03.md)
+-   День 25 - [Лучшие практики для обеспечения надежности PWA](platforms-practices/04.md)
+-   День 26 - [PWA и ремонтопригодность](platforms-practices/05.md)
+-   День 27 - [Поддерживаемость PWA Часть 2: Веб-компонент](platforms-practices/06.md)
+-   День 28 - [Лучшие практики для PWA UI/UX](platforms-practices/07.md)
+
+### Подведение итогов
+
+-   День 29 - В завершение мы публикуем [подведение итогов](summary.md), в котором обобщаем выводы, сделанные на этом пути, и указываем ресурсы и дальнейшие шаги, которые вы можете предпринять в дальнейшем.
+
+-->
+
+!!!note "Авторы курса"
+
+    Это совместная работа команды Microsoft Edge, Windows и отдела по работе с разработчиками. Мы приветствуем участие широкой общественности - узнайте [как вы можете внести свой вклад](https://github.com/microsoft/win-student-devs#contributing), чтобы помочь нам сделать этот ресурс лучше для сообщества.
+
+    Вот текущий состав участников в алфавитном порядке:
+
+    -   Аарон Густафсон | [@aarongustafson](https://twitter.com/AaronGustafson) - _Microsoft Edge_
+    -   Amrutha Srinivasan | [@amruthasrin](https://twitter.com/amruthasrin) - _Microsoft Windows_
+    -   Beth Pan | [@beth_panx](https://twitter.com/beth_panx) - _Microsoft Windows_
+    -   Chait Pinnamaneni | [@noobtiger11](https://twitter.com/noobtiger11) - _Microsoft Edge_
+    -   Diego González | [@diekus](https://twitter.com/diekus) - _Microsoft Edge_
+    -   Jaylyn Barbee | [@jaylynsatwork](https://twitter.com/jaylynsatwork) - _Microsoft Windows_
+    -   Judah Himango | [@JudahGabriel](https://twitter.com/JudahGabriel) - _Microsoft Windows_
+    -   Джастин Уиллис | [@JustinWillis96](https://twitter.com/Justinwillis96) - _Microsoft Windows_
+    -   Kenneth Rohde Christiansen | [@kennethrohde](https://twitter.com/kennethrohde) - _Intel Web Platform Engineering_
+    -   Маркус Феллинг | [@MarcusFelling](https://twitter.com/MarcusFelling) - _Microsoft .NET_
+    -   Максим Сальников | [@webmaxru](https://twitter.com/webmaxru) - _Microsoft Norway Developer Relations_
+    -   Никола Метулев | [@metulev](https://twitter.com/metulev) - _Microsoft Windows_
+    -   Nitya Narasimhan | [@nitya](https://twitter.com/nitya) - _Microsoft Cloud Advocacy / DevRel_
+    -   Патрик Броссет | [@patrickbrosset](https://twitter.com/patrickbrosset) - _Microsoft Edge_
+    -   Стефани Стимак | [@seaotta](https://twitter.com/seaotta) - _Microsoft Edge_
+    -   Zachary Teutsch | [@devteutsch](https://twitter.com/devteutsch) - _Microsoft Windows_.
+
+!!!danger "Перевод"
+
+    Перевод этого учебника сделан благодаря [подписчикам на Бусти](https://boosty.to/bndby).
+
+:material-information-outline: Источник &mdash; [Kickoff - Announcing “30 Days of PWA” Blog Series](https://microsoft.github.io/win-student-devs/#/30DaysOfPWA/kickoff)

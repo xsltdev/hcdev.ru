@@ -1,21 +1,73 @@
-# Week 1. Core Concepts
-
-Welcome to Week 1 of #30DaysOfPWA. Want to learn more about this project? Check out our [Kickoff](../kickoff.md) post to get more details on the content roadmap and contributors. Then read on for what we'll cover **this week**.
-
-![Visual Guide to Core Concepts Week!](_media/week-1.png)
-
+---
+description: Добро пожаловать на первую неделю проекта 30DaysOfPWA. Хотите узнать больше об этом проекте? Ознакомьтесь с нашим постом Вступление, чтобы получить более подробную информацию о дорожной карте и участниках проекта. Затем читайте, о чем мы будем рассказывать на этой неделе
+hide:
+    - toc
 ---
 
-## WHAT WE'LL COVER IN WEEK 1
+# Неделя 1. Основные понятия
 
-| Topic | Description|
-|:--- |:--- |
-| 1 - [Introducing PWA.](01.md) | What is a Progressive Web App (PWA)? How does it compare to other apps? What drives real-world PWA adoption? What characterizes a _good_ PWA? <br/><br/> **Exercise:** Install and explore a PWA.<br/> **Watch For:** [Week 4: Platforms And Practices](../platforms-practices/) |
-| 2 - [Deconstructing PWA.](02.md) | What are the building blocks of a PWA? What does each contribute to PWA experience? What are core (vs. optional) features for PWA development? <br/><br/> **Exercise:** Audit sample PWA - explore the reports. <br/> **Watch For:** [Week 4: Platforms And Practices](../platforms-practices/)|
-| 3 - [Make it Installable.](03.md) | What is a Web App Manifest? What does a minimal PWA manifest provide? How does do properties unlock advanced capabilities? <br/><br/> **Exercise:** Inspect _manifest.json_ - using DevTools.<br/> **Watch For:** [Week 3: Developer Tools](../dev-tools/) |
-| 4 - [Make it Reliable.](04.md) | What is a Service Worker? Why is HTTPS essential? Understand registration and lifecycle events. Learn key use cases and Web APIs for service workers. <br/><br/> **Exercise:** Inspect _sw.js_ - using DevTools. <br/> **Watch For:** [Week 3: Developer Tools](../dev-tools/) |
-| 5 - [Make it Work Offline.](05.md) | What is an offline PWA experience? How do PWAs detect network changes? Understand PWA caching strategies and storage options. <br/><br/> **Exercise:** Inspect  _Cache_, _Storage_ - using DevTools.<br/> **Watch For:** [Week 3: Developer Tools](../dev-tools/)  |
-| 6 - [Make it Capable.](06.md) | What is the web capabilities project? What are key web APIs, interfaces? What is Feature Detection? What are pros & cons for PWA development?  <br/><br/> **Exercise:** Explore new capabilities in installed PWA. <br/> **Watch For:** [Week 2: Advanced Capabilities](../advanced-capabilities/) |
-| 7 - [Build it Iteratively.](07.md) | How do I build a PWA from scratch? How do I enhance an existing app for PWA readiness? What tools and practices can I rely on as a developer?   <br/><br/> **Exercise:** Audit & fix existing app. Get minimal PWA. <br/> **Watch For:** [Week 3: Developer Tools](../dev-tools/) |
+<big>Добро пожаловать на первую неделю проекта #30DaysOfPWA. Хотите узнать больше об этом проекте? Ознакомьтесь с нашим постом [Вступление](../index.md), чтобы получить более подробную информацию о дорожной карте и участниках проекта. Затем читайте, о чем мы будем рассказывать **на этой неделе**.</big>
 
+![Неделя визуального руководства по основным концепциям!](_media/week-1.png)
 
+О чем пойдет речь на первой неделе:
+
+<div class="grid cards" style="margin-top: 1.6em" markdown>
+
+-   :material-numeric-1-box:{ .lg .middle } **Знакомство с PWA**
+
+    ***
+
+    Что такое прогрессивное веб-приложение (PWA)? Чем оно отличается от других приложений? Что способствует внедрению PWA в реальном мире? Что характеризует _хорошее_ PWA?
+
+    [:octicons-arrow-right-24: Знакомство с PWA](01.md)
+
+-   :material-numeric-2-box:{ .lg .middle } **Деконструкция PWA**
+
+    ***
+
+    Каковы составные части PWA? Какой вклад вносит каждый из них в работу PWA? Какие функции являются основными (и необязательными) при разработке PWA?
+
+    [:octicons-arrow-right-24: Деконструкция PWA](02.md)
+
+-   :material-numeric-3-box:{ .lg .middle } **Сделайте PWA устанавливаемым**
+
+    ***
+
+    Что такое манифест веб-приложения? Что дает минимальный манифест PWA? Как свойства манифеста открывают расширенные возможности?
+
+    [:octicons-arrow-right-24: Сделайте PWA устанавливаемым](03.md)
+
+-   :material-numeric-4-box:{ .lg .middle } **Сделайте PWA надежным**
+
+    ***
+
+    Что такое сервис-воркер? Почему необходим HTTPS? Понимание событий регистрации и жизненного цикла. Изучите основные сценарии использования и веб-интерфейсы для сервис-воркеров.
+
+    [:octicons-arrow-right-24: Сделайте PWA надежным](04.md)
+
+-   :material-numeric-5-box:{ .lg .middle } **Сделайте PWA автономным**
+
+    ***
+
+    Что такое автономная работа PWA? Как PWA обнаруживают изменения в сети? Понять стратегии кэширования PWA и варианты хранения данных.
+
+    [:octicons-arrow-right-24: Сделайте PWA автономным](05.md)
+
+-   :material-numeric-6-box:{ .lg .middle } **Feature Detection**
+
+    ***
+
+    Что такое проект веб-возможностей? Что такое ключевые веб-интерфейсы, API? Что такое Feature Detection? Каковы плюсы и минусы разработки PWA?
+
+    [:octicons-arrow-right-24: Feature Detection](06.md)
+
+-   :material-numeric-7-box:{ .lg .middle } **Строим итеративно**
+
+    ***
+
+    Как создать PWA с нуля? Как улучшить существующее приложение для обеспечения его готовности к PWA? На какие инструменты и практики я могу опираться как разработчик?
+
+    [:octicons-arrow-right-24: Строим итеративно](07.md)
+
+</div>
