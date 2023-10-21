@@ -15,7 +15,7 @@ Digital accessibility, commonly abbreviated a11y, is about designing and buildin
 
 This course is created for beginner and advanced web developers. You can go through the series from start to finish to get a general understanding of accessibility practices and testing, or you can use it as a reference for specific subjects. If you read an unfamiliar term, refer to our [glossary](glossary.md). For those new to web development overall, check out the [Learn HTML](../html5/index.md) courses for fundamentals with markup and [Learn CSS](../css3/index.md) courses for styling fundamentals.
 
-**This is not a complete reference**. Each section introduces the section topic, provides context and examples. There will be links to topic references, such as [MDN](https://developer.mozilla.org) and [WCAG](https://www.w3.org/WAI/standards-guidelines/) specifications, and other [web.dev](/learn) articles. Each section will have a short assessment to help people confirm their understanding.
+**This is not a complete reference**. Each section introduces the section topic, provides context and examples. There will be links to topic references, such as [MDN](https://developer.mozilla.org) and [WCAG](https://www.w3.org/WAI/standards-guidelines/) specifications, and other articles. Each section will have a short assessment to help people confirm their understanding.
 
 Some accessibility best practices differ, based on the disability you're addressing. It's important to understand your users and to listen to people with disabilities when they tell you what they need.
 

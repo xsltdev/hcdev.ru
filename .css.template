@@ -1,0 +1,38 @@
+---
+description: <описание>
+---
+
+# <название>
+
+<описание>
+
+## Демо {#demo}
+
+<iframe>
+
+## Синтаксис {#syntax}
+
+```css
+
+```
+
+### Значения {#values}
+
+[`<value>`](<#link>)
+: <description>
+
+## Спецификации {#specifications}
+
+- [<spec>](<link>)
+
+## Поддержка браузерами  {#compatibility}
+
+<iframe>
+
+## Пример {#example}
+
+
+
+## Ссылки {#links}
+
+
