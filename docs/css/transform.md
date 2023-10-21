@@ -45,22 +45,22 @@ transform: skew(30deg, 20deg);
 transform: skewX(30deg);
 transform: skewY(1.07rad);
 transform: matrix3d(
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16
+	1,
+	2,
+	3,
+	4,
+	5,
+	6,
+	7,
+	8,
+	9,
+	10,
+	11,
+	12,
+	13,
+	14,
+	15,
+	16
 );
 transform: translate3d(12px, 50%, 3em);
 transform: translateZ(2px);
@@ -85,9 +85,11 @@ transform: unset;
 
 ## Значения
 
-`<функция>` : Функция трансформации.
+`<функция>`
+: Функция трансформации.
 
-`none` : Отменяет действие трансформации.
+`none`
+: Отменяет действие трансформации.
 
 ## Функции трансформации
 
@@ -205,30 +207,30 @@ CSS Transform 3D:
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>transform</title>
-        <style>
-            .turn:hover {
-                transform: rotate(15deg);
-            }
-        </style>
-    </head>
-    <body>
-        <p>
-            <img
-                src="image/igels.png"
-                alt="Ёжик"
-                class="turn"
-            />
-            <img
-                src="image/igels.png"
-                alt="Ёжик"
-                class="turn"
-            />
-        </p>
-    </body>
+	<head>
+		<meta charset="utf-8" />
+		<title>transform</title>
+		<style>
+			.turn:hover {
+				transform: rotate(15deg);
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			<img
+				src="image/igels.png"
+				alt="Ёжик"
+				class="turn"
+			/>
+			<img
+				src="image/igels.png"
+				alt="Ёжик"
+				class="turn"
+			/>
+		</p>
+	</body>
 </html>
 ```

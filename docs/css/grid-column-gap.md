@@ -57,7 +57,8 @@ grid-column-gap: unset;
 
 Анимируется: да
 
-`<line-size>` : значение размера;
+`<line-size>`
+: значение размера;
 
 ## Спецификации
 
@@ -73,10 +74,10 @@ grid-column-gap: unset;
 
 ```css
 .container {
-    grid-template-columns: 100px 50px 100px;
-    grid-template-rows: 80px auto 80px;
-    grid-column-gap: 10px;
-    grid-row-gap: 15px;
+	grid-template-columns: 100px 50px 100px;
+	grid-template-rows: 80px auto 80px;
+	grid-column-gap: 10px;
+	grid-row-gap: 15px;
 }
 ```
 

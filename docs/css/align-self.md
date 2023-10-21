@@ -81,17 +81,23 @@ align-self: unset;
 
 Применяется к: флексам, гридам
 
-`auto` : Берёт родительское значение `align-items` или `stretch`, если нет родителя.
+`auto`
+: Берёт родительское значение `align-items` или `stretch`, если нет родителя.
 
-`flex-start` : Элемент выравнивается в начале поперечной оси контейнера.
+`flex-start`
+: Элемент выравнивается в начале поперечной оси контейнера.
 
-`flex-end` : Элемент выравнивается в конце поперечной оси контейнера.
+`flex-end`
+: Элемент выравнивается в конце поперечной оси контейнера.
 
-`center` : Элемент выравнивается по центральной линии на поперечной оси.
+`center`
+: Элемент выравнивается по центральной линии на поперечной оси.
 
-`baseline` : Элемент выравнивается по базовой линии текста.
+`baseline`
+: Элемент выравнивается по базовой линии текста.
 
-`stretch` : Элемент растягивается таким образом, чтобы занять всё свободное пространство контейнера по поперечной оси.
+`stretch`
+: Элемент растягивается таким образом, чтобы занять всё свободное пространство контейнера по поперечной оси.
 
 ## Спецификации
 
@@ -105,56 +111,56 @@ align-self: unset;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>align-items</title>
-        <style>
-            .flex-container {
-                display: flex;
-                align-items: flex-start;
-                height: 160px; /* Высота контейнера */
-            }
-            .flex-item {
-                margin-left: 1rem; /* Расстояние между блоками */
-                padding: 10px; /* Поля вокруг текста */
-                width: 33.333%; /* Ширина блоков */
-            }
-            .flex-item:first-child {
-                margin-left: 0;
-            }
-            .flex-item:hover {
-                align-self: stretch; /* Растягиваем при наведении */
-            }
-            .item1 {
-                background: #f0ba7d;
-            }
-            .item2 {
-                background: #cae2aa;
-            }
-            .item3 {
-                background: #a6c0c9;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-container">
-            <div class="flex-item item1">
-                Фенек — лисица, живущая в пустынях Северной
-                Африки. Имеет достаточно миниатюрный размер
-                и своеобразную внешность с большими ушами.
-            </div>
-            <div class="flex-item item2">
-                Корсак — хищное млекопитающее рода лисиц.
-            </div>
-            <div class="flex-item item3">
-                Лисица — хищное млекопитающее семейства
-                псовых, наиболее распространённый и самый
-                крупный вид рода лисиц.
-            </div>
-        </div>
-    </body>
+	<head>
+		<meta charset="utf-8" />
+		<title>align-items</title>
+		<style>
+			.flex-container {
+				display: flex;
+				align-items: flex-start;
+				height: 160px; /* Высота контейнера */
+			}
+			.flex-item {
+				margin-left: 1rem; /* Расстояние между блоками */
+				padding: 10px; /* Поля вокруг текста */
+				width: 33.333%; /* Ширина блоков */
+			}
+			.flex-item:first-child {
+				margin-left: 0;
+			}
+			.flex-item:hover {
+				align-self: stretch; /* Растягиваем при наведении */
+			}
+			.item1 {
+				background: #f0ba7d;
+			}
+			.item2 {
+				background: #cae2aa;
+			}
+			.item3 {
+				background: #a6c0c9;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="flex-container">
+			<div class="flex-item item1">
+				Фенек — лисица, живущая в пустынях Северной
+				Африки. Имеет достаточно миниатюрный размер
+				и своеобразную внешность с большими ушами.
+			</div>
+			<div class="flex-item item2">
+				Корсак — хищное млекопитающее рода лисиц.
+			</div>
+			<div class="flex-item item3">
+				Лисица — хищное млекопитающее семейства
+				псовых, наиболее распространённый и самый
+				крупный вид рода лисиц.
+			</div>
+		</div>
+	</body>
 </html>
 ```
 

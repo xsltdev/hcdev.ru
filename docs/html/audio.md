@@ -78,7 +78,7 @@ description: Тег audio (от англ. audio - звук, аудио) доба
 ```html
 <audio src="URL"></audio>
 <audio>
-    <source src="URL" />
+	<source src="URL" />
 </audio>
 ```
 
@@ -86,19 +86,26 @@ description: Тег audio (от англ. audio - звук, аудио) доба
 
 ## Атрибуты
 
-[`autoplay`](#autoplay) : Звук начинает играть сразу после загрузки страницы.
+[`autoplay`](#autoplay)
+: Звук начинает играть сразу после загрузки страницы.
 
-[`controls`](#controls) : Добавляет панель управления к аудиофайлу.
+[`controls`](#controls)
+: Добавляет панель управления к аудиофайлу.
 
-[`loop`](#loop) : Повторяет воспроизведение звука с начала после его завершения.
+[`loop`](#loop)
+: Повторяет воспроизведение звука с начала после его завершения.
 
-[`muted`](#muted) : Отключает звук при воспроизведении музыки.
+[`muted`](#muted)
+: Отключает звук при воспроизведении музыки.
 
-[`preload`](#preload) : Управляет предварительной загрузкой аудио данных.
+[`preload`](#preload)
+: Управляет предварительной загрузкой аудио данных.
 
-[`src`](#src) : Указывает путь к воспроизводимому файлу.
+[`src`](#src)
+: Указывает путь к воспроизводимому файлу.
 
-`volume` : Громкость воспроизведения, в диапазоне от 0.0 (самая тихая) до 1.0 (самая громкая).
+`volume`
+: Громкость воспроизведения, в диапазоне от 0.0 (самая тихая) до 1.0 (самая громкая).
 
 ### autoplay
 
@@ -184,11 +191,14 @@ description: Тег audio (от англ. audio - звук, аудио) доба
 
 **Значения**
 
-`none` : указывает, что аудио не должно предварительно загружаться
+`none`
+: указывает, что аудио не должно предварительно загружаться
 
-`metadata` : указывает, что загрузить нужно только метаданные;
+`metadata`
+: указывает, что загрузить нужно только метаданные;
 
-`auto` : указывает на то, что весь звуковой файл может быть загружен, даже если пользователь не будет использовать его;
+`auto`
+: указывает на то, что весь звуковой файл может быть загружен, даже если пользователь не будет использовать его;
 
 **Значение по умолчанию**
 
@@ -225,28 +235,28 @@ description: Тег audio (от англ. audio - звук, аудио) доба
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>audio</title>
-    </head>
+	<head>
+		<meta charset="utf-8" />
+		<title>audio</title>
+	</head>
 
-    <body>
-        <p>Александр Клименков - Четырнадцать</p>
-        <audio controls>
-            <source
-                src="audio/music.ogg"
-                type="audio/ogg; codecs=vorbis"
-            />
-            <source
-                src="audio/music.mp3"
-                type="audio/mpeg"
-            />
-            Тег audio не поддерживается вашим браузером.
-            <a href="audio/music.mp3">Скачайте музыку</a>.
-        </audio>
-    </body>
+	<body>
+		<p>Александр Клименков - Четырнадцать</p>
+		<audio controls>
+			<source
+				src="audio/music.ogg"
+				type="audio/ogg; codecs=vorbis"
+			/>
+			<source
+				src="audio/music.mp3"
+				type="audio/mpeg"
+			/>
+			Тег audio не поддерживается вашим браузером.
+			<a href="audio/music.mp3">Скачайте музыку</a>.
+		</audio>
+	</body>
 </html>
 ```
 
@@ -255,26 +265,26 @@ description: Тег audio (от англ. audio - звук, аудио) доба
 ```html
 <!-- Simple audio playback -->
 <audio
-    src="http://developer.mozilla.org/@api/deki/files/2926/=AudioTest_(1).ogg"
-    autoplay
+	src="http://developer.mozilla.org/@api/deki/files/2926/=AudioTest_(1).ogg"
+	autoplay
 >
-    Ваш браузер не поддерживает <code>audio</code> элемент.
+	Ваш браузер не поддерживает <code>audio</code> элемент.
 </audio>
 
 <!-- Audio playback with captions -->
 <audio src="foo.ogg">
-    <track
-        kind="captions"
-        src="foo.en.vtt"
-        srclang="en"
-        label="English"
-    />
-    <track
-        kind="captions"
-        src="foo.sv.vtt"
-        srclang="sv"
-        label="Svenska"
-    />
+	<track
+		kind="captions"
+		src="foo.en.vtt"
+		srclang="en"
+		label="English"
+	/>
+	<track
+		kind="captions"
+		src="foo.sv.vtt"
+		srclang="sv"
+		label="Svenska"
+	/>
 </audio>
 ```
 
@@ -282,8 +292,8 @@ description: Тег audio (от англ. audio - звук, аудио) доба
 
 ```html
 <audio controls="controls">
-    Ваш браузер не поддерживает <code>audio</code> элемент.
-    <source src="foo.wav" type="audio/wav" />
+	Ваш браузер не поддерживает <code>audio</code> элемент.
+	<source src="foo.wav" type="audio/wav" />
 </audio>
 ```
 

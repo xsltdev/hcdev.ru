@@ -67,11 +67,14 @@ flex-wrap: unset;
 
 Анимируется: нет
 
-`nowrap` : Флексы выстраиваются в одну линию.
+`nowrap`
+: Флексы выстраиваются в одну линию.
 
-`wrap` : Флексы выстраиваются в несколько строк, их направление задаётся свойством [`flex-direction`](flex-direction.md).
+`wrap`
+: Флексы выстраиваются в несколько строк, их направление задаётся свойством [`flex-direction`](flex-direction.md).
 
-`wrap-reverse` : Флексы выстраиваются в несколько строк, в направлении, противоположном [`flex-direction`](flex-direction.md).
+`wrap-reverse`
+: Флексы выстраиваются в несколько строк, в направлении, противоположном [`flex-direction`](flex-direction.md).
 
 ### Примечание
 
@@ -90,41 +93,41 @@ Safari до версии 9 поддерживает свойство `-webkit-fl
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>flex-wrap</title>
-        <style>
-            .flex-container {
-                padding: 0;
-                margin: 0;
-                list-style: none;
-                display: flex;
-                flex-wrap: wrap;
-            }
-            .flex-item {
-                padding: 20px;
-                background: #f0f0f0;
-                border-radius: 5px;
-                margin: 1rem;
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <ul class="flex-container">
-            <li class="flex-item">
-                <img src="/css/aquaria1.jpg" alt="" />
-            </li>
-            <li class="flex-item">
-                <img src="/css/aquaria2.jpg" alt="" />
-            </li>
-            <li class="flex-item">
-                <img src="/css/aquaria3.jpg" alt="" />
-            </li>
-        </ul>
-    </body>
+	<head>
+		<meta charset="utf-8" />
+		<title>flex-wrap</title>
+		<style>
+			.flex-container {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				display: flex;
+				flex-wrap: wrap;
+			}
+			.flex-item {
+				padding: 20px;
+				background: #f0f0f0;
+				border-radius: 5px;
+				margin: 1rem;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="flex-container">
+			<li class="flex-item">
+				<img src="/css/aquaria1.jpg" alt="" />
+			</li>
+			<li class="flex-item">
+				<img src="/css/aquaria2.jpg" alt="" />
+			</li>
+			<li class="flex-item">
+				<img src="/css/aquaria3.jpg" alt="" />
+			</li>
+		</ul>
+	</body>
 </html>
 ```
 

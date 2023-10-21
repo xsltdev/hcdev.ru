@@ -75,13 +75,17 @@ flex-direction: unset;
 
 Анимируется: нет
 
-`row` : Главная ось направлена так же, как и ориентация текста, по умолчанию слева направо. Если значение `dir` задано как `rtl`, то направление оси идёт справа налево.
+`row`
+: Главная ось направлена так же, как и ориентация текста, по умолчанию слева направо. Если значение `dir` задано как `rtl`, то направление оси идёт справа налево.
 
-`row-reverse` : Похоже на значение `row`, но меняются местами начальная и конечная точки и главная ось направлена справа налево. Если значение `dir` задано как `rtl`, то направление оси идёт слева направо.
+`row-reverse`
+: Похоже на значение `row`, но меняются местами начальная и конечная точки и главная ось направлена справа налево. Если значение `dir` задано как `rtl`, то направление оси идёт слева направо.
 
-`column` : Главная ось располагается вертикально и направлена сверху вниз.
+`column`
+: Главная ось располагается вертикально и направлена сверху вниз.
 
-`column-reverse` : Главная ось располагается вертикально, но меняется положение начальной и конечной точек и ось направлена снизу вверх.
+`column-reverse`
+: Главная ось располагается вертикально, но меняется положение начальной и конечной точек и ось направлена снизу вверх.
 
 ### Примечание
 
@@ -100,28 +104,28 @@ Safari до версии 9 поддерживает свойство `-webkit-fl
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>flex-direction</title>
-        <style>
-            .flex-row {
-                padding: 0;
-                margin: 0;
-                list-style: none;
-                display: flex;
-                flex-direction: row-reverse;
-            }
-        </style>
-    </head>
-    <body>
-        <ul class="flex-row">
-            <li><img src="image/thumb1.jpg" alt="" /></li>
-            <li><img src="image/thumb2.jpg" alt="" /></li>
-            <li><img src="image/thumb3.jpg" alt="" /></li>
-        </ul>
-    </body>
+	<head>
+		<meta charset="utf-8" />
+		<title>flex-direction</title>
+		<style>
+			.flex-row {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				display: flex;
+				flex-direction: row-reverse;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="flex-row">
+			<li><img src="image/thumb1.jpg" alt="" /></li>
+			<li><img src="image/thumb2.jpg" alt="" /></li>
+			<li><img src="image/thumb3.jpg" alt="" /></li>
+		</ul>
+	</body>
 </html>
 ```
 

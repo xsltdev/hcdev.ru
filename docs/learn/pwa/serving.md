@@ -29,7 +29,7 @@ icon: material/room-service-outline
 
 ```js
 self.addEventListener('fetch', (event) => {
-    console.log(`URL requested: ${event.request.url}`);
+	console.log(`URL requested: ${event.request.url}`);
 });
 ```
 
@@ -61,18 +61,18 @@ self.addEventListener("fetch", event => {
 
 ```js
 const simpleResponse = new Response(
-    'Body of the HTTP response'
+	'Body of the HTTP response',
 );
 
 const options = {
-    status: 200,
-    headers: {
-        'Content-type': 'text/html',
-    },
+	status: 200,
+	headers: {
+		'Content-type': 'text/html',
+	},
 };
 const htmlResponse = new Response(
-    '<b>HTML</b> content',
-    options
+	'<b>HTML</b> content',
+	options,
 );
 ```
 
@@ -114,13 +114,17 @@ caches.open("pwa-assets").then(cache => {
 
 Cache First: сначала ищет кэшированный ответ и возвращается к сети, если он не найден.
 
-Network First : Сначала запрашивается ответ из сети, и если он не возвращается, то проверяется наличие ответа в кэше.
+Network First
+: Сначала запрашивается ответ из сети, и если он не возвращается, то проверяется наличие ответа в кэше.
 
-Stale While Revalidate : обслуживает ответ из кэша, а в фоновом режиме запрашивает последнюю версию и сохраняет ее в кэше для следующего запроса ресурса.
+Stale While Revalidate
+: обслуживает ответ из кэша, а в фоновом режиме запрашивает последнюю версию и сохраняет ее в кэше для следующего запроса ресурса.
 
-Network-Only : Всегда отвечает на запрос по сети или выдает ошибку. Обращение к кэшу не происходит.
+Network-Only
+: Всегда отвечает на запрос по сети или выдает ошибку. Обращение к кэшу не происходит.
 
-Cache-Only : Всегда отвечает из кэша или выдает ошибку. Обращение к сети не происходит. Ресурсы, которые будут обслуживаться с использованием этой стратегии, должны быть добавлены в кэш до того, как они будут запрошены.
+Cache-Only
+: Всегда отвечает из кэша или выдает ошибку. Обращение к сети не происходит. Ресурсы, которые будут обслуживаться с использованием этой стратегии, должны быть добавлены в кэш до того, как они будут запрошены.
 
 ### Стратегия Cache first
 
@@ -134,16 +138,16 @@ Cache-Only : Всегда отвечает из кэша или выдает о�
 
 ```js
 self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        caches
-            .match(event.request)
-            .then((cachedResponse) => {
-                // It can update the cache to serve updated content on the next request
-                return (
-                    cachedResponse || fetch(event.request)
-                );
-            })
-    );
+	event.respondWith(
+		caches
+			.match(event.request)
+			.then((cachedResponse) => {
+				// It can update the cache to serve updated content on the next request
+				return (
+					cachedResponse || fetch(event.request)
+				);
+			}),
+	);
 });
 ```
 
@@ -157,11 +161,11 @@ self.addEventListener('fetch', (event) => {
 
 ```js
 self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        fetch(event.request).catch((error) => {
-            return caches.match(event.request);
-        })
-    );
+	event.respondWith(
+		fetch(event.request).catch((error) => {
+			return caches.match(event.request);
+		}),
+	);
 });
 ```
 
@@ -177,36 +181,39 @@ self.addEventListener('fetch', (event) => {
 
 ```js
 self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        caches
-            .match(event.request)
-            .then((cachedResponse) => {
-                const networkFetch = fetch(event.request)
-                    .then((response) => {
-                        // update the cache with a clone of the network response
-                        const responseClone = response.clone();
-                        caches
-                            .open(
-                                url.searchParams.get('name')
-                            )
-                            .then((cache) => {
-                                cache.put(
-                                    event.request,
-                                    responseClone
-                                );
-                            });
-                        return response;
-                    })
-                    .catch(function (reason) {
-                        console.error(
-                            'ServiceWorker fetch failed: ',
-                            reason
-                        );
-                    });
-                // prioritize cached response over network
-                return cachedResponse || networkFetch;
-            })
-    );
+	event.respondWith(
+		caches
+			.match(event.request)
+			.then((cachedResponse) => {
+				const networkFetch = fetch(event.request)
+					.then((response) => {
+						// update the cache with a clone of the network response
+						const responseClone =
+							response.clone();
+						caches
+							.open(
+								url.searchParams.get(
+									'name',
+								),
+							)
+							.then((cache) => {
+								cache.put(
+									event.request,
+									responseClone,
+								);
+							});
+						return response;
+					})
+					.catch(function (reason) {
+						console.error(
+							'ServiceWorker fetch failed: ',
+							reason,
+						);
+					});
+				// prioritize cached response over network
+				return cachedResponse || networkFetch;
+			}),
+	);
 });
 ```
 
@@ -228,7 +235,7 @@ self.addEventListener('fetch', (event) => {
 
 ```js
 self.addEventListener('fetch', (event) => {
-    event.respondWith(caches.match(event.request));
+	event.respondWith(caches.match(event.request));
 });
 ```
 

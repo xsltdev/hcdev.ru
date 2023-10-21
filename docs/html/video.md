@@ -6,7 +6,7 @@ description: Тег video (от англ. video — видео) добавляе
 
 Тег **`<video>`** _(от англ. **video** — видео)_ добавляет, воспроизводит и управляет настройками видеоролика на веб-странице.
 
-Путь к файлу задаётся через атрибут `src` или вложенный элемент [`<source>`](source.md). Список поддерживаемых браузерами аудио и видеокодеков ограничен.
+Путь к файлу задаётся через атрибут [`src`](#src) или вложенный элемент [`<source>`](source.md). Список поддерживаемых браузерами аудио и видеокодеков ограничен.
 
 Для универсального воспроизведения в браузерах видео кодируют с помощью разных кодеков и добавляют файлы одновременно.
 
@@ -39,7 +39,7 @@ description: Тег video (от англ. video — видео) добавляе
 
 ```html
 <video>
-    <source src="<адрес>" />
+	<source src="<адрес>" />
 </video>
 ```
 
@@ -47,29 +47,41 @@ description: Тег video (от англ. video — видео) добавляе
 
 ## Атрибуты
 
-[`autoplay`](#autoplay) : Видео начинает воспроизводиться автоматически после загрузки страницы.
+[`autoplay`](#autoplay)
+: Видео начинает воспроизводиться автоматически после загрузки страницы.
 
-`buffered` : Атрибут для определения временных диапазонов буферизованных носителей. Этот атрибут содержит объект `TimeRanges`.
+`buffered`
+: Атрибут для определения временных диапазонов буферизованных носителей. Этот атрибут содержит объект `TimeRanges`.
 
-[`controls`](#controls) : Добавляет панель управления к видеоролику.
+[`controls`](#controls)
+: Добавляет панель управления к видеоролику.
 
-`crossorigin` : Этот атрибут указывает, следует ли использовать CORS для извлечения связанного изображения.
+`crossorigin`
+: Этот атрибут указывает, следует ли использовать CORS для извлечения связанного изображения.
 
-[`height`](#height) : Задаёт высоту области для воспроизведения видеоролика.
+[`height`](#height)
+: Задаёт высоту области для воспроизведения видеоролика.
 
-[`loop`](#loop) : Повторяет воспроизведение видео с начала после его завершения.
+[`loop`](#loop)
+: Повторяет воспроизведение видео с начала после его завершения.
 
-`muted` : Логический атрибут, который определяет значение по умолчания для аудио дорожки, содержащуюся в видео. Если атрибут указан, то аудио дорожка воспроизводиться не будет. Значение атрибута по умолчанию - "ложь", и это означает, что звук будет воспроизводиться, когда видео воспроизводится.
+`muted`
+: Логический атрибут, который определяет значение по умолчания для аудио дорожки, содержащуюся в видео. Если атрибут указан, то аудио дорожка воспроизводиться не будет. Значение атрибута по умолчанию - "ложь", и это означает, что звук будет воспроизводиться, когда видео воспроизводится.
 
-`played` : Атрибут `TimeRanges`, указывающий все диапазоны воспроизводимого видео.
+`played`
+: Атрибут `TimeRanges`, указывающий все диапазоны воспроизводимого видео.
 
-[`poster`](#poster) : Указывает адрес картинки, которая будет отображаться, пока видео не доступно или не воспроизводится.
+[`poster`](#poster)
+: Указывает адрес картинки, которая будет отображаться, пока видео не доступно или не воспроизводится.
 
-[`preload`](#preload) : Используется для загрузки видео вместе с загрузкой веб-страницы.
+[`preload`](#preload)
+: Используется для загрузки видео вместе с загрузкой веб-страницы.
 
-[`src`](#src) : Указывает путь к воспроизводимому видеоролику.
+[`src`](#src)
+: Указывает путь к воспроизводимому видеоролику.
 
-[`width`](#width) : Задаёт ширину области для воспроизведения видеоролика.
+[`width`](#width)
+: Задаёт ширину области для воспроизведения видеоролика.
 
 ### autoplay
 
@@ -173,11 +185,14 @@ description: Тег video (от англ. video — видео) добавляе
 
 **Значения**
 
-`none` : Не загружать видео.
+`none`
+: Не загружать видео.
 
-`metadata` : Загрузить только служебную информацию (размеры видео, первый кадр, продолжительность и др.).
+`metadata`
+: Загрузить только служебную информацию (размеры видео, первый кадр, продолжительность и др.).
 
-`auto` : Загрузить видео целиком при загрузке страницы.
+`auto`
+: Загрузить видео целиком при загрузке страницы.
 
 **Значение по умолчанию**
 
@@ -228,35 +243,35 @@ description: Тег video (от англ. video — видео) добавляе
 ### Пример 1
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>video</title>
-    </head>
-    <body>
-        <video
-            width="400"
-            height="300"
-            controls="controls"
-            poster="video/duel.jpg"
-        >
-            <source
-                src="video/duel.ogv"
-                type='video/ogg; codecs="theora, vorbis"'
-            />
-            <source
-                src="video/duel.mp4"
-                type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
-            />
-            <source
-                src="video/duel.webm"
-                type='video/webm; codecs="vp8, vorbis"'
-            />
-            Элемент video не поддерживается вашим браузером.
-            <a href="video/duel.mp4">Скачайте видео</a>.
-        </video>
-    </body>
+	<head>
+		<meta charset="utf-8" />
+		<title>video</title>
+	</head>
+	<body>
+		<video
+			width="400"
+			height="300"
+			controls="controls"
+			poster="video/duel.jpg"
+		>
+			<source
+				src="video/duel.ogv"
+				type='video/ogg; codecs="theora, vorbis"'
+			/>
+			<source
+				src="video/duel.mp4"
+				type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+			/>
+			<source
+				src="video/duel.webm"
+				type='video/webm; codecs="vp8, vorbis"'
+			/>
+			Элемент video не поддерживается вашим браузером.
+			<a href="video/duel.mp4">Скачайте видео</a>.
+		</video>
+	</body>
 </html>
 ```
 
@@ -267,14 +282,14 @@ description: Тег video (от англ. video — видео) добавляе
 ```html
 <!-- Простой пример с видео -->
 <video
-    src="videofile.ogg"
-    autoplay
-    poster="posterimage.jpg"
+	src="videofile.ogg"
+	autoplay
+	poster="posterimage.jpg"
 >
-    Sorry, your browser doesn't support embedded videos, but
-    don't worry, you can
-    <a href="videofile.ogg">download it</a>
-    and watch it with your favorite video player!
+	Sorry, your browser doesn't support embedded videos, but
+	don't worry, you can
+	<a href="videofile.ogg">download it</a>
+	and watch it with your favorite video player!
 </video>
 ```
 
@@ -283,18 +298,18 @@ description: Тег video (от англ. video — видео) добавляе
 ```html
 <!-- Видео с субтитрами -->
 <video src="foo.ogg">
-    <track
-        kind="subtitles"
-        src="foo.en.vtt"
-        srclang="en"
-        label="English"
-    />
-    <track
-        kind="subtitles"
-        src="foo.sv.vtt"
-        srclang="sv"
-        label="Svenska"
-    />
+	<track
+		kind="subtitles"
+		src="foo.en.vtt"
+		srclang="en"
+		label="English"
+	/>
+	<track
+		kind="subtitles"
+		src="foo.sv.vtt"
+		srclang="sv"
+		label="Svenska"
+	/>
 </video>
 ```
 
@@ -304,23 +319,23 @@ description: Тег video (от англ. video — видео) добавляе
 
 ```html
 <video
-    width="480"
-    controls
-    poster="https://archive.org/download/WebmVp8Vorbis/webmvp8.gif"
+	width="480"
+	controls
+	poster="https://archive.org/download/WebmVp8Vorbis/webmvp8.gif"
 >
-    <source
-        src="https://archive.org/download/WebmVp8Vorbis/webmvp8_512kb.mp4"
-        type="video/mp4"
-    />
-    <source
-        src="https://archive.org/download/WebmVp8Vorbis/webmvp8.ogv"
-        type="video/ogg"
-    />
-    <source
-        src="https://archive.org/download/WebmVp8Vorbis/webmvp8.webm"
-        type="video/webm"
-    />
-    Your browser doesn't support HTML5 video tag.
+	<source
+		src="https://archive.org/download/WebmVp8Vorbis/webmvp8_512kb.mp4"
+		type="video/mp4"
+	/>
+	<source
+		src="https://archive.org/download/WebmVp8Vorbis/webmvp8.ogv"
+		type="video/ogg"
+	/>
+	<source
+		src="https://archive.org/download/WebmVp8Vorbis/webmvp8.webm"
+		type="video/webm"
+	/>
+	Your browser doesn't support HTML5 video tag.
 </video>
 ```
 

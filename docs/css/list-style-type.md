@@ -66,37 +66,52 @@ list-style-type: unset;
 
 ### Маркированный список
 
-`circle` : Маркер в виде кружка.
+`circle`
+: Маркер в виде кружка.
 
-`disc` : Маркер в виде точки.
+`disc`
+: Маркер в виде точки.
 
-`square` : Маркер в виде квадрата.
+`square`
+: Маркер в виде квадрата.
 
 ### Нумерованный список
 
-`armenian` : Традиционная армянская нумерация.
+`armenian`
+: Традиционная армянская нумерация.
 
-`decimal` : Арабские числа (1, 2, 3, 4,...).
+`decimal`
+: Арабские числа (1, 2, 3, 4,...).
 
-`decimal-leading-zero` : Арабские числа с нулем впереди для цифр меньше десяти (01, 02, 03,...).
+`decimal-leading-zero`
+: Арабские числа с нулем впереди для цифр меньше десяти (01, 02, 03,...).
 
-`georgian` : Традиционная грузинская нумерация.
+`georgian`
+: Традиционная грузинская нумерация.
 
-`lower-alpha` : Строчные латинские буквы (a, b, c, d,...).
+`lower-alpha`
+: Строчные латинские буквы (a, b, c, d,...).
 
-`lower-greek` : Строчные греческие буквы (α, β, γ, δ,...).
+`lower-greek`
+: Строчные греческие буквы (α, β, γ, δ,...).
 
-`lower-latin` : Это значение аналогично `lower-alpha`.
+`lower-latin`
+: Это значение аналогично `lower-alpha`.
 
-`lower-roman` : Римские числа в нижнем регистре (i, ii, iii, iv, v,...).
+`lower-roman`
+: Римские числа в нижнем регистре (i, ii, iii, iv, v,...).
 
-`upper-alpha` : Заглавные латинские буквы (A, B, C, D,...).
+`upper-alpha`
+: Заглавные латинские буквы (A, B, C, D,...).
 
-`upper-latin` : Это значение аналогично `upper-alpha`.
+`upper-latin`
+: Это значение аналогично `upper-alpha`.
 
-`upper-roman` : Римские числа в верхнем регистре (I, II, III, IV, V,...).
+`upper-roman`
+: Римские числа в верхнем регистре (I, II, III, IV, V,...).
 
-`none` : Отменяет маркеры для списка.
+`none`
+: Отменяет маркеры для списка.
 
 Значение по-умолчанию:
 
@@ -116,27 +131,27 @@ list-style-type: decimal; /* для ol */
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>list-style-type</title>
-        <style>
-            ol {
-                list-style-type: upper-roman;
-            }
-        </style>
-    </head>
-    <body>
-        <ol>
-            <li>Gaius Octavius Thurinus</li>
-            <li>Tiberius Claudius Nero</li>
-            <li>Gaius Iulius Caesar Augustus Germanicus</li>
-            <li>Tiberius Claudius Drusus</li>
-            <li>Lucius Arruntius Camillus Scribonianus</li>
-            <li>Nero Claudius Caesar Drusus Germanicus</li>
-            <li>Lucius Clodius Macer</li>
-        </ol>
-    </body>
+	<head>
+		<meta charset="utf-8" />
+		<title>list-style-type</title>
+		<style>
+			ol {
+				list-style-type: upper-roman;
+			}
+		</style>
+	</head>
+	<body>
+		<ol>
+			<li>Gaius Octavius Thurinus</li>
+			<li>Tiberius Claudius Nero</li>
+			<li>Gaius Iulius Caesar Augustus Germanicus</li>
+			<li>Tiberius Claudius Drusus</li>
+			<li>Lucius Arruntius Camillus Scribonianus</li>
+			<li>Nero Claudius Caesar Drusus Germanicus</li>
+			<li>Lucius Clodius Macer</li>
+		</ol>
+	</body>
 </html>
 ```

@@ -7,7 +7,7 @@
 	"xmlWhitespaceSensitivity": "ignore",
 	"overrides": [
 		{
-			"files": "*.md",
+			"files": ".md",
 			"options": {
 				"parser": "markdown",
 				"useTabs": false,

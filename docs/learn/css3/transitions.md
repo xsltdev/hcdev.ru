@@ -41,7 +41,7 @@ icon: material/transition
 
 ```css
 .my-element {
-    transition-property: background-color;
+	transition-property: background-color;
 }
 ```
 
@@ -91,14 +91,14 @@ icon: material/transition
 
 ```css
 .longhand {
-    transition-property: transform;
-    transition-duration: 300ms;
-    transition-timing-function: ease-in-out;
-    transition-delay: 0s;
+	transition-property: transform;
+	transition-duration: 300ms;
+	transition-timing-function: ease-in-out;
+	transition-delay: 0s;
 }
 
 .shorthand {
-    transition: transform 300ms ease-in-out 0s;
+	transition: transform 300ms ease-in-out 0s;
 }
 ```
 
@@ -156,8 +156,8 @@ CSS-свойство [`transform`](../../css/transform.md) часто испол
 
 -   [`:hover`](pseudo-classes.md#hover): совпадает, если курсор находится над элементом.
 -   [`:focus`](pseudo-classes.md#focus,-focus-within,-and-focus-visible): соответствует, если элемент сфокусирован.
--   [`:focus-within`](pseudo-classes.md#focus,-focus-within,-and-focus-visible) : соответствует, если элемент или любой из его потомков сфокусирован.
--   [`:target`](pseudo-classes.md#target) : совпадает, если [фрагмент](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web#fragment) текущего URL совпадает с `id` элемента.
+-   [`:focus-within`](pseudo-classes.md#focus,-focus-within,-and-focus-visible): соответствует, если элемент или любой из его потомков сфокусирован.
+-   [`:target`](pseudo-classes.md#target): совпадает, если [фрагмент](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web#fragment) текущего URL совпадает с `id` элемента.
 -   [`:active`](pseudo-classes.md#active): совпадает, когда элемент активизируется (обычно при нажатии на него мышью).
 -   Изменение `class` с помощью JavaScript: когда CSS `class` элемента изменяется с помощью JavaScript, CSS будет переходить к соответствующим свойствам, которые изменились.
 
@@ -167,17 +167,17 @@ CSS-свойство [`transform`](../../css/transform.md) часто испол
 
 ```css
 .my-element {
-    background: red;
+	background: red;
 
-    /* This transition is applied on the "exit" transition */
-    transition: background 2000ms ease-in;
+	/* This transition is applied on the "exit" transition */
+	transition: background 2000ms ease-in;
 }
 
 .my-element:hover {
-    background: blue;
+	background: blue;
 
-    /* This transition is applied on the "enter" transition */
-    transition: background 150ms ease;
+	/* This transition is applied on the "enter" transition */
+	transition: background 150ms ease;
 }
 ```
 
@@ -193,9 +193,9 @@ CSS-свойство [`transform`](../../css/transform.md) часто испол
 количества движений, то не используйте переходы.
 */
 @media (prefers-reduced-motion: reduce) {
-    .my-element {
-        transition: none;
-    }
+	.my-element {
+		transition: none;
+	}
 }
 
 /*
@@ -203,9 +203,9 @@ CSS-свойство [`transform`](../../css/transform.md) часто испол
 явно не задал предпочтение, то используйте переходы.
 */
 @media (prefers-reduced-motion: no-preference) {
-    .my-element {
-        transition: transform 250ms ease;
-    }
+	.my-element {
+		transition: transform 250ms ease;
+	}
 }
 ```
 

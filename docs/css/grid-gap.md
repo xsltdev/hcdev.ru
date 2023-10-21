@@ -71,7 +71,8 @@ grid-gap: unset;
 
 Анимируется: да
 
-`<grid-row-gap>` `<grid-column-gap>` : значения размеров;
+`<grid-row-gap>` `<grid-column-gap>`
+: значения размеров;
 
 ## Спецификации
 
@@ -87,9 +88,9 @@ grid-gap: unset;
 
 ```css
 .container {
-    grid-template-columns: 100px 50px 100px;
-    grid-template-rows: 80px auto 80px;
-    grid-gap: 10px 15px;
+	grid-template-columns: 100px 50px 100px;
+	grid-template-rows: 80px auto 80px;
+	grid-gap: 10px 15px;
 }
 ```
 

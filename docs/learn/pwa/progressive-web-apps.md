@@ -132,11 +132,14 @@ _Данные взяты из StatCounter и Can I Use._
 
 В мире многофакторных устройств уже сложно определить, что такое настольный компьютер. Тем не менее, по крайней мере с точки зрения операционной системы, эти браузеры и магазины совместимы с установкой PWA и возможностью работы в автономном режиме:
 
-Windows 10 и 11 : Google Chrome (с версии 73), Microsoft Edge (с версии 79), Microsoft Store
+Windows 10 и 11
+: Google Chrome (с версии 73), Microsoft Edge (с версии 79), Microsoft Store
 
-ChromeOS : встроенный браузер Chrome (с версии 72), Play Store (с версии 85)
+ChromeOS
+: встроенный браузер Chrome (с версии 72), Play Store (с версии 85)
 
-macOS, Linux и Windows 7 и 8.x : Google Chrome (с версии 73), Microsoft Edge
+macOS, Linux и Windows 7 и 8.x
+: Google Chrome (с версии 73), Microsoft Edge
 
 В следующем видеоролике пользователь устанавливает PWA из браузера на настольном компьютере, а затем обращается к нему, как к любому другому приложению, с помощью отдельного окна.
 
@@ -152,9 +155,11 @@ macOS, Linux и Windows 7 и 8.x : Google Chrome (с версии 73), Microsoft
 
 Если говорить о мобильных телефонах и планшетах, то Progressive Web App можно установить с возможностью работы в автономном режиме с помощью следующих браузеров и магазинов приложений:
 
-iOS и iPadOS : Safari (начиная с iOS 11.3), AppStore (начиная с iOS/iPadOS 14, с некоторыми ограничениями), мобильная конфигурация для корпоративного распространения.
+iOS и iPadOS
+: Safari (начиная с iOS 11.3), AppStore (начиная с iOS/iPadOS 14, с некоторыми ограничениями), мобильная конфигурация для корпоративного распространения.
 
-Android : Firefox, Google Chrome, Samsung Internet, Microsoft Edge, Opera, Brave, Huawei Browser, Baidu, UCWeb, Play Store (начиная с версии 72 с установленным Google Chrome или браузерами, совместимыми с TWA), Galaxy Store, Managed Play iframe для корпоративного распространения.
+Android
+: Firefox, Google Chrome, Samsung Internet, Microsoft Edge, Opera, Brave, Huawei Browser, Baidu, UCWeb, Play Store (начиная с версии 72 с установленным Google Chrome или браузерами, совместимыми с TWA), Galaxy Store, Managed Play iframe для корпоративного распространения.
 
 !!!warning ""
 
