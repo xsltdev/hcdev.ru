@@ -51,9 +51,11 @@ outline-color: unset;
 ## Значения
 
 `invert`
+
 : Автоматически задаёт цвет линии, исходя из фона под ней для достижения максимального контраста. В CSS 2.1 браузеру разрешается игнорировать значение `invert` и вместо него использовать цвет линии заданный свойством [`color`](color.md).
 
 `<цвет>`
+
 : Задаёт цвет линии в любом допустимом для CSS формате.
 
 ### Примечание
@@ -66,8 +68,8 @@ Chrome, Android и Safari не поддерживают значение `invert
 
 ## Спецификации
 
-- [CSS Basic User Interface Module Level 3](http://dev.w3.org/csswg/css3-ui/#outline-color)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/ui.html#propdef-outline-color)
+-   [CSS Basic User Interface Module Level 3](http://dev.w3.org/csswg/css3-ui/#outline-color)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/ui.html#propdef-outline-color)
 
 ## Поддержка браузерами
 
@@ -78,25 +80,25 @@ Chrome, Android и Safari не поддерживают значение `invert
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>outline-color</title>
-    <style>
-      .block {
-        outline-style: dashed; /* Пунктирная граница */
-        outline-color: #be8b5e; /* Цвет границы */
-        padding: 10px; /* Поля вокруг текста */
-        background: #eedac8; /* Цвет фона */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="block">
-      Воображение, на первый взгляд, начинает конструктивный
-      классицизм.
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>outline-color</title>
+        <style>
+            .block {
+                outline-style: dashed; /* Пунктирная граница */
+                outline-color: #be8b5e; /* Цвет границы */
+                padding: 10px; /* Поля вокруг текста */
+                background: #eedac8; /* Цвет фона */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="block">
+            Воображение, на первый взгляд, начинает
+            конструктивный классицизм.
+        </div>
+    </body>
 </html>
 ```

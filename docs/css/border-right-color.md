@@ -70,9 +70,11 @@ border-right-color: unset;
 ## Значения
 
 `<цвет>`
+
 : цвет.
 
 `transparent`
+
 : Устанавливает прозрачный цвет.
 
 Значение по-умолчанию: Значение свойства [`color`](color.md)
@@ -81,32 +83,32 @@ border-right-color: unset;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#border-left-color)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#border-color-properties)
+-   [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#border-left-color)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#border-color-properties)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>border-right-color</title>
-    <style>
-      .line {
-        border-right-color: navy; /* Цвет линии справа */
-        border-right-style: dotted; /* Стиль линии */
-        border-right-width: 3px; /* Толщина линии */
-        padding-right: 10px; /* Расстояние между линией и текстом */
-        margin-right: 100px; /* Отступ справа */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="line">
-      Техника, согласно традиционным представлениям,
-      полифигурно дает мелодический тетрахорд.
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>border-right-color</title>
+        <style>
+            .line {
+                border-right-color: navy; /* Цвет линии справа */
+                border-right-style: dotted; /* Стиль линии */
+                border-right-width: 3px; /* Толщина линии */
+                padding-right: 10px; /* Расстояние между линией и текстом */
+                margin-right: 100px; /* Отступ справа */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="line">
+            Техника, согласно традиционным представлениям,
+            полифигурно дает мелодический тетрахорд.
+        </div>
+    </body>
 </html>
 ```

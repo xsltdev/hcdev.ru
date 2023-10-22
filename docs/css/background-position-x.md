@@ -63,18 +63,23 @@ background-position-x: unset;
 ## Значения
 
 `left`
+
 : Выравнивает фон по левому краю. Эквивалент записи 0 или 0%.
 
 `center`
+
 : Выравнивает фон по центру горизонтали. Эквивалент записи 50%.
 
 `right`
+
 : Выравнивает фон по правому краю. Эквивалент записи 100%.
 
 `<проценты>`
+
 : Задаёт положение фона в процентах от ширины элемента. Значение 0% или 0 выравнивает левый край фонового изображения по левому краю элемента. Значение 100% выравнивает правый край рисунка по правому краю элемента.
 
 `<размер>`
+
 : Задаёт положение фона в любых доступных для CSS единицах — пиксели (px), сантиметры (cm), em и др. относительно левого края элемента.
 
 Значение по-умолчанию:
@@ -87,7 +92,7 @@ background-position-x: left;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 4](https://drafts.csswg.org/css-backgrounds-4/#background-position-longhands)
+-   [CSS Backgrounds and Borders Module Level 4](https://drafts.csswg.org/css-backgrounds-4/#background-position-longhands)
 
 ## Поддержка браузерами
 
@@ -104,26 +109,26 @@ background-position-x: left;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>background-position-x</title>
-    <style>
-      .clock {
-        background: url('/example/image/clock-sprite.png')
-          no-repeat;
-        width: 128px;
-        height: 128px;
-      }
-      .clock:hover {
-        background-position-x: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="clock"></div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>background-position-x</title>
+        <style>
+            .clock {
+                background: url('/example/image/clock-sprite.png')
+                    no-repeat;
+                width: 128px;
+                height: 128px;
+            }
+            .clock:hover {
+                background-position-x: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="clock"></div>
+    </body>
 </html>
 ```
 

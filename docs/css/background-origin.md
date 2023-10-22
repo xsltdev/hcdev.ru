@@ -48,12 +48,15 @@ background-origin: unset;
 ## Значения
 
 `padding-box`
+
 : Фон позиционируется относительно края элемента с учетом толщины границы.
 
 `border-box`
+
 : Фон позиционируется относительно границы, при этом линия границы может перекрывать изображение.
 
 `content-box`
+
 : Фон позиционируется относительно содержимого элемента.
 
 Значений может быть несколько (для каждого из множественных фоновых рисунков), при этом значения разделяются между собой запятой.
@@ -68,7 +71,7 @@ background-origin: padding-box;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#the-background-origin)
+-   [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#the-background-origin)
 
 ## Поддержка браузерами
 
@@ -79,24 +82,24 @@ background-origin: padding-box;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>background-origin</title>
-    <style>
-      .example {
-        border: 20px solid #fc0;
-        padding: 20px;
-        height: 200px;
-        background: url('/example/image/figure.jpg')
-          no-repeat;
-        background-origin: content-box;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="example">...</div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>background-origin</title>
+        <style>
+            .example {
+                border: 20px solid #fc0;
+                padding: 20px;
+                height: 200px;
+                background: url('/example/image/figure.jpg')
+                    no-repeat;
+                background-origin: content-box;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="example">...</div>
+    </body>
 </html>
 ```

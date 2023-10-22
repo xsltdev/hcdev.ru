@@ -22,7 +22,7 @@ description: Тег html (от англ. HyperText Markup Language — «язы�
 
 ```html
 <html>
-  ...
+    ...
 </html>
 ```
 
@@ -33,12 +33,15 @@ description: Тег html (от англ. HyperText Markup Language — «язы�
 К этому элементу применимы [глобальные атрибуты](uni-attr.md).
 
 `manifest` :no_entry:
+
 : Указывает файл [манифеста](https://scriptdev.ru/manifest/), необходимый для создания оффлайнового приложения.
 
 `version` :no_entry:
+
 : Определяет версию HTML DTD (Document Type Definition, больше известное как Doctype), которая управляет текущим документом. Этот атрибут не нужен, потому что он является избыточным, так как есть информация, указываемая в объявлении типа документа.
 
 [`xmlns`](#xmlns)
+
 : Определяет пространство имен XHTML-документа. Значение по умолчанию `http://www.w3.org/1999/xhtml`. Это требуется при парсинге документов с помощью парсера XML и необязательно для документов `text/html`.
 
 ### xmlns
@@ -63,27 +66,27 @@ description: Тег html (от англ. HyperText Markup Language — «язы�
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-html-element)
-- [HTML5](http://www.w3.org/TR/html5/semantics.html#the-html-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/global.html#h-7.3)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-html-element)
+-   [HTML5](http://www.w3.org/TR/html5/semantics.html#the-html-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/global.html#h-7.3)
 
 ## Пример
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <!-- Этот раздел предназначен для заголовка страницы
+    <head>
+        <!-- Этот раздел предназначен для заголовка страницы
 	     и технической информации. -->
-  </head>
+    </head>
 
-  <body>
-    <!-- А здесь надо размещать все,
+    <body>
+        <!-- А здесь надо размещать все,
 	     что хочется увидеть на странице. -->
-  </body>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<html>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/html) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<html>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/html) <sup><small>MDN (рус.)</small></sup>

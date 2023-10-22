@@ -71,17 +71,18 @@ border-end-start-radius: unset;
 ## Значения
 
 `<длина>`
+
 : Обозначает размер радиуса окружности или большой и малой полуосей эллипса. Абсолютная длина может быть выражена в любых единицах, разрешенных типом данных CSS `<length>`. Проценты по горизонтальной оси относятся к ширине блока, проценты по вертикальной оси относятся к высоте блока. Отрицательные значения недействительны.
 
 ## Определение
 
-|                      |                                                       |
-| -------------------- | ----------------------------------------------------- |
-| Начальное значение   | `0`                                                   |
-| Применяется ко       | всем элементам                                        |
-| Наследуется          | нет                                                   |
+|  |  |
+| --- | --- |
+| Начальное значение | `0` |
+| Применяется ко | всем элементам |
+| Наследуется | нет |
 | Вычисленное значение | два абсолютных значения `<length>` или `<percentage>` |
-| Тип анимации         | длина, процент или `calc();`                          |
+| Тип анимации | длина, процент или `calc();` |
 
 ## Поддержка браузерами
 
@@ -117,5 +118,5 @@ border-end-start-radius: unset;
 
 ## Ссылки
 
-- Свойство [`border-end-start-radius`](https://developer.mozilla.org/ru/docs/Web/CSS/border-end-start-radius) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-radius-properties) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-end-start-radius`](https://developer.mozilla.org/ru/docs/Web/CSS/border-end-start-radius) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-radius-properties) <sup><small>Spec (англ.)</small></sup>

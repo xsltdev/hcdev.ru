@@ -57,6 +57,7 @@ border-block-color: #f5f6f7;
 ## Значения
 
 `цвет`
+
 : Цвет границы
 
 ## Определение
@@ -105,5 +106,5 @@ border-block-color: #f5f6f7;
 
 ## Ссылки
 
-- Свойство [`border-block-color`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-color) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://drafts.csswg.org/css-logical/#propdef-border-block-color) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-block-color`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-color) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://drafts.csswg.org/css-logical/#propdef-border-block-color) <sup><small>Spec (англ.)</small></sup>

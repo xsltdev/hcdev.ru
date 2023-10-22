@@ -27,14 +27,16 @@ aspect-ratio: unset;
 ## Значения
 
 `auto`
+
 : Заменяемые элементы с внутренним соотношением сторон используют это соотношение сторон, в противном случае у блока нет предпочтительного соотношения сторон. Вычисления размера с учетом внутреннего соотношения сторон всегда работают с размерами блока содержимого.
 
 `<ratio>`
+
 : Предпочтительным соотношением сторон блока является заданное соотношение ширины и высоты. Если высота и предшествующий символ косой черты опущены, высота по умолчанию равна `1`. Расчеты размера с учетом предпочтительного соотношения сторон работают с размерами блока, заданными параметром [`box-sizing`](box-sizing.md).
 
 ## Спецификация
 
-- [CSS Box Sizing Module Level 4](https://w3c.github.io/csswg-drafts/css-sizing-4/#aspect-ratio)
+-   [CSS Box Sizing Module Level 4](https://w3c.github.io/csswg-drafts/css-sizing-4/#aspect-ratio)
 
 ## Поддержка браузерами
 
@@ -42,4 +44,4 @@ aspect-ratio: unset;
 
 ## Ссылки
 
-- [aspect-ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio) <sup><small>MDN (англ.)</small></sup>
+-   [aspect-ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio) <sup><small>MDN (англ.)</small></sup>

@@ -104,11 +104,12 @@ mix-blend-mode: normal;
 ## Значения
 
 `blend-mode`
+
 : Собственно режим смешивания. Может быть задано несколько значений через запятую.
 
 ## Спецификация
 
-- [Compositing and Blending Level 1](https://drafts.fxtf.org/compositing-1/#mix-blend-mode)
+-   [Compositing and Blending Level 1](https://drafts.fxtf.org/compositing-1/#mix-blend-mode)
 
 ## Описание и примеры
 
@@ -238,8 +239,8 @@ mix-blend-mode: normal;
 
 ## См. также
 
-- [`background-blend-mode`](background-blend-mode.md)
+-   [`background-blend-mode`](background-blend-mode.md)
 
 ## Ссылки
 
-- [`mix-blend-mode`](https://developer.mozilla.org/ru/docs/Web/CSS/mix-blend-mode) <sup><small>MDN (рус.)</small></sup>
+-   [`mix-blend-mode`](https://developer.mozilla.org/ru/docs/Web/CSS/mix-blend-mode) <sup><small>MDN (рус.)</small></sup>

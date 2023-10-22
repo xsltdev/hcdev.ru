@@ -1,9 +1,9 @@
 ---
 title: Accessibility
 description: >
-  Ensure that your website is available to everyone.
+    Ensure that your website is available to everyone.
 authors:
-  - adactio
+    - adactio
 date: 2021-12-23
 ---
 
@@ -44,20 +44,24 @@ Select one of the options.
 In general it's not a good idea to rely purely on color to differentiate between different elements. For example, you can—and should—make your links a different color to the surrounding text. But you should also apply some other styling indicator like underlining the links or making them bold.
 
 {% Compare 'worse' %}
+
 ```css
 a {
-  color: red;
+	color: red;
 }
 ```
+
 {% endCompare %}
 
 {% Compare 'better' %}
+
 ```css
 a {
-  color: red;
-  font-weight: bold;
+	color: red;
+	font-weight: bold;
 }
 ```
+
 {% endCompare %}
 
 ## Color contrast
@@ -66,29 +70,33 @@ Some color combinations can cause trouble. If there isn't enough contrast betwee
 
 Here are some tools you can use to test the contrast ratio of your text and background colors:
 
-* [tota11y](https://khan.github.io/tota11y/) is a bookmarklet you can add to your browser's toolbar.
-* [VisBug](https://github.com/GoogleChromeLabs/ProjectVisBug) is a browser extension available for all major desktop browsers.
-* [Firefox's Accessibility Inspector](https://developer.mozilla.org/docs/Tools/Accessibility_inspector) can check for issues with visual contrast.
-* You can also [discover and fix low-contrast text with Chrome DevTools](https://developers.google.com/codelabs/devtools-cvd).
-* In Microsoft's Edge browser, you can [test text-color contrast using the color picker](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/accessibility/color-picker).
+-   [tota11y](https://khan.github.io/tota11y/) is a bookmarklet you can add to your browser's toolbar.
+-   [VisBug](https://github.com/GoogleChromeLabs/ProjectVisBug) is a browser extension available for all major desktop browsers.
+-   [Firefox's Accessibility Inspector](https://developer.mozilla.org/docs/Tools/Accessibility_inspector) can check for issues with visual contrast.
+-   You can also [discover and fix low-contrast text with Chrome DevTools](https://developers.google.com/codelabs/devtools-cvd).
+-   In Microsoft's Edge browser, you can [test text-color contrast using the color picker](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/accessibility/color-picker).
 
 It's a good idea to always declare `color` and `background-color` together in your CSS. Don't assume that the background color will be the browser default. People can and do change the colors used by their browser.
 
 {% Compare 'worse' %}
+
 ```css
 body {
-  color: black;
+	color: black;
 }
 ```
+
 {% endCompare %}
 
 {% Compare 'better' %}
+
 ```css
 body {
-  color: black;
-  background-color: white;
+	color: black;
+	background-color: white;
 }
 ```
+
 {% endCompare %}
 
 ## High contrast
@@ -151,20 +159,19 @@ Someone visiting your website on a desktop computer with their font size bumped 
  </figcaption>
 </figure>
 
-
 ## Keyboard navigation
 
 Not everyone uses a mouse or a trackpad to navigate web pages. A keyboard is another way of getting around a page, with the `tab` key being particularly useful. Users can quickly move from one link or form field to the next.
 
-Links styled with the `:hover` and `:focus` [pseudo-classes,](/learn/css/pseudo-classes/) will display those styles regardless of whether someone is using a mouse, a trackpad, or a keyboard. Use the `:focus-visible` [pseudo-class](/learn/css/pseudo-classes/) to style your links for just keyboard navigation. You can make those styles extra noticeable.
+Links styled with the `:hover` and `:focus` [pseudo-classes,](../css3/pseudo-classes.md) will display those styles regardless of whether someone is using a mouse, a trackpad, or a keyboard. Use the `:focus-visible` [pseudo-class](../css3/pseudo-classes.md) to style your links for just keyboard navigation. You can make those styles extra noticeable.
 
 ```css
 a:focus,
 a:hover {
-  outline: 1px dotted;
+	outline: 1px dotted;
 }
 a:focus-visible {
-  outline: 3px solid;
+	outline: 3px solid;
 }
 ```
 
@@ -194,27 +201,26 @@ In the **Accessibility** panel of the Firefox browser's developer tools there's 
 
 {% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/4JFy0QWWiHW0x7X4aCxq.png", alt="Visualizing tab order using Firefox's Accessibility Tab.", width="800", height="391" %}
 
-
 {% Aside %}
-Learn more about the problems caused by [content reordering](/content-reordering/).
+Learn more about the problems caused by [content reordering](https://web.dev/articles/content-reordering).
 {% endAside %}
 
 ## Reduced motion
 
 Animation and motion are wonderful ways to bring web designs to life. But for some people these movements can be very disorienting and even cause nausea.
 
-There's a feature query that communicates whether the user would prefer less motion. It's called [`prefers-reduced-motion`](/prefers-reduced-motion/). Include it wherever you are using CSS transitions or animations.
+There's a feature query that communicates whether the user would prefer less motion. It's called [`prefers-reduced-motion`](https://web.dev/articles/prefers-reduced-motion). Include it wherever you are using CSS transitions or animations.
 {% BrowserCompat 'css.at-rules.media.prefers-reduced-motion' %}
 
 ```css
 a:hover {
-  transform: scale(150%);
+	transform: scale(150%);
 }
 @media (prefers-reduced-motion: no-preference) {
-  a {
-    transition-duration: 0.4s;
-    transition-property: transform;
-  }
+	a {
+		transition-duration: 0.4s;
+		transition-property: transform;
+	}
 }
 ```
 
@@ -226,13 +232,14 @@ People experience the web differently. Not everyone is seeing your website on a 
 
 Screen readers work with all kinds of applications including web browsers. In order for a web browser to communicate usefully with a screen reader, there needs to be useful semantic information in the web page currently being accessed.
 
-Previously, you learned how [icon-only buttons](/learn/design/icons/) need to include an attribute to specify the button's purpose to non-sighted users. This is just one example of the importance of strong foundational HTML.
+Previously, you learned how [icon-only buttons](icons.md) need to include an attribute to specify the button's purpose to non-sighted users. This is just one example of the importance of strong foundational HTML.
 
 ## Headings
 
 Use headings like `<h1>`, `<h2>`, `<h3>`, etc. sensibly. Screen readers use these headings to generate an outline of your document which can be navigated with keyboard shortcuts.
 
 {% Compare 'worse' %}
+
 ```html
 <div class="heading-main">Welcome to my page</div>
 <div class="heading-secondary">About me</div>
@@ -240,16 +247,19 @@ Use headings like `<h1>`, `<h2>`, `<h3>`, etc. sensibly. Screen readers use thes
 <div class="heading-secondary">About this website</div>
 <div class="heading-tertiary">How this site was built</div>
 ```
+
 {% endCompare %}
 
 {% Compare 'better' %}
+
 ```html
 <h1>Welcome to my page</h1>
-  <h2>About me</h2>
-    <h3>My childhood</h3>
-  <h2>About this website</h2>
-    <h3>How this site was built</h3>
+<h2>About me</h2>
+<h3>My childhood</h3>
+<h2>About this website</h2>
+<h3>How this site was built</h3>
 ```
+
 {% endCompare %}
 
 ## Structure
@@ -257,6 +267,7 @@ Use headings like `<h1>`, `<h2>`, `<h3>`, etc. sensibly. Screen readers use thes
 Use landmark elements like `<main>`, `<nav>`, `<aside>`, `<header>`, and `<footer>` to structure your page's contents. Screen-reader users can then jump straight to these landmarks.
 
 {% Compare 'worse' %}
+
 ```html
 <div class="header">...</div>
 <div class="navigation">...</div>
@@ -264,9 +275,11 @@ Use landmark elements like `<main>`, `<nav>`, `<aside>`, `<header>`, and `<foote
 <div class="sidebar">...</div>
 <div class="footer">...</div>
 ```
+
 {% endCompare %}
 
 {% Compare 'better' %}
+
 ```html
 <header>...</header>
 <nav>...</nav>
@@ -274,6 +287,7 @@ Use landmark elements like `<main>`, `<nav>`, `<aside>`, `<header>`, and `<foote
 <aside>...</aside>
 <footer>...</footer>
 ```
+
 {% endCompare %}
 
 ## Forms
@@ -281,21 +295,25 @@ Use landmark elements like `<main>`, `<nav>`, `<aside>`, `<header>`, and `<foote
 Make sure that every form field has an associated `<label>` element. You can associate a label with a form field using the `for` attribute on the `<label>` element and the corresponding `id` attribute on the form field.
 
 {% Compare 'worse' %}
+
 ```html
 <span class="formlabel">Your name</span>
-<input type="text">
+<input type="text" />
 ```
+
 {% endCompare %}
 
 {% Compare 'better' %}
+
 ```html
 <label for="name">Your name</label>
-<input id="name" type="text">
+<input id="name" type="text" />
 ```
+
 {% endCompare %}
 
 {% Aside %}
-For more information in accessibility and forms, see the [Accessibility module in the Learn Forms course](/learn/forms/accessibility/).
+For more information in accessibility and forms, see the [Accessibility module in the Learn Forms course](../forms/accessibility.md).
 {% endAside %}
 
 ## Images
@@ -303,29 +321,40 @@ For more information in accessibility and forms, see the [Accessibility module i
 Always provide a text description of images using the `alt` attribute.
 
 {% Compare 'worse' %}
+
 ```html
-<img src="dog.jpg">
+<img src="dog.jpg" />
 ```
+
 {% endCompare %}
 
 {% Compare 'better' %}
+
 ```html
-<img src="dog.jpg" alt="A golden retriever sitting on the grass looking happy.">
+<img
+	src="dog.jpg"
+	alt="A golden retriever sitting on the grass looking happy."
+/>
 ```
+
 {% endCompare %}
 
 If the image is purely presentational, you should still include the `alt` attribute but you can give it an empty value.
 
 {% Compare 'worse' %}
+
 ```html
-<img src="texture.png">
+<img src="texture.png" />
 ```
+
 {% endCompare %}
 
 {% Compare 'better' %}
+
 ```html
-<img src="texture.png" alt="">
+<img src="texture.png" alt="" />
 ```
+
 {% endCompare %}
 
 Jake Archibald published an article on [writing great `alt` text](https://jakearchibald.com/2021/great-alt-text/).
@@ -335,15 +364,25 @@ Jake Archibald published an article on [writing great `alt` text](https://jakear
 Try to provide descriptive text within links. Avoid using phrases like "click here" or "more."
 
 {% Compare 'worse' %}
+
 ```html
-<p>To find out more about our latest offers, <a href="offers.html">click here</a>.</p>
+<p>
+	To find out more about our latest offers,
+	<a href="offers.html">click here</a>.
+</p>
 ```
+
 {% endCompare %}
 
 {% Compare 'better' %}
+
 ```html
-<p>Find out more about <a href="offers.html"> our latest offers</a>.</p>
+<p>
+	Find out more about
+	<a href="offers.html"> our latest offers</a>.
+</p>
 ```
+
 {% endCompare %}
 
 ## ARIA

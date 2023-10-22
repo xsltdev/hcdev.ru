@@ -75,9 +75,11 @@ border-image-source: unset;
 ## Значения
 
 `none`
+
 : Изображение границы не используется. Вместо этого отображается внешний вид, определенный бордюром.
 
 `<image>`
+
 : Ссылка на изображение для границы.
 
 Значение по-умолчанию:
@@ -88,7 +90,7 @@ border-image-source: none;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](https://w3c.github.io/csswg-drafts/css-backgrounds/#the-border-image-source)
+-   [CSS Backgrounds and Borders Module Level 3](https://w3c.github.io/csswg-drafts/css-backgrounds/#the-border-image-source)
 
 ## Поддержка браузерами
 

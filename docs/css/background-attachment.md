@@ -48,12 +48,15 @@ background-attachment: unset;
 ## Значения
 
 `fixed`
+
 : Делает фоновое изображение элемента неподвижным.
 
 `scroll`
+
 : Позволяет перемещаться фону вместе с содержимым.
 
 `local`
+
 : Фон фиксируется с учётом поведения элемента. Если элемент имеет прокрутку, то фон будет прокручиваться вместе с содержимым, но фон, выходящий за рамки элемента, остаётся на месте.
 
 Значение по-умолчанию:
@@ -66,9 +69,9 @@ background-attachment: scroll;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#the-background-attachment)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/colors.html#propdef-background-attachment)
-- [CSS Level 1](http://www.w3.org/TR/CSS1/#background-attachment)
+-   [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#the-background-attachment)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/colors.html#propdef-background-attachment)
+-   [CSS Level 1](http://www.w3.org/TR/CSS1/#background-attachment)
 
 ## Поддержка браузерами
 
@@ -81,44 +84,44 @@ background-attachment: scroll;
 ### Пример 1
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>background-attachment</title>
-    <style>
-      body {
-        background-image: url('/example/image/help.png');
-        background-attachment: fixed;
-      }
-    </style>
-  </head>
-  <body>
-    <div style="height:2000px">Пример текста</div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>background-attachment</title>
+        <style>
+            body {
+                background-image: url('/example/image/help.png');
+                background-attachment: fixed;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="height:2000px">Пример текста</div>
+    </body>
 </html>
 ```
 
 ### Пример 2
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>background-attachment</title>
-    <style>
-      body {
-        background-image: url('/example/image/pattern-left.png'),
-          url('/example/image/pattern-right.png');
-        background-repeat: repeat-y, repeat-y;
-        background-position: left, right;
-        background-attachment: fixed, fixed;
-      }
-    </style>
-  </head>
-  <body>
-    <div style="height:2000px"></div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>background-attachment</title>
+        <style>
+            body {
+                background-image: url('/example/image/pattern-left.png'),
+                    url('/example/image/pattern-right.png');
+                background-repeat: repeat-y, repeat-y;
+                background-position: left, right;
+                background-attachment: fixed, fixed;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="height:2000px"></div>
+    </body>
 </html>
 ```

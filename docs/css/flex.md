@@ -90,6 +90,7 @@ flex: unset;
 Анимируется: да
 
 `none`
+
 : Соответствует значению `0 0 auto`.
 
 !!! note "Примечание"
@@ -112,16 +113,16 @@ CSS
 
 ```css
 #flex-container {
-	display: flex;
-	flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 #flex-container > .flex-item {
-	flex: auto;
+    flex: auto;
 }
 
 #flex-container > .raw-item {
-	width: 5rem;
+    width: 5rem;
 }
 ```
 
@@ -129,10 +130,10 @@ HTML
 
 ```html
 <div id="flex-container">
-	<div class="flex-item" id="flex">
-		Flex box (click to toggle raw box)
-	</div>
-	<div class="raw-item" id="raw">Raw box</div>
+    <div class="flex-item" id="flex">
+        Flex box (click to toggle raw box)
+    </div>
+    <div class="raw-item" id="raw">Raw box</div>
 </div>
 ```
 

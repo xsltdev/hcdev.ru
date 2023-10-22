@@ -49,15 +49,19 @@ background-clip: unset;
 ## Значения
 
 `padding-box`
+
 : Фон отображается внутри границ.
 
 `border-box`
+
 : Фон выводится под границами.
 
 `content-box`
+
 : Фон отображается только внутри контента.
 
 `text`
+
 : Фон отображается только внутри текста.
 
 Значений может быть несколько (для каждого из множественных фоновых рисунков), при этом значения разделяются между собой запятой.
@@ -84,7 +88,7 @@ background-clip: border-box;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#the-background-clip)
+-   [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#the-background-clip)
 
 ## Поддержка браузерами
 
@@ -95,29 +99,30 @@ background-clip: border-box;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>background-clip</title>
-    <style>
-      .example {
-        background: #5f392f url(/example/image/gear.png); /* Фоновый рисунок */
-        border: 10px dotted red; /* Параметры рамки */
-        background-clip: border-box; /* Фон под рамкой */
-        padding: 10px; /* Поля */
-        color: #fff; /* Цвет текста */
-        min-height: 48px; /* Минимальная высота */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="example">Содержимое страницы</div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>background-clip</title>
+        <style>
+            .example {
+                background: #5f392f
+                    url(/example/image/gear.png); /* Фоновый рисунок */
+                border: 10px dotted red; /* Параметры рамки */
+                background-clip: border-box; /* Фон под рамкой */
+                padding: 10px; /* Поля */
+                color: #fff; /* Цвет текста */
+                min-height: 48px; /* Минимальная высота */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="example">Содержимое страницы</div>
+    </body>
 </html>
 ```
 
 ### Примечание
 
-- Firefox до версии 4 поддерживает свойство `-moz-background-clip` и значения `padding` и `border`.
-- В Chrome, Safari, Opera и Android значение `text` работает только со свойством `-webkit-background-clip`.
+-   Firefox до версии 4 поддерживает свойство `-moz-background-clip` и значения `padding` и `border`.
+-   В Chrome, Safari, Opera и Android значение `text` работает только со свойством `-webkit-background-clip`.

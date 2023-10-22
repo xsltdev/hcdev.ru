@@ -65,6 +65,7 @@ border-block-start-width: unset;
 ## Значения
 
 `<'border-width'>`
+
 : Ширина границы.
 
 ## Поддержка браузерами
@@ -99,5 +100,5 @@ border-block-start-width: unset;
 
 ## Ссылки
 
-- Свойство [`border-block-start-width`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-start-width) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-width) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-block-start-width`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-start-width) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-width) <sup><small>Spec (англ.)</small></sup>

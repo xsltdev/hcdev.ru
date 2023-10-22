@@ -66,7 +66,9 @@ font-feature-settings: normal;
 font-feature-settings: 'smcp';
 font-feature-settings: 'smcp' on;
 font-feature-settings: 'swsh' 2;
-font-feature-settings: 'smcp', 'swsh' 2;
+font-feature-settings:
+    'smcp',
+    'swsh' 2;
 
 /* Global values */
 font-feature-settings: inherit;
@@ -77,14 +79,16 @@ font-feature-settings: unset;
 ## Значения
 
 `normal`
+
 : текст отображается с настройками по-умолчанию.
 
 `<feature-tag-value>`
+
 : При отображении текста список значений тега функции OpenType передается механизму компоновки текста для включения или отключения функций шрифта. Тег всегда является строкой из 4 символов ASCII. Если он имеет больше или меньше символов или содержит символы вне диапазона `U+20` — `U+7E`, то все свойство недействительно. Значение представляет собой положительное целое число. Два ключевых слова `on` и `off` синонимы для `1` и `0` соответственно. Если значение не задано, по умолчанию используется значение `1`. Для небулевых функций OpenType (например, стилистических альтернатив) значение подразумевает выбранный глиф; для булевых значений это переключатель.
 
 ### Список функций
 
-- [OpenType Layout tag registry](https://www.microsoft.com/typography/otspec/featurelist.htm)
+-   [OpenType Layout tag registry](https://www.microsoft.com/typography/otspec/featurelist.htm)
 
 Значение по-умолчанию:
 
@@ -96,7 +100,7 @@ font-feature-settings: normal;
 
 ## Спецификации
 
-- [CSS Fonts Module Level 3](https://drafts.csswg.org/css-fonts-3/#propdef-font-feature-settings)
+-   [CSS Fonts Module Level 3](https://drafts.csswg.org/css-fonts-3/#propdef-font-feature-settings)
 
 ## Поддержка браузерами
 
@@ -109,42 +113,42 @@ font-feature-settings: normal;
 ```css
 /* use small-cap alternate glyphs */
 .smallcaps {
-  font-feature-settings: 'smcp' on;
+    font-feature-settings: 'smcp' on;
 }
 
 /* convert both upper and lowercase to small caps (affects punctuation also) */
 .allsmallcaps {
-  font-feature-settings: 'c2sc', 'smcp';
+    font-feature-settings: 'c2sc', 'smcp';
 }
 
 /* enable historical forms */
 .hist {
-  font-feature-settings: 'hist';
+    font-feature-settings: 'hist';
 }
 
 /* disable common ligatures, usually on by default */
 .noligs {
-  font-feature-settings: 'liga' 0;
+    font-feature-settings: 'liga' 0;
 }
 
 /* enable tabular (monospaced) figures */
 td.tabular {
-  font-feature-settings: 'tnum';
+    font-feature-settings: 'tnum';
 }
 
 /* enable automatic fractions */
 .fractions {
-  font-feature-settings: 'frac';
+    font-feature-settings: 'frac';
 }
 
 /* use the second available swash character */
 .swash {
-  font-feature-settings: 'swsh' 2;
+    font-feature-settings: 'swsh' 2;
 }
 
 /* enable stylistic set 7 */
 .fancystyle {
-  font-family: Gabriola; /* available on Windows 7, and on Mac OS */
-  font-feature-settings: 'ss07';
+    font-family: Gabriola; /* available on Windows 7, and on Mac OS */
+    font-feature-settings: 'ss07';
 }
 ```

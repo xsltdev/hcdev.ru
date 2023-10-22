@@ -75,27 +75,35 @@ animation-timing-function: unset;
 ## Значения
 
 `ease`
+
 : Анимация начинается медленно, затем ускоряется и к концу движения опять замедляется. Аналогично `cubic-bezier(0.25,0.1,0.25,1)`.
 
 `ease-in`
+
 : Анимация медленно начинается, к концу ускоряется. Аналогично `cubic-bezier(0.42,0,1,1)`.
 
 `ease-out`
+
 : Анимация начинается быстро, к концу замедляется. Аналогично `cubic-bezier(0,0,0.58,1)`.
 
 `ease-in-out`
+
 : Анимация начинается и заканчивается медленно. Аналогично `cubic-bezier(0.42,0,0.58,1)`.
 
 `linear`
+
 : Одинаковая скорость от начала и до конца.
 
 `step-start`
+
 : Как таковой анимации нет. Стилевые свойства сразу же принимают конечное значение.
 
 `step-end`
+
 : Как таковой анимации нет. Стилевые свойства находятся в начальном значении заданное время, затем сразу же принимают конечное значение.
 
 `steps`
+
 : Ступенчатая функция, имеющая заданное число шагов.
 
 : `animation-timing-function: steps(<число>, start | end)`
@@ -103,6 +111,7 @@ animation-timing-function: unset;
 : Здесь: `<число>` — целое число больше нуля; `start` — задаёт полунепрерывную снизу функцию; `end` — задаёт полунепрерывную сверху функцию.
 
 `cubic-bezier`
+
 : Задаёт функцию движения в виде кривой Безье.
 
 Значение по-умолчанию:
@@ -115,7 +124,7 @@ animation-timing-function: ease;
 
 ## Спецификации
 
-- [CSS Animations](http://dev.w3.org/csswg/css-animations/#animation-timing-function)
+-   [CSS Animations](http://dev.w3.org/csswg/css-animations/#animation-timing-function)
 
 ## Поддержка браузерами
 
@@ -126,58 +135,58 @@ animation-timing-function: ease;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>animation-timing-function</title>
-    <style>
-      .progress {
-        background: #333; /* Фон */
-        border: 2px solid #333; /* Рамка */
-        height: 20px; /* Высота */
-        position: relative; /* Относительное позиционирование */
-      }
-      .progress::before {
-        animation: progress 5s;
-        animation-timing-function: linear;
-        animation-duration: 5s;
-        animation-fill-mode: forwards;
-        -webkit-animation-name: progress;
-        -webkit-animation-timing-function: linear;
-        -webkit-animation-duration: 5s;
-        -webkit-animation-fill-mode: forwards;
-        content: '';
-        position: absolute; /* Абсолютное позиционирование */
-        height: 100%;
-        background: #ffa600; /* Фон */
-      }
-      @-webkit-keyframes progress {
-        from {
-          width: 0;
-        }
-        to {
-          width: 100%;
-        }
-      }
-      @keyframes progress {
-        from {
-          width: 0;
-        }
-        to {
-          width: 100%;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="progress"></div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>animation-timing-function</title>
+        <style>
+            .progress {
+                background: #333; /* Фон */
+                border: 2px solid #333; /* Рамка */
+                height: 20px; /* Высота */
+                position: relative; /* Относительное позиционирование */
+            }
+            .progress::before {
+                animation: progress 5s;
+                animation-timing-function: linear;
+                animation-duration: 5s;
+                animation-fill-mode: forwards;
+                -webkit-animation-name: progress;
+                -webkit-animation-timing-function: linear;
+                -webkit-animation-duration: 5s;
+                -webkit-animation-fill-mode: forwards;
+                content: '';
+                position: absolute; /* Абсолютное позиционирование */
+                height: 100%;
+                background: #ffa600; /* Фон */
+            }
+            @-webkit-keyframes progress {
+                from {
+                    width: 0;
+                }
+                to {
+                    width: 100%;
+                }
+            }
+            @keyframes progress {
+                from {
+                    width: 0;
+                }
+                to {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="progress"></div>
+    </body>
 </html>
 ```
 
 ### Примечание
 
-- Chrome, Safari и Android поддерживают свойство `-webkit-animation-timing-function`.
-- Opera до версии 12.10 поддерживает свойство `-o-animation-timing-function`.
-- Firefox до версии 16 поддерживает свойство `-moz-animation-timing-function`.
+-   Chrome, Safari и Android поддерживают свойство `-webkit-animation-timing-function`.
+-   Opera до версии 12.10 поддерживает свойство `-o-animation-timing-function`.
+-   Firefox до версии 16 поддерживает свойство `-moz-animation-timing-function`.

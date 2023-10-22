@@ -50,15 +50,19 @@ clear: unset;
 ## Значения
 
 `none`
+
 : Отменяет действие свойства `clear`, при этом обтекание элемента происходит, как задано с помощью свойства [`float`](float.md) или других настроек.
 
 `both`
+
 : Отменяет обтекание элемента одновременно с правого и левого края. Это значение рекомендуется устанавливать, когда требуется снять обтекание элемента, но неизвестно точно с какой стороны.
 
 `left`
+
 : Отменяет обтекание с левого края элемента. При этом все другие элементы на этой стороне будут опущены вниз, и располагаться под текущим элементом.
 
 `right`
+
 : Отменяет обтекание с правой стороны элемента.
 
 Значение по-умолчанию:
@@ -71,38 +75,39 @@ clear: none;
 
 ## Спецификации
 
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visuren.html#flow-control)
-- [CSS Level 1](http://www.w3.org/TR/CSS1/#clear)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visuren.html#flow-control)
+-   [CSS Level 1](http://www.w3.org/TR/CSS1/#clear)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>clear</title>
-    <style>
-      .pull-left {
-        float: left; /* Обтекание блока по правому краю */
-        padding-right: 10px;
-      }
-      .clearfix {
-        clear: both;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="pull-left">
-      <img src="image/figure.jpg" alt="" />
-    </div>
-    <div class="clearfix"></div>
-    <p>
-      Бихевиоризм, как бы это ни казалось парадоксальным,
-      просветляет сублимированный стимул, так, например,
-      Ричард Бендлер для построения эффективных состояний
-      использовал изменение субмодальностей.
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>clear</title>
+        <style>
+            .pull-left {
+                float: left; /* Обтекание блока по правому краю */
+                padding-right: 10px;
+            }
+            .clearfix {
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="pull-left">
+            <img src="image/figure.jpg" alt="" />
+        </div>
+        <div class="clearfix"></div>
+        <p>
+            Бихевиоризм, как бы это ни казалось
+            парадоксальным, просветляет сублимированный
+            стимул, так, например, Ричард Бендлер для
+            построения эффективных состояний использовал
+            изменение субмодальностей.
+        </p>
+    </body>
 </html>
 ```

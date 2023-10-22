@@ -104,9 +104,11 @@ color: unset;
 ## Значения
 
 `<цвет>`
+
 : цвет
 
 `transparent`
+
 : Устанавливает прозрачный цвет.
 
 Значение по-умолчанию: Зависит от настроек браузера, обычно чёрный цвет
@@ -115,48 +117,49 @@ color: unset;
 
 ## Спецификации
 
-- [CSS Color Module Level 4](https://w3c.github.io/csswg-drafts/css-color/#the-color-property)
-- [CSS Transitions](http://dev.w3.org/csswg/css-transitions/#animatable-css)
-- [CSS Color Module Level 3](http://dev.w3.org/csswg/css3-color/#color)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/colors.html#colors)
-- [CSS Level 1](http://www.w3.org/TR/CSS1/#color)
+-   [CSS Color Module Level 4](https://w3c.github.io/csswg-drafts/css-color/#the-color-property)
+-   [CSS Transitions](http://dev.w3.org/csswg/css-transitions/#animatable-css)
+-   [CSS Color Module Level 3](http://dev.w3.org/csswg/css3-color/#color)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/colors.html#colors)
+-   [CSS Level 1](http://www.w3.org/TR/CSS1/#color)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>color</title>
-    <style>
-      p::first-letter {
-        color: #f15a22; /* Цвет символа */
-        font-size: 2em; /* Размер шрифта */
-      }
-      p {
-        color: rgb(0, 113, 181); /* Цвет текста */
-      }
-    </style>
-  </head>
-  <body>
-    <p>
-      Явление культурологического порядка mezzo forte
-      вызывает неизменный микрохроматический интервал. Эти
-      слова совершенно справедливы, однако октавер
-      неизменяем. Легато использует нечётный динамический
-      эллипсис. Кластерное вибрато выстраивает неизменный
-      пласт.
-    </p>
-    <p>
-      Звукоряд, как бы это ни казалось парадоксальным,
-      неравномерен. Развивая эту тему, пентатоника имеет
-      midi-контроллер. Алеаторика просветляет зеркальный
-      флажолет. Векторно-зеркальная синхронность свободна.
-      Арпеджио полифигурно вызывает звукорядный канал, и
-      здесь мы видим ту самую каноническую секвенцию с
-      разнонаправленным шагом отдельных звеньев.
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>color</title>
+        <style>
+            p::first-letter {
+                color: #f15a22; /* Цвет символа */
+                font-size: 2em; /* Размер шрифта */
+            }
+            p {
+                color: rgb(0, 113, 181); /* Цвет текста */
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Явление культурологического порядка mezzo forte
+            вызывает неизменный микрохроматический интервал.
+            Эти слова совершенно справедливы, однако октавер
+            неизменяем. Легато использует нечётный
+            динамический эллипсис. Кластерное вибрато
+            выстраивает неизменный пласт.
+        </p>
+        <p>
+            Звукоряд, как бы это ни казалось парадоксальным,
+            неравномерен. Развивая эту тему, пентатоника
+            имеет midi-контроллер. Алеаторика просветляет
+            зеркальный флажолет. Векторно-зеркальная
+            синхронность свободна. Арпеджио полифигурно
+            вызывает звукорядный канал, и здесь мы видим ту
+            самую каноническую секвенцию с разнонаправленным
+            шагом отдельных звеньев.
+        </p>
+    </body>
 </html>
 ```

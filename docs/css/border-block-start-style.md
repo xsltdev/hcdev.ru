@@ -66,6 +66,7 @@ border-block-start-style: unset;
 ## Значения
 
 `<стиль границы>`
+
 : Стиль линии границы.
 
 ## Определение
@@ -86,19 +87,19 @@ border-block-start-style: unset;
 
 ```css
 div {
-  background-color: yellow;
-  width: 120px;
-  height: 120px;
+    background-color: yellow;
+    width: 120px;
+    height: 120px;
 }
 
 .exampleText {
-  writing-mode: vertical-lr;
-  border: 5px solid blue;
-  border-block-start-style: dashed;
+    writing-mode: vertical-lr;
+    border: 5px solid blue;
+    border-block-start-style: dashed;
 }
 ```
 
 ## Ссылки
 
-- Свойство [`border-block-start-style`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-start-style) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-style) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-block-start-style`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-start-style) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-style) <sup><small>Spec (англ.)</small></sup>

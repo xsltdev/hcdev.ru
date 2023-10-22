@@ -60,9 +60,11 @@ text-overflow: unset;
 ## Значения
 
 `clip`
+
 : Текст обрезается по размеру области.
 
 `ellipsis`
+
 : Текст обрезается и к концу строки добавляется многоточие.
 
 Значение по-умолчанию: `clip`
@@ -71,33 +73,33 @@ text-overflow: unset;
 
 ## Спецификации
 
-- [CSS Basic User Interface Module Level 4](https://drafts.csswg.org/css-ui-4/#text-overflow)
-- [CSS Basic User Interface Module Level 3](http://dev.w3.org/csswg/css3-ui/#text-overflow)
+-   [CSS Basic User Interface Module Level 4](https://drafts.csswg.org/css-ui-4/#text-overflow)
+-   [CSS Basic User Interface Module Level 3](http://dev.w3.org/csswg/css3-ui/#text-overflow)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>text-overflow</title>
-    <style>
-      p.clip {
-        white-space: nowrap; /* Запрещаем перенос строк */
-        overflow: hidden; /* Обрезаем все, что не помещается в область */
-        background: #fc0; /* Цвет фона */
-        padding: 5px; /* Поля вокруг текста */
-        text-overflow: ellipsis; /* Добавляем многоточие */
-      }
-    </style>
-  </head>
-  <body>
-    <p class="clip">
-      Магнитное поле ничтожно гасит большой круг небесной
-      сферы, в таком случае эксцентриситеты и наклоны орбит
-      возрастают.
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>text-overflow</title>
+        <style>
+            p.clip {
+                white-space: nowrap; /* Запрещаем перенос строк */
+                overflow: hidden; /* Обрезаем все, что не помещается в область */
+                background: #fc0; /* Цвет фона */
+                padding: 5px; /* Поля вокруг текста */
+                text-overflow: ellipsis; /* Добавляем многоточие */
+            }
+        </style>
+    </head>
+    <body>
+        <p class="clip">
+            Магнитное поле ничтожно гасит большой круг
+            небесной сферы, в таком случае эксцентриситеты и
+            наклоны орбит возрастают.
+        </p>
+    </body>
 </html>
 ```

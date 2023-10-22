@@ -45,6 +45,7 @@ outline-offset: unset;
 ## Значения
 
 `<размер>`
+
 : Задаёт расстояние от края элемента до рамки. Отрицательное значение отображает рамку внутри элемента, положительное — вокруг элемента.
 
 Значение по-умолчанию: `0`
@@ -53,8 +54,8 @@ outline-offset: unset;
 
 ## Спецификации
 
-- [CSS Transitions](https://drafts.csswg.org/css-transitions/#animatable-css)
-- [CSS Basic User Interface Module Level 3](https://drafts.csswg.org/css-ui-3/#outline-offset)
+-   [CSS Transitions](https://drafts.csswg.org/css-transitions/#animatable-css)
+-   [CSS Basic User Interface Module Level 3](https://drafts.csswg.org/css-ui-3/#outline-offset)
 
 ## Поддержка браузерами
 
@@ -65,23 +66,23 @@ outline-offset: unset;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>outline-offset</title>
-    <style>
-      .clue {
-        background: url(/example/image/leather.jpg); /* Фоновый рисунок */
-        outline: 2px dashed rgba(255, 255, 255, 0.8); /* Пунктирная рамка */
-        outline-offset: -10px; /* Выводим рамку внутри элемента */
-        padding: 10px; /* Поля */
-        min-height: 100px; /* Минимальная высота */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="clue"></div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>outline-offset</title>
+        <style>
+            .clue {
+                background: url(/example/image/leather.jpg); /* Фоновый рисунок */
+                outline: 2px dashed rgba(255, 255, 255, 0.8); /* Пунктирная рамка */
+                outline-offset: -10px; /* Выводим рамку внутри элемента */
+                padding: 10px; /* Поля */
+                min-height: 100px; /* Минимальная высота */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="clue"></div>
+    </body>
 </html>
 ```

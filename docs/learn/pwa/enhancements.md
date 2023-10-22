@@ -30,18 +30,23 @@ icon: material/cellphone-charging
 Ярлыки определяются в члене `shortcuts` манифеста. Он принимает массив членов со следующими свойствами:
 
 `name`
+
 : Текст, который будет показан пользователю, обычно в контекстном меню.
 
 `start_url`
+
 : URL, который должен загружаться при запуске PWA с этого ярлыка. Это должен быть URL в области видимости PWA, и он должен содержать глубокую ссылку на функцию, которую описывает `имя` или `короткое_имя`.
 
 `short_name` (необязательно)
+
 : Сокращенное название, используемое, когда недостаточно места для отображения полного значения поля `name`.
 
 `description`
+
 : (Необязательно) Описание того, что будет делать данный ярлык
 
 `icons`
+
 : (Необязательно) Массив объектов иконок с полями `src`, `type`, `sizes` и необязательным полем `purpose`, описывающими, какие изображения должны представлять данный ярлык.
 
 К ярлыкам приложений следует относиться как к возможностям, которые можно реализовать наилучшим образом. Это означает, что вы не можете рассчитывать на постоянное появление таких ярлыков, и даже если они появятся, вы не знаете, сколько ярлыков появится и будет ли платформа игнорировать иконки, поскольку это зависит от браузера. Полноценное обсуждение каждой платформы не представляется возможным, но ниже вы получите представление о том, как это работает на Android и настольных компьютерах. Лучший способ справиться с этой неопределенностью - упорядочить элементы по приоритету.
@@ -74,8 +79,8 @@ icon: material/cellphone-charging
 
 ```html
 <link
-	rel="apple-touch-startup-image"
-	href="ios-startup.png"
+    rel="apple-touch-startup-image"
+    href="ios-startup.png"
 />
 ```
 
@@ -87,14 +92,14 @@ icon: material/cellphone-charging
 
 ```html
 <link
-	rel="apple-touch-startup-image"
-	href="ios-startup.png"
-	media="orientation: portrait"
+    rel="apple-touch-startup-image"
+    href="ios-startup.png"
+    media="orientation: portrait"
 />
 <link
-	rel="apple-touch-startup-image"
-	href="ios-startup-landscape.png"
-	media="orientation: landscape"
+    rel="apple-touch-startup-image"
+    href="ios-startup-landscape.png"
+    media="orientation: landscape"
 />
 ```
 
@@ -131,8 +136,8 @@ icon: material/cellphone-charging
 
 ```html
 <meta
-	name="apple-mobile-web-app-status-bar-style"
-	content="black-translucent"
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
 />
 ```
 

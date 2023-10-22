@@ -98,14 +98,14 @@ API доступа к файловой системе позволяет отк�
 
 ```json
 {
-	"web_apps": [
-		{
-			"manifest": "/mypwa/app.webmanifest",
-			"details": {
-				"paths": ["/*"]
-			}
-		}
-	]
+    "web_apps": [
+        {
+            "manifest": "/mypwa/app.webmanifest",
+            "details": {
+                "paths": ["/*"]
+            }
+        }
+    ]
 }
 ```
 
@@ -185,15 +185,19 @@ API доступен только в операционных системах �
 Целевой веб-ресурс задается в манифесте с помощью элемента `share_target`, определенного в [Web Share Target draft spec](https://w3c.github.io/web-share-target/). `share_target` задается объектом с некоторыми свойствами:
 
 `action`
+
 : URL-адрес, который будет загружен в окно PWA, которое должно получить общие данные.
 
 `method`
+
 : метод HTTP-глагола, который будет использоваться для действия, например `GET`, `POST` или `PUT`.
 
 `enctype`
+
 : (Необязательно) Тип кодировки для параметров, по умолчанию это `application/x-www-form-urlencoded`, но также может быть установлен как `multipart/form-data` для таких методов, как `POST`.
 
 `params`
+
 : объект, который сопоставляет данные ресурса (из ключей: `title`, `text`, `url` и `files` из Web Share) с аргументами, которые браузер будет передавать в URL (при `method: 'GET'`) или в теле запроса, используя выбранную кодировку.
 
 !!!note ""
@@ -243,17 +247,17 @@ API Contact Picker доступен в основном на мобильных 
 
 ```js
 async function getContacts() {
-	const properties = ['name', 'email', 'tel'];
-	const options = { multiple: true };
-	try {
-		const contacts = await navigator.contacts.select(
-			properties,
-			options,
-		);
-		console.log(contacts);
-	} catch (ex) {
-		// Handle any errors here.
-	}
+    const properties = ['name', 'email', 'tel'];
+    const options = { multiple: true };
+    try {
+        const contacts = await navigator.contacts.select(
+            properties,
+            options,
+        );
+        console.log(contacts);
+    } catch (ex) {
+        // Handle any errors here.
+    }
 }
 ```
 

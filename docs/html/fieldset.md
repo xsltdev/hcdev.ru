@@ -48,12 +48,15 @@ description: Тег fieldset (от англ. field set - набор полей) 
 ## Атрибуты
 
 `disabled`
+
 : Блокирует поля формы в группе.
 
 `form`
+
 : Связывает группу с формой.
 
 `name`
+
 : Задает имя набора полей.
 
 Также для этого элемента доступны [универсальные атрибуты](uni-attr.md).
@@ -103,7 +106,7 @@ description: Тег fieldset (от англ. field set - набор полей) 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
         <meta charset="utf-8" />

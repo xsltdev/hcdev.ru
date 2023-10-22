@@ -53,31 +53,38 @@ max-block-size: unset;
 Значением свойства `max-block-size` может быть любое значение, допустимое для свойств `max-width` и `max-height`:
 
 `<length>`
+
 : Максимальная ширина как абсолютное значение.
 
 `<percentage>`
+
 : Максимальная ширина, выраженная в процентах от ширины содержащего блока.
 
 Значения ключевых слов:
 
 `none`
+
 : Ширина не имеет максимального значения.
 
 `max-content`
+
 : Внутренняя предпочтительная ширина.
 
 `min-content`
+
 : Собственная минимальная ширина.
 
 `fill-available`
+
 : Ширина содержащего блока минус горизонтальное поле, граница и отступ.
 
 `fit-content`
+
 : То же, что и `max-content`.
 
 ## Спецификация
 
-- [CSS Logical Properties and Values Level 1](https://drafts.csswg.org/css-logical/#propdef-max-block-size)
+-   [CSS Logical Properties and Values Level 1](https://drafts.csswg.org/css-logical/#propdef-max-block-size)
 
 ## Пример
 
@@ -130,9 +137,9 @@ max-block-size: unset;
 
 ## См. также
 
-- [`max-width`](max-width.md) и [`max-height`](max-height.md)
+-   [`max-width`](max-width.md) и [`max-height`](max-height.md)
 
 ## Ссылки
 
-- [`max-block-size`](https://developer.mozilla.org/en-US/docs/Web/CSS/max-block-size) <sup><small>MDN (англ.)</small></sup>
-- [Новые логические свойства в CSS!](https://medium.com/web-standards/logical-css-props-c5046c563640)
+-   [`max-block-size`](https://developer.mozilla.org/en-US/docs/Web/CSS/max-block-size) <sup><small>MDN (англ.)</small></sup>
+-   [Новые логические свойства в CSS!](https://medium.com/web-standards/logical-css-props-c5046c563640)

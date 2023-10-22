@@ -59,21 +59,27 @@ background-repeat: unset;
 ## Значения
 
 `no-repeat`
+
 : Устанавливает одно фоновое изображение в элементе без его повторений, положение которого определяется свойством [`background-position`](background-position.md) (по умолчанию в левом верхнем углу). Аналогично `no-repeat no-repeat`.
 
 `repeat`
+
 : Фоновое изображение повторяется по горизонтали и вертикали. Аналогично `repeat repeat`.
 
 `repeat-x`
+
 : Фоновый рисунок повторяется только по горизонтали. Аналогично `repeat no-repeat`.
 
 `repeat-y`
+
 : Фоновый рисунок повторяется только по вертикали. Аналогично `no-repeat repeat`.
 
 `space`
+
 : Изображение повторяется столько раз, чтобы полностью заполнить область; если это не удаётся, между картинками добавляется пустое пространство.
 
 `round`
+
 : Изображение повторяется так, чтобы в области поместилось целое число рисунков; если это не удаётся сделать, то фоновые рисунки масштабируются.
 
 Значение по-умолчанию:
@@ -86,9 +92,9 @@ background-repeat: repeat;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#the-background-repeat)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/colors.html#propdef-background-repeat)
-- [CSS Level 1](http://www.w3.org/TR/CSS1/#background-repeat)
+-   [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#the-background-repeat)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/colors.html#propdef-background-repeat)
+-   [CSS Level 1](http://www.w3.org/TR/CSS1/#background-repeat)
 
 ## Поддержка браузерами
 
@@ -101,49 +107,49 @@ background-repeat: repeat;
 ### Пример 1
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>background-repeat</title>
-    <style>
-      body {
-        background-image: url('/example/image/bg_grey.png'); /* Путь к фоновому рисунку */
-        background-position: left bottom; /* Положение фона */
-        background-repeat: repeat-x; /* Повторяем фон по горизонтали */
-      }
-    </style>
-  </head>
-  <body>
-    <p>
-      Даже опытному верстальщику приходится иногда смотреть
-      свой код на наличие опечаток и ошибок. Так что не
-      брезгуй проверять код валидатором, это поможет
-      избежать множества ляпов в будущем.
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>background-repeat</title>
+        <style>
+            body {
+                background-image: url('/example/image/bg_grey.png'); /* Путь к фоновому рисунку */
+                background-position: left bottom; /* Положение фона */
+                background-repeat: repeat-x; /* Повторяем фон по горизонтали */
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Даже опытному верстальщику приходится иногда
+            смотреть свой код на наличие опечаток и ошибок.
+            Так что не брезгуй проверять код валидатором,
+            это поможет избежать множества ляпов в будущем.
+        </p>
+    </body>
 </html>
 ```
 
 ### Пример 2
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>background-repeat</title>
-    <style>
-      body {
-        background-image: url('/example/image/pattern-left.png'),
-          url('/example/image/pattern-right.png');
-        background-position: left, right;
-        background-repeat: repeat-y, repeat-y;
-      }
-    </style>
-  </head>
-  <body>
-    <div style="height:2000px"></div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>background-repeat</title>
+        <style>
+            body {
+                background-image: url('/example/image/pattern-left.png'),
+                    url('/example/image/pattern-right.png');
+                background-position: left, right;
+                background-repeat: repeat-y, repeat-y;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="height:2000px"></div>
+    </body>
 </html>
 ```

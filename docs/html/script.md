@@ -24,7 +24,7 @@ description: Тег script (от англ. script — скрипт, сценар
 
 ```html
 <script>
-  ...
+    ...
 </script>
 <script src="адрес"></script>
 ```
@@ -34,15 +34,19 @@ description: Тег script (от англ. script — скрипт, сценар
 ## Атрибуты
 
 [`async`](#async)
+
 : Загружает скрипт асинхронно.
 
 [`defer`](#defer)
+
 : Откладывает выполнение скрипта до тех пор, пока вся страница не будет загружена полностью.
 
 [`src`](#src)
+
 : Адрес скрипта из внешнего файла для импорта в текущий документ.
 
 [`type`](#type)
+
 : Определяет тип содержимого `<script>`.
 
 ### async
@@ -55,7 +59,7 @@ description: Тег script (от англ. script — скрипт, сценар
 
 ```html
 <script async>
-  ...
+    ...
 </script>
 ```
 
@@ -75,7 +79,7 @@ description: Тег script (от англ. script — скрипт, сценар
 
 ```html
 <script src="<адрес>" defer>
-  ...
+    ...
 </script>
 ```
 
@@ -97,7 +101,7 @@ description: Тег script (от англ. script — скрипт, сценар
 
 ```html
 <script src="<адрес>">
-  ...
+    ...
 </script>
 ```
 
@@ -117,7 +121,7 @@ description: Тег script (от англ. script — скрипт, сценар
 
 ```html
 <script type="<MIME-тип>">
-  ...
+    ...
 </script>
 ```
 
@@ -125,8 +129,8 @@ description: Тег script (от англ. script — скрипт, сценар
 
 Атрибут `type` не чувствителен к регистру и обычно принимает следующие значения:
 
-- `text/javascript` — Для языка программирования JavaScript.
-- `text/vbscript` — Для языка VBScript.
+-   `text/javascript` — Для языка программирования JavaScript.
+-   `text/vbscript` — Для языка VBScript.
 
 Значение по умолчанию
 
@@ -134,37 +138,41 @@ description: Тег script (от англ. script — скрипт, сценар
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/scripting.html#the-script-element)
-- [HTML 5](http://www.w3.org/TR/html5/scripting-1.html#script)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/scripts.html#h-18.2.1)
-- [Subresource Integrity](https://w3c.github.io/webappsec/specs/subresourceintegrity/#htmlscriptelement) — атрибут `integrity`
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/scripting.html#the-script-element)
+-   [HTML 5](http://www.w3.org/TR/html5/scripting-1.html#script)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/interact/scripts.html#h-18.2.1)
+-   [Subresource Integrity](https://w3c.github.io/webappsec/specs/subresourceintegrity/#htmlscriptelement) — атрибут `integrity`
 
 ## Описание и примеры
 
 ```html
 <html>
-  <head>
-    <meta
-      http-equiv="Content-Type"
-      content="text/html; charset=utf-8"
-    />
-    <title>SCRIPT</title>
-  </head>
-  <body>
-    <script type="text/javascript">
-      document.write('<table width="100%" border="1">')
-      for (i = 1; i < 6; i++) {
-        document.writeln('<tr>')
-        for (j = 1; j < 6; j++)
-          document.write('<td>' + i + j + '<\/td>')
-        document.writeln('<\/tr>')
-      }
-      document.write('<\/table> ')
-    </script>
-  </body>
+    <head>
+        <meta
+            http-equiv="Content-Type"
+            content="text/html; charset=utf-8"
+        />
+        <title>SCRIPT</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            document.write(
+                '<table width="100%" border="1">',
+            );
+            for (i = 1; i < 6; i++) {
+                document.writeln('<tr>');
+                for (j = 1; j < 6; j++)
+                    document.write(
+                        '<td>' + i + j + '<\/td>',
+                    );
+                document.writeln('<\/tr>');
+            }
+            document.write('<\/table> ');
+        </script>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<script>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/script) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<script>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/script) <sup><small>MDN (рус.)</small></sup>

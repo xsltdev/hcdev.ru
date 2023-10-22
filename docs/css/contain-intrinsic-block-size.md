@@ -92,12 +92,15 @@ contain-intrinsic-block-size: unset;
 Для внутреннего размера блока элемента могут быть указаны следующие значения:
 
 `none`
+
 : Элемент не имеет внутреннего размера блока.
 
 `<length>`
+
 : Элемент имеет указанный размер блока, выраженный с использованием типа данных (`<length>`).
 
 `auto <length>`
+
 : Когда элемент находится в ограничении размера и пропускает свое содержимое (например, когда он находится вне экрана и установлено значение `content-visibility: auto`), размер блока запоминается из фактического размера элемента, когда он в последний раз мог отображать свои дочерние элементы. Если элемент никогда не визуализировал свои дочерние элементы и, следовательно, не имеет запомненного значения для нормально отображаемого размера элемента или если он не пропускает свое содержимое, размер блока равен заданному `<length>`.
 
 ## Описание
@@ -110,8 +113,8 @@ contain-intrinsic-block-size: unset;
 
 ## Спецификации
 
-- [CSS Box Sizing Module Level 4](https://w3c.github.io/csswg-drafts/css-sizing-4/#propdef-contain-intrinsic-block-size)
+-   [CSS Box Sizing Module Level 4](https://w3c.github.io/csswg-drafts/css-sizing-4/#propdef-contain-intrinsic-block-size)
 
 ## Ссылки
 
-- [`contain-intrinsic-block-size`](https://developer.mozilla.org/en-US/docs/Web/CSS/contain-intrinsic-block-size) на MDN
+-   [`contain-intrinsic-block-size`](https://developer.mozilla.org/en-US/docs/Web/CSS/contain-intrinsic-block-size) на MDN

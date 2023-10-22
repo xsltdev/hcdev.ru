@@ -57,12 +57,15 @@ outline: unset;
 ## Значения
 
 `outline-color`
+
 : Задаёт цвет линии в любом допустимом для CSS формате.
 
 `outline-style`
+
 : Стиль линии.
 
 `outline-width`
+
 : Толщина границы.
 
 Значение по-умолчанию: Нет
@@ -71,8 +74,8 @@ outline: unset;
 
 ## Спецификации
 
-- [CSS Basic User Interface Module Level 3](http://dev.w3.org/csswg/css3-ui/#outline)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/ui.html#propdef-outline)
+-   [CSS Basic User Interface Module Level 3](http://dev.w3.org/csswg/css3-ui/#outline)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/ui.html#propdef-outline)
 
 ## Поддержка браузерами
 
@@ -83,28 +86,34 @@ outline: unset;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>outline</title>
-    <style>
-      .photo img {
-        padding: 20px; /* Поля вокруг изображения */
-        margin-right: 10px; /* Отступ справа */
-        margin-bottom: 10px; /* Отступ снизу */
-        outline: 1px solid #666; /* Параметры рамки */
-        background: #f0f0f0; /* Цвет фона */
-        float: left; /* Обтекание по правому краю */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="photo">
-      <img src="image/girl.jpg" alt="Девочка с муфтой" />
-      <img src="image/owl.jpg" alt="Сова" />
-      <img src="image/boy.jpg" alt="Эвенкийский мальчик" />
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>outline</title>
+        <style>
+            .photo img {
+                padding: 20px; /* Поля вокруг изображения */
+                margin-right: 10px; /* Отступ справа */
+                margin-bottom: 10px; /* Отступ снизу */
+                outline: 1px solid #666; /* Параметры рамки */
+                background: #f0f0f0; /* Цвет фона */
+                float: left; /* Обтекание по правому краю */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="photo">
+            <img
+                src="image/girl.jpg"
+                alt="Девочка с муфтой"
+            />
+            <img src="image/owl.jpg" alt="Сова" />
+            <img
+                src="image/boy.jpg"
+                alt="Эвенкийский мальчик"
+            />
+        </div>
+    </body>
 </html>
 ```

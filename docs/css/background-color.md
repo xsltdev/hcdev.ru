@@ -49,22 +49,22 @@ background-color: rgb(255, 255, 128);
 
 /* RGBA value or RGB with alpha channel */
 background-color: rgba(
-  117,
-  190,
-  218,
-  0
+    117,
+    190,
+    218,
+    0
 ); /* 0.0 - fully transparent */
 background-color: rgba(
-  117,
-  190,
-  218,
-  0.5
+    117,
+    190,
+    218,
+    0.5
 ); /* 0.5 - semi-transparent */
 background-color: rgba(
-  117,
-  190,
-  218,
-  1
+    117,
+    190,
+    218,
+    1
 ); /* 1.0 - fully opaque */
 
 /* HSLA value */
@@ -83,9 +83,11 @@ background-color: unset;
 ## Значения
 
 `цвет`
+
 : Цвет
 
 `transparent`
+
 : устанавливает прозрачный фон
 
 Значение по-умолчанию:
@@ -98,43 +100,44 @@ background-color: transparent;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#background-color)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/colors.html#propdef-background-color)
-- [CSS Level 1](http://www.w3.org/TR/CSS1/#background-color)
+-   [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#background-color)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/colors.html#propdef-background-color)
+-   [CSS Level 1](http://www.w3.org/TR/CSS1/#background-color)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>background-color</title>
-    <style>
-      body {
-        background-color: #3366cc; /* Цвет фона веб-страницы */
-      }
-      h1 {
-        background-color: RGB(
-          249,
-          201,
-          16
-        ); /* Цвет фона под заголовком */
-      }
-      p {
-        background-color: maroon; /* Цвет фона под текстом параграфа */
-        color: white; /* Цвет текста */
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Lorem ipsum dolor sit amet</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetuer adipiscing
-      elit, sed diem nonummy nibh euismod tincidunt ut
-      lacreet dolore magna aliguam erat volutpat.
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>background-color</title>
+        <style>
+            body {
+                background-color: #3366cc; /* Цвет фона веб-страницы */
+            }
+            h1 {
+                background-color: RGB(
+                    249,
+                    201,
+                    16
+                ); /* Цвет фона под заголовком */
+            }
+            p {
+                background-color: maroon; /* Цвет фона под текстом параграфа */
+                color: white; /* Цвет текста */
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Lorem ipsum dolor sit amet</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer
+            adipiscing elit, sed diem nonummy nibh euismod
+            tincidunt ut lacreet dolore magna aliguam erat
+            volutpat.
+        </p>
+    </body>
 </html>
 ```
 

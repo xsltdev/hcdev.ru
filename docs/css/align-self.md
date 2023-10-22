@@ -81,6 +81,8 @@ align-self: unset;
 
 Применяется к: флексам, гридам
 
+<!-- prettier-ignore-start -->
+
 `auto`
 : Берёт родительское значение `align-items` или `stretch`, если нет родителя.
 
@@ -99,6 +101,8 @@ align-self: unset;
 `stretch`
 : Элемент растягивается таким образом, чтобы занять всё свободное пространство контейнера по поперечной оси.
 
+<!-- prettier-ignore-end -->
+
 ## Спецификации
 
 -   [CSS Box Alignment Module Level 3](https://drafts.csswg.org/css-align-3/#propdef-align-self)
@@ -113,54 +117,54 @@ align-self: unset;
 ```html
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<title>align-items</title>
-		<style>
-			.flex-container {
-				display: flex;
-				align-items: flex-start;
-				height: 160px; /* Высота контейнера */
-			}
-			.flex-item {
-				margin-left: 1rem; /* Расстояние между блоками */
-				padding: 10px; /* Поля вокруг текста */
-				width: 33.333%; /* Ширина блоков */
-			}
-			.flex-item:first-child {
-				margin-left: 0;
-			}
-			.flex-item:hover {
-				align-self: stretch; /* Растягиваем при наведении */
-			}
-			.item1 {
-				background: #f0ba7d;
-			}
-			.item2 {
-				background: #cae2aa;
-			}
-			.item3 {
-				background: #a6c0c9;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="flex-container">
-			<div class="flex-item item1">
-				Фенек — лисица, живущая в пустынях Северной
-				Африки. Имеет достаточно миниатюрный размер
-				и своеобразную внешность с большими ушами.
-			</div>
-			<div class="flex-item item2">
-				Корсак — хищное млекопитающее рода лисиц.
-			</div>
-			<div class="flex-item item3">
-				Лисица — хищное млекопитающее семейства
-				псовых, наиболее распространённый и самый
-				крупный вид рода лисиц.
-			</div>
-		</div>
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <title>align-items</title>
+        <style>
+            .flex-container {
+                display: flex;
+                align-items: flex-start;
+                height: 160px; /* Высота контейнера */
+            }
+            .flex-item {
+                margin-left: 1rem; /* Расстояние между блоками */
+                padding: 10px; /* Поля вокруг текста */
+                width: 33.333%; /* Ширина блоков */
+            }
+            .flex-item:first-child {
+                margin-left: 0;
+            }
+            .flex-item:hover {
+                align-self: stretch; /* Растягиваем при наведении */
+            }
+            .item1 {
+                background: #f0ba7d;
+            }
+            .item2 {
+                background: #cae2aa;
+            }
+            .item3 {
+                background: #a6c0c9;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-container">
+            <div class="flex-item item1">
+                Фенек — лисица, живущая в пустынях Северной
+                Африки. Имеет достаточно миниатюрный размер
+                и своеобразную внешность с большими ушами.
+            </div>
+            <div class="flex-item item2">
+                Корсак — хищное млекопитающее рода лисиц.
+            </div>
+            <div class="flex-item item3">
+                Лисица — хищное млекопитающее семейства
+                псовых, наиболее распространённый и самый
+                крупный вид рода лисиц.
+            </div>
+        </div>
+    </body>
 </html>
 ```
 

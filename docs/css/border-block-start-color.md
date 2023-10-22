@@ -64,6 +64,7 @@ border-block-start-color: unset;
 ## Значения
 
 `<цвет>`
+
 : Цвет границы
 
 ## Определение
@@ -84,19 +85,19 @@ border-block-start-color: unset;
 
 ```css
 div {
-  background-color: yellow;
-  width: 120px;
-  height: 120px;
+    background-color: yellow;
+    width: 120px;
+    height: 120px;
 }
 
 .exampleText {
-  writing-mode: vertical-lr;
-  border: 10px solid blue;
-  border-block-start-color: red;
+    writing-mode: vertical-lr;
+    border: 10px solid blue;
+    border-block-start-color: red;
 }
 ```
 
 ## Ссылки
 
-- Свойство [`border-block-start-color`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-start-color) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-color) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-block-start-color`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-start-color) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-color) <sup><small>Spec (англ.)</small></sup>

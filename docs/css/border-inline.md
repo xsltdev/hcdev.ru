@@ -16,9 +16,9 @@ description: CSS-свойство border-inline — это сокращенно�
 
 Это свойство является сокращением для следующих свойств CSS:
 
-- `border-inline-color`
-- `border-inline-style`
-- `border-inline-width`
+-   `border-inline-color`
+-   `border-inline-style`
+-   `border-inline-width`
 
 ??? info "Логические границы"
 
@@ -75,12 +75,15 @@ border-inline: unset;
 `border-inline` указывается одним или несколькими из следующих элементов в любом порядке:
 
 `<'border-width'>`
+
 : Ширина границы.
 
 `<'border-style'>`
+
 : Стиль линии границы.
 
 `<'color'>`
+
 : Цвет границы.
 
 ## Поддержка браузерами
@@ -93,7 +96,7 @@ HTML
 
 ```html
 <div>
-  <p class="exampleText">Example text</p>
+    <p class="exampleText">Example text</p>
 </div>
 ```
 
@@ -101,18 +104,18 @@ CSS
 
 ```css
 div {
-  background-color: yellow;
-  width: 120px;
-  height: 120px;
+    background-color: yellow;
+    width: 120px;
+    height: 120px;
 }
 
 .exampleText {
-  writing-mode: vertical-rl;
-  border-inline: 5px dashed blue;
+    writing-mode: vertical-rl;
+    border-inline: 5px dashed blue;
 }
 ```
 
 ## Ссылки
 
-- Свойство [`border-inline`](https://developer.mozilla.org/ru/docs/Web/CSS/border-inline) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#propdef-border-inline) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-inline`](https://developer.mozilla.org/ru/docs/Web/CSS/border-inline) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#propdef-border-inline) <sup><small>Spec (англ.)</small></sup>

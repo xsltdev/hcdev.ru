@@ -61,7 +61,9 @@ transition: margin-right 4s ease-in-out;
 transition: margin-right 4s ease-in-out 1s;
 
 /* Apply to 2 properties */
-transition: margin-right 4s, color 1s;
+transition:
+    margin-right 4s,
+    color 1s;
 
 /* Apply to all changed properties */
 transition: all 0.5s ease-out;
@@ -75,13 +77,14 @@ transition: unset;
 ## Значения
 
 `none`
+
 : Отменяет эффект перехода.
 
 ### Примечание
 
-- Chrome до версии 26, Safari до версии 6.1 и Android поддерживают свойство `-webkit-transition`.
-- Opera до версии 12.10 поддерживает свойство `-o-transition`.
-- Firefox до версии 16 поддерживает свойство `-moz-transition`.
+-   Chrome до версии 26, Safari до версии 6.1 и Android поддерживают свойство `-webkit-transition`.
+-   Opera до версии 12.10 поддерживает свойство `-o-transition`.
+-   Firefox до версии 16 поддерживает свойство `-moz-transition`.
 
 Значение по-умолчанию: `all 0s ease 0s`
 
@@ -89,7 +92,7 @@ transition: unset;
 
 ## Спецификации
 
-- [CSS Transitions](http://dev.w3.org/csswg/css-transitions/#transition)
+-   [CSS Transitions](http://dev.w3.org/csswg/css-transitions/#transition)
 
 ## Поддержка браузерами
 
@@ -100,38 +103,38 @@ transition: unset;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>transition</title>
-    <style>
-      #bar {
-        top: -5.5em;
-        right: 5em; /* Положение */
-        padding: 0.5em; /* Поля */
-        margin: 0; /* Отступы */
-        position: absolute; /* Абсолютное позиционирование */
-        width: 2em; /* Ширина */
-        background: #333; /* Цвет фона */
-        color: #fff; /* Цвет текста */
-        text-align: center; /* Выравнивание по центру */
-        /* Переход */
-        transition: top 1s ease-out 0.5s;
-      }
-      #bar:hover {
-        top: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <ul id="bar">
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
-      <li>↓</li>
-    </ul>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>transition</title>
+        <style>
+            #bar {
+                top: -5.5em;
+                right: 5em; /* Положение */
+                padding: 0.5em; /* Поля */
+                margin: 0; /* Отступы */
+                position: absolute; /* Абсолютное позиционирование */
+                width: 2em; /* Ширина */
+                background: #333; /* Цвет фона */
+                color: #fff; /* Цвет текста */
+                text-align: center; /* Выравнивание по центру */
+                /* Переход */
+                transition: top 1s ease-out 0.5s;
+            }
+            #bar:hover {
+                top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="bar">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>↓</li>
+        </ul>
+    </body>
 </html>
 ```

@@ -77,39 +77,51 @@ mask-clip: unset;
 Одно или несколько ключевых слов, перечисленных ниже, разделенных запятыми:
 
 `content-box`
+
 : Обрезка производится по контенту (`content`).
 
 `padding-box`
+
 : Обрезка производится по полям (`padding`).
 
 `border-box`
+
 : Обрезка производится по рамке (`border`).
 
 `margin-box`
+
 : Обрезка производится по отступам (`margin`).
 
 `fill-box`
+
 : Обрезка производится по ограничивающему объекту.
 
 `stroke-box`
+
 : Обрезка производится по рамке ограничивающего объекта.
 
 `view-box`
+
 : используется ближайший SVG viewport.
 
 `no-clip`
+
 : Обрезка не производится.
 
 `border`
+
 : эквивалент `border-box`.
 
 `padding`
+
 : эквивалент `padding-box`.
 
 `content`
+
 : эквивалент `content-box`.
 
 `text`
+
 : Обрезка производится по тексту элемента.
 
 Значение по-умолчанию:
@@ -122,7 +134,7 @@ mask-clip: border-box;
 
 ## Спецификации
 
-- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking-1/#the-mask-clip)
+-   [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking-1/#the-mask-clip)
 
 ## Поддержка браузерами
 
@@ -134,14 +146,14 @@ mask-clip: border-box;
 
 ```css
 #masked {
-  width: 100px;
-  height: 100px;
-  background-color: #8cffa0;
-  margin: 20px;
-  border: 20px solid #8ca0ff;
-  padding: 20px;
-  mask-image: url('https://mdn.mozillademos.org/files/12668/MDN.svg');
-  mask-size: 100% 100%;
-  mask-clip: border-box; /* Can be changed in the live sample */
+    width: 100px;
+    height: 100px;
+    background-color: #8cffa0;
+    margin: 20px;
+    border: 20px solid #8ca0ff;
+    padding: 20px;
+    mask-image: url('https://mdn.mozillademos.org/files/12668/MDN.svg');
+    mask-size: 100% 100%;
+    mask-clip: border-box; /* Can be changed in the live sample */
 }
 ```

@@ -12,9 +12,9 @@ description: Свойство CSS border-inline-start — это сокраще�
 
 Это свойство является сокращением для следующих свойств CSS:
 
-- `border-inline-start-color`
-- `border-inline-start-style`
-- `border-inline-start-width`
+-   `border-inline-start-color`
+-   `border-inline-start-style`
+-   `border-inline-start-width`
 
 ??? info "Логические границы"
 
@@ -75,12 +75,15 @@ border-inline-start: unset;
 `border-inline-start` указывается одним или несколькими из следующих элементов в любом порядке:
 
 `<'border-width'>`
+
 : Ширина границы.
 
 `<'border-style'>`
+
 : Стиль линии границы.
 
 `<'color'>`
+
 : Цвет границы.
 
 ## Поддержка браузерами
@@ -93,7 +96,7 @@ HTML
 
 ```html
 <div>
-  <p class="exampleText">Example text</p>
+    <p class="exampleText">Example text</p>
 </div>
 ```
 
@@ -101,18 +104,18 @@ CSS
 
 ```css
 div {
-  background-color: yellow;
-  width: 120px;
-  height: 120px;
+    background-color: yellow;
+    width: 120px;
+    height: 120px;
 }
 
 .exampleText {
-  writing-mode: vertical-rl;
-  border-inline-start: 5px dashed blue;
+    writing-mode: vertical-rl;
+    border-inline-start: 5px dashed blue;
 }
 ```
 
 ## Ссылки
 
-- Свойство [`border-inline-start`](https://developer.mozilla.org/ru/docs/Web/CSS/border-inline-start) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-shorthands) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-inline-start`](https://developer.mozilla.org/ru/docs/Web/CSS/border-inline-start) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-shorthands) <sup><small>Spec (англ.)</small></sup>

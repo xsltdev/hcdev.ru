@@ -67,14 +67,16 @@ print-color-adjust: unset;
 ## Значения
 
 `economy`
+
 : Пользовательскому агенту разрешено вносить изменения в элемент, если он считает это целесообразным и разумным, чтобы оптимизировать вывод для устройства, для которого он отображается. Например, при печати браузер может отказаться от всех фоновых изображений и настроить цвета текста, чтобы убедиться, что контрастность оптимизирована для чтения на белой бумаге. Это по умолчанию.
 
 `exact`
+
 : Содержимое элемента было специально и тщательно продумано, чтобы использовать цвета, изображения и стили вдумчивым и / или важным образом, чтобы изменение в браузере могло на самом деле ухудшать, а не улучшать. Внешний вид содержимого не должен быть изменен, кроме как по запросу пользователя. Например, страница может содержать список информации со строками, чьи цвета фона чередуются между белым и светло-серым. Удаление цвета фона уменьшит разборчивость содержимого.
 
 ## Спецификация
 
-- [CSS Color Adjustment Module Level 1](https://w3c.github.io/csswg-drafts/css-color-adjust/#propdef-print-color-adjust)
+-   [CSS Color Adjustment Module Level 1](https://w3c.github.io/csswg-drafts/css-color-adjust/#propdef-print-color-adjust)
 
 ## Пример
 
@@ -113,4 +115,4 @@ print-color-adjust: unset;
 
 ## Ссылки
 
-- [print-color-adjust](https://developer.mozilla.org/en-US/docs/Web/CSS/print-color-adjust) <sup><small>MDN (анг.)</small></sup>
+-   [print-color-adjust](https://developer.mozilla.org/en-US/docs/Web/CSS/print-color-adjust) <sup><small>MDN (анг.)</small></sup>

@@ -90,36 +90,41 @@ hanging-punctuation: unset;
 
 Для двух значений используются следующие варианты:
 
-- `first` вместе с одним из `last`, `allow-end` или `force-end`
-- `last` вместе с одним из `first`, `allow-end` или `force-end`
+-   `first` вместе с одним из `last`, `allow-end` или `force-end`
+-   `last` вместе с одним из `first`, `allow-end` или `force-end`
 
 Для трех значений используются один из следующих вариантов:
 
-- `first`, `allow-end` и `last`
-- `first`, `force-end` и `last`
+-   `first`, `allow-end` и `last`
+-   `first`, `force-end` и `last`
 
 **`none`**
+
 : Никакие символы не выносятся.
 
 `first`
+
 : Открывающая скобка или кавычка в начале первой строки выровненного элемента будет вынесена.
 
 `last`
+
 : Закрывающая скобка или кавычка последней строки выровненного элемента будет вынесена.
 
 `force-end`
+
 : Точка или запятая в конце строки выносится.
 
 `allow-end`
+
 : Точка или запятая в конце строки будет вынесена, если нет лучшего варианта для выравнивания.
 
 ## Спецификация
 
-- [CSS Text Module Level 3](https://drafts.csswg.org/css-text-3/#hanging-punctuation-property)
+-   [CSS Text Module Level 3](https://drafts.csswg.org/css-text-3/#hanging-punctuation-property)
 
 ## Поддержка браузерами
 
-- Safari 10+
+-   Safari 10+
 
 ## Пример
 
@@ -149,4 +154,4 @@ hanging-punctuation: unset;
 
 ## Ссылки
 
-- [`hanging-punctuation`](https://developer.mozilla.org/ru/docs/Web/CSS/hanging-punctuation) <sup><small>MDN (рус.)</small></sup>
+-   [`hanging-punctuation`](https://developer.mozilla.org/ru/docs/Web/CSS/hanging-punctuation) <sup><small>MDN (рус.)</small></sup>

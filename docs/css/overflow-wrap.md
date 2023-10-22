@@ -74,17 +74,20 @@ overflow-wrap: unset;
 ## Значения
 
 `normal`
+
 : Строки могут разрываться только в обычных точках разрыва слов (например, пробел между двумя словами).
 
 `anywhere`
+
 : Во избежание переполнения неразрывная строка символов - например, длинное слово или URL-адрес - может быть разбита в любой точке, если в строке нет других приемлемых точек разрыва. В точке останова символ переноса не вставляется. Возможности мягкого переноса, представленные разрывом слов, учитываются при расчете собственных размеров минимального содержимого.
 
 `break-word`
+
 : То же самое, что и в любом месте, с обычно неразрывными словами, которые можно разбивать в произвольных точках, если в строке нет других приемлемых точек разрыва, но возможности мягкого переноса, представленные разрывом слова, НЕ учитываются при вычислении внутренних размеров минимального содержимого.
 
 ## Спецификация
 
-- [CSS Text Module Level 3](https://drafts.csswg.org/css-text-3/#propdef-overflow-wrap)
+-   [CSS Text Module Level 3](https://drafts.csswg.org/css-text-3/#propdef-overflow-wrap)
 
 ## Пример
 
@@ -177,10 +180,10 @@ overflow-wrap: unset;
 
 ## См. также
 
-- [`word-break`](word-break.md)
-- [`hyphens`](hyphens.md)
-- [`text-overflow`](text-overflow.md)
+-   [`word-break`](word-break.md)
+-   [`hyphens`](hyphens.md)
+-   [`text-overflow`](text-overflow.md)
 
 ## Ссылки
 
-- [`overflow-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap) <sup><small>MDN (рус.)</small></sup>
+-   [`overflow-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap) <sup><small>MDN (рус.)</small></sup>

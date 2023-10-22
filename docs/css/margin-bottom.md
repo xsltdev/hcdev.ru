@@ -79,6 +79,7 @@ margin-bottom: unset;
 Величину нижнего отступа можно указывать в пикселях (px), процентах (%) или других допустимых для CSS единицах. Значение может быть как положительным, так и отрицательным числом.
 
 `auto`
+
 : Указывает, что размер отступов будет автоматически рассчитан браузером.
 
 Значение по-умолчанию:
@@ -91,42 +92,43 @@ margin-bottom: 0;
 
 ## Спецификации
 
-- [CSS Basic Box Model](http://dev.w3.org/csswg/css3-box/#margin)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#margin-properties)
-- [CSS Level 1](http://www.w3.org/TR/CSS1/#margin-bottom)
+-   [CSS Basic Box Model](http://dev.w3.org/csswg/css3-box/#margin)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#margin-properties)
+-   [CSS Level 1](http://www.w3.org/TR/CSS1/#margin-bottom)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>margin-bottom</title>
-    <style>
-      .layer1 {
-        background: #8b0086; /* Цвет фона */
-        color: white; /* Цвет текста */
-        padding: 10px; /* Поля вокруг текста */
-        margin-bottom: -7px; /* Отступ снизу */
-      }
-      .layer2 {
-        margin-left: 40px; /* Отступ слева */
-        background: #e9c1e4; /* Цвет фона */
-        padding: 10px; /* Поля вокруг текста */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="layer1">
-      Невротический инвариант в XXI веке
-    </div>
-    <div class="layer2">
-      Весьма существенно следующее: аллегория монотонно
-      иллюстрирует невротический холерик, таким образом,
-      второй комплекс движущих сил получил разработку в
-      трудах А.Берталанфи и Ш.Бюлера.
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>margin-bottom</title>
+        <style>
+            .layer1 {
+                background: #8b0086; /* Цвет фона */
+                color: white; /* Цвет текста */
+                padding: 10px; /* Поля вокруг текста */
+                margin-bottom: -7px; /* Отступ снизу */
+            }
+            .layer2 {
+                margin-left: 40px; /* Отступ слева */
+                background: #e9c1e4; /* Цвет фона */
+                padding: 10px; /* Поля вокруг текста */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="layer1">
+            Невротический инвариант в XXI веке
+        </div>
+        <div class="layer2">
+            Весьма существенно следующее: аллегория
+            монотонно иллюстрирует невротический холерик,
+            таким образом, второй комплекс движущих сил
+            получил разработку в трудах А.Берталанфи и
+            Ш.Бюлера.
+        </div>
+    </body>
 </html>
 ```

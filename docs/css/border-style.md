@@ -106,9 +106,11 @@ border-style: unset;
 Кроме перечисленных в таблице значений используются следующие ключевые слова.
 
 `none`
+
 : Не отображает границу и её толщина [`border-width`](border-width.md) задаётся нулевой.
 
 `hidden`
+
 : Имеет тот же эффект, что и `none` за исключением применения `border-style` к ячейкам таблицы, у которой значение свойства [`border-collapse`](border-collapse.md) установлено как `collapse`. В этом случае вокруг ячейки граница не будет отображаться вообще.
 
 Разрешается использовать одно, два, три или четыре значения, разделяя их между собой пробелом. Эффект зависит от количества и указан в табл. 2.
@@ -136,30 +138,30 @@ border-top-style: none;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#border-style)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#propdef-border-style)
-- [CSS Level 1](http://www.w3.org/TR/CSS1/#border-style)
+-   [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#border-style)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#propdef-border-style)
+-   [CSS Level 1](http://www.w3.org/TR/CSS1/#border-style)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>border-style</title>
-    <style>
-      p {
-        border-style: double; /* Стиль линии вокруг абзаца */
-        padding: 5px; /* Поля вокруг текста */
-      }
-    </style>
-  </head>
-  <body>
-    <p>
-      Развивая эту тему, крещендирующее хождение просветляет
-      миксолидийский райдер.
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>border-style</title>
+        <style>
+            p {
+                border-style: double; /* Стиль линии вокруг абзаца */
+                padding: 5px; /* Поля вокруг текста */
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Развивая эту тему, крещендирующее хождение
+            просветляет миксолидийский райдер.
+        </p>
+    </body>
 </html>
 ```

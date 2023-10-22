@@ -56,9 +56,11 @@ description: Тег progress (от англ. progress — прогрес) исп
 ## Атрибуты
 
 `value`
+
 : Текущее значение прогресса.
 
 `max`
+
 : Максимальное значение прогресса.
 
 ## Спецификации
@@ -69,7 +71,7 @@ description: Тег progress (от англ. progress — прогрес) исп
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
         <meta charset="utf-8" />

@@ -41,6 +41,7 @@ description: Тег blockquote (от англ. block quotation - блок цит
 ## Атрибуты
 
 [`cite`](#cite)
+
 : Адрес, который указывает на источник цитаты.
 
 Для этого элемента также доступны [универсальные атрибуты](uni-attr.md).
@@ -72,7 +73,7 @@ description: Тег blockquote (от англ. block quotation - блок цит
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
         <meta charset="utf-8" />

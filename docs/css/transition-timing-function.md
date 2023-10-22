@@ -75,30 +75,39 @@ transition-timing-function: unset;
 ## Значения
 
 `ease`
+
 : Анимация начинается медленно, затем ускоряется и к концу движения опять замедляется. Аналогично `cubic-bezier(0.25,0.1,0.25,1)`.
 
 `ease-in`
+
 : Анимация медленно начинается, к концу ускоряется. Аналогично `cubic-bezier(0.42,0,1,1)`.
 
 `ease-out`
+
 : Анимация начинается быстро, к концу замедляется. Аналогично `cubic-bezier(0,0,0.58,1)`.
 
 `ease-in-out`
+
 : Анимация начинается и заканчивается медленно. Аналогично `cubic-bezier(0.42,0,0.58,1)`.
 
 `linear`
+
 : Одинаковая скорость от начала и до конца.
 
 `step-start`
+
 : Как таковой анимации нет. Стилевые свойства сразу же принимают конечное значение.
 
 `step-end`
+
 : Как таковой анимации нет. Стилевые свойства находятся в начальном значении заданное время, затем сразу же принимают конечное значение.
 
 `cubic-bezier`
+
 : Задаёт функцию движения в виде кривой Безье.
 
 `steps`
+
 : Ступенчатая функция, имеющая заданное число шагов.
 
 : `transition-timing-function: steps(<число>, start | end)`
@@ -107,10 +116,10 @@ transition-timing-function: unset;
 
 ### Примечание
 
-- Chrome до версии 26, Safari до версии 6.1 и Android поддерживают свойство `-webkit-transition-timing-function`.
-- Opera до версии 12.10 поддерживает свойство `-o-transition-timing-function`.
-- Firefox до версии 16 поддерживает свойство `-moz-transition-timing-function`.
-- Safari поддерживает значение `steps` только с версии 5.1.
+-   Chrome до версии 26, Safari до версии 6.1 и Android поддерживают свойство `-webkit-transition-timing-function`.
+-   Opera до версии 12.10 поддерживает свойство `-o-transition-timing-function`.
+-   Firefox до версии 16 поддерживает свойство `-moz-transition-timing-function`.
+-   Safari поддерживает значение `steps` только с версии 5.1.
 
 Значение по-умолчанию: `ease`
 
@@ -118,7 +127,7 @@ transition-timing-function: unset;
 
 ## Спецификации
 
-- [CSS Transitions](http://dev.w3.org/csswg/css-transitions/#transition-timing-function)
+-   [CSS Transitions](http://dev.w3.org/csswg/css-transitions/#transition-timing-function)
 
 ## Поддержка браузерами
 
@@ -129,34 +138,34 @@ transition-timing-function: unset;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>transition-timing-function</title>
-    <style>
-      .progress {
-        background: #333; /* Фон */
-        border: 2px solid #333; /* Рамка */
-        height: 20px; /* Высота */
-        position: relative; /* Относительное позиционирование */
-      }
-      .progress:hover::before {
-        width: 100%;
-      }
-      .progress::before {
-        transition-timing-function: linear;
-        transition-duration: 5s;
-        content: '';
-        position: absolute; /* Абсолютное позиционирование */
-        height: 100%;
-        width: 0;
-        background: #ffa600; /* Фон */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="progress"></div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>transition-timing-function</title>
+        <style>
+            .progress {
+                background: #333; /* Фон */
+                border: 2px solid #333; /* Рамка */
+                height: 20px; /* Высота */
+                position: relative; /* Относительное позиционирование */
+            }
+            .progress:hover::before {
+                width: 100%;
+            }
+            .progress::before {
+                transition-timing-function: linear;
+                transition-duration: 5s;
+                content: '';
+                position: absolute; /* Абсолютное позиционирование */
+                height: 100%;
+                width: 0;
+                background: #ffa600; /* Фон */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="progress"></div>
+    </body>
 </html>
 ```

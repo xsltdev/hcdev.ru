@@ -25,17 +25,20 @@ overscroll-behavior-inline: unset;
 ## Значения
 
 `auto`
+
 : Поведение переполнения прокрутки по умолчанию происходит как обычно.
 
 `contain`
+
 : Поведение переполнения прокрутки по умолчанию наблюдается внутри элемента, для которого установлено это значение (например, эффекты «отскока» или обновления), но цепочка прокрутки не возникает для соседних областей прокрутки, например. базовые элементы не будут прокручиваться.
 
 `none`
+
 : Цепочка прокрутки не возникает для соседних областей прокрутки, а поведение переполнения прокрутки по умолчанию предотвращается.
 
 ## Спецификация
 
-- [CSS Overscroll Behavior Module Level 1](https://w3c.github.io/csswg-drafts/css-overscroll/#overscroll-behavior-longhands-logical)
+-   [CSS Overscroll Behavior Module Level 1](https://w3c.github.io/csswg-drafts/css-overscroll/#overscroll-behavior-longhands-logical)
 
 ## Поддержка браузерами
 

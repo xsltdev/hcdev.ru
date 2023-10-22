@@ -87,15 +87,18 @@ image-resolution: unset;
 ## Значения
 
 `<resolution>`
+
 : Явно задает внутреннее разрешение.
 
 `from-image`
+
 : Использует собственное разрешение, указанное в формате изображения. Если для изображения не указано собственное разрешение, используется явно указанное разрешение (если оно задано), в противном случае по умолчанию используется `1 dppx` (1 пиксель изображения на единицу CSS `px`).
 
 `snap`
+
 : Если предоставлено ключевое слово `snap`, вычисленное разрешение представляет собой указанное разрешение, округленное до ближайшего значения, которое сопоставляет один пиксель изображения с целым числом пикселей устройства. Если разрешение берется из изображения, то используемое внутреннее разрешение является исходным разрешением изображения, настроенным аналогичным образом.
 
 ## Ссылки
 
-- Свойство [`image-resolution`](https://developer.mozilla.org/ru/docs/Web/CSS/image-resolution) <sup><small>MDN (рус.)</small></sup>
-- [CSS Images Module Level 4](https://drafts.csswg.org/css-images-4/#the-image-resolution) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`image-resolution`](https://developer.mozilla.org/ru/docs/Web/CSS/image-resolution) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Images Module Level 4](https://drafts.csswg.org/css-images-4/#the-image-resolution) <sup><small>Spec (англ.)</small></sup>

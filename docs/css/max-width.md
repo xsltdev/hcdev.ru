@@ -84,6 +84,7 @@ max-width: unset;
 В качестве значений принимаются пиксели (px), проценты (%) и другие единицы измерения, принятые в CSS. Отрицательные значения не допускаются.
 
 `none`
+
 : Отменяет действие этого свойства.
 
 Значение по-умолчанию:
@@ -96,8 +97,8 @@ max-width: none;
 
 ## Спецификации
 
-- [CSS Intrinsic & Extrinsic Sizing Module Level 3](http://dev.w3.org/csswg/css3-sizing/#width-height-keywords)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visudet.html#min-max-widths)
+-   [CSS Intrinsic & Extrinsic Sizing Module Level 3](http://dev.w3.org/csswg/css3-sizing/#width-height-keywords)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visudet.html#min-max-widths)
 
 ## Поддержка браузерами
 
@@ -108,20 +109,22 @@ max-width: none;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Версия сайта для мобильных устройств</title>
-    <style media="only screen and (max-device-width:480px)">
-      body {
-        max-width: 480px; /* Максимальная ширина страницы в пикселях */
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Текст заголовка</h1>
-    <p>Текст примера</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>Версия сайта для мобильных устройств</title>
+        <style
+            media="only screen and (max-device-width:480px)"
+        >
+            body {
+                max-width: 480px; /* Максимальная ширина страницы в пикселях */
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Текст заголовка</h1>
+        <p>Текст примера</p>
+    </body>
 </html>
 ```

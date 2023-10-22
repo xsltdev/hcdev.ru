@@ -66,6 +66,7 @@ border-block-style: unset;
 ## Значения
 
 `<'border-style'>`
+
 : Стиль линии границы.
 
 ## Поддержка браузерами
@@ -100,5 +101,5 @@ border-block-style: unset;
 
 ## Ссылки
 
-- Свойство [`border-block-style`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-style) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#propdef-border-block-style) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-block-style`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-style) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#propdef-border-block-style) <sup><small>Spec (англ.)</small></sup>

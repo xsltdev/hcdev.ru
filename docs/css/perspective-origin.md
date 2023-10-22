@@ -50,22 +50,32 @@ perspective-origin: unset;
 ## Значения
 
 `x-position`
+
 : Указывает положение абсциссы точки схода. Может иметь одно из следующих значений:
+
 : - `<length-percentage>` указание позиции в виде абсолютного значения длины или относительно ширины элемента. Значение может быть отрицательным.
+
 : - `left`, ключевое слово, являющееся ярлыком для значения длины `0`.
+
 : - `center`, ключевое слово, являющееся ярлыком для `50%` процентного значения.
+
 : - `right`, ключевое слово, являющееся ярлыком для `100%` процентного значения.
 
 `y-position`
+
 : Указывает положение ординаты точки схода. Может иметь одно из следующих значений:
+
 : - `<length-percentage>` указание положения в виде абсолютного значения длины или относительно высоты элемента. Значение может быть отрицательным.
+
 : - `top`, ключевое слово, являющееся ярлыком для значения длины `0`.
+
 : - `center`, ключевое слово, являющееся ярлыком для `50%` процентного значения.
+
 : - `bottom`, ключевое слово, являющееся ярлыком для `100%` процентного значения.
 
 ## Спецификация
 
-- [CSS Transforms Module Level 2](https://w3c.github.io/csswg-drafts/css-transforms-2/#perspective-origin-property)
+-   [CSS Transforms Module Level 2](https://w3c.github.io/csswg-drafts/css-transforms-2/#perspective-origin-property)
 
 ## Поддержка браузерами
 
@@ -385,9 +395,9 @@ perspective-origin: unset;
 
 ## См. также
 
-- [`transform-style`](transform-style.md)
-- [`perspective`](perspective.md)
+-   [`transform-style`](transform-style.md)
+-   [`perspective`](perspective.md)
 
 ## Ссылки
 
-- [`perspective-origin`](https://developer.mozilla.org/ru/docs/Web/CSS/perspective-origin) <sup><small>MDN (рус.)</small></sup>
+-   [`perspective-origin`](https://developer.mozilla.org/ru/docs/Web/CSS/perspective-origin) <sup><small>MDN (рус.)</small></sup>

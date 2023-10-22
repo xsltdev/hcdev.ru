@@ -62,6 +62,7 @@ left: unset;
 В качестве значений принимаются любые единицы длины, принятые в CSS — например, пиксели (px), дюймы (in), пункты (pt) и др. Значение свойства `left` может быть и отрицательным, в этом случае возможны наложения разных элементов друг на друга. При задании значения в процентах, положение элемента вычисляется в зависимости от ширины родительского элемента.
 
 `auto`
+
 : Не изменяет положение элемента.
 
 Значение по-умолчанию:
@@ -74,43 +75,43 @@ left: auto;
 
 ## Спецификации
 
-- [CSS Positioned Layout Module Level 3](https://w3c.github.io/csswg-drafts/css-position/#insets)
-- [CSS Transitions](http://dev.w3.org/csswg/css-transitions/#animatable-css)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visuren.html#propdef-left)
+-   [CSS Positioned Layout Module Level 3](https://w3c.github.io/csswg-drafts/css-position/#insets)
+-   [CSS Transitions](http://dev.w3.org/csswg/css-transitions/#animatable-css)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visuren.html#propdef-left)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>left</title>
-    <style>
-      .layer1 {
-        position: absolute; /* Абсолютное позиционирование */
-        left: 20px; /* Положение от левого края */
-        background: #fc3; /* Цвет фона */
-        margin: 7px; /* Отступы вокруг элемента */
-      }
-      .layer2 {
-        position: relative; /* Относительное позиционирование */
-        left: -12px; /* Положение от левого края */
-        top: 13px; /* Положение от верхнего края */
-        border: 1px solid black; /* Параметры рамки */
-        padding: 5px; /* Поля вокруг текста */
-        margin: 7px; /* Отступы вокруг элемента */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="layer1">
-      <div class="layer2">
-        Бином Ньютона традиционно упорядочивает абсолютно
-        сходящийся ряд, в итоге приходим к логическому
-        противоречию.
-      </div>
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>left</title>
+        <style>
+            .layer1 {
+                position: absolute; /* Абсолютное позиционирование */
+                left: 20px; /* Положение от левого края */
+                background: #fc3; /* Цвет фона */
+                margin: 7px; /* Отступы вокруг элемента */
+            }
+            .layer2 {
+                position: relative; /* Относительное позиционирование */
+                left: -12px; /* Положение от левого края */
+                top: 13px; /* Положение от верхнего края */
+                border: 1px solid black; /* Параметры рамки */
+                padding: 5px; /* Поля вокруг текста */
+                margin: 7px; /* Отступы вокруг элемента */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="layer1">
+            <div class="layer2">
+                Бином Ньютона традиционно упорядочивает
+                абсолютно сходящийся ряд, в итоге приходим к
+                логическому противоречию.
+            </div>
+        </div>
+    </body>
 </html>
 ```

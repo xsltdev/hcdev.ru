@@ -70,9 +70,11 @@ border-top-color: unset;
 ## Значения
 
 `цвет`
+
 : цвет
 
 `transparent`
+
 : Устанавливает прозрачный цвет.
 
 Значение по-умолчанию: Значение свойства [`color`](color.md)
@@ -81,8 +83,8 @@ border-top-color: unset;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#border-left-color)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#border-color-properties)
+-   [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#border-left-color)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#border-color-properties)
 
 ## Описание и примеры
 

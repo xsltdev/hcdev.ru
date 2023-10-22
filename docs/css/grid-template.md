@@ -49,15 +49,15 @@ grid-template: fit-content(100px) / fit-content(40%);
 
 /* grid-template-areas grid-template-rows / grid-template-column values */
 grid-template:
-	'a a a'
-	'b b b';
+    'a a a'
+    'b b b';
 grid-template:
-	'a a a' 20%
-	'b b b' auto;
+    'a a a' 20%
+    'b b b' auto;
 grid-template:
-	[header-top] 'a a a' [header-bottom]
-	[main-top] 'b b b' 1fr [main-bottom]
-	/ auto 1fr auto;
+    [header-top] 'a a a' [header-bottom]
+    [main-top] 'b b b' 1fr [main-bottom]
+    / auto 1fr auto;
 
 /* Global values */
 grid-template: inherit;
@@ -68,17 +68,20 @@ grid-template: unset;
 ## Значения
 
 `none`
+
 : устанавливает все три свойства в их начальное значение;
 
 `subgrid`
+
 : устанавливает `grid-template-rows` и `grid-template-columns` в `subgrid`, и `grid-template-areas` в его начальное значение;
 
 `<grid-template-rows> / <grid-template-columns>`
+
 : устанавливает `grid-template-columns` и `grid-template-rows` в определённое значение, соответственно, и устанавливает `grid-template-areas` в `none`;
 
 ```css
 .container {
-	grid-template: none | subgrid | <grid-template-rows> / <grid-template-columns>;
+    grid-template: none | subgrid | <grid-template-rows> / <grid-template-columns>;
 }
 ```
 
@@ -86,10 +89,10 @@ grid-template: unset;
 
 ```css
 .container {
-	grid-template:
-		[row1-start] 25px 'header header header' [row1-end]
-		[row2-start] 'footer footer footer' 25px [row2-end]
-		/ auto 50px auto;
+    grid-template:
+        [row1-start] 25px 'header header header' [row1-end]
+        [row2-start] 'footer footer footer' 25px [row2-end]
+        / auto 50px auto;
 }
 ```
 
@@ -97,11 +100,11 @@ grid-template: unset;
 
 ```css
 .container {
-	grid-template-rows: [row1-start] 25px [row1-end row2-start] 25px [row2-end];
-	grid-template-columns: auto 50px auto;
-	grid-template-areas:
-		'header header header'
-		'footer footer footer';
+    grid-template-rows: [row1-start] 25px [row1-end row2-start] 25px [row2-end];
+    grid-template-columns: auto 50px auto;
+    grid-template-areas:
+        'header header header'
+        'footer footer footer';
 }
 ```
 

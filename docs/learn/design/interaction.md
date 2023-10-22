@@ -1,12 +1,12 @@
 ---
 title: Interaction
 description: >
-  Prepare your pages for different input mechanisms; mouse, keyboard, and touch.
+    Prepare your pages for different input mechanisms; mouse, keyboard, and touch.
+
 authors:
-  - adactio
+    - adactio
 date: 2021-12-23
 ---
-
 
 Small screen devices like mobile phones often have touchscreens. Large screen devices like laptops and desktop computers often come with hardware like a mouse or a trackpad. It’s tempting to equate small screens with touch and large screens with pointers.
 
@@ -30,32 +30,34 @@ In this example, buttons are made larger for coarse pointers:
 
 ```css
 button {
-  padding: 0.5em 1em;
+    padding: 0.5em 1em;
 }
 @media (pointer: coarse) {
-  button {
-    padding: 1em 2em;
-  }
+    button {
+        padding: 1em 2em;
+    }
 }
 ```
 
 It’s possible to also make elements smaller for fine pointers but be careful about doing this:
 
 {% Compare 'worse' %}
+
 ```css
 @media (pointer: fine) {
-  button {
-    padding: 0.25em 0.5em;
-  }
+    button {
+        padding: 0.25em 0.5em;
+    }
 }
 ```
+
 {% endCompare %}
 
-Even if someone has a primary input mechanism capable of fine-grained control, think twice before reducing the size of interactive elements. [Fitts’s Law](https://en.wikipedia.org/wiki/Fitts's_law) still applies. A smaller target requires more concentration even with a fine pointer. A larger target area benefits everyone regardless of pointing device.
+Even if someone has a primary input mechanism capable of fine-grained control, think twice before reducing the size of interactive elements. [Fitts’s Law](https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%BA%D0%BE%D0%BD_%D0%A4%D0%B8%D1%82%D1%82%D1%81%D0%B0) still applies. A smaller target requires more concentration even with a fine pointer. A larger target area benefits everyone regardless of pointing device.
 
 ## Any pointer
 
-The `pointer` media feature reports the fineness of the *primary* input mechanism. But many devices have more than one input mechanism. It’s possible that someone is interacting with your website using both a touchscreen and a mouse at the same time.
+The `pointer` media feature reports the fineness of the _primary_ input mechanism. But many devices have more than one input mechanism. It’s possible that someone is interacting with your website using both a touchscreen and a mouse at the same time.
 
 The `any-pointer` differs from the `pointer` media feature in that it reports if any pointing device passes the test.
 
@@ -65,20 +67,20 @@ An `any-pointer` value of `coarse` means that at least one pointing device is no
 
 An `any-pointer` value of `fine` means that at least one pointing device is capable of fine-grained control. But again, this might not be the primary input mechanism.
 
-Because the `any-pointer` media query will report a positive result if *any* of the input mechanisms pass the test, it’s possible for a browser to report a result for `any-pointer: fine` and also report a result for `any-pointer: coarse`. In that case the order of your media queries matters. The last one will take precedence.
+Because the `any-pointer` media query will report a positive result if _any_ of the input mechanisms pass the test, it’s possible for a browser to report a result for `any-pointer: fine` and also report a result for `any-pointer: coarse`. In that case the order of your media queries matters. The last one will take precedence.
 
 In this example, if the device has both a fine and a coarse input mechanism, the coarse styles are applied.
 
 ```css
 @media (any-pointer: fine) {
-  button {
-    padding: 0.5em 1em;
-  }
+    button {
+        padding: 0.5em 1em;
+    }
 }
 @media (any-pointer: coarse) {
-  button {
-    padding: 1em 2em;
-  }
+    button {
+        padding: 1em 2em;
+    }
 }
 ```
 
@@ -92,15 +94,15 @@ In this example, some supplementary icon is available on hover but only if the p
 
 ```css
 button .extra {
-  visibility: visible;
+    visibility: visible;
 }
 @media (hover: hover) {
-  button .extra {
-    visibility: hidden;
-  }
-  button:hover .extra {
-    visibility: visible;
-  }
+    button .extra {
+        visibility: hidden;
+    }
+    button:hover .extra {
+        visibility: visible;
+    }
 }
 ```
 
@@ -140,7 +142,7 @@ Even if the primary input device is capable of hovering over elements, be carefu
 
 ## Any hover
 
-The `hover` media query only reports on the *primary* input mechanism. Some devices have multiple input mechanisms: touchscreen, mouse, keyboard, trackpad.
+The `hover` media query only reports on the _primary_ input mechanism. Some devices have multiple input mechanisms: touchscreen, mouse, keyboard, trackpad.
 
 Just as `any-pointer` reports on any of the input mechanisms, `any-hover` will be true if any of the available input mechanisms are capable of hovering over elements.
 
@@ -148,16 +150,16 @@ If you decided to reverse the logic in the previous example, you could make the 
 
 ```css
 button .extra {
-  visibility: hidden;
+    visibility: hidden;
 }
 button:hover .extra,
 button:focus .extra {
-  visibility: visible;
+    visibility: visible;
 }
 @media (any-hover: none) {
-  button .extra {
-    visibility: visible;
-  }
+    button .extra {
+        visibility: visible;
+    }
 }
 ```
 
@@ -182,23 +184,21 @@ Unlike a physical keyboard, virtual keyboards can be tailored to match the expec
 [HTML5 input types](https://developer.mozilla.org/docs/Learn/Forms/HTML5_input_types) are a great way of describing your `input` elements. The `type` attribute accepts values such as `email`, `number`, `tel`, `url`, and more.
 
 ```html
-  <label for="email">Email</label>
-  <input type="email" id="email">
+<label for="email">Email</label>
+<input type="email" id="email" />
 ```
 
 ```html
-  <label for="number">Number</label>
-  <input type="number" id="number">
+<label for="number">Number</label>
+<input type="number" id="number" />
 ```
 
 ```html
-  <label for="tel">Tel</label>
-  <input type="tel" id="tel">
+<label for="tel">Tel</label> <input type="tel" id="tel" />
 ```
 
 ```html
-  <label for="url">URL</label>
-  <input type="url" id="url">
+<label for="url">URL</label> <input type="url" id="url" />
 ```
 
 {% Codepen {
@@ -212,6 +212,7 @@ Unlike a physical keyboard, virtual keyboards can be tailored to match the expec
 {% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/xdbqHZ1fp2O8FpwXWQAH.mp4", controls=true, loop=true %}
 
 ### Input modes
+
 {% BrowserCompat 'html.global_attributes.inputmode' %}
 
 [The `inputmode` attribute](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/inputmode) gives you fine-grained control over virtual keyboards. For example, whereas there’s one `input` `type` with a value of `number`, you can use the `inputmode` attribute to differentiate between whole numbers and decimals.
@@ -220,14 +221,14 @@ If you’re asking for a whole number, like somebody’s age, use `inputmode="nu
 
 ```html
 <label for="age">Age</label>
-<input type="number" id="age" inputmode="numeric">
+<input type="number" id="age" inputmode="numeric" />
 ```
 
 If you’re asking for a number that includes decimal places, like a price, use `inputmode="decimal"`.
 
 ```html
 <label for="price">Price</label>
-<input type="number" id="price" inputmode="decimal">
+<input type="number" id="price" inputmode="decimal" />
 ```
 
 {% Codepen {
@@ -241,23 +242,24 @@ If you’re asking for a number that includes decimal places, like a price, use 
 {% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/gr0tQXIZDgRNFcExwN8W.mp4", controls=true, loop=true %}
 
 ### Autocomplete
+
 {% BrowserCompat 'html.global_attributes.autocomplete' %}
 
 Nobody likes filling in forms. As a designer, you can improve the experience for your users by enabling them to automatically fill in form fields. [The `autocomplete` attribute](https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete) provides you with a host of options for improving contact forms, log-in forms, and checkout forms.
 
 ```html
 <label for="name">Name</label>
-<input type="text" id="name" autocomplete="name">
+<input type="text" id="name" autocomplete="name" />
 ```
 
 ```html
 <label for="country">Country</label>
-<input type="text" id="country" autocomplete="country">
+<input type="text" id="country" autocomplete="country" />
 ```
 
 ```html
 <label for="email">Email</label>
-<input type="email" id="email" autocomplete="email">
+<input type="email" id="email" autocomplete="email" />
 ```
 
 {% Codepen {
@@ -270,8 +272,8 @@ Nobody likes filling in forms. As a designer, you can improve the experience for
 
 {% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/6CvIrXjmzMbXX4CNuzCe.mp4", controls=true, loop=true %}
 
-These HTML attributes—`type`, `inputmode`, and `autocomplete`—are small additions to your form fields, but they can make a big difference to the user experience. By anticipating and responding to your user’s device capabilities, you are empowering your users. For more in-depth information, there’s a course dedicated to helping you [learn forms](/learn/forms/).
+These HTML attributes—`type`, `inputmode`, and `autocomplete`—are small additions to your form fields, but they can make a big difference to the user experience. By anticipating and responding to your user’s device capabilities, you are empowering your users. For more in-depth information, there’s a course dedicated to helping you [learn forms](../forms/index.md).
 
-Next up in this course, it’s time to examine some [common interface patterns](/learn/design/ui-patterns/).
+Next up in this course, it’s time to examine some [common interface patterns](ui-patterns.md).
 
 {% Assessment 'interaction' %}

@@ -54,6 +54,7 @@ color: black;
 ## Атрибуты
 
 [`open`](#open)
+
 : Отображает диалоговое окно. Без этого атрибута в стилях к нему добавляется `display: none` и окно не выводится в браузере.
 
 ### `open`
@@ -73,7 +74,7 @@ color: black;
 ### Пример 1
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -108,16 +109,14 @@ color: black;
         </dialog>
         <script>
             var dialog = document.querySelector('dialog');
-            document.querySelector(
-                '#openDialog'
-            ).onclick = function () {
-                dialog.show(); // Показываем диалоговое окно
-            };
-            document.querySelector(
-                '#closeDialog'
-            ).onclick = function () {
-                dialog.close(); // Прячем диалоговое окно
-            };
+            document.querySelector('#openDialog').onclick =
+                function () {
+                    dialog.show(); // Показываем диалоговое окно
+                };
+            document.querySelector('#closeDialog').onclick =
+                function () {
+                    dialog.close(); // Прячем диалоговое окно
+                };
         </script>
     </body>
 </html>
@@ -163,15 +162,12 @@ color: black;
 
 <script>
     (function () {
-        var updateButton = document.getElementById(
-            'updateDetails'
-        );
-        var cancelButton = document.getElementById(
-            'cancel'
-        );
-        var favDialog = document.getElementById(
-            'favDialog'
-        );
+        var updateButton =
+            document.getElementById('updateDetails');
+        var cancelButton =
+            document.getElementById('cancel');
+        var favDialog =
+            document.getElementById('favDialog');
 
         // Update button opens a modal dialog
         updateButton.addEventListener('click', function () {

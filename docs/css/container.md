@@ -73,11 +73,13 @@ container: <container-name> / <container-type>;
 ## Значения
 
 `<container-name>`
+
 : Имя с учетом регистра для контекста включения. Дополнительные сведения о синтаксисе описаны на странице свойств [`container-name`](container-name.md).
 
 `<container-type>`
+
 : Тип контекста содержания. Дополнительные сведения о синтаксисе описаны на странице свойств [`container-type`](container-type.md).
 
 ## Спецификации
 
-- [CSS Containment Module Level 3](https://w3c.github.io/csswg-drafts/css-contain-3/#container-shorthand)
+-   [CSS Containment Module Level 3](https://w3c.github.io/csswg-drafts/css-contain-3/#container-shorthand)

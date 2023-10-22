@@ -57,12 +57,15 @@ counter-increment: unset;
 ## Значения
 
 `none`
+
 : Запрещает увеличение счётчика для текущего селектора.
 
 `<переменная>`
+
 : Задаёт одну или несколько переменных, для которых требуется изменить значение счётчика. Переменные разделяются между собой пробелом.
 
 `<число>`
+
 : Определяет значение приращения счётчика. По умолчанию оно равно 1. Допускается использовать только положительные целые числа, отрицательные целые числа и ноль.
 
 Возможные сочетания значений свойств [`counter-reset`](counter-reset.md) и `counter-increment` показаны в табл. 1.
@@ -94,8 +97,8 @@ counter-increment: none;
 
 ## Спецификации
 
-- [CSS Lists and Counters Module Level 3](http://dev.w3.org/csswg/css3-lists/#counter-increment)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/generate.html#propdef-counter-increment)
+-   [CSS Lists and Counters Module Level 3](http://dev.w3.org/csswg/css3-lists/#counter-increment)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/generate.html#propdef-counter-increment)
 
 ## Поддержка браузерами
 
@@ -106,25 +109,25 @@ counter-increment: none;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>counter-increment</title>
-    <style>
-      body {
-        counter-reset: heading; /* Инициируем счетчик */
-      }
-      h2:before {
-        counter-increment: heading; /* Указываем идентификатор счетчика */
-        content: 'Глава ' counter(heading) '. '; /* Выводим текст перед содержимым тега <h2> */
-      }
-    </style>
-  </head>
-  <body>
-    <h2>Теория ловли льва в пустыне</h2>
-    <h2>Методы инверсной кинематики</h2>
-    <h2>Ловля льва численными методами</h2>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>counter-increment</title>
+        <style>
+            body {
+                counter-reset: heading; /* Инициируем счетчик */
+            }
+            h2:before {
+                counter-increment: heading; /* Указываем идентификатор счетчика */
+                content: 'Глава ' counter(heading) '. '; /* Выводим текст перед содержимым тега <h2> */
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Теория ловли льва в пустыне</h2>
+        <h2>Методы инверсной кинематики</h2>
+        <h2>Ловля льва численными методами</h2>
+    </body>
 </html>
 ```

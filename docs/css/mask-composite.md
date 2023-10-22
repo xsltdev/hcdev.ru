@@ -59,15 +59,19 @@ mask-composite: unset;
 Одно или несколько ключевых слов, перечисленных ниже, разделенных запятыми. Для композиции текущий слой маски называется "источник", а все слои ниже него называются "адресатом".
 
 `add`
+
 : Источник размещается над адресатом.
 
 `subtract`
+
 : Отображается только части источника за пределами адресата.
 
 `intersect`
+
 : Отображается источник только на пересечении источника и адресата.
 
 `exclude`
+
 : Отображается комбинация из непересекающихся частей источника и адресата.
 
 Значение по-умолчанию:
@@ -80,7 +84,7 @@ mask-composite: add;
 
 ## Спецификации
 
-- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking-1/#the-mask-composite)
+-   [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking-1/#the-mask-composite)
 
 ## Поддержка браузерами
 
@@ -94,12 +98,12 @@ WebKit и Blink имеют свойство `-webkit-mask-composite`, котор
 
 ```css
 #masked {
-  width: 100px;
-  height: 100px;
-  background-color: #8cffa0;
-  mask-image: url('https://mdn.mozillademos.org/files/12668/MDN.svg'),
-    url('https://mdn.mozillademos.org/files/12676/star.svg');
-  mask-size: 100% 100%;
-  mask-composite: add; /* Can be changed in the live sample */
+    width: 100px;
+    height: 100px;
+    background-color: #8cffa0;
+    mask-image: url('https://mdn.mozillademos.org/files/12668/MDN.svg'),
+        url('https://mdn.mozillademos.org/files/12676/star.svg');
+    mask-size: 100% 100%;
+    mask-composite: add; /* Can be changed in the live sample */
 }
 ```

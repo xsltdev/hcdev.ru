@@ -78,11 +78,12 @@ text-emphasis-color: unset;
 ## Значения
 
 `<цвет>`
+
 : Определяет цвет меток выделения. Если цвет отсутствует, по умолчанию `currentColor`.
 
 ## Спецификация
 
-- [CSS Text Decoration Module Level 3](https://drafts.csswg.org/css-text-decor-3/#text-emphasis-color-property)
+-   [CSS Text Decoration Module Level 3](https://drafts.csswg.org/css-text-decor-3/#text-emphasis-color-property)
 
 ## Пример
 
@@ -111,10 +112,10 @@ text-emphasis-color: unset;
 
 ## См. также
 
-- [`text-emphasis-style`](text-emphasis-style.md)
-- [`text-emphasis`](text-emphasis.md)
-- [`text-emphasis-position`](text-emphasis-position.md)
+-   [`text-emphasis-style`](text-emphasis-style.md)
+-   [`text-emphasis`](text-emphasis.md)
+-   [`text-emphasis-position`](text-emphasis-position.md)
 
 ## Ссылки
 
-- [`text-emphasis-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-emphasis-color) <sup><small>MDN (рус.)</small></sup>
+-   [`text-emphasis-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-emphasis-color) <sup><small>MDN (рус.)</small></sup>

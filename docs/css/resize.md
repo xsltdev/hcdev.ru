@@ -51,15 +51,19 @@ resize: unset;s
 ## Значения
 
 `none`
+
 : Размеры элемента не изменяются.
 
 `both`
+
 : Можно изменять размеры элемента по горизонтали и вертикали.
 
 `horizontal`
+
 : Можно изменять размеры элемента только по горизонтали.
 
 `vertical`
+
 : Можно изменять размеры элемента только по вертикали.
 
 ### Примечание
@@ -72,8 +76,8 @@ resize: unset;s
 
 ## Спецификации
 
-- [CSS Basic User Interface Module Level 4](https://w3c.github.io/csswg-drafts/css-ui/#resize)
-- [CSS Basic User Interface Module Level 3](http://dev.w3.org/csswg/css3-ui/#resize)
+-   [CSS Basic User Interface Module Level 4](https://w3c.github.io/csswg-drafts/css-ui/#resize)
+-   [CSS Basic User Interface Module Level 3](http://dev.w3.org/csswg/css3-ui/#resize)
 
 ## Поддержка браузерами
 
@@ -82,23 +86,23 @@ resize: unset;s
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>resize</title>
-    <style>
-      textarea {
-        resize: both;
-      }
-    </style>
-  </head>
-  <body>
-    <p>
-      Потяните за правый уголок, чтобы изменить размер
-      текстового поля.
-    </p>
-    <p><textarea cols="30" rows="7"></textarea></p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>resize</title>
+        <style>
+            textarea {
+                resize: both;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Потяните за правый уголок, чтобы изменить размер
+            текстового поля.
+        </p>
+        <p><textarea cols="30" rows="7"></textarea></p>
+    </body>
 </html>
 ```

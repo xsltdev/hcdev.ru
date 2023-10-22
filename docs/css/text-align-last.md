@@ -78,21 +78,27 @@ text-align-last: unset;
 ## Значения
 
 `start`
+
 : Строка выравнивается по начальному краю блока.
 
 `end`
+
 : Строка выравнивается по конечному краю блока.
 
 `left`
+
 : Строка выравнивается по левому краю.
 
 `right`
+
 : Строка выравнивается по правому краю.
 
 `center`
+
 : Строка выравнивается по центру.
 
 `justify`
+
 : Строка выравнивается по ширине. Если в последней строке только одно слово, то оно будет выравнено по левому краю.
 
 ### Примечание
@@ -107,7 +113,7 @@ Firefox до версии 49 поддерживает свойство `-moz-tex
 
 ## Спецификации
 
-- [CSS Text Module Level 3](https://w3c.github.io/csswg-drafts/css-text/#text-align-last-property)
+-   [CSS Text Module Level 3](https://w3c.github.io/csswg-drafts/css-text/#text-align-last-property)
 
 ## Поддержка браузерами
 
@@ -116,27 +122,27 @@ Firefox до версии 49 поддерживает свойство `-moz-tex
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>text-align-last</title>
-    <style>
-      div {
-        width: 300px;
-        text-align: justify;
-        text-align-last: justify;
-      }
-    </style>
-  </head>
-  <body>
-    <div>
-      При переходе через горы опирайся на долину;
-      располагайся на высотах, смотря, где солнечная
-      сторона. При бое с противником, находящимся на
-      возвышенности, не иди прямо вверх. Таково расположение
-      войска в горах.
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>text-align-last</title>
+        <style>
+            div {
+                width: 300px;
+                text-align: justify;
+                text-align-last: justify;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            При переходе через горы опирайся на долину;
+            располагайся на высотах, смотря, где солнечная
+            сторона. При бое с противником, находящимся на
+            возвышенности, не иди прямо вверх. Таково
+            расположение войска в горах.
+        </div>
+    </body>
 </html>
 ```

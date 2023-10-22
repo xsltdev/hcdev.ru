@@ -81,14 +81,16 @@ paint-order: unset;
 ## Значения
 
 `normal`
+
 : Окрасит различные части в обычном порядке.
 
 `stroke`, `fill`, `markers`
+
 : Указываются некоторые или все эти значения в том порядке, в котором вы хотите увидеть отрисовку.
 
 ## Спецификация
 
-- [Scalable Vector Graphics (SVG) 2](https://svgwg.org/svg2-draft/painting.html#PaintOrder)
+-   [Scalable Vector Graphics (SVG) 2](https://svgwg.org/svg2-draft/painting.html#PaintOrder)
 
 ## Поддержка браузерами
 

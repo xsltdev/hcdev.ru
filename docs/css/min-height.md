@@ -83,18 +83,23 @@ min-height: unset;
 В качестве значений принимаются пиксели (px), проценты (%) и другие единицы измерения, принятые в CSS. Отрицательные значения не допускаются.
 
 `auto`
+
 : Минимальная высота для flex-элементов по умолчанию, предоставляет более разумное значение по умолчанию, чем `0` для других способов разметки.
 
 `max-content`
+
 : Внутренняя предпочтительная высота.
 
 `min-content`
+
 : Внутренняя минимальная высота.
 
 `fill-available`
+
 : Высота родительского блока минус вертикальные `margin`, `border`, и `padding`. (Обратите внимание, что некоторые браузеры реализуют устаревшее имя для этого ключевого слова `available`.)
 
 `fit-content`
+
 : Согласно CSS3 Box, это синоним min-content. CSS3 Sizing определяет более сложный алгоритм, но ни один браузер не реализует его даже экспериментальным путем.
 
 Значение по-умолчанию:
@@ -107,10 +112,10 @@ min-height: auto;
 
 ## Спецификации
 
-- [CSS Intrinsic & Extrinsic Sizing Module Level 3](https://drafts.csswg.org/css-sizing-3/#width-height-keywords)
-- [CSS Flexible Box Layout Module](https://drafts.csswg.org/css-flexbox-1/#min-auto)
-- [CSS Transitions](https://drafts.csswg.org/css-transitions/#animatable-css)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visudet.html#min-max-heights)
+-   [CSS Intrinsic & Extrinsic Sizing Module Level 3](https://drafts.csswg.org/css-sizing-3/#width-height-keywords)
+-   [CSS Flexible Box Layout Module](https://drafts.csswg.org/css-flexbox-1/#min-auto)
+-   [CSS Transitions](https://drafts.csswg.org/css-transitions/#animatable-css)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visudet.html#min-max-heights)
 
 ## Поддержка браузерами
 
@@ -121,35 +126,38 @@ min-height: auto;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>min-height</title>
-    <style>
-      footer {
-        background: #66806e url(/example/image/clover.png)
-          no-repeat 20px bottom; /* Параметры фона */
-        min-height: 80px; /* Минимальная высота */
-        color: #e4bc96; /* Цвет текста */
-        padding: 5px 5px 5px 140px; /* Поля вокруг текста */
-      }
-      footer p {
-        margin: 5px 0;
-      }
-      footer a {
-        color: #fffde0;
-      }
-    </style>
-  </head>
-  <body>
-    <footer>
-      <p>Сайт Cloverfield</p>
-      <p>
-        <a href="page/techinfo.html">Информация о сайте</a>
-        <a href="page/activity.html">Об авторе</a>
-      </p>
-    </footer>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>min-height</title>
+        <style>
+            footer {
+                background: #66806e
+                    url(/example/image/clover.png) no-repeat
+                    20px bottom; /* Параметры фона */
+                min-height: 80px; /* Минимальная высота */
+                color: #e4bc96; /* Цвет текста */
+                padding: 5px 5px 5px 140px; /* Поля вокруг текста */
+            }
+            footer p {
+                margin: 5px 0;
+            }
+            footer a {
+                color: #fffde0;
+            }
+        </style>
+    </head>
+    <body>
+        <footer>
+            <p>Сайт Cloverfield</p>
+            <p>
+                <a href="page/techinfo.html"
+                    >Информация о сайте</a
+                >
+                <a href="page/activity.html">Об авторе</a>
+            </p>
+        </footer>
+    </body>
 </html>
 ```

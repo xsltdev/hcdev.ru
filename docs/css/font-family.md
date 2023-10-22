@@ -60,7 +60,9 @@ description: Свойство font-family устанавливает семей�
 
 ```css
 /* A font family name and a generic family name */
-font-family: Gill Sans Extrabold, sans-serif;
+font-family:
+    Gill Sans Extrabold,
+    sans-serif;
 font-family: 'Goudy Bookletter 1911', sans-serif;
 
 /* A generic family name only */
@@ -82,18 +84,23 @@ font-family: unset;
 Любое количество имен шрифтов разделенных запятыми. Универсальные семейства шрифтов:
 
 `serif`
+
 : шрифты с засечками (антиквенные), типа `Times`;
 
 `sans-serif`
+
 : рубленные шрифты (шрифты без засечек или гротески), типичный представитель `Arial`;
 
 `cursive`
+
 : курсивные шрифты;
 
 `fantasy`
+
 : декоративные шрифты;
 
 `monospace`
+
 : моноширинные шрифты, ширина каждого символа в таком семействе одинакова (шрифт `Courier`).
 
 Значение по-умолчанию: Шрифт, установленный в браузере по умолчанию. Обычно это `Times New Roman`.
@@ -102,34 +109,35 @@ font-family: unset;
 
 ## Спецификации
 
-- [CSS Fonts Module Level 3](http://dev.w3.org/csswg/css3-fonts/#font-family-prop)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/fonts.html#propdef-font-family)
-- [CSS Level 1](http://www.w3.org/TR/CSS1/#font-family)
+-   [CSS Fonts Module Level 3](http://dev.w3.org/csswg/css3-fonts/#font-family-prop)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/fonts.html#propdef-font-family)
+-   [CSS Level 1](http://www.w3.org/TR/CSS1/#font-family)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>font-family</title>
-    <style>
-      h1 {
-        font-family: Geneva, Arial, Helvetica, sans-serif;
-      }
-      p {
-        font-family: Georgia, 'Times New Roman', Times,
-          serif;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Танцы</h1>
-    <p>
-      Венгры страстно любят танцевать, особенно ценятся
-      национальные танцы
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>font-family</title>
+        <style>
+            h1 {
+                font-family: Geneva, Arial, Helvetica,
+                    sans-serif;
+            }
+            p {
+                font-family: Georgia, 'Times New Roman',
+                    Times, serif;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Танцы</h1>
+        <p>
+            Венгры страстно любят танцевать, особенно
+            ценятся национальные танцы
+        </p>
+    </body>
 </html>
 ```

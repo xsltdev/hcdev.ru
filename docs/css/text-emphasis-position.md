@@ -121,27 +121,31 @@ text-emphasis-position: unset;
 ## Значения
 
 `over`
+
 : Нарисуйте отметки над текстом в горизонтальном режиме письма.
 
 `under`
+
 : Нарисуйте отметки под текстом в горизонтальном режиме письма.
 
 `right`
+
 : Рисует метки справа от текста в режиме вертикальной записи.
 
 `left`
+
 : Нарисуйте отметки слева от текста в режиме вертикальной записи.
 
 ## Спецификация
 
-- [CSS Text Decoration Module Level 3](https://drafts.csswg.org/css-text-decor-3/#text-emphasis-style-property)
+-   [CSS Text Decoration Module Level 3](https://drafts.csswg.org/css-text-decor-3/#text-emphasis-style-property)
 
 ## См. также
 
-- [`text-emphasis-style`](text-emphasis-style.md)
-- [`text-emphasis-color`](text-emphasis-color.md)
-- [`text-emphasis`](text-emphasis.md)
+-   [`text-emphasis-style`](text-emphasis-style.md)
+-   [`text-emphasis-color`](text-emphasis-color.md)
+-   [`text-emphasis`](text-emphasis.md)
 
 ## Ссылки
 
-- [CSS Text Decoration Module Level 3](https://drafts.csswg.org/css-text-decor-3/#text-emphasis-position-property)
+-   [CSS Text Decoration Module Level 3](https://drafts.csswg.org/css-text-decor-3/#text-emphasis-position-property)

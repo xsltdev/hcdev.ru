@@ -73,9 +73,11 @@ font-language-override: unset;
 ## Значения
 
 `normal`
+
 : Это ключевое слово заставляет браузер использовать в шрифте глифы, определенные для данного языка.
 
 `<string>`
+
 : Это ключевое слово заставляет браузер использовать язык, определенный строкой. Значения представляют собой [системные строки языка OpenType](https://docs.microsoft.com/ru-ru/typography/opentype/spec/languagetags).
 
 ## Поддержка браузерами
@@ -107,5 +109,5 @@ font-language-override: unset;
 
 ## Ссылки
 
-- Свойство [`font-language-override`](https://developer.mozilla.org.cach3.com/ru/docs/Web/CSS/font-language-override) <sup><small>MDN (рус.)</small></sup>
-- [CSS Fonts Module Level 3](https://drafts.csswg.org/css-fonts-3/#propdef-font-language-override)
+-   Свойство [`font-language-override`](https://developer.mozilla.org.cach3.com/ru/docs/Web/CSS/font-language-override) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Fonts Module Level 3](https://drafts.csswg.org/css-fonts-3/#propdef-font-language-override)

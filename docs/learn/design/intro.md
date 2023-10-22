@@ -1,9 +1,9 @@
 ---
 title: Introduction
 description: >
-  Find out where responsive design came from.
+    Find out where responsive design came from.
 authors:
-  - adactio
+    - adactio
 date: 2021-11-03
 ---
 
@@ -52,6 +52,7 @@ It felt like an arms race between web designers and hardware manufacturers.
 
 ​​<figure>
 {% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/nuHSqBVgInTvLti73Qz2.png", alt="The Microsoft website with a more complex design using images as well as text.", width="800", height="600" %}
+
 <figcaption>The Microsoft website in the mid 2000s designed for a width of 1024 pixels. Screenshot from <a href="https://archive.org">archive.org</a></figcaption>
 </figure>
 
@@ -142,7 +143,7 @@ They needed a way of styling their content for screens as small as 240 pixels wi
 One option is to make a separate subdomain for mobile visitors.
 But then you have to maintain two separate codebases and designs.
 And in order to redirect visitors on mobile devices, you'd need to do
-[user-agent sniffing](https://en.wikipedia.org/wiki/Browser_sniffing),
+[user-agent sniffing](https://ru.wikipedia.org/wiki/%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7_%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80%D0%B0),
 which can be unreliable and easily spoofed.
 Chrome will be deprecating its user-agent string for privacy reasons.
 Also, there's no clear line between mobile and not-mobile. Which site do you send tablet devices to?
@@ -214,7 +215,10 @@ If you're using responsive design you need to tell the browser not to do that sc
 You can do that with a `meta` element in the `head` of the web page:
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1"
+/>
 ```
 
 There are two values, separated by commas.

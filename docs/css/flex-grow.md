@@ -68,6 +68,7 @@ flex-grow: unset;
 Анимируется: да
 
 `<число>`
+
 : Принимаются целые числа. Отрицательные значения игнорируются.
 
 ### Примечание
@@ -89,46 +90,46 @@ Safari до версии 9 поддерживает свойство `-webkit-fl
 ```html
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<title>flex-grow</title>
-		<style>
-			form {
-				width: 400px;
-				margin: auto;
-			}
-			p {
-				display: flex;
-			}
-			label {
-				margin-right: 10px;
-			}
-			input,
-			select {
-				flex-grow: 1;
-			}
-		</style>
-	</head>
-	<body>
-		<form action="handler.php">
-			<p>
-				<label>Имя:</label>
-				<input name="name" id="name" />
-			</p>
-			<p>
-				<label
-					>Какая у вас операционная
-					система?:</label
-				>
-				<select name="os">
-					<option value="1">Windows</option>
-					<option value="2">Linux</option>
-					<option value="3">Mac OS</option>
-				</select>
-			</p>
-			<p><button>Отправить</button></p>
-		</form>
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <title>flex-grow</title>
+        <style>
+            form {
+                width: 400px;
+                margin: auto;
+            }
+            p {
+                display: flex;
+            }
+            label {
+                margin-right: 10px;
+            }
+            input,
+            select {
+                flex-grow: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="handler.php">
+            <p>
+                <label>Имя:</label>
+                <input name="name" id="name" />
+            </p>
+            <p>
+                <label
+                    >Какая у вас операционная
+                    система?:</label
+                >
+                <select name="os">
+                    <option value="1">Windows</option>
+                    <option value="2">Linux</option>
+                    <option value="3">Mac OS</option>
+                </select>
+            </p>
+            <p><button>Отправить</button></p>
+        </form>
+    </body>
 </html>
 ```
 

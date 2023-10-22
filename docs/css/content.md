@@ -47,7 +47,7 @@ content: image-set('image1x.png' 1x, 'image2x.png' 2x);
 
 /* alt text for generated content, added in the Level 3 specification */
 content: url('http://www.example.com/test.png') /
-  'This is the alt text';
+    'This is the alt text';
 
 /* <string> value */
 content: 'prefix';
@@ -55,16 +55,16 @@ content: 'prefix';
 /* list of content values */
 content: 'prefix' url('http://www.example.com/test.png');
 content: 'prefix' url('http://www.example.com/test.png')
-  'suffix' / 'This is some alt text';
+    'suffix' / 'This is some alt text';
 
 /* <counter> values, optionally with <list-style-type> */
 content: counter(chapter_counter);
 content: counter(chapter_counter, upper-roman);
 content: counters(section_counter, '.');
 content: counters(
-  section_counter,
-  '.',
-  decimal-leading-zero
+    section_counter,
+    '.',
+    decimal-leading-zero
 );
 
 /* attr() value linked to the HTML attribute value */
@@ -90,33 +90,43 @@ content: unset;
 ## Значения
 
 `<строка>`
+
 : Текст, который добавляется на веб-страницу, строка при этом должна браться в двойные или одинарные кавычки. Допускается использовать юникод для вставки спецсимволов. Спецсимволы HTML которые начинаются с амперсанда (`&sect`; например), будут отображаться как есть, т. е. простым текстом (`&sect`;, а не `§`).
 
 `attr(<атрибут>)`
+
 : Возвращает строку, которая является значением атрибута тега указанного в скобках. Например, `a::after {content:attr(href)}` добавит после ссылки её адрес, т. е. значение атрибута `href`. Если указанного атрибута нет, то вернётся пустая строка.
 
 `open-quote`
+
 : Вставляет открывающую кавычку, тип которой устанавливается с помощью стилевого свойства [`quotes`](quotes.md).
 
 `close-quote`
+
 : Вставляет закрывающую кавычку.
 
 `no-open-quote`
+
 : Отменяет добавление открывающей кавычки.
 
 `no-close-quote`
+
 : Отменяет добавление закрывающей кавычки.
 
 `url`
+
 : Абсолютный или относительный адрес вставляемого объекта. Если указанный файл браузер не может отобразить, то значение игнорируется.
 
 `counter`
+
 : Выводит значение счётчика, заданного свойством [`counter-reset`](counter-reset.md).
 
 `none`
+
 : Не добавляет никакого содержимого.
 
 `normal`
+
 : Задаётся как `none` для псевдоэлементов `::before` и `::after`.
 
 Значение по-умолчанию:
@@ -129,7 +139,7 @@ content: normal;
 
 ## Спецификации
 
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/generate.html#content)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/generate.html#content)
 
 ## Поддержка браузерами
 
@@ -140,31 +150,32 @@ content: normal;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>content</title>
-    <style>
-      .tag {
-        color: navy; /* Цвет текста */
-        font-family: monospace; /* Моноширинный шрифт */
-        quotes: '<' '>'; /* Устанавливаем вид кавычек */
-      }
-      .tag::before {
-        content: open-quote; /* Добавляем перед текстом открывающую кавычку */
-      }
-      .tag::after {
-        content: close-quote; /* Добавляем после текста закрывающую кавычку */
-      }
-    </style>
-  </head>
-  <body>
-    <p>
-      Элемент <span class="tag">DEL</span> используется для
-      выделения текста, который был удалён в новой версии
-      документа.
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>content</title>
+        <style>
+            .tag {
+                color: navy; /* Цвет текста */
+                font-family: monospace; /* Моноширинный шрифт */
+                quotes: '<' '>'; /* Устанавливаем вид кавычек */
+            }
+            .tag::before {
+                content: open-quote; /* Добавляем перед текстом открывающую кавычку */
+            }
+            .tag::after {
+                content: close-quote; /* Добавляем после текста закрывающую кавычку */
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Элемент
+            <span class="tag">DEL</span> используется для
+            выделения текста, который был удалён в новой
+            версии документа.
+        </p>
+    </body>
 </html>
 ```

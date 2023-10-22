@@ -57,16 +57,20 @@ counter-reset: unset;
 ## Значения
 
 `none`
+
 : Запрещает инициацию счётчика для текущего селектора.
 
 `inherit`
+
 : Наследует значение родителя.
 
 `<переменная>`
+
 : Задаёт одну или несколько переменных, в которых будет храниться значение счётчика. Значения разделяются между собой пробелом.
 
 `<число>`
-: Начальное значение каждого идентификатора. По умолчанию равно 0.
+
+: Начальное значение каждого идентификатора. По умолчанию равно `0`.
 
 ### Примечания
 
@@ -82,8 +86,8 @@ counter-reset: none;
 
 ## Спецификации
 
-- [CSS Lists and Counters Module Level 3 Рабочий проект](http://dev.w3.org/csswg/css3-lists/#counter-reset)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/generate.html#propdef-counter-reset)
+-   [CSS Lists and Counters Module Level 3 Рабочий проект](http://dev.w3.org/csswg/css3-lists/#counter-reset)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/generate.html#propdef-counter-reset)
 
 ## Поддержка браузерами
 
@@ -94,49 +98,50 @@ counter-reset: none;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>counter-reset</title>
-    <style>
-      li {
-        list-style-type: none;
-      } /* Убираем исходную нумерацию у списка */
-      ol {
-        counter-reset: list1;
-      } /* Инициируем счетчик */
-      ol li:before {
-        counter-increment: list1; /* Увеличиваем значение счетчика */
-        content: counter(list1) '. '; /* Выводим число */
-      }
-      ol ol {
-        counter-reset: list2;
-      } /* Инициируем счетчик вложенного списка */
-      ol ol li:before {
-        counter-increment: list2; /* Увеличиваем значение счетчика вложенного списка */
-        content: counter(list1) '.' counter(list2) '. '; /* Выводим число */
-      }
-    </style>
-  </head>
-  <body>
-    <ol>
-      <li>
-        Пункт
+    <head>
+        <meta charset="utf-8" />
+        <title>counter-reset</title>
+        <style>
+            li {
+                list-style-type: none;
+            } /* Убираем исходную нумерацию у списка */
+            ol {
+                counter-reset: list1;
+            } /* Инициируем счетчик */
+            ol li:before {
+                counter-increment: list1; /* Увеличиваем значение счетчика */
+                content: counter(list1) '. '; /* Выводим число */
+            }
+            ol ol {
+                counter-reset: list2;
+            } /* Инициируем счетчик вложенного списка */
+            ol ol li:before {
+                counter-increment: list2; /* Увеличиваем значение счетчика вложенного списка */
+                content: counter(list1) '.' counter(list2)
+                    '. '; /* Выводим число */
+            }
+        </style>
+    </head>
+    <body>
         <ol>
-          <li>Подпункт</li>
-          <li>Подпункт</li>
-          <li>Подпункт</li>
+            <li>
+                Пункт
+                <ol>
+                    <li>Подпункт</li>
+                    <li>Подпункт</li>
+                    <li>Подпункт</li>
+                </ol>
+            </li>
+            <li>
+                Пункт
+                <ol>
+                    <li>Подпункт</li>
+                    <li>Подпункт</li>
+                </ol>
+            </li>
         </ol>
-      </li>
-      <li>
-        Пункт
-        <ol>
-          <li>Подпункт</li>
-          <li>Подпункт</li>
-        </ol>
-      </li>
-    </ol>
-  </body>
+    </body>
 </html>
 ```

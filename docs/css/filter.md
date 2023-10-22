@@ -100,9 +100,11 @@ filter: unset;
 ## Значения
 
 `<фильтр>`
+
 : фильтр.
 
 `none`
+
 : Отменяет действие наложенных фильтров.
 
 **Фильтр** — это функция, которая позволяет изменять вид изображения, применяя к нему разные эффекты, вроде контрастности, яркости, преобразования в чёрно-белую картинку и др.
@@ -125,7 +127,7 @@ filter: blur(<размер>);
 
 **Спецификация**
 
-- [Filter Effects Module Level 1](https://www.w3.org/TR/filter-effects/#funcdef-blur)
+-   [Filter Effects Module Level 1](https://www.w3.org/TR/filter-effects/#funcdef-blur)
 
 ### brightness()
 
@@ -145,7 +147,7 @@ filter: brightness(<значение>);
 
 **Спецификация**
 
-- [Filter Effects Module Level 1](https://www.w3.org/TR/filter-effects/#funcdef-brightness)
+-   [Filter Effects Module Level 1](https://www.w3.org/TR/filter-effects/#funcdef-brightness)
 
 ### contrast()
 
@@ -165,7 +167,7 @@ filter: contrast(<значение>);
 
 **Спецификация**
 
-- [Filter Effects Module Level 1](https://www.w3.org/TR/filter-effects/#funcdef-contrast)
+-   [Filter Effects Module Level 1](https://www.w3.org/TR/filter-effects/#funcdef-contrast)
 
 ### drop-shadow()
 
@@ -180,22 +182,26 @@ filter: drop-shadow(<сдвиг по x> <сдвиг по y> <радиус раз
 **Значения**
 
 `<сдвиг по x>`
+
 : Смещение тени по горизонтали относительно картинки. Положительное значение этого параметра задаёт сдвиг тени вправо, отрицательное — влево. Обязательный параметр.
 
 `<сдвиг по y>`
+
 : Смещение тени по вертикали относительно картинки. Положительное значение задаёт сдвиг тени вниз, отрицательное — вверх. Обязательный параметр.
 
 `<размытие>`
+
 : Задаёт радиус размытия тени. Чем больше это значение, тем сильнее тень сглаживается, становится шире и светлее. Если этот параметр не задан, по умолчанию устанавливается равным `0`, тень при этом будет чёткой, а не размытой.
 
 `<цвет>`
+
 : Цвет тени в любом доступном CSS формате, по умолчанию тень чёрная. Необязательный параметр.
 
 При пустом значении все параметры воспринимается как `0`. Цвет тени по умолчанию такой же, как значение свойства [`color`](color.md).
 
 **Спецификация**
 
-- [Filter Effects Module Level 1](https://www.w3.org/TR/filter-effects/#funcdef-drop-shadow)
+-   [Filter Effects Module Level 1](https://www.w3.org/TR/filter-effects/#funcdef-drop-shadow)
 
 ### grayscale()
 
@@ -215,12 +221,12 @@ filter: grayscale(<значение>);
 
 **Спецификация**
 
-- [Filter Effects Module Level 1](https://www.w3.org/TR/filter-effects/#funcdef-grayscale)
+-   [Filter Effects Module Level 1](https://www.w3.org/TR/filter-effects/#funcdef-grayscale)
 
 ### Примечания
 
-- Internet Explorer c версии 4 по 10 поддерживает другое нестандартное свойство `filter` с тем же именем, но другим синтаксисом.
-- Chrome до версии 53, Opera до версии 40 и Safari до версии 9.1 поддерживают свойство `-webkit-filter`.
+-   Internet Explorer c версии 4 по 10 поддерживает другое нестандартное свойство `filter` с тем же именем, но другим синтаксисом.
+-   Chrome до версии 53, Opera до версии 40 и Safari до версии 9.1 поддерживают свойство `-webkit-filter`.
 
 Значение по-умолчанию:
 
@@ -232,7 +238,7 @@ filter: none;
 
 ## Спецификации
 
-- [Filter Effects Module Level 1](https://www.w3.org/TR/filter-effects/#propdef-filter)
+-   [Filter Effects Module Level 1](https://www.w3.org/TR/filter-effects/#propdef-filter)
 
 ## Поддержка браузерами
 
@@ -243,28 +249,28 @@ filter: none;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>filter</title>
-    <style>
-      .bw {
-        -webkit-filter: grayscale(100%);
-        filter: grayscale(
-          100%
-        ); /* Чёрно-белое изображение */
-        transition: 1.5s; /* Плавный переход */
-      }
-      .bw:hover {
-        -webkit-filter: none;
-        filter: none; /* Убираем фильтр */
-      }
-    </style>
-  </head>
-  <body>
-    <img src="image/aquaria2.jpg" alt="" class="bw" />
-    <img src="image/aquaria3.jpg" alt="" class="bw" />
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>filter</title>
+        <style>
+            .bw {
+                -webkit-filter: grayscale(100%);
+                filter: grayscale(
+                    100%
+                ); /* Чёрно-белое изображение */
+                transition: 1.5s; /* Плавный переход */
+            }
+            .bw:hover {
+                -webkit-filter: none;
+                filter: none; /* Убираем фильтр */
+            }
+        </style>
+    </head>
+    <body>
+        <img src="image/aquaria2.jpg" alt="" class="bw" />
+        <img src="image/aquaria3.jpg" alt="" class="bw" />
+    </body>
 </html>
 ```

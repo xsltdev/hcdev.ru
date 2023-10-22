@@ -32,9 +32,9 @@ description: Правило @document ограничивает правила с
 ```css
 @document url("https://www.example.com/")
 {
-  h1 {
-    color: green;
-  }
+    h1 {
+        color: green;
+    }
 }
 ```
 
@@ -43,18 +43,23 @@ description: Правило @document ограничивает правила с
 Правило `@document` может указывать одну или несколько подходящих функций. Если какая-либо из функций применяется к данному URL-адресу, это правило вступит в силу для этого URL-адреса. Доступны следующие функции:
 
 `url()`
+
 : который соответствует точному URL-адресу.
 
 `url-prefix()`
+
 : который совпадает, если URL-адрес документа начинается с указанного значения.
 
 `domain()`
+
 : который совпадает, если URL-адрес документа находится в предоставленном домене (или его субдомене).
 
 `media-document()`
+
 : с параметром видео, изображения, плагина или всего.
 
 `regexp()`
+
 : который совпадает, если URL-адрес документа сопоставляется с предоставленным регулярным выражением. Выражение должно соответствовать всему URL-адресу.
 
 Значения, предоставляемые функциям `url()`, `url-prefix()`, `domain()`, и `media-document()` могут быть необязательно заключены в одинарные или двойные кавычки. Значения, предоставляемые функции `regexp()` должны быть заключены в кавычки.
@@ -63,7 +68,7 @@ description: Правило @document ограничивает правила с
 
 ## Спецификации
 
-- [CSS Conditional Rules Module Level 3](https://www.w3.org/TR/2012/WD-css3-conditional-20120911/#at-document)
+-   [CSS Conditional Rules Module Level 3](https://www.w3.org/TR/2012/WD-css3-conditional-20120911/#at-document)
 
 ## Примеры
 
@@ -75,7 +80,7 @@ description: Правило @document ограничивает правила с
           domain(mozilla.org),
           media-document(video),
           regexp("https:.*") {
-  /* CSS rules here apply to:
+    /* CSS rules here apply to:
      - The page "http://www.w3.org/"
      - Any page whose URL begins with "http://www.w3.org/Style/"
      - Any page whose URL's host is "mozilla.org"
@@ -83,42 +88,42 @@ description: Правило @document ограничивает правила с
      - Any standalone video
      - Any page whose URL starts with "https:" */
 
-  /* Make the above-mentioned pages really ugly */
-  body {
-    color: purple;
-    background: yellow;
-  }
+    /* Make the above-mentioned pages really ugly */
+    body {
+        color: purple;
+        background: yellow;
+    }
 }
 ```
 
 ### Пример 2
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>@document</title>
-    <style>
-      .ssl {
-        display: none;
-      }
-      @-moz-document regexp("https:.*") {
-        .ssl {
-          display: block;
-          background: #5bd4b6;
-          color: #fff;
-          padding: 20px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="ssl">
-      Для вашей безопасности на сайте мы используем
-      защищённый протокол.
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>@document</title>
+        <style>
+            .ssl {
+                display: none;
+            }
+            @-moz-document regexp("https:.*") {
+                .ssl {
+                    display: block;
+                    background: #5bd4b6;
+                    color: #fff;
+                    padding: 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ssl">
+            Для вашей безопасности на сайте мы используем
+            защищённый протокол.
+        </div>
+    </body>
 </html>
 ```
 
@@ -126,4 +131,4 @@ description: Правило @document ограничивает правила с
 
 ## Ссылки
 
-- [@document](https://developer.mozilla.org/ru/docs/Web/CSS/@document) <sup><small>MDN (рус.)</small></sup>
+-   [@document](https://developer.mozilla.org/ru/docs/Web/CSS/@document) <sup><small>MDN (рус.)</small></sup>

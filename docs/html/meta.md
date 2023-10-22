@@ -24,7 +24,7 @@ description: Тег meta (от англ. meta information — мета инфо�
 
 ```html
 <head>
-  <meta />
+    <meta />
 </head>
 ```
 
@@ -33,15 +33,19 @@ description: Тег meta (от англ. meta information — мета инфо�
 ## Атрибуты
 
 [`charset`](#charset)
+
 : Задаёт кодировку документа.
 
 [`content`](#content)
+
 : Устанавливает значение атрибута, заданного с помощью `name` или `http-equiv`.
 
 [`http-equiv`](#http-equiv)
+
 : Предназначен для конвертирования метатега в заголовок HTTP.
 
 [`name`](#name)
+
 : Имя метатега, также косвенно устанавливает его предназначение.
 
 ### charset
@@ -120,15 +124,19 @@ description: Тег meta (от англ. meta information — мета инфо�
 Любой подходящий идентификатор. Ниже приведены некоторые допустимые значения атрибута `http-equiv`.
 
 `Content-Type`
+
 : Тип кодировки документа.
 
 `expires`
-Устанавливает дату и время, после которой информация в документе будет считаться устаревшей.
+
+: Устанавливает дату и время, после которой информация в документе будет считаться устаревшей.
 
 `pragma`
-Способ кэширования документа.
+
+: Способ кэширования документа.
 
 `refresh`
+
 : Загружает другой документ в текущее окно браузера.
 
 **Значение по умолчанию**
@@ -150,15 +158,19 @@ description: Тег meta (от англ. meta information — мета инфо�
 Любой подходящий идентификатор. Ниже приведены некоторые допустимые значения атрибута `name`.
 
 `author`
+
 : Имя автора документа.
 
 `description`
+
 : Описание текущего документа.
 
 `keywords`
+
 : Список ключевых слов, встречающихся на странице.
 
 `viewport`
+
 : Управляет просмотром сайта на мобильных устройствах.
 
 **Значение по умолчанию**
@@ -167,34 +179,34 @@ description: Тег meta (от англ. meta information — мета инфо�
 
 ## Спецификации
 
-- [Referrer Policy](https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-delivery-meta)
-- [HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-meta-element)
-- [HTML 5](http://www.w3.org/TR/html5/document-metadata.html#the-meta-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/global.html#h-7.4.4.2)
+-   [Referrer Policy](https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-delivery-meta)
+-   [HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-meta-element)
+-   [HTML 5](http://www.w3.org/TR/html5/document-metadata.html#the-meta-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/global.html#h-7.4.4.2)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <title>META</title>
-    <meta charset="utf-8" />
-    <meta
-      name="GENERATOR"
-      content="Microsoft FrontPage 4.0"
-    />
-    <meta
-      name="ProgId"
-      content="FrontPage.Editor.Document"
-    />
-  </head>
-  <body>
-    <p>...</p>
-  </body>
+    <head>
+        <title>META</title>
+        <meta charset="utf-8" />
+        <meta
+            name="GENERATOR"
+            content="Microsoft FrontPage 4.0"
+        />
+        <meta
+            name="ProgId"
+            content="FrontPage.Editor.Document"
+        />
+    </head>
+    <body>
+        <p>...</p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<meta>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/meta) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<meta>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/meta) <sup><small>MDN (рус.)</small></sup>

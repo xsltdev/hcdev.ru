@@ -77,21 +77,25 @@ line-break: unset;
 Значение по-умолчанию: `auto`
 
 `auto`
+
 : Разрыв текста, используя правило разрыва строки по умолчанию.
 
 `loose`
+
 : Разрыв текста, используя правило разрыва строки с наименьшими ограничениями. Обычно используется для коротких строк, например, в газетах.
 
 `normal`
+
 : Разрыв текста, используя наиболее распространенное правило разрыва строки.
 
 `strict`
+
 : Разрыв текста, используя самое строгое правило разрыва строки.
 
 ## Спецификация
 
-- [CSS Text Module Level 3](https://drafts.csswg.org/css-text-3/#line-break-property)
+-   [CSS Text Module Level 3](https://drafts.csswg.org/css-text-3/#line-break-property)
 
 ## Ссылки
 
-- [line-break](https://developer.mozilla.org/ru/docs/Web/CSS/line-break) <sup><small>MDN (рус.)</small></sup>
+-   [line-break](https://developer.mozilla.org/ru/docs/Web/CSS/line-break) <sup><small>MDN (рус.)</small></sup>

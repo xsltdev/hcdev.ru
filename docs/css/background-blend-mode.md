@@ -101,6 +101,7 @@ background-blend-mode: unset;
 ## Значения
 
 `blend-mode`
+
 : Собственно режим смешивания. Может быть задано несколько значений через запятую.
 
 Значение по-умолчанию:
@@ -111,7 +112,7 @@ background-blend-mode: normal;
 
 ## Спецификации
 
-- [Compositing and Blending Level 1](https://drafts.fxtf.org/compositing-1/#background-blend-mode)
+-   [Compositing and Blending Level 1](https://drafts.fxtf.org/compositing-1/#background-blend-mode)
 
 ## Поддержка браузерами
 

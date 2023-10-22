@@ -64,23 +64,26 @@ font-synthesis: style;
 ## Значения
 
 `none`
+
 : Указывает, что нельзя синтезировать ни жирный, ни курсивный шрифт.
 
 `weight`
+
 : Указывает, что при необходимости можно синтезировать жирный шрифт.
 
 `style`
+
 : Указывает, что при необходимости может быть синтезирован курсивный шрифт.
 
 ## Определение
 
-|                      |                                                                                                |
-| -------------------- | ---------------------------------------------------------------------------------------------- |
-| Начальное значение   | `weight style`                                                                                 |
-| Применяется ко       | всем элементам, включая [`::first-letter`](first-letter.md) и [`::first-line`](first-line.md). |
-| Наследуется          | да                                                                                             |
-| Вычисленное значение | как определено                                                                                 |
-| Тип анимации         | дискретный                                                                                     |
+|  |  |
+| --- | --- |
+| Начальное значение | `weight style` |
+| Применяется ко | всем элементам, включая [`::first-letter`](first-letter.md) и [`::first-line`](first-line.md). |
+| Наследуется | да |
+| Вычисленное значение | как определено |
+| Тип анимации | дискретный |
 
 ## Поддержка браузерами
 
@@ -116,5 +119,5 @@ font-synthesis: style;
 
 ## Ссылки
 
-- Свойство [`font-synthesis`](https://developer.mozilla.org/ru/docs/Web/CSS/font-synthesis) <sup><small>MDN (рус.)</small></sup>
-- [CSS Fonts Module Level 3](https://drafts.csswg.org/css-fonts-3/#propdef-font-synthesis)
+-   Свойство [`font-synthesis`](https://developer.mozilla.org/ru/docs/Web/CSS/font-synthesis) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Fonts Module Level 3](https://drafts.csswg.org/css-fonts-3/#propdef-font-synthesis)

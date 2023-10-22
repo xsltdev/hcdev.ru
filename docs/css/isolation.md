@@ -86,9 +86,11 @@ isolation: unset;
 ## Значения
 
 **`auto`**
+
 : указывает, что новый контекст стека должен быть создан только в том случае, если это требует свойство, применяемое к элементу.
 
 `isolate`
+
 : указывает, что должен быть создан новый контекст стека.
 
 Значение по-умолчанию:
@@ -101,8 +103,8 @@ isolation: auto;
 
 ## Спецификации
 
-- [Compositing and Blending Level 2](https://drafts.fxtf.org/compositing/#isolation)
-- [Compositing and Blending Level 1](https://drafts.fxtf.org/compositing-1/#isolation)
+-   [Compositing and Blending Level 2](https://drafts.fxtf.org/compositing/#isolation)
+-   [Compositing and Blending Level 1](https://drafts.fxtf.org/compositing-1/#isolation)
 
 ## Описание и примеры
 

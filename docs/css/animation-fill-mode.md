@@ -63,41 +63,37 @@ animation-fill-mode: both, forwards, none;
 ## Значения
 
 `none`
+
 : К элементу не применяются какие-либо стили.
 
 `forwards`
+
 : К элементу по окончанию анимации применяется стиль последнего ключевого кадра. Каким будет этот кадр в последовательности анимации зависит от комбинации значений свойств [`animation-direction`](animation-direction.md) и [`animation-iteration-count`](animation-iteration-count.md) (табл. 1).
 
-<table>
-<caption>Табл. 1. Последний ключевой кадр</caption>
-<thead>
-<tr><th>animation-direction</th><th>animation-iteration-count</th><th>Значение</th></tr>
-</thead>
-<tbody>
-<tr><td>normal</td><td>любое число</td><td>100% или to</td></tr>
-<tr><td>reverse</td><td>любое число</td><td>0% или from</td></tr>
-<tr><td>alternate</td><td>чётное число</td><td>0% или from</td></tr>
-<tr><td>alternate</td><td>нечётное число</td><td>100% или to</td></tr>
-<tr><td>alternate-reverse</td><td>чётное число</td><td>100% или to</td></tr>
-<tr><td>alternate-reverse</td><td>нечётное число</td><td>0% или from</td></tr>
-</tbody>
-</table>
+Табл. 1. Последний ключевой кадр
+
+| `animation-direction` | `animation-iteration-count` | Значение |
+| --- | --- | --- |
+| `normal` | любое число | `100%` или `to` |
+| `reverse` | любое число | `0%` или `from` |
+| `alternate` | чётное число | `0%` или `from` |
+| `alternate` | нечётное число | `100%` или `to` |
+| `alternate-reverse` | чётное число | `100%` или `to` |
+| `alternate-reverse` | нечётное число | `0%` или `from` |
 
 `backwards`
+
 : К элементу применяется стиль первого ключевого кадра и он остаётся на протяжении периода заданного [`animation-delay`](animation-delay.md). Первый ключевой кадр определяется на основании значения [`animation-direction`](animation-direction.md) (табл. 2).
 
-<table>
-<caption>Табл. 2. Первый ключевой кадр</caption>
-<thead>
-<tr><th>animation-direction</th><th>Значение</th></tr>
-</thead>
-<tbody>
-<tr><td>normal или alternate</td><td>0% или from</td></tr>
-<tr><td>reverse или alternate-reverse</td><td>100% или to</td></tr>
-</tbody>
-</table>
+Табл. 2. Первый ключевой кадр
+
+| `animation-direction`             | Значение        |
+| --------------------------------- | --------------- |
+| `normal` или `alternate`          | `0%` или `from` |
+| `reverse` или `alternate-reverse` | `100%` или `to` |
 
 `both`
+
 : К элементу применяются оба правила, как для `forwards`, так и для `backwards`.
 
 Значение по-умолчанию:
@@ -119,7 +115,7 @@ animation-fill-mode: none;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
         <meta charset="utf-8" />

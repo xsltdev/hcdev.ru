@@ -41,9 +41,11 @@ status: deprecated
 ## Атрибуты
 
 [`name`](#name)
+
 : Имя параметра.
 
 [`value`](#value)
+
 : Значение параметра.
 
 ### name

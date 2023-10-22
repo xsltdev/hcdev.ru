@@ -67,6 +67,7 @@ border-inline-start-width: unset;
 ## Значения
 
 `<'border-width'>`
+
 : Ширина границы.
 
 ## Поддержка браузерами
@@ -79,7 +80,7 @@ HTML
 
 ```html
 <div>
-  <p class="exampleText">Example text</p>
+    <p class="exampleText">Example text</p>
 </div>
 ```
 
@@ -87,19 +88,19 @@ CSS
 
 ```css
 div {
-  background-color: yellow;
-  width: 120px;
-  height: 120px;
+    background-color: yellow;
+    width: 120px;
+    height: 120px;
 }
 
 .exampleText {
-  writing-mode: vertical-lr;
-  border: 1px solid blue;
-  border-inline-start-width: 5px;
+    writing-mode: vertical-lr;
+    border: 1px solid blue;
+    border-inline-start-width: 5px;
 }
 ```
 
 ## Ссылки
 
-- Свойство [`border-inline-start-width`](https://developer.mozilla.org/ru/docs/Web/CSS/border-inline-start-width) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-width) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-inline-start-width`](https://developer.mozilla.org/ru/docs/Web/CSS/border-inline-start-width) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-width) <sup><small>Spec (англ.)</small></sup>

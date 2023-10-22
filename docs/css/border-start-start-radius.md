@@ -69,6 +69,7 @@ border-start-start-radius: unset;
 ## Значения
 
 `<length-percentage>`
+
 : Обозначает размер радиуса окружности или большой и малой полуосей эллипса. Абсолютная длина может быть выражена в любых единицах, разрешенных типом данных CSS `<length>`. Проценты по горизонтальной оси относятся к ширине блока, проценты по вертикальной оси относятся к высоте блока. Отрицательные значения недействительны.
 
 ## Поддержка браузерами
@@ -81,7 +82,7 @@ HTML
 
 ```html
 <div>
-  <p class="exampleText">Example</p>
+    <p class="exampleText">Example</p>
 </div>
 ```
 
@@ -89,21 +90,21 @@ CSS
 
 ```css
 div {
-  background-color: rebeccapurple;
-  width: 120px;
-  height: 120px;
-  border-start-start-radius: 10px;
+    background-color: rebeccapurple;
+    width: 120px;
+    height: 120px;
+    border-start-start-radius: 10px;
 }
 
 .exampleText {
-  writing-mode: vertical-rl;
-  padding: 10px;
-  background-color: #fff;
-  border-start-start-radius: 10px;
+    writing-mode: vertical-rl;
+    padding: 10px;
+    background-color: #fff;
+    border-start-start-radius: 10px;
 }
 ```
 
 ## Ссылки
 
-- Свойство [`border-start-start-radius`](https://developer.mozilla.org/ru/docs/Web/CSS/border-start-start-radius) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-radius-properties) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-start-start-radius`](https://developer.mozilla.org/ru/docs/Web/CSS/border-start-start-radius) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-radius-properties) <sup><small>Spec (англ.)</small></sup>

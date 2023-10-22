@@ -79,14 +79,16 @@ tab-size: unset;
 ## Значения
 
 `<integer>`
+
 : Количество пробелов в табе. Должно быть неотрицательным.
 
 `<length>`
+
 : Ширина таба. Должно быть неотрицательным.
 
 ## Спецификация
 
-- [CSS Text Module Level 3](https://w3c.github.io/csswg-drafts/css-text/#tab-size-property)
+-   [CSS Text Module Level 3](https://w3c.github.io/csswg-drafts/css-text/#tab-size-property)
 
 ## Поддержка браузерами
 
@@ -96,16 +98,16 @@ tab-size: unset;
 
 ```css
 pre {
-  tab-size: 4; /* Установит размер таба в 4 пробела */
+    tab-size: 4; /* Установит размер таба в 4 пробела */
 }
 pre {
-  tab-size: 0; /* Удалит отступ */
+    tab-size: 0; /* Удалит отступ */
 }
 pre {
-  tab-size: 2; /* Установит размер таба в 2 пробела */
+    tab-size: 2; /* Установит размер таба в 2 пробела */
 }
 ```
 
 ## Ссылки
 
-- [tab-size](https://developer.mozilla.org/ru/docs/Web/CSS/tab-size) <sup><small>MDN (рус.)</small></sup>
+-   [tab-size](https://developer.mozilla.org/ru/docs/Web/CSS/tab-size) <sup><small>MDN (рус.)</small></sup>

@@ -43,6 +43,7 @@ description: Тег details (от англ. details - детали) исполь
 ## Атрибуты
 
 [`open`](#open)
+
 : Показывает информацию внутри элемента.
 
 ### `open`
@@ -52,7 +53,7 @@ description: Тег details (от англ. details - детали) исполь
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
         <meta charset="utf-8" />

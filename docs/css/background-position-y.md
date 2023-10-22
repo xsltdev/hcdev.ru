@@ -63,18 +63,23 @@ background-position-y: unset;
 ## Значения
 
 `top`
+
 : Выравнивает фон по верхнему краю. Эквивалент записи 0 или 0%.
 
 `center`
+
 : Выравнивает фон по центру вертикали. Эквивалент записи 50%.
 
 `bottom`
+
 : Выравнивает фон по нижнему краю. Эквивалент записи 100%.
 
 `<проценты>`
+
 : Задаёт положение фона в процентах от высоты элемента. Значение 0% или 0 выравнивает верхний край фонового изображения по верхнему краю элемента. Значение 100% выравнивает нижний край рисунка по нижнему краю элемента.
 
 `<размер>`
+
 : Задаёт положение фона в любых доступных для CSS единицах — пиксели (px), сантиметры (cm), em и др. относительно верхнего края элемента.
 
 Значение по-умолчанию:
@@ -87,7 +92,7 @@ background-position-y: top;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 4](https://drafts.csswg.org/css-backgrounds-4/#background-position-longhands)
+-   [CSS Backgrounds and Borders Module Level 4](https://drafts.csswg.org/css-backgrounds-4/#background-position-longhands)
 
 ## Поддержка браузерами
 
@@ -104,26 +109,26 @@ background-position-y: top;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>background-position-y</title>
-    <style>
-      .heart {
-        background: url('/example/image/heart-sprite.png')
-          no-repeat;
-        width: 64px;
-        height: 64px;
-      }
-      .heart:hover {
-        background-position-y: -64px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="heart"></div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>background-position-y</title>
+        <style>
+            .heart {
+                background: url('/example/image/heart-sprite.png')
+                    no-repeat;
+                width: 64px;
+                height: 64px;
+            }
+            .heart:hover {
+                background-position-y: -64px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="heart"></div>
+    </body>
 </html>
 ```
 

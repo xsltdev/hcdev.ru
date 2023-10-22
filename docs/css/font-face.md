@@ -73,49 +73,60 @@ description: Правило @font-face позволяет авторам ука�
 
 ```css
 @font-face {
-  font-family: 'Open Sans';
-  src: url('/fonts/OpenSans-Regular-webfont.woff2') format('woff2'),
-    url('/fonts/OpenSans-Regular-webfont.woff') format('woff');
+    font-family: 'Open Sans';
+    src:
+        url('/fonts/OpenSans-Regular-webfont.woff2') format('woff2'),
+        url('/fonts/OpenSans-Regular-webfont.woff') format('woff');
 }
 ```
 
 ## Дескрипторы правила
 
 `font-display`
+
 : Определяет способ отображения шрифта в зависимости от того, будет ли он загружен и готов к использованию.
 
 `font-family`
+
 : Указывает имя, которое будет использоваться в качестве значения шрифта для свойств шрифта.
 
 `font-stretch`
+
 : Значение [`font-stretch`](font-stretch.md).
 
 `font-style`
+
 : Значение [`font-style`](font-style.md).
 
 `font-weight`
+
 : Значение [`font-weight`](font-weight.md).
 
 `font-variant`
+
 : Значение [`font-variant`](font-variant.md).
 
 `font-feature-settings`
+
 : Позволяет управлять расширенными типографскими функциями в шрифтах OpenType.
 
 `font-variation-settings`
+
 : Позволяет контролировать уровень шрифтов OpenType или TrueType на низком уровне, указывая имена четырех буквенных имен функций, которые могут меняться, вместе с их значениями.
 
 `src`
+
 : Задает ресурс, содержащий данные шрифта. Это может быть URL-адрес расположения файла шрифта или имя шрифта на компьютере пользователя.
 
 `unicode-range`
+
 : Диапазон кодов Unicode используемые из шрифта.
 
 ## Спецификации
 
-- [WOFF File Format 2.0](https://www.w3.org/TR/WOFF2/)
-- [WOFF File Format 1.0](http://www.w3.org/TR/WOFF/)
-- [CSS Fonts Module Level 3](https://drafts.csswg.org/css-fonts-3/#font-face-rule)
+-   [WOFF File Format 2.0](https://www.w3.org/TR/WOFF2/)
+-   [WOFF File Format 1.0](http://www.w3.org/TR/WOFF/)
+-   [CSS Fonts Module Level 3](https://drafts.csswg.org/css-fonts-3/#font-face-rule)
 
 ## Поддержка браузерами
 

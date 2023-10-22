@@ -47,9 +47,11 @@ box-sizing: unset;
 ## Значения
 
 `content-box`
+
 : Основывается на стандартах CSS, при этом свойства `width` и `height` задают ширину и высоту контента и не включают в себя значения отступов, полей и границ.
 
 `border-box`
+
 : Свойства `width` и `height` включают в себя значения полей (`padding`) и границ (`border`), но не отступов (`margin`).
 
 ### Примечания
@@ -68,7 +70,7 @@ box-sizing: content-box;
 
 ## Спецификации
 
-- [CSS Basic User Interface Module Level 3](http://dev.w3.org/csswg/css3-ui/#box-sizing)
+-   [CSS Basic User Interface Module Level 3](http://dev.w3.org/csswg/css3-ui/#box-sizing)
 
 ## Поддержка браузерами
 
@@ -79,36 +81,36 @@ box-sizing: content-box;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>box-sizing</title>
-    <style>
-      .box1 {
-        background: #f0f0f0; /* Цвет фона */
-        width: 300px; /* Ширина блока */
-        padding: 10px; /* Поля */
-        border: 2px solid #000; /* Параметры рамки */
-      }
-      .box2 {
-        background: #fc0; /* Цвет фона */
-        width: 300px; /* Ширина блока */
-        padding: 10px; /* Поля */
-        margin-top: 10px; /* Отступ сверху */
-        border: 2px solid #000; /* Параметры рамки */
-        box-sizing: border-box; /* Ширина блока с полями */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="box1">
-      Ширина с учетом значения свойства width, полей и
-      границ.
-    </div>
-    <div class="box2">
-      Ширина равна значению свойства width.
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>box-sizing</title>
+        <style>
+            .box1 {
+                background: #f0f0f0; /* Цвет фона */
+                width: 300px; /* Ширина блока */
+                padding: 10px; /* Поля */
+                border: 2px solid #000; /* Параметры рамки */
+            }
+            .box2 {
+                background: #fc0; /* Цвет фона */
+                width: 300px; /* Ширина блока */
+                padding: 10px; /* Поля */
+                margin-top: 10px; /* Отступ сверху */
+                border: 2px solid #000; /* Параметры рамки */
+                box-sizing: border-box; /* Ширина блока с полями */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box1">
+            Ширина с учетом значения свойства width, полей и
+            границ.
+        </div>
+        <div class="box2">
+            Ширина равна значению свойства width.
+        </div>
+    </body>
 </html>
 ```

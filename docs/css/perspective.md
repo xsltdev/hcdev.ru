@@ -51,14 +51,16 @@ perspective: unset;
 ## Значения
 
 `none`
+
 : Указывает что трасформация перспективы к элементу применяться не будет.
 
 `<length>`
+
 : length устанавливает растояние от пользователя до плоскости `z = 0`. Применяет трасформацию к элементу и его содержимому. Если значение отрицательно или равно `0`, то преобразование не применяется.
 
 ## Спецификация
 
-- [CSS Transforms Module Level 2](https://w3c.github.io/csswg-drafts/css-transforms-2/#perspective-property)
+-   [CSS Transforms Module Level 2](https://w3c.github.io/csswg-drafts/css-transforms-2/#perspective-property)
 
 ## Поддержка браузерами
 
@@ -219,4 +221,4 @@ perspective: unset;
 
 ## Ссылки
 
-- [`perspective`](https://developer.mozilla.org/ru/docs/Web/CSS/perspective) <sup><small>MDN (рус.)</small></sup>
+-   [`perspective`](https://developer.mozilla.org/ru/docs/Web/CSS/perspective) <sup><small>MDN (рус.)</small></sup>

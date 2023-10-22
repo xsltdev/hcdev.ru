@@ -96,16 +96,18 @@ column-gap: unset;
 Применяется к: колонкам, флексам, гридам
 
 `<размер>`
+
 : Значение ширины межколоночного интервала в единицах CSS (например, пикселах).
 
 `normal`
+
 : Межколоночный интервал устанавливается браузером.
 
 ## Спецификации
 
-- [CSS Box Alignment Module Level 3](https://drafts.csswg.org/css-align-3/#column-row-gap)
-- [CSS Grid Layout](https://drafts.csswg.org/css-grid/#gutters)
-- [CSS Multi-column Layout Module](https://drafts.csswg.org/css-multicol-1/#column-gap)
+-   [CSS Box Alignment Module Level 3](https://drafts.csswg.org/css-align-3/#column-row-gap)
+-   [CSS Grid Layout](https://drafts.csswg.org/css-grid/#gutters)
+-   [CSS Multi-column Layout Module](https://drafts.csswg.org/css-multicol-1/#column-gap)
 
 ### Примечания
 
@@ -200,5 +202,5 @@ Safari, Chrome и Аndroid поддерживают свойство `-webkit-co
 
 ## См. также
 
-- Свойство [`row-gap`](row-gap.md)
-- Свойство [`gap`](gap.md)
+-   Свойство [`row-gap`](row-gap.md)
+-   Свойство [`gap`](gap.md)

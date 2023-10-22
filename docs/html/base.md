@@ -28,7 +28,7 @@ description: Тег base (от англ. base - основа) определен
 
 ```html
 <head>
-  <base атрибуты />
+    <base атрибуты />
 </head>
 ```
 
@@ -37,9 +37,11 @@ description: Тег base (от англ. base - основа) определен
 ## Атрибуты
 
 [`href`](#href)
+
 : Адрес, который должен использоваться для указания полного пути к файлам.
 
 [`target`](#target)
+
 : Имя окна или фрейма, куда будет загружаться документ, открываемый по ссылке.
 
 ### href
@@ -75,46 +77,50 @@ description: Тег base (от англ. base - основа) определен
 В качестве значения используется имя фрейма, заданное атрибутом name элемента `<iframe>`. Если установлено несуществующее имя, то будет открыта новая вкладка. В качестве зарезервированных имён используются следующие.
 
 `_blank`
+
 : Загружает страницу в новую вкладку браузера.
 
 `_self`
+
 : Загружает страницу в текущую вкладку.
 
 `_parent`
+
 : Загружает страницу во фрейм-родитель; если фреймов нет, то это значение работает как `_self`.
 
 `_top`
+
 : Отменяет все фреймы и загружает страницу в полном окне браузера; если фреймов нет, то это значение работает как `_self`.
 
 Если для элемента `<base>` установлен `target="_blank"`, можно сделать чтобы ссылка открывалась в текущем окне, если добавить к элементу [`<a>`](a.md) атрибут `target="_self"`.
 
 **Значение по умолчанию**
 
-- `_self`
+-   `_self`
 
 ## Спецификации
 
-- [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-base-element)
-- [HTML5](http://www.w3.org/TR/html5/document-metadata#the-base-element)
-- [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/links.html#h-12.4)
+-   [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-base-element)
+-   [HTML5](http://www.w3.org/TR/html5/document-metadata#the-base-element)
+-   [HTML 4.01 Specification](http://www.w3.org/TR/html401/struct/links.html#h-12.4)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>base</title>
-    <base target="_blank" />
-  </head>
-  <body>
-    <p><a href="page/1.html">Чебурашка</a></p>
-    <p><a href="page/2.html">Крокодил Гена</a></p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>base</title>
+        <base target="_blank" />
+    </head>
+    <body>
+        <p><a href="page/1.html">Чебурашка</a></p>
+        <p><a href="page/2.html">Крокодил Гена</a></p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- Тег [`<base>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/base) <sup><small>MDN (рус.)</small></sup>
+-   Тег [`<base>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/base) <sup><small>MDN (рус.)</small></sup>

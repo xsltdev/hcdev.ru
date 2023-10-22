@@ -55,7 +55,10 @@ animation-name: sliding-vertically;
 
 /* Multiple animations */
 animation-name: test1, animation4;
-animation-name: none, -moz-specific, sliding;
+animation-name:
+    none,
+    -moz-specific,
+    sliding;
 
 /* Global values */
 animation-name: initial;
@@ -66,9 +69,11 @@ animation-name: unset;
 ## Значения
 
 `none`
+
 : Отключает анимацию.
 
 `<идентификатор>`
+
 : Текстовая строка, которая связана с анимацией. Идентификатор должен начинаться с латинской буквы или подчёркивания (`_`), также может содержать цифры от 0 до 9 и дефис (-). Запрещено использовать зарезервированные ключевые слова `none`, `unset`, `inherit`, `initial`.
 
 Значение по-умолчанию:
@@ -90,7 +95,7 @@ animation-name: none;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
         <meta charset="utf-8" />

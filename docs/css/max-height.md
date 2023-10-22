@@ -84,6 +84,7 @@ max-height: unset;
 В качестве значений принимаются пиксели (px), проценты (%) и другие единицы измерения, принятые в CSS. Отрицательные значения не допускаются.
 
 `none`
+
 : Отменяет действие этого свойства.
 
 Значение по-умолчанию:
@@ -96,8 +97,8 @@ max-height: none;
 
 ## Спецификации
 
-- [CSS Intrinsic & Extrinsic Sizing Module Level 3](http://dev.w3.org/csswg/css3-sizing/#width-height-keywords)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visudet.html#min-max-heights)
+-   [CSS Intrinsic & Extrinsic Sizing Module Level 3](http://dev.w3.org/csswg/css3-sizing/#width-height-keywords)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visudet.html#min-max-heights)
 
 ## Поддержка браузерами
 
@@ -108,39 +109,41 @@ max-height: none;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>max-height</title>
-    <style>
-      .block {
-        overflow: auto; /* Полоса прокрутки при необходимости */
-        padding: 10px; /* Поля вокруг текста */
-        max-height: 80px; /* Максимальная высота */
-        background: #ffe; /* Цвет фона */
-        border: 1px solid #cb2027; /* Параметры рамки */
-      }
-      .block p {
-        margin: 2px auto; /* Отступы в абзаце */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="block">
-      <p>
-        Блокирование элемента не позволяет вообще
-        производить с ним каких-либо действий, в том числе
-        выделять содержимое текстового поля, изменять его
-        или активизировать. Заблокированное поле помечается
-        обычно серым цветом
-      </p>
-      <p>
-        Некоторые браузеры позволяют выделять и копировать
-        содержимое заблокированного текстового поля, но все
-        остальные действия недоступны.
-      </p>
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>max-height</title>
+        <style>
+            .block {
+                overflow: auto; /* Полоса прокрутки при необходимости */
+                padding: 10px; /* Поля вокруг текста */
+                max-height: 80px; /* Максимальная высота */
+                background: #ffe; /* Цвет фона */
+                border: 1px solid #cb2027; /* Параметры рамки */
+            }
+            .block p {
+                margin: 2px auto; /* Отступы в абзаце */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="block">
+            <p>
+                Блокирование элемента не позволяет вообще
+                производить с ним каких-либо действий, в том
+                числе выделять содержимое текстового поля,
+                изменять его или активизировать.
+                Заблокированное поле помечается обычно серым
+                цветом
+            </p>
+            <p>
+                Некоторые браузеры позволяют выделять и
+                копировать содержимое заблокированного
+                текстового поля, но все остальные действия
+                недоступны.
+            </p>
+        </div>
+    </body>
 </html>
 ```

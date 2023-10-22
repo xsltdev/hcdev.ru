@@ -53,9 +53,9 @@ description: Свойство border-block - это сокращенное св�
 
 Это свойство является сокращением для следующих свойств CSS:
 
-- [`border-block-color`](border-block-color.md)
-- [`border-block-style`](border-block-style.md)
-- [`border-block-width`](border-block-width.md)
+-   [`border-block-color`](border-block-color.md)
+-   [`border-block-style`](border-block-style.md)
+-   [`border-block-width`](border-block-width.md)
 
 ```css
 border-block: 1px;
@@ -65,26 +65,29 @@ border-block: medium dashed blue;
 
 ## Значения
 
-border-block задается одним или несколькими из следующих элементов в любом порядке:
+`border-block` задается одним или несколькими из следующих элементов в любом порядке:
 
 `border-width`
+
 : Ширина границы.
 
 `border-style`
+
 : Стиль линии границы.
 
 `color`
+
 : Цвет границы.
 
 ## Определение
 
-|                      |                                                                                                |
-| -------------------- | ---------------------------------------------------------------------------------------------- |
-| Начальное значение   | `border-top-width: medium`<br />`border-top-style: none`<br />`border-top-color: currentcolor` |
-| Применяется ко       | всем элементам                                                                                 |
-| Наследуется          | нет                                                                                            |
-| Вычисленное значение | как определено                                                                                 |
-| Тип анимации         | дискретный                                                                                     |
+|  |  |
+| --- | --- |
+| Начальное значение | `border-top-width: medium`<br />`border-top-style: none`<br />`border-top-color: currentcolor` |
+| Применяется ко | всем элементам |
+| Наследуется | нет |
+| Вычисленное значение | как определено |
+| Тип анимации | дискретный |
 
 ## Поддержка браузерами
 
@@ -121,5 +124,5 @@ border-block задается одним или несколькими из сл
 
 ## Ссылки
 
-- Свойство [`border-block`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://drafts.csswg.org/css-logical/#propdef-border-block) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-block`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://drafts.csswg.org/css-logical/#propdef-border-block) <sup><small>Spec (англ.)</small></sup>

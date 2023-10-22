@@ -78,9 +78,11 @@ font-size-adjust: unset;
 **Значение по-умолчанию:** `none`
 
 `none`
+
 : размер шрифта, основанный только на свойстве [`font-size`](font-size.md).
 
 `<number>`
+
 : задает отношение размера строчных букв к размеру шрифта.
 
 Применяется к: ко всем элементам, включая [`::first-letter`](first-letter.md) и [`::first-line`](first-line.md).

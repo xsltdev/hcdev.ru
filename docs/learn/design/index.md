@@ -16,7 +16,7 @@ Along the way you’ll find out how to make websites responsive to user preferen
 
 Each module has demos and self-assessments for you to test your knowledge.
 
-This course is created for beginner and intermediate designers and developers. A basic understanding of HTML and CSS should be enough. You don’t need to know any JavaScript. If you’re completely new to making websites, there's an [introduction to HTML](https://developer.mozilla.org/docs/Learn/HTML/Introduction_to_HTML) and another course to help you [learn CSS](/learn/css/).
+This course is created for beginner and intermediate designers and developers. A basic understanding of HTML and CSS should be enough. You don’t need to know any JavaScript. If you’re completely new to making websites, there's an [introduction to HTML](https://developer.mozilla.org/docs/Learn/HTML/Introduction_to_HTML) and another course to help you [learn CSS](../css3/index.md).
 
 Here's what you'll learn:
 

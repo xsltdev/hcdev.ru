@@ -55,18 +55,23 @@ page-break-after: unset;
 ## Значения
 
 `always`
+
 : Всегда добавляет разрыв страницы после элемента.
 
 `auto`
+
 : Вставляет разрыв страницы при необходимости.
 
 `avoid`
+
 : Запрещает разрыв страницы после элемента.
 
 `left`
+
 : Пропускает одну или две страницы после элемента, чтобы следующая страница при печати была четной.
 
 `right`
+
 : Пропускает одну или две страницы после элемента, чтобы следующая страница при печати была нечетной.
 
 Значение по-умолчанию: `auto`
@@ -75,9 +80,9 @@ page-break-after: unset;
 
 ## Спецификации
 
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#page)
-- [CSS Paged Media Module Level 3](http://dev.w3.org/csswg/css3-page/#page-break-after)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/page.html#propdef-page-break-after)
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#page)
+-   [CSS Paged Media Module Level 3](http://dev.w3.org/csswg/css3-page/#page-break-after)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/page.html#propdef-page-break-after)
 
 ## Поддержка браузерами
 
@@ -86,27 +91,28 @@ page-break-after: unset;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>page-break-after</title>
-    <style>
-      @media print {
-        .more {
-          page-break-after: always;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <h2>Мусорные пакеты</h2>
-    <p>
-      История о том, как однажды мусорных пакетов оказалось
-      несколько больше, чем хотелось, как и для чего их
-      можно использовать, и что из этого получилось.
-    </p>
-    <p class="more">Читать дальше</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>page-break-after</title>
+        <style>
+            @media print {
+                .more {
+                    page-break-after: always;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Мусорные пакеты</h2>
+        <p>
+            История о том, как однажды мусорных пакетов
+            оказалось несколько больше, чем хотелось, как и
+            для чего их можно использовать, и что из этого
+            получилось.
+        </p>
+        <p class="more">Читать дальше</p>
+    </body>
 </html>
 ```

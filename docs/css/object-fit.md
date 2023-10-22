@@ -90,28 +90,33 @@ object-fit: unset;
 ## Значения
 
 `fill`
+
 : Элемент масштабируется, чтобы соответствовать заданным размерам, при этом пропорции игнорируются.
 
 `contain`
+
 : Элемент масштабируется, чтобы целиком уместиться в заданные размеры с соблюдением пропорций.
 
 `cover`
+
 : Элемент увеличивается или уменьшается, чтобы целиком заполнить заданную область с сохранением пропорций.
 
 `none`
+
 : Сохраняются исходные пропорции элемента, установленные значения ширины или высоты не влияют на содержимое.
 
 `scale-down`
+
 : Содержимое имеет такой размер, как если бы не было указано `none` или `contains`, в зависимости от того, что привело бы к меньшему размеру конкретного объекта.
 
 Влияние разных значений на фотографии продемонстрировано на рис. 1. Был использован следующий стиль.
 
 ```css
 img {
-	background: #ccc;
-	overflow: hidden;
-	width: 200px;
-	height: 200px;
+    background: #ccc;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
 }
 ```
 
@@ -155,21 +160,21 @@ object-fit: fill;
 ```html
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<title>object-fit</title>
-		<style>
-			.dolphin img {
-				object-fit: cover;
-				height: 400px;
-				width: 300px;
-			}
-		</style>
-	</head>
-	<body>
-		<p class="dolphin">
-			<img src="image/dolphin.jpg" alt="Дельфин" />
-		</p>
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <title>object-fit</title>
+        <style>
+            .dolphin img {
+                object-fit: cover;
+                height: 400px;
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="dolphin">
+            <img src="image/dolphin.jpg" alt="Дельфин" />
+        </p>
+    </body>
 </html>
 ```

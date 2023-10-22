@@ -64,6 +64,7 @@ border-inline-color: unset;
 ## Значения
 
 `<'color'>`
+
 : Цвет границы.
 
 ## Поддержка браузерами
@@ -76,7 +77,7 @@ HTML
 
 ```html
 <div>
-  <p class="exampleText">Example text</p>
+    <p class="exampleText">Example text</p>
 </div>
 ```
 
@@ -84,19 +85,19 @@ CSS
 
 ```css
 div {
-  background-color: yellow;
-  width: 120px;
-  height: 120px;
+    background-color: yellow;
+    width: 120px;
+    height: 120px;
 }
 
 .exampleText {
-  writing-mode: vertical-lr;
-  border: 10px solid blue;
-  border-inline-color: red;
+    writing-mode: vertical-lr;
+    border: 10px solid blue;
+    border-inline-color: red;
 }
 ```
 
 ## Ссылки
 
-- Свойство [`border-inline-color`](https://developer.mozilla.org/ru/docs/Web/CSS/border-inline-color) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#propdef-border-inline-color) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-inline-color`](https://developer.mozilla.org/ru/docs/Web/CSS/border-inline-color) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#propdef-border-inline-color) <sup><small>Spec (англ.)</small></sup>

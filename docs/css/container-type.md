@@ -73,17 +73,20 @@ container-type: <type>;
 ## Значения
 
 `size`
+
 : Устанавливает контейнер запросов для запросов размера контейнера как на встроенной, так и на блочной оси как во встроенном, так и в блочном измерениях. Применяет ограничение макета, ограничение стиля и ограничение размера к контейнеру.
 
 `inline-size`
+
 : Устанавливает контейнер запросов для многомерных запросов на встроенной оси контейнера. Применяет макет, стиль и встроенный размер к элементу.
 
 `normal`
+
 : Элемент не является контейнером запросов для любых запросов размера контейнера, но остается контейнером запросов для запросов в стиле контейнера.
 
 ## Спецификация
 
-- [CSS Containment Module Level 3](https://w3c.github.io/csswg-drafts/css-contain-3/#container-type)
+-   [CSS Containment Module Level 3](https://w3c.github.io/csswg-drafts/css-contain-3/#container-type)
 
 ## Пример
 
@@ -91,14 +94,14 @@ container-type: <type>;
 
 ```html
 <div class="container">
-  <div class="card">
-    <img
-      src="image.png"
-      alt="Cat with two different color eyes"
-    />
-    <h2>Card title</h2>
-    <p>Card content</p>
-  </div>
+    <div class="card">
+        <img
+            src="image.png"
+            alt="Cat with two different color eyes"
+        />
+        <h2>Card title</h2>
+        <p>Card content</p>
+    </div>
 </div>
 ```
 
@@ -106,7 +109,7 @@ container-type: <type>;
 
 ```css
 .container {
-  container-type: inline-size;
+    container-type: inline-size;
 }
 ```
 
@@ -114,9 +117,9 @@ container-type: <type>;
 
 ```css
 @container (min-width: 400px) {
-  .card {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-  }
+    .card {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
 }
 ```

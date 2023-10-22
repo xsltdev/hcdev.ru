@@ -55,30 +55,39 @@ outline-style: unset;
 ## Значения
 
 `none`
+
 : Граница не отображается. Это значение перекрывает свойство [`outline-width`](outline-width.md), если оно присутствует.
 
 `dotted`
+
 : Линия состоящая из набора точек.
 
 `dashed`
+
 : Пунктирная линия, состоящая из серии коротких отрезков.
 
 `solid`
+
 : Сплошная линия.
 
 `double`
+
 : Двойная линия.
 
 `groove`
+
 : Создаёт эффект вдавленной рамки.
 
 `ridge`
+
 : Создаёт эффект рельефной границы.
 
 `inset`
+
 : Псевдотрёхмерная рамка, при которой правая и нижняя граница осветляется, а левая и верхняя линии затемняются.
 
 `outset`
+
 : Псевдотрёхмерная рамка, при которой левая и верхняя граница имеют более светлый оттенок, чем заданный цвет, а правая и нижняя линии затемняются.
 
 Вид указанных стилей представлен на рис. 1.
@@ -91,8 +100,8 @@ outline-style: unset;
 
 ## Спецификации
 
-- [CSS Basic User Interface Module Level 3](http://dev.w3.org/csswg/css3-ui/#outline-style)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/ui.html#propdef-outline-style)
+-   [CSS Basic User Interface Module Level 3](http://dev.w3.org/csswg/css3-ui/#outline-style)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/ui.html#propdef-outline-style)
 
 ## Поддержка браузерами
 
@@ -103,27 +112,27 @@ outline-style: unset;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>outline-style</title>
-    <style>
-      .noborder a {
-        outline-style: none; /* Убираем границу вокруг ссылок */
-      }
-    </style>
-  </head>
-  <body>
-    <p>
-      <a href="http://ya.ru">Яндекс</a>
-      <a href="http://google.ru">Google</a>
-    </p>
+    <head>
+        <meta charset="utf-8" />
+        <title>outline-style</title>
+        <style>
+            .noborder a {
+                outline-style: none; /* Убираем границу вокруг ссылок */
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            <a href="http://ya.ru">Яндекс</a>
+            <a href="http://google.ru">Google</a>
+        </p>
 
-    <p class="noborder">
-      <a href="http://ya.ru">Яндекс</a>
-      <a href="http://google.ru">Google</a>
-    </p>
-  </body>
+        <p class="noborder">
+            <a href="http://ya.ru">Яндекс</a>
+            <a href="http://google.ru">Google</a>
+        </p>
+    </body>
 </html>
 ```

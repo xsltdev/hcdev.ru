@@ -106,9 +106,11 @@ border-collapse: unset;
 ## Значения
 
 `collapse`
+
 : Линия между ячейками отображается только одна, также игнорируется значение атрибута `cellspacing`.
 
 `separate`
+
 : Вокруг каждой ячейки отображается своя собственная рамка, в местах соприкосновения ячеек показываются сразу две линии.
 
 Значение по-умолчанию:
@@ -121,61 +123,61 @@ border-collapse: separate;
 
 ## Спецификации
 
-- [Cascading Style Sheets Level 2 Revision 2 (CSS 2.2) Specification](https://w3c.github.io/csswg-drafts/css2/#propdef-border-collapse)
+-   [Cascading Style Sheets Level 2 Revision 2 (CSS 2.2) Specification](https://w3c.github.io/csswg-drafts/css2/#propdef-border-collapse)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>border-collapse</title>
-    <style>
-      table {
-        width: 100%; /* Ширина таблицы */
-        border: 4px double black; /* Рамка вокруг таблицы */
-        border-collapse: collapse; /* Отображать только одинарные линии */
-      }
-      th {
-        text-align: left; /* Выравнивание по левому краю */
-        background: #ccc; /* Цвет фона ячеек */
-        padding: 5px; /* Поля вокруг содержимого ячеек */
-        border: 1px solid black; /* Граница вокруг ячеек */
-      }
-      td {
-        padding: 5px; /* Поля вокруг содержимого ячеек */
-        border: 1px solid black; /* Граница вокруг ячеек */
-      }
-    </style>
-  </head>
-  <body>
-    <table>
-      <tr>
-        <th></th>
-        <th>2013</th>
-        <th>2014</th>
-        <th>2015</th>
-      </tr>
-      <tr>
-        <td>Нефть</td>
-        <td>43</td>
-        <td>51</td>
-        <td>79</td>
-      </tr>
-      <tr>
-        <td>Золото</td>
-        <td>29</td>
-        <td>34</td>
-        <td>48</td>
-      </tr>
-      <tr>
-        <td>Дерево</td>
-        <td>38</td>
-        <td>57</td>
-        <td>36</td>
-      </tr>
-    </table>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>border-collapse</title>
+        <style>
+            table {
+                width: 100%; /* Ширина таблицы */
+                border: 4px double black; /* Рамка вокруг таблицы */
+                border-collapse: collapse; /* Отображать только одинарные линии */
+            }
+            th {
+                text-align: left; /* Выравнивание по левому краю */
+                background: #ccc; /* Цвет фона ячеек */
+                padding: 5px; /* Поля вокруг содержимого ячеек */
+                border: 1px solid black; /* Граница вокруг ячеек */
+            }
+            td {
+                padding: 5px; /* Поля вокруг содержимого ячеек */
+                border: 1px solid black; /* Граница вокруг ячеек */
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th></th>
+                <th>2013</th>
+                <th>2014</th>
+                <th>2015</th>
+            </tr>
+            <tr>
+                <td>Нефть</td>
+                <td>43</td>
+                <td>51</td>
+                <td>79</td>
+            </tr>
+            <tr>
+                <td>Золото</td>
+                <td>29</td>
+                <td>34</td>
+                <td>48</td>
+            </tr>
+            <tr>
+                <td>Дерево</td>
+                <td>38</td>
+                <td>57</td>
+                <td>36</td>
+            </tr>
+        </table>
+    </body>
 </html>
 ```

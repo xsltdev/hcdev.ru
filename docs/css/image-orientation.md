@@ -86,9 +86,11 @@ image-orientation: unset;
 ## Значения
 
 `none`
+
 : Не применяет никакого дополнительного поворота изображения; изображение ориентировано в соответствии с кодировкой или в соответствии с другими значениями свойств CSS.
 
 `from-image`
+
 : Начальное значение по умолчанию. Информация EXIF, содержащаяся в изображении, используется для соответствующего поворота изображения.
 
 !!!warning ""
@@ -107,5 +109,5 @@ image-orientation: unset;
 
 ## Ссылки
 
-- Свойство [`image-orientation`](https://developer.mozilla.org/ru/docs/Web/CSS/image-orientation) <sup><small>MDN (рус.)</small></sup>
-- [CSS Images Module Level 3](https://w3c.github.io/csswg-drafts/css-images/#the-image-orientation) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`image-orientation`](https://developer.mozilla.org/ru/docs/Web/CSS/image-orientation) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Images Module Level 3](https://w3c.github.io/csswg-drafts/css-images/#the-image-orientation) <sup><small>Spec (англ.)</small></sup>

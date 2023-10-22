@@ -44,12 +44,19 @@ cursor: zoom-out;
 cursor: url(hand.cur), pointer;
 
 /* URL and coordinates, with mandatory keyword fallback */
-cursor: url(cursor_1.png) 4 12, auto;
-cursor: url(cursor_2.png) 2 2, pointer;
+cursor:
+    url(cursor_1.png) 4 12,
+    auto;
+cursor:
+    url(cursor_2.png) 2 2,
+    pointer;
 
 /* URLs and fallback URLs (some with coordinates), with mandatory keyword fallback */
-cursor: url(cursor_1.svg) 4 5, url(cursor_2.svg), /* … ,*/
-        url(cursor_n.cur) 5 5, progress;
+cursor:
+    url(cursor_1.svg) 4 5,
+    url(cursor_2.svg),
+    /* … ,*/ url(cursor_n.cur) 5 5,
+    progress;
 
 /* Global values */
 cursor: inherit;
@@ -62,52 +69,55 @@ cursor: unset;
 ## Значения
 
 `url`
+
 : Позволяет установить свой собственный курсор, для этого нужно указать путь к файлу с курсором.
 
 `auto`
+
 : Вид курсора по умолчанию для текущего элемента.
 
 `none`
+
 : Отключает отображение курсора.
 
 Остальные допустимые значения приведены в табл. 1.
 
 Табл. 1. Вид курсора
 
-| Вид                                                                  | Значение        |
-| -------------------------------------------------------------------- | --------------- |
-| ![default](default.png){: style="cursor: default"}                   | `default`       |
-| ![context-menu](context-menu.png){: style="cursor: context-menu"}    | `context-menu`  |
-| ![help](help.png){: style="cursor: help"}                            | `help`          |
-| ![pointer](pointer.png){: style="cursor: pointer"}                   | `pointer`       |
-| ![progress](progress.png){: style="cursor: progress"}                | `progress`      |
-| ![wait](wait.png){: style="cursor: wait"}                            | `wait`          |
-| ![cell](cell.png){: style="cursor: cell"}                            | `cell`          |
-| ![crosshair](crosshair.png){: style="cursor: crosshair"}             | `crosshair`     |
-| ![text](text.png){: style="cursor: text"}                            | `text`          |
+| Вид | Значение |
+| --- | --- |
+| ![default](default.png){: style="cursor: default"} | `default` |
+| ![context-menu](context-menu.png){: style="cursor: context-menu"} | `context-menu` |
+| ![help](help.png){: style="cursor: help"} | `help` |
+| ![pointer](pointer.png){: style="cursor: pointer"} | `pointer` |
+| ![progress](progress.png){: style="cursor: progress"} | `progress` |
+| ![wait](wait.png){: style="cursor: wait"} | `wait` |
+| ![cell](cell.png){: style="cursor: cell"} | `cell` |
+| ![crosshair](crosshair.png){: style="cursor: crosshair"} | `crosshair` |
+| ![text](text.png){: style="cursor: text"} | `text` |
 | ![vertical-text](vertical-text.png){: style="cursor: vertical-text"} | `vertical-text` |
-| ![alias](alias.png){: style="cursor: alias"}                         | `alias`         |
-| ![copy](copy.png){: style="cursor: copy"}                            | `copy`          |
-| ![move](move.png){: style="cursor: move"}                            | `move`          |
-| ![no-drop](no-drop.png){: style="cursor: no-drop"}                   | `no-drop`       |
-| ![not-allowed](not-allowed.png){: style="cursor: not-allowed"}       | `not-allowed`   |
-| ![all-scroll](all-scroll.png){: style="cursor: all-scroll"}          | `all-scroll`    |
-| ![col-resize](col-resize.png){: style="cursor: col-resize"}          | `col-resize`    |
-| ![row-resize](row-resize.png){: style="cursor: row-resize"}          | `row-resize`    |
-| ![n-resize](n-resize.png){: style="cursor: n-resize"}                | `n-resize`      |
-| ![ne-resize](ne-resize.png){: style="cursor: ne-resize"}             | `ne-resize`     |
-| ![e-resize](e-resize.png){: style="cursor: e-resize"}                | `e-resize`      |
-| ![se-resize](se-resize.png){: style="cursor: se-resize"}             | `se-resize`     |
-| ![s-resize](s-resize.png){: style="cursor: s-resize"}                | `s-resize`      |
-| ![sw-resize](sw-resize.png){: style="cursor: sw-resize"}             | `sw-resize`     |
-| ![w-resize](w-resize.png){: style="cursor: w-resize"}                | `w-resize`      |
-| ![nw-resize](nw-resize.png){: style="cursor: nw-resize"}             | `nw-resize`     |
-| ![nesw-resize](nesw-resize.png){: style="cursor: nesw-resize"}       | `nesw-resize`   |
-| ![nwse-resize](nwse-resize.png){: style="cursor: nwse-resize"}       | `nwse-resize`   |
-| ![zoom-in](zoom-in.png){: style="cursor: zoom-in"}                   | `zoom-in`       |
-| ![zoom-out](zoom-out.png){: style="cursor: zoom-out"}                | `zoom-out`      |
-| ![grab](grab.png){: style="cursor: grab"}                            | `grab`          |
-| ![grabbing](grabbing.png){: style="cursor: grabbing"}                | `grabbing`      |
+| ![alias](alias.png){: style="cursor: alias"} | `alias` |
+| ![copy](copy.png){: style="cursor: copy"} | `copy` |
+| ![move](move.png){: style="cursor: move"} | `move` |
+| ![no-drop](no-drop.png){: style="cursor: no-drop"} | `no-drop` |
+| ![not-allowed](not-allowed.png){: style="cursor: not-allowed"} | `not-allowed` |
+| ![all-scroll](all-scroll.png){: style="cursor: all-scroll"} | `all-scroll` |
+| ![col-resize](col-resize.png){: style="cursor: col-resize"} | `col-resize` |
+| ![row-resize](row-resize.png){: style="cursor: row-resize"} | `row-resize` |
+| ![n-resize](n-resize.png){: style="cursor: n-resize"} | `n-resize` |
+| ![ne-resize](ne-resize.png){: style="cursor: ne-resize"} | `ne-resize` |
+| ![e-resize](e-resize.png){: style="cursor: e-resize"} | `e-resize` |
+| ![se-resize](se-resize.png){: style="cursor: se-resize"} | `se-resize` |
+| ![s-resize](s-resize.png){: style="cursor: s-resize"} | `s-resize` |
+| ![sw-resize](sw-resize.png){: style="cursor: sw-resize"} | `sw-resize` |
+| ![w-resize](w-resize.png){: style="cursor: w-resize"} | `w-resize` |
+| ![nw-resize](nw-resize.png){: style="cursor: nw-resize"} | `nw-resize` |
+| ![nesw-resize](nesw-resize.png){: style="cursor: nesw-resize"} | `nesw-resize` |
+| ![nwse-resize](nwse-resize.png){: style="cursor: nwse-resize"} | `nwse-resize` |
+| ![zoom-in](zoom-in.png){: style="cursor: zoom-in"} | `zoom-in` |
+| ![zoom-out](zoom-out.png){: style="cursor: zoom-out"} | `zoom-out` |
+| ![grab](grab.png){: style="cursor: grab"} | `grab` |
+| ![grabbing](grabbing.png){: style="cursor: grabbing"} | `grabbing` |
 
 В зависимости от операционной системы и её настроек вид курсора может отличаться от приведённых в таблице.
 
@@ -181,7 +191,7 @@ cursor: auto;
 ### Пример 2
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -218,7 +228,7 @@ cursor: auto;
 ### Пример 3
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
         <meta charset="utf-8" />

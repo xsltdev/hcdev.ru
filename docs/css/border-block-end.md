@@ -8,9 +8,9 @@ description: Свойство CSS border-block-end — это сокращенн
 
 Это свойство является сокращением для следующих свойств CSS:
 
-- `border-block-end-color`
-- `border-block-end-style`
-- `border-block-end-width`
+-   `border-block-end-color`
+-   `border-block-end-style`
+-   `border-block-end-width`
 
 ## Демо
 
@@ -75,21 +75,24 @@ border-block-end: unset;
 `border-block-end` определяется одним или несколькими из следующих элементов в любом порядке:
 
 `<ширин границ>`
+
 : Ширина границы.
 
 `<стиль границы>`
+
 : Стиль линии границы.
 
 `<цвет>`
+
 : Цвет границы.
 
 ## Определение
 
-|                    |                                                                                                |
-| ------------------ | ---------------------------------------------------------------------------------------------- |
+|  |  |
+| --- | --- |
 | Начальное значение | `border-top-width: medium`<br />`border-top-style: none`<br />`border-top-color: currentcolor` |
-| Применяется ко     | всем элементам                                                                                 |
-| Наследуется        | нет                                                                                            |
+| Применяется ко | всем элементам |
+| Наследуется | нет |
 
 ## Поддержка браузерами
 
@@ -99,18 +102,18 @@ border-block-end: unset;
 
 ```css
 div {
-  background-color: yellow;
-  width: 120px;
-  height: 120px;
+    background-color: yellow;
+    width: 120px;
+    height: 120px;
 }
 
 .exampleText {
-  writing-mode: vertical-rl;
-  border-block-end: 5px dashed blue;
+    writing-mode: vertical-rl;
+    border-block-end: 5px dashed blue;
 }
 ```
 
 ## Ссылки
 
-- Свойство [`border-block-end`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-end) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-shorthands) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-block-end`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-end) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-shorthands) <sup><small>Spec (англ.)</small></sup>

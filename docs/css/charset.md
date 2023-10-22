@@ -36,11 +36,12 @@ description: Правило @charset задает кодировку табли�
 ## Значения
 
 `charset`
+
 : кодировка таблицы стилей
 
 ## Спецификации
 
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/syndata.html#x57)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/syndata.html#x57)
 
 ## Описание и примеры
 
@@ -52,4 +53,4 @@ description: Правило @charset задает кодировку табли�
 
 ## Ссылки
 
-- Правило [@charset](https://developer.mozilla.org/en-US/docs/Web/CSS/@charset) <sup><small>MDN (рус.)</small></sup>
+-   Правило [@charset](https://developer.mozilla.org/en-US/docs/Web/CSS/@charset) <sup><small>MDN (рус.)</small></sup>

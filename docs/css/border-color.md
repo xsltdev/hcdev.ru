@@ -16,10 +16,10 @@ description: Свойство border-color устанавливает цвет �
 
 Это свойство является сокращением для следующих свойств CSS:
 
-- `border-bottom-color`
-- `border-left-color`
-- `border-right-color`
-- `border-top-color`
+-   `border-bottom-color`
+-   `border-left-color`
+-   `border-right-color`
+-   `border-top-color`
 
 ??? info "Фон"
 
@@ -87,9 +87,11 @@ border-color: unset;
 ## Значения
 
 `<цвет>`
+
 : Цвет
 
 `transparent`
+
 : Устанавливает прозрачный цвет.
 
 Разрешается использовать одно, два, три или четыре значения, разделяя их между собой пробелом. Результат зависит от количества и указан в табл. 1.
@@ -113,37 +115,38 @@ border-color: unset;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](https://w3c.github.io/csswg-drafts/css-backgrounds/#border-color)
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#logical-shorthand-keyword)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#border-color-properties)
-- [CSS Level 1](http://www.w3.org/TR/CSS1/#border-color)
+-   [CSS Backgrounds and Borders Module Level 3](https://w3c.github.io/csswg-drafts/css-backgrounds/#border-color)
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#logical-shorthand-keyword)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#border-color-properties)
+-   [CSS Level 1](http://www.w3.org/TR/CSS1/#border-color)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>border-color</title>
-    <style>
-      h1 {
-        border-color: red white; /* Цвет границы */
-        border-style: solid; /* Стиль границы */
-      }
-      p {
-        border-color: #008a77; /* Цвет границы */
-        border-style: solid; /* Стиль границы */
-        padding: 5px; /* Поля вокруг текста */
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Шоу-бизнес как внутридискретное арпеджио</h1>
-    <p>
-      Септаккорд, согласно традиционным представлениям,
-      иллюстрирует однокомпонентный шоу-бизнес.
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>border-color</title>
+        <style>
+            h1 {
+                border-color: red white; /* Цвет границы */
+                border-style: solid; /* Стиль границы */
+            }
+            p {
+                border-color: #008a77; /* Цвет границы */
+                border-style: solid; /* Стиль границы */
+                padding: 5px; /* Поля вокруг текста */
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Шоу-бизнес как внутридискретное арпеджио</h1>
+        <p>
+            Септаккорд, согласно традиционным
+            представлениям, иллюстрирует однокомпонентный
+            шоу-бизнес.
+        </p>
+    </body>
 </html>
 ```

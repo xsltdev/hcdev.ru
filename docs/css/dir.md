@@ -85,22 +85,24 @@ description: Псевдокласс CSS :dir() сопоставляет элем
 ```css
 /* Выбирает все элементы с текстом справа-налево */
 :dir(rtl) {
-  background-color: red;
+    background-color: red;
 }
 ```
 
 ## Параметры
 
 `ltr`
+
 : Выбирает элементы с направлением текста слева-направо.
 
 `rtl`
+
 : Выбирает элементы с направлением текста справа-налево.
 
 ## Спецификации
 
-- [HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics-other.html#selector-ltr)
-- [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-dir-pseudo)
+-   [HTML Living Standard](https://html.spec.whatwg.org/multipage/semantics-other.html#selector-ltr)
+-   [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-dir-pseudo)
 
 ## Пример
 
@@ -130,8 +132,8 @@ description: Псевдокласс CSS :dir() сопоставляет элем
 
 ## См. также
 
-- [`:lang()`](lang.md)
+-   [`:lang()`](lang.md)
 
 ## Ссылки
 
-- Псевдо-класс [`:dir()`](https://developer.mozilla.org/ru/docs/Web/CSS/:dir) <sup><small>MDN (рус.)</small></sup>
+-   Псевдо-класс [`:dir()`](https://developer.mozilla.org/ru/docs/Web/CSS/:dir) <sup><small>MDN (рус.)</small></sup>

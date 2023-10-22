@@ -79,6 +79,7 @@ margin-right: unset;
 Величину правого отступа можно указывать в пикселях (px), процентах (%) или других допустимых для CSS единицах. Значение может быть как положительным, так и отрицательным числом.
 
 `auto`
+
 : Указывает, что размер отступов будет автоматически рассчитан браузером.
 
 Значение по-умолчанию:
@@ -91,38 +92,39 @@ margin-right: 0;
 
 ## Спецификации
 
-- [CSS Basic Box Model](http://dev.w3.org/csswg/css3-box/#margin)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#margin-properties)
-- [CSS Level 1](http://www.w3.org/TR/CSS1/#margin-right)
+-   [CSS Basic Box Model](http://dev.w3.org/csswg/css3-box/#margin)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/box.html#margin-properties)
+-   [CSS Level 1](http://www.w3.org/TR/CSS1/#margin-right)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>margin-right</title>
-    <style>
-      body {
-        margin-right: 25%; /* Отступ справа */
-        margin-left: 25%; /* Отступ слева */
-      }
-      .panel {
-        background: #007083; /* Цвет фона */
-        color: white; /* Цвет текста */
-        padding: 10px; /* Поля вокруг текста */
-        text-align: justify; /* Выравнивание по ширине */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="panel">
-      Весьма существенно следующее: аллегория монотонно
-      иллюстрирует невротический холерик, таким образом,
-      второй комплекс движущих сил получил разработку в
-      трудах А.Берталанфи и Ш.Бюлера.
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>margin-right</title>
+        <style>
+            body {
+                margin-right: 25%; /* Отступ справа */
+                margin-left: 25%; /* Отступ слева */
+            }
+            .panel {
+                background: #007083; /* Цвет фона */
+                color: white; /* Цвет текста */
+                padding: 10px; /* Поля вокруг текста */
+                text-align: justify; /* Выравнивание по ширине */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="panel">
+            Весьма существенно следующее: аллегория
+            монотонно иллюстрирует невротический холерик,
+            таким образом, второй комплекс движущих сил
+            получил разработку в трудах А.Берталанфи и
+            Ш.Бюлера.
+        </div>
+    </body>
 </html>
 ```

@@ -75,12 +75,15 @@ font-kerning: unset;
 ## Значения
 
 `auto`
+
 : Браузер самостоятельно определяет необходимость кернинга для текста. Так, для мелкого шрифта кернинг отключается для сохранения читаемости текста, для крупного, наоборот, включается.
 
 `normal`
+
 : К тексту применяется кернинг.
 
 `none`
+
 : Браузер не использует кернинг для текста.
 
 ### Примечание
@@ -97,31 +100,32 @@ font-kerning: auto;
 
 ## Спецификации
 
-- [CSS Fonts Module Level 3](https://drafts.csswg.org/css-fonts-3/#propdef-font-kerning)
+-   [CSS Fonts Module Level 3](https://drafts.csswg.org/css-fonts-3/#propdef-font-kerning)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>font-kerning</title>
-    <style>
-      h1 {
-        font-kerning: normal;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>
-      Тригонометрический неопределенный интеграл: основные
-      моменты
-    </h1>
-    <p>
-      Пустое подмножество транслирует интеграл от функции,
-      обращающейся в бесконечность вдоль линии.
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>font-kerning</title>
+        <style>
+            h1 {
+                font-kerning: normal;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>
+            Тригонометрический неопределенный интеграл:
+            основные моменты
+        </h1>
+        <p>
+            Пустое подмножество транслирует интеграл от
+            функции, обращающейся в бесконечность вдоль
+            линии.
+        </p>
+    </body>
 </html>
 ```

@@ -68,6 +68,7 @@ transform-origin: unset;
 ## Значения
 
 `<x>`
+
 : Координата по оси X. Может принимать следующие значения:
 
 : `<размер> | <проценты> | left | center | right`
@@ -75,11 +76,13 @@ transform-origin: unset;
 : Здесь <размер> — любая единица измерения CSS.
 
 `<y>`
+
 : Координата по оси Y. Может принимать следующие значения:
 
 : `<размер> | <проценты> | top | center | bottom`
 
 `<z>`
+
 : Координата по оси Z. Может задаваться только в любых корректных единицах для измерения длины (исключая проценты).
 
 Оси и значения показаны на рис. 1.
@@ -90,11 +93,11 @@ transform-origin: unset;
 
 ### Примечание
 
-- Internet Explorer 9 поддерживает свойство `-ms-transform-origin`.
-- Chrome до версии 36 и Android до версии 4 поддерживают свойство `-webkit-transform-origin`.
-- Safari поддерживает свойство `-webkit-transform-origin`.
-- Opera до версии 12.10 и с версии 15 до 23 поддерживает свойство `-o-transform-origin`.
-- Firefox до версии 16 поддерживает свойство `-moz-transform-origin`.
+-   Internet Explorer 9 поддерживает свойство `-ms-transform-origin`.
+-   Chrome до версии 36 и Android до версии 4 поддерживают свойство `-webkit-transform-origin`.
+-   Safari поддерживает свойство `-webkit-transform-origin`.
+-   Opera до версии 12.10 и с версии 15 до 23 поддерживает свойство `-o-transform-origin`.
+-   Firefox до версии 16 поддерживает свойство `-moz-transform-origin`.
 
 Значение по-умолчанию: `50% 50% 0`
 
@@ -102,7 +105,7 @@ transform-origin: unset;
 
 ## Спецификации
 
-- [CSS Transforms Level 1](http://dev.w3.org/csswg/css-transforms/#transform-origin)
+-   [CSS Transforms Level 1](http://dev.w3.org/csswg/css-transforms/#transform-origin)
 
 ## Поддержка браузерами
 
@@ -127,28 +130,28 @@ CSS Transform 3D:
 Пример 2:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>transform-origin</title>
-    <style>
-      div {
-        background: #fc0;
-        padding: 10px;
-        display: inline-block;
-        border: 1px solid #000;
-      }
-      div:hover {
-        /* Точка поворота в правом верхнем углу */
-        transform-origin: 100% 0;
-        /* Поворачиваем на 20 градусов против часовой стрелки */
-        transform: rotate(-20deg);
-      }
-    </style>
-  </head>
-  <body>
-    <div>Пример</div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>transform-origin</title>
+        <style>
+            div {
+                background: #fc0;
+                padding: 10px;
+                display: inline-block;
+                border: 1px solid #000;
+            }
+            div:hover {
+                /* Точка поворота в правом верхнем углу */
+                transform-origin: 100% 0;
+                /* Поворачиваем на 20 градусов против часовой стрелки */
+                transform: rotate(-20deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div>Пример</div>
+    </body>
 </html>
 ```

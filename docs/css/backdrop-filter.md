@@ -101,20 +101,22 @@ backdrop-filter: unset;
 ## Значения
 
 **`none`**
+
 : Фильтр отключен для фона
 
 `<filter-function-list>`
+
 : Перечень фильтров, разделенных пробелами функций `<filter-function>` или SVG фильтра, которые применены для фона.
 
 ## Определение
 
-|                    |                                                                                                     |
-| ------------------ | --------------------------------------------------------------------------------------------------- |
-| Начальное значение | `none`                                                                                              |
-| Применяется к      | все элементы; в SVG это применяется к контейнерам, исключая элемент defs и все графические элементы |
-| Наследуется        | нет                                                                                                 |
-| Обработка значения | как указано                                                                                         |
-| Тип анимации       | как список функций                                                                                  |
+|  |  |
+| --- | --- |
+| Начальное значение | `none` |
+| Применяется к | все элементы; в SVG это применяется к контейнерам, исключая элемент defs и все графические элементы |
+| Наследуется | нет |
+| Обработка значения | как указано |
+| Тип анимации | как список функций |
 
 ## Поддержка браузерами
 
@@ -176,5 +178,5 @@ backdrop-filter: unset;
 
 ## Ссылки
 
-- Свойство [`backdrop-filter`](https://developer.mozilla.org/ru/docs/Web/CSS/backdrop-filter) <sup><small>MDN (рус.)</small></sup>
-- [Filter Effects Module Level 2](https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`backdrop-filter`](https://developer.mozilla.org/ru/docs/Web/CSS/backdrop-filter) <sup><small>MDN (рус.)</small></sup>
+-   [Filter Effects Module Level 2](https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty) <sup><small>Spec (англ.)</small></sup>

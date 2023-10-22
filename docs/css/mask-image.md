@@ -64,12 +64,15 @@ mask-image: unset;
 ## Значения
 
 **`none`**
+
 : это ключевое слово интерпретируется как прозрачный слой черного изображения.
 
 `<mask-source>`
+
 : ссылка `<url>` на `<mask>` или изображение.
 
 `<image>`
+
 : изображение, используемое в качестве слоя маски.
 
 Значение по-умолчанию:
@@ -80,7 +83,7 @@ mask-image: none;
 
 ## Спецификации
 
-- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking-1/#the-mask-image)
+-   [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking-1/#the-mask-image)
 
 ## Поддержка браузерами
 

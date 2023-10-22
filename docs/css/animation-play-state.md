@@ -61,9 +61,11 @@ animation-play-state: unset;
 ## Значения
 
 `running`
+
 : анимация проигрывается.
 
 `paused`
+
 : анимация на паузе.
 
 Значение по-умолчанию:
@@ -76,7 +78,7 @@ animation-play-state: running;
 
 ## Спецификации
 
-- [CSS Animations](https://drafts.csswg.org/css-animations/#animation-play-state)
+-   [CSS Animations](https://drafts.csswg.org/css-animations/#animation-play-state)
 
 ## Поддержка браузерами
 

@@ -61,7 +61,7 @@ font-variant-alternates: historical-forms;
 font-variant-alternates: stylistic(user-defined-ident);
 font-variant-alternates: styleset(user-defined-ident);
 font-variant-alternates: character-variant(
-  user-defined-ident
+    user-defined-ident
 );
 font-variant-alternates: swash(user-defined-ident);
 font-variant-alternates: ornaments(user-defined-ident);
@@ -77,38 +77,46 @@ font-variant-alternates: unset;
 ## Значения
 
 `normal`
+
 : отключает альтернативные глифы
 
 `historical-forms`
+
 : Это ключевое слово включает исторические формы - глифы, которые были распространены в прошлом, но не сегодня. Ему соответствует значение `hist` в OpenType.
 
 `stylistic()`
+
 : Эта функция позволяет изменять стили для отдельных символов. Параметр - это имя для конкретного шрифта, сопоставленное с числом. Это соответствует значению `salt` OpenType, например `salt 2`.
 
 `styleset()`
+
 : Эта функция позволяет использовать стилистические альтернативы для наборов символов. Параметр - это имя для конкретного шрифта, сопоставленное с числом. Он соответствует значению OpenType `ssXY`, например `ss02`.
 
 `character-variant()`
+
 : Эта функция позволяет использовать определенные стилистические варианты для персонажей. Он похож на `styleset()`, но не создает согласованных глифов для набора символов; отдельные персонажи будут иметь независимые и не обязательно согласованные стили. Параметр - это имя для конкретного шрифта, сопоставленное с числом. Он соответствует значению OpenType `cvXY`, например `cv02`.
 
 `swash()`
+
 : Эта функция включает глифы автомата перекоса. Параметр - это имя для конкретного шрифта, сопоставленное с числом. Он соответствует значениям `swsh` и `cswh` OpenType, например `swsh 2` и `cswh 2`.
 
 `ornaments()`
+
 : Эта функция позволяет использовать украшения, такие как флероны и другие символы дингбата. Параметр - это имя для конкретного шрифта, сопоставленное с числом. Он соответствует значению OpenType `ornm`, например `ornm 2`.
 
 `annotation()`
+
 : Эта функция включает аннотации, такие как цифры в кружках или инвертированные символы. Параметр - это имя для конкретного шрифта, сопоставленное с числом. Он соответствует значению OpenType `nalt`, как `nalt 2`.
 
 ## Определение
 
-|                      |                                                                                                |
-| -------------------- | ---------------------------------------------------------------------------------------------- |
-| Начальное значение   | `normal`                                                                                       |
-| Применяется ко       | всем элементам, включая [`::first-letter`](first-letter.md) и [`::first-line`](first-line.md). |
-| Наследуется          | да                                                                                             |
-| Вычисленное значение | как определено                                                                                 |
-| Тип анимации         | дискретный                                                                                     |
+|  |  |
+| --- | --- |
+| Начальное значение | `normal` |
+| Применяется ко | всем элементам, включая [`::first-letter`](first-letter.md) и [`::first-line`](first-line.md). |
+| Наследуется | да |
+| Вычисленное значение | как определено |
+| Тип анимации | дискретный |
 
 ## Поддержка браузерами
 
@@ -127,21 +135,21 @@ font-variant-alternates: unset;
 
 ```css
 @font-feature-values "Leitura Display Swashes" {
-  @swash {
-    fancy: 1;
-  }
+    @swash {
+        fancy: 1;
+    }
 }
 
 p {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .variant {
-  font-family: Leitura Display Swashes;
-  font-variant-alternates: swash(fancy);
+    font-family: Leitura Display Swashes;
+    font-variant-alternates: swash(fancy);
 }
 ```
 
 ## Ссылки
 
-- Свойство [`font-variant-alternates`](https://developer.mozilla.org/ru/docs/Web/CSS/font-variant-alternates) <sup><small>MDN (рус.)</small></sup>
+-   Свойство [`font-variant-alternates`](https://developer.mozilla.org/ru/docs/Web/CSS/font-variant-alternates) <sup><small>MDN (рус.)</small></sup>

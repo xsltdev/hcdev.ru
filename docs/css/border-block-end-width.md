@@ -63,17 +63,18 @@ border-block-end-width: unset;
 ## Значения
 
 `<ширина>`
+
 : The width of the border. See border-width.
 
 ## Определение
 
-|                      |                                                               |
-| -------------------- | ------------------------------------------------------------- |
-| Начальное значение   | `medium`                                                      |
-| Применяется ко       | всем элементам                                                |
-| Наследуется          | нет                                                           |
+| Описание | Значение |
+| --- | --- |
+| Начальное значение | `medium` |
+| Применяется ко | всем элементам |
+| Наследуется | нет |
 | Вычисленное значение | абсолютная длина; `0`, если стиль границы `none` или `hidden` |
-| Тип анимации         | длина                                                         |
+| Тип анимации | длина |
 
 ## Поддержка браузерами
 
@@ -83,19 +84,19 @@ border-block-end-width: unset;
 
 ```css
 div {
-  background-color: yellow;
-  width: 120px;
-  height: 120px;
+    background-color: yellow;
+    width: 120px;
+    height: 120px;
 }
 
 .exampleText {
-  writing-mode: vertical-lr;
-  border: 1px solid blue;
-  border-block-end-width: 5px;
+    writing-mode: vertical-lr;
+    border: 1px solid blue;
+    border-block-end-width: 5px;
 }
 ```
 
 ## Ссылки
 
-- Свойство [`border-block-end-width`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-end-width) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-width) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-block-end-width`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-end-width) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-width) <sup><small>Spec (англ.)</small></sup>

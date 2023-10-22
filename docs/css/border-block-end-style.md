@@ -66,6 +66,7 @@ border-block-end-style: unset;
 ## Значения
 
 `<стиль границы>`
+
 : Стиль линии границы.
 
 ## Определение
@@ -86,19 +87,19 @@ border-block-end-style: unset;
 
 ```css
 div {
-  background-color: yellow;
-  width: 120px;
-  height: 120px;
+    background-color: yellow;
+    width: 120px;
+    height: 120px;
 }
 
 .exampleText {
-  writing-mode: vertical-lr;
-  border: 5px solid blue;
-  border-block-end-style: dashed;
+    writing-mode: vertical-lr;
+    border: 5px solid blue;
+    border-block-end-style: dashed;
 }
 ```
 
 ## Ссылки
 
-- Свойство [`border-block-end-style`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-end-style) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-style) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-block-end-style`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-end-style) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-style) <sup><small>Spec (англ.)</small></sup>

@@ -51,11 +51,11 @@ description: Правило @page используется для модифик
 
 ```css
 @page {
-  margin: 1cm;
+    margin: 1cm;
 }
 
 @page :first {
-  margin: 2cm;
+    margin: 2cm;
 }
 ```
 
@@ -89,18 +89,23 @@ size: A4 portrait;
 Значения:
 
 `auto`
+
 : Браузер сам выбирает размер листа.
 
 `landscape`
+
 : Содержимое страницы отображается в альбомной ориентации
 
 `portrait`
+
 : Содержимое страницы отображается в портретном режиме. Это ориентация по умолчанию.
 
 `<length>`
+
 : Любое значение длины. Первое значение соответствует ширине поля страницы, а второе соответствует его высоте. Если указано только одно значение, оно используется как для ширины, так и для высоты.
 
 `<page-size>`
+
 : `A5` (148mm x 210mm), `A4` (210mm x 297mm), `A3` (297mm x 420mm), `B5` (176mm x 250mm), `B4` (250mm x 353mm), `JIS-B5` (182mm x 257mm), `JIS-B4` (257mm x 364mm), `letter` (8.5in x 11in), `legal` (8.5in x 14in), `ledger` (11in x 17in).
 
 ### marks
@@ -109,23 +114,26 @@ size: A4 portrait;
 
 ```css
 @page {
-  /* Keyword values */
-  marks: none;
-  marks: crop;
-  marks: cross;
-  marks: crop cross;
+    /* Keyword values */
+    marks: none;
+    marks: crop;
+    marks: cross;
+    marks: crop cross;
 }
 ```
 
 Значения:
 
 `crop`
+
 : Будут напечатаны отметки для обрезки
 
 `cross`
+
 : Будут напечатаны крестики
 
 `none`
+
 : Никаких отметок не будет напечатано
 
 ### bleed
@@ -207,17 +215,17 @@ bleed: 1cm;
 
 ## Спецификации
 
-- [CSS Logical Properties and Values Level 1](https://drafts.csswg.org/css-logical/#logical-page)
-- [CSS Paged Media Module Level 3](https://drafts.csswg.org/css-page-3/#at-page-rule)
-- [CSS Level 2 (Revision 1)](https://www.w3.org/TR/CSS2/page.html#page-selectors)
+-   [CSS Logical Properties and Values Level 1](https://drafts.csswg.org/css-logical/#logical-page)
+-   [CSS Paged Media Module Level 3](https://drafts.csswg.org/css-page-3/#at-page-rule)
+-   [CSS Level 2 (Revision 1)](https://www.w3.org/TR/CSS2/page.html#page-selectors)
 
 ## См. также
 
-- [`:blank`](blank.md)
-- [`:first`](first.md)
-- [`:left`](left-pseudo-class.md)
-- [`:right`](right.md)
+-   [`:blank`](blank.md)
+-   [`:first`](first.md)
+-   [`:left`](left-pseudo-class.md)
+-   [`:right`](right.md)
 
 ## Ссылки
 
-- [`@page`](https://developer.mozilla.org/ru/docs/Web/CSS/@page) <sup><small>MDN (рус.)</small></sup>
+-   [`@page`](https://developer.mozilla.org/ru/docs/Web/CSS/@page) <sup><small>MDN (рус.)</small></sup>

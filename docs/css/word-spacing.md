@@ -84,6 +84,7 @@ word-spacing: unset;
 В качестве значений принимаются любые единицы длины, принятые в CSS — например, пикселы (px), дюймы (in), пункты (pt) и др. Значение может быть и отрицательным, но следует проверять работоспособность в разных браузерах. Процентная запись не применима.
 
 `normal`
+
 : Устанавливает интервал между словами как обычно.
 
 Значение по-умолчанию: `normal`
@@ -92,27 +93,27 @@ word-spacing: unset;
 
 ## Спецификации
 
-- [CSS Text Level 3](http://dev.w3.org/csswg/css3-text/#propdef-word-spacing)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/text.html#propdef-word-spacing)
-- [CSS Level 1](http://www.w3.org/TR/CSS1/#word-spacing)
+-   [CSS Text Level 3](http://dev.w3.org/csswg/css3-text/#propdef-word-spacing)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/text.html#propdef-word-spacing)
+-   [CSS Level 1](http://www.w3.org/TR/CSS1/#word-spacing)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>word-spacing</title>
-    <style>
-      .tel {
-        word-spacing: 10px;
-        font-size: 2em;
-      }
-    </style>
-  </head>
-  <body>
-    <p class="tel">Тел.: 555-221-061</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>word-spacing</title>
+        <style>
+            .tel {
+                word-spacing: 10px;
+                font-size: 2em;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="tel">Тел.: 555-221-061</p>
+    </body>
 </html>
 ```

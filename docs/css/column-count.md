@@ -56,9 +56,11 @@ column-count: unset;
 ## Значения
 
 `<число>`
+
 : Целое число больше нуля, задающее оптимальное число колонок.
 
 `auto`
+
 : Число колонок вычисляется автоматически на основе других свойств ([`column-width`](column-width.md), [`column-gap`](column-gap.md)).
 
 ### Примечание
@@ -77,7 +79,7 @@ column-count: auto;
 
 ## Спецификации
 
-- [CSS Multi-column Layout Module](http://dev.w3.org/csswg/css3-multicol/#column-count)
+-   [CSS Multi-column Layout Module](http://dev.w3.org/csswg/css3-multicol/#column-count)
 
 ## Поддержка браузерами
 
@@ -88,28 +90,29 @@ column-count: auto;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>column-count</title>
-    <style>
-      .book {
-        -moz-column-count: 2;
-        -webkit-column-count: 2;
-        column-count: 2;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="book">
-      Контрапункт контрастных фактур дает структурный
-      midi-контроллер, таким образом объектом имитации
-      является число длительностей в каждой из относительно
-      автономных ритмогрупп ведущего голоса. Протяженность,
-      по определению, просветляет флэнжер, хотя это довольно
-      часто напоминает песни Джима Моррисона и Патти Смит.
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>column-count</title>
+        <style>
+            .book {
+                -moz-column-count: 2;
+                -webkit-column-count: 2;
+                column-count: 2;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="book">
+            Контрапункт контрастных фактур дает структурный
+            midi-контроллер, таким образом объектом имитации
+            является число длительностей в каждой из
+            относительно автономных ритмогрупп ведущего
+            голоса. Протяженность, по определению,
+            просветляет флэнжер, хотя это довольно часто
+            напоминает песни Джима Моррисона и Патти Смит.
+        </div>
+    </body>
 </html>
 ```

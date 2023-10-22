@@ -8,9 +8,9 @@ description: Свойство CSS border-block-start — это сокращен
 
 Это свойство является сокращением для следующих свойств CSS:
 
-- [`border-block-start-color`](border-block-start-color.md)
-- [`border-block-start-style`](border-block-start-style.md)
-- [`border-block-start-width`](border-block-start-width.md)
+-   [`border-block-start-color`](border-block-start-color.md)
+-   [`border-block-start-style`](border-block-start-style.md)
+-   [`border-block-start-width`](border-block-start-width.md)
 
 ## Демо
 
@@ -75,12 +75,15 @@ border-block-start: unset;
 `border-block-start` указывается одним или несколькими из следующих элементов в любом порядке:
 
 `<'border-width'>`
+
 : Ширина границы.
 
 `<'border-style'>`
+
 : Стиль линии границы.
 
 `<'color'>`
+
 : Цвет границы.
 
 ## Поддержка браузерами
@@ -114,5 +117,5 @@ border-block-start: unset;
 
 ## Ссылки
 
-- Свойство [`border-block-start`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-start) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-shorthands) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-block-start`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-start) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://w3c.github.io/csswg-drafts/css-logical/#border-shorthands) <sup><small>Spec (англ.)</small></sup>

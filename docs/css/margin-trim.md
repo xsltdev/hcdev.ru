@@ -71,14 +71,17 @@ margin-trim: unset;
 ## Значения
 
 `none`
+
 : Поля не обрезаны контейнером.
 
 `in-flow`
+
 : Для блоков `in-flow`, содержащихся в этом контейнере, поля осей блоков, смежные с краями блока, обрезаются до нуля.
-:
+
 : Также обрезаются все схлопнутые поля.
 
 `all`
+
 : Обрезаются все поля
 
 Значение по-умолчанию: `none`
@@ -87,7 +90,7 @@ margin-trim: unset;
 
 ## Спецификации
 
-- [CSS Basic Box Model](https://drafts.csswg.org/css-box-3/#margin-trim)
+-   [CSS Basic Box Model](https://drafts.csswg.org/css-box-3/#margin-trim)
 
 ## Поддержка браузерами
 

@@ -64,18 +64,23 @@ background-size: unset;
 ## Значения
 
 `<размер>`
+
 : Задаёт размер в любых доступных для CSS единицах — пикселях (px), сантиметрах (cm), em и др.
 
 `<проценты>`
+
 : Задаёт размер фоновой картинки в процентах от ширины или высоты элемента.
 
 `auto`
+
 : Если задано одновременно для ширины и высоты (auto auto), размеры фона остаются исходными; если только для одной стороны картинки (100px auto), то размер вычисляется автоматически исходя из пропорций картинки.
 
 `cover`
+
 : Масштабирует изображение с сохранением пропорций так, чтобы его ширина или высота равнялась ширине или высоте блока.
 
 `contain`
+
 : Масштабирует изображение с сохранением пропорций таким образом, чтобы картинка целиком поместилась внутрь блока.
 
 Если установлено одно значение, оно устанавливает ширину фона, второе значение принимается за `auto`. Пропорции картинки при этом сохраняются. Использование двух значений через пробел задаёт ширину и высоту фоновой картинки.
@@ -90,7 +95,7 @@ background-size: auto;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#the-background-size)
+-   [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#the-background-size)
 
 ## Поддержка браузерами
 
@@ -101,23 +106,23 @@ background-size: auto;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>background-size</title>
-    <style>
-      div {
-        height: 200px; /* Высота блока */
-        border: 2px solid #000; /* Параметры рамки */
-        background: url('/example/image/mybg.png') 100% 100%
-          no-repeat; /* Добавляем фон */
-        background-size: cover; /* Масштабируем фон */
-      }
-    </style>
-  </head>
-  <body>
-    <div>...</div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>background-size</title>
+        <style>
+            div {
+                height: 200px; /* Высота блока */
+                border: 2px solid #000; /* Параметры рамки */
+                background: url('/example/image/mybg.png')
+                    100% 100% no-repeat; /* Добавляем фон */
+                background-size: cover; /* Масштабируем фон */
+            }
+        </style>
+    </head>
+    <body>
+        <div>...</div>
+    </body>
 </html>
 ```

@@ -30,14 +30,16 @@ overflow-anchor: unset;
 ## Значения
 
 `auto`
+
 : Элемент становится потенциальным якорем при настройке положения прокрутки.
 
 `none`
+
 : Элемент не будет выбран в качестве потенциального якоря.
 
 ## Спецификация
 
-- [CSS Scroll Anchoring Module Level 1](https://w3c.github.io/csswg-drafts/css-scroll-anchoring/#exclusion-api)
+-   [CSS Scroll Anchoring Module Level 1](https://w3c.github.io/csswg-drafts/css-scroll-anchoring/#exclusion-api)
 
 ## Поддержка браузерами
 

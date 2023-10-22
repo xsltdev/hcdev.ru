@@ -66,6 +66,7 @@ border-block-end-color: unset;
 ## Значения
 
 `<цвет>`
+
 : Цвет границы.
 
 ## Определение
@@ -86,19 +87,19 @@ border-block-end-color: unset;
 
 ```css
 div {
-  background-color: yellow;
-  width: 120px;
-  height: 120px;
+    background-color: yellow;
+    width: 120px;
+    height: 120px;
 }
 
 .exampleText {
-  writing-mode: vertical-lr;
-  border: 10px solid blue;
-  border-block-end-color: red;
+    writing-mode: vertical-lr;
+    border: 10px solid blue;
+    border-block-end-color: red;
 }
 ```
 
 ## Ссылки
 
-- Свойство [`border-block-end-color`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-end-color) <sup><small>MDN (рус.)</small></sup>
-- [CSS Logical Properties and Values Level 1](https://drafts.csswg.org/css-logical/#propdef-border-block-end-color) <sup><small>Spec (англ.)</small></sup>
+-   Свойство [`border-block-end-color`](https://developer.mozilla.org/ru/docs/Web/CSS/border-block-end-color) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Logical Properties and Values Level 1](https://drafts.csswg.org/css-logical/#propdef-border-block-end-color) <sup><small>Spec (англ.)</small></sup>

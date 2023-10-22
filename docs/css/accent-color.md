@@ -12,10 +12,10 @@ description: Свойство accent-color устанавливает акцен
 
 Браузеры, которые поддерживают `accent-color`, в настоящее время применяют его к следующим HTML элементам:
 
-- [`<input type="checkbox">`](../html/input.md)
-- [`<input type="radio">`](../html/input.md)
-- [`<input type="range">`](../html/input.md)
-- [`<progress>`](../html/progress.md)
+-   [`<input type="checkbox">`](../html/input.md)
+-   [`<input type="radio">`](../html/input.md)
+-   [`<input type="range">`](../html/input.md)
+-   [`<progress>`](../html/progress.md)
 
 ## Синтаксис
 
@@ -39,15 +39,19 @@ accent-color: unset;
 
 ### Значения
 
+<!-- prettier-ignore-start -->
+
 `auto`
 : Браузер сам определяет цвет в зависимости от платформы.
 
 `<цвет>`
 : Задает цвет, который будет использован в качестве акцентного.
 
+<!-- prettier-ignore-end -->
+
 ## Спецификации
 
-- [CSS Basic User Interface Module Level 4](https://w3c.github.io/csswg-drafts/css-ui/#widget-accent)
+-   [CSS Basic User Interface Module Level 4](https://w3c.github.io/csswg-drafts/css-ui/#widget-accent)
 
 ## Пример
 
@@ -75,4 +79,4 @@ accent-color: unset;
 
 ## Ссылки
 
-- Свойство [`accent-color`](https://developer.mozilla.org/ru/docs/Web/CSS/accent-color) <sup><small>MDN (рус.)</small></sup>
+-   Свойство [`accent-color`](https://developer.mozilla.org/ru/docs/Web/CSS/accent-color) <sup><small>MDN (рус.)</small></sup>

@@ -39,7 +39,7 @@ background-image: url('https://example.com/bck.png');
 
 /* Multiple values */
 background-image: url('https://example.com/top.png'),
-  url('https://example.com/bottom.png');
+    url('https://example.com/bottom.png');
 
 /* Keyword value */
 background-image: none;
@@ -53,9 +53,11 @@ background-image: unset;
 ## Значения
 
 `url()`
+
 : В качестве значения используется путь к графическому файлу, который указывается внутри конструкции `url()`. Путь к файлу при этом можно писать как в кавычках (двойных или одинарных), так и без них.
 
 `none`
+
 : Отменяет фоновое изображение для элемента.
 
 Значение по-умолчанию:
@@ -68,9 +70,9 @@ background-image: none;
 
 ## Спецификации
 
-- [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#background-image)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/colors.html#propdef-background-image)
-- [CSS Level 1](http://www.w3.org/TR/CSS1/#background-image)
+-   [CSS Backgrounds and Borders Module Level 3](http://dev.w3.org/csswg/css3-background/#background-image)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/colors.html#propdef-background-image)
+-   [CSS Level 1](http://www.w3.org/TR/CSS1/#background-image)
 
 ## Поддержка браузерами
 
@@ -83,20 +85,20 @@ background-image: none;
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>background-image</title>
-    <style>
-      body {
-        background-image: url('/example/image/bg.jpg'); /* Путь к фоновому изображению */
-        background-color: #c7b39b; /* Цвет фона */
-      }
-    </style>
-  </head>
-  <body>
-    <p>...</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>background-image</title>
+        <style>
+            body {
+                background-image: url('/example/image/bg.jpg'); /* Путь к фоновому изображению */
+                background-color: #c7b39b; /* Цвет фона */
+            }
+        </style>
+    </head>
+    <body>
+        <p>...</p>
+    </body>
 </html>
 ```

@@ -72,9 +72,11 @@ font-optical-sizing: unset;
 ## Значения
 
 `none`
+
 : Браузер не будет изменять форму глифов для оптимального просмотра.
 
 **`auto`**
+
 : Браузер изменит форму глифов для оптимального просмотра.
 
 ## Поддержка браузерами
@@ -124,5 +126,5 @@ font-optical-sizing: unset;
 
 ## Ссылки
 
-- Свойство [`font-optical-sizing`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-optical-sizing) <sup><small>MDN (рус.)</small></sup>
-- [CSS Fonts Module Level 4](https://drafts.csswg.org/css-fonts-4/#font-optical-sizing-def)
+-   Свойство [`font-optical-sizing`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-optical-sizing) <sup><small>MDN (рус.)</small></sup>
+-   [CSS Fonts Module Level 4](https://drafts.csswg.org/css-fonts-4/#font-optical-sizing-def)

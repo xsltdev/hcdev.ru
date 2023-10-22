@@ -51,9 +51,11 @@ list-style-position: unset;
 ## Значения
 
 `inside`
+
 : Маркер является частью текстового блока и отображается в элементе списка.
 
 `outside`
+
 : Текст выравнивается по левому краю, а маркеры размещаются за пределами текстового блока.
 
 Значение по-умолчанию:
@@ -66,41 +68,42 @@ list-style-position: outside;
 
 ## Спецификации
 
-- [CSS Lists and Counters Module Level 3](http://dev.w3.org/csswg/css3-lists/#list-style-position-property)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/generate.html#propdef-list-style-position)
+-   [CSS Lists and Counters Module Level 3](http://dev.w3.org/csswg/css3-lists/#list-style-position-property)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/generate.html#propdef-list-style-position)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>list-style-position</title>
-    <style>
-      ul {
-        list-style-image: url('/example/image/mathematics.png'); /* Путь к рисунку для установки маркера */
-        list-style-position: inside; /* Маркер обтекается текстом */
-      }
-    </style>
-  </head>
-  <body>
-    <ul>
-      <li>
-        Легко проверить, что аффинное преобразование
-        монотонно.
-      </li>
-      <li>
-        Доказательство решительно стабилизирует
-        отрицательный криволинейный интеграл, явно
-        демонстрируя всю чушь вышесказанного.
-      </li>
-      <li>
-        Степенной ряд, в первом приближении, расточительно
-        искажает многомерный лист Мёбиуса, откуда следует
-        доказываемое равенство.
-      </li>
-    </ul>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>list-style-position</title>
+        <style>
+            ul {
+                list-style-image: url('/example/image/mathematics.png'); /* Путь к рисунку для установки маркера */
+                list-style-position: inside; /* Маркер обтекается текстом */
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>
+                Легко проверить, что аффинное преобразование
+                монотонно.
+            </li>
+            <li>
+                Доказательство решительно стабилизирует
+                отрицательный криволинейный интеграл, явно
+                демонстрируя всю чушь вышесказанного.
+            </li>
+            <li>
+                Степенной ряд, в первом приближении,
+                расточительно искажает многомерный лист
+                Мёбиуса, откуда следует доказываемое
+                равенство.
+            </li>
+        </ul>
+    </body>
 </html>
 ```

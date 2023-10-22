@@ -71,7 +71,7 @@ clip-path: circle(50px at 0 100px);
 clip-path: ellipse(50px 60px at 0 10% 20%);
 clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 clip-path: path(
-  'M0.5,1 C0.5,1,0,0.7,0,0.3 A0.25,0.25,1,1,1,0.5,0.3 A0.25,0.25,1,1,1,1,0.3 C1,0.7,0.5,1,0.5,1 Z'
+    'M0.5,1 C0.5,1,0,0.7,0,0.3 A0.25,0.25,1,1,1,0.5,0.3 A0.25,0.25,1,1,1,1,0.3 C1,0.7,0.5,1,0.5,1 Z'
 );
 
 /* Box and shape values combined */
@@ -90,38 +90,49 @@ clip-path: unset;
 Свойство `clip-path` определяется как одно или комбинация значений перечисленных ниже.
 
 **`none`**
+
 : Обрезанная область не создается.
 
 `url()`
+
 : Представляет URL ссылку на траекторию, ограничивающую элемент.
 
 `inset()`, `circle()`, `ellipse()`, `polygon()`
+
 : Функция `<basic-shape>`. Размер и положение области определяется значением `<geometry-box>`. Если геометрия не определена, `border-box` будет использоваться в качестве блока.
 
 `<geometry-box>`
+
 : Если определен в комбинации с `<basic-shape>`, это значение определяет блок для базовой области. Если задан самостоятельно, определяет границы блока, включая формирование углов (такое как [`border-radius`](border-radius.md)).
 
 Геометрия может быть определена с помощью одного из следующих значений:
 
 `fill-box`
+
 : Использует границы объекта в качестве базовой области.
 
 `stroke-box`
+
 : Использует stroke bounding box в качестве базовой области.
 
 `view-box`
+
 : Использует ближайший SVG `viewport` в качестве базового блока. Если отриут `viewBox` определен для элемента, создающего SVG `viewport`, базовый блок позиционируется в оригинальной системе координат, установленной атрибутом `viewBox` и ширина и высота базового блока устанавливаются равными значениям атрибута `viewBox`.
 
 `margin-box`
+
 : Использует margin box в качестве базового блока.
 
 `border-box`
+
 : Использует border box в качестве базового блока.
 
 `padding-box`
+
 : Использует padding box в качестве базового блока.
 
 `content-box`
+
 : Использует content box в качестве базового блока.
 
 **Значение по-умолчанию:**
@@ -134,8 +145,8 @@ clip-path: none;
 
 ## Спецификации
 
-- [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking-1/#the-clip-path)
-- [Scalable Vector Graphics (SVG) 1.1 (Second Edition)](http://www.w3.org/TR/SVG11/masking.html#ClipPathProperty)
+-   [CSS Masking Module Level 1](https://drafts.fxtf.org/css-masking-1/#the-clip-path)
+-   [Scalable Vector Graphics (SVG) 1.1 (Second Edition)](http://www.w3.org/TR/SVG11/masking.html#ClipPathProperty)
 
 ## Поддержка браузерами
 

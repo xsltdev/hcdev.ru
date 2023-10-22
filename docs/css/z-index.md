@@ -8,8 +8,8 @@ description: Свойство z-index определяет положение э
 
 Для позиционируемого контейнера свойство `z-index` определяет:
 
-- порядок наложения в текущем контексте наложения;
-- создаёт ли контейнер локальный контекст наложения.
+-   порядок наложения в текущем контексте наложения;
+-   создаёт ли контейнер локальный контекст наложения.
 
 ## Демо
 
@@ -56,9 +56,11 @@ z-index: unset;
 Кроме числовых значений применяется `auto` — порядок элементов в этом случае строится автоматически, исходя из их положения в коде HTML и принадлежности к родителю, поскольку дочерние элементы имеют тот же номер, что их родительский элемент.
 
 `auto`
+
 : Контейнер не будет создавать локального контекста наложения. Уровень контейнера в текущем контексте наложения такой же, как и у родительского.
 
 `<integer>`
+
 : Целое число определяет уровень контейнера в текущем контексте наложения. Контейнер также будет создавать локальный контекст наложения, в котором его собственный уровень будет равен `0`. Это значит, что значения `z-index` нижестоящих элементов не будут сравниваться с z-индексами элементов вне этого контейнера.
 
 Значение по-умолчанию: `auto`
@@ -67,43 +69,47 @@ z-index: unset;
 
 ## Спецификации
 
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visuren.html#z-index)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visuren.html#z-index)
 
 ## Пример
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Порядок карт</title>
-    <style>
-      .card {
-        position: relative;
-      }
-      .three {
-        top: 50px;
-        left: 55px;
-        z-index: 5;
-      }
-      .seven {
-        left: -120px;
-        top: 25px;
-        z-index: 2;
-      }
-      .ace {
-        left: -295px;
-        z-index: 1;
-      }
-      .card:hover {
-        z-index: 10;
-      }
-    </style>
-  </head>
-  <body>
-    <img src="image/3.png" alt="3" class="card three" />
-    <img src="image/7.png" alt="7" class="card seven" />
-    <img src="image/ace.png" alt="Туз" class="card ace" />
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>Порядок карт</title>
+        <style>
+            .card {
+                position: relative;
+            }
+            .three {
+                top: 50px;
+                left: 55px;
+                z-index: 5;
+            }
+            .seven {
+                left: -120px;
+                top: 25px;
+                z-index: 2;
+            }
+            .ace {
+                left: -295px;
+                z-index: 1;
+            }
+            .card:hover {
+                z-index: 10;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="image/3.png" alt="3" class="card three" />
+        <img src="image/7.png" alt="7" class="card seven" />
+        <img
+            src="image/ace.png"
+            alt="Туз"
+            class="card ace"
+        />
+    </body>
 </html>
 ```

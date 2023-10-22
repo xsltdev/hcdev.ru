@@ -69,26 +69,31 @@ allow typing in the <html> container */
 ## Значения
 
 `auto`
+
 : Для редактируемых элементов значение принимается `contain`. Если у родителя значение `user-select` установлено как `all`, то для элемента оно тоже будет `all`. Если у родителя значение `user-select` установлено как `none`, то для элемента оно тоже будет `none`. Во всех остальных случаях принимается значение `text`.
 
 `none`
+
 : Пользователю запрещено выделять элемент.
 
 `text`
+
 : Пользователь может выделить текст в элементе.
 
 `all`
+
 : Позволяет выделить текст внутри элемента, включая дочерние элементы.
 
 `contain`
+
 : Позволяет выделять текст, но только внутри границ элемента.
 
 ### Примечание
 
-- Internet Explorer поддерживает свойство `-ms-user-select`.
-- Chrome, Opera, Safari и Android поддерживают свойство `-webkit-user-select`.
-- Firefox поддерживает свойство `-moz-user-select`.
-- Значение `contain` поддерживается только в IE.
+-   Internet Explorer поддерживает свойство `-ms-user-select`.
+-   Chrome, Opera, Safari и Android поддерживают свойство `-webkit-user-select`.
+-   Firefox поддерживает свойство `-moz-user-select`.
+-   Значение `contain` поддерживается только в IE.
 
 Значение по-умолчанию: `auto`
 
@@ -96,7 +101,7 @@ allow typing in the <html> container */
 
 ## Спецификации
 
-- [CSS Basic User Interface Module Level 4](https://drafts.csswg.org/css-ui-4/#propdef-user-select)
+-   [CSS Basic User Interface Module Level 4](https://drafts.csswg.org/css-ui-4/#propdef-user-select)
 
 ## Поддержка браузерами
 
@@ -108,35 +113,35 @@ allow typing in the <html> container */
 
 ```html
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>user-select</title>
-    <style>
-      body {
-        -ms-user-select: none;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        user-select: none;
-      }
-      .enable {
-        -ms-user-select: all;
-        -moz-user-select: all;
-        -webkit-user-select: all;
-        user-select: all;
-      }
-    </style>
-  </head>
-  <body>
-    <p>Этот текст нельзя выделить</p>
-    <p>
-      <input
-        type="text"
-        value="Этот текст можно выделить"
-      />
-    </p>
-    <p class="enable">
-      Этот <b>текст</b> тоже можно выделить
-    </p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>user-select</title>
+        <style>
+            body {
+                -ms-user-select: none;
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                user-select: none;
+            }
+            .enable {
+                -ms-user-select: all;
+                -moz-user-select: all;
+                -webkit-user-select: all;
+                user-select: all;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Этот текст нельзя выделить</p>
+        <p>
+            <input
+                type="text"
+                value="Этот текст можно выделить"
+            />
+        </p>
+        <p class="enable">
+            Этот <b>текст</b> тоже можно выделить
+        </p>
+    </body>
 </html>
 ```

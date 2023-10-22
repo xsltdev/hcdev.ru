@@ -87,6 +87,7 @@ width: unset;
 В качестве значений принимаются любые единицы длины, принятые в CSS — например, пикселы (px), дюймы (in), пункты (pt) и др. При использовании процентной записи ширина элемента вычисляется в зависимости от ширины родительского элемента. Если родитель явно не указан, то в его качестве выступает окно браузера.
 
 `auto`
+
 : Устанавливает ширину исходя из типа и содержимого элемента.
 
 Значение по-умолчанию: `auto`
@@ -95,38 +96,39 @@ width: unset;
 
 ## Спецификации
 
-- [CSS Basic Box Model](https://drafts.csswg.org/css-box-3/#width-and-height)
-- [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visudet.html#the-width-property)
-- [CSS Level 1](http://www.w3.org/TR/CSS1/#width)
+-   [CSS Basic Box Model](https://drafts.csswg.org/css-box-3/#width-and-height)
+-   [CSS Level 2 (Revision 1)](http://www.w3.org/TR/CSS2/visudet.html#the-width-property)
+-   [CSS Level 1](http://www.w3.org/TR/CSS1/#width)
 
 ## Описание и примеры
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>width</title>
-    <style>
-      .layer1 {
-        width: 300px; /* Ширина блока */
-        background: #fc0; /* Цвет фона */
-        padding: 7px; /* Поля вокруг текста */
-        border: 1px solid #ccc; /* Параметры рамки */
-      }
-      .layer2 {
-        width: 400px; /* Ширина текстового блока */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="layer1">
-      <p class="layer2">
-        Lorem ipsum dolor sit amet,consectetuer adipiscing
-        elit,seddiem nonummy nibh euismod tincidunt ut
-        lacreet dolore magna aliguam erat volutpat.
-      </p>
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>width</title>
+        <style>
+            .layer1 {
+                width: 300px; /* Ширина блока */
+                background: #fc0; /* Цвет фона */
+                padding: 7px; /* Поля вокруг текста */
+                border: 1px solid #ccc; /* Параметры рамки */
+            }
+            .layer2 {
+                width: 400px; /* Ширина текстового блока */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="layer1">
+            <p class="layer2">
+                Lorem ipsum dolor sit amet,consectetuer
+                adipiscing elit,seddiem nonummy nibh euismod
+                tincidunt ut lacreet dolore magna aliguam
+                erat volutpat.
+            </p>
+        </div>
+    </body>
 </html>
 ```
