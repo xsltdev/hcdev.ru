@@ -19,6 +19,7 @@ nav:
     - ":-классы":
         - active.md
         - any-link.md
+        - autofill.md
         - blank.md
         - checked.md
         - current.md
@@ -65,6 +66,7 @@ nav:
         - root.md
         - scope.md
         - target.md
+        - user-invalid.md
         - valid.md
         - visited.md
         - where.md
@@ -72,18 +74,26 @@ nav:
         - after.md
         - backdrop.md
         - before.md
+        - cue.md
         - first-letter.md
         - first-line.md
+        - marker.md
         - placeholder.md
         - selection.md
     - "функции()":
         - attr.md
         - calc.md
+        - circle.md
+        - clamp.md
         - conic-gradient.md
         - cross-fade.md
         - element.md
+        - ellipse.md
         - image.md
         - linear-gradient.md
+        - max.md
+        - min.md
+        - polygon.md
         - radial-gradient.md
         - repeating-conic-gradient.md
         - repeating-linear-gradient.md

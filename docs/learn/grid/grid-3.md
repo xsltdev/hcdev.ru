@@ -17,10 +17,10 @@ grid-template-rows: 5em 5em 5em 5em;
 
 ```css
 .grid-container {
-  border: solid 2px #000;
-  display: grid;
-  grid-template-columns: repeat(3, 8em);
-  grid-template-rows: repeat(4, 5em);
+    border: solid 2px #000;
+    display: grid;
+    grid-template-columns: repeat(3, 8em);
+    grid-template-rows: repeat(4, 5em);
 }
 ```
 
@@ -32,10 +32,10 @@ grid-template-rows: 5em 5em 5em 5em;
 
 ```css
 .grid-container {
-  border: solid 2px #000;
-  display: grid;
-  grid-template-columns: repeat(2, 7em 8em);
-  grid-template-rows: 6em repeat(3, 5em);
+    border: solid 2px #000;
+    display: grid;
+    grid-template-columns: repeat(2, 7em 8em);
+    grid-template-rows: 6em repeat(3, 5em);
 }
 ```
 
@@ -55,10 +55,10 @@ grid: grid-template-rows / grid-template-columns;
 
 ```css
 .grid-container {
-  border: solid 2px #000;
-  display: grid;
-  grid-template-columns: 8em 8em 8em;
-  grid-template-rows: 5em 5em 5em 5em;
+    border: solid 2px #000;
+    display: grid;
+    grid-template-columns: 8em 8em 8em;
+    grid-template-rows: 5em 5em 5em 5em;
 }
 ```
 
@@ -66,9 +66,9 @@ grid: grid-template-rows / grid-template-columns;
 
 ```css
 .grid-container {
-  border: solid 2px #000;
-  display: grid;
-  grid: 5em 5em 5em 5em / 8em 8em 8em;
+    border: solid 2px #000;
+    display: grid;
+    grid: 5em 5em 5em 5em / 8em 8em 8em;
 }
 ```
 
@@ -76,12 +76,12 @@ grid: grid-template-rows / grid-template-columns;
 
 ```css
 .grid-container {
-  border: solid 2px #000;
-  display: grid;
-  grid: repeat(4, 5em) / repeat(3, 8em);
+    border: solid 2px #000;
+    display: grid;
+    grid: repeat(4, 5em) / repeat(3, 8em);
 }
 ```
 
 ## См. также
 
-- [grid](/css/grid/)
+-   [grid](../../css/grid.md)

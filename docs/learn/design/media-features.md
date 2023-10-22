@@ -1,32 +1,28 @@
 ---
 title: Media features
 description: >
-  A round-up of all the ways that media features let you respond to devices and preferences.
+    A round-up of all the ways that media features let you respond to devices and preferences.
+
 authors:
-  - adactio
+    - adactio
 date: 2021-12-23
 ---
 
 Responsive design wouldn't be possible without media queries. Before media queries there was no way of knowing what kind of device people were using to visit your website. Designers had to make assumptions. Those assumptions were encoded into fixed-width designs or liquid layouts.
 
-That all changed with the introduction of [media queries](/learn/design/media-queries/). For the first time designers could meet people halfway. Designers could adjust their layouts to respond to people's devices.
+That all changed with the introduction of [media queries](media-queries.md). For the first time designers could meet people halfway. Designers could adjust their layouts to respond to people's devices.
 
 Remember, a media query comprises an optional media type and a mandatory media feature. There hasn't been much change in media types over the years. There are still just four possible values:
 
 ```css
-@media all
-@media screen
-@media print
-@media speech
+@media all @media screen @media print @media speech;
 ```
 
-[Media features](https://developer.mozilla.org/docs/Web/CSS/@media#media_features), on the other hand, have expanded greatly. Designers now can meet users beyond halfway, adapting designs to fit far more than just screen size.
-{% BrowserCompat 'css.at-rules.media' %}
+[Media features](https://developer.mozilla.org/docs/Web/CSS/@media#media_features), on the other hand, have expanded greatly. Designers now can meet users beyond halfway, adapting designs to fit far more than just screen size. {% BrowserCompat 'css.at-rules.media' %}
 
 ## Viewport dimensions
 
 By far the most popular media queries on the web are the ones dealing with viewport width. But even here, you're presented with a choice. You can use the `max-width` media feature to apply styles below a certain width, or you can use the `min-width` media feature to apply styles above a certain width.
-
 
 ```css/4-4
 main {
@@ -135,7 +131,7 @@ Different displays have different pixel densities, measured in `dpi`, dots per i
 }
 ```
 
-You may never need to use any `resolution` media queries. Pixel density is usually only an issue for images, and [responsive images](/learn/design/responsive-images/) are a way of dealing with pixel density directly in HTML.
+You may never need to use any `resolution` media queries. Pixel density is usually only an issue for images, and [responsive images](responsive-images.md) are a way of dealing with pixel density directly in HTML.
 
 On the other hand, CSS is where you define your animations and transitions. You can adjust those animations and transitions to respond to different refresh rates using the [`update`](https://developer.mozilla.org/docs/Web/CSS/@media/update-frequency) media feature. This media feature reports one of three values: `none`, `slow`, and `fast`.
 
@@ -147,28 +143,28 @@ An `update` value of `fast` means the display refreshes fast enough to handle an
 
 ```css
 @media (update: fast) {
-  a {
-    transition-duration: 0.4s;
-    transition-property: transform;
-  }
-  a:hover {
-    transform: scale(150%);
-  }
+    a {
+        transition-duration: 0.4s;
+        transition-property: transform;
+    }
+    a:hover {
+        transform: scale(150%);
+    }
 }
 ```
 
-Not all aspects of the display are related to hardware capabilities. In [the module on theming](/learn/design/theming/), you saw how to define properties in a [web app manifest](/add-manifest/) file. One of those properties is called `display`, and you can give it a value of `fullscreen`, `standalone`, `minimum-ui`, or `browser`. The corresponding [`display-mode`](https://developer.mozilla.org/docs/Web/CSS/@media/display-mode) media feature allows you to tailor your styles for these different options.
+Not all aspects of the display are related to hardware capabilities. In [the module on theming](theming.md), you saw how to define properties in a [web app manifest](https://web.dev/articles/add-manifest) file. One of those properties is called `display`, and you can give it a value of `fullscreen`, `standalone`, `minimum-ui`, or `browser`. The corresponding [`display-mode`](https://developer.mozilla.org/docs/Web/CSS/@media/display-mode) media feature allows you to tailor your styles for these different options.
 
 Let's say you've provided a `display` value of `standalone` in your web app manifest. If someone adds your site to their home screen, the site will launch without any browser interface. You might decide to display a back button for those users.
 
 ```css
 button.back {
-  display: none;
+    display: none;
 }
 @media (display-mode: standalone) {
-  button.back {
-     display: inline;
-  }
+    button.back {
+        display: inline;
+    }
 }
 ```
 
@@ -178,10 +174,10 @@ There are numerous media features for querying the color capabilities of a devic
 
 ```css
 @media (monochrome) {
-  body {
-    color: black;
-    background-color: white;
-  }
+    body {
+        color: black;
+        background-color: white;
+    }
 }
 ```
 
@@ -189,10 +185,10 @@ There's a corresponding [`color`](https://developer.mozilla.org/docs/Web/CSS/@me
 
 ```css
 @media (color) {
-  body {
-    color: maroon;
-    background-color: linen;
-  }
+    body {
+        color: maroon;
+        background-color: linen;
+    }
 }
 ```
 
@@ -221,23 +217,23 @@ In this example, color values update in response to the `dynamic-range` media fe
 
 ## Interaction
 
-Media features can also report the kind of input mechanism used to interact with your site: `hover`, `any-hover`, `pointer`, and `any-pointer`. See [the module on interaction](/learn/design/interaction/) for more details.
+Media features can also report the kind of input mechanism used to interact with your site: `hover`, `any-hover`, `pointer`, and `any-pointer`. See [the module on interaction](interaction.md) for more details.
 
 ## Preferences
 
-There are a range of media queries that allow you to respond to user preferences: `prefers-color-scheme`, `prefers-contrast`, and `prefers-reduced-motion`. See the modules on [theming](/learn/design/theming/) and [accessibility](/learn/design/accessibility/) for more details.
+There are a range of media queries that allow you to respond to user preferences: `prefers-color-scheme`, `prefers-contrast`, and `prefers-reduced-motion`. See the modules on [theming](theming.md) and [accessibility](accessibility.md) for more details.
 
 You can combine media features in one media query. You could scope your animation styles so that they're only applied if the device has a fast refresh rate and the user hasn't expressed a preference for reduced motion.
 
 ```css
 @media (update: fast) and (prefers-reduced-motion: no-preference) {
-  a {
-    transition-duration: 0.4s;
-    transition-property: transform;
-  }
-  a:hover {
-    transform: scale(150%);
-  }
+    a {
+        transition-duration: 0.4s;
+        transition-property: transform;
+    }
+    a:hover {
+        transform: scale(150%);
+    }
 }
 ```
 

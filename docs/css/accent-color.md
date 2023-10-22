@@ -39,15 +39,13 @@ accent-color: unset;
 
 ### Значения
 
-<!-- prettier-ignore-start -->
-
 `auto`
+
 : Браузер сам определяет цвет в зависимости от платформы.
 
 `<цвет>`
-: Задает цвет, который будет использован в качестве акцентного.
 
-<!-- prettier-ignore-end -->
+: Задает цвет, который будет использован в качестве акцентного.
 
 ## Спецификации
 
@@ -55,14 +53,14 @@ accent-color: unset;
 
 ## Пример
 
-=== HTML
+=== "HTML"
 
     ```html
     <input type="checkbox" checked />
     <input type="checkbox" class="custom" checked />
     ```
 
-=== CSS
+=== "CSS"
 
     ```css
     input {

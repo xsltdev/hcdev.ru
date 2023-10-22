@@ -10,10 +10,10 @@ description: Размеры строк и столбцов в grid
 
 ```css
 .grid-container {
-  border: solid 2px #000;
-  display: grid;
-  grid-template-columns: repeat(3, 200px);
-  grid-template-rows: repeat(3, 4.5em);
+    border: solid 2px #000;
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 4.5em);
 }
 ```
 
@@ -22,53 +22,56 @@ description: Размеры строк и столбцов в grid
 Кроме точных размеров можно задавать автоматические размеры с помощью слова `auto`. В этом случае ширина столбцов и высота строк вычисляются исходя из размеров содержимого:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Grid Layout в CSS3</title>
-    <style>
-      .grid-container {
-        border: solid 2px #000;
-        display: grid;
-        grid-template-columns: 8em auto auto;
-        grid-template-rows: auto 4.5em auto;
-      }
-      .grid-item {
-        text-align: center;
-        font-size: 1.1em;
-        padding: 1.5em;
-        color: white;
-      }
-      .color1 {
-        background-color: #675ba7;
-      }
-      .color2 {
-        background-color: #9bc850;
-      }
-      .color3 {
-        background-color: #a62e5c;
-      }
-      .color4 {
-        background-color: #2a9fbc;
-      }
-      .color5 {
-        background-color: #4e342e;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="grid-container">
-      <div class="grid-item color1">Grid Item 1</div>
-      <div class="grid-item color2">Grid Item 2</div>
-      <div class="grid-item color3">Grid Item 3</div>
-      <div class="grid-item color4">Grid Item 4</div>
-      <div class="grid-item color5">Grid Item 5</div>
-      <div class="grid-item color1">Grid Item 6</div>
-      <div class="grid-item color2">Grid Item 7</div>
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width"
+        />
+        <title>Grid Layout в CSS3</title>
+        <style>
+            .grid-container {
+                border: solid 2px #000;
+                display: grid;
+                grid-template-columns: 8em auto auto;
+                grid-template-rows: auto 4.5em auto;
+            }
+            .grid-item {
+                text-align: center;
+                font-size: 1.1em;
+                padding: 1.5em;
+                color: white;
+            }
+            .color1 {
+                background-color: #675ba7;
+            }
+            .color2 {
+                background-color: #9bc850;
+            }
+            .color3 {
+                background-color: #a62e5c;
+            }
+            .color4 {
+                background-color: #2a9fbc;
+            }
+            .color5 {
+                background-color: #4e342e;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="grid-item color1">Grid Item 1</div>
+            <div class="grid-item color2">Grid Item 2</div>
+            <div class="grid-item color3">Grid Item 3</div>
+            <div class="grid-item color4">Grid Item 4</div>
+            <div class="grid-item color5">Grid Item 5</div>
+            <div class="grid-item color1">Grid Item 6</div>
+            <div class="grid-item color2">Grid Item 7</div>
+        </div>
+    </body>
 </html>
 ```
 
@@ -89,62 +92,65 @@ flex-фактор * доступное_пространство  / сумма в
 При этом под доступным пространством понимается все пространство grid-контейнера за исключением фиксированных значений строк и столбцов.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Grid Layout в CSS3</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      .grid-container {
-        height: 100vh;
-        border: solid 2px #000;
-        display: grid;
-        grid-template-columns: 8em 2fr 1fr;
-        grid-template-rows: 1fr 4.5em 1fr;
-      }
-      .grid-item {
-        text-align: center;
-        font-size: 1.1em;
-        padding: 1.5em;
-        color: white;
-      }
-      .color1 {
-        background-color: #675ba7;
-      }
-      .color2 {
-        background-color: #9bc850;
-      }
-      .color3 {
-        background-color: #a62e5c;
-      }
-      .color4 {
-        background-color: #2a9fbc;
-      }
-      .color5 {
-        background-color: #4e342e;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="grid-container">
-      <div class="grid-item color1">Grid Item 1</div>
-      <div class="grid-item color2">Grid Item 2</div>
-      <div class="grid-item color3">Grid Item 3</div>
-      <div class="grid-item color4">Grid Item 4</div>
-      <div class="grid-item color5">Grid Item 5</div>
-      <div class="grid-item color1">Grid Item 6</div>
-      <div class="grid-item color2">Grid Item 7</div>
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width"
+        />
+        <title>Grid Layout в CSS3</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .grid-container {
+                height: 100vh;
+                border: solid 2px #000;
+                display: grid;
+                grid-template-columns: 8em 2fr 1fr;
+                grid-template-rows: 1fr 4.5em 1fr;
+            }
+            .grid-item {
+                text-align: center;
+                font-size: 1.1em;
+                padding: 1.5em;
+                color: white;
+            }
+            .color1 {
+                background-color: #675ba7;
+            }
+            .color2 {
+                background-color: #9bc850;
+            }
+            .color3 {
+                background-color: #a62e5c;
+            }
+            .color4 {
+                background-color: #2a9fbc;
+            }
+            .color5 {
+                background-color: #4e342e;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="grid-item color1">Grid Item 1</div>
+            <div class="grid-item color2">Grid Item 2</div>
+            <div class="grid-item color3">Grid Item 3</div>
+            <div class="grid-item color4">Grid Item 4</div>
+            <div class="grid-item color5">Grid Item 5</div>
+            <div class="grid-item color1">Grid Item 6</div>
+            <div class="grid-item color2">Grid Item 7</div>
+        </div>
+    </body>
 </html>
 ```
 

@@ -10,67 +10,70 @@ description: По умолчанию каждый элемент в гриде �
 
 И по умолчанию каждый элемент в гриде позиционируется в одну ячейку по порядку. Но мы можем более точно настроить расположение элемента в гриде с помощью ряда свойств:
 
-- `grid-row-start`: задает начальную горизонтальную grid-линию, с которой начинается элемент
-- `grid-row-end`: указывает, до какой горизонтальной grid-линии надо растягивать элемент
-- `grid-column-start`: задает начальную вертикальную grid-линию, от которой начинается элемент
-- `grid-column-end`: указывает, до какой вертикальной grid-линии нужно растягивать элемент
+-   `grid-row-start`: задает начальную горизонтальную grid-линию, с которой начинается элемент
+-   `grid-row-end`: указывает, до какой горизонтальной grid-линии надо растягивать элемент
+-   `grid-column-start`: задает начальную вертикальную grid-линию, от которой начинается элемент
+-   `grid-column-end`: указывает, до какой вертикальной grid-линии нужно растягивать элемент
 
 Например, растянем элемент на несколько столбцов:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Grid Layout в CSS3</title>
-    <style>
-      .grid-container {
-        border: solid 2px #000;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(3, 5em);
-      }
-      .special-item {
-        grid-column-start: 2;
-        grid-column-end: 5;
-      }
-      .grid-item {
-        text-align: center;
-        font-size: 1.1em;
-        padding: 1.5em;
-        color: white;
-      }
-      .color1 {
-        background-color: #675ba7;
-      }
-      .color2 {
-        background-color: #9bc850;
-      }
-      .color3 {
-        background-color: #a62e5c;
-      }
-      .color4 {
-        background-color: #2a9fbc;
-      }
-      .color5 {
-        background-color: #4e342e;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="grid-container">
-      <div class="grid-item color1">Grid Item 1</div>
-      <div class="grid-item color2 special-item">
-        Grid Item 2
-      </div>
-      <div class="grid-item color3">Grid Item 3</div>
-      <div class="grid-item color4">Grid Item 4</div>
-      <div class="grid-item color5">Grid Item 5</div>
-      <div class="grid-item color1">Grid Item 6</div>
-      <div class="grid-item color4">Grid Item 7</div>
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width"
+        />
+        <title>Grid Layout в CSS3</title>
+        <style>
+            .grid-container {
+                border: solid 2px #000;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(3, 5em);
+            }
+            .special-item {
+                grid-column-start: 2;
+                grid-column-end: 5;
+            }
+            .grid-item {
+                text-align: center;
+                font-size: 1.1em;
+                padding: 1.5em;
+                color: white;
+            }
+            .color1 {
+                background-color: #675ba7;
+            }
+            .color2 {
+                background-color: #9bc850;
+            }
+            .color3 {
+                background-color: #a62e5c;
+            }
+            .color4 {
+                background-color: #2a9fbc;
+            }
+            .color5 {
+                background-color: #4e342e;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="grid-item color1">Grid Item 1</div>
+            <div class="grid-item color2 special-item">
+                Grid Item 2
+            </div>
+            <div class="grid-item color3">Grid Item 3</div>
+            <div class="grid-item color4">Grid Item 4</div>
+            <div class="grid-item color5">Grid Item 5</div>
+            <div class="grid-item color1">Grid Item 6</div>
+            <div class="grid-item color4">Grid Item 7</div>
+        </div>
+    </body>
 </html>
 ```
 
@@ -82,8 +85,8 @@ description: По умолчанию каждый элемент в гриде �
 
 ```css
 .special-item {
-  grid-column-start: 3;
-  grid-column-end: 5;
+    grid-column-start: 3;
+    grid-column-end: 5;
 }
 ```
 
@@ -101,7 +104,7 @@ grid-column: grid-column-start / grid-column-end;
 
 ```css
 .special-item {
-  grid-column: 3 / 5;
+    grid-column: 3 / 5;
 }
 ```
 
@@ -109,9 +112,9 @@ grid-column: grid-column-start / grid-column-end;
 
 ```css
 .special-item {
-  grid-column-start: 2;
-  grid-row-start: 1;
-  grid-row-end: 3;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
 }
 ```
 
@@ -129,8 +132,8 @@ grid-row: grid-row-start / grid-row-end;
 
 ```css
 .special-item {
-  grid-column-start: 2;
-  grid-row: 1 / 3;
+    grid-column-start: 2;
+    grid-row: 1 / 3;
 }
 ```
 
@@ -140,8 +143,8 @@ grid-row: grid-row-start / grid-row-end;
 
 ```css
 .special-item {
-  grid-row: 1 / span 2;
-  grid-column: 2 / span 2;
+    grid-row: 1 / span 2;
+    grid-column: 2 / span 2;
 }
 ```
 
@@ -159,7 +162,7 @@ grid-area: row-start / column-start / row-end / column-end;
 
 ```css
 .special-item {
-  grid-area: 1 / 2 / 3 / 4;
+    grid-area: 1 / 2 / 3 / 4;
 }
 ```
 
@@ -167,10 +170,10 @@ grid-area: row-start / column-start / row-end / column-end;
 
 ## См. также
 
-- [grid-row](/css/grid-row/)
-- [grid-column](/css/grid-column/)
-- [grid-area](/css/grid-area/)
-- [grid-row-start](/css/grid-row-start/)
-- [grid-row-end](/css/grid-row-end/)
-- [grid-column-start](/css/grid-column-start/)
-- [grid-column-end](/css/grid-column-end/)
+-   [grid-row](../../css/grid-row.md)
+-   [grid-column](../../css/grid-column.md)
+-   [grid-area](../../css/grid-area.md)
+-   [grid-row-start](../../css/grid-row-start.md)
+-   [grid-row-end](../../css/grid-row-end.md)
+-   [grid-column-start](../../css/grid-column-start.md)
+-   [grid-column-end](../../css/grid-column-end.md)

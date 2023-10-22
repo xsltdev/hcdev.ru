@@ -7,66 +7,69 @@ description: С помощью ранее рассмотренной функц�
 С помощью ранее рассмотренной функции repeat мы можем растиражировать столбцы и строки, которые создаются между именованными grid-линиями:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Grid Layout в CSS3</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      .grid-container {
-        height: 100vh;
-        display: grid;
-        grid-template-columns: 10px repeat(3, [column] 1fr
-              [colgutter] 10px);
-        grid-template-rows: 10px repeat(2, [row] 1fr
-              [rowgutter] 10px);
-      }
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width"
+        />
+        <title>Grid Layout в CSS3</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .grid-container {
+                height: 100vh;
+                display: grid;
+                grid-template-columns: 10px repeat(3, [column]
+                            1fr [colgutter] 10px);
+                grid-template-rows: 10px repeat(2, [row] 1fr
+                            [rowgutter] 10px);
+            }
 
-      .grid-item {
-        background-color: #ddd;
-      }
+            .grid-item {
+                background-color: #ddd;
+            }
 
-      .special-item {
-        grid-column: column 2;
-        grid-row: row 1;
-        background-color: #bbb;
-      }
-      .item1 {
-        grid-column: column 1;
-        grid-row: row 1;
-      }
-      .item2 {
-        grid-column: column 3;
-        grid-row: row 1;
-      }
-      .item3 {
-        grid-column: column 1;
-        grid-row: row 2;
-      }
-      .item4 {
-        grid-column: column 2;
-        grid-row: row 2;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="grid-container">
-      <div class="grid-item special-item"></div>
-      <div class="grid-item item1"></div>
-      <div class="grid-item item2"></div>
-      <div class="grid-item item3"></div>
-      <div class="grid-item item4"></div>
-    </div>
-  </body>
+            .special-item {
+                grid-column: column 2;
+                grid-row: row 1;
+                background-color: #bbb;
+            }
+            .item1 {
+                grid-column: column 1;
+                grid-row: row 1;
+            }
+            .item2 {
+                grid-column: column 3;
+                grid-row: row 1;
+            }
+            .item3 {
+                grid-column: column 1;
+                grid-row: row 2;
+            }
+            .item4 {
+                grid-column: column 2;
+                grid-row: row 2;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="grid-item special-item"></div>
+            <div class="grid-item item1"></div>
+            <div class="grid-item item2"></div>
+            <div class="grid-item item3"></div>
+            <div class="grid-item item4"></div>
+        </div>
+    </body>
 </html>
 ```
 
@@ -74,7 +77,7 @@ description: С помощью ранее рассмотренной функц�
 
 ```css
 grid-template-columns: 10px repeat(3, [column] 1fr
-      [colgutter] 10px);
+            [colgutter] 10px);
 ```
 
 Первый столбец будет иметь ширину в 10 пикселей. Затем происходит тиражирование столбцов с помощью функции repeat. Она создает подряд три копии двух столбцов. Первый столбец имеет ширину 1fr, то есть имеет пропорциональные размеры, и располагается между grid-линиями "column" и "colgutter". После grid-линии "colgutter" идет еще один столбец шириной в 10 пикселей. И эти два столбца будут повторяться три раза. То есть всего в гриде будет 7 столбцов.
@@ -85,9 +88,9 @@ grid-template-columns: 10px repeat(3, [column] 1fr
 
 ```css
 .special-item {
-  grid-column: column 2; /* второй столбец с именем column */
-  grid-row: row 1; /* первая строка с именем row */
-  background-color: #bbb;
+    grid-column: column 2; /* второй столбец с именем column */
+    grid-row: row 1; /* первая строка с именем row */
+    background-color: #bbb;
 }
 ```
 
@@ -100,73 +103,79 @@ grid-template-columns: 10px repeat(3, [column] 1fr
 И более того мы можем дополнительно добавлять новые именованные грид-линии вне функции repeat:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Grid Layout в CSS3</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      .grid-container {
-        height: 100vh;
-        display: grid;
-        grid-template-columns:
-          10px repeat(3, [column] 1fr [colgutter] 10px)
-          [sidebarstart] 150px [sidebarend] 10px;
-        grid-template-rows: 10px repeat(2, [row] 1fr
-              [rowgutter] 10px);
-      }
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width"
+        />
+        <title>Grid Layout в CSS3</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .grid-container {
+                height: 100vh;
+                display: grid;
+                grid-template-columns:
+                    10px repeat(
+                        3,
+                        [column] 1fr [colgutter] 10px
+                    )
+                    [sidebarstart] 150px [sidebarend] 10px;
+                grid-template-rows: 10px repeat(2, [row] 1fr
+                            [rowgutter] 10px);
+            }
 
-      .grid-item {
-        background-color: #ddd;
-      }
+            .grid-item {
+                background-color: #ddd;
+            }
 
-      .special-item {
-        grid-column: column 2;
-        grid-row: row 1;
-        background-color: #bbb;
-      }
-      .item1 {
-        grid-column: column 1;
-        grid-row: row 1;
-      }
-      .item2 {
-        grid-column: column 3;
-        grid-row: row 1;
-      }
-      .item3 {
-        grid-column: column 1;
-        grid-row: row 2;
-      }
-      .item4 {
-        grid-column: column 2;
-        grid-row: row 2;
-      }
-      .sidebar {
-        grid-column: sidebarstart / sidebarend;
-        grid-row: 2 / 5;
-        background-color: #ccc;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="grid-container">
-      <div class="grid-item special-item"></div>
-      <div class="grid-item item1"></div>
-      <div class="grid-item item2"></div>
-      <div class="grid-item item3"></div>
-      <div class="grid-item item4"></div>
-      <div class="grid-item sidebar"></div>
-    </div>
-  </body>
+            .special-item {
+                grid-column: column 2;
+                grid-row: row 1;
+                background-color: #bbb;
+            }
+            .item1 {
+                grid-column: column 1;
+                grid-row: row 1;
+            }
+            .item2 {
+                grid-column: column 3;
+                grid-row: row 1;
+            }
+            .item3 {
+                grid-column: column 1;
+                grid-row: row 2;
+            }
+            .item4 {
+                grid-column: column 2;
+                grid-row: row 2;
+            }
+            .sidebar {
+                grid-column: sidebarstart / sidebarend;
+                grid-row: 2 / 5;
+                background-color: #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="grid-item special-item"></div>
+            <div class="grid-item item1"></div>
+            <div class="grid-item item2"></div>
+            <div class="grid-item item3"></div>
+            <div class="grid-item item4"></div>
+            <div class="grid-item sidebar"></div>
+        </div>
+    </body>
 </html>
 ```
 
@@ -174,9 +183,9 @@ grid-template-columns: 10px repeat(3, [column] 1fr
 
 ```css
 .sidebar {
-  grid-column: sidebarstart / sidebarend;
-  grid-row: 2 / 5;
-  background-color: #ccc;
+    grid-column: sidebarstart / sidebarend;
+    grid-row: 2 / 5;
+    background-color: #ccc;
 }
 ```
 

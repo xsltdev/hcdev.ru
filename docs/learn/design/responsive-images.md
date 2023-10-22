@@ -1,10 +1,11 @@
 ---
 title: Responsive images
 description: >
-  Give your visitors the most appropriate images for their devices and screens.
+    Give your visitors the most appropriate images for their devices and screens.
+
 authors:
-  - adactio
-  - tunetheweb
+    - adactio
+    - tunetheweb
 date: 2021-12-09
 updated: 2022-03-08
 ---
@@ -15,19 +16,16 @@ Fortunately, you can take measures in CSS to stop this from happening.
 
 ## Constrain your images
 
-In your stylesheet, you can declare that images should never be rendered at a size wider than their containing element using [`max-inline-size`](https://developer.mozilla.org/docs/Web/CSS/max-inline-size).
-{% BrowserCompat 'css.properties.max-inline-size' %}
+In your stylesheet, you can declare that images should never be rendered at a size wider than their containing element using [`max-inline-size`](https://developer.mozilla.org/docs/Web/CSS/max-inline-size). {% BrowserCompat 'css.properties.max-inline-size' %}
 
 ```css
 img {
-  max-inline-size: 100%;
-  block-size: auto;
+    max-inline-size: 100%;
+    block-size: auto;
 }
 ```
 
-{% Aside %}
-You can use `max-width` instead of `max-inline-size` if you prefer, but remember it's good to get in the habit of thinking in terms of [logical properties](/learn/design/internationalization/#logical-properties).
-{% endAside %}
+{% Aside %} You can use `max-width` instead of `max-inline-size` if you prefer, but remember it's good to get in the habit of thinking in terms of [logical properties](internationalization.md#logical-properties). {% endAside %}
 
 You can apply the same rule to other kinds of embedded content too, like videos and iframes.
 
@@ -35,15 +33,14 @@ You can apply the same rule to other kinds of embedded content too, like videos 
 img,
 video,
 iframe {
-  max-inline-size: 100%;
-  block-size: auto;
+    max-inline-size: 100%;
+    block-size: auto;
 }
 ```
 
 With that rule in place, browsers will automatically scale down images to fit on the screen.
 
 {% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/RvqAjVGiroJDuBBpYXYV.png", alt="Two screenshots; the first shows an image expanding past the browser width; the second shows the same image constrained within the browser viewport.", width="800", height="763" %}
-
 
 Adding a [`block-size`](https://developer.mozilla.org/docs/Web/CSS/block-size) value of `auto` means that the aspect-ratio of the images will remain constant.
 
@@ -61,8 +58,7 @@ But then the browser might squash or stretch the image to make it fit your prefe
 
 {% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/GNEkQTnMZTde5QB2mkvh.jpg", alt="Profile of a happy-looking handsome dog with a ball in its mouth, but the image is squashed.", width="800", height="400" %}
 
-To prevent that happening, use the [`object-fit`](https://developer.mozilla.org/docs/Web/CSS/object-fit) property.
-{% BrowserCompat 'css.properties.object-fit' %}
+To prevent that happening, use the [`object-fit`](https://developer.mozilla.org/docs/Web/CSS/object-fit) property. {% BrowserCompat 'css.properties.object-fit' %}
 
 An `object-fit` value of `contain` tells the browser to preserve the image's aspect ratio, even if that means leaving empty space above and below.
 
@@ -94,9 +90,7 @@ img {
  </figcaption>
 </figure>
 
-
-If the cropping at the top and bottom evenly is an issue, use the [object-position](https://developer.mozilla.org/docs/Web/CSS/object-position) CSS property to adjust the focus of the crop.
-{% BrowserCompat 'css.properties.object-position' %}
+If the cropping at the top and bottom evenly is an issue, use the [object-position](https://developer.mozilla.org/docs/Web/CSS/object-position) CSS property to adjust the focus of the crop. {% BrowserCompat 'css.properties.object-position' %}
 
 You can make sure the most important image content is still visible.
 
@@ -167,7 +161,7 @@ For a hero image above the fold, `loading` should not be used. If your site auto
 
 ### Fetch Priority
 
-For important images-such as the [LCP](/lcp/) image, you can further prioritize the loading using [Fetch Priority](/fetch-priority/) by setting the `fetchpriority` attribute to `high`:
+For important images-such as the [LCP](https://web.dev/articles/lcp) image, you can further prioritize the loading using [Fetch Priority](https://web.dev/articles/fetch-priority) by setting the `fetchpriority` attribute to `high`:
 
 ```html/5-6
 <img
@@ -189,12 +183,17 @@ But remember: when you ask the browser to prioritize downloading one resource—
 Some images may not be available in the initial HTML—if they are added by JavaScript, or as a [background image](#background-images) in CSS. You can also use preload to allow these important images to be fetched ahead of time. This can be combined with the `fetchpriority` attribute for really important images:
 
 ```html
-<link rel="preload" href="hero.jpg" as="image" fetchpriority="high">
+<link
+    rel="preload"
+    href="hero.jpg"
+    as="image"
+    fetchpriority="high"
+/>
 ```
 
 Again this should be used sparingly to avoid overriding the browsers prioritisation heuristics too much, which may result in performance degredation.
 
-Preloading responsive images based on srcset (which is discussed below) via the `imagesrcset` and `imagesizes` attributes is more advanced and is [supported in some browsers](/preload-responsive-images/), but not all:
+Preloading responsive images based on srcset (which is discussed below) via the `imagesrcset` and `imagesizes` attributes is more advanced and is [supported in some browsers](https://web.dev/articles/preload-responsive-images), but not all:
 
 <link rel="preload" imagesrcset="hero_sm.jpg 1x hero_med.jpg 2x hero_lg.jpg 3x" as="image" fetchpriority="high">
 
@@ -274,9 +273,7 @@ If you're using the width descriptor, you must also use the [`sizes`](https://de
 
 The `sizes` attribute takes a comma-separated list of media queries and image widths.
 
-{% Aside %}
-It feels strange to have CSS media queries inside an HTML element. It spoils the separation of presentation and structure. But it's the only way to provide the necessary sizing information in time to be effective.
-{% endAside %}
+{% Aside %} It feels strange to have CSS media queries inside an HTML element. It spoils the separation of presentation and structure. But it's the only way to provide the necessary sizing information in time to be effective. {% endAside %}
 
 ```html/10-12
 <img
@@ -294,6 +291,7 @@ It feels strange to have CSS media queries inside an HTML element. It spoils the
   100vw"
 >
 ```
+
 In this example, you're telling the browser that above a viewport width of `66em` to display the image no wider than one third of the screen (inside a three column layout, for example).
 
 For viewport widths between `44em` and `66em`, display the image at half the width of the screen (a two column layout).
@@ -320,7 +318,6 @@ Some devices have high-density displays. On a double-density display you can pac
 
 {% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/OtyGs9nZser6u0DrFYBq.png", alt="Two versions of the same image of a happy-looking handsome dog with a ball in its mouth, one image looking crisp and the other looking fuzzy.", width="800", height="275" %}
 
-
 Use the density descriptor to describe the pixel density of the image in relationship to the image in the `src` attribute. The density descriptor is a number followed by the letter x: `1x`, `2x`, etc.
 
 ```html/7-9
@@ -341,9 +338,7 @@ If `small-image.png` is 300 by 200 pixels in size, and `medium-image.png` is 600
 
 You don't have to use whole numbers. If another version of the image is 450 by 300 pixels in size, you can describe it with `1.5x`.
 
-{% Aside %}
-You can use *either* width descriptors *or* density descriptors, but not both together.
-{% endAside %}
+{% Aside %} You can use _either_ width descriptors _or_ density descriptors, but not both together. {% endAside %}
 
 ## Presentational images
 
@@ -359,6 +354,7 @@ If you embed an image that is purely a visual flourish without any meaningful co
  height="50"
 >
 ```
+
 You must still include the `alt` attribute. A missing `alt` attribute is not the same as an empty `alt` attribute. An empty `alt` attribute conveys to a screen reader that this image is presentational.
 
 Ideally, your presentational or decorative images shouldn't be in your HTML at all. HTML is for structure. CSS is for presentation.
@@ -369,33 +365,32 @@ Use the `background-image` property in CSS to load presentational images.
 
 ```css
 element {
-  background-image: url(flourish.png);
+    background-image: url(flourish.png);
 }
 ```
 
-You can specify multiple image candidates using the [`image-set`](https://developer.mozilla.org/docs/Web/CSS/image/image-set()) function for `background-image`.
+You can specify multiple image candidates using the [`image-set`](<https://developer.mozilla.org/docs/Web/CSS/image/image-set()>) function for `background-image`.
 
 The `image-set` function in CSS works a lot like the `srcset` attribute in HTML. Provide a list of images with a pixel density descriptor for each one.
 
 ```css
 element {
-  background-image: image-set(
-    small-image.png 1x,
-    medium-image.png 2x,
-    large-image.png 3x
-  );
+    background-image: image-set(
+        small-image.png 1x,
+        medium-image.png 2x,
+        large-image.png 3x
+    );
 }
 ```
+
 The browser will choose the most appropriate image for the device's pixel density.
 
 There are many factors to consider when you're adding images to your site:
 
-Reserving the right space for each image.
-Figuring out how many sizes you need.
-Deciding whether the image is content or decorative.
+Reserving the right space for each image. Figuring out how many sizes you need. Deciding whether the image is content or decorative.
 
 It's worth spending the time to get images right. Poor image strategies are responsible for frustration and annoyance for users. A good image strategy makes your site feel snappy and sharp, regardless of the user's device or network connection.
 
-There's one more HTML element in your toolkit to help you exercise more control over your images: [the `picture` element](/learn/design/picture-element/).
+There's one more HTML element in your toolkit to help you exercise more control over your images: [the `picture` element](picture-element.md).
 
 {% Assessment 'images' %}

@@ -28,44 +28,44 @@ description: модуль определяет особый режим комп�
 
 ## Создание flex-контейнера
 
-Для создания flex-контейнера необходимо присвоить его стилевому свойству [`display`](/css/display/) одно из двух значений: `flex` или `inline-flex`.
+Для создания flex-контейнера необходимо присвоить его стилевому свойству [`display`](../../css/display.md) одно из двух значений: `flex` или `inline-flex`.
 
 Создадим простейшую веб-страницу, которая применяет flexbox:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Flexbox в CSS3</title>
-    <style>
-      .flex-container {
-        display: flex;
-      }
-      .flex-item {
-        text-align: center;
-        font-size: 1.1em;
-        padding: 1.5em;
-        color: white;
-      }
-      .color1 {
-        background-color: #675ba7;
-      }
-      .color2 {
-        background-color: #9bc850;
-      }
-      .color3 {
-        background-color: #a62e5c;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="flex-container">
-      <div class="flex-item color1">Flex Item 1</div>
-      <div class="flex-item color2">Flex Item 2</div>
-      <div class="flex-item color3">Flex Item 3</div>
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>Flexbox в CSS3</title>
+        <style>
+            .flex-container {
+                display: flex;
+            }
+            .flex-item {
+                text-align: center;
+                font-size: 1.1em;
+                padding: 1.5em;
+                color: white;
+            }
+            .color1 {
+                background-color: #675ba7;
+            }
+            .color2 {
+                background-color: #9bc850;
+            }
+            .color3 {
+                background-color: #a62e5c;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-container">
+            <div class="flex-item color1">Flex Item 1</div>
+            <div class="flex-item color2">Flex Item 2</div>
+            <div class="flex-item color3">Flex Item 3</div>
+        </div>
+    </body>
 </html>
 ```
 
@@ -76,51 +76,51 @@ description: модуль определяет особый режим комп�
 Если значение `flex` определяет контейнер как блочный элемент, то значение `inline-flex` определяет элемент как строчный (inline). Рассмотрим оба способа на примере:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Flexbox в CSS3</title>
-    <style>
-      .flex-container {
-        display: flex;
-        border: 2px solid #ccc;
-      }
-      .inline-flex-container {
-        display: inline-flex;
-        border: 2px solid #ccc;
-        margin-top: 10px;
-      }
-      .flex-item {
-        text-align: center;
-        font-size: 1.1em;
-        padding: 1.5em;
-        color: white;
-      }
-      .color1 {
-        background-color: #675ba7;
-      }
-      .color2 {
-        background-color: #9bc850;
-      }
-      .color3 {
-        background-color: #a62e5c;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="flex-container">
-      <div class="flex-item color1">Flex Item 1</div>
-      <div class="flex-item color2">Flex Item 2</div>
-      <div class="flex-item color3">Flex Item 3</div>
-    </div>
+    <head>
+        <meta charset="utf-8" />
+        <title>Flexbox в CSS3</title>
+        <style>
+            .flex-container {
+                display: flex;
+                border: 2px solid #ccc;
+            }
+            .inline-flex-container {
+                display: inline-flex;
+                border: 2px solid #ccc;
+                margin-top: 10px;
+            }
+            .flex-item {
+                text-align: center;
+                font-size: 1.1em;
+                padding: 1.5em;
+                color: white;
+            }
+            .color1 {
+                background-color: #675ba7;
+            }
+            .color2 {
+                background-color: #9bc850;
+            }
+            .color3 {
+                background-color: #a62e5c;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-container">
+            <div class="flex-item color1">Flex Item 1</div>
+            <div class="flex-item color2">Flex Item 2</div>
+            <div class="flex-item color3">Flex Item 3</div>
+        </div>
 
-    <div class="inline-flex-container">
-      <div class="flex-item color1">Flex Item 1</div>
-      <div class="flex-item color2">Flex Item 2</div>
-      <div class="flex-item color3">Flex Item 3</div>
-    </div>
-  </body>
+        <div class="inline-flex-container">
+            <div class="flex-item color1">Flex Item 1</div>
+            <div class="flex-item color2">Flex Item 2</div>
+            <div class="flex-item color3">Flex Item 3</div>
+        </div>
+    </body>
 </html>
 ```
 
@@ -130,4 +130,4 @@ description: модуль определяет особый режим комп�
 
 ## См. также
 
-- [display](/css/display/)
+-   [display](../../css/display.md)

@@ -177,4 +177,4 @@ If you're used to thinking in terms of `top`, `bottom`, `left`, and `right`, it 
 
 {% Assessment 'internationalization' %}
 
-Next, you'll learn how to approach page-level layouts, also known as [macro layouts](/learn/design/macro-layouts).
+Next, you'll learn how to approach page-level layouts, also known as [macro layouts](macro-layouts.md).

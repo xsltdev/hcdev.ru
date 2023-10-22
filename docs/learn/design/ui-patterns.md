@@ -1,9 +1,11 @@
 ---
 title: User interface patterns
 description: >
-  Consider some common UI elements that adapt to different screen sizes.
+    Consider some common UI elements that adapt to different screen sizes.
+
+
 authors:
-  - adactio
+    - adactio
 date: 2021-12-23
 updated: 2022-03-18
 ---
@@ -54,35 +56,36 @@ For narrow screens, display items in a row using flexbox. The row of items will 
 
 ```css
 @media (max-width: 50em) {
-  .cards {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    scroll-snap-type: inline mandatory;
-    scroll-behavior: smooth;
-  }
-  .cards .card {
-    flex-shrink: 0;
-    flex-basis: 15em;
-    scroll-snap-align: start;
-  }
+    .cards {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: inline mandatory;
+        scroll-behavior: smooth;
+    }
+    .cards .card {
+        flex-shrink: 0;
+        flex-basis: 15em;
+        scroll-snap-align: start;
+    }
 }
 ```
 
-{% Aside %}
-The logical version of `overflow-x` is [`overflow-inline`](https://developer.mozilla.org/docs/Web/CSS/overflow-inline) which would better match with the value for `scroll-snap-type`. This example uses the physical version for better cross-browser support.
-{% endAside %}
+{% Aside %} The logical version of `overflow-x` is [`overflow-inline`](https://developer.mozilla.org/docs/Web/CSS/overflow-inline) which would better match with the value for `scroll-snap-type`. This example uses the physical version for better cross-browser support. {% endAside %}
 
-The [`scroll-snap`](/css-scroll-snap/) properties ensure that the items can be swiped in a way that feels smooth. Thanks to `scroll-snap-type: inline mandatory`, the items snap into place.
+The [`scroll-snap`](https://web.dev/articles/css-scroll-snap) properties ensure that the items can be swiped in a way that feels smooth. Thanks to `scroll-snap-type: inline mandatory`, the items snap into place.
 
 When the screen is large enough—wider than `50em` in this case—switch over to grid and display the items in rows and columns, without hiding anything.
 
 ```css
 @media (min-width: 50em) {
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-  }
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(
+            auto-fill,
+            minmax(15em, 1fr)
+        );
+    }
 }
 ```
 
@@ -110,13 +113,11 @@ Again, the `scroll-snap` properties ensure that the interaction feels smooth. Al
  tab: 'result'
 } %}
 
-{% Aside %} 
-The previous example shows a more complete demo, you can read more about it in the article [building a media scroller component](/building-a-media-scroller-component/).
-{% endAside %}
+{% Aside %} The previous example shows a more complete demo, you can read more about it in the article [building a media scroller component](https://web.dev/articles/building/a-media-scroller-component). {% endAside %}
 
-With the addition of JavaScript, you can add interactive controls to a carousel. You could even make it automatically cycle through items. But think long and hard before doing that—autoplaying might work if the carousel is the only content on the page, but an autoplaying carousel is incredibly annoying if someone is trying to interact with other content (like reading text, for example). You can read more [carousel best practices](/carousel-best-practices/).
+With the addition of JavaScript, you can add interactive controls to a carousel. You could even make it automatically cycle through items. But think long and hard before doing that—autoplaying might work if the carousel is the only content on the page, but an autoplaying carousel is incredibly annoying if someone is trying to interact with other content (like reading text, for example). You can read more [carousel best practices](https://web.dev/articles/carousel-best-practices).
 
-{% CodePattern '/web-vitals-patterns/carousels/carousel-autoplay/' %} 
+{% CodePattern '/web-vitals-patterns/carousels/carousel-autoplay/' %}
 
 ## Data tables
 
@@ -126,15 +127,15 @@ You can apply the overflow pattern to tables. In this example, the table is wrap
 
 ```css
 .table-container {
-  max-inline-size: 100%;
-  overflow-x: auto;
-  scroll-snap-type: inline mandatory;
-  scroll-behavior: smooth;
+    max-inline-size: 100%;
+    overflow-x: auto;
+    scroll-snap-type: inline mandatory;
+    scroll-behavior: smooth;
 }
-.table-container th, 
+.table-container th,
 .table-container td {
-  scroll-snap-align: start;
-  padding: var(--metric-box-spacing);
+    scroll-snap-align: start;
+    padding: var(--metric-box-spacing);
 }
 ```
 
@@ -154,7 +155,6 @@ Progressive disclosure is a useful way to save space, but be careful about using
 
 Design for smaller screens first. It's easier to adapt small-screen designs to larger screens than the other way around. If you design for a large screen first, there's a danger that your small-screen design will feel like an afterthought.
 
-For more layout and UI element patterns, explore the web.dev [Patterns](/patterns) section.
+For more layout and UI element patterns, explore the web.dev [Patterns](https://web.dev/patterns) section.
 
 When you're adapting interface elements to different screen sizes, media queries are very useful for figuring out the dimensions of the device. But media features like `min-width`and `min-height` are just the beginning. Next, you'll discover a whole host of other media features.
-

@@ -7,85 +7,88 @@ description: Рассмотрим создание простейшего ада
 Рассмотрим создание простейшего адаптивного стандартного макета веб-страницы, который состоит из шапки, подвала, основного содержимого, блока навигации и сайдбара. Для этого определим следующую веб-страницу:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Grid Layout в CSS3</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      .grid-container {
-        height: 100vh;
-        display: grid;
-        grid-template-areas:
-          'header'
-          '.'
-          'menu'
-          '.'
-          'content'
-          '.'
-          'sidebar'
-          '.'
-          'footer';
-        grid-template-columns: 1fr;
-        grid-template-rows: 80px 5px 80px 5px 1fr 5px 80px 5px 80px;
-      }
-      .header {
-        grid-area: header;
-        background-color: #bbb;
-      }
-      .menu {
-        grid-area: menu;
-        background-color: #ccc;
-      }
-      .sidebar {
-        grid-area: sidebar;
-        background-color: #ccc;
-      }
-      .content {
-        grid-area: content;
-        background-color: #eee;
-      }
-      .footer {
-        grid-area: footer;
-        background-color: #bbb;
-      }
-      h3 {
-        text-align: center;
-      }
-      @media screen and (min-width: 468px) {
-        .grid-container {
-          height: 100vh;
-          display: grid;
-          grid-template-areas:
-            'header header header header header'
-            '. . . . .'
-            'menu . content . sidebar'
-            '. . . . .'
-            'footer footer footer footer footer';
-          grid-template-columns: 130px 5px 1fr 5px 130px;
-          grid-template-rows: 90px 5px 1fr 5px 90px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="grid-container">
-      <div class="header"><h3>Header</h3></div>
-      <div class="content"><h3>Content</h3></div>
-      <div class="menu"><h3>Menu</h3></div>
-      <div class="sidebar"><h3>Sidebar</h3></div>
-      <div class="footer"><h3>Footer</h3></div>
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width"
+        />
+        <title>Grid Layout в CSS3</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .grid-container {
+                height: 100vh;
+                display: grid;
+                grid-template-areas:
+                    'header'
+                    '.'
+                    'menu'
+                    '.'
+                    'content'
+                    '.'
+                    'sidebar'
+                    '.'
+                    'footer';
+                grid-template-columns: 1fr;
+                grid-template-rows: 80px 5px 80px 5px 1fr 5px 80px 5px 80px;
+            }
+            .header {
+                grid-area: header;
+                background-color: #bbb;
+            }
+            .menu {
+                grid-area: menu;
+                background-color: #ccc;
+            }
+            .sidebar {
+                grid-area: sidebar;
+                background-color: #ccc;
+            }
+            .content {
+                grid-area: content;
+                background-color: #eee;
+            }
+            .footer {
+                grid-area: footer;
+                background-color: #bbb;
+            }
+            h3 {
+                text-align: center;
+            }
+            @media screen and (min-width: 468px) {
+                .grid-container {
+                    height: 100vh;
+                    display: grid;
+                    grid-template-areas:
+                        'header header header header header'
+                        '. . . . .'
+                        'menu . content . sidebar'
+                        '. . . . .'
+                        'footer footer footer footer footer';
+                    grid-template-columns: 130px 5px 1fr 5px 130px;
+                    grid-template-rows: 90px 5px 1fr 5px 90px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="header"><h3>Header</h3></div>
+            <div class="content"><h3>Content</h3></div>
+            <div class="menu"><h3>Menu</h3></div>
+            <div class="sidebar"><h3>Sidebar</h3></div>
+            <div class="footer"><h3>Footer</h3></div>
+        </div>
+    </body>
 </html>
 ```
 
@@ -95,20 +98,20 @@ description: Рассмотрим создание простейшего ада
 
 ```css
 .grid-container {
-  height: 100vh;
-  display: grid;
-  grid-template-areas:
-    'header'
-    '.'
-    'menu'
-    '.'
-    'content'
-    '.'
-    'sidebar'
-    '.'
-    'footer';
-  grid-template-columns: 1fr;
-  grid-template-rows: 80px 5px 80px 5px 1fr 5px 80px 5px 80px;
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+        'header'
+        '.'
+        'menu'
+        '.'
+        'content'
+        '.'
+        'sidebar'
+        '.'
+        'footer';
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 5px 80px 5px 1fr 5px 80px 5px 80px;
 }
 ```
 
@@ -120,16 +123,16 @@ description: Рассмотрим создание простейшего ада
 
 ```css
 .grid-container {
-  height: 100vh;
-  display: grid;
-  grid-template-areas:
-    'header header header header header'
-    '. . . . .'
-    'menu . content . sidebar'
-    '. . . . .'
-    'footer footer footer footer footer';
-  grid-template-columns: 130px 5px 1fr 5px 130px;
-  grid-template-rows: 90px 5px 1fr 5px 90px;
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+        'header header header header header'
+        '. . . . .'
+        'menu . content . sidebar'
+        '. . . . .'
+        'footer footer footer footer footer';
+    grid-template-columns: 130px 5px 1fr 5px 130px;
+    grid-template-rows: 90px 5px 1fr 5px 90px;
 }
 ```
 

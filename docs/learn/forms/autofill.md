@@ -58,7 +58,7 @@ icon: material/auto-download
 
 !!!note ""
 
-    Для обеспечения безопасности формы регистрации лучше использовать [стороннего провайдера идентификации](/sign-up-form-best-practices/#federated-login), а не создавать собственную систему [аутентификации](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html).
+    Для обеспечения безопасности формы регистрации лучше использовать [стороннего провайдера идентификации](https://web.dev/articles/sign-up-form-best-practices?hl=ru#federated-login), а не создавать собственную систему [аутентификации](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html).
 
 В форме входа в систему можно использовать `autocomplete="current-password"`, чтобы указать браузерам на возможность ввода ранее сохраненных паролей для этого сайта.
 

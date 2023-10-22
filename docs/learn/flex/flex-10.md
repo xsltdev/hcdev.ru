@@ -9,101 +9,106 @@ description: рассмотрим создание стандартного ма
 Для этого определим следующую веб-страницу:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Flexbox в CSS3</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        padding: 0;
-        margin: 0;
-        font-family: verdana, arial, sans-serif;
-      }
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width"
+        />
+        <title>Flexbox в CSS3</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                padding: 0;
+                margin: 0;
+                font-family: verdana, arial, sans-serif;
+            }
 
-      body {
-        color: #fff;
-        font-size: 1.1em;
-        padding: 1em;
-        display: flex;
-        flex-direction: column;
-      }
+            body {
+                color: #fff;
+                font-size: 1.1em;
+                padding: 1em;
+                display: flex;
+                flex-direction: column;
+            }
 
-      main {
-        display: flex;
-        flex-direction: column;
-      }
+            main {
+                display: flex;
+                flex-direction: column;
+            }
 
-      article {
-        background-color: #546e7a;
-        flex: 2 2 12em;
-        padding: 1em;
-      }
+            article {
+                background-color: #546e7a;
+                flex: 2 2 12em;
+                padding: 1em;
+            }
 
-      nav,
-      aside {
-        flex: 1;
-        background-color: #455a64;
-      }
+            nav,
+            aside {
+                flex: 1;
+                background-color: #455a64;
+            }
 
-      nav {
-        order: -1;
-      }
+            nav {
+                order: -1;
+            }
 
-      header,
-      footer {
-        flex: 0 0 5em;
-        background-color: #37474f;
-      }
+            header,
+            footer {
+                flex: 0 0 5em;
+                background-color: #37474f;
+            }
 
-      @media screen and (min-width: 600px) {
-        body {
-          min-height: 100vh;
-        }
-        main {
-          flex-direction: row;
-          min-height: 100%;
-          flex: 1 1 auto;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <p>Header</p>
-    </header>
-    <main>
-      <article>
-        <h1>Что такое Lorem Ipsum?</h1>
-        <p>
-          Lorem Ipsum - это текст-"рыба", часто используемый
-          в печати и вэб-дизайне. Lorem Ipsum является
-          стандартной "рыбой" для текстов на латинице с
-          начала XVI века. В то время некий безымянный
-          печатник создал большую коллекцию размеров и форм
-          шрифтов, используя Lorem Ipsum для распечатки
-          образцов. Lorem Ipsum не только успешно пережил
-          без заметных изменений пять веков, но и перешагнул
-          в электронный дизайн. Его популяризации в новое
-          время
-        </p>
-      </article>
-      <nav>
-        <p>Navigation</p>
-      </nav>
-      <aside>
-        <p>Sidebar</p>
-      </aside>
-    </main>
-    <footer>
-      <p>Footer</p>
-    </footer>
-  </body>
+            @media screen and (min-width: 600px) {
+                body {
+                    min-height: 100vh;
+                }
+                main {
+                    flex-direction: row;
+                    min-height: 100%;
+                    flex: 1 1 auto;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <p>Header</p>
+        </header>
+        <main>
+            <article>
+                <h1>Что такое Lorem Ipsum?</h1>
+                <p>
+                    Lorem Ipsum - это текст-"рыба", часто
+                    используемый в печати и вэб-дизайне.
+                    Lorem Ipsum является стандартной "рыбой"
+                    для текстов на латинице с начала XVI
+                    века. В то время некий безымянный
+                    печатник создал большую коллекцию
+                    размеров и форм шрифтов, используя Lorem
+                    Ipsum для распечатки образцов. Lorem
+                    Ipsum не только успешно пережил без
+                    заметных изменений пять веков, но и
+                    перешагнул в электронный дизайн. Его
+                    популяризации в новое время
+                </p>
+            </article>
+            <nav>
+                <p>Navigation</p>
+            </nav>
+            <aside>
+                <p>Sidebar</p>
+            </aside>
+        </main>
+        <footer>
+            <p>Footer</p>
+        </footer>
+    </body>
 </html>
 ```
 

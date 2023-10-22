@@ -1,29 +1,25 @@
 ---
 title: Theming
 description: >
-  Adapt your designs to match user preferences such as a dark mode. 
+    Adapt your designs to match user preferences such as a dark mode. 
+
+
 authors:
-  - adactio
+    - adactio
 date: 2021-12-09
 ---
 
-Even branding can be responsive. 
-You can adjust the presentation of your website to match the user's preference. 
-But first, here's how to extend your website's branding to include the browser itself.  
+Even branding can be responsive. You can adjust the presentation of your website to match the user's preference. But first, here's how to extend your website's branding to include the browser itself.
 
 ## Customize the browser interface
 
-Some browsers allow you to suggest a theme color based on your website's palette. 
-The browser's interface adapts to your suggested color. Add the color in a `meta` element named `theme-color` in the `head` of your pages.
+Some browsers allow you to suggest a theme color based on your website's palette. The browser's interface adapts to your suggested color. Add the color in a `meta` element named `theme-color` in the `head` of your pages.
 
 ```html
-<meta name="theme-color" content="#00D494">
+<meta name="theme-color" content="#00D494" />
 ```
 
-{% Aside %}
-It feels a little strange to put styling information like this in HTML rather than CSS, 
-but this allows the browser to update its interface as soon as the page is loading rather than waiting for the CSS. 
-{% endAside %}
+{% Aside %} It feels a little strange to put styling information like this in HTML rather than CSS, but this allows the browser to update its interface as soon as the page is loading rather than waiting for the CSS. {% endAside %}
 
 <figure>
 {% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/bM78eiZbOqwZ5doqKyaQ.png", alt="Clearleft dot com.", width="800", height="520" %}
@@ -34,44 +30,36 @@ but this allows the browser to update its interface as soon as the page is loadi
  </figcaption>
 </figure>
 
-You can update the value of `theme-color` using JavaScript. But use this power wisely. 
-It can be overwhelming for users if their browser's color scheme changes too often. 
-Think about subtle ways to adjust the theme color. If the changes are too jarring, users will leave in annoyance.
+You can update the value of `theme-color` using JavaScript. But use this power wisely. It can be overwhelming for users if their browser's color scheme changes too often. Think about subtle ways to adjust the theme color. If the changes are too jarring, users will leave in annoyance.
 
-You can also specify a theme color in a [web app manifest](https://developer.mozilla.org/docs/Web/Manifest) file. 
-This is a JSON file with metadata about your website.
+You can also specify a theme color in a [web app manifest](https://developer.mozilla.org/docs/Web/Manifest) file. This is a JSON file with metadata about your website.
 
 Link to the manifest file from the `head` of your documents. Use a `link` element with a `rel` value of `manifest`.
 
 ```html
-<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="/manifest.json" />
 ```
 
 In the manifest file, list your metadata using key/value pairs.
 
 ```json
 {
-  "short_name": "Clearleft",
-  "name": "Clearleft design agency",
-  "start_url": "/",
-  "background_color": "#00D494",
-  "theme_color": "#00D494",
-  "display": "standalone"
+    "short_name": "Clearleft",
+    "name": "Clearleft design agency",
+    "start_url": "/",
+    "background_color": "#00D494",
+    "theme_color": "#00D494",
+    "display": "standalone"
 }
 ```
 
-If a visitor decides to add your website to their home screen, 
-the browser will use the information in your manifest file to display an appropriate shortcut.
+If a visitor decides to add your website to their home screen, the browser will use the information in your manifest file to display an appropriate shortcut.
 
-{% Aside %}
-Find out more about how to [add a web app manifest](/add-manifest/).
-{% endAside %}
+{% Aside %} Find out more about how to [add a web app manifest](https://web.dev/articles/add-manifest). {% endAside %}
 
 ## Provide a dark mode
 
-Many operating systems allow users to specify a preference for a light or a dark color palette, 
-which is a good idea to optimize your site to your user's theme preferences. 
-You can access this preference in a media feature called `prefers-color-scheme`.
+Many operating systems allow users to specify a preference for a light or a dark color palette, which is a good idea to optimize your site to your user's theme preferences. You can access this preference in a media feature called `prefers-color-scheme`.
 
 ```css
 @media (prefers-color-scheme: dark) {
@@ -92,14 +80,19 @@ You can access this preference in a media feature called `prefers-color-scheme`.
 Specify theme colors with the `prefers-color-scheme` media feature within the `meta` element.
 
 ```html
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta
+    name="theme-color"
+    content="#ffffff"
+    media="(prefers-color-scheme: light)"
+/>
+<meta
+    name="theme-color"
+    content="#000000"
+    media="(prefers-color-scheme: dark)"
+/>
 ```
 
-You can also use the `prefers-color-scheme` media feature inside SVG. 
-If you use an SVG file for your favicon, it can be adjusted for dark mode. 
-[Thomas Steiner](/authors/thomassteiner/) wrote about 
-[`prefers-color-scheme` in SVG favicons for dark mode icons](https://blog.tomayac.com/2019/09/21/prefers-color-scheme-in-svg-favicons-for-dark-mode-icons/).
+You can also use the `prefers-color-scheme` media feature inside SVG. If you use an SVG file for your favicon, it can be adjusted for dark mode. Thomas Steiner wrote about [`prefers-color-scheme` in SVG favicons for dark mode icons](https://blog.tomayac.com/2019/09/21/prefers-color-scheme-in-svg-favicons-for-dark-mode-icons/).
 
 ## Theming with custom properties
 
@@ -107,64 +100,62 @@ If you use the same color values in multiple places throughout your CSS, it coul
 
 ```css
 body {
-  background-color: white;
-  color: black;
-}
-input {
-  background-color: white;
-  color: black;
-  border-color: black;
-}
-button {
-  background-color: black;
-  color: white;
-}
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: black;
-    color: white;
-  }
-  input {
-    background-color: black;
-    color: white;
-    border-color: white;
-  }
-  button {
     background-color: white;
     color: black;
-  }
+}
+input {
+    background-color: white;
+    color: black;
+    border-color: black;
+}
+button {
+    background-color: black;
+    color: white;
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+    }
+    input {
+        background-color: black;
+        color: white;
+        border-color: white;
+    }
+    button {
+        background-color: white;
+        color: black;
+    }
 }
 ```
 
-Use CSS custom properties to store your color values. 
-Custom properties work like variables in a programming language. You can update the value of a variable without updating its name.
+Use CSS custom properties to store your color values. Custom properties work like variables in a programming language. You can update the value of a variable without updating its name.
 
-If you update the values of your custom properties within a `prefers-color-scheme` media query, 
-you won't have to write all your selectors twice.
+If you update the values of your custom properties within a `prefers-color-scheme` media query, you won't have to write all your selectors twice.
 
 ```css
 html {
-  --page-color: white;
-  --ink-color: black;
+    --page-color: white;
+    --ink-color: black;
 }
 @media (prefers-color-scheme: dark) {
-  html {
-    --page-color: black;
-    --ink-color: white;
-  }
+    html {
+        --page-color: black;
+        --ink-color: white;
+    }
 }
 body {
-  background-color: var(--page-color);
-  color: var(--ink-color);
+    background-color: var(--page-color);
+    color: var(--ink-color);
 }
 input {
-  background-color: var(--page-color);
-  color: var(--ink-color);
-  border-color: var(--ink-color);
+    background-color: var(--page-color);
+    color: var(--ink-color);
+    border-color: var(--ink-color);
 }
 button {
-  background-color: var(--ink-color);
-  color: var(--page-color);
+    background-color: var(--ink-color);
+    color: var(--page-color);
 }
 ```
 
@@ -176,7 +167,7 @@ button {
  tab: 'css,result'
 } %}
 
-See [building a color scheme](/building-a-color-scheme/) for more advanced examples of theming with custom properties.
+See [building a color scheme](https://web.dev/articles/building/a-color-scheme) for more advanced examples of theming with custom properties.
 
 ## Images
 
@@ -184,8 +175,8 @@ If you are using SVGs in your HTML, you can apply custom properties there too.
 
 ```css
 svg {
-  stroke: var(--ink-color);
-  fill: var(--page-color);
+    stroke: var(--ink-color);
+    fill: var(--page-color);
 }
 ```
 
@@ -195,9 +186,9 @@ If you want to tone down the brightness of your photographic images when display
 
 ```css
 @media (prefers-color-scheme: dark) {
-  img {
-    filter: brightness(.8) contrast(1.2);
-  }
+    img {
+        filter: brightness(0.8) contrast(1.2);
+    }
 }
 ```
 
@@ -217,14 +208,18 @@ If you want to tone down the brightness of your photographic images when display
  </figcaption>
 </figure>
 
-For some images, you might want to swap them out completely in dark mode. 
-For example, you might want to show a map with a darker color scheme. 
-Use the `<picture>` element containing a `<source>` element with the `prefers-color-scheme` media query.
+For some images, you might want to swap them out completely in dark mode. For example, you might want to show a map with a darker color scheme. Use the `<picture>` element containing a `<source>` element with the `prefers-color-scheme` media query.
 
 ```html
 <picture>
-  <source srcset="darkimage.png" media="(prefers-color-scheme: dark)">
-  <img src="lightimage.png" alt="A description of the image.">
+    <source
+        srcset="darkimage.png"
+        media="(prefers-color-scheme: dark)"
+    />
+    <img
+        src="lightimage.png"
+        alt="A description of the image."
+    />
 </picture>
 ```
 
@@ -245,30 +240,27 @@ Use the `<picture>` element containing a `<source>` element with the `prefers-co
  </figcaption>
 </figure>
 
-
 ## Forms
 
-Browsers provide a default color palette for form fields. 
-Let the browser know that your site offers both a dark and a light mode. 
-That way, the browser can provide the appropriate default styling for forms.
+Browsers provide a default color palette for form fields. Let the browser know that your site offers both a dark and a light mode. That way, the browser can provide the appropriate default styling for forms.
 
 Add this to your CSS:
 
 ```css
 html {
-  color-scheme: light;
+    color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+    html {
+        color-scheme: dark;
+    }
 }
 ```
 
 You can also use HTML. Add this in the `head` of your documents:
 
 ```html
-<meta name="supported-color-schemes" content="light dark">
+<meta name="supported-color-schemes" content="light dark" />
 ```
 
 {% Codepen {
@@ -281,11 +273,11 @@ You can also use HTML. Add this in the `head` of your documents:
 
 {% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/6YuAM0ZCNhGNAjpI8fyT.mp4", controls=true, loop=true %}
 
-Use the [`accent-color`](/accent-color/) property in CSS to style checkboxes, radio buttons, and some other form fields.
+Use the [`accent-color`](https://web.dev/articles/accent-color) property in CSS to style checkboxes, radio buttons, and some other form fields.
 
 ```css
 html {
-  accent-color: red;
+    accent-color: red;
 }
 ```
 
@@ -293,12 +285,12 @@ It's common for dark themes to have subdued brand colors. You can update the `ac
 
 ```css
 html {
-  accent-color: red;
+    accent-color: red;
 }
 @media (prefers-color-scheme: dark) {
-  html {
-    accent-color: pink;
-  }
+    html {
+        accent-color: pink;
+    }
 }
 ```
 
@@ -306,25 +298,25 @@ It makes sense to use a custom property for this so you can keep all your color 
 
 ```css
 html {
-  color-scheme: light;
-  --page-color: white;
-  --ink-color: black;
-  --highlight-color: red;
+    color-scheme: light;
+    --page-color: white;
+    --ink-color: black;
+    --highlight-color: red;
 }
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-    --page-color: black;
-    --ink-color: white;
-    --highlight-color: pink;
-  }
+    html {
+        color-scheme: dark;
+        --page-color: black;
+        --ink-color: white;
+        --highlight-color: pink;
+    }
 }
 html {
-  accent-color: var(--highlight-color);
+    accent-color: var(--highlight-color);
 }
 body {
-  background-color: var(--page-color);
-  color: var(--ink-color);
+    background-color: var(--page-color);
+    color: var(--ink-color);
 }
 ```
 
@@ -338,11 +330,8 @@ body {
 
 {% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/Dl00EnG4mwTbSQIkYBF9.mp4", controls=true, loop=true %}
 
-{% Aside %}
-For more on tinting elements with theme colors, see the section on [more tinting](/accent-color/#extra-more-tinting).
-{% endAside %}
+{% Aside %} For more on tinting elements with theme colors, see the section on [more tinting](https://web.dev/articles/accent-color#extra-more-tinting). {% endAside %}
 
-Providing a dark mode is just one example of adapting your site to suit your user's preferences. 
-Next you'll learn how to make your site adaptable to all sorts of [accessibility](/learn/design/accessibility/) considerations.
+Providing a dark mode is just one example of adapting your site to suit your user's preferences. Next you'll learn how to make your site adaptable to all sorts of [accessibility](accessibility.md) considerations.
 
 {% Assessment 'theming' %}

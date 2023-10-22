@@ -9,52 +9,55 @@ description: В рамках грида мы можем определять о�
 Для определения областей у grid-контейнера применяется свойство `grid-template-areas`. Например, определим три области:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Grid Layout в CSS3</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      .grid-container {
-        height: 100vh;
-        display: grid;
-        grid-template-areas:
-          'header header'
-          'sidebar content'
-          'sidebar content';
-        grid-template-columns: 150px 1fr;
-        grid-template-rows: 100px 1fr 100px;
-      }
-      .header {
-        grid-area: header;
-        background-color: #bbb;
-      }
-      .sidebar {
-        grid-area: sidebar;
-        background-color: #ccc;
-      }
-      .content {
-        grid-area: content;
-        background-color: #eee;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="grid-container">
-      <div class="header"></div>
-      <div class="sidebar"></div>
-      <div class="content"></div>
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width"
+        />
+        <title>Grid Layout в CSS3</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .grid-container {
+                height: 100vh;
+                display: grid;
+                grid-template-areas:
+                    'header header'
+                    'sidebar content'
+                    'sidebar content';
+                grid-template-columns: 150px 1fr;
+                grid-template-rows: 100px 1fr 100px;
+            }
+            .header {
+                grid-area: header;
+                background-color: #bbb;
+            }
+            .sidebar {
+                grid-area: sidebar;
+                background-color: #ccc;
+            }
+            .content {
+                grid-area: content;
+                background-color: #eee;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="header"></div>
+            <div class="sidebar"></div>
+            <div class="content"></div>
+        </div>
+    </body>
 </html>
 ```
 
@@ -69,9 +72,9 @@ grid-template-rows: 100px 1fr 100px;
 
 ```css
 grid-template-areas:
-  'header header'
-  'sidebar content'
-  'sidebar content';
+    'header header'
+    'sidebar content'
+    'sidebar content';
 ```
 
 Выражение "header header" представляет первую строку и указывает, что область header занимает две ячейки подряд подряд.
@@ -84,8 +87,8 @@ grid-template-areas:
 
 ```css
 .header {
-  grid-area: header; /* элемент с классом header помещается в область header*/
-  background-color: #bbb;
+    grid-area: header; /* элемент с классом header помещается в область header*/
+    background-color: #bbb;
 }
 ```
 
@@ -96,64 +99,67 @@ grid-template-areas:
 Теперь рассмотрим другой более сложный пример. Пусть код веб-страницы выглядит следующим образом:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Grid Layout в CSS3</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      .grid-container {
-        height: 100vh;
-        display: grid;
-        grid-template-areas:
-          'header header header header header'
-          '. . . . .'
-          'menu . content . sidebar'
-          '. . . . .'
-          'footer footer footer footer footer';
-        grid-template-columns: 130px 5px 1fr 5px 130px;
-        grid-template-rows: 90px 5px 1fr 5px 90px;
-      }
-      .header {
-        grid-area: header;
-        background-color: #bbb;
-      }
-      .menu {
-        grid-area: menu;
-        background-color: #ccc;
-      }
-      .sidebar {
-        grid-area: sidebar;
-        background-color: #ccc;
-      }
-      .content {
-        grid-area: content;
-        background-color: #eee;
-      }
-      .footer {
-        grid-area: footer;
-        background-color: #bbb;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="grid-container">
-      <div class="header"></div>
-      <div class="content"></div>
-      <div class="menu"></div>
-      <div class="sidebar"></div>
-      <div class="footer"></div>
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width"
+        />
+        <title>Grid Layout в CSS3</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .grid-container {
+                height: 100vh;
+                display: grid;
+                grid-template-areas:
+                    'header header header header header'
+                    '. . . . .'
+                    'menu . content . sidebar'
+                    '. . . . .'
+                    'footer footer footer footer footer';
+                grid-template-columns: 130px 5px 1fr 5px 130px;
+                grid-template-rows: 90px 5px 1fr 5px 90px;
+            }
+            .header {
+                grid-area: header;
+                background-color: #bbb;
+            }
+            .menu {
+                grid-area: menu;
+                background-color: #ccc;
+            }
+            .sidebar {
+                grid-area: sidebar;
+                background-color: #ccc;
+            }
+            .content {
+                grid-area: content;
+                background-color: #eee;
+            }
+            .footer {
+                grid-area: footer;
+                background-color: #bbb;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="header"></div>
+            <div class="content"></div>
+            <div class="menu"></div>
+            <div class="sidebar"></div>
+            <div class="footer"></div>
+        </div>
+    </body>
 </html>
 ```
 
@@ -165,5 +171,5 @@ grid-template-areas:
 
 ## См. также
 
-- [grid-template-areas](/css/grid-template-areas/)
-- [grid-area](/css/grid-area/)
+-   [grid-template-areas](../../css/grid-template-areas.md)
+-   [grid-area](../../css/grid-area.md)
