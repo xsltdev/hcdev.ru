@@ -90,7 +90,7 @@ border-end-start-radius: unset;
 
 ## Примеры
 
-=== HTML
+=== "HTML"
 
     ```html
     <div>
@@ -98,7 +98,7 @@ border-end-start-radius: unset;
     </div>
     ```
 
-=== CSS
+=== "CSS"
 
     ```css
     div {

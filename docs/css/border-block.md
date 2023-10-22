@@ -95,7 +95,7 @@ border-block: medium dashed blue;
 
 ## Пример
 
-=== HTML
+=== "HTML"
 
     ```html
     <div>
@@ -103,7 +103,7 @@ border-block: medium dashed blue;
     </div>
     ```
 
-=== CSS
+=== "CSS"
 
     ```css
     div {
@@ -118,7 +118,7 @@ border-block: medium dashed blue;
     }
     ```
 
-=== Результат
+=== "Результат"
 
     ![border-block](border-block.png)
 

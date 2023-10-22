@@ -74,7 +74,7 @@ border-block-start-width: unset;
 
 ## Примеры
 
-=== HTML
+=== "HTML"
 
     ```html
     <div>
@@ -82,7 +82,7 @@ border-block-start-width: unset;
     </div>
     ```
 
-=== CSS
+=== "CSS"
 
     ```css
     div {

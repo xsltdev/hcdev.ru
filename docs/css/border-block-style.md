@@ -75,7 +75,7 @@ border-block-style: unset;
 
 ## Примеры
 
-=== HTML
+=== "HTML"
 
     ```html
     <div>
@@ -83,7 +83,7 @@ border-block-style: unset;
     </div>
     ```
 
-=== CSS
+=== "CSS"
 
     ```css
     div {

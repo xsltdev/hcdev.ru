@@ -92,7 +92,7 @@ border-block-start: unset;
 
 ## Примеры
 
-=== HTML
+=== "HTML"
 
     ```html
     <div>
@@ -100,7 +100,7 @@ border-block-start: unset;
     </div>
     ```
 
-=== CSS
+=== "CSS"
 
     ```css
     div {

@@ -29,14 +29,14 @@ description: Правило @supports позволяет проверить, п�
 
 ```css
 @supports (display: grid) {
-  div {
-    display: grid;
-  }
+    div {
+        display: grid;
+    }
 }
 @supports not (display: grid) {
-  div {
-    float: right;
-  }
+    div {
+        float: right;
+    }
 }
 ```
 
@@ -48,7 +48,7 @@ description: Правило @supports позволяет проверить, п�
 
 ```css
 @supports (transform: perspective(300px)) {
-  /* Браузер поддерживает свойство transform с функцией perspective() */
+    /* Браузер поддерживает свойство transform с функцией perspective() */
 }
 ```
 
@@ -56,7 +56,7 @@ description: Правило @supports позволяет проверить, п�
 
 ```css
 @supports not (transform: perspective(300px)) {
-  /* Браузер НЕ поддерживает свойство transform с функцией perspective() */
+    /* Браузер НЕ поддерживает свойство transform с функцией perspective() */
 }
 ```
 
@@ -64,8 +64,8 @@ description: Правило @supports позволяет проверить, п�
 
 ```css
 @supports (transform-origin: 50% 100%) and
-  (transform: perspective(300px)) {
-  /* Браузер одновременно поддерживает свойства transform-origin И
+    (transform: perspective(300px)) {
+    /* Браузер одновременно поддерживает свойства transform-origin И
 	transform с функцией perspective() */
 }
 ```
@@ -74,16 +74,16 @@ description: Правило @supports позволяет проверить, п�
 
 ```css
 @supports (perspective: 300px) or
-  (transform: perspective(300px)) {
-  /* Браузер поддерживает свойство perspective ИЛИ
+    (transform: perspective(300px)) {
+    /* Браузер поддерживает свойство perspective ИЛИ
 	свойство transform с функцией perspective() */
 }
 ```
 
 ## Спецификации
 
-- [CSS Conditional Rules Module Level 4](https://drafts.csswg.org/css-conditional-4/#at-supports)
-- [CSS Conditional Rules Module Level 3](https://drafts.csswg.org/css-conditional-3/#at-supports)
+-   [CSS Conditional Rules Module Level 4](https://drafts.csswg.org/css-conditional-4/#at-supports)
+-   [CSS Conditional Rules Module Level 3](https://drafts.csswg.org/css-conditional-3/#at-supports)
 
 ## Примеры
 
@@ -93,10 +93,10 @@ description: Правило @supports позволяет проверить, п�
 
 ```css
 @supports (animation-name: test) {
-  /* CSS applied when animations are supported without a prefix */
-  @keyframes {
-    /* Other at-rules can be nested inside */
-  }
+    /* CSS applied when animations are supported without a prefix */
+    @keyframes {
+        /* Other at-rules can be nested inside */
+    }
 }
 ```
 
@@ -104,11 +104,11 @@ description: Правило @supports позволяет проверить, п�
 
 ```css
 @supports (
-  (perspective: 10px) or (-moz-perspective: 10px) or
-    (-webkit-perspective: 10px) or (-ms-perspective: 10px)
-    or (-o-perspective: 10px)
+    (perspective: 10px) or (-moz-perspective: 10px) or
+        (-webkit-perspective: 10px) or
+        (-ms-perspective: 10px) or (-o-perspective: 10px)
 ) {
-  /* CSS applied when 3D transforms, prefixed or not, are supported */
+    /* CSS applied when 3D transforms, prefixed or not, are supported */
 }
 ```
 
@@ -116,10 +116,10 @@ description: Правило @supports позволяет проверить, п�
 
 ```css
 @supports not (
-  (text-align-last: justify) or
-    (-moz-text-align-last: justify)
+    (text-align-last: justify) or
+        (-moz-text-align-last: justify)
 ) {
-  /* CSS to provide fallback alternative for text-align-last: justify */
+    /* CSS to provide fallback alternative for text-align-last: justify */
 }
 ```
 
@@ -127,73 +127,71 @@ description: Правило @supports позволяет проверить, п�
 
 ```css
 @supports (--foo: green) {
-  body {
-    color: var(--varName);
-  }
+    body {
+        color: var(--varName);
+    }
 }
 ```
 
-<!-- prettier-ignore -->
 Тестирование на поддержку селектора, например [`:is()`](is.md)
 
-<!-- prettier-ignore -->
 ```css
 /* This rule won't be applied in browsers which don't support :is() */
 :is(ul, ol) > li {
-  /* CSS applied when the :is(…) selector is supported */
+    /* CSS applied when the :is(…) selector is supported */
 }
 
 @supports not selector(:is(a, b)) {
-  /* Fallback for when :is() is unsupported */
-  ul > li,
-  ol > li {
-    /* The above expanded for browsers which don't support :is(…) */
-  }
+    /* Fallback for when :is() is unsupported */
+    ul > li,
+    ol > li {
+        /* The above expanded for browsers which don't support :is(…) */
+    }
 }
 
 @supports selector(:nth-child(1n of a, b)) {
-  /* This rule needs to be inside the @supports block, otherwise
+    /* This rule needs to be inside the @supports block, otherwise
      it will be partially applied in browsers which don't support
      the `of` argument of :nth-child(…) is supported */
-  :is(:nth-child(1n of ul, ol) a, details > summary) {
-    /* CSS applied when the :is(…) selector and
+    :is(:nth-child(1n of ul, ol) a, details > summary) {
+        /* CSS applied when the :is(…) selector and
          the `of` argument of :nth-child(…) are both supported */
-  }
+    }
 }
 ```
 
 ### Пример 2
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <title>@supports</title>
-    <meta charset="utf-8" />
-    <style>
-      @supports (display: flex) {
-        .no {
-          display: none;
-        }
-      }
-      @supports not (display: flex) {
-        .yes {
-          display: none;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <p class="yes">
-      Ваш браузер поддерживает display: flex.
-    </p>
-    <p class="no">
-      Ваш браузер не поддерживает display: flex.
-    </p>
-  </body>
+    <head>
+        <title>@supports</title>
+        <meta charset="utf-8" />
+        <style>
+            @supports (display: flex) {
+                .no {
+                    display: none;
+                }
+            }
+            @supports not (display: flex) {
+                .yes {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <p class="yes">
+            Ваш браузер поддерживает display: flex.
+        </p>
+        <p class="no">
+            Ваш браузер не поддерживает display: flex.
+        </p>
+    </body>
 </html>
 ```
 
 ## Ссылки
 
-- [@supports](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) <sup><small>MDN (рус.)</small></sup>
+-   [@supports](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) <sup><small>MDN (рус.)</small></sup>

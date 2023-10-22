@@ -79,7 +79,7 @@ description: Псевдокласс :lang() сопоставляет элеме�
 ```css
 /* Selects any <p> in English (en) */
 p:lang(en) {
-    quotes: '\201C''\201D''\2018''\2019';
+    quotes: '\201C' '\201D' '\2018' '\2019';
 }
 ```
 
@@ -91,43 +91,43 @@ p:lang(en) {
 
 ## Описание и примеры
 
-=== CSS
+=== "CSS"
 
-```css
-:lang(en) > q {
-    quotes: '\201C''\201D''\2018''\2019';
-}
-:lang(fr) > q {
-    quotes: '« ' ' »';
-}
-:lang(de) > q {
-    quotes: '»' '«' '\2039''\203A';
-}
-```
+    ```css
+    :lang(en) > q {
+    	quotes: '\201C' '\201D' '\2018' '\2019';
+    }
+    :lang(fr) > q {
+    	quotes: '« ' ' »';
+    }
+    :lang(de) > q {
+    	quotes: '»' '«' '\2039' '\203A';
+    }
+    ```
 
-=== HTML
+=== "HTML"
 
-```html
-<div lang="en">
-    <q
-        >This English quote has a <q>nested</q> quote
-        inside.</q
-    >
-</div>
-<div lang="fr">
-    <q
-        >This French quote has a <q>nested</q> quote
-        inside.</q
-    >
-</div>
-<div lang="de">
-    <q
-        >This German quote has a <q>nested</q> quote
-        inside.</q
-    >
-</div>
-```
+    ```html
+    <div lang="en">
+    	<q
+    		>This English quote has a <q>nested</q> quote
+    		inside.</q
+    	>
+    </div>
+    <div lang="fr">
+    	<q
+    		>This French quote has a <q>nested</q> quote
+    		inside.</q
+    	>
+    </div>
+    <div lang="de">
+    	<q
+    		>This German quote has a <q>nested</q> quote
+    		inside.</q
+    	>
+    </div>
+    ```
 
-Результат
+=== "Результат"
 
-![Пример работы псевдо-класса :lang()](lang.png)
+    ![Пример работы псевдо-класса :lang()](lang.png)
