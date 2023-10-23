@@ -1,78 +1,78 @@
-# Day 30: Wrap-up
+# День 30: Подведение итогов
 
-**Author: Beth Pan | [@beth_panx](https://twitter.com/beth_panx)**
+**Автор: Бет Пан | [@beth_panx](https://twitter.com/beth_panx)**.
 
-Welcome to day 30 of the [30 Days of PWA](https://aka.ms/learn-pwa/30Days-blog) series. You made it! Let's look back at our journey over the past month, review key concepts and learnings, and talk about next steps to continue your self-study.
+Добро пожаловать на 30-й день серии [30 Days of PWA](https://aka.ms/learn-pwa/30Days-blog). Вы справились! Давайте оглянемся на наш путь, пройденный за последний месяц, рассмотрим ключевые понятия и выводы, а также обсудим дальнейшие шаги для продолжения самообучения.
 
-## Recap & Resources
+## Обзор и ресурсы
 
-### Week 1: Core Concepts
+### Неделя 1: Основные понятия
 
-![Visual guide to core concepts week.](./core-concepts/_media/week-1.png)
+![Визуальное руководство по неделе основных концепций](./core-concepts/_media/week-1.png)
 
-We started our 30-day journey by learning [what is a Progressive Web App (PWA)](./core-concepts/01.md). Following the introduction, we talked about [fundamental building blocks of a PWA](./core-concepts/02.md): HTTPS, service workers, and web app manifest. We took a deeper dive into each block to learn how to make a PWA [installable](./core-concepts/03.md), [reliable](./core-concepts/04.md), [work offline](./core-concepts/05.md), and [capable](./core-concepts/06.md). Finally, we summarized this week's learning by [taking an existing application and iteratively enhancing it for Progressive Web App functionality](./core-concepts/07.md).
+Мы начали наше 30-дневное путешествие с изучения [что такое Progressive Web App (PWA)](./core-concepts/01.md). После введения мы поговорили о [фундаментальных строительных блоках PWA](./core-concepts/02.md): HTTPS, сервис-воркеры и манифест веб-приложения. Мы углубились в каждый блок, чтобы узнать, как сделать PWA [устанавливаемым](./core-concepts/03.md), [надежным](./core-concepts/04.md), [работающим в автономном режиме](./core-concepts/05.md) и [способным](./core-concepts/06.md). Наконец, мы подвели итоги этой недели, рассказав о том, как [взять существующее приложение и итеративно доработать его до функциональности Progressive Web App](./core-concepts/07.md).
 
-**Resources:**
+**Ресурсы:**
 
-- [Overview of Progressive Web Apps (PWAs)](https://aka.ms/learn-PWA/30Days-1.1/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium)
-- [Understanding Progressive Enhancement](https://aka.ms/learn-PWA/30Days-1.1/alistapart.com/article/understandingprogressiveenhancement)
-- [Sample PWAs](https://aka.ms/learn-PWA/30Days-1.1/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/demo-pwas)
-- [DevTools Tips](https://aka.ms/learn-PWA/30Days-1.1/devtoolstips.org) and [Source](https://aka.ms/learn-PWA/30Days-1.1/github.com/captainbrosset/devtools-tips)
-- [HTTPS](https://aka.ms/learn-PWA/30Days-1.2/developer.mozilla.org/en-US/docs/Glossary/https)
-- [Service Workers](https://aka.ms/learn-PWA/30Days-1.2/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/how-to/service-workers)
-- [Web App Manifest](https://aka.ms/learn-PWA/30Days-1.2/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/how-to/web-app-manifests)
+-   [Обзор прогрессивных веб-приложений (PWA)](https://aka.ms/learn-PWA/30Days-1.1/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium)
+-   [Понимание прогрессивного улучшения](https://aka.ms/learn-PWA/30Days-1.1/alistapart.com/article/understandingprogressiveenhancement)
+-   [Sample PWAs](https://aka.ms/learn-PWA/30Days-1.1/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/demo-pwas)
+-   [Советы DevTools](https://aka.ms/learn-PWA/30Days-1.1/devtoolstips.org) и [Источник](https://aka.ms/learn-PWA/30Days-1.1/github.com/captainbrosset/devtools-tips)
+-   [HTTPS](https://aka.ms/learn-PWA/30Days-1.2/developer.mozilla.org/en-US/docs/Glossary/https)
+-   [Сервис-воркеры](https://aka.ms/learn-PWA/30Days-1.2/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/how-to/service-workers)
+-   [Web App Manifest](https://aka.ms/learn-PWA/30Days-1.2/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/how-to/web-app-manifests)
 
-### Week 2: Advanced Capabilities
+### Неделя 2: Расширенные возможности
 
-![Visual guide to advanced capabilities week.](./advanced-capabilities/_media/week2-roadmap.png)
+![Визуальное руководство по неделе расширенных возможностей](./advanced-capabilities/_media/week2-roadmap.png)
 
-Week 2 of #30DaysOfPWA is all about new exciting capabilities available to modern Progressive Web Apps. Many advanced features and APIs have been brought to the web platform over the last couple of years as part of the "Project Fugu" effort, enabling a whole new class of applications to be built on top of the web. In this week, we learn about [PWA and Web Standards](./advanced-capabilities/01.md), [creating app shortcuts](./advanced-capabilities/02.md), [sharing content](./advanced-capabilities/03.md), [displaying content](./advanced-capabilities/04.md), [caching data](./advanced-capabilities/05.md), [background sync](./advanced-capabilities/06.md), and [notifications](./advanced-capabilities/07.md).
+Вторая неделя #30DaysOfPWA посвящена новым интересным возможностям, доступным современным Progressive Web Apps. За последние несколько лет в рамках проекта "Проект Фугу" в веб-платформу было внедрено множество дополнительных функций и API, что позволило создать совершенно новый класс приложений на основе веб-приложений. На этой неделе мы узнаем о [PWA и веб-стандартах](./advanced-capabilities/01.md), [создании ярлыков приложений](./advanced-capabilities/02.md), [совместном использовании контента](./advanced-capabilities/03. md), [отображение содержимого](./advanced-capabilities/04.md), [кэширование данных](./advanced-capabilities/05.md), [фоновая синхронизация](./advanced-capabilities/06.md) и [уведомления](./advanced-capabilities/07.md).
 
-**Resources:**
+**Ресурсы:**
 
-- [Fugu API Tracker](https://aka.ms/learn-PWA/30Days-2.1/fugu-tracker.web.app)
-- [Microsoft Edge Developer Docs: Define app shortcuts](https://aka.ms/learn-PWA/30Days-2.2/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/how-to/shortcuts)
-- [Microsoft Edge Developer Docs: Share content with other apps](https://aka.ms/learn-PWA/30Days-2.3/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/how-to/share)
-- [Breaking Out of the Box](https://aka.ms/learn-PWA/30Days-2.4/alistapart.com/article/breaking-out-of-the-box)
-- [Microsoft Edge Developer Docs: Use Service Workers to manage network requests and push notifications](https://aka.ms/learn-PWA/30Days-2.5/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/how-to/service-workers)
-- [Microsoft Edge Developer Docs: Synchronize and update a PWA in the background](https://aka.ms/learn-PWA/30Days-2.6/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/how-to/background-syncs)
-- [Microsoft Edge Developer Docs: Re-engage users with badges, notifications, and push messages](https://aka.ms/learn-PWA/30Days-2.7/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/how-to/notifications-badges)
+-   [Fugu API Tracker](https://aka.ms/learn-PWA/30Days-2.1/fugu-tracker.web.app)
+-   [Microsoft Edge Developer Docs: Define app shortcuts](https://aka.ms/learn-PWA/30Days-2.2/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/how-to/shortcuts)
+-   [Microsoft Edge Developer Docs: Share content with other apps](https://aka.ms/learn-PWA/30Days-2.3/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/how-to/share)
+-   [Breaking Out of the Box](https://aka.ms/learn-PWA/30Days-2.4/alistapart.com/article/breaking-out-of-the-box)
+-   [Microsoft Edge Developer Docs: Использование сервис-воркеров для управления сетевыми запросами и push-уведомлениями](https://aka.ms/learn-PWA/30Days-2.5/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/how-to/service-workers)
+-   [Microsoft Edge Developer Docs: Синхронизация и обновление PWA в фоновом режиме](https://aka.ms/learn-PWA/30Days-2.6/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/how-to/background-syncs)
+-   [Microsoft Edge Developer Docs: Повторное привлечение пользователей с помощью значков, уведомлений и push-сообщений](https://aka.ms/learn-PWA/30Days-2.7/docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/how-to/notifications-badges)
 
-### Week 3: Developer Tools
+### Неделя 3: Инструменты разработчика
 
-![Visual guide to developer tools week.](./dev-tools/_media/week3-roadmap.png)
+![Визуальное руководство по инструментам разработчика недели](./dev-tools/_media/week3-roadmap.png)
 
-Now that we are familiar with Progressive Web Apps and available advanced capabilities, let's look at the tools that help us [build](./dev-tools/01.md), [debug](./dev-tools/03.md), [audit](./dev-tools/05.md), [test](./dev-tools/06.md), and [package](./dev-tools/07.md) PWAs in week 3.
+Теперь, когда мы знакомы с прогрессивными веб-приложениями и их расширенными возможностями, давайте рассмотрим инструменты, которые помогут нам [собрать](./dev-tools/01.md), [отладить](./dev-tools/03.md), [провести аудит](./dev-tools/05.md), [протестировать](./dev-tools/06.md) и [упаковать](./dev-tools/07.md) PWA на третьей неделе.
 
-**Resources:**
+**Ресурсы:**
 
-- [PWABuilder Project](https://aka.ms/learn-PWA/30Days-3.1/github.com/pwa-builder/PWABuilder)
-- [PWA Studio](https://aka.ms/learn-PWA/30Days-3.1/pwa-studio)
-- [PWA Starter](https://aka.ms/learn-PWA/30Days-3.1/github.com/pwa-builder/pwa-starter)
-- [PWABuilder.com](https://aka.ms/learn-PWA/30Days-3.2/www.pwabuilder.com)
-- [Device Emulation tool](https://aka.ms/learn-PWA/device-emulation)
-- [Application tool to review Web App Manifest](https://aka.ms/learn-PWA/debug-PWA)
-- [Sources tool to debug JavaScript code](https://aka.ms/learn-PWA/sources-tool)
-- [Cache Storage tool](https://aka.ms/learn-PWA/cache-storage)
-- [Evaluate runtime performance (Microsoft Edge performance tool)](https://aka.ms/learn-PWA/30Days-3.5/docs.microsoft.com/microsoft-edge/devtools-guide-chromium/evaluate-performance)
-- [Evaluate loading performance (Microsoft Edge performance tool)](https://aka.ms/learn-PWA/30Days-3.5/docs.microsoft.com/microsoft-edge/devtools-guide-chromium/speed/get-started)
-- [Playwright](https://aka.ms/learn-PWA/30Days-3.6/playwright.dev)
-- [Use Playwright to automate and test in Microsoft Edge](https://aka.ms/learn-PWA/30Days-3.6/docs.microsoft.com/microsoft-edge/playwright)
+-   [PWABuilder Project](https://aka.ms/learn-PWA/30Days-3.1/github.com/pwa-builder/PWABuilder)
+-   [PWA Studio](https://aka.ms/learn-PWA/30Days-3.1/pwa-studio)
+-   [PWA Starter](https://aka.ms/learn-PWA/30Days-3.1/github.com/pwa-builder/pwa-starter)
+-   [PWABuilder.com](https://aka.ms/learn-PWA/30Days-3.2/www.pwabuilder.com)
+-   [Device Emulation tool](https://aka.ms/learn-PWA/device-emulation)
+-   [Application tool to review Web App Manifest](https://aka.ms/learn-PWA/debug-PWA)
+-   [Sources tool to debug JavaScript code](https://aka.ms/learn-PWA/sources-tool)
+-   [Инструмент для хранения кэша](https://aka.ms/learn-PWA/cache-storage)
+-   [Оценка производительности во время выполнения (инструмент производительности Microsoft Edge)](https://aka.ms/learn-PWA/30Days-3.5/docs.microsoft.com/microsoft-edge/devtools-guide-chromium/evaluate-performance)
+-   [Оценка производительности загрузки (инструмент производительности Microsoft Edge)](https://aka.ms/learn-PWA/30Days-3.5/docs.microsoft.com/microsoft-edge/devtools-guide-chromium/speed/get-started)
+-   [Playwright](https://aka.ms/learn-PWA/30Days-3.6/playwright.dev)
+-   [Использование Playwright для автоматизации и тестирования в Microsoft Edge](https://aka.ms/learn-PWA/30Days-3.6/docs.microsoft.com/microsoft-edge/playwright)
 
-### Week 4: Platforms and Practices
+### Неделя 4: Платформы и практики
 
-![Visual guide to platforms and practices week.](./platforms-practices/_media/week4-roadmap.png)
+![Визуальное руководство по неделе платформ и практик](./platforms-practices/_media/week4-roadmap.png)
 
-To close the series of #30DaysOfPWA, we present you with best practices of building great Progressive Web Apps. We answer the following questions to help you make design, development, and distribution decisions for your PWAs: [What types of apps should be installable?](./platforms-practices/01.md) [How do you set an engagement strategy?](./platforms-practices/02.md) [How can you get maximum discoverability by distributing to app stores?](./platforms-practices/03.md) [Which caching strategy should you choose to have the best user experience while offline?](./platforms-practices/04.md) [Why use web components for PWA maintainability?](./platforms-practices/05.md) [What about authentication?](./platforms-practices/06.md) And finally, [what does it mean to have great UI/UX for your PWAs?](./platforms-practices/07.md)
+В завершение серии #30DaysOfPWA мы представляем вам лучшие практики создания отличных Progressive Web Apps. Мы ответим на следующие вопросы, чтобы помочь вам принять решения по проектированию, разработке и распространению ваших PWA: [Какие типы приложений должны быть устанавливаемыми?](./platforms-practices/01.md) [Как определить стратегию вовлечения?](./platforms-practices/02.md) [Как добиться максимальной открываемости, распространяя приложения в магазинах приложений?](./platforms-practices/03.md) [Какую стратегию кэширования выбрать, чтобы обеспечить наилучший пользовательский опыт в автономном режиме?](./platforms-practices/04.md) [Зачем использовать веб-компоненты для поддержки PWA?](./platforms-practices/05.md) [Что насчет аутентификации?](./platforms-practices/06.md) И, наконец, [что значит иметь отличный UI/UX для PWA?](./platforms-practices/07.md)
 
-**Resources:**
+**Ресурсы:**
 
-- [FAST docs](https://aka.ms/learn-pwa/30days-4.5/fast.design/docs/introduction)
+-   [FAST docs](https://aka.ms/learn-pwa/30days-4.5/fast.design/docs/introduction)
 
-## Share your feedback
+## Поделитесь отзывами
 
-This project is a labor of love. ❤️ It's not the primary day job for many of our planners and contributors. A huge thank you to all for helping make this a reality. As we reflect on lessons learned, what went well, and what we can improve on for future projects, we especially appreciate your feedback. Please take a few minutes to [share your feedback and suggestions](https://aka.ms/learn-pwa/30Days-survey) as they will help make future projects like this possible!
+Этот проект - труд любви. ❤️ Для многих наших разработчиков и участников он не является основной работой. Огромное спасибо всем, кто помог воплотить его в жизнь. Сейчас, когда мы размышляем над тем, что удалось сделать, что получилось, и что можно улучшить в будущих проектах, мы особенно ценим ваши отзывы. Пожалуйста, уделите несколько минут, чтобы [поделиться своими отзывами и предложениями](https://aka.ms/learn-pwa/30Days-survey), поскольку они помогут сделать возможным реализацию подобных проектов в будущем!
 
-## Closing thoughts
+## Заключительные мысли
 
-You have made it to the end of #30DaysOfPWA! Congratulations and a huge thank you for reading along. If you liked the series, give us a 🌟 on our [GitHub repository](https://github.com/microsoft/win-student-devs). Tag us on Twitter with #30DaysOfPWA because we would love to hear your learnings. That's it! We wish to see you soon in the next learning journey.
+Вы добрались до конца #30DaysOfPWA! Поздравляем вас и выражаем огромную благодарность за то, что вы читали эту серию. Если вам понравилась эта серия, оставьте нам отзыв на нашем [GitHub-репозитории](https://github.com/microsoft/win-student-devs). Отметьте нас в Twitter с помощью #30DaysOfPWA, потому что мы будем рады услышать ваши выводы. На этом все! До скорой встречи в следующем учебном путешествии.

@@ -1,49 +1,49 @@
-# Week 4. Platform and Practices
+# Неделя 4. Платформы и практики
 
 ![Visual Guide to Platforms & Practices Week!](_media/week4-roadmap.png)
 
-### WHAT WE'LL COVER IN WEEK 4
+### ЧТО МЫ РАССМОТРИМ НА 4-Й НЕДЕЛЕ
 
 ### 4.1 | &nbsp; [Installability for PWAs](01.md)
 
--   Quick recap of how to make PWAs installable
--   What types of apps should be installable?
--   App-first development strategy
+-   Краткое описание того, как сделать PWA устанавливаемыми.
+-   Какие типы приложений должны быть устанавливаемыми?
+-   Стратегия разработки, ориентированная на приложения
 
 ### 4.2 | &nbsp; [Best Practices for PWA Engagement](02.md)
 
--   Best practices for notifications and push notifications
--   Setting an engagement strategy
--   Having actionable push notifications
+-   Лучшие практики для уведомлений и push-уведомлений
+-   Определение стратегии вовлечения
+-   Наличие действенных push-уведомлений
 
-### 4.3 | &nbsp; [Distributing Your PWA](03.md)
+### 4.3 | &nbsp; [Распространение PWA](03.md)
 
--   PWAs are apps, so how can you get them on app stores?
--   Getting maximum discoverability, all with one codebase.
--   Walk through adding your PWA to the Microsoft Store
+-   PWA - это приложения, так как же их можно разместить в магазинах приложений?
+-   Добиться максимальной открываемости, используя одну кодовую базу.
+-   Ознакомьтесь с процессом добавления PWA в Microsoft Store.
 
 ### 4.4 | &nbsp; [Best Practices for PWA Reliability](04.md)
 
--   How to preserve your user experience while offline
--   Caching strategies for reliable performance
--   LocalForage and other IndexedDB options to store offline data
+-   Как сохранить пользовательский опыт в автономном режиме
+-   Стратегии кэширования для обеспечения надежной работы
+-   LocalForage и другие варианты IndexedDB для хранения данных в автономном режиме
 
 ### 4.5 | &nbsp; [PWA Maintainability: Using Web Components](05.md)
 
--   What does maintainability look like in larger (and possibly collaborative) web projects?
--   What are web components and what advantages do they bring?
--   How can we use them to build maintainable and scalable PWAs?
+-   Как выглядит удобство сопровождения в больших (и, возможно, совместных) веб-проектах?
+-   Что такое веб-компоненты и какие преимущества они дают?
+-   Как их использовать для создания поддерживаемых и масштабируемых PWA?
 
 ### 4.6 | &nbsp; [Best Practices for PWA Authentication](06.md)
 
--   When should your PWA use authentication?
--   Considerations for implementing authentication for your PWA
--   Adding authentication to your app
+-   Когда в PWA следует использовать аутентификацию?
+-   Соображения по реализации аутентификации для PWA
+-   Добавление аутентификации в приложение
 
 ### 4.7 | &nbsp; [Best Practices for PWA UI/UX](07.md)
 
--   Responsiveness across all platforms
--   Focusing your PWA content
--   Seamless user interactions
+-   Отзывчивость на всех платформах
+-   Фокусировка содержимого PWA
+-   Бесшовное взаимодействие с пользователем
 
-![Visual Banner for Platforms & Practices Week!](_media/week4-banner.png)
+![Визуальный баннер для недели платформ и практик!](_media/week4-banner.png)

@@ -1,61 +1,59 @@
-# Week 3. PWA Developer Tools
-
+# Неделя 3. Инструменты разработчика PWA
 
 ![Visual Guide to DevTools Week!](_media/week3-roadmap.png)
 
 ---
 
-## WHAT WE'LL COVER IN WEEK 3
+## ЧТО МЫ РАССМОТРИМ НА ТРЕТЬЕЙ НЕДЕЛЕ
 
-### 3.1 | &nbsp; [Get-started tools: Building new PWAs](01.md)
+### 3.1 | &nbsp; [Инструменты для начала работы: создание новых PWA](01.md)
 
-* Using the PWA Studio Visual Studio Code extension to start building a PWA
-* Creating your PWA using the PWA Starter code template
-* How to get started
-* A look at what's under the hood
+-   Использование расширения PWA Studio Visual Studio Code для начала создания PWA
+-   Создание PWA с помощью шаблона кода PWA Starter
+-   Как начать работу
+-   Взгляд на то, что находится под капотом.
 
 ### 3.2 | &nbsp; [Get-started Tools: Converting your web app to a PWA!](02.md)
 
-* What is PWABuilder.com
-* How it works
-* Why should you use PWABuilder
-* Evaluate and publish your PWA with PWABuilder.com
+-   Что такое PWABuilder.com
+-   Как это работает
+-   Почему стоит использовать PWABuilder
+-   Оценка и публикация PWA с помощью PWABuilder.com
 
-### 3.3 | &nbsp; [Debugging tools 1](03.md)
+### 3.3 | &nbsp; [Инструменты отладки 1](03.md)
 
-* Testing on other devices
-* Troubleshooting installation issues
-* Reloading manifest changes
-* Troubleshooting server worker issues
-* Troubleshooting cache issues
-* Testing offline support
+-   Тестирование на других устройствах
+-   Устранение проблем с установкой
+-   Перезагрузка изменений манифеста
+-   Устранение проблем с рабочим сервером
+-   Устранение проблем с кэшем
+-   Тестирование в автономном режиме
 
-### 3.4 | &nbsp; [Debugging tools 2](04.md)
+### 3.4 | &nbsp; [Средства отладки 2](04.md)
 
-* Checking and resetting user permissions
-* Managing notifications
-* Recording background sync and fetch events
-* Viewing and editing IndexedDB storage
+-   Проверка и сброс прав доступа пользователей
+-   Управление уведомлениями
+-   Запись событий фоновой синхронизации и выборки
+-   Просмотр и редактирование хранилища IndexedDB
 
-### 3.5 | &nbsp; [Auditing tools](05.md)
+### 3.5 | &nbsp; [Инструменты аудита](05.md)
 
-* Why Audit your PWA
-* Audit with PWABuilder
-* Audit accessibility with Webhint
-* Audit performance with Lighthouse and Edge Devtools
+-   Зачем нужен аудит PWA
+-   Аудит с помощью PWABuilder
+-   Аудит доступности с помощью Webhint
+-   Аудит производительности с помощью Lighthouse и Edge Devtools
 
-### 3.6 | &nbsp; [Test automation tools](06.md)
+### 3.6 | &nbsp; [Средства автоматизации тестирования](06.md)
 
-* PWA Testing Challenges defined
-* Test Workflow and Automation
-* Introduction to Playwright
-* Reliable, End-to-End Testing for PWA
+-   Определение задач тестирования PWA
+-   Рабочий процесс и автоматизация тестирования
+-   Введение в Playwright
+-   Надежное, сквозное тестирование PWA
 
-### 3.7 | &nbsp; [Packaging tools](07.md)
+### 3.7 | &nbsp; [Средства упаковки](07.md)
 
-* About packaging your PWA for the store
-* The Process of packaging PWAs
-* The advantages of publishing to the Microsoft Store?
+-   Об упаковке PWA для магазина
+-   Процесс упаковки PWA
+-   Преимущества публикации в Microsoft Store?
 
-
-![Visual Banner for DevTools Week!](_media/week3-banner.png)
+![Визуальный баннер для недели DevTools!](_media/week3-banner.png)
