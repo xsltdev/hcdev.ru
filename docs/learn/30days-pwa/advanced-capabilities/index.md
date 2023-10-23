@@ -1,62 +1,62 @@
-# Week 2. Advanced capabilities
+# Неделя 2. Расширенные возможности
 
-![Visual Guide to Advanced Capabilities Week!](_media/week2-roadmap.png)
+![Визуальное руководство по неделе расширенных возможностей](_media/week2-roadmap.png)
 
-### WHAT WE'LL COVER IN WEEK 2
+## ЧТО МЫ РАССМОТРИМ НА ВТОРОЙ НЕДЕЛЕ
 
-### 2.1 | &nbsp; [Introducing the advanced capabilities of Progressive Web Apps](01.md)
+### 2.1 | &nbsp; [Знакомство с расширенными возможностями Progressive Web Apps](01.md)
 
--   Project Fugu
--   PWA & Web Standards
--   Useful tools
--   Explore: [Fugu API Tracker](https://fugu-tracker.web.app)
--   Related: [Week 1: Core Concepts](../core-concepts/index.md)
+-   Проект Fugu
+-   PWA и веб-стандарты
+-   Полезные инструменты
+-   Изучите: [Fugu API Tracker](https://fugu-tracker.web.app)
+-   Похожие: [Week 1: Core Concepts](../core-concepts/index.md)
 
-### 2.2 | &nbsp; [Creating application shortcuts](02.md)
+### 2.2 | &nbsp; [Создание ярлыков приложений](02.md)
 
--   What is a Shortcut?
--   Defining Shortcuts
--   Explore: [Define app shortcuts](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/shortcuts)
--   Related: [Week 3: Developer Tools](../dev-tools/index.md)
+-   Что такое ярлык?
+-   Определение ярлыков
+-   Исследовать: [Определение ярлыков приложений](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/shortcuts)
+-   Похожие: [Неделя 3: Инструменты разработчика](../dev-tools/index.md)
 
-### 2.3 | &nbsp; [Sharing content from and with your app](03.md)
+### 2.3 | &nbsp; [Совместное использование содержимого из приложения и с его помощью](03.md)
 
 -   Web Share API
 -   Web Share Target API
--   Explore: [Share content with other apps](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/share)
--   Related: [Week 4: Platforms And Practices](../platforms-practices/index.md)
+-   Исследовать: [Совместное использование содержимого с другими приложениями](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/share)
+-   Похожие: [Week 4: Платформы и практики](../platforms-practices/index.md)
 
-### 2.4 | &nbsp; [Displaying content more like an app](04.md)
+### 2.4 | &nbsp; [Отображение содержимого как в приложении](04.md)
 
--   Display modes
--   Window Controls Overlay API
--   Explore: [Display content in the title bar](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/window-controls-overlay)
--   Related: [Week 1: Core Concepts](../core-concepts/index.md)
+-   Режимы отображения
+-   Управление окнами API наложения
+-   Исследовать: [Отображение содержимого в строке заголовка](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/window-controls-overlay)
+-   Связанные вопросы: [Week 1: Основные понятия](../core-concepts/index.md)
 
-### 2.5 | &nbsp; [Caching your app’s data](05.md)
+### 2.5 | &nbsp; [Кэширование данных вашего приложения](05.md)
 
--   Managing multiple caches
--   Pruning stale data
--   Choosing the right strategy
--   Using IndexedDB
--   Explore: [Offline and network connectivity support in Progressive Web Apps](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/offline)
--   Related: [Week 3: Developer Tools](../dev-tools/index.md) | Workbox
+-   Управление несколькими кэшами
+-   Обрезка устаревших данных
+-   Выбор правильной стратегии
+-   Использование IndexedDB
+-   Исследовать: [Поддержка автономных и сетевых подключений в Progressive Web Apps](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/offline)
+-   Связанные вопросы: [Неделя 3: Инструменты разработчика](../dev-tools/index.md) | Workbox
 
-### 2.6 | &nbsp; [Synchronizing app data in the background](06.md)
+### 2.6 | &nbsp; [Синхронизация данных приложения в фоновом режиме](06.md)
 
--   Background Sync API
--   Periodic Background Sync API
--   Explore: [Synchronize and update a PWA in the background](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/background-syncs)
--   Related: [Week 3: Developer Tools](../dev-tools/index.md) | Workbox
+-   API фоновой синхронизации
+-   API периодической фоновой синхронизации
+-   Исследовать: [Синхронизация и обновление PWA в фоновом режиме](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/background-syncs)
+-   Связанные вопросы: [Неделя 3: Инструменты разработчика](../dev-tools/index.md) | Workbox
 
-### 2.7 | &nbsp; [Notifying your users of updates](07.md)
+### 2.7 | &nbsp; [Уведомление пользователей об обновлениях](07.md)
 
--   Badging API
+-   API бейджинга
 -   Push API
--   Notifications API
--   Explore: [Re-engage users with badges, notifications, and push messages](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/notifications-badges)
--   Related: [Week 4: Platforms And Practices](../platforms-practices/index.md)
+-   API уведомлений
+-   Исследовать: [Повторное привлечение пользователей с помощью значков, уведомлений и push-сообщений](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/notifications-badges)
+-   Связанные вопросы: [Week 4: Платформы и практики](../platforms-practices/index.md)
 
 ---
 
-![Visual Guide to Core Concepts Week!](_media/week2-banner.png)
+![Визуальное руководство по неделе основных концепций!](_media/week2-banner.png)
