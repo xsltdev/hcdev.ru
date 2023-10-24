@@ -2,6 +2,7 @@
 description: Знакомство с расширенными возможностями Progressive Web Apps, Создание ярлыков приложений, Совместное использование содержимого, Отображение содержимого, Кэширование данных, Синхронизация данных, Уведомление пользователей об обновлениях
 hide:
     - toc
+icon: material/numeric-1-box-outline
 ---
 
 # Неделя 2. Расширенные возможности
@@ -12,7 +13,7 @@ hide:
 
 <div class="grid cards" style="margin-top: 1.6em" markdown>
 
--   :material-numeric-1-box:{ .lg .middle } **Знакомство с расширенными возможностями PWA**
+-   :material-numeric-1-box:{ .lg .middle } **Расширенные возможности PWA**
 
     ***
 
@@ -20,7 +21,7 @@ hide:
     -   PWA и веб-стандарты
     -   Полезные инструменты
 
-    [:octicons-arrow-right-24: Знакомство с расширенными возможностями PWA](01.md)
+    [:octicons-arrow-right-24: Расширенные возможности PWA](01.md)
 
 -   :material-numeric-2-box:{ .lg .middle } **Создание ярлыков приложений**
 
