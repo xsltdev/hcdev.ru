@@ -3,6 +3,6 @@ nav:
     - index.md
     - core-concepts
     - advanced-capabilities
-    #- dev-tools
-    #- platforms-practices
-    #- summary.md
+    - dev-tools
+    - platforms-practices
+    - summary.md
