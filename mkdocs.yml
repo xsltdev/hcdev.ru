@@ -121,6 +121,8 @@ plugins:
           cache_safe: true
     - glightbox:
           auto_caption: true
+          skip_classes:
+              - nolightbox
 
 extra_javascript:
     - 'https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js'
