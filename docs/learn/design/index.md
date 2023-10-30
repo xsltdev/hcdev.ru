@@ -1,27 +1,29 @@
 ---
-title: Learn Responsive Design
-authors:
-    - adactio
-description: 'A course exploring all aspects of responsive design. Learn how to make sites that look great and work well for everyone.'
-date: 2021-10-14
-tags:
-    - css
+description: Курс, изучающий все аспекты адаптивного дизайна. Узнайте, как создавать сайты, которые отлично выглядят и работают для всех.
 ---
 
-## Welcome to Learn Responsive Design!
+# Изучение адаптивного дизайна
 
-This course takes you on a journey through the many facets of modern responsive web design. The first few modules will ease you in with a history of where responsive design came from and a look at the fundamentals of responsive layouts. From there, you’ll learn about responsive images, typography, accessibility and more.
+В этом курсе вы познакомитесь с многочисленными аспектами современного адаптивного веб-дизайна. В первых нескольких модулях вы узнаете историю возникновения адаптивного дизайна, а также познакомитесь с основами адаптивных макетов. Затем вы узнаете об адаптивных изображениях, типографике, доступности и многом другом.
 
-Along the way you’ll find out how to make websites responsive to user preferences and device capabilities. By the end, you’ll also have an understanding of what the future might hold for responsive design.
+Попутно вы узнаете, как сделать сайты адаптивными к предпочтениям пользователей и возможностям устройств. К концу курса вы также получите представление о том, какое будущее ждет адаптивный дизайн.
 
-Each module has demos and self-assessments for you to test your knowledge.
+В каждом модуле есть демонстрационные примеры и задания для самопроверки знаний.
 
-This course is created for beginner and intermediate designers and developers. A basic understanding of HTML and CSS should be enough. You don’t need to know any JavaScript. If you’re completely new to making websites, there's an [introduction to HTML](https://developer.mozilla.org/docs/Learn/HTML/Introduction_to_HTML) and another course to help you [learn CSS](../css3/index.md).
+Этот курс предназначен для начинающих и средних дизайнеров и разработчиков. Базового понимания HTML и CSS должно быть достаточно. Знание JavaScript не требуется. Если вы совсем новичок в создании сайтов, есть курс [Введение в HTML](https://developer.mozilla.org/docs/Learn/HTML/Introduction_to_HTML) и еще один курс [Изучение CSS](../css3/index.md).
 
-Here's what you'll learn:
+<!-- Вот что вы узнаете:
 
 {% include 'partials/course-index.njk' %}
 
-So, are you ready to learn responsive design?
+-->
 
-{% Aside %} This course was written by [Jeremy Keith](https://twitter.com/adactio), with input and review from [Rachel Andrew](https://twitter.com/rachelandrew), [Una Kravets](https://twitter.com/Una), [Adam Argyle](https://twitter.com/argyleink), and [Camden Bickel](https://twitter.com/camdenbickel). {% endAside %}
+!!!note "Авторы"
+
+    Этот курс был написан [Джереми Китом](https://twitter.com/adactio) при участии и рецензировании [Рэйчел Эндрю](https://twitter.com/rachelandrew), [Уны Кравец](https://twitter.com/Una), [Адама Аргайла](https://twitter.com/argyleink) и [Камдена Бикеля](https://twitter.com/camdenbickel).
+
+!!!danger "Перевод"
+
+    Перевод этого учебника сделан благодаря [подписчикам на Бусти](https://boosty.to/bndby).
+
+:material-information-outline: Источник &mdash; [Learn Responsive Design](https://web.dev/learn/design)

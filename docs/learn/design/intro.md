@@ -1,250 +1,138 @@
 ---
-title: Introduction
-description: >
-    Find out where responsive design came from.
-authors:
-    - adactio
-date: 2021-11-03
+description: Узнайте, как зародился адаптивный дизайн.
 ---
 
-Right from the start,
-the World Wide Web was designed to be agnostic.
-It doesn't matter what hardware you've got.
-It doesn't matter what operating system your device is running.
-As long as you can connect to the internet, the World Wide Web is accessible to you.
+# Введение
 
-In the early days of the web, most people were using desktop computers.
-These days the web is available on desktops, laptops, tablets, foldable phones, fridges, and cars.
-People rightly expect that websites will look good no matter what device they're using.
-Responsive design makes this possible.
+С самого начала Всемирная паутина была задумана как агностическая система. Неважно, какое у вас оборудование. Не имеет значения, под управлением какой операционной системы работает ваше устройство. Пока вы можете подключиться к Интернету, Всемирная паутина доступна для вас.
 
-Responsive design isn't the first approach to designing websites.
-In the years before responsive design, web designers and developers tried many different techniques.
+На заре развития Интернета большинство людей пользовались настольными компьютерами. Сегодня веб-страницы доступны на настольных компьютерах, ноутбуках, планшетах, телефонах-раскладушках, холодильниках и автомобилях. Люди справедливо ожидают, что сайты будут хорошо выглядеть независимо от того, на каком устройстве они работают. Адаптивный дизайн делает это возможным.
 
-## Fixed-width design
+Адаптивный дизайн - это не первый подход к созданию сайтов. За годы до появления адаптивного дизайна веб-дизайнеры и разработчики перепробовали множество различных техник.
 
-In the early 1990s, when the web was first becoming popular,
-most monitors had screen dimensions of 640 pixels wide by 480 pixels tall.
-These were convex cathode ray tubes,
-not like the flat liquid crystal displays we have now.
+## Дизайн с фиксированной шириной экрана
 
-<figure>
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/0a8vHe4LgChVZvaZQfYs.png",
-alt="The Microsoft website with two simple columns of text plus a navbar.",
-width="640", height="480" %}
-  <figcaption>The Microsoft website in the late 90s designed for a width of 640 pixels. Screenshot from <a href="https://archive.org">archive.org</a></figcaption>
+В начале 1990-х годов, когда веб только начинал становиться популярным, большинство мониторов имели размеры экрана 640 пикселей по ширине и 480 пикселей по высоте. Это были выпуклые катодно-лучевые трубки, не похожие на плоские жидкокристаллические дисплеи, которые мы имеем сейчас.
+
+<figure markdown>
+![Сайт Microsoft с двумя простыми колонками текста и навигационной панелью.](intro-1.png)
+<figcaption markdown>Веб-сайт Microsoft в конце 90-х годов был рассчитан на ширину 640 пикселей. Снимок экрана из [archive.org](https://archive.org)</figcaption>
 </figure>
 
-In the formative days of early web design,
-it was a safe bet to design web pages with a width of 640 pixels.
-But while other technologies like phones and cameras were miniaturizing,
-screens were getting bigger (and eventually, flatter).
-Before long, most screens had dimensions of 800 by 600 pixels.
-Web designs changed accordingly. Designers and developers started assuming that 800 pixels was a safe default.
+На заре становления веб-дизайна можно было смело создавать веб-страницы шириной 640 пикселей. Но в то время как другие технологии, такие как телефоны и фотоаппараты, миниатюризировались, экраны становились все больше (и, в конце концов, плоскими). Вскоре размеры большинства экранов составляли 800 на 600 пикселей. Соответственно изменился и веб-дизайн. Дизайнеры и разработчики стали считать, что 800 пикселей - это безопасное значение по умолчанию.
 
-<figure>
-  {% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/C88van0yWyvbz5l746pB.png", alt="The Microsoft website using a three-column, mostly text-based design.", width="800", height="600" %}
-  <figcaption>The Microsoft website in the learly 2000s designed for a width of 800 pixels. Screenshot from <a href="https://archive.org">archive.org</a></figcaption>
+<figure markdown>
+![На сайте Microsoft используется трехколоночный дизайн, состоящий преимущественно из текста.](intro-2.png)
+<figcaption markdown>Веб-сайт Microsoft в начале 2000-х годов был рассчитан на ширину 800 пикселей. Снимок экрана из [archive.org](https://archive.org)</figcaption>
 </figure>
 
-Then the screens got bigger again. 1024 by 768 became the default.
-It felt like an arms race between web designers and hardware manufacturers.
+Затем экраны снова стали больше. По умолчанию стало использоваться разрешение 1024 на 768. Это было похоже на гонку вооружений между веб-дизайнерами и производителями оборудования.
 
-​​<figure>
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/nuHSqBVgInTvLti73Qz2.png", alt="The Microsoft website with a more complex design using images as well as text.", width="800", height="600" %}
+​​<figure markdown> ![Сайт Microsoft имеет более сложный дизайн с использованием изображений и текста.](intro-3.png)
 
-<figcaption>The Microsoft website in the mid 2000s designed for a width of 1024 pixels. Screenshot from <a href="https://archive.org">archive.org</a></figcaption>
+<figcaption markdown>Веб-сайт Microsoft в середине 2000-х годов был рассчитан на ширину 1024 пикселя. Снимок экрана из [archive.org](https://archive.org)</figcaption>
 </figure>
 
-Whether it was 640, 800, or 1024 pixels,
-choosing one specific width to design for was called fixed-width design.
+Выбор одной определенной ширины, будь то 640, 800 или 1024 пикселя, называется дизайном с фиксированной шириной.
 
-If you specify a fixed width for your layout,
-then your layout will only look good at that specific width.
-If a visitor to your site has a wider screen than the width you have chosen, then there'll be wasted space on the screen.
-You can center the content of your pages to distribute that space more evenly
-(instead of having empty space on one side) but you still wouldn't be taking full advantage of the available space.
+Если задать фиксированную ширину макета, то он будет хорошо выглядеть только при этой ширине. Если у посетителя вашего сайта экран шире, чем выбранная ширина, то на экране будет пустое пространство. Можно выровнять содержимое страниц по центру, чтобы распределить его более равномерно (вместо пустого пространства с одной стороны), но при этом все равно не удастся в полной мере использовать имеющееся пространство.
 
-<figure>
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/t0Zd1eGEJeeqMO8ItsqK.png", alt="A narrow layour with a lot of white space around it.", width="800", height="320" %}
-<figcaption>The Yahoo website from the early 2000s as experienced in a browser that's wider than the site's 800 pixel wide design. Screenshot from <a href="https://archive.org">archive.org</a></figcaption>
+<figure markdown>
+![Узкий слой с большим количеством белого пространства вокруг него.](intro-4.png)
+<figcaption markdown>Сайт Yahoo начала 2000-х годов в браузере, ширина которого превышает 800 пикселей. Снимок экрана из [archive.org](https://archive.org)</figcaption>
 </figure>
 
-Similarly, if a visitor arrives with a narrower screen than the width you've chosen,
-then your content won't fit horizontally.
-The browser generates a crawlbar—the horizontal equivalent of a scrollbar—and the user has to move the whole page left and right to see all the content.
+Аналогично, если посетитель приходит с экраном меньшей ширины, чем выбранная вами ширина, то содержимое страницы не поместится по горизонтали. Браузер создает полосу прокрутки - горизонтальный аналог полосы прокрутки, и пользователю приходится перемещать всю страницу влево и вправо, чтобы увидеть все содержимое.
 
-<figure>
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/bnh7fDiGjFhdBHTD5CJ8.png", alt="A website that appears cut-off to the right due to being too wide for the viewport.", width="420", height="640" %}
-<figcaption>The Yahoo website from the early 2000s as experienced in a browser that's narrower than the site's 800 pixel wide design. Screenshot from <a href="https://archive.org">archive.org</a></figcaption>
+<figure markdown>
+![Сайт, который кажется обрезанным справа из-за слишком большой ширины для области просмотра.](intro-5.png)
+<figcaption markdown>Сайт Yahoo начала 2000-х годов в браузере, ширина которого меньше ширины сайта на 800 пикселей. Снимок экрана из [archive.org](https://archive.org)</figcaption>
 </figure>
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'RwZjwoQ',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/RwZjwoQ?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen RwZjwoQ by web-dot-dev on Codepen"></iframe>
 
-## Liquid layouts
+## Резиновые верстки
 
-While the majority of designers used fixed-width layouts, some chose to make their layouts flexible.
-Instead of using fixed widths for your layouts you could make a flexible layout using percentages for your column widths.
-These designs work in more situations than a fixed-width layout that only looks right at one specific size.
+Хотя большинство дизайнеров использовали макеты с фиксированной шириной колонок, некоторые решили сделать их гибкими. Вместо использования фиксированной ширины макета можно создать гибкий макет, используя проценты для ширины колонок. Такие макеты работают в большем количестве ситуаций, чем макеты с фиксированной шириной, которые выглядят правильно только при одном конкретном размере.
 
-These were called liquid layouts.
-But while a liquid layout will look good across a wide range of widths, it will begin to worsen at the extremes.
-On a wide screen the layout looks stretched.
-On a narrow screen the layout looks squashed. Both scenarios aren't ideal.
+Такие макеты называются резиновыми верстками. Но если резиновая верстка хорошо смотрится в широком диапазоне ширины, то в крайних случаях она начинает ухудшаться. На широком экране макет выглядит растянутым. На узком экране макет выглядит сжатым. Оба сценария не являются идеальными.
 
-<figure>
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/oBAbgP2JCt2zVENHVCnc.png", alt="A layout that is squashed into a narrow window.", width="420", height="640" %}
-<figcaption>Wikipedia's liquid layout from the mid 2000s as experienced in a narrow browser window. Screenshot from <a href="https://archive.org">archive.org</a></figcaption>
+<figure markdown>
+![Макет, втиснутый в узкое окно.](intro-6.png)
+<figcaption markdown>Резиновая верстка Википедии середины 2000-х годов в узком окне браузера. Снимок экрана из [archive.org](https://archive.org)</figcaption>
 </figure>
 ​​
-<figure>
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/zRBSmS1xCgYPTueUBMd9.png", alt="A layout stretched horizontally with very long line lengths.", width="800", height="320" %}
-<figcaption>Wikipedia's liquid layout from the mid 2000s as experienced in a wide browser window. Screenshot from <a href="https://archive.org">archive.org</a></figcaption>
+<figure markdown>
+![Макет, вытянутый по горизонтали, с очень большой длиной строк.](intro-7.png)
+<figcaption markdown>Резиновая верстка Википедии середины 2000-х годов в широком окне браузера. Снимок экрана из [archive.org](https://archive.org)</figcaption>
 </figure>
 
-You can mitigate these problems by using `min-width` and `max-width` for your layout.
-But then at any size below the minimum width or above the maximum width you've got the same issues you'd have with a fixed-width layout.
-On a wide screen there'd be unused space going to waste.
-On a narrow screen, the user would have to move the whole page left and right to see everything.
+Смягчить эти проблемы можно, используя для макета значения `min-width` и `max-width`. Но тогда при любом размере, меньшем минимальной или большем максимальной ширины, возникают те же проблемы, что и при макете с фиксированной шириной. На широком экране неиспользуемое пространство будет пропадать. На узком экране пользователю придется перемещать всю страницу влево и вправо, чтобы все увидеть.
 
-<figure>
-{% Codepen {
- user: 'web-dot-dev',
- id: 'YzxEzpE',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/YzxEzpE?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen YzxEzpE by web-dot-dev on Codepen"></iframe>
 
-<figcaption>Open <a href="https://codepen.io/web-dot-dev/pen/YzxEzpE">the liquid layout example</a>
-in a new browser window to see how changing the size of the window stretches the design.</figcaption>
-</figure>
+Слово _резиновый_ - это лишь один из терминов, используемых для описания такого рода макетов. Подобные конструкции также назывались "текучими" или "гибкими". Терминология была столь же подвижна, как и техника.
 
-The word _liquid_ is just one of the terms used to describe this kind of layout.
-These kinds of designs were also called fluid layouts or flexible layouts.
-The terminology was as fluid as the technique.
+## Маленькие экраны
 
-## Small screens
+В XXI веке Интернет продолжал становиться все больше и больше. Увеличивались и мониторы. Но появились новые экраны, которые были меньше любого настольного устройства. С появлением мобильных телефонов с полнофункциональными веб-браузерами перед дизайнерами встала дилемма. Как сделать так, чтобы их дизайн хорошо смотрелся и на настольном компьютере, и на мобильном телефоне? Нужен был способ стилизации контента для экранов шириной 240 и тысячи пикселей.
 
-In the 21st century, the web continued to get bigger and bigger.
-So did monitors. But new screens arrived that were smaller than any desktop device.
-With the arrival of mobile phones with fully-featured web browsers, designers faced a dilemma.
-How could they ensure their designs would look good on a desktop computer and a mobile phone?
-They needed a way of styling their content for screens as small as 240 pixels wide and as large as thousands of pixels wide.
+## Отдельные сайты
 
-## Separate sites
+Один из вариантов - сделать отдельный поддомен для мобильных посетителей. Но тогда придется поддерживать две отдельные кодовые базы и дизайн. А для перенаправления посетителей на мобильных устройствах придется использовать [user-agent sniffing](https://ru.wikipedia.org/wiki/%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7_%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80%D0%B0), который может быть ненадежным и легко подделываемым. По соображениям конфиденциальности Chrome будет отказываться от строки `user-agent`. Кроме того, нет четкой границы между мобильным и немобильным. На какой сайт вы отправляете планшетные устройства?
 
-One option is to make a separate subdomain for mobile visitors.
-But then you have to maintain two separate codebases and designs.
-And in order to redirect visitors on mobile devices, you'd need to do
-[user-agent sniffing](https://ru.wikipedia.org/wiki/%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7_%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80%D0%B0),
-which can be unreliable and easily spoofed.
-Chrome will be deprecating its user-agent string for privacy reasons.
-Also, there's no clear line between mobile and not-mobile. Which site do you send tablet devices to?
+## Адаптивные макеты
 
-## Adaptive layouts
+Вместо того чтобы иметь отдельные сайты на разных поддоменах, можно иметь один сайт с двумя или тремя макетами фиксированной ширины.
 
-Instead of having separate sites on different subdomains,
-you could have a single site with two or three fixed-width layouts.
+Когда медиазапросы впервые появились в CSS, они открыли возможность сделать макеты более гибкими. Однако многим разработчикам по-прежнему было удобно создавать макеты с фиксированной шириной. Одна из техник предполагает переключение между несколькими макетами с фиксированной шириной при заданных значениях ширины. Некоторые называют это адаптивным дизайном.
 
-When media queries first arrived in CSS, they opened the door to making layouts more flexible.
-But many developers were still most comfortable making fixed-width layouts.
-One technique involved switching between a handful of fixed-width layouts at specified widths.
-Some people call this an adaptive design.
+Адаптивный дизайн позволяет дизайнерам создавать макеты, которые хорошо выглядят при нескольких различных размерах, но при просмотре между этими размерами дизайн никогда не выглядел правильно. Проблема избыточного пространства сохранялась, хотя и не так сильно, как при макете с фиксированной шириной.
 
-Adaptive design allowed designers to provide layouts that looked good at a few different sizes,
-but the design never looked quite right when viewed between those sizes.
-The problem of excess space persisted although it wasn't as bad as in a fixed-width layout.
+Используя медиазапросы CSS, можно предоставить людям макет, максимально соответствующий ширине их браузера. Однако, учитывая разнообразие размеров устройств, есть вероятность, что для большинства людей такой макет будет выглядеть не совсем идеально.
 
-Using CSS media queries, you can give people the layout that's closest to their browser width.
-But given the variety of device sizes, chances are the layout will look less than perfect for most people.
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/oNeoNYw?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen oNeoNYw by web-dot-dev on Codepen"></iframe>
 
-<figure>
-{% Codepen {
- user: 'web-dot-dev',
- id: 'oNeoNYw',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
-<figcaption>Open <a href="https://codepen.io/web-dot-dev/pen/oNeoNYw">the adaptive layout example</a>
-in a new browser window to see how changing the size of the window causes the design to jump between layouts.</figcaption>
-</figure>
+## Адаптивный веб-дизайн
 
-## Responsive web design
+Если адаптивные макеты представляют собой смесь медиазапросов и макетов фиксированной ширины, то адаптивный веб-дизайн - это смесь медиазапросов и резиновой верстки.
 
-If adaptive layouts are a mashup of media queries and fixed-width layouts, responsive web design is a mashup of media queries and liquid layouts.
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/JjyOjbE?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen JjyOjbE by web-dot-dev on Codepen"></iframe>
 
-<figure>
-{% Codepen {
- user: 'web-dot-dev',
- id: 'JjyOjbE',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
-<figcaption>Open <a href="https://codepen.io/web-dot-dev/pen/JjyOjbE">the responsive design example</a>
-in a new browser window to see how changing the size of the window causes the design to fluidly change layout.</figcaption>
-</figure>
+Этот термин был введен [Итаном Маркотте](https://ethanmarcotte.com/) в [статье в журнале A List Apart](https://alistapart.com/article/responsive-web-design/) в 2010 году.
 
-The term was coined by [Ethan Marcotte](https://ethanmarcotte.com/) in
-[an article in A List Apart](https://alistapart.com/article/responsive-web-design/) in 2010.
+Итан определил три критерия адаптивного дизайна:
 
-Ethan defined three criteria for responsive design:
+1.  Гибкие сетки
+2.  Гибкие медиа
+3.  Медиазапросы
 
-1. Fluid grids
-2. Fluid media
-3. Media queries
+Макет и изображения адаптивного сайта будут хорошо смотреться на любом устройстве. Но есть одна проблема.
 
-The layout and images of a responsive site would look good on any device. But there was one problem.
+## Элемент `meta` для `viewport`
 
-## A `meta` element for `viewport`
+Браузеры на мобильных телефонах вынуждены были иметь дело с сайтами, которые были разработаны с фиксированной шириной макета для более широких экранов. По умолчанию мобильные браузеры предполагали, что ширина сайта составляет 980 пикселей (и они не ошибались). Поэтому даже если вы использовали резиновую верстку, браузер применял ширину 980 пикселей, а затем уменьшал масштаб отображаемой веб-страницы до реальной ширины экрана.
 
-Browsers on mobile phones had to deal with websites that were designed with fixed-width layouts for wider screens.
-By default mobile browsers assumed that 980 pixels was the width that people were designing for (and they weren't wrong).
-So even if you used a liquid layout,
-the browser would apply a width of 980 pixels and then scale the rendered web page down to the actual width of the screen.
-
-If you're using responsive design you need to tell the browser not to do that scaling.
-You can do that with a `meta` element in the `head` of the web page:
+Если вы используете адаптивный дизайн, вам необходимо указать браузеру, чтобы он не выполнял такое масштабирование. Это можно сделать с помощью элемента `meta` в `head` веб-страницы:
 
 ```html
 <meta
-	name="viewport"
-	content="width=device-width, initial-scale=1"
+    name="viewport"
+    content="width=device-width, initial-scale=1"
 />
 ```
 
-There are two values, separated by commas.
-The first one is `width=device-width`.
-This tells the browser to assume the width of the website is the same as the width of the device
-(instead of assuming the width of the website is 980 pixels).
-The second value is `initial-scale=1`.
-This tells the browser how much or how little scaling to do.
-With a responsive design, you don't want the browser to do any scaling at all.
+Имеются два значения, разделенные запятыми. Первое - `width=device-width`. Оно указывает браузеру, что ширина сайта должна соответствовать ширине устройства (вместо того чтобы считать, что ширина сайта равна 980 пикселам). Второе значение - `initial-scale=1`. Оно указывает браузеру, насколько сильно или слабо нужно масштабировать сайт. При адаптивном дизайне браузер вообще не должен выполнять никакого масштабирования.
 
-<figure>
-{% Img src="image/kheDArv5csY6rvQUJDbWRscckLr1/HahSW2IXIkGux7cMCMpE.png", alt="Images of two mobile phones containing text, one appearing zoomed out due to not having the meta tag in place.", width="800", height="748" %}
-  <figcaption>The phone on the left shows how the layout looks before the meta tag is in place, when compared to the layout on the right.</figcaption>
+<figure markdown>
+![Изображения двух мобильных телефонов с текстом, один из которых выглядит уменьшенным из-за отсутствия мета-тега.](intro-8.png)
+<figcaption>Телефон слева показывает, как выглядит макет до установки мета-тега, в сравнении с макетом справа.</figcaption>
 </figure>
 
-With that `meta` element in place, your web pages are ready to be responsive.
+После установки элемента `meta` ваши веб-страницы становятся адаптивными.
 
-## Modern responsive design
+## Современный адаптивный дизайн
 
-Today we have the ability to make websites that are responsive in ways far beyond viewport sizes.
-Media features give developers access to user preferences and enable customized experiences.
-Container queries enable components to own their own responsive information.
-The `picture` element empowers designers to make art-direction decisions based on screen ratios.
+Сегодня у нас есть возможность создавать адаптивные сайты, размеры которых выходят далеко за пределы области просмотра. Медиафункции предоставляют разработчикам доступ к предпочтениям пользователей и позволяют создавать индивидуальный опыт. Контейнерные запросы позволяют компонентам владеть собственной адаптивной информацией. Элемент `picture` позволяет дизайнерам принимать решения о художественном оформлении в зависимости от соотношения размеров экрана.
 
-{% Assessment 'intro' %}
-
-Responsive design is an exciting, growing world of possibilities.
-In the rest of this course, you'll learn about these technologies and how to use them to create beautiful,
-responsive websites for everyone.
+Адаптивный дизайн - это захватывающий, растущий мир возможностей. В оставшейся части курса вы узнаете об этих технологиях и о том, как их использовать для создания красивых адаптивных веб-сайтов для всех.

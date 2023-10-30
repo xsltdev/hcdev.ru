@@ -3,7 +3,7 @@ nav:
     - index.md
     - html5
     - css3
-    #- design
+    - design
     - images
     - forms
     #- accessibility
