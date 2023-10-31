@@ -2,8 +2,8 @@ title: Адаптивный дизайн
 nav:
     - index.md
     - intro.md
-    #- media-queries.md
-    #- internationalization.md
+    - media-queries.md
+    - internationalization.md
     #- macro-layouts.md
     #- micro-layouts.md
     #- typography.md

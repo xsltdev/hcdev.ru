@@ -1,31 +1,26 @@
 ---
-title: Internationalization
-description: >
-    Prepare your designs for different languages and writing modes.
-
-
-authors:
-    - adactio
-date: 2021-11-03
+description: Подготовьте свои разработки для различных языков и режимов письма.
 ---
 
-The World Wide Web is available to everyone in the world—it's right there in the name! That means that your website is potentially available to anyone who has access to the internet, regardless of where they are, what device they're using, or what languages they speak.
+# Интернационализация
 
-The goal of responsive design is to make your content available to everyone. Applying that same philosophy to human languages is the driving force behind internationalization—preparing your content and designs for an international audience.
+Всемирная паутина доступна всем в мире - это следует из ее названия! Это означает, что ваш сайт потенциально может быть доступен любому человеку, имеющему доступ к Интернету, независимо от того, где он находится, какое устройство использует и на каком языке говорит.
 
-## Logical properties
+Цель адаптивного дизайна - сделать ваш контент доступным для всех. Применение той же философии к человеческим языкам является движущей силой интернационализации - подготовки контента и дизайна для международной аудитории.
 
-English is written from left to right and top to bottom, but not all languages are written this way. Some languages like Arabic and Hebrew read from right to left, and some Japanese typefaces read vertically instead of horizontally. To accommodate these writing modes, logical properties were introduced in CSS.
+## Логические свойства
 
-If you write CSS, you may have used directional keywords like "left", "right", "top", and "bottom." Those keywords refer to the physical layout of the user's device.
+Английский язык написан слева направо и сверху вниз, но не все языки написаны таким образом. Некоторые языки, например арабский и иврит, пишут справа налево, а некоторые японские шрифты пишут вертикально, а не горизонтально. Чтобы учесть эти способы написания, в CSS были введены логические свойства.
 
-[Logical properties](../css3/logical-properties.md), on the other hand, refer to the edges of a box as they relate to the flow of content. If the writing mode changes, CSS written with logical properties will update accordingly. That's not the case with directional properties.
+Если вы пишете CSS, то, возможно, использовали такие ключевые слова, как "left", "right", "top" и "bottom". Эти ключевые слова относятся к физическому расположению устройства пользователя.
 
-Whereas the directional property `margin-left` always refers to the margin on the left side of a content box, the logical property `margin-inline-start` refers to the margin on the left side of a content box in a left-to-right language, and the margin on the right side of a content box in a right-to-left language.
+С другой стороны, [Логические свойства](../css3/logical-properties.md) относятся к границам блока, поскольку они связаны с потоком содержимого. При изменении режима записи CSS, написанный с помощью логических свойств, будет обновляться соответствующим образом. С направленными свойствами дело обстоит иначе.
 
-In order for your designs to adapt to different writing modes, avoid directional properties. Use logical properties instead.
+Если направленное свойство `margin-left` всегда относится к левому краю блока содержимого, то логическое свойство `margin-inline-start` относится к левому краю блока содержимого на языке "слева направо" и к правому краю блока содержимого на языке "справа налево".
 
-{% Compare 'worse' %}
+Для того чтобы дизайн адаптировался к различным режимам письма, избегайте свойств направления. Вместо этого используйте логические свойства.
+
+:material-thumb-down:{: style="color: red"} Плохо
 
 ```css
 .byline {
@@ -33,9 +28,7 @@ In order for your designs to adapt to different writing modes, avoid directional
 }
 ```
 
-{% endCompare %}
-
-{% Compare 'better' %}
+:material-thumb-up:{: style="color: green"} Хорошо
 
 ```css
 .byline {
@@ -43,24 +36,21 @@ In order for your designs to adapt to different writing modes, avoid directional
 }
 ```
 
-{% endCompare %}
+Когда в CSS задается определенное значение направления, например `left` или `right`, появляется соответствующее логическое свойство. Там, где раньше было `margin-left`, теперь есть `margin-inline-start`.
 
-When CSS has a specific directional value like `left` or `right`, there's a corresponding logical property. Where once we had `margin-left` now we also have `margin-inline-start`.
+В таких языках, как английский, где текст идет слева направо, `inline-start` соответствует `left`, а `inline-end` - `right`.
 
-In a language like English where text flows from left to right, `inline-start` corresponds to "left" and `inline-end` corresponds to "right".
+Аналогично, в таком языке, как английский, где текст пишется сверху вниз, `block-start` соответствует `top`, а `block-end` - `bottom`.
 
-Likewise, in a language like English where the text is written from top to bottom, `block-start` corresponds to "top" and `block-end` corresponds to "bottom."
+![Латинский, иврит и японский языки отображаются в виде текста-заполнителя в рамке устройства. Стрелки и цвета следуют за текстом, чтобы помочь ассоциировать два направления - блочное и инлайн.](internationalization-1.webp)
 
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/9EcUvMxy9T10EzY4U95b.webp",
-alt="Latin, Hebrew and Japanese are shown rendering placeholder text within a device frame. Arrows and colors follow the text to help associate the 2 directions of block and inline.", width="800", height="577" %}
+Если использовать логические свойства в CSS, то можно использовать одну и ту же таблицу стилей для перевода страниц. Даже если ваши страницы переведены на языки, написанные справа налево или снизу вверх, дизайн будет соответствующим образом адаптирован. Нет необходимости создавать отдельный дизайн для каждого языка. Благодаря использованию логических свойств ваш дизайн будет реагировать на любой способ написания. Это означает, что ваш дизайн сможет охватить большее количество людей, и вам не придется тратить время на создание отдельного дизайна для каждого языка.
 
-If you use logical properties in your CSS, you can use the same stylesheet for translations of your pages. Even if your pages are translated into languages written from right to left or bottom to top, your design will adjust accordingly. You don't need to make separate designs for each language. By using logical properties, your design will respond to every writing mode. That means your design can reach more people without you having to spend time making separate designs for every language.
+Современные методы CSS-верстки, такие как [grid](../css3/grid.md) и [flexbox](../css3/flexbox.md), по умолчанию используют логические свойства. Если вы будете мыслить в терминах `inline-start` и `block-start`, а не `left` и `top`, то вам будет легче понять эти современные методы.
 
-Modern CSS layout techniques like [grid](../css3/grid.md) and [flexbox](../css3/flexbox.md) use logical properties by default. If you think in terms of `inline-start` and `block-start` instead of `left` and `top` then you'll find these modern techniques easier to understand.
+Возьмем такой распространенный шаблон, как [значок рядом с текстом](../css3/logical-properties.md#solving-the-icon-issue) или ярлык рядом с полем формы. Вместо того чтобы думать "метка должна иметь отступ справа", подумайте "метка должна иметь отступ на конце своей линейной оси".
 
-Take a common pattern like [an icon next to some text](../css3/logical-properties.md#solving-the-icon-issue) or a label next to a form field. Instead of thinking "the label should have a margin on the right," think "the label should have a margin on the end of its inline axis."
-
-{% Compare 'worse' %}
+:material-thumb-down:{: style="color: red"} Плохо
 
 ```css
 label {
@@ -68,9 +58,7 @@ label {
 }
 ```
 
-{% endCompare %}
-
-{% Compare 'better' %}
+:material-thumb-up:{: style="color: green"} Хорошо
 
 ```css
 label {
@@ -78,61 +66,41 @@ label {
 }
 ```
 
-{% endCompare %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/gOxXOLK?height=300&amp;theme-id=dark&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 300px; width: 100%; border: 0;" data-title="Pen gOxXOLK by web-dot-dev on Codepen"></iframe>
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'gOxXOLK',
- height: 300,
- theme: 'dark',
- tab: 'css,result'
-} %}
+Если эта страница будет переведена на язык с правосторонним переводом, то стили обновлять не нужно. Имитировать эффект от просмотра страниц на языке, переведенном справа налево, можно с помощью атрибута `dir` в элементе `html`. Значение `ltr` означает "слева направо". Значение `rtl` означает "справа налево".
 
-If that page is translated into a right-to-left language, the styles won't need to be updated. You can mimic the effect of seeing your pages in a right-to-left language by using the `dir` attribute on your `html` element. A value of `ltr` means "left to right." A value of "rtl" means "right to left."
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/mdMqdOx?height=300&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 300px; width: 100%; border: 0;" data-title="Pen mdMqdOx by web-dot-dev on Codepen"></iframe>
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'mdMqdOx',
- height: 300,
- theme: 'dark',
- tab: 'html,result'
-} %}
+Если вы хотите поэкспериментировать со всеми вариантами направления документа (ось block) и режимами записи (ось inline), то вот [интерактивная демонстрация](https://codepen.io/argyleink/pen/vYNwbgM).
 
-If you'd like to experiment with all the permutations of document directions (the block axis) and writing modes (the inline axis), here's [an interactive demonstration](https://codepen.io/argyleink/pen/vYNwbgM).
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/argyleink/embed/vYNwbgM?height=800&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 800px; width: 100%; border: 0;" data-title="Pen vYNwbgM by argyleink on Codepen"></iframe>
 
-{% Codepen {
- user: 'argyleink',
- id: 'vYNwbgM',
- height: 800,
- theme: 'dark',
- tab: 'result'
-} %}
+## Определение языка страницы
 
-## Identify page language
-
-It's a good idea to identify the language of your page by using the `lang` attribute on the `html` element.
+Для определения языка страницы полезно использовать атрибут `lang` в элементе `html`.
 
 ```html
 <html lang="en"></html>
 ```
 
-That example is for a page in English. You can be even more specific. Here's how you declare that a page is using US English:
+Этот пример относится к странице на английском языке. Можно быть еще более конкретным. Вот как можно объявить, что страница использует английский язык США:
 
 ```html
 <html lang="en-us"></html>
 ```
 
-Declaring the language of your document is useful for search engines. It's also useful for assistive technologies like screen readers and voice assistants. By providing language metadata you're helping these kinds of speech synthesizers pronounce your content correctly.
+Объявление языка документа полезно для поисковых систем. Это также полезно для вспомогательных технологий, таких как программы чтения с экрана и голосовые помощники. Предоставляя языковые метаданные, вы помогаете подобным синтезаторам речи правильно произносить содержимое вашего документа.
 
-The `lang` attribute can go on any HTML element, not just `html`. If you switch languages in your web page, indicate that change. In this case, one word is in German:
+Атрибут `lang` может использоваться в любом элементе HTML, а не только в `html`. Если вы переключаете язык на своей веб-странице, укажите это изменение. В данном случае одно слово написано на немецком языке:
 
 ```html
 <p>I felt some <span lang="de">schadenfreude</span>.</p>
 ```
 
-## Identify a linked document's language
+## Определение языка связанного документа
 
-There's another attribute called `hreflang` which you can use on links. The `hreflang` takes the same language code notation as the `lang` attribute and describes the linked document's language. If there's a translation of your entire page available in German, link to it like this:
+Существует еще один атрибут `hreflang`, который можно использовать в ссылках. Атрибут `hreflang` использует ту же кодовую нотацию языка, что и атрибут `lang`, и описывает язык ссылающегося документа. Если есть перевод всей страницы на немецкий язык, то ссылка на него выглядит следующим образом:
 
 ```html
 <a href="/path/to/german/version" hreflang="de"
@@ -140,7 +108,7 @@ There's another attribute called `hreflang` which you can use on links. The `hre
 >
 ```
 
-If you use text in German to describe the link to the German version, use both `hreflang` and `lang`. Here, the text "Deutsche Version" is marked up as being in the German language, and the destination link is also marked up as being in German:
+Если вы используете текст на немецком языке для описания ссылки на немецкую версию, используйте `hreflang` и `lang`. Здесь текст "Немецкая версия" помечен как текст на немецком языке, и целевая ссылка также помечена как немецкая:
 
 ```html
 <a href="/path/to/german/version" hreflang="de" lang="de"
@@ -148,7 +116,7 @@ If you use text in German to describe the link to the German version, use both `
 >
 ```
 
-You can also use the `hreflang` attribute on the `link` element. This goes in the `head` of your document:
+Также можно использовать атрибут `hreflang` на элементе `link`. Он помещается в `head` документа:
 
 ```html
 <link
@@ -158,23 +126,21 @@ You can also use the `hreflang` attribute on the `link` element. This goes in th
 />
 ```
 
-But unlike the `lang` attribute, which can go on any element, `hreflang` can only be applied to `a` and `link` elements.
+Но в отличие от атрибута `lang`, который может использоваться в любом элементе, `hreflang` может применяться только к элементам `a` и `link`.
 
-## Consider internationalization in your design
+## Учитывайте интернационализацию при проектировании
 
-When you're designing websites that will be translated into other languages and writing modes, think about these factors:
+При разработке сайтов, которые будут переводиться на другие языки и способы написания, следует учитывать следующие факторы:
 
--   Some languages, like German, have long words in common usage. Your interface needs to adapt to these words so avoid designing narrow columns. You can also [use CSS to introduce hyphens](https://developer.mozilla.org/docs/Web/CSS/hyphens).
--   Make sure your `line-height` values can accommodate characters like accents and other diacritics. Lines of text that look fine in English might overlap in a different language.
--   If you're using a web font, make sure it has a range of characters broad enough to cover the languages you'll be translating into.
--   Don't create images that have text in them. If you do, you'll have to create separate images for each language. Instead, separate the text and the image, and use CSS to overlay the text on the image.
+-   В некоторых языках, например в немецком, в обиходе имеются длинные слова. Ваш интерфейс должен быть адаптирован к этим словам, поэтому избегайте создания узких колонок. Вы также можете [использовать CSS для введения дефисов](https://developer.mozilla.org/docs/Web/CSS/hyphens).
+-   Убедитесь, что значения `line-height` могут учитывать такие символы, как ударения и другие диакритические знаки. Строки текста, которые хорошо смотрятся на английском языке, могут перекрываться на другом языке.
+-   Если вы используете веб-шрифт, убедитесь, что он имеет достаточно широкий набор символов, чтобы охватить все языки, на которые вы будете переводить.
+-   Не создавайте изображения, содержащие текст. В противном случае придется создавать отдельные изображения для каждого языка. Вместо этого разделите текст и изображение и используйте CSS для наложения текста на изображение.
 
-## Think internationally
+## Думайте по-международному
 
-Attributes like `lang` and `hreflang` make your HTML more meaningful for internationalization. Likewise, logical properties make your CSS more adaptable.
+Такие атрибуты, как `lang` и `hreflang`, делают HTML более осмысленным для интернационализации. Аналогично, логические свойства делают CSS более адаптируемым.
 
-If you're used to thinking in terms of `top`, `bottom`, `left`, and `right`, it might be hard to start thinking of `block start`, `block end`, `inline start` and `inline end` instead. But it's worth it. Logical properties are key to creating truly responsive layouts.
+Если вы привыкли мыслить в терминах `top`, `bottom`, `left` и `right`, вам может быть трудно начать думать о `block start`, `block end`, `inline start` и `inline end`. Но это того стоит. Логические свойства - это ключ к созданию действительно адаптивных макетов.
 
-{% Assessment 'internationalization' %}
-
-Next, you'll learn how to approach page-level layouts, also known as [macro layouts](macro-layouts.md).
+Далее вы узнаете, как работать с макетами на уровне страницы, известными также как [макроразметка](macro-layouts.md).
