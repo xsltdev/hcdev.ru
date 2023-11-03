@@ -1,27 +1,24 @@
 ---
-title: Micro layouts
-description: >
-    Build flexible components that can be placed anywhere.
-
-authors:
-    - adactio
-date: 2021-11-03
+description: Создавайте гибкие компоненты, которые можно разместить в любом месте.
 ---
 
-When we think of layouts, we often think of page-level designs. But smaller components within the page can have their own self-contained layouts.
+# Микроразметка
 
-Ideally, these component-level layouts will adjust themselves automatically, regardless of their position on the page. There may be situations where you don't know if a component will be placed into the main content column or the sidebar or both. Without knowing for sure where a component will end up, you need to make sure that the component can adjust itself to its container.
+Когда мы думаем о макетах, мы часто имеем в виду макеты на уровне страницы. Однако небольшие компоненты внутри страницы могут иметь свои собственные макеты.
 
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/hAz94zpnzIQYHjamxtYK.png",
-alt="A two column layout, one wide and one narrow. The media objects are laid out differently depending on whether they're in the wide or narrow column.", width="800", height="410" %}
+В идеале эти макеты на уровне компонентов должны настраиваться автоматически, независимо от их положения на странице. Возможны ситуации, когда неизвестно, куда будет помещен компонент - в колонку основного содержания или в боковую панель, или в обе. Не зная точно, где окажется компонент, необходимо убедиться в том, что он может подстраиваться под свой контейнер.
 
-{% Aside %} In the future, creating components that can adapt to their container will become much easier with the implementation of [Container Queries](https://developer.mozilla.org/docs/Web/CSS/CSS_Container_Queries). For now, however, you need to consider the existing ways to create reusable and responsive micro-layouts. You can find a preview of how Container Queries fit into existing responsive design methods at the end of this module. {%endAside%}
+![Макет с двумя колонками, широкой и узкой. Медиаобъекты располагаются по-разному в зависимости от того, в какой колонке они находятся - широкой или узкой.](micro-layouts-1.png)
+
+!!!note ""
+
+    В будущем создание компонентов, способных адаптироваться к своему контейнеру, значительно упростится с реализацией [Container Queries](https://developer.mozilla.org/docs/Web/CSS/CSS_Container_Queries). Пока же следует обратить внимание на существующие способы создания многократно используемых адаптивных микромакетов. О том, как Container Queries вписываются в существующие методы адаптивного дизайна, читайте в конце этого модуля.
 
 ## Grid
 
-[CSS grid](../css3/grid.md) isn't just for page-level layouts. It also works well for the components that live within them.
+[CSS grid](../css3/grid.md) предназначена не только для макетов на уровне страниц. Она также хорошо подходит для компонентов, которые находятся внутри них.
 
-In this example, the `::before` and `::after` [pseudo-elements](../css3/pseudo-elements.md) create decorative lines on either side of a heading. The heading itself is a grid container. The individual elements are laid out so that the lines always fill the available space.
+В данном примере [псевдоэлементы](../css3/pseudo-elements.md) `::before` и `::after` создают декоративные линии по обе стороны от заголовка. Сам заголовок является контейнером сетки. Отдельные элементы располагаются таким образом, чтобы линии всегда заполняли свободное пространство.
 
 ```css
 h1 {
@@ -37,29 +34,21 @@ h1::after {
 }
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'rNzYvxm',
- height: 200,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/rNzYvxm?height=200&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 200px; width: 100%; border: 0;" data-title="Pen rNzYvxm by web-dot-dev on Codepen"></iframe>
 
-<figure>
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/mNjoV2ri3HmsPeRoTpTh.png", alt="Developer tools in Firefox showing a grid overlay.", width="800", height="644" %}
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/7A1UYerc4KNuuWmp3IMJ.png", alt="Developer tools in Chrome showing a grid overlay.", width="800", height="644" %}
- <figcaption>
-   Desktop browsers like Firefox and Chrome have developer tools that can show you grid lines and areas overlaid on your design. 
- </figcaption>
+<figure markdown>
+![Инструменты разработчика в Firefox отображают наложение сетки.](micro-layouts-2.png)
+![Инструменты разработчика в Chrome отображают наложение сетки.](micro-layouts-3.png)
+<figcaption>В настольных браузерах, таких как Firefox и Chrome, имеются инструменты разработчика, позволяющие отображать линии и области сетки, наложенные на дизайн.</figcaption>
 </figure>
 
-Learn how to [inspect grid layouts](https://developer.chrome.com/docs/devtools/css/grid/) in Chrome DevTools.
+Узнайте, как [осмотреть макеты сетки](https://developer.chrome.com/docs/devtools/css/grid/) в Chrome DevTools.
 
 ## Flexbox
 
-As the name suggests, [flexbox](../css3/flexbox.md) allows you to make your components flexible. You can declare which elements in your component should have a minimum or maximum size and let the other elements flex to fit accordingly.
+Как следует из названия, [flexbox](../css3/flexbox.md) позволяет сделать компоненты гибкими. Вы можете указать, какие элементы в компоненте должны иметь минимальный или максимальный размер, и позволить другим элементам подстраиваться под них.
 
-In this example, the image takes up one quarter of the available space and the text takes up the other three quarters. But the image never gets larger than 200 pixels.
+В данном примере изображение занимает четверть доступного пространства, а текст - остальные три четверти. При этом размер изображения никогда не превышает 200 пикселей.
 
 ```css
 .media {
@@ -76,39 +65,33 @@ In this example, the image takes up one quarter of the available space and the t
 }
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'qBXVYZo',
- height: 300,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/qBXVYZo?height=300&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 300px; width: 100%; border: 0;" data-title="Pen qBXVYZo by web-dot-dev on Codepen"></iframe>
 
-<figure>
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/9xyxPbFU4EUtnPGsKdQI.png", alt="Developer tools in Firefox showing a flexbox overlay.", width="800", height="644" %}
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/R7Ucm4OvYLbXGD0I3rw2.png", alt="Developer tools in Chrome showing a flexbox overlay.", width="800", height="644" %}
- <figcaption>
-   The developer tools in Firefox and Chrome can help you visualize the shape of your flexbox components. 
- </figcaption>
+<figure markdown>
+![Инструменты разработчика в Firefox показывают наложение flexbox.](micro-layouts-4.png)
+![Инструменты разработчика в Chrome показывают наложение flexbox.](micro-layouts-5.png)
+<figcaption>The developer tools in Firefox and Chrome can help you visualize the shape of your flexbox components.</figcaption>
 </figure>
 
-Learn how to [inspect flexbox layouts](https://developer.chrome.com/docs/devtools/css/flexbox/) in Chrome DevTools.
+Узнайте, как [проверять макеты flexbox](https://developer.chrome.com/docs/devtools/css/flexbox/) в Chrome DevTools.
 
-## Container queries
+## Запросы к контейнерам
 
-Flexbox allows you to design from the content out. You can specify the parameters of your elements (how narrow they should get, how wide they should get) and let the browser figure out the final implementation.
+Flexbox позволяет создавать дизайн от содержимого наружу. Вы можете указать параметры элементов (насколько узкими они должны быть, насколько широкими) и предоставить браузеру самому решать, как их реализовать.
 
-But the component itself has no awareness of its context. It doesn't know if it's being used in the main content or in a sidebar. This can make component layouts trickier than page layouts. To be able to apply contextually relevant styles, your components need to know more than the size of the viewport they are inside.
+Но сам компонент не имеет представления о своем контексте. Он не знает, используется ли он в основном содержимом или в боковой панели. Это может сделать компонентную компоновку более сложной, чем страничную. Чтобы применять контекстно-зависимые стили, компоненты должны знать не только размер области просмотра, в которой они находятся.
 
-With page layouts, you _do_ know the width of the container because the container is the browser viewport; media queries report the dimensions of the page-level container.
+При компоновке страницы вы _знаете_ ширину контейнера, поскольку контейнер является областью просмотра браузера; медиа-запросы сообщают размеры контейнера на уровне страницы.
 
-Now there's an upcoming CSS technology that reports the dimensions of any parent container: [container queries](https://developer.mozilla.org/docs/Web/CSS/CSS_Container_Queries).
+В настоящее время разрабатывается технология CSS, которая сообщает размеры любого родительского контейнера: [container queries](https://developer.mozilla.org/docs/Web/CSS/CSS_Container_Queries).
 
-{% Aside 'caution' %} Container queries are a new experimental technology that isn't widely available in browsers. To test the code below, and see the example working, enable container queries in Chrome.
+!!!warning ""
 
-Go to `chrome://flags/`, search for **Container Queries**, and enable the `#enable-container-queries` flag. With the flag enabled, you can [inspect and debug container queries](https://developer.chrome.com/docs/devtools/css/container-queries/) in Chrome DevTools. {% endAside %}
+    Запросы к контейнерам - это новая экспериментальная технология, которая еще не получила широкого распространения в браузерах. Чтобы протестировать приведенный ниже код и убедиться в работоспособности примера, включите контейнерные запросы в Chrome.
 
-To start, define which elements will act as containers.
+    Перейдите по адресу `chrome://flags/`, найдите **Container Queries** и включите флаг `#enable-container-queries`. При включенном флаге можно [проверять и отлаживать запросы к контейнерам](https://developer.chrome.com/docs/devtools/css/container-queries/) в Chrome DevTools.
+
+Для начала определите, какие элементы будут выступать в качестве контейнеров.
 
 ```css
 main,
@@ -117,9 +100,9 @@ aside {
 }
 ```
 
-This means that you want to be able to query the inline dimension. For English-language documents, that's the horizontal axis. You're going to change styles based on the width of the container.
+Это означает, что вы хотите иметь возможность запрашивать встроенное измерение. Для англоязычных документов это горизонтальная ось. Вы собираетесь изменять стили в зависимости от ширины контейнера.
 
-If a component is inside one of those containers, you can apply styles in a way that's quite similar to media queries.
+Если компонент находится внутри одного из таких контейнеров, то можно применить стили способом, весьма похожим на медиазапросы.
 
 ```css
 .media-illustration {
@@ -144,20 +127,19 @@ If a component is inside one of those containers, you can apply styles in a way 
 }
 ```
 
-If a media object is inside a container that's narrower than `25em`, the flexbox styles aren't applied. The image and text appear are ordered vertically.
+Если медиаобъект находится внутри контейнера, ширина которого меньше `25em`, то стили flexbox не применяются. Изображение и текст располагаются в вертикальном порядке.
 
-But if the containing element is wider than `25em`, the image and text appear side by side.
+Если же содержащий элемент шире, чем `25em`, то изображение и текст располагаются рядом.
 
-Container queries allow you to style components in an independent way. The width of the viewport is no longer what matters. You can write rules based on the width of the containing element.
+Запросы к контейнерам позволяют создавать независимые стили для компонентов. Ширина области просмотра больше не имеет значения. Вы можете писать правила, основанные на ширине содержащего элемента.
 
-{% Img src="image/HodOHWjMnbNw56hvNASHWSgZyAf2/819QcTZ9zW0uVk8tTdGi.png",
-alt="Two containers of different sizes.", width="800", height="624" %}
+![Два контейнера разного размера.](micro-layouts-6.png)
 
-## Combining queries
+## Комбинирование запросов
 
-You can use media queries for the page layout, and container queries for the components within the page.
+Вы можете использовать медиа-запросы для оформления страницы и контейнерные запросы для компонентов внутри страницы.
 
-Here the overall structure of the page has a `main` element and an `aside` element. There are media objects within both elements.
+Здесь общая структура страницы имеет элемент `main` и элемент `aside`. В обоих элементах присутствуют медиаобъекты.
 
 ```html
 <body>
@@ -171,7 +153,7 @@ Here the overall structure of the page has a `main` element and an `aside` eleme
 </body>
 ```
 
-A media query applies a grid layout to the `main` and `aside` elements when the viewport is wider than `45em`.
+Медиазапрос применяет сетчатую компоновку к элементам `main` и `aside` при ширине области просмотра более `45em`.
 
 ```css
 @media (min-width: 45em) {
@@ -182,24 +164,16 @@ A media query applies a grid layout to the `main` and `aside` elements when the 
 }
 ```
 
-The container query rule for the media objects remains the same: only apply a horizontal flexbox layout if the containing element is wider than `25em`.
+Правило запроса контейнера для медиаобъектов остается прежним: применять горизонтальную компоновку flexbox только в том случае, если содержащий элемент имеет ширину более `25em`.
 
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/hAz94zpnzIQYHjamxtYK.png",
-alt="A two column layout, one wide and one narrow.
-The media objects are laid out differently depending on whether they're in the wide or narrow column.", width="800", height="410" %}
+![Макет с двумя колонками, широкой и узкой. Медиаобъекты располагаются по-разному в зависимости от того, в какой колонке они находятся - широкой или узкой.](micro-layouts-7.png)
 
-{% Aside 'caution' %} This demo won't work in every browser. In Google Chrome you can find the `#enable-container-queries` flag at `chrome://flags`. {% endAside %}
+!!!warning ""
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'RwZjyRv',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+    Данная демонстрация будет работать не во всех браузерах. В Google Chrome флаг `#enable-container-queries` можно найти по адресу `chrome://flags`.
 
-Container queries are a game-changer for micro layouts. Your components can be self-contained, independent of the browser viewport.
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/RwZjyRv?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen RwZjyRv by web-dot-dev on Codepen"></iframe>
 
-{% Assessment 'micro-layouts' %}
+Запросы к контейнерам - это революционное решение для микромакетов. Ваши компоненты могут быть автономными, не зависящими от области просмотра браузера.
 
-Previously, you learned about page-level macro layouts. Now you know about component-level micro layouts. Next, you'll dive deeper into the very building blocks of your content. You'll learn how to make your images responsive. But now let's explore responsive typography.
+Ранее вы узнали о макроразметке на уровне страницы. Теперь вы знаете о микроразметке на уровне компонентов. Далее мы углубимся в изучение самих структурных элементов контента. Вы узнаете, как сделать изображения адаптивными. А сейчас давайте рассмотрим адаптивную типографику.

@@ -1,19 +1,14 @@
 ---
-title: Macro layouts
-description: >
-    Design page layouts using a choice of CSS techniques.
-
-authors:
-    - adactio
-date: 2021-11-03
+description: Разработка макетов страниц с использованием различных приемов CSS.
 ---
 
-Macro layouts describe the larger, page-wide organization of your interface.
+# Макроразметка
 
-{% Img src="image/HodOHWjMnbNw56hvNASHWSgZyAf2/HoOnH9yMrSY6MhQdRNRZ.jpeg",
-alt="A wireframe of a two column layout, next to the same layout as one column for a narrow view.", width="800", height="501" %}
+Макроразметка описывает более крупную, в масштабах всей страницы, организацию интерфейса.
 
-Before applying any layout, you should make sure that the flow of your content makes sense. This single column default ordering is what smaller screens will get.
+![Каркас макета с двумя колонками, рядом тот же макет с одной колонкой для узкого обзора.](macro-layouts-1.jpeg)
+
+Перед применением любого макета необходимо убедиться в том, что поток содержимого имеет смысл. На небольших экранах по умолчанию используется одноколоночная верстка.
 
 ```html
 <body>
@@ -26,21 +21,17 @@ Before applying any layout, you should make sure that the flow of your content m
 </body>
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'oNeePOX',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/oNeePOX?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen oNeePOX by web-dot-dev on Codepen"></iframe>
 
-When you arrange these individual page-level components, you're designing a macro layout: a high-level view of your page. Using media queries, you can supply rules in CSS describing how this view should adjust to different screen sizes.
+При расположении этих отдельных компонентов на уровне страницы создается макроразметка - высокоуровневый вид страницы. Используя медиазапросы, можно задать в CSS правила, описывающие, как это представление должно адаптироваться к различным размерам экрана.
 
-{% Video src="video/HodOHWjMnbNw56hvNASHWSgZyAf2/3KENjI9FiNARctTiKDak.mp4", autoplay=true, controls=true, loop=true %}
+<video controls autoplay loop>
+<source src="/learn/design/macro-layouts-2.mp4" />
+</video>
 
 ## Grid
 
-[CSS grid](../css3/grid.md) is an excellent tool for applying a layout to your page. In the example above, say you want a two-column layout once there's enough screen width available. To apply this two-column layout once the browser is wide enough, use a media query to define the grid styles above a specified breakpoint.
+[CSS grid](../css3/grid.md) - это отличный инструмент для применения макета на странице. В приведенном выше примере, скажем, требуется двухколоночная верстка при достаточной ширине экрана. Чтобы применить эту двухколоночную верстку, когда браузер станет достаточно широким, используйте медиазапрос для определения стилей сетки выше указанной точки разрыва.
 
 ```css
 @media (min-width: 45em) {
@@ -51,19 +42,15 @@ When you arrange these individual page-level components, you're designing a macr
 }
 ```
 
-{% Aside %} While it would make more sense to specify `min-inline-size` instead of `min-width`, logical properties don't work in media queries yet. {% endAside %}
+!!!note ""
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'vYJJzMK',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+    Хотя логичнее было бы указать `min-inline-size` вместо `min-width`, логические свойства пока не работают в медиазапросах.
+
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/vYJJzMK?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen vYJJzMK by web-dot-dev on Codepen"></iframe>
 
 ## Flexbox
 
-For this specific layout, you could also use [flexbox](../css3/flexbox.md). The styles would look like this:
+Для данного конкретного макета можно также использовать [flexbox](../css3/flexbox.md). Стили будут выглядеть следующим образом:
 
 ```css
 @media (min-width: 45em) {
@@ -82,23 +69,17 @@ For this specific layout, you could also use [flexbox](../css3/flexbox.md). The 
 }
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'gOxxdym',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/gOxxdym?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen gOxxdym by web-dot-dev on Codepen"></iframe>
 
-However, the flexbox version requires more CSS. Each column has a separate rule to describe how much space it should take up. In the grid example, that same information is encapsulated in one rule for the containing element.
+Однако версия flexbox требует больше CSS. Каждый столбец имеет отдельное правило, описывающее, сколько места он должен занимать. В примере с сеткой эта же информация заключена в одно правило для содержащего элемента.
 
-## Do you need a media query?
+## Нужен ли вам медиазапрос?
 
-You might not always need to use a media query. Media queries work fine when you're applying changes to a few elements, but if the layout needs to be updated a lot, your media queries could get out of hand with lots of breakpoints.
+Возможно, не всегда нужно использовать медиазапрос. Медиазапросы хорошо работают, когда изменения вносятся в несколько элементов, но если макет нужно обновлять часто, то медиазапросы могут выйти из-под контроля из-за большого количества точек останова.
 
-Say you've got a page full of card components. The cards are never wider than `15em`, and you want to put as many cards on one line as will fit. You could write media queries with breakpoints of `30em`, `45em`, `60em`, and so on, but that's quite tedious and difficult to maintain.
+Скажем, у вас есть страница, заполненная компонентами карточек. Карточки никогда не бывают шире `15em`, и вы хотите разместить на одной строке столько карточек, сколько поместится. Можно написать медиа-запросы с точками разрыва `30em`, `45em`, `60em` и т.д., но это довольно утомительно и сложно в обслуживании.
 
-Instead, you can apply rules so that the cards themselves automatically take up the right amount of space.
+Вместо этого можно применить правила, чтобы карточки сами автоматически занимали нужное пространство.
 
 ```css
 .cards {
@@ -111,15 +92,9 @@ Instead, you can apply rules so that the cards themselves automatically take up 
 }
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'QWMMVPm',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/QWMMVPm?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen QWMMVPm by web-dot-dev on Codepen"></iframe>
 
-You can achieve a similar layout with flexbox. In this case, if there are not enough cards to fill the final row, the remaining cards will stretch to fill the available space rather than lining up in columns. If you want to line up rows and columns, then use grid.
+Аналогичного расположения можно добиться с помощью flexbox. В этом случае, если не хватает карточек для заполнения последнего ряда, оставшиеся карточки растягиваются, заполняя свободное пространство, а не выстраиваются в столбцы. Если необходимо выстроить строки и столбцы, то используйте сетку.
 
 ```css
 .cards {
@@ -134,16 +109,8 @@ You can achieve a similar layout with flexbox. In this case, if there are not en
 }
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'abyyaMg',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/abyyaMg?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen abyyaMg by web-dot-dev on Codepen"></iframe>
 
-By applying some smart rules in flexbox or grid, it's possible to design dynamic macro layouts with minimal CSS and without any media queries. That's less work for you—you're making the browser do the calculations instead. To see some examples of modern CSS layouts that are fluid without requiring media queries, see [1linelayouts.com](https://1linelayouts.glitch.me/).
+Применяя некоторые "умные" правила в flexbox или grid, можно создавать динамические макеты макросов с минимальным количеством CSS и без каких-либо медиазапросов. Таким образом, вы получаете меньше работы для себя - вместо этого вы заставляете браузер выполнять вычисления. Примеры современных CSS-макетов, которые работают плавно и не требуют медиазапросов, можно посмотреть на сайте [1linelayouts.com](https://1linelayouts.glitch.me/).
 
-{% Assessment 'macro-layouts' %}
-
-Now that you've got some ideas for page-level macro layouts, turn your attention to the components within the page. This is the realm of [micro layouts](micro-layouts.md).
+Теперь, когда у вас есть несколько идей по макроразметке на уровне страницы, обратите внимание на компоненты внутри страницы. Это сфера [micro layouts](micro-layouts.md).

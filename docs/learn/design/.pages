@@ -4,10 +4,10 @@ nav:
     - intro.md
     - media-queries.md
     - internationalization.md
-    #- macro-layouts.md
-    #- micro-layouts.md
-    #- typography.md
-    #- responsive-images.md
+    - macro-layouts.md
+    - micro-layouts.md
+    - typography.md
+    - responsive-images.md
     #- picture-element.md
     #- icons.md
     #- theming.md

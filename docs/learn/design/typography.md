@@ -1,32 +1,30 @@
 ---
-title: Typography
-description: >
-    Make your text legible and beautiful, no matter where it appears.
-
-authors:
-    - adactio
-date: 2021-12-09
+description: Сделайте текст разборчивым и красивым, где бы он ни появлялся.
 ---
 
-If you don't specify any styles for your text, browsers will apply their own default styles. These are called _User Agent stylesheets_, and may vary from browser to browser. Users can set their own preferences for displaying text too.
+# Типографика
 
-If you don't specify a line length, browsers will wrap lines of text at the edge of the screen. So text on the web is responsive by default—it flows to fit the user's viewport.
+Если не указать стили для текста, браузеры будут применять свои собственные стили по умолчанию. Они называются таблицами стилей агента пользователя (_User Agent stylesheets_) и могут отличаться от браузера к браузеру. Пользователи также могут задавать свои собственные предпочтения при отображении текста.
 
-But just because text fits on a screen doesn't mean it's comfortable to read. Good typography is all about presenting your text in an appropriate way. There's more to typography than choosing suitable fonts to use. You need to consider the user's preferences, the size of the text, line length, and the distance between the lines of text.
+Если не указать длину строки, браузеры будут заворачивать строки текста за край экрана. Таким образом, текст в Интернете по умолчанию является адаптивным - он подстраивается под область просмотра пользователя.
 
-{% Aside %} You may even need to consider the primary language of your user, as you may need to leave room for accents and other special characters. Learn more about this in the [internationalization](internationalization.md) module. {% endAside %}
+Но если текст помещается на экране, это еще не значит, что его удобно читать. Хорошая типографика - это представление текста в нужном виде. В типографике есть не только выбор подходящих шрифтов. Необходимо учитывать предпочтения пользователя, размер текста, длину строки и расстояние между строками текста.
 
-## Text size
+!!!note ""
 
-It's difficult to know what size text on the web should be.
+    Возможно, потребуется учесть и основной язык пользователя, так как в этом случае необходимо оставить место для акцентов и других специальных символов. Подробнее об этом можно узнать в модуле [интернационализация](internationalization.md).
 
-If someone is using a small screen, it might be a safe bet that their screen will be fairly close to their eyes—a hand's length away.
+## Размер текста
 
-But as screens get larger and larger, it's harder to make that connection. A laptop-size screen will probably be fairly near to the viewer, but a widescreen desktop monitor is around the same size as a television screen. People sit an arm's length away from a desktop screen but they sit much further away from a television.
+Сложно определить, какого размера должен быть текст в Интернете.
 
-Still, while you can't know for certain how far away someone is from a screen, you can try to use text sizes that will hopefully turn out to be appropriate. Use smaller text sizes for smaller screens and larger text sizes for larger screens.
+Если человек использует небольшой экран, то можно с уверенностью сказать, что экран будет находиться достаточно близко к глазам - на расстоянии вытянутой руки.
 
-You can use media queries to change the `font-size` property as the screen size gets wider.
+Однако с увеличением размеров экранов такую связь установить все труднее. Экран ноутбука, вероятно, будет находиться достаточно близко к зрителю, но широкоформатный монитор настольного компьютера по размеру примерно соответствует экрану телевизора. Люди сидят на расстоянии вытянутой руки от экрана настольного компьютера, но от телевизора они сидят гораздо дальше.
+
+Тем не менее, хотя вы не можете знать наверняка, на каком расстоянии от экрана находится человек, вы можете попытаться использовать размеры текста, которые, как можно надеяться, окажутся подходящими. Используйте меньшие размеры текста для маленьких экранов и большие - для больших.
+
+Можно использовать медиа-запросы для изменения свойства `font-size` при увеличении размера экрана.
 
 ```css
 @media (min-width: 30em) {
@@ -54,25 +52,21 @@ You can use media queries to change the `font-size` property as the screen size 
 }
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'WNZeBWY',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/WNZeBWY?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen WNZeBWY by web-dot-dev on Codepen"></iframe>
 
-{% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/cH8IU9hV7FGCgN0roNiU.mp4", controls=true, loop=true %}
+<video controls loop autoplay>
+<source src="/learn/design/typography-1.mp4" />
+</video>
 
-## Scaling text
+## Масштабирование текста
 
-Switching between fixed text sizes at specific breakpoints is quite jumpy. A more responsive approach is to let the user's device width influence the text size.
+Переключение между фиксированными размерами текста в определенных точках останова происходит довольно нестабильно. Более адаптивный подход заключается в том, чтобы позволить ширине устройства пользователя влиять на размер текста.
 
-The `vw` unit in CSS stands for “viewport width.” Connecting font sizes to the viewport's width means that the text will grow and shrink in proportion to the browser width. This makes it difficult to predict what the text size will be at any specific width, but you know that the text size will be appropriate for the user's browser width.
+Единица `vw` в CSS означает "ширину области просмотра". Привязка размера шрифта к ширине области просмотра означает, что текст будет увеличиваться и уменьшаться пропорционально ширине браузера. Таким образом, трудно предсказать, каким будет размер текста при любой конкретной ширине, но можно быть уверенным, что размер текста будет соответствовать ширине браузера пользователя.
 
-It's important that you don't use the `vw` by itself in a font-size declaration.
+Важно, чтобы в объявлении размера шрифта не использовалось само по себе выражение `vw`.
 
-{% Compare 'worse' %}
+:material-thumb-down:{: style="color: red"} Плохо
 
 ```css
 html {
@@ -80,11 +74,9 @@ html {
 }
 ```
 
-{% endCompare %}
+В противном случае пользователь не сможет изменить размер текста. Текст можно будет изменять, если использовать относительные единицы измерения, например `em`, `rem` или `ch`. Для этого отлично подходит функция CSS [`calc()`](../../css/calc.md).
 
-If you do, the user won't be able to resize the text. The text will be resizable if you mix in a relative unit—like `em`, `rem` or `ch`. The CSS [`calc()`](<https://developer.mozilla.org/docs/Web/CSS/calc()>) function is perfect for this.
-
-{% Compare 'better' %}
+:material-thumb-up:{: style="color: green"} Хорошо
 
 ```css
 html {
@@ -92,27 +84,21 @@ html {
 }
 ```
 
-{% endCompare %}
+Пусть браузер сам все просчитает. Таким образом, трудно точно предсказать, каким будет размер текста при определенной ширине, но вы знаете, что размер текста будет в нужном диапазоне. Браузер пользователя берет на себя заботу о точном расчете размера текста.
 
-Let the browser do the math. This makes it difficult to predict exactly what the text size will be at any specific width, but you know that the text size will be in the right range. The user's browser takes care of figuring out the exact text size calculations.
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/zYEOQQG?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen zYEOQQG by web-dot-dev on Codepen"></iframe>
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'zYEOQQG',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<video controls loop autoplay>
+<source src="/learn/design/typography-2.mp4" />
+</video>
 
-{% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/x5h7TqkGHJIPa61wPvAs.mp4", controls=true, loop=true %}
+Но теперь есть вероятность того, что текст станет _слишком_ маленьким на узких экранах и _слишком_ большим на широких.
 
-But now there's a possibility that the text will get _too_ small on narrow screens and _too_ big on wide screens.
+## Сжатие текста
 
-## Clamping text
+Вероятно, вы не хотите, чтобы ваш текст уменьшался и увеличивался до крайних пределов. Вы можете контролировать, где начинается и где заканчивается масштабирование, используя функцию CSS [`clamp()`](../../css/clamp.md). Она "зажимает" масштабирование в определенном диапазоне.
 
-You probably don't want your text to shrink and grow to extremes. You can control where the scaling starts and ends using the CSS [`clamp()`](<https://developer.mozilla.org/docs/Web/CSS/clamp()>) function. This “clamps” the scaling to a specific range.
-
-The `clamp()` function is like the `calc()` function but it takes three values. The middle value is the same as what you pass to `calc()`. The opening value specifies the minimum size, in this case 1rem so as to not go below the user's preferred font size. The closing value specifies the maximum size.
+Функция `clamp()` похожа на функцию `calc()`, но принимает три значения. Среднее значение совпадает с тем, которое вы передаете в функцию `calc()`. Открывающее значение задает минимальный размер, в данном случае 1rem, чтобы не опускаться ниже предпочитаемого пользователем размера шрифта. Закрывающее значение задает максимальный размер.
 
 ```css
 html {
@@ -120,31 +106,27 @@ html {
 }
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'wvrwbbx',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/wvrwbbx?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen wvrwbbx by web-dot-dev on Codepen"></iframe>
 
-Now the text size shrinks and grows in proportion to the user's screen but the text size will never go below `1rem` or above `2rem`.
+Теперь размер текста уменьшается и увеличивается пропорционально экрану пользователя, но размер текста никогда не будет ниже `1rem` или выше `2rem`.
 
-{% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/vVwP2L0z90zXL28iPYL4.mp4", controls=true, loop=true %}
+<video controls loop autoplay>
+<source src="learn/design/typography-3.mp4" />
+</video>
 
-## Line length
+## Длина строки
 
-The web is not print, but we can learn lessons from the world of print and apply them on the web.
+Интернет - это не печать, но мы можем извлечь уроки из мира печати и применить их в Интернете.
 
-In his classic book [_The Elements of Typographic Style_](http://webtypography.net/2.1.2), Robert Bringhurst had this to say on line length (or measure):
+В своей классической книге [_The Elements of Typographic Style_](http://webtypography.net/2.1.2) Роберт Бринхерст так высказался по поводу длины строки (или меры):
 
-> Anything from 45 to 75 characters is widely regarded as a satisfactory line length for a single-column page set in a serifed text face in a text size. The 66-character line (counting both letters and spaces) is widely regarded as ideal. For multiple column work, a better average is 40 to 50 characters.
+> Любые от 45 до 75 символов считаются удовлетворительной длиной строки для одноколоночной страницы, набранной шрифтом с засечками и размером текста. Идеальной считается строка в 66 символов (считая буквы и пробелы). Для многоколоночной работы более оптимальным является среднее значение 40-50 символов.
 
-You can't set a line length directly in CSS. There is no `line-length` property. But you can stop text from getting too wide by limiting how wide the container can be. The [`max-inline-size`](https://developer.mozilla.org/docs/Web/CSS/max-inline-size) property is perfect for this.
+В CSS нельзя задать длину строки напрямую. Свойства `line-length` не существует. Но вы можете предотвратить слишком большое увеличение ширины текста, ограничив ширину контейнера. Для этого отлично подходит свойство [`max-inline-size`](https://developer.mozilla.org/docs/Web/CSS/max-inline-size).
 
-Don't set your line-lengths with a fixed unit like `px`. Users can scale their font size up and down and your line lengths should adjust accordingly. Use a [relative unit](../css3/sizing.md#relative-lengths) like `rem` or `ch`.
+Не задавайте длину строки в фиксированных единицах, таких как `px`. Пользователи могут изменять размер шрифта в большую или меньшую сторону, и длина строки должна подстраиваться под них. Используйте [относительную единицу](../css3/sizing.md#relative-lengths), например `rem` или `ch`.
 
-{% Compare 'worse' %}
+:material-thumb-down:{: style="color: red"} Плохо
 
 ```css
 article {
@@ -152,9 +134,7 @@ article {
 }
 ```
 
-{% endCompare %}
-
-{% Compare 'better' %}
+:material-thumb-up:{: style="color: green"} Хорошо
 
 ```css
 article {
@@ -162,25 +142,19 @@ article {
 }
 ```
 
-{% endCompare %}
+Использование единиц `ch` для ширины приведет к тому, что новые строки будут обернуты на 66-м символе при данном размере шрифта.
 
-Using `ch` units for width will cause new lines to wrap at the 66th character at that font size.
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/MWEgddN?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen MWEgddN by web-dot-dev on Codepen"></iframe>
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'MWEgddN',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<video controls loop autoplay>
+<source src="/learn/design/typography-4.mp4" />
+</video>
 
-{% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/9Nxi6HuU28aQhxtzXq7l.mp4", controls=true, loop=true %}
+## Высота строки
 
-## Line height
+Хотя в CSS не существует свойства `line-length`, есть свойство [`line-height`](../../css/line-height.md).
 
-Although there is no `line-length` property in CSS, there is a [`line-height`](https://developer.mozilla.org/docs/Web/CSS/line-height) property.
-
-Shorter lines of text can have larger `line-height` values. But if you use large `line-height` values for long lines of text, it's hard for the reader's eye to move from the end of one line to the start of the next line.
+Более короткие строки текста могут иметь большие значения `line-height`. Но если использовать большие значения `line-height` для длинных строк текста, то читателю будет трудно переместиться от конца одной строки к началу следующей.
 
 ```css
 article {
@@ -193,43 +167,35 @@ blockquote {
 }
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'oNGvRrZ',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/oNGvRrZ?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen oNGvRrZ by web-dot-dev on Codepen"></iframe>
 
-{% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/di6psFbT6JhlwjtMm68j.mp4", controls=true, loop=true %}
+<video controls loop autoplay>
+<source src="/learn/design/typography-5.mp4" />
+</video>
 
-Use unitless values for your `line-height` declarations. This ensures that the line height is relative to the `font-size`.
+Для объявления `line-height` используйте значения без единиц измерения. Это гарантирует, что высота строки будет относительной по отношению к `font-size`.
 
-{% Compare 'worse' %}
+:material-thumb-down:{: style="color: red"} Плохо
 
 ```css
 line-height: 24px;
 ```
 
-{% endCompare %}
-
-{% Compare 'better' %}
+:material-thumb-up:{: style="color: green"} Хорошо
 
 ```css
 line-height: 1.5;
 ```
 
-{% endCompare %}
+## Комбинации и масштабы
 
-## Combinations and scale
+При построении пользовательских интерфейсов не забывайте отдавать предпочтение иерархии для большей ясности и удобства работы со страницей. Отличным способом сделать это является [шкала типографики, встроенная в вашу систему дизайна](https://material.io/design/typography/the-type-system.html#type-scale).
 
-Remember to prioritize hierarchy as you build your user interfaces for better clarity and page flow. A great way to do this is with [a typography scale built into your design system](https://material.io/design/typography/the-type-system.html#type-scale).
+## Веб-шрифты
 
-## Web fonts
+Шрифт - это как голос для ваших слов. Долгое время в Интернете было очень мало вариантов шрифтов. Единственным вариантом были системные шрифты. Но теперь вы можете выбрать веб-шрифт, который будет соответствовать вашему содержанию.
 
-A typeface is like a voice for your words. For the longest time on the web there were very few font options. System fonts were the only options. But now you can choose a web font that matches the feel of your content.
-
-Use `@font-face` to tell browsers where to find your web font files. Use woff2 as your web font format. It's well supported and has the best performance gains.
+Используйте `@font-face`, чтобы указать браузерам, где искать файлы веб-шрифтов. В качестве формата веб-шрифта используйте woff2. Он хорошо поддерживается и имеет наилучший прирост производительности.
 
 ```css
 @font-face {
@@ -241,11 +207,11 @@ body {
 }
 ```
 
-But every web font file you add could potentially degrade the user experience as it increases page load time. Remember, design isn't just about how the final pixels look. How fast those pixels get painted is a critical part of the user experience. An experience that feels fast is a good user experience.
+Однако каждый добавленный файл веб-шрифта может ухудшить качество работы пользователя, поскольку увеличивает время загрузки страницы. Помните, что дизайн - это не только то, как выглядят конечные пиксели. То, как быстро эти пиксели прорисовываются, является важнейшей частью пользовательского опыта. Если пользователь чувствует себя быстро, это значит, что он работает хорошо.
 
-## Font loading
+## Загрузка шрифтов
 
-You can request that browsers start downloading a font file as soon as possible. Add a `link` element to the `head` of your document that references your web font file. A `rel` attribute with a value of `preload` tells the browser to prioritize that file. An `as` attribute with a value of `font` tells the browser what kind of file this is. The `type` attribute allows you to be even more specific.
+Вы можете потребовать, чтобы браузеры начали загрузку файла шрифта как можно быстрее. Добавьте в `head` документа элемент `link`, ссылающийся на файл веб-шрифта. Атрибут `rel` со значением `preload` указывает браузеру на приоритетность этого файла. Атрибут `as` со значением `font` сообщает браузеру, что это за файл. Атрибут `type` позволяет быть еще более конкретным.
 
 ```html
 <link
@@ -257,15 +223,17 @@ You can request that browsers start downloading a font file as soon as possible.
 />
 ```
 
-You need to include the `crossorigin` attribute even if you are hosting the font files yourself.
+Атрибут `crossorigin` необходимо включать, даже если вы размещаете файлы шрифтов самостоятельно.
 
-Use the CSS [`font-display`](https://developer.mozilla.org/docs/Web/CSS/@font-face/font-display) property to tell the browser how to manage the switchover from a system font to a web font. You could choose to show no text at all until the web font is loaded. You could choose to display the system font immediately and then switch over to the web font once it loads. Both strategies have their downsides. If you wait until the web font is downloaded before showing any text, users may find themselves staring at a blank page for a frustratingly long time. If you show the text in a system font first and then switch over to the web font, users may experience a jarring shifting of content on the page.
+Используйте свойство CSS [`font-display`](https://developer.mozilla.org/docs/Web/CSS/@font-face/font-display), чтобы указать браузеру, как управлять переходом от системного шрифта к веб-шрифту. Можно выбрать вариант, при котором текст вообще не будет отображаться до тех пор, пока не загрузится веб-шрифт. Можно сразу отобразить системный шрифт, а затем переключиться на веб-шрифт после его загрузки. Обе стратегии имеют свои недостатки. Если ждать, пока загрузится веб-шрифт, то пользователь может долго смотреть на пустую страницу. Если сначала показать текст системным шрифтом, а затем переключиться на веб-шрифт, пользователи могут ощутить резкое смещение содержимого страницы.
 
-{% Aside %} You can mitigate the jarring effect of text shifting around by using [`size-adjust`](https://web.dev/articles/css-size-adjust) in your `@font-face` rule. {% endAside %}
+!!!note ""
 
-A good compromise is to wait for a short while before displaying any text. If the web font loads before that time is up, the text is displayed using the web font with no content shifts. If the web font still hasn't loaded after the time is up, the text is displayed using the system font so at least the user can read the content.
+    Уменьшить эффект смещения текста можно, используя `size-adjust` в правиле `@font-face`.
 
-Use a `font-display` value of `swap` if you still want the web font to replace the system font whenever the web font finally loads.
+Хорошим компромиссом является выжидание некоторого времени перед отображением текста. Если веб-шрифт загрузится до истечения этого времени, то текст будет отображаться с использованием веб-шрифта без смещения содержимого. Если по истечении этого времени веб-шрифт так и не загрузился, то текст отображается системным шрифтом, чтобы пользователь мог хотя бы прочитать содержимое.
+
+Используйте значение `font-display`, равное `swap`, если вы хотите, чтобы веб-шрифт заменял системный шрифт, когда он наконец загрузится.
 
 ```css
 body {
@@ -274,7 +242,7 @@ body {
 }
 ```
 
-Use a `font-display` value of `fallback` if you want to stick with the system font once text has been rendered.
+Используйте значение `font-display` равное `fallback`, если вы хотите сохранить системный шрифт после отрисовки текста.
 
 ```css
 body {
@@ -283,20 +251,20 @@ body {
 }
 ```
 
-## Variable fonts
+## Переменные шрифты
 
-If you are using lots of different weights or styles of the same typeface, you may end up using lots of separate font files—a separate font file for each weight or style.
+Если вы используете много разных весов или стилей одного и того же шрифта, то в итоге может получиться много отдельных файлов шрифтов - отдельный файл шрифта для каждого веса или стиля.
 
-[Variable fonts](https://web.dev/articles/variable-fonts) solve this problem by using one file. Instead of having separate files for regular, bold, extra bold, and so on, a variable font file is responsive. It contains all the information it needs to be displayed across a spectrum of weights or styles.
+[Variable fonts](https://web.dev/articles/variable-fonts) решает эту проблему за счет использования одного файла. Вместо того чтобы иметь отдельные файлы для обычного, жирного, сверхжирного и т.д., файл переменного шрифта является адаптивным. Он содержит всю информацию, необходимую для отображения в различных весах и стилях.
 
-{% Img src="image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Ecr5godvTKunVXP7W8aU.png", alt="The letter 'A' shown in different weights.", width="800", height="218" %}
+![Буква "A" показана в разных весах.](typography-6.png)
 
-This means that a single variable font file is larger than a single regular font file, but a single variable font file will probably be smaller than multiple regular font files. If you're using lots of different weights, a variable font could give you a big performance gain.
+Это означает, что один файл переменного шрифта больше, чем один файл обычного шрифта, но один файл переменного шрифта, вероятно, будет меньше, чем несколько файлов обычного шрифта. Если вы используете большое количество шрифтов разного веса, то переменный шрифт может дать большой выигрыш в производительности.
 
-{% Aside %} If you're styling elements using the `system-ui` value for `font-face` property, you might get all the benefits of variable fonts without downloading any font files. [More and more system fonts are now variable fonts](https://web.dev/articles/more-variable-font-options-in-chromium-83). {% endAside %}
+!!!note ""
 
-Good typography on the web isn't just about the type choices that you make as a designer. Responsive typography is also about respecting the user's device and network connection. The end result is a design that feels right no matter how it's being viewed.
+    Если для стилизации элементов используется значение `system-ui` для свойства `font-face`, то можно получить все преимущества переменных шрифтов без загрузки файлов шрифтов. [Все больше и больше системных шрифтов становятся переменными](https://web.dev/articles/more-variable-font-options-in-chromium-83).
 
-Now that you've mastered responsive text, it's time to dive into [responsive images](responsive-images.md).
+Хорошая типографика в Интернете - это не только выбор шрифта, который вы делаете как дизайнер. Адаптивная типографика - это еще и уважение к устройству пользователя и его сетевому подключению. Конечный результат - дизайн, который воспринимается правильно независимо от того, как его просматривают.
 
-{% Assessment 'typography' %}
+Теперь, когда вы освоили адаптивный текст, самое время перейти к [адаптивным изображениям](responsive-images.md).

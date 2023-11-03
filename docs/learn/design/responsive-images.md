@@ -1,22 +1,16 @@
 ---
-title: Responsive images
-description: >
-    Give your visitors the most appropriate images for their devices and screens.
-
-authors:
-    - adactio
-    - tunetheweb
-date: 2021-12-09
-updated: 2022-03-08
+description: Предоставьте посетителям наиболее подходящие для их устройств и экранов изображения.
 ---
 
-Text on the web automatically wraps at the edge of the screen so that it doesn't overflow. It's different with images. Images have an intrinsic size. If an image is wider than the screen, the image will overflow, causing a horizontal scrollbar to appear.
+# Адаптивные изображения
 
-Fortunately, you can take measures in CSS to stop this from happening.
+Текст в Интернете автоматически заворачивается за край экрана, чтобы не выходить за его пределы. С изображениями дело обстоит иначе. Изображения имеют собственный размер. Если изображение шире экрана, оно будет переполняться, что приведет к появлению горизонтальной полосы прокрутки.
 
-## Constrain your images
+К счастью, в CSS можно принять меры, чтобы этого не происходило.
 
-In your stylesheet, you can declare that images should never be rendered at a size wider than their containing element using [`max-inline-size`](https://developer.mozilla.org/docs/Web/CSS/max-inline-size). {% BrowserCompat 'css.properties.max-inline-size' %}
+## Ограничение изображений
+
+В таблице стилей можно объявить, что изображения никогда не должны отображаться в размере, превышающем размер содержащего их элемента, используя параметр [`max-inline-size`](../../css/max-inline-size.md).
 
 ```css
 img {
@@ -25,9 +19,11 @@ img {
 }
 ```
 
-{% Aside %} You can use `max-width` instead of `max-inline-size` if you prefer, but remember it's good to get in the habit of thinking in terms of [logical properties](internationalization.md#logical-properties). {% endAside %}
+!!!note ""
 
-You can apply the same rule to other kinds of embedded content too, like videos and iframes.
+    При желании можно использовать `max-width` вместо `max-inline-size`, но помните, что полезно привыкнуть мыслить в терминах [логических свойств](internationalization.md#logical-properties).
+
+Это же правило можно применить и к другим видам встраиваемого содержимого, например, к видео и iframe.
 
 ```css
 img,
@@ -38,149 +34,151 @@ iframe {
 }
 ```
 
-With that rule in place, browsers will automatically scale down images to fit on the screen.
+При соблюдении этого правила браузеры будут автоматически уменьшать масштаб изображений, чтобы они помещались на экране.
 
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/RvqAjVGiroJDuBBpYXYV.png", alt="Two screenshots; the first shows an image expanding past the browser width; the second shows the same image constrained within the browser viewport.", width="800", height="763" %}
+![Два скриншота: первый показывает изображение, расширяющееся за пределы ширины браузера, второй - то же самое изображение, ограниченное рамками области просмотра браузера.](responsive-images-1.png)
 
-Adding a [`block-size`](https://developer.mozilla.org/docs/Web/CSS/block-size) value of `auto` means that the aspect-ratio of the images will remain constant.
+Добавление к [`block-size`](../../css/block-size.md) значения `auto` означает, что соотношение сторон изображений будет оставаться постоянным.
 
-Sometimes the dimensions of an image might be out of your control—if an image is added through a content management system, for example. If your design calls for a images to have an aspect ratio that's different to the image's real dimensions, use the [`aspect-ratio`](https://developer.mozilla.org/docs/Web/CSS/aspect-ratio) property in CSS.
+Иногда размеры изображения могут быть неподконтрольны пользователю - например, если изображение добавляется через систему управления контентом. Если в вашем дизайне требуется, чтобы соотношение сторон изображения отличалось от его реальных размеров, используйте свойство [`aspect-ratio`](../../css/aspect-ratio.md) в CSS.
 
-```css/3-3
+```css
 img {
-  max-inline-size: 100%;
-  block-size: auto;
-  aspect-ratio: 2/1;
+    max-inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 2/1;
 }
 ```
 
-But then the browser might squash or stretch the image to make it fit your preferred aspect ratio.
+Однако в этом случае браузер может сжать или растянуть изображение, чтобы оно соответствовало выбранному вами соотношению сторон.
 
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/GNEkQTnMZTde5QB2mkvh.jpg", alt="Profile of a happy-looking handsome dog with a ball in its mouth, but the image is squashed.", width="800", height="400" %}
+![Профиль счастливой красивой собаки с мячом в пасти, но изображение скомкано.](responsive-images-2.jpg)
 
-To prevent that happening, use the [`object-fit`](https://developer.mozilla.org/docs/Web/CSS/object-fit) property. {% BrowserCompat 'css.properties.object-fit' %}
+Чтобы этого не происходило, используйте свойство [`object-fit`](../../css/object-fit.md).
 
-An `object-fit` value of `contain` tells the browser to preserve the image's aspect ratio, even if that means leaving empty space above and below.
+Свойство `object-fit` со значением `contain` указывает браузеру на необходимость сохранения соотношения сторон изображения, даже если это означает оставление пустого пространства сверху и снизу.
 
-```css/4-4
+```css
 img {
-  max-inline-size: 100%;
-  block-size: auto;
-  aspect-ratio: 2/1;
-  object-fit: contain;
+    max-inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 2/1;
+    object-fit: contain;
 }
 ```
 
-An `object-fit` value of `cover` tells the browser to preserve the image's aspect ratio, even if that means cropping the image at the top and bottom.
+Значение `object-fit`, равное `cover`, указывает браузеру на необходимость сохранения соотношения сторон изображения, даже если это означает его обрезку сверху и снизу.
 
-```css/4-4
+```css
 img {
-  max-inline-size: 100%;
-  block-size: auto;
-  aspect-ratio: 2/1;
-  object-fit: cover;
+    max-inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 2/1;
+    object-fit: cover;
 }
 ```
 
 <figure>
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/VCC9WmZ2BFqLrkRlFViy.jpg", alt="Profile of a happy-looking handsome dog with a ball in its mouth; there is extra space on either side of the image.", width="800", height="400" %}
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/FgeMDACB094Myj6cVCZu.jpg", alt="Profile of a happy-looking handsome dog with a ball in its mouth; the image has been cropped at the top and bottom.", width="800", height="400" %}
- <figcaption>
-   The same image with two different values for `object-fit` applied. The first has an `object-fit` value of `contain`. The second has an `object-fit` value of `cover`.
- </figcaption>
+![Профиль счастливой красивой собаки с мячом в пасти; по обе стороны от изображения имеется дополнительное пространство.](responsive-images-3.jpg)
+![Профиль счастливой красивой собаки с мячом в пасти; изображение обрезано сверху и снизу.](responsive-images-4.jpg)
+<figcaption>Одно и то же изображение с двумя различными значениями `object-fit`. В первом случае значение `object-fit` равно `contain`. Для второго значение `object-fit` равно `cover`.</figcaption>
 </figure>
 
-If the cropping at the top and bottom evenly is an issue, use the [object-position](https://developer.mozilla.org/docs/Web/CSS/object-position) CSS property to adjust the focus of the crop. {% BrowserCompat 'css.properties.object-position' %}
+Если обрезка сверху и снизу равномерно является проблемой, используйте CSS-свойство [object-position](../../css/object-position.md) для настройки фокуса обрезки.
 
-You can make sure the most important image content is still visible.
+Вы можете сделать так, чтобы наиболее важное содержимое изображения оставалось видимым.
 
-```css/5-5
+```css
 img {
-  max-inline-size: 100%;
-  block-size: auto;
-  aspect-ratio: 2/1;
-  object-fit: cover;
-  object-position: top center;
+    max-inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 2/1;
+    object-fit: cover;
+    object-position: top center;
 }
 ```
 
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/mZDZFob5QnBl5YmAHh2A.jpg", alt="Profile of a happy-looking handsome dog with a ball in its mouth; the image has only been cropped at the bottom.", width="800", height="400" %}
+![Профиль счастливой красивой собаки с мячом в пасти; изображение обрезано только снизу.](responsive-images-5.jpg)
 
-## Deliver your images
+## Доставка изображений
 
-Those CSS rules tell the browser how you'd like images to be rendered. You can also provide hints in your HTML about how the browser should handle those images.
+Эти правила CSS указывают браузеру, как следует отображать изображения. В HTML можно также дать подсказки о том, как браузер должен работать с этими изображениями.
 
-### Sizing hints
+### Подсказки по размерам
 
-If you know the dimensions of the image you should include `width` and `height` attributes. Even if the image is rendered at a different size (because of your `max-inline-size: 100%` rule), the browser still knows the width to height ratio and can set aside the right amount of space. This will stop your other content jumping around when the image loads.
+Если известны размеры изображения, то следует включить атрибуты `width` и `height`. Даже если изображение будет отображаться в другом размере (из-за правила `max-inline-size: 100%`), браузер все равно будет знать соотношение ширины и высоты и сможет отвести нужное количество места. Это позволит избежать "прыжков" остального содержимого при загрузке изображения.
 
-```html/3-4
+```html
 <img
- src="image.png"
- alt="A description of the image."
- width="300"
- height="200"
->
+    src="image.png"
+    alt="A description of the image."
+    width="300"
+    height="200"
+/>
 ```
 
 <figure>
-{% Video src="/video/tcFciHGuF3MxnTr1y5ue01OGLBn2/WOQn6K6OQcoElRw0NCkZ.mp4", controls=true, loop=true %}
-{% Video src="/video/tcFciHGuF3MxnTr1y5ue01OGLBn2/sFxDb36aEMvTPIyZHz1O.mp4", controls=true, loop=true %}
- <figcaption>
-   The first video shows a layout without defined image dimensions. Notice how the text jumps once the images load. In the second video, image dimensions have been provided; space is left for the image so that once they load, the text doesn't jump around.
- </figcaption>
+<video controls loop>
+<source src="/learn/design/responsive-images-6.mp4" />
+</video>
+<video controls loop>
+<source src="/learn/design/responsive-images-7.mp4" />
+</video>
+<figcaption>В первом видеоролике показан макет без заданных размеров изображений. Обратите внимание, как прыгает текст после загрузки изображений. Во втором видеоролике размеры изображений заданы; для них оставлено место, чтобы после загрузки текст не прыгал.</figcaption>
 </figure>
 
-### Loading hints
+### Подсказки по загрузке
 
-Use the `loading` attribute to tell the browser whether to delay loading the image until it is in or near the viewport. For images below the fold, use a value of `lazy`. The browser won't load lazy images until the user has scrolled far down enough that the image is about to come into view. If the user never scrolls, the image never loads.
+С помощью атрибута `loading` можно указать браузеру, следует ли отложить загрузку изображения до тех пор, пока оно не окажется в области просмотра или рядом с ней. Для изображений, расположенных ниже сгиба, используйте значение `lazy`. Браузер не будет загружать "ленивые" изображения до тех пор, пока пользователь не прокрутит страницу вниз настолько, что изображение вот-вот появится в поле зрения. Если пользователь не прокручивает страницу, то изображение не загружается.
 
-```html/5-5
+```html
 <img
- src="image.png"
- alt="A description of the image."
- width="300"
- height="200"
- loading="lazy"
->
+    src="image.png"
+    alt="A description of the image."
+    width="300"
+    height="200"
+    loading="lazy"
+/>
 ```
 
-{% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/jazsyaOjXfHS0g8yUijR.mp4", controls=true, loop=true %}
+<video controls loop>
+<source src="/learn/design/responsive-images-8.mp4" />
+</video>
 
-For a hero image above the fold, `loading` should not be used. If your site automatically applies the `loading="lazy"` attribute, you can often set the `eager` attribute (which is the default) to prevent this from being applied:
+Для изображения героя, расположенного над сгибом, `loading` использовать не следует. Если ваш сайт автоматически применяет атрибут `loading="lazy"`, вы можете установить атрибут `eager` (который используется по умолчанию), чтобы предотвратить его применение:
 
-```html/5-5
+```html
 <img
- src="hero.jpg"
- alt="A description of the image."
- width="1200"
- height="800"
- loading="eager"
->
+    src="hero.jpg"
+    alt="A description of the image."
+    width="1200"
+    height="800"
+    loading="eager"
+/>
 ```
 
 ### Fetch Priority
 
-For important images-such as the [LCP](https://web.dev/articles/lcp) image, you can further prioritize the loading using [Fetch Priority](https://web.dev/articles/fetch-priority) by setting the `fetchpriority` attribute to `high`:
+Для важных изображений, таких как изображение [LCP](https://web.dev/articles/lcp), можно дополнительно определить приоритет загрузки с помощью [Fetch Priority](https://web.dev/articles/fetch-priority), установив атрибут `fetchpriority` в значение `high`:
 
-```html/5-6
+```html
 <img
- src="hero.jpg"
- alt="A description of the image."
- width="1200"
- height="800"
- loading="eager"
- fetchpriority="high"
->
+    src="hero.jpg"
+    alt="A description of the image."
+    width="1200"
+    height="800"
+    loading="eager"
+    fetchpriority="high"
+/>
 ```
 
-This will tell the browser to fetch the image right away, and at high priority, rather than waiting until the browser has completed layout when images are normally fetched.
+Это позволит браузеру получить изображение сразу и с высоким приоритетом, а не ждать, пока браузер завершит верстку, когда обычно происходит загрузка изображений.
 
-But remember: when you ask the browser to prioritize downloading one resource—like an image—the browser will have to de-prioritize another resource such as a script or a font file. Only set `fetchpriority="high"` on an image if it is truly vital.
+Но помните: когда вы просите браузер установить приоритет загрузки одного ресурса - например, изображения, - браузеру придется отменить приоритет загрузки другого ресурса, например, скрипта или файла шрифта. Устанавливайте `fetchpriority="high"` для изображения только в том случае, если оно действительно жизненно необходимо.
 
-### Preloading hints
+### Подсказки по предварительной загрузке
 
-Some images may not be available in the initial HTML—if they are added by JavaScript, or as a [background image](#background-images) in CSS. You can also use preload to allow these important images to be fetched ahead of time. This can be combined with the `fetchpriority` attribute for really important images:
+Некоторые изображения могут быть недоступны в исходном HTML - если они добавлены с помощью JavaScript или как [фоновое изображение](#background-images) в CSS. Вы можете использовать предварительную загрузку, чтобы эти важные изображения были получены заранее. Это можно сочетать с атрибутом `fetchpriority` для действительно важных изображений:
 
 ```html
 <link
@@ -191,177 +189,185 @@ Some images may not be available in the initial HTML—if they are added by Java
 />
 ```
 
-Again this should be used sparingly to avoid overriding the browsers prioritisation heuristics too much, which may result in performance degredation.
+Опять же, это следует использовать осторожно, чтобы не переопределить эвристику приоритетов браузера, что может привести к снижению производительности.
 
-Preloading responsive images based on srcset (which is discussed below) via the `imagesrcset` and `imagesizes` attributes is more advanced and is [supported in some browsers](https://web.dev/articles/preload-responsive-images), but not all:
+Предварительная загрузка адаптивных изображений на основе srcset (о которой речь пойдет ниже) с помощью атрибутов `imagesrcset` и `imagesizes` является более продвинутой и [поддерживается в некоторых браузерах](https://web.dev/articles/preload-responsive-images), но не во всех:
 
-<link rel="preload" imagesrcset="hero_sm.jpg 1x hero_med.jpg 2x hero_lg.jpg 3x" as="image" fetchpriority="high">
-
-By excluding the `href` fallback you can ensure browsers that do not support this do not preload the incorrect image.
-
-Preloading based on different image formats based on browser support of those images is not currently supported and may result in extra downloads.
-
-The ideal is to avoid preload where possible, and have the image available in the initial HTML, to avoid repeating code, and to allow access to the full range of options the browser supports.
-
-### Image decoding
-
-There's also a `decoding` attribute you can add to `img` elements. You can tell the browser that the image can be decoded asynchronously. The browser can then prioritize processing other content.
-
-```html/6-6
-<img
- src="image.png"
- alt="A description of the image."
- width="300"
- height="200"
- loading="lazy"
- decoding="async"
->
+```html
+<link
+    rel="preload"
+    imagesrcset="hero_sm.jpg 1x hero_med.jpg 2x hero_lg.jpg 3x"
+    as="image"
+    fetchpriority="high"
+/>
 ```
 
-You can use the `sync` value if the image itself is the most important piece of content to prioritize.
+Исключение фаллбека `href` позволяет гарантировать, что браузеры, не поддерживающие его, не будут загружать неправильное изображение.
 
-```html/6-6
+Предварительная загрузка изображений различных форматов в зависимости от их поддержки браузером в настоящее время не поддерживается и может привести к дополнительным загрузкам.
+
+Идеальным вариантом является отказ от предварительной загрузки и размещение изображения в исходном HTML, чтобы избежать повторения кода и обеспечить доступ к полному набору опций, поддерживаемых браузером.
+
+### Декодирование изображений
+
+Существует также атрибут `decoding`, который можно добавить к элементам `img`. Вы можете указать браузеру, что изображение может быть декодировано асинхронно. В этом случае браузер может отдать предпочтение обработке другого содержимого.
+
+```html
 <img
- src="hero.jpg"
- alt="A description of the image."
- width="1200"
- height="800"
- loading="eager"
- decoding="sync"
->
+    src="image.png"
+    alt="A description of the image."
+    width="300"
+    height="200"
+    loading="lazy"
+    decoding="async"
+/>
 ```
 
-The `decoding` attribute will not change how fast the image decodes, but merely whether the browser waits for this image decoding to happen before rendering other content.
+Значение `sync` можно использовать в том случае, если само изображение является наиболее важным элементом содержимого для приоритезации.
 
-In most cases this will have little impact, however in certain scenarios it can allow the image or content to be displayed slightly faster. For example, for a large document with lots of elements that take time to render, and with large images that take a while to decode, setting `sync` on important images will tell the browser to wait for the image and render both at once. Alternatively, setting `async` can allow the content to be displayed faster without waiting for the image decode.
-
-However, the better option is usually to try to [avoid excessive DOM sizes](https://developer.chrome.com/docs/lighthouse/performance/dom-size/) and ensure responsive images are used to reduce decoding time meaning the decoding attribute will have little effect.
-
-## Responsive images with `srcset`
-
-Thanks to that `max-inline-size: 100%` declaration, your images will never break out of their containers. But even if it looks fine to have a large image that shrinks to fit, it won't feel fine. If someone uses a small screen device on a low bandwidth network, they'll download unnecessarily large images.
-
-If you make multiple versions of the same image at different sizes, you can let the browser know about them using the [`srcset`](https://developer.mozilla.org/docs/Web/HTML/Element/img#attr-srcset) attribute.
-
-### Width descriptor
-
-You can pass in a list of values separated by commas. Each value should be the URL of an image followed by a space followed by some metadata about the image. This metadata is called a descriptor.
-
-In this example, the metadata describes the width of each image using the `w` unit. One `w` is one pixel.
-
-```html/7-9
+```html
 <img
- src="small-image.png"
- alt="A description of the image."
- width="300"
- height="200"
- loading="lazy"
- decoding="async"
- srcset="small-image.png 300w,
-  medium-image.png 600w,
-  large-image.png 1200w"
->
+    src="hero.jpg"
+    alt="A description of the image."
+    width="1200"
+    height="800"
+    loading="eager"
+    decoding="sync"
+/>
 ```
 
-The `srcset` attribute doesn't replace the `src` attribute. Instead the `srcset` attribute complements the `src` attribute. You still need to have a valid `src` attribute, but now the browser can replace its value with one of the options listed in the `srcset` attribute.
+Атрибут `decoding` не изменяет скорость декодирования изображения, а лишь определяет, будет ли браузер ожидать декодирования этого изображения перед выводом другого содержимого.
 
-The browser won't download the larger images unless they're needed. That saves bandwidth.
+В большинстве случаев это не оказывает существенного влияния, однако в некоторых сценариях может позволить отобразить изображение или содержимое несколько быстрее. Например, для большого документа с большим количеством элементов, требующих времени для рендеринга, и с большими изображениями, которые требуют времени для декодирования, установка `sync` для важных изображений позволит браузеру дождаться изображения и рендерить их одновременно. В качестве альтернативы установка `async` может позволить отображать содержимое быстрее, не дожидаясь декодирования изображения.
 
-### Sizes
+Однако лучшим вариантом обычно является попытка [избежать чрезмерных размеров DOM](https://developer.chrome.com/docs/lighthouse/performance/dom-size/) и обеспечить использование адаптивных изображений для сокращения времени декодирования, что означает, что атрибут decoding будет иметь незначительный эффект.
 
-If you're using the width descriptor, you must also use the [`sizes`](https://developer.mozilla.org/docs/Web/HTML/Element/img#attr-sizes) attribute to give the browser more information. This tells the browser what size you expect the image to be displayed under different conditions. Those conditions are specified in a media query.
+## Адаптивные изображения с `srcset`
 
-The `sizes` attribute takes a comma-separated list of media queries and image widths.
+Благодаря объявлению `max-inline-size: 100%` ваши изображения никогда не вырвутся за пределы своих контейнеров. Но даже если большое изображение, уменьшенное до нужного размера, выглядит нормально, это не так уж и хорошо. Если кто-то использует устройство с маленьким экраном в сети с низкой пропускной способностью, он будет загружать неоправданно большие изображения.
 
-{% Aside %} It feels strange to have CSS media queries inside an HTML element. It spoils the separation of presentation and structure. But it's the only way to provide the necessary sizing information in time to be effective. {% endAside %}
+Если вы создаете несколько версий одного и того же изображения с разными размерами, вы можете сообщить о них браузеру с помощью атрибута [`srcset`](https://developer.mozilla.org/docs/Web/HTML/Element/img#attr-srcset).
 
-```html/10-12
+### Дескриптор ширины
+
+Вы можете передать список значений, разделенных запятыми. Каждое значение должно представлять собой URL-адрес изображения, за которым через пробел следует некоторая метаданная об изображении. Эти метаданные называются дескриптором.
+
+В данном примере метаданные описывают ширину каждого изображения, используя единицу измерения `w`. Один `w` - это один пиксель.
+
+```html
 <img
- src="small-image.png"
- alt="A description of the image."
- width="300"
- height="200"
- loading="lazy"
- decoding="async"
- srcset="small-image.png 300w,
-  medium-image.png 600w,
-  large-image.png 1200w"
- sizes="(min-width: 66em) 33vw,
+    src="small-image.png"
+    alt="A description of the image."
+    width="300"
+    height="200"
+    loading="lazy"
+    decoding="async"
+    srcset="
+        small-image.png   300w,
+        medium-image.png  600w,
+        large-image.png  1200w
+    "
+/>
+```
+
+Атрибут `srcset` не заменяет атрибут `src`. Вместо этого атрибут `srcset` дополняет атрибут `src`. Вам по-прежнему необходимо иметь корректный атрибут `src`, но теперь браузер может заменить его значение на один из вариантов, перечисленных в атрибуте `srcset`.
+
+Браузер не будет загружать большие изображения, если в них нет необходимости. Это позволяет экономить пропускную способность.
+
+### Размеры
+
+При использовании дескриптора ширины необходимо также использовать атрибут [`sizes`](https://developer.mozilla.org/docs/Web/HTML/Element/img#attr-sizes), чтобы предоставить браузеру дополнительную информацию. Он сообщает браузеру, какого размера изображение должно быть отображено при различных условиях. Эти условия задаются в медиазапросе.
+
+Атрибут `sizes` принимает список медиазапросов и ширины изображения, разделенный запятыми.
+
+!!!note ""
+
+    Странно, когда медиазапросы CSS находятся внутри HTML-элемента. Это нарушает разделение представления и структуры. Но это единственный способ своевременно предоставить необходимую информацию о размерах изображений.
+
+```html
+<img
+    src="small-image.png"
+    alt="A description of the image."
+    width="300"
+    height="200"
+    loading="lazy"
+    decoding="async"
+    srcset="
+        small-image.png   300w,
+        medium-image.png  600w,
+        large-image.png  1200w
+    "
+    sizes="(min-width: 66em) 33vw,
   (min-width: 44em) 50vw,
   100vw"
->
+/>
 ```
 
-In this example, you're telling the browser that above a viewport width of `66em` to display the image no wider than one third of the screen (inside a three column layout, for example).
+В данном примере вы указываете браузеру при ширине области просмотра `66em` отображать изображение не шире одной трети экрана (например, в трехколоночной верстке).
 
-For viewport widths between `44em` and `66em`, display the image at half the width of the screen (a two column layout).
+При ширине области просмотра от `44em` до `66em` отображать изображение на половину ширины экрана (двухколоночный макет).
 
-For anything below `44em` display the image at the full width of the screen.
+При ширине экрана менее `44em` изображение выводится на всю ширину экрана.
 
-This means that the biggest image won't necessarily be used for the widest screen. A wide browser window that can display a multi-column layout will use an image that fits in one column. That image might be smaller than an image used for a single-column layout on a narrower screen.
+Это означает, что самое большое изображение не обязательно будет использоваться для самого широкого экрана. В широком окне браузера, способном отображать многоколоночную верстку, будет использоваться изображение, умещающееся в одной колонке. Это изображение может быть меньше, чем изображение, используемое для одноколоночной разметки на более узком экране.
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'XWerLJm',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/XWerLJm?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen XWerLJm by web-dot-dev on Codepen"></iframe>
 
-{% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/MkUAq5XQyjlUXLvkT4jL.mp4", controls=true, loop=true %}
+<video controls loop>
+<source src="/learn/design/responsive-images-9.mp4" />
+</video>
 
-### Pixel density descriptor
+### Дескриптор плотности пикселей
 
-There's another situation where you might want to provide multiple versions of the same image.
+Существует еще одна ситуация, когда может потребоваться предоставить несколько версий одного и того же изображения.
 
-Some devices have high-density displays. On a double-density display you can pack two pixels worth of information into the space of one pixel. This keeps images looking sharp on those kinds of displays.
+Некоторые устройства имеют дисплеи с высокой плотностью пикселей. На дисплее с двойной плотностью пикселей в один пиксель помещается два пикселя информации. Это позволяет сохранить четкость изображения на таких дисплеях.
 
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/OtyGs9nZser6u0DrFYBq.png", alt="Two versions of the same image of a happy-looking handsome dog with a ball in its mouth, one image looking crisp and the other looking fuzzy.", width="800", height="275" %}
+![Два варианта одного и того же изображения счастливого красивого пса с мячом в пасти, один из которых выглядит четким, а другой - нечетким.](responsive-images-10.png)
 
-Use the density descriptor to describe the pixel density of the image in relationship to the image in the `src` attribute. The density descriptor is a number followed by the letter x: `1x`, `2x`, etc.
+Дескриптор плотности используется для описания плотности пикселей изображения по отношению к изображению в атрибуте `src`. Дескриптор плотности представляет собой число, за которым следует буква x: `1x`, `2x` и т. д.
 
-```html/7-9
+```html
 <img
- src="small-image.png"
- alt="A description of the image."
- width="300"
- height="200"
- loading="lazy"
- decoding="async"
- srcset="small-image.png 1x,
-  medium-image.png 2x,
-  large-image.png 3x"
->
+    src="small-image.png"
+    alt="A description of the image."
+    width="300"
+    height="200"
+    loading="lazy"
+    decoding="async"
+    srcset="
+        small-image.png  1x,
+        medium-image.png 2x,
+        large-image.png  3x
+    "
+/>
 ```
 
-If `small-image.png` is 300 by 200 pixels in size, and `medium-image.png` is 600 by 400 pixels in size, then `medium-image.png` can have `2x` after it in the `srcset` list.
+Если размер `small-image.png` составляет 300 на 200 пикселей, а `medium-image.png` - 600 на 400 пикселей, то `medium-image.png` может иметь в списке `srcset` после себя значение `2x`.
 
-You don't have to use whole numbers. If another version of the image is 450 by 300 pixels in size, you can describe it with `1.5x`.
+Не обязательно использовать целые числа. Если другой вариант изображения имеет размер 450 на 300 пикселей, то его можно описать с помощью `1.5x`.
 
-{% Aside %} You can use _either_ width descriptors _or_ density descriptors, but not both together. {% endAside %}
+!!!note ""
 
-## Presentational images
+    Вы можете использовать _либо_ дескрипторы ширины, либо_ дескрипторы плотности, но не оба вместе.
 
-Images in HTML are content. That's why you always provide an `alt` attribute with a description of the image for screen readers and search engines.
+## Презентационные изображения
 
-If you embed an image that is purely a visual flourish without any meaningful content, use an empty `alt` attribute.
+Изображения в HTML являются контентом. Поэтому всегда используется атрибут `alt` с описанием изображения для программ чтения с экрана и поисковых систем.
 
-```html/2-2
-<img
- src="flourish.png"
- alt=""
- width="400"
- height="50"
->
+Если вы вставляете изображение, которое является чисто визуальным изыском без какого-либо содержательного наполнения, используйте пустой атрибут `alt`.
+
+```html
+<img src="flourish.png" alt="" width="400" height="50" />
 ```
 
-You must still include the `alt` attribute. A missing `alt` attribute is not the same as an empty `alt` attribute. An empty `alt` attribute conveys to a screen reader that this image is presentational.
+Атрибут `alt` все равно должен быть включен. Отсутствие атрибута `alt` - это не то же самое, что пустой атрибут `alt`. Пустой атрибут `alt` сообщает программе чтения с экрана, что данное изображение является презентационным.
 
-Ideally, your presentational or decorative images shouldn't be in your HTML at all. HTML is for structure. CSS is for presentation.
+В идеале презентационные или декоративные изображения вообще не должны присутствовать в HTML. HTML - это структура. CSS - для представления.
 
-## Background images
+## Фоновые изображения
 
-Use the `background-image` property in CSS to load presentational images.
+Для загрузки презентационных изображений используйте свойство `background-image` в CSS.
 
 ```css
 element {
@@ -369,9 +375,9 @@ element {
 }
 ```
 
-You can specify multiple image candidates using the [`image-set`](<https://developer.mozilla.org/docs/Web/CSS/image/image-set()>) function for `background-image`.
+С помощью функции [`image-set`](<https://developer.mozilla.org/docs/Web/CSS/image/image-set()>) для `background-image` можно указать несколько изображений-кандидатов.
 
-The `image-set` function in CSS works a lot like the `srcset` attribute in HTML. Provide a list of images with a pixel density descriptor for each one.
+Функция `image-set` в CSS работает аналогично атрибуту `srcset` в HTML. Предоставьте список изображений с дескриптором плотности пикселей для каждого из них.
 
 ```css
 element {
@@ -383,14 +389,12 @@ element {
 }
 ```
 
-The browser will choose the most appropriate image for the device's pixel density.
+Браузер выберет наиболее подходящее изображение с учетом плотности пикселей устройства.
 
-There are many factors to consider when you're adding images to your site:
+При добавлении изображений на сайт необходимо учитывать множество факторов:
 
-Reserving the right space for each image. Figuring out how many sizes you need. Deciding whether the image is content or decorative.
+Резервирование необходимого пространства для каждого изображения. Определение необходимого количества размеров. Решить, является ли изображение содержательным или декоративным.
 
-It's worth spending the time to get images right. Poor image strategies are responsible for frustration and annoyance for users. A good image strategy makes your site feel snappy and sharp, regardless of the user's device or network connection.
+Стоит потратить время на то, чтобы правильно подобрать изображения. Плохая стратегия работы с изображениями приводит к разочарованию и раздражению пользователей. Хорошая стратегия работы с изображениями обеспечивает быстрое и четкое отображение сайта независимо от устройства пользователя или его сетевого подключения.
 
-There's one more HTML element in your toolkit to help you exercise more control over your images: [the `picture` element](picture-element.md).
-
-{% Assessment 'images' %}
+В вашем арсенале есть еще один элемент HTML, который поможет вам лучше контролировать изображения: [элемент `picture`](picture-element.md).
