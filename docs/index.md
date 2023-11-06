@@ -63,6 +63,14 @@ hide:
 
     [:octicons-arrow-right-24: 30 дней PWA](./learn/30days-pwa/index.md) <small>Microsoft</small>
 
+-   :material-file-document:{ .lg .middle } **Дизайн**
+
+    ***
+
+    Пользовательские интерфейсы
+
+    [:octicons-arrow-right-24: Адаптивный дизайн](./learn/design/index.md) <small>web.dev</small>
+
 </div>
 
 ---
