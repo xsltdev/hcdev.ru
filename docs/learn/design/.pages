@@ -11,8 +11,8 @@ nav:
     - picture-element.md
     - icons.md
     - theming.md
-    #- accessibility.md
-    #- interaction.md
-    #- ui-patterns.md
-    #- media-features.md
-    #- screen-configurations.md
+    - accessibility.md
+    - interaction.md
+    - ui-patterns.md
+    - media-features.md
+    - screen-configurations.md

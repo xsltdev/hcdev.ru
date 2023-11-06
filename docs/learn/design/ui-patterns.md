@@ -1,58 +1,56 @@
 ---
-title: User interface patterns
-description: >
-    Consider some common UI elements that adapt to different screen sizes.
-
-
-authors:
-    - adactio
-date: 2021-12-23
-updated: 2022-03-18
+description: Рассмотрим некоторые общие элементы пользовательского интерфейса, которые адаптируются к различным размерам экрана.
 ---
 
-A design viewed on a small screen shouldn't look like a shrunk-down version of a large-screen layout. Likewise, a design viewed on a large screen shouldn't look like a blown-up version of a small-screen layout. Instead, the design needs to be flexible enough to adapt to all screen sizes. A successful responsive design makes the most of every form factor.
+# Шаблоны пользовательского интерфейса
 
-This means that some interface elements may need to look quite different depending on the context they're viewed in. You might need to apply very different CSS to the same HTML codebase to make the most of different screen sizes. That can be quite a design challenge!
+Дизайн, представленный на маленьком экране, не должен выглядеть как уменьшенная версия макета на большом экране. Аналогичным образом, дизайн на большом экране не должен выглядеть как увеличенная версия макета на маленьком экране. Вместо этого дизайн должен быть достаточно гибким, чтобы адаптироваться ко всем размерам экрана. Успешный адаптивный дизайн позволяет максимально использовать все форм-факторы.
 
-Here are some common challenges that you might face.
+Это означает, что некоторые элементы интерфейса могут выглядеть совершенно по-разному в зависимости от того, в каком контексте они рассматриваются. Возможно, придется применить совершенно разные CSS к одной и той же кодовой базе HTML, чтобы максимально использовать разные размеры экрана. Это может быть довольно сложной задачей!
 
-## Navigation
+Вот некоторые общие проблемы, с которыми вы можете столкнуться.
 
-Displaying a list of navigation links is quite straightforward on a large screen. There's plenty of space to accommodate those links.
+## Навигация
 
-On a small screen, space is at a premium. When you're designing for this situation, it's tempting to hide navigation behind a button. The problem with this solution is that users have to then take two steps to get anywhere: open the menu, then choose an option. Until the menu is opened, the user is left wondering "where can I go?”
+Отображение списка навигационных ссылок на большом экране довольно простое. Там достаточно места для размещения этих ссылок.
 
-Try to find a strategy that avoids hiding your navigation. If you have a relatively small number of items, you can style the navigation to look good on small screens.
+На маленьком экране места больше. При проектировании в такой ситуации возникает соблазн спрятать навигацию за кнопкой. Проблема такого решения заключается в том, что пользователю придется сделать два шага: открыть меню и выбрать нужный пункт. Пока меню не открыто, пользователь остается в недоумении: "Куда же мне идти?".
 
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/s1fif52p8RcE758OkSvB.png", alt="The same website with five navigation links viewed in a mobile browser and viewed in a tablet browser. The navigation is visible on both devices.", width="800", height="409" %}
+Попробуйте найти стратегию, позволяющую избежать скрытия навигации. Если у вас относительно небольшое количество пунктов, вы можете оформить навигацию так, чтобы она хорошо смотрелась на небольших экранах.
 
-That pattern won't scale if your navigation has lots of links. The navigation will look cluttered if the links wrap onto two or three lines on a small screen.
+![Один и тот же сайт с пятью навигационными ссылками, просмотренный в мобильном браузере и в браузере планшета. Навигация видна на обоих устройствах.](ui-patterns-1.png)
 
-One possible solution is to keep links on one line but truncate the list at the edge of the screen. Users can swipe horizontally to reveal the links that aren't immediately visible. This is the overflow pattern.
+Эта схема не будет работать, если в навигации много ссылок. Навигация будет выглядеть загроможденной, если ссылки будут занимать две или три строки на маленьком экране.
 
-{% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/jNM3gZrkksJc6banrxcE.mp4", controls=true %}
+Одним из возможных решений является размещение ссылок в одной строке, но усечение списка у края экрана. Пользователи могут провести пальцем по горизонтали, чтобы открыть ссылки, которые не видны сразу. Это и есть схема переполнения.
 
-The advantage of this technique is that it scales to any device width and any number of links. The disadvantage is that users might miss links that aren't initially visible. If you use this technique for your main navigation, make sure the first few links are the most important ones and visually indicate that there are more items in the list. The previous example uses a gradient for this indicator.
+<video controls>
+<source src="/learn/design/ui-patterns-2.mp4" />
+</video>
 
-As a last resort you could choose to have your navigation hidden by default and provide a toggle mechanism for users to show and hide the contents. This is called progressive disclosure.
+Преимущество этого метода заключается в том, что он масштабируется под любую ширину устройства и любое количество ссылок. Недостатком является то, что пользователи могут пропустить ссылки, которые изначально не видны. Если вы используете этот прием для основной навигации, убедитесь, что первые несколько ссылок являются наиболее важными, и визуально укажите, что в списке есть еще пункты. В предыдущем примере для этого используется градиент.
 
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/DiGHrNu300JMj8i9X01U.png", alt="The same website with five navigation links viewed in a mobile browser and viewed in a tablet browser. The navigation is visible on the tablet, but hidden on the mobile device.", width="800", height="409" %}
+В крайнем случае, можно сделать навигацию скрытой по умолчанию и предоставить пользователям механизм переключения для показа и скрытия ее содержимого. Это называется прогрессивным раскрытием.
 
-Make sure the button that toggles the display of the navigation is labeled. Don't rely on an icon to be understood.
+![Один и тот же сайт с пятью навигационными ссылками в мобильном браузере и в браузере планшета. Навигация видна на планшете, но скрыта на мобильном устройстве.](ui-patterns-3.png)
 
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/cyuj5HvE6x9c8OBiM527.png", alt="Three unlabelled icons: the first is three horizontal lines; the second is three by three grid; the third is three circles arranged vertically.", width="640", height="240" %}
+Убедитесь, что кнопка, переключающая отображение навигации, снабжена ярлыком. Не полагайтесь на то, что вас поймут по пиктограмме.
 
-An unlabelled icon is "mystery meat” navigation—users won't know what's in there until they bite into it. Provide a text label to let users know what the button will reveal.
+![Три немаркированные пиктограммы: первая - три горизонтальные линии; вторая - сетка три на три; третья - три круга, расположенные вертикально.](ui-patterns-4.png)
 
-{% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/jzRDWQyKNcV1JNBU6mYS.mp4", controls=true, loop=true %}
+Пиктограмма без надписи - это навигация "с загадочным мясом": пользователь не поймет, что там находится, пока не откусит кусочек. Поместите текстовую метку, чтобы пользователи знали, что откроет кнопка.
 
-## Carousels
+<video controls loop>
+<source src="/learn/design/ui-patterns-5.mp4" />
+</video>
 
-What's true of navigation is also true of other content: try not to hide anything anyway. A carousel is a common method of hiding content away. It can look quite neat, but there's a good chance that your users will never discover the hidden content. Carousels are better at solving organizational problems—like what content should feature on the homepage—than at serving users.
+## Карусели
 
-That said, when space is at a premium, carousels can prevent a page getting too long and cluttered. You could employ a hybrid approach: show content in a carousel for small screens, but display the same content in a grid for larger screens.
+То, что справедливо для навигации, справедливо и для другого контента: старайтесь ничего не скрывать. Карусель - один из распространенных способов скрыть содержимое. Она может выглядеть довольно аккуратно, но велика вероятность того, что пользователи никогда не обнаружат скрытый контент. Карусели лучше решают организационные задачи - например, определяют, какой контент должен быть размещен на главной странице, - чем обслуживают пользователей.
 
-For narrow screens, display items in a row using flexbox. The row of items will extend beyond the edge of the screen. Use `overflow-x: auto` to allow horizontal swiping.
+Тем не менее, в условиях ограниченного пространства карусели могут предотвратить слишком длинные и загроможденные страницы. Можно использовать гибридный подход: показывать контент в виде карусели для маленьких экранов, а для больших - в виде сетки.
+
+Для узких экранов можно отображать элементы в ряд с помощью flexbox. Ряд элементов будет выходить за границы экрана. Используйте `overflow-x: auto`, чтобы обеспечить горизонтальное пролистывание.
 
 ```css
 @media (max-width: 50em) {
@@ -71,11 +69,13 @@ For narrow screens, display items in a row using flexbox. The row of items will 
 }
 ```
 
-{% Aside %} The logical version of `overflow-x` is [`overflow-inline`](https://developer.mozilla.org/docs/Web/CSS/overflow-inline) which would better match with the value for `scroll-snap-type`. This example uses the physical version for better cross-browser support. {% endAside %}
+!!!note ""
 
-The [`scroll-snap`](https://web.dev/articles/css-scroll-snap) properties ensure that the items can be swiped in a way that feels smooth. Thanks to `scroll-snap-type: inline mandatory`, the items snap into place.
+    Логической версией `overflow-x` является [`overflow-inline`](https://developer.mozilla.org/docs/Web/CSS/overflow-inline), что лучше сочетается со значением для `scroll-snap-type`. В данном примере используется физическая версия для лучшей кроссбраузерной поддержки.
 
-When the screen is large enough—wider than `50em` in this case—switch over to grid and display the items in rows and columns, without hiding anything.
+Свойства [`scroll-snap`](https://web.dev/articles/css-scroll-snap) обеспечивают плавное пролистывание элементов. Благодаря `scroll-snap-type: inline mandatory` элементы защелкиваются на месте.
+
+Если экран достаточно большой - в данном случае шире `50em` - переключитесь на сетку и отобразите элементы в строках и столбцах, ничего не скрывая.
 
 ```css
 @media (min-width: 50em) {
@@ -89,41 +89,31 @@ When the screen is large enough—wider than `50em` in this case—switch over t
 }
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'XWeNPzY',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/XWeNPzY?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen XWeNPzY by web-dot-dev on Codepen"></iframe>
 
-{% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/jw00jziSxqLm3JBYRk5o.mp4", controls=true %}
+<video controls loop>
+<source src="/learn/design/ui-patterns-6.mp4" />
+</video>
 
-Crucially, an item in the carousel view doesn't take up the full width. If it did, there would be no indication that more content is available beyond the edge of the viewport.
+Очень важно, что элемент в карусели не занимает всю ширину. Если бы это было так, то не было бы никаких признаков того, что за границей области просмотра имеется дополнительное содержимое.
 
-Carousels are another example of the overflow pattern in action. If you have many items that people can browse through, you could keep using the overflow pattern even on large screens, including televisions. This [media scroller](https://gui-challenges.web.app/media-scroller/dist/) uses multiple carousels to manage a significant amount of options.
+Карусели - это еще один пример действия паттерна переполнения. Если у вас есть много элементов, которые люди могут просматривать, вы можете продолжать использовать шаблон переполнения даже на больших экранах, включая телевизоры. В этом [media scroller](https://gui-challenges.web.app/media-scroller/dist/) используется несколько каруселей для управления значительным количеством опций.
 
-Again, the `scroll-snap` properties ensure that the interaction feels smooth. Also, notice that the images in the carousel have `loading="lazy"` applied to them. In this case, the images aren't below the fold, they're beyond the edge, but the same principle applies: if the user never swipes as far as that item, the image won't be downloaded, saving on bandwidth.
+И снова свойства `scroll-snap` обеспечивают плавность взаимодействия. Также обратите внимание, что к изображениям в карусели применено свойство `loading="lazy"`. В данном случае изображения находятся не под сгибом, а за его краем, но действует тот же принцип: если пользователь никогда не прокручивает страницу до этого элемента, изображение не загружается, что позволяет сэкономить полосу пропускания.
 
-{% Codepen {
- user: 'argyleink',
- id: 'bGgyOGP',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/argyleink/embed/bGgyOGP?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen bGgyOGP by argyleink on Codepen"></iframe>
 
-{% Aside %} The previous example shows a more complete demo, you can read more about it in the article [building a media scroller component](https://web.dev/articles/building/a-media-scroller-component). {% endAside %}
+!!!note ""
 
-With the addition of JavaScript, you can add interactive controls to a carousel. You could even make it automatically cycle through items. But think long and hard before doing that—autoplaying might work if the carousel is the only content on the page, but an autoplaying carousel is incredibly annoying if someone is trying to interact with other content (like reading text, for example). You can read more [carousel best practices](https://web.dev/articles/carousel-best-practices).
+    В предыдущем примере показана более полная демонстрация, подробнее о ней можно прочитать в статье [построение компонента media scroller](https://web.dev/articles/building/a-media-scroller-component).
 
-{% CodePattern '/web-vitals-patterns/carousels/carousel-autoplay/' %}
+С помощью JavaScript в карусель можно добавить интерактивные элементы управления. Можно даже сделать так, чтобы она автоматически переходила от одного элемента к другому. Но прежде чем делать это, хорошо подумайте - автоматическое воспроизведение может сработать, если карусель является единственным содержимым страницы, но автоматически воспроизводящаяся карусель будет невероятно раздражать, если кто-то пытается взаимодействовать с другим содержимым (например, читать текст). Вы можете прочитать больше [лучшие практики использования карусели](https://web.dev/articles/carousel-best-practices).
 
-## Data tables
+## Таблицы данных
 
-The `table` element is perfect for structuring tabular data; rows and columns of related information. But if the table gets too large, it could break your small-screen layout.
+Элемент `table` прекрасно подходит для структурирования табличных данных: строк и столбцов связанной информации. Но если таблица будет слишком большой, она может нарушить верстку на малом экране.
 
-You can apply the overflow pattern to tables. In this example, the table is wrapped in a `div` with a class of `table-container`.
+Для таблиц можно применить шаблон переполнения. В данном примере таблица обернута в `div` с классом `table-container`.
 
 ```css
 .table-container {
@@ -139,22 +129,16 @@ You can apply the overflow pattern to tables. In this example, the table is wrap
 }
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'MWEbqQQ',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/MWEbqQQ?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen MWEbqQQ by web-dot-dev on Codepen"></iframe>
 
-## Guidelines
+## Рекомендации
 
-The overflow pattern is a good compromise for small screens but make sure it's clear that the off-screen content is reachable. Consider placing a shadow or a gradient over the edge where content is truncated.
+Шаблон переполнения является хорошим компромиссом для небольших экранов, но при этом необходимо убедиться, что содержимое за пределами экрана доступно для просмотра. Рассмотрите возможность размещения тени или градиента над краем, где содержимое усекается.
 
-Progressive disclosure is a useful way to save space, but be careful about using it for very important content. It's better suited to secondary actions. Ensure the interface element that triggers the disclosure is clearly labeled—don't rely on iconography alone.
+Прогрессивное раскрытие - полезный способ экономии пространства, но будьте осторожны с его использованием для очень важного контента. Оно лучше подходит для второстепенных действий. Убедитесь, что элемент интерфейса, вызывающий раскрытие, четко обозначен - не полагайтесь только на иконографию.
 
-Design for smaller screens first. It's easier to adapt small-screen designs to larger screens than the other way around. If you design for a large screen first, there's a danger that your small-screen design will feel like an afterthought.
+В первую очередь разрабатывайте дизайн для небольших экранов. Легче адаптировать дизайн малых экранов к большим, чем наоборот. Если сначала разрабатывать дизайн для большого экрана, то есть опасность, что дизайн для малого экрана будет казаться второстепенным.
 
-For more layout and UI element patterns, explore the web.dev [Patterns](https://web.dev/patterns) section.
+Другие шаблоны верстки и элементов пользовательского интерфейса можно найти в разделе web.dev [Patterns](https://web.dev/patterns).
 
-When you're adapting interface elements to different screen sizes, media queries are very useful for figuring out the dimensions of the device. But media features like `min-width`and `min-height` are just the beginning. Next, you'll discover a whole host of other media features.
+При адаптации элементов интерфейса к различным размерам экрана медиазапросы очень полезны для определения размеров устройства. Но такие медиафункции, как `min-width` и `min-height`, - это только начало. Далее вы познакомитесь с целым рядом других медиафункций.

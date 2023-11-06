@@ -1,145 +1,133 @@
 ---
-title: Media features
-description: >
-    A round-up of all the ways that media features let you respond to devices and preferences.
-
-authors:
-    - adactio
-date: 2021-12-23
+description: Обзор всех способов, с помощью которых мультимедийные функции позволяют реагировать на устройства и предпочтения.
 ---
 
-Responsive design wouldn't be possible without media queries. Before media queries there was no way of knowing what kind of device people were using to visit your website. Designers had to make assumptions. Those assumptions were encoded into fixed-width designs or liquid layouts.
+# Мультимедийные возможности
 
-That all changed with the introduction of [media queries](media-queries.md). For the first time designers could meet people halfway. Designers could adjust their layouts to respond to people's devices.
+Адаптивный дизайн был бы невозможен без медиазапросов. До появления медиазапросов не было возможности узнать, с какого устройства люди посещают ваш сайт. Дизайнерам приходилось делать предположения. Эти предположения кодировались в дизайне с фиксированной шириной или в резиновой верстке.
 
-Remember, a media query comprises an optional media type and a mandatory media feature. There hasn't been much change in media types over the years. There are still just four possible values:
+Все изменилось с появлением [media queries](media-queries.md). Впервые дизайнеры смогли пойти навстречу людям. Дизайнеры могли корректировать свои макеты в зависимости от устройств пользователей.
+
+Помните, что медиазапрос состоит из необязательного медиатипа и обязательной медиафункции. За прошедшие годы медиатипы не претерпели особых изменений. По-прежнему существует всего четыре возможных значения:
 
 ```css
 @media all @media screen @media print @media speech;
 ```
 
-[Media features](https://developer.mozilla.org/docs/Web/CSS/@media#media_features), on the other hand, have expanded greatly. Designers now can meet users beyond halfway, adapting designs to fit far more than just screen size. {% BrowserCompat 'css.at-rules.media' %}
+С другой стороны, значительно расширились возможности [Media features](https://developer.mozilla.org/docs/Web/CSS/@media#media_features). Теперь дизайнеры могут идти навстречу пользователям, адаптируя дизайн не только под размер экрана.
 
-## Viewport dimensions
+## Размеры области просмотра
 
-By far the most popular media queries on the web are the ones dealing with viewport width. But even here, you're presented with a choice. You can use the `max-width` media feature to apply styles below a certain width, or you can use the `min-width` media feature to apply styles above a certain width.
+Самыми популярными медиазапросами в Интернете являются запросы, связанные с шириной области просмотра. Но даже здесь у вас есть выбор. Можно использовать медиафункцию `max-width` для применения стилей ниже определенной ширины, а можно использовать медиафункцию `min-width` для применения стилей выше определенной ширины.
 
-```css/4-4
+```css
 main {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-}
-@media (max-width: 45em) {
-  main {
-    display: block;
-  }
-}
-```
-
-```css/0-0
-@media (min-width: 45em) {
-  main {
     display: grid;
     grid-template-columns: 2fr 1fr;
-  }
+}
+@media (max-width: 45em) {
+    main {
+        display: block;
+    }
 }
 ```
 
-Personally, I like to use `min-width`. I apply layout styles in an additive way. I introduce new layout rules at each breakpoint instead of undoing previous rules.
+---
 
-This additive approach also works for height. Using `min-height` you can introduce more rules as more viewport height becomes available. For example, you might have a header element that you want to anchor to the top of the browser window if there's enough vertical space.
+```css
+@media (min-width: 45em) {
+    main {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+}
+```
 
-```css/0-0
+Лично я предпочитаю использовать `min-width`. Я применяю стили разметки аддитивным способом. Я ввожу новые правила компоновки в каждой точке останова, а не отменяю предыдущие правила.
+
+Этот аддитивный подход работает и для высоты. Используя `min-height`, можно вводить больше правил по мере увеличения высоты области просмотра. Например, у вас может быть элемент заголовка, который вы хотите привязать к верхней части окна браузера, если есть достаточно места по вертикали.
+
+```css
 @media (min-height: 30em) {
-  header {
-    position: fixed;
-  }
+    header {
+        position: fixed;
+    }
 }
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'PoJbdaN',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/PoJbdaN?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen PoJbdaN by web-dot-dev on Codepen"></iframe>
 
-But you can use the `max-height` media feature if you prefer. Here, the header is anchored by default, but the stickiness is removed if there isn't enough vertical space.
+Но при желании можно воспользоваться медиафункцией `max-height`. Здесь заголовок по умолчанию закреплен, но при недостатке вертикального пространства закрепление удаляется.
 
-```css/3-3
+```css
 header {
-  position: fixed;
+    position: fixed;
 }
 @media (max-height: 30em) {
-  header {
-    position: static;
-  }
+    header {
+        position: static;
+    }
 }
 ```
 
-Choosing between `min-` and `max-` prefixes doesn't just apply to [`width`](https://developer.mozilla.org/docs/Web/CSS/@media/width) and [`height`](https://developer.mozilla.org/docs/Web/CSS/@media/height). The [`aspect-ratio`](https://developer.mozilla.org/docs/Web/CSS/@media/aspect-ratio) media feature offers the same choice. It also offers an unprefixed version if you want to apply styles at an exact ratio of width to height.
+Выбор между префиксами `min-` и `max-` применим не только к префиксам [`width`](https://developer.mozilla.org/docs/Web/CSS/@media/width) и [`height`](https://developer.mozilla.org/docs/Web/CSS/@media/height). Аналогичный выбор предлагает и медиафункция [`aspect-ratio`](https://developer.mozilla.org/docs/Web/CSS/@media/aspect-ratio). Она также предлагает нефиксированную версию, если необходимо применить стили с точным соотношением ширины и высоты.
 
 ```css
 @media (min-aspect-ratio: 16/9) {
-  // The ratio of width to height is at least 16 by 9.
+    /* The ratio of width to height is at least 16 by 9. */
 }
 @media (max-aspect-ratio: 16/9) {
-  // The ratio of width to height is less than 16 by 9.
+    /* The ratio of width to height is less than 16 by 9. */
 }
 @media (aspect-ratio: 16/9) {
-  // The ratio of width to height is exactly 16 by 9.
+    /* The ratio of width to height is exactly 16 by 9. */
 }
 ```
 
-Providing different styles for different aspect ratios could quickly get out of hand. If you don't need that fine-grained level of control, the [`orientation`](https://developer.mozilla.org/docs/Web/CSS/@media/orientation) media feature might better suit your needs. It has two possible values: `portrait` or `landscape`.
+Предоставление различных стилей для разных соотношений сторон может быстро выйти из-под контроля. Если вам не нужен такой тонкий контроль, то лучше воспользоваться медиафункцией [`orientation`](https://developer.mozilla.org/docs/Web/CSS/@media/orientation). Она имеет два возможных значения: `portrait` или `landscape`.
 
 ```css
 @media (orientation: portrait) {
-  // The width is less than the height.
+    /* The width is less than the height. */
 }
 @media (orientation: landscape) {
-  // The width is greater than the height.
+    /* The width is greater than the height. */
 }
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'qBXVowV',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/qBXVowV?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen qBXVowV by web-dot-dev on Codepen"></iframe>
 
-{% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/gtBzPVsBu5mtnX8RuSqJ.mp4", controls=true, loop=true %}
+<video controls loop>
+<source src="/learn/design/media-features-1.mp4" />
+</video>
 
-Even though the terms "portrait" and "landscape" are most often used to refer to the orientation of mobile devices, the `orientation` media feature isn't device-specific. A full-screen browser window on a typical laptop will have an `orientation` value of `landscape`.
+Несмотря на то, что термины "портретная" и "ландшафтная" чаще всего используются для обозначения ориентации мобильных устройств, мультимедийная функция `orientation` не зависит от конкретного устройства. Полноэкранное окно браузера на обычном ноутбуке будет иметь значение `orientation` `landscape`.
 
-## Displays
+## Дисплеи
 
-Different displays have different pixel densities, measured in `dpi`, dots per inch. You can adjust your styles for different pixel densities using the [`resolution`](https://developer.mozilla.org/docs/Web/CSS/@media/resolution) media feature. Like `aspect-ratio`, `resolution` comes in three varieties: minimum, maximum, and exact.
+Различные дисплеи имеют разную плотность пикселей, измеряемую в `dpi`, точках на дюйм. Настроить стили для разных плотностей пикселей можно с помощью медиафункции [`resolution`](https://developer.mozilla.org/docs/Web/CSS/@media/resolution). Как и `aspect-ratio`, `resolution` бывает трех видов: минимальное, максимальное и точное.
 
 ```css
 @media (min-resolution: 300dpi) {
-  // The display has a pixel density of at least 300 dots per inch.
+    /* The display has a pixel density of at least 300 dots per inch. */
 }
 @media (max-resolution: 300dpi) {
-  // The display has a pixel density less than 300 dots per inch.
+    /* The display has a pixel density less than 300 dots per inch. */
 }
 @media (resolution: 300dpi) {
-  // The display has a pixel density of exactly 300 dots per inch.
+    /* The display has a pixel density of exactly 300 dots per inch. */
 }
 ```
 
-You may never need to use any `resolution` media queries. Pixel density is usually only an issue for images, and [responsive images](responsive-images.md) are a way of dealing with pixel density directly in HTML.
+Возможно, вам никогда не понадобится использовать медиазапросы `resolution`. Плотность пикселей обычно важна только для изображений, и [адаптивные изображения](responsive-images.md) позволяют работать с плотностью пикселей непосредственно в HTML.
 
-On the other hand, CSS is where you define your animations and transitions. You can adjust those animations and transitions to respond to different refresh rates using the [`update`](https://developer.mozilla.org/docs/Web/CSS/@media/update-frequency) media feature. This media feature reports one of three values: `none`, `slow`, and `fast`.
+С другой стороны, CSS - это место, где задаются анимации и переходы. Настроить анимацию и переходы в зависимости от частоты обновления можно с помощью медиафункции [`update`](https://developer.mozilla.org/docs/Web/CSS/@media/update-frequency). Эта медиафункция сообщает одно из трех значений: `none`, `low` и `fast`.
 
-An `update` value of `none` means there's no refresh rate. A printed page, for example, can't be updated.
+Значение `update`, равное `none`, означает отсутствие частоты обновления. Печатная страница, например, не может быть обновлена.
 
-An `update` value of `slow` means the display can't refresh quickly. An e-ink display is one example of a screen with a slow refresh rate.
+Значение `update`, равное `low`, означает, что дисплей не может обновляться быстро. Одним из примеров экрана с медленной частотой обновления является e-ink дисплей.
 
-An `update` value of `fast` means the display refreshes fast enough to handle animations and transitions.
+Значение `update`, равное `fast`, означает, что экран обновляется достаточно быстро для обработки анимации и переходов.
 
 ```css
 @media (update: fast) {
@@ -153,9 +141,9 @@ An `update` value of `fast` means the display refreshes fast enough to handle an
 }
 ```
 
-Not all aspects of the display are related to hardware capabilities. In [the module on theming](theming.md), you saw how to define properties in a [web app manifest](https://web.dev/articles/add-manifest) file. One of those properties is called `display`, and you can give it a value of `fullscreen`, `standalone`, `minimum-ui`, or `browser`. The corresponding [`display-mode`](https://developer.mozilla.org/docs/Web/CSS/@media/display-mode) media feature allows you to tailor your styles for these different options.
+Не все аспекты отображения связаны с аппаратными возможностями. В [модуле по тематизации](theming.md) вы видели, как определять свойства в файле [web app manifest](https://web.dev/articles/add-manifest). Одно из этих свойств называется `display`, и ему можно придать значение `fullscreen`, `standalone`, `minimum-ui` или `browser`. Соответствующая медиафункция [`display-mode`](https://developer.mozilla.org/docs/Web/CSS/@media/display-mode) позволяет настраивать стили для этих различных опций.
 
-Let's say you've provided a `display` value of `standalone` in your web app manifest. If someone adds your site to their home screen, the site will launch without any browser interface. You might decide to display a back button for those users.
+Допустим, вы указали в манифесте веб-приложения значение `display`, равное `standalone`. Если кто-то добавит ваш сайт на домашний экран, то он запустится без какого-либо интерфейса браузера. Возможно, вы решите отобразить для таких пользователей кнопку "Назад".
 
 ```css
 button.back {
@@ -168,9 +156,9 @@ button.back {
 }
 ```
 
-## Color
+## Цвет
 
-There are numerous media features for querying the color capabilities of a device. If you want to adjust your styles for any display that only outputs shades of grey, you can use the [`monochrome`](https://developer.mozilla.org/docs/Web/CSS/@media/monochrome) media feature without any value.
+Существует множество медиафункций для запроса цветовых возможностей устройства. Если вы хотите настроить стили для любого дисплея, который выводит только оттенки серого, вы можете использовать медиафункцию [`monochrome`](https://developer.mozilla.org/docs/Web/CSS/@media/monochrome) без какого-либо значения.
 
 ```css
 @media (monochrome) {
@@ -181,7 +169,7 @@ There are numerous media features for querying the color capabilities of a devic
 }
 ```
 
-There's a corresponding [`color`](https://developer.mozilla.org/docs/Web/CSS/@media/color) media feature.
+Имеется соответствующая [`color`](https://developer.mozilla.org/docs/Web/CSS/@media/color) медиафункция.
 
 ```css
 @media (color) {
@@ -192,38 +180,32 @@ There's a corresponding [`color`](https://developer.mozilla.org/docs/Web/CSS/@me
 }
 ```
 
-For color screens, you can write queries with the media features [`color-gamut`](https://developer.mozilla.org/docs/Web/CSS/@media/color-gamut), [`color-index`](https://developer.mozilla.org/docs/Web/CSS/@media/color-index), or [`dynamic-range`](https://www.w3.org/TR/mediaqueries-5/#dynamic-range). All of them report specific details about the color capabilities of the screen.
+Для цветных экранов можно написать запросы с медиафункциями [`color-gamut`](https://developer.mozilla.org/docs/Web/CSS/@media/color-gamut), [`color-index`](https://developer.mozilla.org/docs/Web/CSS/@media/color-index) или [`dynamic-range`](https://www.w3.org/TR/mediaqueries-5/#dynamic-range). Все они сообщают конкретные сведения о цветовых возможностях экрана.
 
-In this example, color values update in response to the `dynamic-range` media feature, which reports the combination of maximum brightness, color depth, and contrast ratio of the display. The possible values are `standard` or `high`. A high-definition screen that reports a `dynamic-range` value of `high` is given a different color space using the new CSS `color()` function.
+В данном примере значения цветов обновляются адаптивно к медиафункции `dynamic-range`, которая сообщает о сочетании максимальной яркости, глубины цвета и коэффициента контрастности дисплея. Возможные значения - `standard` или `high`. Экрану высокой четкости, для которого значение `dynamic-range` равно `high`, присваивается другое цветовое пространство с помощью новой функции CSS `color()`.
 
-```css/3-3
+```css
 .neon-red {
-  color: hsl(355 100% 95%);
+    color: hsl(355 100% 95%);
 }
 @media (dynamic-range: high) {
-  .neon-red {
-    color: color(display-p3 1 0 0);
-  }
+    .neon-red {
+        color: color(display-p3 1 0 0);
+    }
 }
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'BawQOPQ',
- height: 400,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/BawQOPQ?height=400&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 400px; width: 100%; border: 0;" data-title="Pen BawQOPQ by web-dot-dev on Codepen"></iframe>
 
-## Interaction
+## Взаимодействие
 
-Media features can also report the kind of input mechanism used to interact with your site: `hover`, `any-hover`, `pointer`, and `any-pointer`. See [the module on interaction](interaction.md) for more details.
+Медиафункции также могут сообщать о том, какой механизм ввода используется для взаимодействия с сайтом: `hover`, `any-hover`, `pointer` и `any-pointer`. Более подробная информация приведена в [модуле по взаимодействию](interaction.md).
 
-## Preferences
+## Предпочтения
 
-There are a range of media queries that allow you to respond to user preferences: `prefers-color-scheme`, `prefers-contrast`, and `prefers-reduced-motion`. See the modules on [theming](theming.md) and [accessibility](accessibility.md) for more details.
+Существует ряд медиазапросов, позволяющих реагировать на предпочтения пользователя: `prefers-color-scheme`, `prefers-contrast` и `prefers-reduced-motion`. Более подробную информацию см. в модулях [theming](theming.md) и [accessibility](accessibility.md).
 
-You can combine media features in one media query. You could scope your animation styles so that they're only applied if the device has a fast refresh rate and the user hasn't expressed a preference for reduced motion.
+В одном медиазапросе можно комбинировать медиафункции. Можно настроить стили анимации таким образом, чтобы они применялись только в том случае, если устройство имеет высокую частоту обновления и пользователь не выразил предпочтение уменьшенному движению.
 
 ```css
 @media (update: fast) and (prefers-reduced-motion: no-preference) {
@@ -237,16 +219,14 @@ You can combine media features in one media query. You could scope your animatio
 }
 ```
 
-## More media features
+## Другие медиа-функции
 
-There are more media features on the way.
+В ближайшее время появятся новые медиа-функции.
 
-The [`forced-colors`](https://developer.mozilla.org/docs/Web/CSS/@media/forced-colors) and [`inverted-colors`](https://developer.mozilla.org/docs/Web/CSS/@media/inverted-colors) media features will report whether a device is using a restricted or an inverted color palette.
+Функции [`forced-colors`](https://developer.mozilla.org/docs/Web/CSS/@media/forced-colors) и [`inverted-colors`](https://developer.mozilla.org/docs/Web/CSS/@media/inverted-colors) будут сообщать, используется ли на устройстве ограниченная или инвертированная цветовая палитра.
 
-A [`scripting`](https://developer.mozilla.org/docs/Web/CSS/@media/scripting) media feature will allow you to adjust your CSS based on the availability of JavaScript.
+Медиафункция [`scripting`](https://developer.mozilla.org/docs/Web/CSS/@media/scripting) позволяет корректировать CSS в зависимости от наличия JavaScript.
 
-A media feature called [`prefers-reduced-data`](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-data) will allow users to specify that they're on a metered connection so you can send smaller or fewer assets.
+Медиафункция [`prefers-reduced-data`](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-data) позволит пользователям указывать, что они находятся на дозированном соединении, и отправлять меньший объем ресурсов.
 
-Other proposals are still being formulated. In the next and final module, you'll learn about a proposal for a media feature that handles different screen configurations.
-
-{% Assessment 'media-features' %}
+Другие предложения пока находятся в стадии разработки. В следующем, заключительном модуле вы узнаете о предложении по созданию функции мультимедиа для работы с различными конфигурациями экранов.

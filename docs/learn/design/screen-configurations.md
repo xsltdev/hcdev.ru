@@ -1,65 +1,61 @@
 ---
-title: Screen configurations
-description: >
-    Prepare your content for devices with multiple screens.
-
-authors:
-    - adactio
-date: 2021-12-23
+description: Подготовьте контент для устройств с несколькими экранами.
 ---
 
-Responsive web design was in many ways a reaction to mobile phones. Before smartphones appeared, very few people seriously considered how websites should look and feel on handheld devices. That changed with the meteoric rise of mobile phones featuring built-in web browsers.
+# Конфигурации экрана
 
-Responsive web design encouraged a mindset that questioned assumptions. Whereas previously it was common to assume that a website would only be viewed on a desktop computer, now it's standard practice to design that same website for phones and tablets as well. In fact, [mobile usage has now eclipsed desktop usage](https://www.statista.com/statistics/277125/share-of-website-traffic-coming-from-mobile-devices/) on the web.
+Адаптивный веб-дизайн во многом стал реакцией на появление мобильных телефонов. До появления смартфонов мало кто всерьез задумывался о том, как должны выглядеть и восприниматься веб-сайты на портативных устройствах. Ситуация изменилась после стремительного роста числа мобильных телефонов со встроенными веб-браузерами.
 
-This responsive mindset will serve you well for the future. It's entirely possible that your websites will be viewed on devices and screens that we can't even imagine today. And this mindset extends beyond screens. Even now people are using devices with no screens to access your content. Voice assistants can use your websites if you are using a strong foundation of semantic HTML.
+Адаптивный веб-дизайн способствовал формированию мышления, которое ставило под сомнение сложившиеся представления. Если раньше было принято считать, что сайт можно просматривать только на стационарном компьютере, то теперь стандартной практикой является разработка такого же сайта для телефонов и планшетов. Более того, [использование мобильных устройств в настоящее время превысило использование настольных компьютеров](https://www.statista.com/statistics/277125/share-of-website-traffic-coming-from-mobile-devices/) в Интернете.
 
-There's experimentation in the world of screens too. There are devices on the market today with foldable screens. That introduces some challenges for your designs.
+Адаптивное мышление поможет вам в будущем. Вполне возможно, что ваши сайты будут просматриваться на устройствах и экранах, которые сегодня мы даже не можем себе представить. И это мышление распространяется не только на экраны. Уже сейчас люди используют устройства без экранов для доступа к вашему контенту. Голосовые помощники могут использовать ваши сайты, если вы используете прочную основу семантического HTML.
 
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/f4vIlX35hgoM8l0cWE9a.jpg", alt="A montage of foldable phones in different configurations.", width="800", height="449" %}
+В мире экранов тоже проводятся эксперименты. Сегодня на рынке представлены устройства со складными экранами. Это создает определенные трудности для дизайна.
 
-## Dual screens
+![Монтаж складных телефонов в различных конфигурациях.](screen-configurations-1.jpg)
 
-Users of foldable devices can choose whether they want their web browser to occupy just one of the screens or span across both screens. If the browser spans both screens, then the website on display will be broken up by the hinge between the two screens. It doesn't look great.
+## Двойные экраны
 
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/gRdTgrPMARsnUl1iLmie.png", alt="A website spanning across two screens. The horizontal flow of text is interrupted by the hinge between the screens.", width="800", height="545" %}
+Пользователи складных устройств могут выбирать, будет ли их веб-браузер занимать только один из экранов или охватывать оба экрана. Если браузер будет занимать оба экрана, то отображаемый веб-сайт будет разделен петлей между двумя экранами. Выглядит это не очень красиво.
 
-## Viewport segments
+![Веб-сайт, размещенный на двух экранах. Горизонтальный поток текста прерывается петлей между экранами.](screen-configurations-2.png)
 
-There's an experimental media feature designed to detect if your website is being displayed on a dual-screen device. The proposed name of the media feature is `viewport-segments`. There are two varieties: `horizontal-viewport-segments` and `vertical-viewport-segments`.
+## Сегменты видового экрана
 
-{% Aside 'caution' %} The `viewport-segments` feature is an experimental proposal and the syntax may change. The syntax has already changed from its initial proposal of a `spanning` media feature. {% endAside %}
+Существует экспериментальная медиафункция, предназначенная для определения того, отображается ли ваш сайт на устройстве с двумя экранами. Предлагаемое название медиафункции - `viewport-segments`. Существует две разновидности: `horizontal-viewport-segments` и `vertical-viewport-segments`.
 
-If the `horizontal-viewport-segments` media feature reports a value of `2` and `vertical-viewport-segments` reports a value of `1` that means the hinge on the device runs from top to bottom, splitting your content into two side-by-side panels.
+!!!warning ""
+
+    Функция `viewport-segments` является экспериментальным предложением, и ее синтаксис может измениться. Синтаксис уже изменился по сравнению с первоначальным предложением функции `spanning` media.
+
+Если медиафункция `horizontal-viewport-segments` показывает значение `2`, а `vertical-viewport-segments` показывает значение `1`, это означает, что петля на устройстве проходит сверху вниз, разделяя содержимое на две панели, расположенные рядом друг с другом.
 
 ```css
 @media (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) {
-  // Styles for side-by-side screens.
+    /* Styles for side-by-side screens. */
 }
 ```
 
-If the `vertical-viewport-segments` media feature reports a value of `2` and `horizontal-viewport-segments` reports a value of `1` then the hinge runs from side to side, dividing your content into two panels, one on top of the other.
+Если медиафункция `vertical-viewport-segments` имеет значение `2`, а `horizontal-viewport-segments` имеет значение `1`, то петля проходит из стороны в сторону, разделяя содержимое на две панели, одна на другую.
 
 ```css
 @media (vertical-viewport-segments: 2) and (horizontal-viewport-segments: 1) {
-  // Styles for stacked screens.
+    /* Styles for stacked screens. */
 }
 ```
 
-<figure>
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/TAs3gDDzcdq6Gsys3fXQ.svg", alt="Diagram demonstrating viewport segments.", width="800", height="488" %}
-<figcaption>
-   Diagram from <a href="https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/Foldables/explainer.md">Microsoft Edge Explainers</a>.
- </figcaption>
+<figure markdown>
+![Диаграмма, демонстрирующая сегменты видового экрана.](screen-configurations-3.svg)
+<figcaption markdown>Диаграмма из [Microsoft Edge Explainers](https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/Foldables/explainer.md).</figcaption>
 </figure>
 
-If both `vertical-viewport-segments` and `horizontal-viewport-segments` report a value of `1` this means the website is being displayed on just one screen, even if the device has more than one screen. This is equivalent to not using any media query.
+Если оба значения `vertical-viewport-segments` и `horizontal-viewport-segments` равны `1`, это означает, что сайт отображается только на одном экране, даже если устройство имеет несколько экранов. Это эквивалентно отсутствию медиазапросов.
 
-## Environment variables
+## Переменные окружения
 
-The `viewport-segments` media feature by itself won't help you design around that annoying hinge. You need a way of knowing the size of the hinge. That's where [environment](<https://developer.mozilla.org/docs/Web/CSS/env()>) variables can help.
+Медиафункция `viewport-segments` сама по себе не поможет вам обойти эту раздражающую петлю. Необходимо знать размер петли. Именно здесь могут помочь переменные [environment](<https://developer.mozilla.org/docs/Web/CSS/env()>).
 
-Environment variables in CSS allow you to factor awkward device intrusions into your styles. For example, you can design around the "notch" on the iPhone X using the environment values `safe-area-inset-top`, `safe-area-inset-right`, `safe-area-inset-bottom` and `safe-area-inset-left`. These keywords are wrapped in an `env()` function.
+Переменные окружения в CSS позволяют учитывать в стилях неудобства, возникающие при работе с устройствами. Например, вырез на iPhone X можно оформить с помощью значений окружения `safe-area-inset-top`, `safe-area-inset-right`, `safe-area-inset-bottom` и `safe-area-inset-left`. Эти ключевые слова обернуты в функцию `env()`.
 
 ```css
 body {
@@ -70,7 +66,7 @@ body {
 }
 ```
 
-Environment variables work like custom properties. This means you can pass in a fallback option in case the environment variable doesn't exist.
+Переменные окружения работают как пользовательские свойства. Это означает, что можно передать запасной вариант на случай, если переменная окружения не существует.
 
 ```css
 body {
@@ -81,7 +77,7 @@ body {
 }
 ```
 
-For those environment variables to work on the iPhone X, update the `meta` element that specifies `viewport` information:
+Чтобы эти переменные окружения работали на iPhone X, обновите элемент `meta`, в котором указывается информация о `viewport`:
 
 ```html
 <meta
@@ -90,22 +86,24 @@ For those environment variables to work on the iPhone X, update the `meta` eleme
 />
 ```
 
-Now your page layout will take up the entire viewport and safely pad the document with device-provided inset values.
+Теперь макет страницы будет занимать всю область просмотра и безопасно размещать документ с учетом значений вставки, предоставляемых устройством.
 
-For foldable screens, six new environment variables are being proposed: `viewport-segment-width`, `viewport-segment-height`, `viewport-segment-top`, `viewport-segment-left`, `viewport-segment-bottom`, `viewport-segment-right`.
+Для складных экранов предлагается ввести шесть новых переменных окружения: `viewport-segment-width`, `viewport-segment-height`, `viewport-segment-top`, `viewport-segment-left`, `viewport-segment-bottom`, `viewport-segment-right`.
 
-{% Aside 'caution' %} Remember, this is just at the proposal stage right now. The specific syntax for the environment variables may well change. {% endAside %}
+!!!warning ""
 
-<figure>
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/Ok2IFh9xJWHSGedPx9Xe.svg", alt="Diagram showing environment variables for dual screens.", width="800", height="420" %}
-<figcaption>
-   Diagram from <a href="https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/Foldables/explainer.md">Microsoft Edge Explainers</a>.
- </figcaption>
+    Помните, что сейчас это только на стадии предложения. Синтаксис переменных окружения может измениться.
+
+<figure markdown>
+![Диаграмма, показывающая переменные окружения для двух экранов.](screen-configurations-4.svg)
+<figcaption markdown>Диаграмма из [Microsoft Edge Explainers](https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/Foldables/explainer.md).</figcaption>
 </figure>
 
-{% Aside %} It might seem a little strange to see names proposed with `left`, `right`, `top`, and `bottom`. If you're using logical properties you would expect terms like `inline-start`, `inline-end`, `block-start`, and `block-end`. In this instance though, the names refer to the hardware's physical properties, regardless of the writing mode used by the website being displayed. {% endAside %}
+!!!note ""
 
-Here's an example of a layout with two columns, one wider than the other.
+    Может показаться несколько странным, что в качестве имен предлагаются `left`, `right`, `top` и `bottom`. Если бы вы использовали логические свойства, то ожидали бы таких терминов, как `inline-start`, `inline-end`, `block-start` и `block-end`. Однако в данном случае эти имена относятся к физическим свойствам оборудования, независимо от режима записи, используемого отображаемым сайтом.
+
+Приведем пример макета с двумя колонками, одна из которых шире другой.
 
 ```css
 @media (min-width: 45em) {
@@ -122,9 +120,9 @@ Here's an example of a layout with two columns, one wider than the other.
 }
 ```
 
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/VYjqUCss2sJ6MT8b7BHe.png", alt="The layout is split across two screens with the hinge interrupting the wider column.", width="800", height="545" %}
+![Макет разделен на два экрана, причем петля прерывает более широкую колонну.](screen-configurations-5.png)
 
-For dual screens with a vertical hinge, set the first column to be the width of the first screen and the second column to be the width of the second screen.
+Для двух экранов с вертикальным шарниром установите первый столбец равным ширине первого экрана, а второй - ширине второго.
 
 ```css
 @media (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) {
@@ -137,21 +135,17 @@ For dual screens with a vertical hinge, set the first column to be the width of 
 }
 ```
 
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/BUXrXQRSkvXz7TTzWFLx.png", alt="The layout is split evenly across two screens with no visible interruption.", width="800", height="545" %}
+![Макет равномерно распределяется по двум экранам без видимого прерывания.](screen-configurations-6.png)
 
-Treat dual screens as an opportunity. Perhaps one screen could be used to display scrollable text content while the other displays a fixed element like an image or a map.
+Рассматривайте двойные экраны как возможность. Возможно, на одном экране можно отображать прокручиваемый текстовый контент, а на другом - фиксированный элемент, например изображение или карту.
 
-<figure>
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/F08tJySy3ZeePoCzzw1Z.svg", alt="Diagram illustrating a location service split over two screens, with the map on one screen and directions on the other.", width="800", height="426" %}
-<figcaption>
-   Diagram from <a href="https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/Foldables/explainer.md">Microsoft Edge Explainers</a>.
- </figcaption>
+<figure markdown>
+![Диаграмма, иллюстрирующая сервис определения местоположения, разделенный на два экрана, где на одном экране отображается карта, а на другом - направления.](screen-configurations-7.svg)
+<figcaption markdown>Диаграмма из [Microsoft Edge Explainers](https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/Foldables/explainer.md).</figcaption>
 </figure>
 
-## The future
+## Будущее
 
-Will foldable displays become the next big thing? Who knows. No one could've predicted how popular mobile devices would become so it's worth having an open mind about future form factors.
+Станут ли складные дисплеи следующей большой вещью? Кто знает. Никто не мог предсказать, насколько популярными станут мобильные устройства, поэтому стоит непредвзято относиться к будущим форм-факторам.
 
-Above all, it's worth ensuring that your websites can respond to whatever the future may bring. That's what responsive design gives you: not just a set of practical techniques, but a mindset that will serve you well as you build the web of tomorrow.
-
-{% Assessment 'screen-configurations' %}
+Прежде всего, стоит позаботиться о том, чтобы ваши сайты могли реагировать на любые изменения, которые могут произойти в будущем. Адаптивный дизайн - это не только набор практических приемов, но и образ мышления, который поможет вам в создании Интернета будущего.
