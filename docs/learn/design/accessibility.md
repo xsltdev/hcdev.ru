@@ -14,7 +14,7 @@ description: Убедитесь, что ваш сайт доступен для 
 
 На вкладке [Firefox's Accessibility tab](https://developer.mozilla.org/docs/Tools/Accessibility_inspector/Simulation) есть выпадающий список **Simulate** со списком опций.
 
-<figure>
+<figure markdown>
 ![Симулированная протанопия (без красного цвета).](accessibility-1.png)
 ![Симулированная тританопия (без синего цвета)](accessibility-2.png)
 <figcaption>Просмотр сайта с имитацией различных видов цветового зрения.</figcaption>
@@ -132,7 +132,7 @@ body {
 
 Тот, кто посещает ваш сайт на настольном компьютере с увеличенным до 400% размером шрифта, должен получить такое же оформление, как и тот, кто посещает ваш сайт на устройстве с маленьким экраном.
 
-<figure>
+<figure markdown>
 ![Clearleft dot com.](accessibility-6.png)
 <figcaption>Один и тот же сайт на настольном и мобильном устройствах. Размер шрифта в настольном браузере увеличен до 400%.</figcaption>
 </figure>

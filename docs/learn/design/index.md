@@ -12,11 +12,21 @@ description: Курс, изучающий все аспекты адаптивн
 
 Этот курс предназначен для начинающих и средних дизайнеров и разработчиков. Базового понимания HTML и CSS должно быть достаточно. Знание JavaScript не требуется. Если вы совсем новичок в создании сайтов, есть курс [Введение в HTML](https://developer.mozilla.org/docs/Learn/HTML/Introduction_to_HTML) и еще один курс [Изучение CSS](../css3/index.md).
 
-<!-- Вот что вы узнаете:
-
-{% include 'partials/course-index.njk' %}
-
--->
+-   [Введение](intro.md)
+-   [Медиа-запросы](media-queries.md)
+-   [Интернационализация](internationalization.md)
+-   [Макроразметка](macro-layouts.md)
+-   [Микроразметка](micro-layouts.md)
+-   [Типографика](typography.md)
+-   [Адаптивные изображения](responsive-images.md)
+-   [Элемент picture](picture-element.md)
+-   [Иконки](icons.md)
+-   [Темизация](theming.md)
+-   [Доступность](accessibility.md)
+-   [Взаимодействие](interaction.md)
+-   [Шаблоны UI](ui-patterns.md)
+-   [Мультимедийные возможности](media-features.md)
+-   [Конфигурации экрана](screen-configurations.md)
 
 !!!note "Авторы"
 

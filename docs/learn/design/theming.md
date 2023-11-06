@@ -18,7 +18,7 @@ description: Адаптируйте дизайн к предпочтениям �
 
     Немного странно размещать подобную информацию о стиле в HTML, а не в CSS, но это позволяет браузеру обновлять свой интерфейс сразу после загрузки страницы, а не дожидаться CSS.
 
-<figure>
+<figure markdown>
 ![Clearleft dot com.](theming-1.png)
 ![Resilient Web Design dot com.](theming-2.png)
 ![The Session dot org.](theming-3.png)
@@ -181,7 +181,7 @@ svg {
 
 <iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/PoJYrpy?height=600&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 600px; width: 100%; border: 0;" data-title="Pen PoJYrpy by web-dot-dev on Codepen"></iframe>
 
-<figure>
+<figure markdown>
 ![Три фотографии с нормальной яркостью.](theming-5.png)
 ![Три фотографии с чуть меньшей яркостью.](theming-6.png)
 <figcaption>Эффект малозаметен, но в темном режиме можно уменьшить яркость изображений.</figcaption>
@@ -208,7 +208,7 @@ svg {
 <source src="/learn/design/theming-7.mp4" />
 </video>
 
-<figure>
+<figure markdown>
 ![Две карты Брулина, на одной из которых использованы светлые цвета, а на другой - темные.](theming-8.png)
 <figcaption>Две версии одной и той же карты, одна для светлого режима, другая для темного.</figcaption>
 </figure>
