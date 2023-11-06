@@ -1,23 +1,18 @@
 ---
-title: Icons
-description: >
-    Use SVG for scalable responsive iconography.
-
-
-authors:
-    - adactio
-date: 2021-12-09
+description: Использование SVG для масштабируемой адаптивной иконографии.
 ---
 
-Most images are part of your content, but icons are part of your user interface. They should scale and adapt in the same way that the text of your UI scales and adapts.
+# Иконки
 
-## Scalable Vector Graphics
+Большинство изображений являются частью контента, но иконки - это часть пользовательского интерфейса. Они должны масштабироваться и адаптироваться так же, как масштабируется и адаптируется текст пользовательского интерфейса.
 
-When it comes to photographic imagery, there are lots of choices for the image format: JPG, WebP, and AVIF. For non-photographic imagery, you have a choice between the Portable Network Graphics (PNG) format and the Scalable Vector Graphics (SVG) format.
+## Масштабируемая векторная графика
 
-Both PNGs and SVGs are good at dealing with areas of flat color, and they both allow your images to have transparent backgrounds. If you use a PNG you'll probably need to make multiple versions of your image in different sizes and use the `srcset` attribute on your `img` element to [make the image responsive](responsive-images.md). If you use an SVG, it's responsive by default.
+Когда речь идет о фотографических изображениях, существует множество вариантов формата изображения: JPG, WebP и AVIF. Для нефотографических изображений есть выбор между форматом Portable Network Graphics (PNG) и форматом Scalable Vector Graphics (SVG).
 
-PNGs (and JPGs, WebP, and AVIF) are bitmap images. Bitmap images store information as pixels. In an SVG, information is stored as drawing instructions. When the browser reads the SVG file the instructions are converted into pixels. Best of all, these instructions are relative. Regardless of the dimensions you use to describe lines and shapes, everything renders at just the right crispness. Instead of creating multiple SVGs of different sizes you can make one SVG that will work at all sizes. There's no need to use the `srcset` attribute.
+И PNG, и SVG хорошо справляются с плоскими цветовыми областями, а также позволяют создавать прозрачные фоны. Если вы используете PNG, то вам, вероятно, придется сделать несколько версий изображения разных размеров и использовать атрибут `srcset` в элементе `img`, чтобы [сделать изображение адаптивным](responsive-images.md). Если вы используете SVG, то оно по умолчанию является адаптивным.
+
+PNG (а также JPG, WebP и AVIF) - это растровые изображения. В растровых изображениях информация хранится в виде пикселей. В SVG информация хранится в виде инструкций по рисованию. Когда браузер считывает SVG-файл, инструкции преобразуются в пиксели. Самое главное, что эти инструкции являются относительными. Независимо от размеров, которые вы используете для описания линий и фигур, все отображается с нужной четкостью. Вместо того чтобы создавать несколько SVG разных размеров, можно сделать один SVG, который будет работать при любых размерах. При этом нет необходимости использовать атрибут `srcset`.
 
 ```html
 <img
@@ -34,15 +29,9 @@ PNGs (and JPGs, WebP, and AVIF) are bitmap images. Bitmap images store informati
 />
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'YzrKoWY',
- height: 360,
- theme: 'dark',
- tab: 'html,result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/YzrKoWY?height=360&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 360px; width: 100%; border: 0;" data-title="Pen YzrKoWY by web-dot-dev on Codepen"></iframe>
 
-XML is used to write the instructions in an SVG file. This is a markup language, like HTML.
+Для записи инструкций в SVG-файл используется XML. Это язык разметки, подобный HTML.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -56,9 +45,9 @@ XML is used to write the instructions in an SVG file. This is a markup language,
 </svg>
 ```
 
-{% Img src="image/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/3F9ZFc3oOqhrPN6YU0Bd.svg", alt="Smiley face.", width="800", height="800" %}
+![Смайлик.](icons-1.svg)
 
-You can even put SVG inside HTML.
+Можно даже поместить SVG внутрь HTML.
 
 ```html
 <figure>
@@ -94,15 +83,17 @@ You can even put SVG inside HTML.
 </figure>
 ```
 
-If you embed an SVG like that, that's one less request that the browser needs to make. There'll be no wait for the image to download because it arrives with the HTML …_in_ the HTML! Also, as you'll soon find out, embedding SVGs like this gives you more control over styling them too.
+Если встроить SVG, то у браузера будет на один запрос меньше. Не нужно ждать загрузки изображения, поскольку оно приходит вместе с HTML ..._в_ HTML! Кроме того, как вы скоро узнаете, встраивание SVG позволяет вам получить больше контроля над их стилем.
 
-## Icons and text
+## Иконки и текст
 
-Icon images often feature simple shapes on a transparent background. SVG is ideal for icons.
+Изображения иконок часто представляют собой простые фигуры на прозрачном фоне. SVG идеально подходит для пиктограмм.
 
-If you have a button or a link with text and an icon inside it, the icon is presentational. It's the text that matters. When using an `img` element, an empty `alt` attribute indicates that the image is presentational.
+Если у вас есть кнопка или ссылка с текстом и значком внутри, то значок является презентативным. Важен текст. При использовании элемента `img` пустой атрибут `alt` указывает на то, что изображение является презентационным.
 
-{% Aside %} An empty `alt` attribute is not the same as a missing `alt` attribute. Always provide an `alt` attribute even if an image is presentational and the `alt` attribute has no content. {% endAside %}
+!!!note ""
+
+    Пустой атрибут `alt` - это не то же самое, что отсутствие атрибута `alt`. Всегда указывайте атрибут `alt`, даже если изображение является презентационным и атрибут `alt` не имеет содержимого.
 
 ```html
 <button>
@@ -116,19 +107,15 @@ If you have a button or a link with text and an icon inside it, the icon is pres
 </button>
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'qBPWzam',
- height: 200,
- theme: 'dark',
- tab: 'html,result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/qBPWzam?height=200&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 200px; width: 100%; border: 0;" data-title="Pen qBPWzam by web-dot-dev on Codepen"></iframe>
 
-Because CSS is for presentation, you could put the icon in your CSS as a background image.
+Поскольку CSS предназначен для представления информации, можно поместить значок в CSS в качестве фонового изображения.
 
 ```html
 <button class="menu">Menu</button>
 ```
+
+---
 
 ```css
 .menu {
@@ -140,15 +127,9 @@ Because CSS is for presentation, you could put the icon in your CSS as a backgro
 }
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'gOGYNwj',
- height: 200,
- theme: 'dark',
- tab: 'html,result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/gOGYNwj?height=200&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 200px; width: 100%; border: 0;" data-title="Pen gOGYNwj by web-dot-dev on Codepen"></iframe>
 
-If you put the SVG inside your HTML, use the `aria-hidden` attribute to hide it from assistive technology.
+Если вы помещаете SVG внутрь HTML, используйте атрибут `aria-hidden`, чтобы скрыть его от вспомогательных технологий.
 
 ```html
 <button class="menu">
@@ -167,41 +148,38 @@ If you put the SVG inside your HTML, use the `aria-hidden` attribute to hide it 
 </button>
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'bGobPwz',
- height: 200,
- theme: 'dark',
- tab: 'html,result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/bGobPwz?height=200&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 200px; width: 100%; border: 0;" data-title="Pen bGobPwz by web-dot-dev on Codepen"></iframe>
 
-{% Aside %} If you use the same icon multiple times in one page, it would be inefficient to repeat the entire SVG markup each time. There's an element in SVG called [`use`](https://developer.mozilla.org/docs/Web/SVG/Element/use) which allows you to “clone” part of an SVG, even from a different SVG element. {% endAside %}
+!!!note ""
 
-## Standalone icons
+    Если на одной странице несколько раз используется один и тот же значок, то повторять всю SVG-разметку каждый раз будет неэффективно. В SVG существует элемент [`use`](https://developer.mozilla.org/docs/Web/SVG/Element/use), который позволяет "клонировать" часть SVG, даже из другого SVG-элемента.
 
-Use text inside your buttons and links if you want their purpose to be clear. You can use an icon without any text but don't assume that everyone understands the meaning of a particular icon. When in doubt, test with real users.
+## Отдельные значки
 
-If you decide to use an icon without any accompanying text, the icon is no longer presentational. A background image in CSS is not an appropriate way to display the icon. The icon needs to be given an accessible name in HTML.
+Используйте текст внутри кнопок и ссылок, если хотите, чтобы их назначение было понятно. Можно использовать пиктограмму без текста, но не стоит полагать, что все понимают значение той или иной пиктограммы. Если есть сомнения, проведите тестирование на реальных пользователях.
 
-If you use an `img` element, the icon gets its accessible name from the `alt` attribute.
+Если вы решили использовать пиктограмму без сопроводительного текста, то она перестает быть презентационной. Фоновое изображение в CSS не является подходящим способом отображения пиктограммы. В HTML иконке должно быть присвоено доступное имя.
 
-{% Aside %} Usually the `alt` attribute describes the contents of the image (“Three horizontal lines.”) but with standalone icons, the `alt` attribute describes the meaning of the image (“Menu”). {% endAside %}
+Если используется элемент `img`, то иконка получает доступное имя из атрибута `alt`.
+
+!!!note ""
+
+    Обычно атрибут `alt` описывает содержимое изображения ("Три горизонтальные линии."), но для самостоятельных пиктограмм атрибут `alt` описывает смысл изображения ("Меню").
 
 ```html
 <button>
-<img src="hamburger.svg" alt="Menu"" width="16" height="16">
+    <img
+        src="hamburger.svg"
+        alt="Menu"
+        width="16"
+        height="16"
+    />
 </button>
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'MWEgMbY',
- height: 200,
- theme: 'dark',
- tab: 'html,result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/MWEgMbY?height=200&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 200px; width: 100%; border: 0;" data-title="Pen MWEgMbY by web-dot-dev on Codepen"></iframe>
 
-Another option is to put the accessible name on the link or button itself and declare that the image is presentational. Use the `aria-label` attribute to provide the accessible name.
+Другой вариант - поместить доступное имя в саму ссылку или кнопку и объявить, что изображение является презентационным. Для указания доступного имени используйте атрибут `aria-label`.
 
 ```html
 <button aria-label="Menu">
@@ -214,15 +192,9 @@ Another option is to put the accessible name on the link or button itself and de
 </button>
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'VwMZJmr',
- height: 200,
- theme: 'dark',
- tab: 'html,result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/VwMZJmr?height=200&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 200px; width: 100%; border: 0;" data-title="Pen VwMZJmr by web-dot-dev on Codepen"></iframe>
 
-If you put the SVG inside your HTML, use the `aria-label` attribute on the link or button to give it an accessible name and use the `aria-hidden` attribute on the icon.
+Если вы помещаете SVG внутрь HTML, используйте атрибут `aria-label` для ссылки или кнопки, чтобы дать ей доступное имя, и используйте атрибут `aria-hidden` для пиктограммы.
 
 ```html
 <button aria-label="Menu">
@@ -240,19 +212,13 @@ If you put the SVG inside your HTML, use the `aria-label` attribute on the link 
 </button>
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'OJxLebB',
- height: 200,
- theme: 'dark',
- tab: 'html,result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/OJxLebB?height=200&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 200px; width: 100%; border: 0;" data-title="Pen OJxLebB by web-dot-dev on Codepen"></iframe>
 
-## Styling icons
+## Стилизация иконок
 
-If you embed your SVG icons directly in your HTML you can style parts of them just like any other element in your page. You can't do that if you use an `img` element to display your icons.
+Если вы вставляете SVG-иконки непосредственно в HTML, то можете стилизовать их части, как и любой другой элемент страницы. Этого нельзя сделать, если для отображения пиктограмм используется элемент `img`.
 
-In the following example, the `rect` elements inside the SVG have a `fill` value of `blue` to match the styles for the button's text.
+В следующем примере элементы `rect` внутри SVG имеют значение `fill`, равное `blue`, чтобы соответствовать стилям текста кнопки.
 
 ```css
 button {
@@ -263,7 +229,7 @@ button rect {
 }
 ```
 
-You can apply `hover` and `focus` styles too.
+Также можно применить стили `hover` и `focus`.
 
 ```css
 button:hover,
@@ -276,21 +242,13 @@ button:focus rect {
 }
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'rNGBEje',
- height: 200,
- theme: 'dark',
- tab: 'html,result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/rNGBEje?height=200&amp;theme-id=dark&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 200px; width: 100%; border: 0;" data-title="Pen rNGBEje by web-dot-dev on Codepen"></iframe>
 
-## Resources
+## Ресурсы
 
--   If you need to style SVGs that are background images in your CSS, read Una's article on [colorizing SVG backgrounds](https://css-tricks.com/solved-with-css-colorizing-svg-backgrounds/).
--   Sara Soueidan has written about [accessible icon buttons](https://www.sarasoueidan.com/blog/accessible-icon-buttons/).
--   Scott O'Hara has written about [contextually marking up accessible images and SVGs](https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html).
--   If you're using a graphic design tool to export SVGs, use [SVGOMG](https://jakearchibald.github.io/svgomg/) to optimize the output.
+-   Если вам нужно придать стиль SVG, являющимся фоновыми изображениями, в CSS, прочитайте статью Уны [colorizing SVG backgrounds](https://css-tricks.com/solved-with-css-colorizing-svg-backgrounds/).
+-   Сара Суэйдан (Sara Soueidan) написала о [доступных кнопках-иконках](https://www.sarasoueidan.com/blog/accessible-icon-buttons/).
+-   Скотт О'Хара написал о [контекстной разметке доступных изображений и SVG](https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html).
+-   Если вы используете инструмент графического дизайна для экспорта SVG, используйте [SVGOMG](https://jakearchibald.github.io/svgomg/) для оптимизации вывода.
 
-Icons are an important part of your site's branding. Next you'll find out how to make other aspects of your branding responsive through the power of [theming](theming.md).
-
-{% Assessment 'icons' %}
+Значки - важная часть брендинга вашего сайта. Далее вы узнаете, как сделать другие аспекты брендинга адаптивными с помощью [theming](theming.md).

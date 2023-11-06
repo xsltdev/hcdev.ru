@@ -8,9 +8,9 @@ nav:
     - micro-layouts.md
     - typography.md
     - responsive-images.md
-    #- picture-element.md
-    #- icons.md
-    #- theming.md
+    - picture-element.md
+    - icons.md
+    - theming.md
     #- accessibility.md
     #- interaction.md
     #- ui-patterns.md

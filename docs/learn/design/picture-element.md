@@ -1,17 +1,12 @@
 ---
-title: The picture element
-description: >
-    Exercise more creative control over your images.
-
-
-authors:
-    - adactio
-date: 2021-12-09
+description: Осуществляйте более творческий контроль над своими изображениями.
 ---
 
-[The previous module](responsive-images.md) demonstrated how the `srcset` attribute allows you to provide different-sized versions of the same image. The browser can then decide which is the right version to use. If you want to change the image completely, you'll need the [`picture`](https://developer.mozilla.org/docs/Web/HTML/Element/picture) element.
+# Элемент picture
 
-In the same way that `srcset` builds upon the `src` attribute, the `picture` element builds upon the `img` element. The `picture` element wraps around an `img` element.
+[В предыдущем модуле](responsive-images.md) было показано, как атрибут `srcset` позволяет предоставлять разные по размеру версии одного и того же изображения. Браузер может сам решить, какую версию использовать. Если вы хотите полностью изменить изображение, то вам понадобится элемент [`picture`](../../html/picture.md).
+
+Подобно тому, как `srcset` строится на основе атрибута `src`, элемент `picture` строится на основе элемента `img`. Элемент `picture` оборачивается вокруг элемента `img`.
 
 ```html
 <picture>
@@ -22,17 +17,17 @@ In the same way that `srcset` builds upon the `src` attribute, the `picture` ele
 </picture>
 ```
 
-If there is no `img` element nested inside the `picture` element, the `picture` element won't work.
+Если внутри элемента `picture` нет вложенного элемента `img`, то элемент `picture` не будет работать.
 
-Like the `srcset` attribute, the `picture` element will update the value of the `src` attribute in that `img` element. The difference is that where the `srcset` attribute gives suggestions to the browser, the `picture` element gives commands. This gives you control.
+Как и атрибут `srcset`, элемент `picture` будет обновлять значение атрибута `src` в этом элементе `img`. Разница заключается в том, что если атрибут `srcset` выдает браузеру предложения, то элемент `picture` отдает команды. Это дает вам возможность управлять.
 
 ## `source`
 
-You can specify multiple `source` elements inside a `picture` element, each one with its own `srcset` attribute. The browser then executes the first one that it can.
+Внутри элемента `picture` можно указать несколько элементов `source`, каждый из которых имеет свой атрибут `srcset`. Браузер выполняет первый из них.
 
-## Image formats
+## Форматы изображений
 
-In this example, there are three different images in three different formats:
+В данном примере имеется три различных изображения в трех различных форматах:
 
 ```html
 <picture>
@@ -49,19 +44,19 @@ In this example, there are three different images in three different formats:
 </picture>
 ```
 
-The first `source` element points to an image in [the new AVIF format](https://web.dev/articles/compress-images-avif). If the browser is capable of rendering AVIF images, then that's the image file it chooses. Otherwise, it moves on to the next `source` element.
+Первый элемент `source` указывает на изображение в [новом формате AVIF](https://web.dev/articles/compress-images-avif). Если браузер способен воспроизводить изображения в формате AVIF, то он выбирает именно этот файл. В противном случае он переходит к следующему элементу `source`.
 
-The second `source` element points to an image in [the WebP format](https://web.dev/articles/serve-images-webp). If the browser is capable of rendering WebP images, it will use that image file.
+Второй элемент `source` указывает на изображение в [формате WebP](https://web.dev/articles/serve-images-webp). Если браузер способен отображать WebP-изображения, то он использует этот файл.
 
-Otherwise the browser will fall back to the image file in the `src` attribute of the `img` element. That image is a JPEG.
+В противном случае браузер вернется к файлу изображения, указанному в атрибуте `src` элемента `img`. Это изображение представляет собой JPEG.
 
-This means you can start using new image formats without sacrificing backward compatibility.
+Это означает, что вы можете начать использовать новые форматы изображений без ущерба для обратной совместимости.
 
-In that example, the `type` attribute told the browser which kind of image format was specified.
+В этом примере атрибут `type` сообщает браузеру, какой формат изображения указан.
 
-## Image sizes
+## Размеры изображения
 
-As well as switching between image formats, you can switch between image sizes. Use the `media` attribute to tell the browser how wide the image will be displayed. Put a media query inside the `media` attribute.
+Помимо переключения между форматами изображений, можно переключаться между их размерами. С помощью атрибута `media` можно указать браузеру, какой ширины изображение будет отображаться. Поместите медиазапрос внутрь атрибута `media`.
 
 ```html
 <picture>
@@ -78,13 +73,15 @@ As well as switching between image formats, you can switch between image sizes. 
 </picture>
 ```
 
-Here you're telling the browser that if the viewport width is wider than `75em` it must use the large image. Between `40em` and `75em` the browser must use the medium image. Below `40em` the browser must use the small image.
+Здесь вы указываете браузеру, что если ширина области просмотра больше `75em`, то он должен использовать большое изображение. В диапазоне от `40em` до `75em` браузер должен использовать среднее изображение. Ниже `40em` браузер должен использовать маленькое изображение.
 
-{% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/tXME65OZikEMwvPAEgX2.mp4", controls=true, loop=true %}
+<video controls loop>
+<source src="/learn/design/picture-element-1.mp4" />
+</video>
 
-This is different to using the `srcset` and `sizes` attributes on the `img` element. In that case you're providing suggestions to the browser. The `source` element is more like a command than a suggestion.
+Это отличается от использования атрибутов `srcset` и `sizes` на элементе `img`. В этом случае вы предоставляете браузеру предложения. Элемент `source` больше похож на команду, чем на предложение.
 
-You can also use the pixel density descriptor inside the `srcset` attribute of a `source` element.
+Дескриптор плотности пикселей можно также использовать внутри атрибута `srcset` элемента `source`.
 
 ```html
 <picture>
@@ -108,23 +105,17 @@ You can also use the pixel density descriptor inside the `srcset` attribute of a
 </picture>
 ```
 
-In that example you're still telling the browser what to do at different breakpoints, but now the browser has the option to choose the most appropriate image for the device's pixel density.
+В этом примере вы по-прежнему указываете браузеру, что делать в разных точках останова, но теперь у браузера есть возможность выбрать наиболее подходящее изображение с учетом плотности пикселей устройства.
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'PoJYrNB',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/PoJYrNB?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen PoJYrNB by web-dot-dev on Codepen"></iframe>
 
-## Cropping
+## Обрезка
 
-If you only need to serve differently sized versions of the same image, `srcset` is your best option. But if an image doesn't look good at smaller sizes, you can try making a cropped version of the image instead.
+Если вам нужно только предоставить разные по размеру версии одного и того же изображения, то лучшим вариантом будет `srcset`. Но если изображение не очень хорошо смотрится при меньших размерах, можно попробовать сделать его обрезанную версию.
 
-The different images might have different width and height ratios to suit their context better. For example, on a mobile browser you may want to serve a crop that's narrow and tall, whereas on a desktop browser, you might want to serve a crop that's wide and short.
+Различные изображения могут иметь разное соотношение ширины и высоты, чтобы лучше соответствовать контексту. Например, для мобильного браузера лучше использовать узкую и высокую обрезку, а для настольного браузера - широкую и короткую.
 
-Here's an example of a hero image that changes its contents and its shape based on the viewport width. Add `width` and `height` attributes to each `source` element.
+Вот пример изображения-героя, которое меняет свое содержимое и форму в зависимости от ширины области просмотра. Добавьте атрибуты `width` и `height` к каждому элементу `source`.
 
 ```html
 <picture>
@@ -151,20 +142,14 @@ Here's an example of a hero image that changes its contents and its shape based 
 </picture>
 ```
 
-{% Codepen {
- user: 'web-dot-dev',
- id: 'eYGOwzp',
- height: 500,
- theme: 'dark',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dot-dev/embed/eYGOwzp?height=500&amp;theme-id=dark&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen eYGOwzp by web-dot-dev on Codepen"></iframe>
 
-{% Video src="video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/WZLJGIUHqlP1j9s9aJaj.mp4", controls=true, loop=true %}
+<video controls loop>
+<source src="/learn/design/picture-element-2.mp4" />
+</video>
 
-Remember that you can't change the `alt` attribute depending on the image source. You'll need to write an `alt` attribute that describes both the full size image and the cropped image.
+Помните, что нельзя изменять атрибут `alt` в зависимости от источника изображения. Необходимо написать атрибут `alt`, описывающий как полноразмерное, так и обрезанное изображение.
 
-You probably won't need to use the `picture` element for most of your responsive images—the `srcset` and `sizes` attributes on the `img` element cover a lot of use cases. But for those situations when you need more fine-grained control, the `picture` element is a powerful tool.
+Скорее всего, для большинства адаптивных изображений вам не понадобится использовать элемент `picture` - атрибуты `srcset` и `sizes` элемента `img` покрывают многие случаи использования. Но в тех случаях, когда требуется более тонкий контроль, элемент `picture` является мощным инструментом.
 
-There's one kind of image where you might not need either solution: icons. [That's what's next](icons.md).
-
-{% Assessment 'picture' %}
+Есть один вид изображений, для которого может не понадобиться ни одно из решений: [иконки](icons.md).
