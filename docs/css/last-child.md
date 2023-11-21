@@ -6,6 +6,10 @@ description: Псевдокласс :last-child представляет пос�
 
 Псевдокласс **`:last-child`** представляет последний элемент среди группы элементов-братьев.
 
+## Демо
+
+<iframe class="interactive is-tabbed-shorter-height" height="400px" width="100%" src="https://interactive-examples.mdn.mozilla.net/pages/tabbed/pseudo-class-last-child.html" title="MDN Web Docs Interactive Example" loading="lazy" data-readystate="complete"></iframe>
+
 ??? info "Псевдоклассы"
 
     <div class="col3" markdown="1">
