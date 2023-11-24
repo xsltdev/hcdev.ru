@@ -1,2 +1,4 @@
 /flex/* /learn/flex/:splat 301
 /grid/* /learn/grid/:splat 301
+/learn/pwa/* https://pwadev.ru/learn/pwa/:splat 301
+/learn/30days-pwa/* https://pwadev.ru/learn/30days-pwa/:splat 301
