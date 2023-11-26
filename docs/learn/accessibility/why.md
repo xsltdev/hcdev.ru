@@ -1,412 +1,187 @@
 ---
-title: What is digital accessibility, and why does it matter?
-description: >
-  Design and build websites and web apps so that disabled people can
-  interact in a meaningful and equivalent way. Read about the business
-  and legal impact of these choices.
-authors:
-  - cariefisher
-date: 2022-09-30
-updated: 2022-10-03
+description: Проектировать и создавать веб-сайты и веб-приложения таким образом, чтобы люди с ограниченными возможностями могли взаимодействовать с ними значимым и равноценным образом. Ознакомьтесь с последствиями такого выбора для бизнеса и законодательства.
 ---
 
-Imagine a world where you couldn't buy a present for a friend because the
-online shopping cart was incompatible with your device. Or a world where you
-had to ask a coworker to help you understand the recent sales chart because it
-only used soft monotone colors. Maybe you couldn't enjoy that new show
-everyone's been talking about because the captions are missing or badly
-automated.
-
-For some people, this world is an everyday reality. But it doesn't have to be
-this way—this is a reality you can help change when you make digital
-accessibility a priority. Digital accessibility, commonly abbreviated to
-[a11y](https://www.a11yproject.com/posts/a11y-and-other-numeronyms/), is about
-designing and building digital products so that, regardless of a person's
-disability, they can still interact with the product in a meaningful and
-equivalent way.
-
-Beyond the typical leadership buy-in, time, effort, and budget that are
-required of any project, building digital products with full inclusivity in
-mind also requires:
-
-* Expert knowledge of various accessibility standards
-* Understanding the fundamentals of accessible designs and code
-* Understanding the importance of using multiple testing techniques and tools
-
-Most importantly, true inclusivity can only come when you include people with
-disabilities and accessibility best practices into the full product
-lifecycle—from planning, to designing, to coding, and more.
-
-## What is the individual impact?
-
-The [World Health Organization](https://www.who.int/teams/noncommunicable-diseases/sensory-functions-disability-and-rehabilitation/world-report-on-disability)
-(WHO) estimates that over 15% of the world's population—or 1.3 billion
-people—self-identify as having a disability, making this group the largest
-minority group globally.
-
-More recent reports from the
-[Centers for Disease Control and Prevention (CDC)](https://www.cdc.gov/ncbddd/disabilityandhealth/infographic-disability-impacts-all.html),
-the [US Census](https://www.census.gov/content/dam/Census/library/publications/2018/demo/p70-152.pdf),
-the [Academic Network of European Disability experts (ANED)](https://includ-ed.eu/sites/default/files/documents/aned_2013_task_6_-_comparative_data_synthesis_report_-_europe2020_final.pdf),
-and others estimate the total number of people with disabilities to be even
-greater. This number continues to grow as the world population ages and faces
-chronic health conditions.
-
-{% Img
-  src="image/VbsHyyQopiec0718rMq2kTE1hke2/wmi25b63ncEEhKTGYBUS.png",
-  alt="Six people representing various disabilities. Each character will be represented.",
-  width="800", height="200"
-%}
-
-Inaccessible digital products impact people with disabilities. Some types of
-disabilities are impacted more in the digital world than others.
-
-{% Aside %}
-To learn more about identity and language choices, we recommend reading
-[Demystifying Disability: What to Know, What to Say, and How to be an Ally](https://emilyladau.com/book/)
-by Emily Ladau.
-{% endAside %}
-
-{% Details  'open' %}
-
-{% DetailsSummary 'h3' %}
-Visual impairments
-{% endDetailsSummary %}
-
-[Visual impairment](https://www.disabled-world.com/disability/types/vision/)
-(vision impairment, vision disability) is a decreased ability to see to the
-degree that causes problems not fixable by usual means, such as glasses or
-medication. Visual impairment can be due to disease, trauma, or congenital or
-degenerative conditions.
-
-<figure data-float="right">
-{% Img
-  src="image/VbsHyyQopiec0718rMq2kTE1hke2/9rl95PJGmH4j9z6PYCVD.png",
-  alt="A woman using a white cane.", width="240", height="300"
-  %}
-</figure>
-
-* _Examples_: B/blindness, low vision, color blindness
-* _Prevalence_: 253 million people with visual impairment worldwide—36 million
-  are blind, 217 million have moderate to severe visual impairment (MSVI)
-  ([Source](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5820628/)), and 1 in
-  12 men and 1 in 200 women are colorblind.
-  ([Source](https://www.colourblindawareness.org/colour-blindness/))
-* _Tools include_: Screen reader software, screen magnification tools, Braille output devices.
-* _Pain points_: Digital products that do not work with screen reader software,
-  mobile websites/apps without pinch to zoom, complex graphs and charts differentiated
-  by colors alone, color contrasts that make it difficult to read text on the screen
-
-{% Aside 'important' %}
-Use lowercase when referring to a vision-loss condition or to a blind person who prefers
-lowercase. Capitalize for those who capitalize Blind when describing themselves.
-{% endAside %}
-
-<blockquote>
-  <p>"My vision has deteriorated rapidly over the last three years, and my phone's default font size ranges from large to mega-large. There are a decent amount of mobile apps that I can barely use because of their absurd font sizes."</p>
-  <cite>Frank</cite>
-</blockquote>
-
-Read a short [article in the New York Times](https://www.nytimes.com/2022/08/16/opinion/blindness-retinitis-pigmentosa.html)
-or watch a [video](https://youtu.be/X04HKyW-3hc) on what it means to be
-legally blind.
-
-{% endDetails %}
-
-{% Details %}
-{% DetailsSummary 'h3' %}
-Mobility impairments
-{% endDetailsSummary %}
-
-[Mobility impairment](https://www.disabled-world.com/disability/types/mobility/)
-is a category of disability that includes people with various physical
-disabilities. This type of disability includes upper or lower limb loss or
-disability, manual dexterity, and disability in coordination with different
-organs of the body.
-
-<figure data-float="right">
-{% Img
-  src="image/VbsHyyQopiec0718rMq2kTE1hke2/QJhp1Phv2QSOAVsj9Ce9.png",
-  alt="A man in a wheelchair, holding an open laptop.",
-  width="240", height="300"
-%}
-</figure>
-
-* _Examples_: Arthritis, paralysis, amputees, seizure disorders.
-* _Prevalence_: 1 in 7 people have mobility issues.
-  ([Source](https://www.cdc.gov/media/releases/2018/p0816-disability.html#:~:text=One%20in%204%20U.S.%20adults,affects%201%20in%207%20adults.))
-* _Tools include_: Adaptive switches, eye tracking devices, mouth/head sticks, speech input.
-* _Pain points_: Elements that are only designed to work with the use of a mouse.
-
-<blockquote>
-  <p>"Accessibility isn't just for people with disabilities. I had elbow surgery, and it temporarily changed how I managed my daily digital activities."</p>
-  <cite>Melissa</cite>
-</blockquote>
-
-{% endDetails %}
-
-{% Details %}
-
-{% DetailsSummary 'h3' %}
-Hearing impairments
-{% endDetailsSummary %}
-
-A [hearing impairment or hearing loss](https://www.disabled-world.com/disability/types/hearing/)
-is a full or partial decrease in the ability to detect or understand sounds.
-Hearing impairments are caused by a wide range of biological and environmental
-factors.
-
-<figure data-float="right">
-  {% Img
-    src="image/VbsHyyQopiec0718rMq2kTE1hke2/1nUPylVp4y3mMe6ksPKq.png", alt="A man with a hearing aid.", width="183", height="320"
-    %}
-</figure>
-
-* _Examples_: D/deafness, hard of hearing (HoH), hearing impaired (HI)
-* _Prevalence_: Globally, over 1.5 billion people have a low to medium level of hearing loss, while it is estimated that 66 million people have a [significant level of hearing loss](https://www.who.int/health-topics/hearing-loss#tab=tab_1).
-* _Tools include_: hearing aids, captions, transcripts, sign language.
-* _Pain points_: Audio content without text transcripts, video with no synchronized captions
-
-{% Aside 'important' %}
-Use lowercase when referring to a hearing-loss condition or to a deaf person
-who prefers lowercase. Capitalize for those who identify as members of the Deaf
-community or when they capitalize Deaf when describing themselves.
-{% endAside %}
-
-<blockquote>
-  <p>"Some deaf people say auto-captions are NOT better than nothing. Some deaf people say automatic captions ARE better than nothing. Unlike people with hearing, deaf people have nothing to fall back on. All they have is the captions. Personally, I'd rather see no captions than watch automatic captions. Sure, I'm disappointed there aren't captions. With no auto-captions, I avoid the painful experience of its notoriously bad captions."</p>
-  <cite>Meryl</cite>
-</blockquote>
-
-{% endDetails %}
-
-{% Details %}
-{% DetailsSummary 'h3' %}
-Cognitive impairments
-{% endDetailsSummary %}
-
-A [cognitive disability](https://www.disabled-world.com/disability/types/cognitive/) covers
-a variety of medical conditions affecting cognitive ability. People with
-cognitive disabilities include various intellectual or cognitive deficits,
-deficits too mild to properly qualify as intellectual disability, specific
-conditions, and problems acquired later in life through acquired brain injuries
-or neurodegenerative diseases like dementia.
-
-<figure data-float="right">
-  {% Img
-    src="image/VbsHyyQopiec0718rMq2kTE1hke2/FFQbr519qx67nnEU9YKU.png",
-    alt="An older woman in glasses, holding an animal.", width="183", height="320"
-    %}
-</figure>
-
-* _Examples_: Down's syndrome, A/autism, ADHD, dyslexia, aphasia.
-* _Frequency_: Varies by condition.
-* _Tools include_: Screen readers, text highlighting, text prediction,
-  abstractive summarization tools.
-* _Pain points_: Busy interfaces that make it overly complicated to focus on
-  the task at hand, big walls of words with little whitespace, justified text,
-  and small or hard-to-read fonts.
-
-{% Aside 'important' %}
-Use lowercase when referring to autism as a disorder or to an autistic person
-who prefers lowercase. Capitalize for those who capitalize Autism or Autistic
-when describing themselves.
-{% endAside %}
-
-<blockquote>
-  <p>"Right now, I am recovering from an ocular migraine, and I would say dark mode is not helping enough. I still need contrast, but less harshly bright."</p>
-  <cite>Ruth</cite>
-</blockquote>
-
-Read a short
-[article in the New York Times](https://www.nytimes.com/2022/08/30/opinion/face-blindness-prosopagnosia.html)
-or watch a [video](https://youtu.be/3-MzNPcEh6M) on face blindness
-(prosopagnosia).
-
-{% endDetails %}
-
-{% Details %}
-{% DetailsSummary 'h3' %}
-Seizure and vestibular disorders
-{% endDetailsSummary %}
-
-A seizure is an excessive surge of electrical activity in the brain that can
-cause various symptoms, depending on which parts of the brain are involved.
-Seizures may result from genetics or a brain injury, but their
-[cause is often unknown](https://nyulangone.org/conditions/epilepsy-seizure-disorders-in-adults/types).
-
-The vestibular system includes the parts of the inner ear and brain that
-process the sensory information that controls balance and eye movements. If
-disease or injury damages these processing areas, vestibular disorders can
-result. [Vestibular disorders](https://vestibular.org/article/diagnosis-treatment/types-of-vestibular-disorders/)
-can also result from or be worsened by genetic or environmental conditions or
-occur for unknown reasons.
-
-<figure data-float="right">
- {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/6jKwFBXkliZ0wtJgr8tj.png",
-  alt="A person in a green jacket with glasses.", width="183", height="320"
- %}
-</figure>
-
-* _Examples_: Epilepsy, vertigo, dizziness, labyrinthitis, balance, and eye movement disorders.
-* _Frequency_: [50 million people worldwide have epilepsy](https://www.who.int/health-topics/epilepsy),
-  and 1.8 million adults worldwide have
-  [bilateral vestibular hypofunction](https://www.hopkinsmedicine.org/news/newsroom/news-releases/implant-improves-balance-movement-and-quality-of-life-for-people-with-inner-ear-disorder) (BVH).
-* _Tools include_: Operating system settings to reduce motion. In Windows, this
-  setting is framed positively as **Show animation**, and is turned off. On
-  Android, the setting **Remove animations** is turned on.
-* _Pain points_: Videos that autoplay, extreme flashing or strobing of visual
-  content, parallax effects, or scroll-triggered animations.
-
-<blockquote>
-  <p>"I <em>really</em> dislike the superfluous animation that plagues iOS transitions between apps, so I turn it off. Downside: I'm denied most of the thoughtfully executed motion design on the web because there's no “some motion is fine” middle ground."</p>
-  <cite>Oliver</cite>
-</blockquote>
-
-{% endDetails %}
-
-{% Details %}
-{% DetailsSummary 'h3' %}
-Speech impairments
-{% endDetailsSummary %}
-
-A [speech disorder](https://www.pennmedicine.org/for-patients-and-visitors/patient-information/conditions-treated-a-to-z/speech-and-language-disorders#:~:text=A%20speech%20disorder%20is%20a,Articulation%20disorders)
-is a condition in which a person has problems creating or forming the speech
-sounds needed to communicate with others.
-
-<figure data-float="right">
-{% Img
-  src="image/VbsHyyQopiec0718rMq2kTE1hke2/uR06sT1scRQ8Qnt4hW6l.png", alt="A person wearing glasses and waving.", width="183", height="320"
-%}
-</figure>
-
-* _Examples_: Muscular or cognitive issues that impede speech, such as apraxia, dysarthria, or stuttering.
-* _Frequency_: 18.5 million individuals have a [speech, voice, or language disorder](https://www.nidcd.nih.gov/health/statistics/quick-statistics-voice-speech-language).
-* _Tools include_: Augmentative and alternative communication (AAC) and speech-generating devices.
-* _Pain points_: Voice-activated technology such as smart home devices and apps.
-
-<blockquote>
-  <p>"My son has a lisp due to dyspraxia.
-He will say "seep" rather than "sheep" or
-"fower" rather than "flower". It is sweet,
-but he gets so frustrated by voice-activated
-software.</p>
-<p>Our new car uses voice activation to
-interact with a phone. Often if we are
-together, my husband will send us a
-WhatsApp message. The car will read it
-out loud, but when it asks us if we want
-to reply, my son's reply is not understood.
-He gets so upset... he now whispers the
-message to me so I can say it for the
-reply."</p>
-  <cite>Helen</cite>
-</blockquote>
-
-Read a short [article in the New York
-Times](https://www.nytimes.com/2022/08/23/opinion/stutter-speech-listening.html)
-or watch a [video](https://youtu.be/m0E_wMIwfSI) on stuttering and technology.
-
-{% endDetails %}
-
-### Additional beneficiaries of accessibility
-
-While the number of people with disabilities worldwide is large, it's important
-to remember that these numbers aren't inclusive of everyone that benefits from
-accessible digital spaces. This includes:
-
-* _Temporarily disabled_. It may mean someone has a broken wrist or is
-  cognitively impaired due to medication.
-* _Situationally disabled_. For example, someone experiencing glare on a device
-  screen or being unable to play the audio on a video in a public setting.
-* _Mildly disabled_. A person needing eyeglasses to see a screen or captions to
-  understand audio.
-* _Non-native speakers_. If a person is not fluent in the language on the
-  screen, they may need more time to read content on a slide on a
-  carousel/slideshow.
-* _Older people with age-related diminishing senses_. It could be a person
-  needing reading glasses or bifocals to read small print or requiring a larger
-  target size for buttons on their touch device due to an age-related hand
-  tremor.
-* _Search engine optimization (SEO) bots_. SEO bots do not have senses like
-  sight and hearing and navigate by keyboard only. Your websites will be crawled more effectively when your site is accessible.
-
-## Business impact
-
-People with disabilities make up almost a fourth of the world's population, but
-did you know that they also have a lot of spending power?
-
-<figure data-float="right">
-{% Img
-  src="image/VbsHyyQopiec0718rMq2kTE1hke2/mPFzo0YRdCd8slPOjDgE.png",
-  alt="A collection of coins, representing the lost revenue when disabled communities are ignored.",
-  width="218", height="130"
-%}
-</figure>
-
-According to the
-[American Institutes for Research (AIR)](https://www.researchgate.net/profile/Dahlia-Shaewitz/publication/324603094_A_Hidden_Market_The_Purchasing_Power_of_Working-Age_Adults_With_Disabilities_A_Hidden_Market_The_Purchasing_Power_of_Working-Age_Adults_With_Disabilities/links/5ad89016458515c60f5918f3/A-Hidden-Market-The-Purchasing-Power-of-Working-Age-Adults-With-Disabilities-A-Hidden-Market-The-Purchasing-Power-of-Working-Age-Adults-With-Disabilities.pdf),
-the total after-tax disposable income for working-age Americans with
-disabilities is about $490 billion annually. This number is similar to other
-significant market segments in the US, such as the Black ($501 billion) and
-Latinx ($582 billion) communities. Companies that do not plan for, design, and
-build accessible products can lose out on this potential revenue.
-
-While these numbers are impressive, people with disabilities are also part of a
-larger network of family members, friends, communities, and institutions. This
-larger network often looks for and supports businesses that create accessible
-digital products. When you factor in the friends and family of the over 1.3
-billion people worldwide who identify as disabled, the disability market
-touches 53% of all consumers. It's the world's largest emerging market.
-
-In addition to money and market shares, businesses focused on disability
-inclusion as part of an overall diversity strategy are [higher performing and
-more innovative](https://www.w3.org/WAI/business-case/). There are many
-examples of [everyday products](https://incl.ca/the-evolution-of-assistive-technology-into-everyday-products/)
-that evolved from technology developed by, or for, people with disabilities,
-including: 
-
-* Telephones
-* Typewriters / keyboards
-* Email
-* Kitchen utensils
-* Easy-open pull-out drawers
-* Automatic door openers
-* Voice controls
-* Eye gaze technology
-
-When we look at accessibility as a design or coding challenge, not a begrudging
-requirement, innovation is the byproduct. For people without disabilities, such
-improvements can increase the overall user experience. For people with
-disabilities, these improvements are essential for equal access.
-
-## Legal impact
-
-Beyond the individual and business impact, you should also be aware of the
-looming [legal impact](https://f.hubspotusercontent30.net/hubfs/3280432/Remediated-2021-Year-End-Report-FINAL.pdf)
-of not building accessible digital products. Public sector entities in the
-United States, such as government-funded programs/schools, airlines, and
-nonprofits, must follow certain digital accessibility rules, while many private
-sector companies do not. In countries such as Canada, the United Kingdom,
-Japan, Australia, and the European Union, stricter
-[digital accessibility laws](https://www.w3.org/WAI/policies/) exist for both
-public and private companies.
-
-For many disabled people in the US, filing a lawsuit is their only option to
-bring awareness and change to digital products. It is estimated that in the US,
-over ten lawsuits are filed daily focused on digital accessibility. Many
-businesses have received multiple digital accessibility-based lawsuits. And
-every year, the number of total lawsuits has increased.
-
-E-commerce websites and apps are typically the biggest targets, comprising over
-74% of the lawsuits filed in 2021. If your company has both a physical location
-and an online presence, you are more likely to have been part of a lawsuit. In
-fact, of the top 500 e-commerce sites, 412 have been served with a lawsuit
-within the past four years. Often, the first lawsuit is for the company's
-website and the second for their mobile app.
-
-While avoiding lawsuits shouldn't be the only reason you focus on making sure
-your digital products are accessible, it is an important piece of the
-conversation.
-
-{% Assessment 'why' %}
+# Что такое цифровая доступность и почему она имеет значение?
+
+Представьте себе мир, в котором вы не можете купить подарок другу, потому что корзина интернет-магазина несовместима с вашим устройством. Или мир, в котором приходится просить коллегу помочь понять график последних продаж, потому что в нем используются только мягкие однотонные цвета. Может быть, вы не смогли насладиться новым сериалом, о котором все говорят, потому что титры отсутствуют или плохо автоматизированы.
+
+Для некоторых людей такой мир является повседневной реальностью. Но так не должно быть - вы можете помочь изменить эту реальность, если сделаете доступность цифровых технологий своим приоритетом. Цифровая доступность (сокращенно [a11y](https://www.a11yproject.com/posts/a11y-and-other-numeronyms/)) - это разработка и создание цифровых продуктов, позволяющих человеку, независимо от его инвалидности, взаимодействовать с продуктом значимым и равноценным образом.
+
+Для создания цифровых продуктов с учетом принципа полной инклюзивности, помимо обычных требований руководства, времени, усилий и бюджета, которые необходимы для любого проекта, также требуются:
+
+-   Знание различных стандартов доступности
+-   Понимание основ доступного дизайна и кода
+-   понимание важности использования различных методов и инструментов тестирования.
+
+Самое главное, что настоящая инклюзивность может быть достигнута только тогда, когда вы включаете людей с ограниченными возможностями и лучшие практики обеспечения доступности в полный жизненный цикл продукта - от планирования, проектирования, кодирования и т.д.
+
+## Каково индивидуальное воздействие?
+
+По оценкам [Всемирной организации здравоохранения](https://www.who.int/teams/noncommunicable-diseases/sensory-functions-disability-and-rehabilitation/world-report-on-disability) (ВОЗ), более 15% населения Земли - 1,3 млрд. человек - идентифицируют себя как инвалиды, что делает эту группу самым многочисленным меньшинством в мире.
+
+Согласно более поздним отчетам [Центров по контролю и профилактике заболеваний (CDC)](https://www.cdc.gov/ncbddd/disabilityandhealth/infographic-disability-impacts-all.html), [Переписи населения США](https://www.census.gov/content/dam/Census/library/publications/2018/demo/p70-152.pdf), [Академической сети европейских экспертов по инвалидности (ANED)](https://includ-ed.eu/sites/default/files/documents/aned_2013_task_6_-_comparative_data_synthesis_report_-_europe2020_final.pdf) и других организаций, общее число людей с инвалидностью еще больше. Это число продолжает расти по мере старения населения планеты и появления хронических заболеваний.
+
+![Шесть человек, представляющих различные виды инвалидности. Каждый персонаж будет представлен.](why-1.png)
+
+Недоступные цифровые продукты влияют на людей с ограниченными возможностями. Некоторые виды инвалидности подвержены влиянию цифровых технологий в большей степени, чем другие.
+
+!!!note ""
+
+    Чтобы узнать больше об идентичности и выборе языка, мы рекомендуем прочитать [Demystifying Disability: What to Know, What to Say, and How to Be Ally](https://emilyladau.com/book/) Эмили Ладау.
+
+## Нарушения зрения
+
+[Нарушение зрения](https://www.disabled-world.com/disability/types/vision/) ("Зрение", "инвалидность по зрению") - это снижение способности видеть до такой степени, что возникают проблемы, не устранимые обычными средствами, такими как очки или медикаменты. Нарушение зрения может быть вызвано заболеванием, травмой, врожденным или дегенеративным состоянием.
+
+![Женщина с белой тростью.](why-2.png)
+
+-   _Примеры_: Б/слепота, слабое зрение, дальтонизм
+-   _Распространенность_: 253 млн. человек с нарушениями зрения в мире - 36 млн. слепых, 217 млн. имеют умеренные и тяжелые нарушения зрения (УНЗ) ([Источник](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5820628/)), 1 из 12 мужчин и 1 из 200 женщин являются дальтониками. ([Источник](https://www.colourblindawareness.org/colour-blindness/))
+-   _Инструментарий включает в себя_: Программы для чтения с экрана, средства увеличения экрана, устройства вывода информации по Брайлю.
+-   _Болевые точки_: Цифровые продукты, не работающие с программами для чтения с экрана, мобильные веб-сайты/приложения без функции масштабирования, сложные графики и диаграммы, различаемые только по цветам, цветовые контрасты, затрудняющие чтение текста на экране.
+
+!!!warning ""
+
+    Используйте строчные буквы, когда речь идет о состоянии зрения или о слепом человеке, который предпочитает строчные буквы. Для тех, кто пишет "Слепой" с заглавной буквы при описании себя, используйте прописные буквы.
+
+> "За последние три года мое зрение стремительно ухудшилось, и размер шрифта в моем телефоне по умолчанию варьируется от крупного до мегакрупного. Существует приличное количество мобильных приложений, которыми я практически не могу пользоваться из-за их абсурдного размера шрифта."
+>
+> Frank
+
+Прочитайте короткую [статью в New York Times](https://www.nytimes.com/2022/08/16/opinion/blindness-retinitis-pigmentosa.html) или посмотрите [видеофильм](https://youtu.be/X04HKyW-3hc) о том, что значит быть слепым.
+
+## Нарушения подвижности
+
+[Нарушение мобильности](https://www.disabled-world.com/disability/types/mobility/) - это категория инвалидности, к которой относятся люди с различными физическими недостатками. К этому виду инвалидности относятся потеря или инвалидность верхних или нижних конечностей, нарушение ручной ловкости, нарушение координации с различными органами тела.
+
+![Мужчина в инвалидном кресле, держит в руках открытый ноутбук.](why-3.png)
+
+-   _Примеры_: Артрит, паралич, ампутированные конечности, судороги.
+-   _Распространенность_: 1 из 7 человек имеет проблемы с мобильностью. ([Источник](https://www.cdc.gov/media/releases/2018/p0816-disability.html#:~:text=One%20in%204%20U.S.%20adults,affects%201%20in%207%20adults.))
+-   _Инструменты включают_: Адаптивные переключатели, устройства слежения за глазами, палочки для рта/головы, речевой ввод.
+-   _Болевые точки_: Элементы, предназначенные для работы только с помощью мыши.
+
+> "Доступность - это не только для людей с ограниченными возможностями. Я перенес операцию на локте, и это временно изменило мои ежедневные действия с цифровыми устройствами".
+>
+> Мелисса
+
+## Нарушения слуха
+
+[Нарушение или потеря слуха](https://www.disabled-world.com/disability/types/hearing/) - это полное или частичное снижение способности различать или понимать звуки. Нарушения слуха вызываются широким спектром биологических и экологических факторов.
+
+![Мужчина со слуховым аппаратом.](why-4.png)
+
+-   _Примеры_: Г/глухота, слабослышащие (СС)
+-   _Распространенность_: Во всем мире более 1,5 млрд. человек имеют низкий или средний уровень потери слуха, а по оценкам, 66 млн. человек имеют [значительный уровень потери слуха](https://www.who.int/health-topics/hearing-loss#tab=tab_1).
+-   _Средства_: слуховые аппараты, субтитры, транскрипция, язык жестов.
+-   _Болевые точки_: аудиоконтент без текстовой расшифровки, видео без синхронизированных титров.
+
+!!!warning ""
+
+    Используйте строчные буквы при упоминании состояния потери слуха или глухого человека, предпочитающего строчные буквы. Прописная буква используется для тех, кто идентифицирует себя как члена сообщества глухих, или когда они пишут "глухой" с большой буквы, описывая себя.
+
+> "Некоторые глухие люди говорят, что автоматические субтитры НЕ лучше, чем ничего. Некоторые глухие говорят, что автоматические субтитры - это лучше, чем ничего. В отличие от людей со слухом, глухим людям не на что опереться. Все, что у них есть, - это субтитры. Лично я предпочел бы не видеть никаких титров, чем смотреть фильмы с автоматическими титрами. Конечно, я разочарован отсутствием субтитров. Но без автоматических субтитров я избегаю болезненного опыта, связанного с их печально известными плохими субтитрами."
+>
+> Meryl
+
+## Когнитивные нарушения
+
+[Когнитивная инвалидность](https://www.disabled-world.com/disability/types/cognitive/) охватывает различные медицинские состояния, влияющие на когнитивные способности. К людям с когнитивными нарушениями относятся различные интеллектуальные или когнитивные дефициты, слишком легкие дефициты, чтобы правильно квалифицировать их как интеллектуальную недостаточность, специфические заболевания, а также проблемы, приобретенные в более позднем возрасте в результате травм головного мозга или нейродегенеративных заболеваний, таких как деменция.
+
+![Пожилая женщина в очках, держит животное.](why-5.png)
+
+-   _Примеры_: Синдром Дауна, а/аутизм, СДВГ, дислексия, афазия.
+-   _Частота_: Зависит от состояния.
+-   _Инструменты включают_: Программы чтения с экрана, выделение текста, предсказание текста, средства абстрактного обобщения.
+-   _Болевые точки_: Загроможденные интерфейсы, не позволяющие сосредоточиться на задаче, большие стены слов с малым количеством свободного пространства, выравнивание текста, мелкий или трудночитаемый шрифт.
+
+!!!warning ""
+
+    Используйте строчные буквы при упоминании аутизма как расстройства или аутиста, который предпочитает строчные буквы. Для тех, кто при описании себя пишет "аутизм" или "аутист" с заглавной буквы, используйте прописные буквы.
+
+> "Сейчас я восстанавливаюсь после глазной мигрени, и я бы сказал, что темный режим помогает недостаточно. Мне по-прежнему нужен контраст, но менее резкий и яркий".
+>
+> Рут
+
+Прочитайте небольшую [статью в New York Times](https://www.nytimes.com/2022/08/30/opinion/face-blindness-prosopagnosia.html) или посмотрите [видео](https://youtu.be/3-MzNPcEh6M) о слепоте по лицу (прозопагнозии).
+
+## Судорожные и вестибулярные расстройства
+
+Припадок - это чрезмерный всплеск электрической активности в головном мозге, который может вызывать различные симптомы в зависимости от того, какие участки мозга задействованы. Припадки могут быть следствием генетики или черепно-мозговой травмы, но их [причина часто остается неизвестной](https://nyulangone.org/conditions/epilepsy-seizure-disorders-in-adults/types).
+
+Вестибулярная система включает в себя части внутреннего уха и мозга, которые обрабатывают сенсорную информацию, контролирующую равновесие и движения глаз. Если заболевание или травма повреждают эти области обработки информации, то могут возникнуть вестибулярные расстройства. [Вестибулярные расстройства](https://vestibular.org/article/diagnosis-treatment/types-of-vestibular-disorders/) также могут быть следствием или ухудшением генетических или экологических условий или возникать по неизвестным причинам.
+
+![Человек в зеленой куртке в очках.](why-6.png)
+
+-   _Примеры_: Эпилепсия, вертиго, головокружение, лабиринтит, нарушения равновесия и движения глаз.
+-   _Частота_: [50 млн. человек в мире страдают эпилепсией](https://www.who.int/health-topics/epilepsy), а 1,8 млн. взрослых в мире имеют [двустороннюю вестибулярную гипофункцию](https://www.hopkinsmedicine.org/news/newsroom/news-releases/implant-improves-balance-movement-and-quality-of-life-for-people-with-inner-ear-disorder) (BVH).
+-   _Инструменты включают_: Настройки операционной системы для уменьшения движения. В Windows эта настройка позитивно оформлена как **Показывать анимацию** и отключена. В Android включается настройка **Убрать анимацию**.
+-   _Болевые точки_: Видеоролики с автоматическим воспроизведением, экстремальное мигание или стробирование визуального контента, параллакс-эффекты или анимация, запускаемая при прокрутке.
+
+> "Мне очень не нравится лишняя анимация, которой в iOS сопровождаются переходы между приложениями, поэтому я ее отключаю. Обратная сторона: я лишаюсь большинства продуманных моушн-дизайнов в Интернете, потому что здесь нет золотой середины "немного движения - это нормально"".
+>
+> Оливер
+
+## Нарушения речи
+
+[Нарушение речи](https://www.pennmedicine.org/for-patients-and-visitors/patient-information/conditions-treated-a-to-z/speech-and-language-disorders#:~:text=A%20speech%20disorder%20is%20a,Articulation%20disorders) - это состояние, при котором у человека возникают проблемы с созданием или формированием звуков речи, необходимых для общения с другими людьми.
+
+![Человек в очках и машет рукой.](why-7.png)
+
+-   _Примеры_: Мышечные или когнитивные проблемы, затрудняющие речь, такие как апраксия, дизартрия или заикание.
+-   _Частота_: 18,5 млн. человек имеют [речевые, голосовые или языковые расстройства](https://www.nidcd.nih.gov/health/statistics/quick-statistics-voice-speech-language).
+-   _Инструменты включают_: Аугментативная и альтернативная коммуникация (AAC) и устройства, генерирующие речь.
+-   _Болевые точки_: Технологии с голосовым управлением, такие как устройства и приложения для "умного дома".
+
+> "У моего сына дислалия из-за диспраксии. Он говорит "seep", а не "sheep", или "fower", а не "flower". Это мило, но он так расстраивается из-за программ, управляемых голосом".
+>
+> > В нашем новом автомобиле для взаимодействия с телефоном используется голосовая активация. Часто, если мы вместе, мой муж отправляет нам сообщение в WhatsApp. Машина зачитывает его вслух, но когда она спрашивает нас, хотим ли мы ответить, ответ моего сына не воспринимается. Он так расстраивается... Теперь он шепчет мне сообщение, чтобы я могла сказать его в ответ".
+>
+> Елена
+
+Прочитайте короткую [статью в New York Times](https://www.nytimes.com/2022/08/23/opinion/stutter-speech-listening.html) или посмотрите [видео](https://youtu.be/m0E_wMIwfSI) о заикании и технологиях.
+
+## Дополнительные бенефициары доступности
+
+Хотя число людей с ограниченными возможностями в мире велико, важно помнить, что эти цифры не охватывают всех, кто получает выгоду от доступных цифровых пространств. К ним относятся:
+
+-   _Временные инвалиды_. Это может означать, что у человека сломано запястье или он страдает когнитивными нарушениями из-за приема лекарств.
+-   _Ситуативные инвалиды_. Например, блики на экране устройства или невозможность воспроизвести звук на видео в общественном месте.
+-   _Легкая степень инвалидности_. Человек, которому нужны очки, чтобы видеть экран, или субтитры, чтобы понимать аудиозаписи.
+-   _Не носители языка_. Если человек не владеет языком, на котором он говорит на экране, ему может потребоваться больше времени для чтения содержимого слайда в карусели/слайд-шоу.
+-   _Пожилые люди с возрастным ослаблением органов чувств_. Это может быть человек, которому нужны очки для чтения или бифокальные очки, чтобы читать мелкий шрифт, или которому требуется больший размер кнопок на сенсорном устройстве из-за возрастного тремора рук.
+-   _Боты для поисковой оптимизации (SEO)_. SEO-боты не обладают такими органами чувств, как зрение и слух, и ориентируются только с помощью клавиатуры. Если ваш сайт доступен, то его посещение будет более эффективным.
+
+## Влияние на бизнес
+
+Люди с ограниченными возможностями составляют почти четвертую часть населения Земли, но знаете ли вы, что они также обладают значительными возможностями?
+
+![Коллекция монет, отражающих упущенную выгоду, когда игнорируются сообщества инвалидов.](why-8.png)
+
+По данным [American Institutes for Research (AIR)](https://www.researchgate.net/profile/Dahlia-Shaewitz/publication/324603094_A_Hidden_Market_The_Purchasing_Power_of_Working-Age_Adults_With_Disabilities_A_Hidden_Market_The_Purchasing_Power_of_Working-Age_Adults_With_Disabilities/links/5ad89016458515c60f5918f3/A-Hidden-Market-The-Purchasing-Power-of-Working-Age-Adults-With-Disabilities-A-Hidden-Market-The-Purchasing-Power-of-Working-Age-Adults-With-Disabilities.pdf), общий располагаемый доход американцев трудоспособного возраста с инвалидностью после уплаты налогов составляет около 490 млрд. долл. в год. Эта цифра аналогична другим значительным сегментам рынка в США, таким как чернокожие (501 млрд. долл.) и латиноамериканцы (582 млрд. долл.). Компании, которые не планируют, не разрабатывают и не создают доступные продукты, могут упустить этот потенциальный доход.
+
+Хотя эти цифры впечатляют, люди с ограниченными возможностями также являются частью большой сети, состоящей из членов семьи, друзей, общин и учреждений. Эта сеть часто ищет и поддерживает компании, создающие доступные цифровые продукты. Если учесть друзей и родственников более 1,3 млрд. человек в мире, относящих себя к категории инвалидов, то рынок товаров для инвалидов охватывает 53% всех потребителей. Это крупнейший в мире развивающийся рынок.
+
+Помимо денег и доли рынка, предприятия, ориентированные на интеграцию инвалидов как часть общей стратегии разнообразия, имеют [более высокие показатели эффективности и инновационности](https://www.w3.org/WAI/business-case/). Существует множество примеров [товаров повседневного спроса](https://incl.ca/the-evolution-of-assistive-technology-into-everyday-products/), которые появились благодаря технологиям, разработанным людьми с ограниченными возможностями или для них, в том числе:
+
+-   телефоны
+-   печатные машинки / клавиатуры
+-   Электронная почта
+-   Кухонная утварь
+-   Легко открывающиеся выдвижные ящики
+-   Автоматические открыватели дверей
+-   Голосовое управление
+-   Технология "взгляд глазами
+
+Когда мы рассматриваем доступность как задачу проектирования или кодирования, а не как вынужденное требование, инновации становятся побочным продуктом. Для людей без инвалидности такие усовершенствования могут повысить общий уровень удобства пользования. Для людей с ограниченными возможностями эти усовершенствования необходимы для обеспечения равного доступа.
+
+## Юридические последствия
+
+Помимо индивидуального и делового воздействия, вы также должны знать о грозящих [юридических последствиях](https://f.hubspotusercontent30.net/hubfs/3280432/Remediated-2021-Year-End-Report-FINAL.pdf) отказа от создания доступных цифровых продуктов. Государственные организации в США, такие как государственные программы/школы, авиакомпании и некоммерческие организации, обязаны соблюдать определенные правила доступности цифровых продуктов, в то время как многие частные компании этого не делают. В таких странах, как Канада, Великобритания, Япония, Австралия и Европейский союз, существуют более строгие [законы о цифровой доступности](https://www.w3.org/WAI/policies/) как для государственных, так и для частных компаний.
+
+Для многих инвалидов в США подача судебного иска является единственной возможностью привлечь внимание к цифровым продуктам и добиться изменений. По оценкам специалистов, в США ежедневно подается более десяти исков, касающихся доступности цифровых технологий. Многие компании получили множество исков, связанных с доступностью цифровых технологий. И с каждым годом общее число исков растет.
+
+Наибольшее число исков, как правило, приходится на веб-сайты и приложения для электронной коммерции, на которые в 2021 году будет подано более 74% исков. Если ваша компания имеет как физическое местоположение, так и онлайн-представительство, то вероятность того, что вы стали участником судебного разбирательства, достаточно высока. Так, из 500 крупнейших сайтов электронной коммерции 412 получили судебные иски в течение последних четырех лет. Часто первый иск подается в отношении веб-сайта компании, а второй - в отношении ее мобильного приложения.
+
+Хотя предотвращение судебных исков не должно быть единственной причиной, по которой вы уделяете особое внимание обеспечению доступности ваших цифровых продуктов, это важная часть разговора.

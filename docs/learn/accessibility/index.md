@@ -1,30 +1,29 @@
 ---
-title: Learn Accessibility
-authors:
-    - cariefisher
-description: An evergreen accessibility course and reference to level up your web development.
-date: 2022-09-30
-updated: 2023-01-12
-tags:
-    - accessibility
+description: Неизменный курс по доступности и справочник для повышения уровня веб-разработки.
 ---
 
-## Welcome to Learn Accessibility!
+# Учим доступность
 
-Digital accessibility, commonly abbreviated a11y, is about designing and building websites and web apps that disabled people can interact with in a meaningful and equivalent way.
+Цифровая доступность, обычно сокращенно называемая a11y, заключается в проектировании и создании веб-сайтов и веб-приложений, с которыми могут полноценно и равноценно взаимодействовать люди с ограниченными возможностями.
 
-This course is created for beginner and advanced web developers. You can go through the series from start to finish to get a general understanding of accessibility practices and testing, or you can use it as a reference for specific subjects. If you read an unfamiliar term, refer to our [glossary](glossary.md). For those new to web development overall, check out the [Learn HTML](../html5/index.md) courses for fundamentals with markup and [Learn CSS](../css3/index.md) courses for styling fundamentals.
+Этот курс предназначен для начинающих и опытных веб-разработчиков. Вы можете пройти его от начала до конца, чтобы получить общее представление о практиках и тестировании доступности, или использовать его в качестве справочника по конкретным темам. Если вы встретите незнакомый термин, обратитесь к нашему [глоссарию](glossary.md). Для тех, кто только начинает заниматься веб-разработкой, обратите внимание на курсы [Учим HTML](../html5/index.md), посвященные основам разметки, и [Учим CSS](../css3/index.md), посвященные основам стилизации.
 
-**This is not a complete reference**. Each section introduces the section topic, provides context and examples. There will be links to topic references, such as [MDN](https://developer.mozilla.org) and [WCAG](https://www.w3.org/WAI/standards-guidelines/) specifications, and other articles. Each section will have a short assessment to help people confirm their understanding.
+**Это не полный справочник**. Каждый раздел представляет тему раздела, содержит контекст и примеры. Будут даны ссылки на ссылки по теме, например, на спецификации [MDN](https://developer.mozilla.org) и [WCAG](https://www.w3.org/WAI/standards-guidelines/), а также на другие статьи. Каждый раздел будет содержать короткий опросник, помогающий подтвердить понимание.
 
-Some accessibility best practices differ, based on the disability you're addressing. It's important to understand your users and to listen to people with disabilities when they tell you what they need.
+Некоторые передовые методы обеспечения доступности различаются в зависимости от того, к какому виду инвалидности вы обращаетесь. Важно понимать своих пользователей и прислушиваться к мнению людей с ограниченными возможностями, когда они говорят, что им нужно.
 
-We are open to your feedback! [Open a GitHub issue](https://github.com/GoogleChrome/web.dev/issues/new/choose) and give as much information as you can so we can address it.
+Мы открыты для ваших отзывов! [Open a GitHub issue](https://github.com/GoogleChrome/web.dev/issues/new/choose) и предоставьте как можно больше информации, чтобы мы могли решить проблему.
 
-Here's what you'll learn:
+<!-- Вот что вы узнаете:
 
-{% include 'partials/course-index.njk' %}
+{% include 'partials/course-index.njk' %} -->
 
-So, are you ready to learn accessibility? [Let's get started](why.md).
+!!!note "Авторы"
 
-{% Aside %} This course was written by [Carie Fisher](https://cariefisher.com/) ([Twitter](https://twitter.com/cariefisher) and [LinkedIn](https://linkedin.com/in/cariefisher)), with input and review from [Alexandra White](https://heyawhite.com) ([Twitter](https://twitter.com/heyawhite)), and [Rachel Andrew](https://rachelandrew.co.uk/) ([Twitter](https://twitter.com/rachelandrew)). Special thanks to [Mark Steadman](https://twitter.com/Steady5063) for providing additional support for the [JavaScript module](javascript.md), and [Aaron Forinton](https://github.com/aaronforinton) for supporting the publication process. {% endAside %}
+    Этот курс был написан [Carie Fisher](https://cariefisher.com/) ([Twitter](https://twitter.com/cariefisher) и [LinkedIn](https://linkedin.com/in/cariefisher)) при участии [Alexandra White](https://heyawhite.com) ([Twitter](https://twitter.com/heyawhite)) и [Rachel Andrew](https://rachelandrew.co.uk/) ([Twitter](https://twitter.com/rachelandrew)). Отдельное спасибо [Mark Steadman](https://twitter.com/Steady5063) за дополнительную поддержку модуля [JavaScript](javascript.md), а также [Aaron Forinton](https://github.com/aaronforinton) за поддержку процесса публикации.
+
+!!!danger "Перевод"
+
+    Перевод этого учебника сделан благодаря [подписчикам на Бусти](https://boosty.to/bndby).
+
+:material-information-outline: Источник &mdash; [Learn Accessibility](https://web.dev/learn/accessibility)

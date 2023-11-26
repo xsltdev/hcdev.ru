@@ -5,9 +5,9 @@ nav:
     - css3
     - images
     - forms
-    #- accessibility
+    - design
+    - accessibility
     - pwa
     - 30days-pwa
-    - design
     - flex
     - grid

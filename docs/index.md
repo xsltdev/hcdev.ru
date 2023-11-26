@@ -71,6 +71,8 @@ hide:
 
     [:octicons-arrow-right-24: Адаптивный дизайн](./learn/design/index.md) <small>web.dev</small>
 
+    [:octicons-arrow-right-24: Доступность](./learn/accessibility/index.md) <small>web.dev</small>
+
 </div>
 
 ---

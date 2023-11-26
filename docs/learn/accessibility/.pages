@@ -1,3 +1,22 @@
-title: Учебник по доступности
+title: Учим доступность
 nav:
-    - ...
+    - index.md
+    - why.md
+    - measure.md
+    #- aria-html.md
+    #- structure.md
+    #- more-html.md
+    #- focus.md
+    #- javascript.md
+    #- images.md
+    #- color-contrast.md
+    #- motion.md
+    #- typography.md
+    #- video-audio.md
+    #- forms.md
+    #- patterns.md
+    #- design-ux.md
+    #- test-automated.md
+    #- test-manual.md
+    #- test-assistive-technology.md
+    #- glossary.md

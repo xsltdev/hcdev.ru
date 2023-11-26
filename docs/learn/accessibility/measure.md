@@ -1,251 +1,105 @@
 ---
-title: 'How is digital accessibility measured?'
-authors:
-  - cariefisher
-description: >
-  Introduction to accessibility measurement, which ensures everyone,
-  including people with disabilities, can still interact with your website
-  in a meaningful and equal way.
-date: 2022-09-30
-tags:
-  - accessibility
+description: Введение в измерение доступности, которое гарантирует, что все, включая людей с ограниченными возможностями, смогут полноценно и на равных взаимодействовать с вашим сайтом.
 ---
 
-[Digital accessibility](https://www.w3.org/WAI/fundamentals/accessibility-intro/)
-means designing and building your digital offerings so that, regardless of a
-person's mental or physical ability, they can still interact with your website,
-app, or other digital product in a meaningful and equal way. 
+# Как измеряется доступность цифровых технологий?
 
-But how do you measure the accessibility of a digital product? How do you know
-when something is accessible?
+[Доступность цифровых технологий] (https://www.w3.org/WAI/fundamentals/accessibility-intro/) означает разработку и создание цифровых предложений таким образом, чтобы независимо от умственных или физических способностей человека он мог полноценно и на равных взаимодействовать с вашим сайтом, приложением или другим цифровым продуктом.
 
-## Introduction to accessibility testing
+Но как измерить доступность цифрового продукта? Как понять, что продукт доступен?
 
-There are many ways to test a digital product for accessibility. One
-fundamental approach is to evaluate it against a set of accessibility
-standards. 
+## Введение в тестирование доступности
 
-There are many types of accessibility standards. Typically, your industry,
-product type, local/country
-[laws](https://www.3playmedia.com/blog/major-accessibility-laws/) and
-[policies](https://www.w3.org/WAI/policies/), or overall accessibility goals
-will dictate which set of guidelines to follow and levels to meet. If no
-specific standard is required for your project, the standard recommendation is
-to follow the latest version of the
-[Web Content Accessibility Guidelines (WCAG)](#wcag).
+Существует множество способов проверить цифровой продукт на доступность. Один из основных подходов заключается в оценке его соответствия набору стандартов доступности.
 
-Testing your digital product against an accessibility standard and conformance
-level is commonly referred to as an
-_[accessibility audit](https://www.w3.org/WAI/test-evaluate/)_.
-An accessibility audit uses various methodologies, techniques, and tools,
-including design, automated, manual, and assistive technology (AT) testing.
+Существует множество типов стандартов доступности. Как правило, отрасль, тип продукта, местные/страновые [законы](https://www.3playmedia.com/blog/major-accessibility-laws/) и [политики](https://www.w3.org/WAI/policies/), а также общие цели, связанные с доступностью, определяют, какому набору рекомендаций следовать и какому уровню соответствовать. Если для вашего проекта не требуется конкретный стандарт, то стандартной рекомендацией является следование последней версии [Web Content Accessibility Guidelines (WCAG)](#wcag).
 
-Perform an accessibility audit to capture the baseline accessibility compliance
-of a digital product. But, running it once at the start of a project is not
-enough to determine if a product is accessible. You should run this audit
-multiple times throughout the software product lifecycle to check for changes
-in the level of conformance, against a set of pre-determined accessibility
-checkpoints or guidelines.
+Тестирование цифрового продукта на соответствие стандарту доступности и уровню соответствия принято называть _[аудитом доступности](https://www.w3.org/WAI/test-evaluate/)_. При проведении аудита доступности используются различные методологии, методики и инструменты, включая проектирование, автоматизированное, ручное тестирование и тестирование вспомогательных технологий (AT).
 
-## Web Content Accessibility Guidelines (WCAG) {:#wcag}
+Аудит доступности проводится для определения базового уровня соответствия цифрового продукта требованиям доступности. Однако одного раза в начале проекта недостаточно, чтобы определить, является ли продукт доступным. Аудит необходимо проводить несколько раз в течение жизненного цикла программного продукта, чтобы проверить изменения в уровне соответствия по заранее определенным контрольным точкам или рекомендациям.
 
-The [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/)
-are an international set of accessibility standards developed through the W3C,
-in cooperation with individuals and organizations. The goal of WCAG is to
-provide a single shared standard for digital accessibility that meets the needs
-of individuals, organizations, and governments worldwide.
+## Руководство по доступности веб-контента (WCAG) {#wcag}
 
-WCAG is primarily intended for web-based and native mobile app designers and
-developers. However, many others, including software developers, content
-creators/editors, and all levels of management, benefit from understanding and
-applying WCAG-based techniques to their process. Additional W3C standards may
-apply to your role, including the
-[Authoring Tool Accessibility Guidelines (ATAG)](https://www.w3.org/WAI/standards-guidelines/atag/) and
-[User Agent Accessibility Guidelines (UAAG)](https://www.w3.org/WAI/standards-guidelines/uaag/),
-so make sure you review the
-[W3C list of standards](https://www.w3.org/standards/) and use the one(s) most
-applicable to your role and project.
+[Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) - это международный набор стандартов доступности, разработанный W3C в сотрудничестве с частными лицами и организациями. Цель WCAG - создать единый общий стандарт доступности цифровых технологий, отвечающий потребностям людей, организаций и правительств во всем мире.
 
-In terms of accessibility, WCAG is considered the "gold standard" for
-conformance testing. The
-[first draft of WCAG](https://www.w3.org/TR/WAI-WEBCONTENT/) was released in
-1999. The current version is [WCAG 2.1](https://www.w3.org/TR/WCAG21/),
-released in June 2018, while [WCAG 2.2](https://www.w3.org/TR/WCAG22/) is
-scheduled for 2023. A completely revamped version of the guidelines,
-[WCAG 3.0](https://www.w3.org/WAI/standards-guidelines/wcag/wcag3-intro/), is
-being drafted for a future release, but is not expected to be a completed W3C
-standard for a few more years.
+WCAG предназначен в первую очередь для дизайнеров и разработчиков веб-приложений и нативных мобильных приложений. Однако многие другие специалисты, включая разработчиков программного обеспечения, создателей/редакторов контента и руководителей всех уровней, получат пользу от понимания и применения методов, основанных на WCAG, в своем процессе. К вашей роли могут быть применимы и другие стандарты W3C, в том числе [Authoring Tool Accessibility Guidelines (ATAG)](https://www.w3.org/WAI/standards-guidelines/atag/) и [User Agent Accessibility Guidelines (UAAG)](https://www.w3.org/WAI/standards-guidelines/uaag/), поэтому обязательно ознакомьтесь со [списком стандартов W3C](https://www.w3.org/standards/) и используйте те из них, которые наиболее применимы к вашей роли и проекту.
 
-The WCAG guidelines have three levels of success criteria: A, AA, and AAA. The
-success criteria determine conformance to WCAG. To meet WCAG conformance, the
-digital product you are testing needs to meet the success criteria for your
-target level.
+С точки зрения доступности WCAG считается "золотым стандартом" для тестирования соответствия. [Первый проект WCAG](https://www.w3.org/TR/WAI-WEBCONTENT/) был выпущен в 1999 году. Текущая версия [WCAG 2.1](https://www.w3.org/TR/WCAG21/) вышла в июне 2018 года, а выход [WCAG 2.2](https://www.w3.org/TR/WCAG22/) запланирован на 2023 год. Полностью обновленная версия руководства, [WCAG 3.0](https://www.w3.org/WAI/standards-guidelines/wcag/wcag3-intro/), готовится к выпуску в будущем, но ожидается, что она не станет завершенным стандартом W3C еще несколько лет.
 
-<ul class="stats">
-  <div class="stats__item">
-    <p class="stats__figure">
-      30
-    </p>
-    <p>A success criteria</p>
-  </div>
-  <div class="stats__item">
-    <p class="stats__figure">
-      20
-    </p>
-    <p>AA success criteria</p>
-  </div>
-  <div class="stats__item">
-    <p class="stats__figure">
-      28
-    </p>
-    <p>AAA success criteria</p>
-  </div>
-</ul>
+Руководство WCAG имеет три уровня критериев успеха: A, AA и AAA. Критерии успеха определяют соответствие WCAG. Чтобы соответствовать WCAG, тестируемый цифровой продукт должен удовлетворять критериям успеха для целевого уровня.
 
-For the current standard (WCAG 2.1), there are 78 success criteria in total,
-split across each level. It is important to note that each level is
-progressive, meaning if your accessibility goal is AA, you must pass the
-success criteria for both A and AA to achieve this level of conformance.
+-   30 `A` критериев успеха
+-   20 `АА` критерии успеха
+-   28 `ААА` критерии успеха
 
-<ul class="stats">
-  <div class="stats__item">
-    <p class="stats__figure">
-      30
-    </p>
-    <p>Pass A level</p>
-  </div>
-  <div class="stats__item">
-    <p class="stats__figure">
-      50
-    </p>
-    <p>Pass A + AA level</p>
-  </div>
-  <div class="stats__item">
-    <p class="stats__figure">
-      78
-    </p>
-    <p>Pass A + AA + AAA level</p>
-  </div>
-</ul>
+В действующем стандарте (WCAG 2.1) всего 78 критериев успеха, распределенных по каждому уровню. Важно отметить, что каждый уровень является прогрессивным, т.е. если ваша цель по обеспечению доступности - AA, то для достижения этого уровня соответствия необходимо пройти критерии успеха как для A, так и для AA.
 
-## Accessibility principles
+-   30 Пройден уровень `A`
+-   50 Пройден уровень `A` + `AA`
+-   78 Пройден уровень `A` + `AA` + `AAA`
 
-The WCAG success criteria are a very important set of detailed guidelines that
-inform designers and developers how to create accessible websites and apps.
-Understanding these guidelines is critical to address issues that arise in
-accessibility compliance testing, but the guidelines quickly become very technical.
+## Принципы доступности
 
-If you are new to this field, start with the principles of
-WCAG&mdash;[Perceivable, Operable, Understandable, and Robust (POUR)](https://www.w3.org/WAI/fundamentals/accessibility-principles/).
-By applying POUR principles to your digital products, you can focus on how your
-products are used by real humans, including people with disabilities. 
+Критерии успеха WCAG - это очень важный набор подробных рекомендаций, которые информируют дизайнеров и разработчиков о том, как создавать доступные веб-сайты и приложения. Понимание этих рекомендаций очень важно для решения проблем, возникающих при тестировании на соответствие требованиям доступности, однако эти рекомендации быстро становятся очень техническими.
 
-<figure class="screenshot">
-{% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/j2qQcEjknNhD46OxDtaE.png", alt="Perceivable, Operable, Understandable, and Robust all connect to one another.", width="800", height="679" %}
-</figure>
+Если вы новичок в этой области, начните с принципов WCAG &mdash; [Воспринимаемый, управляемый, понятный и надежный (POUR)](https://www.w3.org/WAI/fundamentals/accessibility-principles/). Применяя принципы POUR к своим цифровым продуктам, вы сможете сосредоточиться на том, как ваши продукты будут использоваться реальными людьми, в том числе людьми с ограниченными возможностями.
 
-{% Details 'open' %}
+![Воспринимаемый, управляемый, понимаемый и надежный - все они связаны друг с другом.](measure-1.png)
 
-{% DetailsSummary 'h3' %}
-Perceivable
-{% endDetailsSummary %}
+### Воспринимаемый
 
-<figure data-float="right">
-{% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/haquBrDGcS5NehEPGYoK.png", alt="Perceivable is represented by glasses, but multiple sesnes are used to understand content on a screen.", width="234", height="98" %}
-</figure>
+![Восприятие представлено очками, но для понимания содержимого на экране используются несколько сесснов.](measure-2.png)
 
-The first category in POUR is Perceivable. This principle states that users
-must be able to perceive all essential information on the screen, and it must
-be conveyed to multiple senses.
+Первая категория в POUR - Perceivable. Этот принцип гласит, что пользователи должны иметь возможность воспринимать всю основную информацию на экране, и она должна передаваться несколькими органами чувств.
 
-**Ask yourself**: Is there any content or functionality in your digital product
-that a person with a specific disability would not be able to perceive? Be sure
-to consider all the different types of disabilities—visual, mobility, hearing,
-cognitive, and speech impairments, vestibular and seizure disorders, and more.
+**Спросите себя**: Есть ли в вашем цифровом продукте контент или функциональные возможности, которые человек с ограниченными возможностями не сможет воспринять? Обязательно учитывайте все виды инвалидности - зрительные, мобильные, слуховые, когнитивные, речевые нарушения, вестибулярные расстройства, судороги и т.д.
 
-**Examples of Perceivable**:
+**Примеры восприятия**:
 
-* Adding text alternatives to all non-decorative images and essential icons.
-* Adding captions, transcripts, and audio descriptions to videos.
-* Ensuring color is not the only method of conveying meaning.
-{% endDetails %}
+-   Добавление текстовых альтернатив ко всем недекоративным изображениям и важным пиктограммам.
+-   Добавление субтитров, транскриптов и аудиоописаний к видео.
+-   Обеспечение того, чтобы цвет не был единственным способом передачи смысла.
 
-{% Details 'open' %}
+### Эксплуатируемый
 
-{% DetailsSummary 'h3' %}
-Operable
-{% endDetailsSummary %}
+![Управление представлено клавиатурой, но существует целый ряд интерфейсов и программных средств, которые можно использовать для взаимодействия.](measure-3.png)
 
-<figure data-float="right">
-  {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/XPLRoBlh2fFMgY9rUDeV.png", alt="Operable is represented by a keyboard, but there are a number of interfaces and softwares one may use to interact.", width="353", height="177" %}
-</figure>
+Вторая категория - Operable. В соответствии с этим принципом пользователи должны иметь возможность управлять интерфейсом цифрового продукта. Интерфейс не должен требовать взаимодействия, которое пользователь не может выполнить.
 
-The second category is Operable. For this principle, users must be able to
-operate the digital product's interface. The interface cannot require
-interaction that a user cannot perform.
+**Спросите себя**: Могут ли пользователи управлять интерактивными элементами вашего цифрового продукта? Нет ли проблем с порядком фокусировки или клавиатурных ловушек? Как устроены сенсорные интерфейсы?
 
-**Ask yourself**: Can users control the interactive elements of your digital
-product? Are there any focus order issues or keyboard traps? How are touch
-interfaces handled?
+**Примеры работоспособности**:
 
-**Examples of Operable**:
+-   Добавление поддержки клавиатуры и сенсорного экрана во все активные элементы.
+-   Обеспечение слайд-шоу и видеороликов всеми необходимыми элементами управления.
+-   Предоставление пользователям достаточного времени для заполнения формы или способ продления этого времени.
 
-* Adding keyboard and touchscreen support to all active elements.
-* Ensuring slideshows and videos have all of the necessary controls available.
-* Giving users enough time to fill out a form or a method to extend the time.
-{% endDetails %}
+### Понятный
 
-{% Details 'open' %}
+![Понятный представлен в виде головы с разноцветными соединенными точками.](measure-4.png)
 
-{% DetailsSummary 'h3' %}
-Understandable
-{% endDetailsSummary %}
+Третья категория POUR - понятность. В соответствии с этим принципом пользователи должны понимать информацию и работу пользовательского интерфейса.
 
-<figure data-float="right">
-{% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/Wu11xfdtJVoYTNiY9BxO.png", alt="Understandable is represented by a head with colorful connected dots.", width="168", height="215" %}
-</figure>
+**Спросите себя**: Ясно ли написано все содержимое? Все ли действия пользователя понятны? Имеет ли порядок страниц смысл для зрячих пользователей, пользователей, использующих только клавиатуру, пользователей программ чтения с экрана?
 
-The third category of POUR is Understandable. For this principle, users must understand the information and the operation of the user interface.
+**Примеры понятного**:
 
-**Ask yourself**: Is all of the content clearly written? Are all of the
-interactions easy to understand? Does the order of the page make sense—to
-sighted users, keyboard-only users, screen reader users?
+-   Писать просто - не использовать сложное слово, когда достаточно простого.
+-   Обеспечение предсказуемой навигации по цифровому продукту.
+-   Обеспечение понятности сообщений об ошибках и простоты их устранения.
 
-**Examples of Understandable**:
+### Надежность
 
-* Writing simply—don't use a complex word when a simple one will do.
-* Ensuring your digital product has predictable navigation.
-* Ensuring error messages are clear and easy to resolve.
-{% endDetails %}
+![Надежность](measure-5.png)
 
-{% Details 'open' %}
+Последняя категория - "Надежность". Этот принцип направлен на поддержку вспомогательных технологий и обеспечение того, чтобы по мере развития устройств и пользовательских агентов цифровой продукт оставался доступным.
 
-{% DetailsSummary 'h3' %}
-Robust
-{% endDetailsSummary %}
+**Спросите себя**: Какие типы вспомогательных технологий вы поддерживаете? Работает ли ваш цифровой продукт только на новейших браузерах или операционных системах? Работает ли он во всех точках останова и при различных ориентациях устройства?
 
-<figure data-float="right">
-{% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/6n5u7FVgb5dCCup50UKY.png", alt="Robust", width="362", height="218" %}
-</figure>
+**Примеры надежности**:
 
-The last category is Robust. This principle focuses on supporting assistive
-technologies and ensuring that, as devices and user agents evolve, the digital
-product remains accessible.
+-   Тестирование навигации только с помощью клавиатуры.
+-   Тестирование с использованием различных технологий чтения с экрана.
+-   Обеспечение доступа ко всему содержимому и функциональности независимо от размера и ориентации устройства.
 
-**Ask yourself**: What types of assistive technology are you supporting? Does
-your digital product only work on the newest browsers or operating systems?
-Does it work at all breakpoints and in different device orientations? 
-
-**Examples of Robust**:
-
-* Testing keyboard-only navigation.
-* Testing with different screen reader technologies.
-* Ensuring all of the content and functionality can be accessed, regardless of device size or orientation.
-{% endDetails %}
-
-Remember—the whole point of POUR is not about rigidly adhering to hard and fast
-rules. Instead, it is a way to help you
-[understand and meet](https://alistapart.com/article/getting-to-the-heart-of-digital-accessibility/)
-the diverse needs of your users.
-
-{% Assessment 'measure' %}
+Помните, что суть POUR заключается не в жестком следовании жестким правилам. Напротив, это способ помочь вам [понять и удовлетворить](https://alistapart.com/article/getting-to-the-heart-of-digital-accessibility/) разнообразные потребности ваших пользователей.
