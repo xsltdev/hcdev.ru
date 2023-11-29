@@ -47,22 +47,6 @@ hide:
 
     [:octicons-arrow-right-24: Учим формы](./learn/forms/index.md) <small>web.dev</small>
 
-</div>
-
-## PWA
-
-<div class="grid cards" style="margin-top: 1.6em" markdown>
-
--   **PWA**
-
-    ***
-
-    Прогрессивные веб-приложения
-
-    [:octicons-arrow-right-24: Учим PWA](./learn/pwa/index.md) <small>web.dev</small>
-
-    [:octicons-arrow-right-24: 30 дней PWA](./learn/30days-pwa/index.md) <small>Microsoft</small>
-
 -   :material-file-document:{ .lg .middle } **Дизайн**
 
     ***

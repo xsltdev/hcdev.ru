@@ -34,16 +34,6 @@ hide:
 
     [:octicons-arrow-right-24: Grid](./grid/index.md)
 
--   :simple-pwa:{ .lg .middle } **PWA**
-
-    ***
-
-    Прогрессивные веб-приложения
-
-    [:octicons-arrow-right-24: Учим PWA](./pwa/index.md) <small>web.dev</small>
-
-    [:octicons-arrow-right-24: 30 дней PWA](./30days-pwa/index.md) <small>Microsoft</small>
-
 -   :material-file-document:{ .lg .middle } **Дизайн**
 
     ***
