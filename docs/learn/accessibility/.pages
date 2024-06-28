@@ -3,7 +3,7 @@ nav:
     - index.md
     - why.md
     - measure.md
-    #- aria-html.md
+    - aria-html.md
     #- structure.md
     #- more-html.md
     #- focus.md

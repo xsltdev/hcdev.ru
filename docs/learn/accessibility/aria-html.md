@@ -1,64 +1,46 @@
 ---
-title: 'ARIA and HTML'
-authors:
-    - cariefisher
-description: When to use ARIA versus HTML.
-date: 2022-09-30
-tags:
-    - accessibility
+description: Когда использовать ARIA в сравнении с HTML
 ---
 
-Most developers are familiar with the standard markup language of our modern web, [HyperText Markup Language (HTML)](https://developer.mozilla.org/docs/Web/HTML). However, you may be less familiar with [Accessible Rich Internet Applications (ARIA)](https://developer.mozilla.org/docs/Web/Accessibility/ARIA) (formally called WAI-ARIA): what it is, how it is used, and when&mdash;and when _not_&mdash;to use it.
+# ARIA и HTML
 
-HTML and ARIA play important roles in making digital products accessible, especially when it comes to assistive technology (AT) such as screen readers. Both are used to convert content into an alternate format, such as Braille or Text-to-Speech (TTS).
+Большинство разработчиков знакомы со стандартным языком разметки современного веба, [HyperText Markup Language (HTML)](https://developer.mozilla.org/docs/Web/HTML). Однако вы можете быть менее знакомы с [Accessible Rich Internet Applications (ARIA)](https://developer.mozilla.org/docs/Web/Accessibility/ARIA) (официальное название WAI-ARIA): что это такое, как он используется, и когда &mdash; и когда _не_ &mdash; использовать его.
 
-Let's review a short history of ARIA, why it is important, and when and how best to use it.
+HTML и ARIA играют важную роль в обеспечении доступности цифровых продуктов, особенно когда речь идет о вспомогательных технологиях (AT), таких как устройства чтения с экрана. Оба они используются для преобразования контента в альтернативный формат, например в шрифт Брайля или преобразование текста в речь (TTS).
 
-## Introduction to ARIA
+Давайте рассмотрим краткую историю ARIA, почему она важна, а также когда и как ее лучше использовать.
 
-ARIA was first developed in 2008 by the [Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/) group&mdash;a subset of the overarching World Wide Web Consortium (W3C), which governs and regulates the internet.
+## Введение в ARIA
 
-ARIA is not a true programming language but a set of attributes you can add to HTML elements to increase their accessibility. These attributes communicate role, state, and property to assistive technologies via accessibility APIs found in modern browsers. This communication happens through the accessibility tree.
+ARIA была впервые разработана в 2008 году группой [Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/) &mdash;подгруппой всеобъемлющего консорциума World Wide Web Consortium (W3C), который управляет и регулирует интернет.
 
-<blockquote>
-  <p>
-    "<a href="https://www.w3.org/WAI/standards-guidelines/aria/">WAI-ARIA</a>, 
-    the Accessible Rich Internet Applications Suite, defines a way to make web
-    content and web applications more accessible to people with disabilities. It
-    especially helps with dynamic content and advanced user interface controls
-    developed with HTML, JavaScript, and related technologies."
-  </p>
-  <cite>
-    <a href="https://www.w3.org/WAI/">The WAI group</a>
-  </cite>
-</blockquote>
+ARIA - это не настоящий язык программирования, а набор атрибутов, которые можно добавлять к элементам HTML для повышения их доступности. Эти атрибуты передают информацию о роли, состоянии и свойствах вспомогательным технологиям через API доступности, которые есть в современных браузерах. Это взаимодействие происходит через дерево доступности.
 
-### The accessibility tree
+!!!note ""
 
-ARIA modifies incorrect or incomplete code to create a better experience for those using AT by changing, exposing, and augmenting parts of the accessibility tree.
+    "[WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/), Accessible Rich Internet Applications Suite, определяет способ сделать веб-контент и веб-приложения более доступными для людей с ограниченными возможностями. Это особенно помогает при работе с динамическим контентом и расширенными элементами управления пользовательским интерфейсом, разработанными с помощью HTML, JavaScript и связанных с ними технологий."
 
-The accessibility tree is created by the browser and based on the standard Document Object Model (DOM) tree. Like the DOM tree, the accessibility tree contains objects representing all the markup elements, attributes, and text nodes. The accessibility tree is also used by platform-specific accessibility APIs to provide a representation that assistive technologies can understand.
+    &mdash; [The WAI group](https://www.w3.org/WAI/)
 
-<figure>
-{% Img
-  src="image/T4FyVKpzu4WKF1kBNvXepbi08t52/G1IWcJBT9tfZq4xCKTqq.jpg",
-  alt="The ARIA augmented accessibility tree.", 
-  width="575",
-  height="383"
-%}
-</figure>
+### Дерево доступности
 
-ARIA on its own doesn't change an element's functionality or visual appearance. That means only AT users will notice differences between a digital product with ARIA and one without it. That also means that developers alone are responsible for making the appropriate code and styling changes to make an element as accessible as possible.
+ARIA изменяет неправильный или неполный код, чтобы создать лучшие условия для тех, кто использует AT, изменяя, раскрывая и дополняя части дерева доступности.
 
-The three main features of ARIA are roles, properties, and states/values.
+Дерево доступности создается браузером и основано на стандартном дереве объектной модели документа (DOM). Как и дерево DOM, дерево доступности содержит объекты, представляющие все элементы разметки, атрибуты и текстовые узлы. Дерево доступности также используется API-интерфейсами доступности для конкретных платформ, чтобы обеспечить представление, понятное вспомогательным технологиям.
 
-_Roles_ define what an element is or does on the page or app.
+![Дерево расширенной доступности ARIA.](aria-html-1.jpg)
+
+Сам по себе ARIA не меняет функциональность или внешний вид элемента. Это означает, что только пользователи AT заметят разницу между цифровым продуктом с ARIA и без него. Это также означает, что только разработчики несут ответственность за внесение соответствующих изменений в код и стилистику, чтобы сделать элемент максимально доступным.
+
+Три основные характеристики ARIA - это роли, свойства и состояния/значения.
+
+Роли определяют, чем является или что делает элемент на странице или в приложении.
 
 ```html
 <div role="button">Self-destruct</div>
 ```
 
-_Properties_ express characteristics or relationships to an object.
+Свойства выражают характеристики или отношения к объекту.
 
 ```html
 <div role="button" aria-describedby="more-info">
@@ -70,7 +52,7 @@ _Properties_ express characteristics or relationships to an object.
 </div>
 ```
 
-_States/values_ define the current conditions or data values associated with the element.
+_Состояния/значения_ определяют текущие условия или значения данных, связанные с элементом.
 
 ```html
 <div
@@ -86,119 +68,91 @@ _States/values_ define the current conditions or data values associated with the
 </div>
 ```
 
-While all three elements of ARIA can be used in one line of code, it's not required. Instead, layer ARIA roles, properties, and states/values until you've accomplished your final accessibility goal. Correctly incorporating ARIA into your code base ensures that AT users will have all the information they need to use your website, app, or other digital product successfully and equitably.
+Хотя все три элемента ARIA можно использовать в одной строке кода, это не обязательно. Вместо этого накладывайте друг на друга роли, свойства и состояния/значения ARIA, пока не достигнете конечной цели по обеспечению доступности. Правильное внедрение ARIA в кодовую базу гарантирует, что пользователи AT получат всю необходимую информацию для успешного и равноправного использования вашего сайта, приложения или другого цифрового продукта.
 
-Recently, Chrome DevTools has created a way to [see the full accessibility tree](https://developer.chrome.com/blog/full-accessibility-tree/) making it easier for developers to understand how their code impacts accessibility.
+Недавно в Chrome DevTools появился способ [увидеть полное дерево доступности](https://developer.chrome.com/blog/full-accessibility-tree/), облегчающий разработчикам понимание того, как их код влияет на доступность.
 
-## When to use ARIA
+## Когда использовать ARIA
 
-In 2014, the W3C officially published the HTML5 recommendation. With it came some big changes, including the addition of landmark elements such as `<main>`, `<header>`, `<footer>`, `<aside>`, `<nav>`, and attributes like `hidden` and `required`. With these new HTML5 elements and attributes, coupled with increased browser support, certain parts of ARIA are now less critical.
+В 2014 году W3C официально опубликовала рекомендации по HTML5. В ней произошли значительные изменения, в том числе добавление знаковых элементов, таких как `<main>`, `<header>`, `<footer>`, `<aside>`, `<nav>`, и атрибутов, таких как `hidden` и `required`. Благодаря этим новым элементам и атрибутам HTML5, а также расширенной поддержке браузерами, некоторые части ARIA стали менее критичными.
 
-When the browser supports an HTML tag with an implicit role with an ARIA equivalent, there is usually no need to add ARIA to the element. However, ARIA still includes many roles, states, and properties that aren't available in any version of HTML. Those attributes remain useful for now.
+Когда браузер поддерживает HTML-тег с неявной ролью с эквивалентом ARIA, обычно нет необходимости добавлять ARIA к элементу. Однако ARIA по-прежнему включает в себя множество ролей, состояний и свойств, которые недоступны ни в одной версии HTML. Эти атрибуты пока остаются полезными.
 
-This brings us to the ultimate question: When should you use ARIA? Thankfully the WAI group has developed the [five rules of ARIA](https://www.w3.org/TR/using-aria/) to help you decide how to make elements accessible.
+Это подводит нас к главному вопросу: Когда следует использовать ARIA? К счастью, группа WAI разработала [пять правил ARIA](https://www.w3.org/TR/using-aria/), чтобы помочь вам решить, как сделать элементы доступными.
 
-### Rule 1: Don't use ARIA
+### Правило 1: Не использовать ARIA
 
-Yes, you read that right. Adding ARIA to an element does not inherently make it more accessible. The [WebAIM Million annual accessibility report](https://webaim.org/projects/million/) found that home pages with ARIA present averaged 70% more detected errors than those without ARIA, primarily due to the improper implementation of the ARIA attributes.
+Да, вы все правильно поняли. Добавление ARIA к элементу не делает его более доступным по своей сути. В ежегодном отчете [WebAIM Million annual accessibility report](https://webaim.org/projects/million/) было обнаружено, что на домашних страницах с ARIA в среднем на 70 % больше обнаруженных ошибок, чем на страницах без ARIA, в основном из-за неправильной реализации атрибутов ARIA.
 
-There are exceptions to this rule. ARIA is required when an HTML element doesn't have accessibility support. This could be because the design doesn't allow for a specific HTML element or the wanted feature/behavior isn't available in HTML. However, these situations should be scarce.
+Из этого правила есть исключения. ARIA требуется, когда элемент HTML не поддерживает доступность. Это может быть связано с тем, что дизайн не позволяет использовать конкретный HTML-элемент или желаемая функция/поведение недоступна в HTML. Однако таких ситуаций должно быть мало.
 
-<div class="switcher">
-{% Compare 'worse' %}
-```html
+```html title="Плохо"
 <a role="button">Submit</a>
 ```
-{% endCompare %}
 
-{% Compare 'better' %}
+---
 
-```html
+```html title="Хорошо"
 <button>Submit</button>
 ```
 
-{% endCompare %}
+Если сомневаетесь, используйте [семантические элементы HTML](../html5/semantic-html.md).
 
-</div>
+### Правило 2: Не добавляйте (ненужные) ARIA в HTML
 
-When in doubt, use [semantic HTML elements](../html5/semantic-html.md).
+В большинстве случаев элементы HTML хорошо работают из коробки и не нуждаются в дополнительном добавлении ARIA. На самом деле, разработчикам, использующим ARIA, часто приходится добавлять дополнительный код, чтобы сделать элементы функциональными в случае интерактивных элементов.
 
-### Rule 2: Don't add (unnecessary) ARIA to HTML
-
-In most circumstances, HTML elements work well out of the box and do not need additional ARIA added to them. In fact, developers using ARIA often have to add additional code to make the elements functional in the case of interactive elements.
-
-<div class="switcher">
-{% Compare 'worse' %}
-```html
+```html title="Плохо"
 <h2 role="tab">Heading tab</h2>
 ```
-{% endCompare %}
 
-{% Compare 'better' %}
+---
 
-```html
+```html title="Хорошо"
 <div role="tab"><h2>Heading tab</h2></div>
 ```
 
-{% endCompare %}
+Когда вы используете HTML-элементы по назначению, вам приходится делать меньше работы и код получается более эффективным.
 
-</div>
+### Правило 3: Всегда поддерживайте навигацию с клавиатуры
 
-Do less work and have better-performing code when you use HTML elements as intended.
+Все интерактивные (не отключенные) элементы управления ARIA должны быть доступны для клавиатуры. Вы можете добавить tabindex="0" к любому элементу, которому нужен фокус и который обычно не получает фокус клавиатуры. По возможности избегайте [использования индексов табуляции с положительными целыми числами](https://www.scottohara.me/blog/2019/05/25/tabindex.html), чтобы предотвратить потенциальные проблемы с порядком фокуса клавиатуры.
 
-### Rule 3: Always support keyboard navigation
-
-All interactive (not disabled) ARIA controls must be keyboard accessible. You can add tabindex= "0" to any element that needs a focus that doesn't normally receive keyboard focus. Avoid [using tab indexes with positive integers](https://www.scottohara.me/blog/2019/05/25/tabindex.html) whenever possible to prevent potential keyboard focus order issues.
-
-<div class="switcher">
-{% Compare 'worse' %}
-```html
+```html title="Плохо"
 <span role="button" tabindex="1">Submit</span>
 ```
-{% endCompare %}
 
-{% Compare 'better' %}
+---
 
-```html
+```html title="Хорошо"
 <span role="button" tabindex="0">Submit</span>
 ```
 
-{% CompareCaption %} Of course, if you can, use a real `<button>` element in this case. {% endCompareCaption %}
+!!!note ""
 
-{% endCompare %}
+    Помните, что люди с нарушениями зрения и без них пользуются навигацией с помощью клавиатуры. Не добавляйте лишних знаков табуляции в заголовки и абзацы, так как это может создать дополнительные трудности для некоторых пользователей, пользующихся только клавиатурой.
 
-</div>
+### Правило 4: Не скрывайте элементы с фокусом
 
-{% Aside 'caution' %} Remember, people with and without visual impairments use keyboard navigation. Don't add unnecessary tab stops to headings and paragraphs, as these can add additional challenges for some users who navigate by keyboard alone. {% endAside %}
+Не добавляйте `role="presentation"` или `aria-hidden="true"` к элементам, которые должны иметь фокус &mdash; включая элементы с `tabindex="0"`. Когда вы добавляете эти роли/состояния к элементам, это посылает AT сообщение о том, что эти элементы не важны и их следует пропустить. Это может привести к путанице или нарушить работу пользователей, пытающихся взаимодействовать с элементом.
 
-### Rule 4: Don't hide focusable elements
-
-Don't add `role= "presentation"` or `aria-hidden= "true"` to elements that need to have focus&mdash;including elements with a `tabindex= "0"`. When you add these roles/states to elements, it sends a message to the AT that these elements are not important and to skip over them. This can lead to confusion or disrupt users attempting to interact with an element.
-
-<div class="switcher">
-{% Compare 'worse' %}
-```html
+```html title="Плохо"
 <div aria-hidden="true"><button>Submit</button></div>
 ```
-{% endCompare %}
 
-{% Compare 'better' %}
+---
 
-```html
+```html title="Хорошо"
 <div><button>Submit</button></div>
 ```
 
-{% endCompare %}
+### Правило 5: Используйте доступные названия для интерактивных элементов
 
-</div>
+Цель интерактивного элемента должна быть донесена до пользователя, прежде чем он поймет, как с ним взаимодействовать. Убедитесь, что все элементы имеют [доступное имя](https://www.w3.org/TR/accname-1.1/) для людей, использующих AT-устройства.
 
-### Rule 5: Use accessible names for interactive elements
+Доступные имена могут быть содержимым, окружающим элемент (в случае `<a>`), альтернативным текстом или меткой.
 
-The purpose of an interactive element needs to be conveyed to a user before they know how to interact with it. Ensure that all elements have an [accessible name](https://www.w3.org/TR/accname-1.1/) for people using AT devices.
-
-Accessible names can be the content surrounded by an element (in the case of an `<a>`), alternative text, or a label.
-
-For each of the following code samples, the accessible name is "Red leather boots."
+Для каждого из следующих примеров кода доступным именем является "Красные кожаные сапоги".
 
 ```html
 <!-- A plain link with text between the link tags. -->
@@ -214,102 +168,66 @@ For each of the following code samples, the accessible name is "Red leather boot
 <label for="shoes">Red leather boots</label>
 ```
 
-There are many ways to check an element's accessible name, including inspecting the accessibility tree using [Chrome DevTools](https://developer.chrome.com/blog/full-accessibility-tree/) or testing it with a screen reader.
+Существует множество способов проверить доступность имени элемента, в том числе осмотр дерева доступности с помощью [Chrome DevTools](https://developer.chrome.com/blog/full-accessibility-tree/) или проверка с помощью программы чтения с экрана.
 
-{% Aside %} Coming soon: read more about screen reader testing in the Assistive Technology module. {% endAside %}
+## ARIA в HTML
 
-## ARIA in HTML
+Хотя использование элементов HTML само по себе является лучшей практикой, элементы ARIA могут быть добавлены в определенных ситуациях. Например, вы можете использовать ARIA в паре с HTML в шаблонах, где требуется более высокий уровень поддержки AT из-за ограничений среды, или в качестве запасного варианта для элементов HTML, которые не полностью поддерживаются всеми браузерами.
 
-While using HTML elements on their own is best practice, ARIA elements can be added in certain situations. For example, you may pair ARIA with HTML in patterns that need a higher level of AT support because of environmental constraints or as a fall-back method for HTML elements that aren't fully supported by all browsers.
+Конечно, существуют рекомендации по реализации [ARIA в HTML](https://www.w3.org/TR/html-aria/). Наиболее важные из них: не переопределяйте стандартные роли HTML, сократите избыточность и будьте внимательны к непредвиденным побочным эффектам.
 
-Of course, there are recommendations for implementing [ARIA in HTML](https://www.w3.org/TR/html-aria/). Most importantly: don't override default HTML roles, reduce redundancy, and be aware of unintended side effects.
+Давайте рассмотрим несколько примеров.
 
-Let's look at some examples.
-
-{% Compare 'worse' %}
-
-```html
+```html title="Плохо"
 <a role="heading">Read more</a>
 ```
 
-{% CompareCaption %} Assigned the wrong role. {% endCompareCaption %}
-
-{% endCompare %}
-
-{% Compare 'better' %}
-
-```html
+```html title="Хорошо"
 <a aria-label="Read more about some awesome article title"
     >Read More</a
 >
 ```
 
-{% CompareCaption %} Correct role and an extra link description. {% endCompareCaption %}
+---
 
-{% endCompare %}
-
-<hr />
-
-{% Compare 'worse' %}
-
-```html
+```html title="Плохо"
 <ul role="list">
     ...
 </ul>
 ```
 
-{% CompareCaption %} Redundant role. {% endCompareCaption %}
-
-{% endCompare %}
-
-{% Compare 'better' %}
-
-```html
+```html title="Хорошо"
 <ul>
     ...
 </ul>
 ```
 
-{% CompareCaption %} Redundancy removed {% endCompareCaption %}
+---
 
-{% endCompare %}
-
-<hr />
-
-{% Compare 'worse' %}
-
-```html
+```html title="Плохо"
 <details>
     <summary role="button">more information</summary>
     ...
 </details>
 ```
 
-{% CompareCaption %} Potential side effects. {% endCompareCaption %}
-
-{% endCompare %}
-
-{% Compare 'better' %}
-
-```html
+```html title="Хорошо"
 <details>
     <summary>more information</summary>
     ...
 </details>
 ```
 
-{% CompareCaption %} No unintended side effects. {% endCompareCaption %}
+!!!note ""
 
-{% endCompare %}
+    Одно из мест, где ARIA может быть полезен, - это формы. Ознакомьтесь с модулем [Learn Forms accessibility module](../forms/accessibility.md).
 
-{% Aside %} One place in particular where ARIA can be useful is in forms. Check out the [Learn Forms accessibility module](../forms/accessibility.md). {% endAside %}
+## Сложности ARIA
 
-## Complexities of ARIA
+ARIA сложна, и при ее использовании всегда следует соблюдать осторожность. Хотя примеры кода в этом уроке довольно просты, создание доступных пользовательских шаблонов может быстро усложниться.
 
-ARIA is complex, and you should always use caution when using it. While the code examples in this lesson are fairly straightforward, creating accessible custom patterns can quickly get complicated.
+Необходимо учитывать множество факторов, включая, но не ограничиваясь ими: взаимодействие с клавиатурой, сенсорные интерфейсы, поддержка AT/браузеров, необходимость перевода, ограничения окружающей среды, устаревший код и предпочтения пользователей. Небольшие знания в области кодирования могут оказаться вредными &mdash; или просто раздражающими &mdash; при неправильном использовании. Не забывайте о простоте кода.
 
-There are many things to pay attention to, including but not limited to: keyboard interactions, touch interfaces, AT/browser support, translation needs, environmental constraints, legacy code, and user preferences. A little bit of coding knowledge can be detrimental&mdash;or just plain annoying&mdash;if used incorrectly. Remember to keep your code simple.
+Эти предостережения в сторону, цифровая доступность - это не ситуация "все или ничего&mdash; это спектр, который допускает некоторые серые области, как эта. В зависимости от ситуации "правильными" могут считаться разные решения по кодированию. Важно, чтобы вы продолжали учиться, тестировать и стараться сделать наш цифровой мир более открытым для всех.
 
-Those warnings aside, digital accessibility is not an all-or-nothing situation&mdash;it's a spectrum that allows for some gray areas like this. Multiple coding solutions can be seen as "correct," depending on the situation. What is important is that you keep learning, testing, and trying to make our digital world more open to all.
-
-{% Assessment 'aria' %}
+<small>:material-information-outline: Источник &mdash; [ARIA and HTML](https://web.dev/learn/accessibility/aria-html)</small>
