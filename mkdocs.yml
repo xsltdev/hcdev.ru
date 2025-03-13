@@ -101,7 +101,7 @@ plugins:
               - nolightbox
 
 extra_javascript:
-    - 'https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js'
+    - 'https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/public/caniuse-embed.min.js'
 
 extra_css:
-    - '/assets/stylesheets/styles.css?9'
+    - '/assets/stylesheets/styles.css?10'
