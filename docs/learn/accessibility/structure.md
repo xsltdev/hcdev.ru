@@ -1,385 +1,298 @@
 ---
-title: 'Content structure'
-authors:
-    - cariefisher
-description: >
-    Use semantic HTML, landmarks, and tables for accessible content.
-
-date: 2022-10-31
-tags:
-    - accessibility
+description: Используйте семантический HTML, ориентиры и таблицы для доступного контента
 ---
 
-One of the most important aspects of digital accessibility is the underlying structure of the page. When you build your website or app using [structural elements](https://www.w3.org/WAI/tutorials/page-structure/) instead of relying on styles alone, you give critical context to people using assistive technologies (AT), such as screen readers.
+# Структура контента
 
-Structural elements serve as an outline of the content on the screen, but they also act as anchor points to allow for easier navigation within the content.
+Одним из самых важных аспектов цифровой доступности является базовая структура страницы. Когда вы создаете свой веб-сайт или приложение, используя [структурные элементы](https://www.w3.org/WAI/tutorials/page-structure/) вместо того, чтобы полагаться только на стили, вы предоставляете критически важный контекст людям, использующим вспомогательные технологии (AT), такие как программы чтения с экрана.
 
-When you use [semantic HTML elements](https://developer.mozilla.org/docs/Glossary/Semantics#semantics_in_html), the inherent meaning of each element is passed on to the accessibility tree and used by the AT, giving more meaning to the content than non-semantic elements. There may be cases where you need to add additional ARIA attributes to build relationships or to enhance the overall user experience, but in most situations, one of the [100+ HTML elements](https://developer.mozilla.org/docs/Web/HTML/Element) available should work fairly well on its own.
+Структурные элементы служат планом контента на экране, но они также действуют как точки привязки для более легкой навигации по контенту.
 
-While this module focuses on the most widely used structural elements critical to digital accessibility, there are certainly additional elements and environmental factors to consider when building structure into your website or app. These examples are an introduction to the topic, rather than all-inclusive.
+Когда вы используете [семантические HTML элементы](https://developer.mozilla.org/docs/Glossary/Semantics#semantics_in_html), присущее значение каждого элемента передается в дерево доступности и используется AT, придавая контенту больше смысла, чем несемантические элементы. Могут быть случаи, когда вам нужно добавить дополнительные ARIA атрибуты для построения отношений или улучшения общего пользовательского опыта, но в большинстве ситуаций один из [100+ HTML элементов](https://developer.mozilla.org/docs/Web/HTML/Element) должен работать достаточно хорошо сам по себе.
 
-{% Aside %}
+Хотя этот модуль фокусируется на наиболее широко используемых структурных элементах, критически важных для цифровой доступности, есть, безусловно, дополнительные элементы и факторы окружающей среды, которые следует учитывать при построении структуры в вашем веб-сайте или приложении. Эти примеры являются введением в тему, а не всеобъемлющими.
 
-Our [Learn HTML course](../html5/index.md) covers the basics of HTML and [semantic structure](../html5/semantic-html.md) in great detail. As such, this module builds off of that course material and is focused specifically on digital accessibility. Likewise, be sure to review the [ARIA and HTML module](aria-html.md) in this course before diving into this module.
+!!!note ""
 
-{% endAside %}
+	Наш [курс изучения HTML](../html5/index.md) подробно рассматривает основы HTML и [семантическую структуру](../html5/semantic-html.md). Таким образом, этот модуль основывается на материалах того курса и специально фокусируется на цифровой доступности. Аналогично, обязательно изучите модуль [ARIA и HTML](aria-html.md) в этом курсе перед погружением в данный модуль.
 
-## Landmarks
+## Ориентиры
 
-Users of AT rely on structural elements to give them information about the page's overall layout. When sectioning off large regions of content, you can use either ARIA landmark roles or the newer HTML landmark elements to add structural context to your page.
+Пользователи AT полагаются на структурные элементы, чтобы получить информацию об общем макете страницы. При разделении больших областей контента вы можете использовать либо ARIA роли ориентиров, либо более новые HTML элементы ориентиров для добавления структурного контекста на вашу страницу.
 
-Landmarks ensure content is in navigable regions. It's recommended that you supply at least one landmark per page.
+Ориентиры обеспечивают, чтобы контент находился в навигационных областях. Рекомендуется предоставить по крайней мере один ориентир на страницу.
 
-Some resources suggest combining [ARIA and HTML landmarks](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/landmark_role#best_practices) together to provide better AT coverage. While this type of redundancy shouldn't cause issues for your users, test the patterns using a screen reader to be certain. When in doubt, it's best to default to using only the newer HTML landmark elements, as the [browser support](https://stevefaulkner.github.io/HTML5accessibility/) is very robust.
+Некоторые ресурсы предлагают комбинировать [ARIA и HTML ориентиры](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/landmark_role#best_practices) вместе для обеспечения лучшего покрытия AT. Хотя такой тип избыточности не должен вызывать проблемы для ваших пользователей, протестируйте паттерны, используя программу чтения с экрана, чтобы быть уверенным. В случае сомнений лучше всего по умолчанию использовать только более новые HTML элементы ориентиров, так как [поддержка браузерами](https://stevefaulkner.github.io/HTML5accessibility/) очень надежна.
 
-Let's compare the HTML landmark elements as [mapped](https://www.a11yproject.com/posts/aria-landmark-roles/) to their counterpart ARIA landmark roles.
+Давайте сравним HTML элементы ориентиров, как они [соответствуют](https://www.a11yproject.com/posts/aria-landmark-roles/) своим аналогам ARIA ролям ориентиров.
 
-<div class="table-wrapper">
-  <table>
-    <thead>
-      <tr>
-        <th>HTML landmark element</th>
-        <th>ARIA landmark role</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="https://developer.mozilla.org/docs/Web/HTML/Element/header"><code>&lt;header&gt;</code></a></td>
-        <td><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/banner_role">banner</a></td>
-      </tr>
-      <tr>
-        <td><a href="https://developer.mozilla.org/docs/Web/HTML/Element/aside"><code>&lt;aside&gt;</code></a></td>
-        <td><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/complementary_role">complementary</a></td>
-      </tr>
-      <tr>
-        <td><a href="https://developer.mozilla.org/docs/Web/HTML/Element/footer">
-          <code>&lt;footer&gt;</code></a></td>
-        <td><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/contentinfo_role">contentinfo</a></td>
-      </tr>
-      <tr>
-        <td>
-          <a href="https://developer.mozilla.org/docs/Web/HTML/Element/nav"><code>&lt;nav&gt;</code></a>
-          </td>
-        <td><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/navigation_role">navigation</a></td>
-      </tr>
-      <tr>
-        <td><a href="https://developer.mozilla.org/docs/Web/HTML/Element/main"><code>&lt;main&gt;</code></a></td>
-        <td><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/main_role">main</a></td>
-      </tr>
-      <tr>
-        <td><a href="https://developer.mozilla.org/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a> <sup>1</sup></td>
-        <td><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/form_role">form</a></td>
-      </tr>
-      <tr>
-        <td>
-          <a href="https://developer.mozilla.org/docs/Web/HTML/Element/section"><code>&lt;section&gt;</code></a> <sup>1</sup></td>
-        <td><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/region_role">region</a></td>
-      </tr>
-  </tbody>
-  <caption>
-    <sup>1</sup> Requires inclusion of the <code>name</code> attribute to be accessible. A <code>section</code> must be <a href="https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/#whatareaccessiblenamesanddescriptions?">accessibly-named</a> for its implicit ARIA role of <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/region_role"><code>region</code></a> to be visible to assistive technology.
-  </caption>
-</table>
-</div>
+| HTML элемент ориентира | ARIA роль ориентира |
+|----------------------|-------------------|
+| [`<header>`](https://developer.mozilla.org/docs/Web/HTML/Element/header) | [banner](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/banner_role) |
+| [`<aside>`](https://developer.mozilla.org/docs/Web/HTML/Element/aside) | [complementary](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/complementary_role) |
+| [`<footer>`](https://developer.mozilla.org/docs/Web/HTML/Element/footer) | [contentinfo](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/contentinfo_role) |
+| [`<nav>`](https://developer.mozilla.org/docs/Web/HTML/Element/nav) | [navigation](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/navigation_role) |
+| [`<main>`](https://developer.mozilla.org/docs/Web/HTML/Element/main) | [main](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/main_role) |
+| [`<form>`](https://developer.mozilla.org/docs/Web/HTML/Element/form) <sup>1</sup> | [form](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/form_role) |
+| [`<section>`](https://developer.mozilla.org/docs/Web/HTML/Element/section) <sup>1</sup> | [region](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/region_role) |
 
-Now, let's compare examples of accessible content structure.
+<sup>1</sup> Требует включения атрибута `name` для доступности. `section` должен быть [доступно назван](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/#whatareaccessiblenamesanddescriptions?) для того, чтобы его неявная ARIA роль [`region`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/region_role) была видна вспомогательным технологиям.
 
-<div class="switcher">
-{% Compare 'worse' %}
-```html
+Теперь давайте сравним примеры доступной структуры контента.
+
+```html title="Плохо"
 <div>
 	<div>...</div>
 </div>
 <div>
-	<p>Stamp collecting, also known as philately, is
-    the study of postage stamps, stamped envelopes,
-    postmarks, postcards, and other materials relating
-    to postal delivery.</p>
+	<p>Филателия, также известная как коллекционирование марок, это
+    изучение почтовых марок, конвертов с марками,
+    почтовых штемпелей, открыток и других материалов, относящихся
+    к почтовой доставке.</p>
 </div>
 <div>
-<p>© 2022 - Stamps R Awesome</p>
+<p>© 2022 - Марки Превосходны</p>
 </div>
 ```
-{% endCompare %}
 
-{% Compare 'better' %}
+---
 
-```html
+```html title="Хорошо"
 <header>
     <nav>...</nav>
 </header>
 <main>
-    <section aria-label="Introduction to stamp collecting">
+    <section aria-label="Введение в филателию">
         <p>
-            Stamp collecting, also known as philately, is
-            the study of postage stamps, stamped envelopes,
-            postmarks, postcards, and other materials
-            relating to postal delivery.
+            Филателия, также известная как коллекционирование марок, это
+            изучение почтовых марок, конвертов с марками,
+            почтовых штемпелей, открыток и других материалов,
+            относящихся к почтовой доставке.
         </p>
     </section>
 </main>
 <footer>
-    <p>© 2022 - Stamps R Awesome</p>
+    <p>© 2022 - Марки Превосходны</p>
 </footer>
 ```
 
-{% endCompare %}
+!!!note ""
 
-</div>
+	Ознакомьтесь с [Примером ARIA Ориентиров](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/main.html) для получения дополнительной информации и лучших практик.
 
-{% Aside %}
+## Заголовки
 
-Check out the [ARIA Landmarks Example](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/main.html) for more information and best practices.
+При правильной реализации [HTML уровни заголовков](https://developer.mozilla.org/docs/Web/HTML/Element/Heading_Elements) формируют краткий план общего содержания страницы.
 
-{% endAside %}
+Есть шесть уровней заголовков, которые мы можем использовать. Уровень заголовка один `<h1>` используется для самой высокой и важной информации страницы, постепенно переходя к уровню заголовка шесть `<h6>` для самой низкой и наименее важной информации.
 
-## Headings
+Последовательность уровней заголовков важна. В идеале вы не будете пропускать уровни заголовков, например, начиная раздел с `<h1>` и сразу следуя за ним с `<h5>`. Вместо этого вы должны прогрессировать к `<h5>` по порядку. [Порядок уровней заголовков особенно важен для пользователей AT](https://youtu.be/vAAzdi1xuUY), так как это один из их основных способов навигации по контенту.
 
-When implemented correctly, [HTML heading levels](https://developer.mozilla.org/docs/Web/HTML/Element/Heading_Elements) form a succinct outline of the overall page content.
+!!!note ""
 
-There are six heading levels we can use. Heading level one `<h1>` is used for the page's highest and most important information, moving incrementally to heading level six `<h6>` for the lowest and least important information.
+	Хотя вы можете использовать [ARIA роли заголовков](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/heading_role) для уровней заголовков, рекомендуется использовать семантические HTML уровни заголовков всякий раз, когда это возможно.
 
-The sequence of the heading levels is important. Ideally, you won't skip heading levels, for example, starting a section with an `<h1>` and immediately following it with an `<h5>`. Instead, you should progress to the `<h5>` in order. [Heading level order is especially important to AT users](https://youtu.be/vAAzdi1xuUY) as this is one of their primary ways to navigate through content.
+Чтобы помочь вам придерживаться правильной семантической структуры и порядка для заголовков, рассмотрите возможность отделения ваших CSS стилей от уровней заголовков. Это позволяет вам больше гибкости в стилях заголовков, сохраняя при этом порядок уровней заголовков. Критически важно не использовать только стили для создания заголовков, так как они не воспринимаются AT как заголовки.
 
-{% Aside %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/Vwdajpe?height=400&amp;theme-id=auto&amp;default-tab=html%2Ccss%2Cresult&amp;editable=true" style="height: 100%; width: 100%; border: 0;" data-title="Pen Vwdajpe от web-dev-codepen-external на Codepen"></iframe>
 
-While you can use [ARIA heading roles](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/heading_role) for heading levels, it's recommended you use semantic HTML heading levels whenever possible.
+Когда мы подделываем заголовки, соответствующая структура не передается пользователям AT.
 
-{% endAside %}
+Заголовки также полезны для людей с когнитивными расстройствами и расстройствами внимания. Важно сделать содержание заголовков значимыми, чтобы помочь им понять, что наиболее важно на странице.
 
-To help you adhere to the proper semantic structure and order for headings, consider decoupling your CSS styles from the heading levels. This allows you more flexibility in heading styles while maintaining the heading level order. It's critical you don't use styles alone to create headings, as these aren't seen by AT as a heading.
-
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'Vwdajpe',
- height: 400,
- theme: 'auto',
- tab: 'html,css,result'
-} %}
-
-When we fake headings, the appropriate structure isn't conveyed to AT users.
-
-Headings are also helpful for people with cognitive and attention deficit disorders. It's important to make the heading content meaningful to help them understand what is most important on the page.
-
-<div class="switcher">
-{% Compare 'worse' %}
-```html
+```html title="Плохо"
 <div>
-	<h3>Stamps</h3>
-	<p>Stamp collecting, also known as philately, is the study of postage stamps, stamped envelopes, postmarks, postcards, and other materials relating to postal delivery.</p>
+	<h3>Марки</h3>
+	<p>Филателия, также известная как коллекционирование марок, это изучение почтовых марок, конвертов с марками, почтовых штемпелей, открыток и других материалов, относящихся к почтовой доставке.</p>
 </div>
 <div>
-	<h3>How do I start a stamp collection?</h3>
-  <h2>Equipment you will need</h2>
+	<h3>Как начать коллекцию марок?</h3>
+  <h2>Оборудование, которое вам понадобится</h2>
 	<h4>...</h4>
-  <h2>How to acquire stamps</h2>
+  <h2>Как приобрести марки</h2>
 	<h4>...</h4>
-  <h2>Organizations you can join</h2>
+  <h2>Организации, в которые можно вступить</h2>
 	<h4>...</h4>
 </div>
 ```
-{% endCompare %}
 
-{% Compare 'better' %}
+---
 
-```html
+```html title="Хорошо"
 <header>
-    <h1>Stamp collecting</h1>
+    <h1>Коллекционирование марок</h1>
 </header>
 <main>
-    <section aria-label="Introduction to stamp collecting">
-        <h2>What is stamp collecting?</h2>
+    <section aria-label="Введение в филателию">
+        <h2>Что такое филателия?</h2>
         <p>
-            Stamp collecting, also known as philately, is
-            the study of postage stamps, stamped envelopes,
-            postmarks, postcards, and other materials
-            relating to postal delivery.
+            Филателия, также известная как коллекционирование марок, это
+            изучение почтовых марок, конвертов с марками,
+            почтовых штемпелей, открыток и других материалов,
+            относящихся к почтовой доставке.
         </p>
     </section>
 
-    <section aria-label="Start a stamp collection">
-        <h2>How do I start a stamp collection?</h2>
-        <h3>Required equiment</h3>
+    <section aria-label="Начать коллекцию марок">
+        <h2>Как начать коллекцию марок?</h2>
+        <h3>Необходимое оборудование</h3>
         <p>...</p>
 
-        <h3>How to acquire stamps</h3>
+        <h3>Как приобрести марки</h3>
         <p>...</p>
 
-        <h3>Organizations you can join</h3>
+        <h3>Организации, в которые можно вступить</h3>
         <p>...</p>
     </section>
 </main>
 ```
 
-{% endCompare %}
+## Списки
 
-</div>
+[HTML списки](https://www.w3.org/WAI/tutorials/page-structure/content/#lists) - это способ семантически группировать элементы, похожие друг на друга, придавая им присущий смысл, как ваш список покупок или тот бесконечный список дел, который вы продолжаете игнорировать.
 
-## Lists
+Есть три типа HTML списков:
 
-[HTML lists](https://www.w3.org/WAI/tutorials/page-structure/content/#lists) are a way to semantically group items similar to one other giving them inherent meaning, much like your grocery store list or that never-ending to-do list you keep ignoring.
+-   упорядоченные [`<ol>`](https://developer.mozilla.org/docs/Web/HTML/Element/ol)
+-   неупорядоченные [`<ul>`](https://developer.mozilla.org/docs/Web/HTML/Element/ul)
+-   описательные [`<dl>`](https://developer.mozilla.org/docs/Web/HTML/Element/dl)
 
-There are three types of HTML lists:
+Элемент элемента списка [`<li>`](https://developer.mozilla.org/docs/Web/HTML/Element/li) используется для представления элемента в упорядоченном или неупорядоченном списке, в то время как элементы описательного термина [`<dt>`](https://developer.mozilla.org/docs/Web/HTML/Element/dt) и определения [`<dd>`](https://developer.mozilla.org/docs/Web/HTML/Element/dd) можно найти в описательном списке.
 
--   ordered [`<ol>`](https://developer.mozilla.org/docs/Web/HTML/Element/ol)
--   unordered [`<ul>`](https://developer.mozilla.org/docs/Web/HTML/Element/ul)
--   description [`<dl>`](https://developer.mozilla.org/docs/Web/HTML/Element/dl)
+При правильном программировании эти элементы могут информировать незрячих пользователей AT о видимой структуре списка. Когда AT встречает семантический список, он может сказать пользователю название списка и сколько в нем элементов. Когда пользователь навигает по списку, AT будет читать каждый элемент списка вслух и говорить, под каким номером он находится в списке - элемент один из пяти, элемент два из пяти и так далее.
 
-The list item [`<li>`](https://developer.mozilla.org/docs/Web/HTML/Element/li) element is used to represent an item in an ordered or unordered list, while the description term [`<dt>`](https://developer.mozilla.org/docs/Web/HTML/Element/dt) and definition [`<dd>`](https://developer.mozilla.org/docs/Web/HTML/Element/dd) elements can be found in the description list.
+Группировка элементов в списки также помогает зрячим людям с когнитивными расстройствами и расстройствами внимания и тем, у кого есть нарушения чтения, так как содержимое списка обычно стилизовано с большим визуальным пространством, и контент лаконичен.
 
-When programmed correctly, these elements can inform non-sighted AT users about the visible structure of the list. When an AT encounters a semantic list, it can tell the user the list name and how many items are in it. As the user navigates within the list, the AT will read each list item out loud and tell which number it's in the list—item one of five, item two of five, and so on.
-
-Grouping items into lists also helps sighted people who have cognitive and attention disorders and those with reading disabilities, as list content is typically styled to have more visual whitespace and the content is to the point.
-
-<div class="switcher">
-{% Compare 'worse' %}
-```html
+```html title="Плохо"
 <div>
-  <p>How do I start a stamp collection?</p>
-  <p>Equipment you will need</p>
+  <p>Как начать коллекцию марок?</p>
+  <p>Оборудование, которое вам понадобится</p>
     <div>
-      <p>Small tongs with rounded tips</p>
-      <p>Stamp hinges</p>
-      <p>Stockbook or albumn</p>
-      <p>Magnifying glass</p>
-      <p>Stamps</p>
+      <p>Маленькие щипцы с закругленными кончиками</p>
+      <p>Маркировочные петли</p>
+      <p>Альбом для марок</p>
+      <p>Увеличительное стекло</p>
+      <p>Марки</p>
     </div>
 </div>
 ```
-{% endCompare %}
 
-{% Compare 'better' %}
+---
 
-```html
+```html title="Хорошо"
 <div>
-    <h1>How do I start a stamp collection?</h1>
-    <h2>Equipment you will need</h2>
+    <h1>Как начать коллекцию марок?</h1>
+    <h2>Оборудование, которое вам понадобится</h2>
     <ol>
-        <li>Small tongs with rounded tips</li>
-        <li>Stamp hinges</li>
-        <li>Stockbook or albumn</li>
-        <li>Magnifying glass</li>
-        <li>Stamps</li>
+        <li>Маленькие щипцы с закругленными кончиками</li>
+        <li>Маркировочные петли</li>
+        <li>Альбом для марок</li>
+        <li>Увеличительное стекло</li>
+        <li>Марки</li>
     </ol>
 </div>
 ```
 
-{% endCompare %}
+## Таблицы
 
-</div>
+В HTML таблицы обычно используются для организации данных или макета страницы.
 
-## Tables
+В зависимости от назначения таблицы вы будете использовать различные семантические структурные элементы. Таблицы могут быть очень сложными по структуре, но когда вы придерживаетесь основных семантических правил, они довольно доступны без особого вмешательства.
 
-In HTML, tables are generally used for organizing data or page layout.
+### Макет
 
-Depending on the table's purpose, you'll use different semantic structural elements. Tables can be very complex in structure, but when you stick to the basic semantic rules, they are fairly accessible without much intervention.
+В ранние дни интернета таблицы макета были основным HTML элементом, используемым для построения визуальных структур. Сегодня мы используем смесь семантических и несемантических элементов, таких как `<div>` и ориентиры для создания макетов.
 
-### Layout
+Хотя дни создания таблиц макета в основном прошли, есть времена, когда таблицы макета все еще используются, например, в визуально богатых электронных письмах, новостных рассылках и рекламе. В этих случаях таблицы, используемые только для макета, не должны использовать структурные элементы, которые передают отношения и добавляют контекст, такие как `<th>` или `<caption>`.
 
-In the early days of the internet, layout tables were the primary HTML element used to build visual structures. Today, we use a mix of semantic and non-semantic elements such as `<div>`s and landmarks to create layouts.
+Таблицы макета также должны быть скрыты от пользователей AT с помощью ARIA [роли presentation](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/presentation_role) или [состояния aria-hidden](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-hidden).
 
-While the days of creating layout tables are mostly over, there are times when layout tables are still used, such as in visually rich emails, newsletters, and advertisements. In these cases, tables used only for layout must not use structural elements that convey relationships and add context, such as `<th>` or `<caption>`.
-
-Layout tables must also be hidden from AT users with the ARIA [presentation role](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/presentation_role) or [aria-hidden state](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-hidden).
-
-<div class="switcher">
-{% Compare 'worse' %}
-```html
+```html title="Плохо"
 <table>
-  <caption>My stamp collection</caption>
+  <caption>Моя коллекция марок</caption>
   <tr>
-    <th>[Stamp Image 1]</th>
-    <th>[Stamp Image 2]</th>
-    <th>[Stamp Image 3]</th>
+    <th>[Изображение марки 1]</th>
+    <th>[Изображение марки 2]</th>
+    <th>[Изображение марки 3]</th>
   </tr>
 </table>
 ```
-{% endCompare %}
 
-{% Compare 'better' %}
+---
 
-```html
+```html title="Хорошо"
 <table role="presentation">
     <tr>
-        <td>[Stamp Image 1]</td>
-        <td>[Stamp Image 2]</td>
-        <td>[Stamp Image 3]</td>
+        <td>[Изображение марки 1]</td>
+        <td>[Изображение марки 2]</td>
+        <td>[Изображение марки 3]</td>
     </tr>
 </table>
 ```
 
-{% endCompare %}
+### Данные
 
-</div>
+В отличие от таблицы макета, которая должна быть скрыта от пользователей AT, [таблица данных](https://www.w3.org/WAI/tutorials/tables/) и все ее элементы должны быть открыты. Структура таблиц данных критически важна для передачи простой и сложной информации пользователям.
 
-### Data
+Когда таблица структурирована правильно, формируются отношения между заголовками столбцов и строками и данными в таблице. Когда структурирована неправильно, пользователь остается разгадывать смысл и контекст информации в таблице.
 
-Unlike a layout table, which should be hidden from AT users, a [data table](https://www.w3.org/WAI/tutorials/tables/) and all its elements must be exposed. The structure of data tables is critical for conveying simple and complex information to users.
+В зависимости от сложности таблицы, формирование отношений через код достигается различными способами. Первым шагом к созданию доступной таблицы является разметка ячеек заголовков с помощью [`<th>`](https://developer.mozilla.org/docs/Web/HTML/Element/th) и ячеек данных с помощью [`<td>`](https://developer.mozilla.org/docs/Web/HTML/Element/td) элементов.
 
-When a table is structured correctly, relationships form between the column headers and rows and the data within the table. When structured incorrectly, the user is left to decipher the meaning and context of the information in the table.
+Для более сложных таблиц вам может понадобиться использовать дополнительные HTML элементы таблицы, такие как [`<rowgroup>`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/rowgroup_role), [`<colgroup>`](https://developer.mozilla.org/docs/Web/HTML/Element/colgroup), [`<caption>`](https://developer.mozilla.org/docs/Web/HTML/Element/caption) и [`scope`](https://developer.mozilla.org/docs/Web/HTML/Element/th#attr-scope) для передачи смысла и отношений.
 
-Depending on the complexity of the table, forming relationships through code is accomplished in different ways. The first step to making a table accessible is to mark up header cells with [`<th>`](https://developer.mozilla.org/docs/Web/HTML/Element/th) and data cells with [`<td>`](https://developer.mozilla.org/docs/Web/HTML/Element/td) elements.
-
-For more complex tables, you may need to use additional HTML table elements such as [`<rowgroup>`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/rowgroup_role), [`<colgroup>`](https://developer.mozilla.org/docs/Web/HTML/Element/colgroup), [`<caption>`](https://developer.mozilla.org/docs/Web/HTML/Element/caption), and [`scope`](https://developer.mozilla.org/docs/Web/HTML/Element/th#attr-scope) to convey meaning and relationships.
-
-<div class="switcher">
-{% Compare 'worse' %}
-```html
+```html title="Плохо"
 <table>
   <tr>
-    <td>Animal</td>
-    <td>Year</td>
-    <td>Condition</td>
+    <td>Животное</td>
+    <td>Год</td>
+    <td>Состояние</td>
   </tr>
   <tr>
-    <td>Bird</td>
+    <td>Птица</td>
     <td>1947</td>
-    <td>Fair</td>
+    <td>Хорошее</td>
   </tr>
   <tr>
-    <td>Lion</td>
+    <td>Лев</td>
     <td>1982</td>
-    <td>Good</td>
+    <td>Отличное</td>
   </tr>
   <tr>
-    <td>Horse</td>
+    <td>Лошадь</td>
     <td>1978</td>
-    <td>Mint</td>
+    <td>Монетное</td>
   </tr>
 </table>
 ```
-{% endCompare %}
 
-{% Compare 'better' %}
+---
 
-```html
+```html title="Хорошо"
 <table>
     <caption>
-        My stamp collection
+        Моя коллекция марок
     </caption>
     <tr>
-        <th>Animal</th>
-        <th>Year</th>
-        <th>Condition</th>
+        <th>Животное</th>
+        <th>Год</th>
+        <th>Состояние</th>
     </tr>
     <tr>
-        <td>Bird</td>
+        <td>Птица</td>
         <td>1947</td>
-        <td>Fair</td>
+        <td>Хорошее</td>
     </tr>
     <tr>
-        <td>Lion</td>
+        <td>Лев</td>
         <td>1982</td>
-        <td>Good</td>
+        <td>Отличное</td>
     </tr>
     <tr>
-        <td>Horse</td>
+        <td>Лошадь</td>
         <td>1978</td>
-        <td>Mint</td>
+        <td>Монетное</td>
     </tr>
 </table>
 ```
 
-{% endCompare %}
-
-</div>
+<small>:material-information-outline: Источник &mdash; [ARIA and HTML](https://web.dev/learn/accessibility/structure)</small>

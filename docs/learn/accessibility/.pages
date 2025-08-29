@@ -4,7 +4,7 @@ nav:
     - why.md
     - measure.md
     - aria-html.md
-    #- structure.md
+    - structure.md
     #- more-html.md
     #- focus.md
     #- javascript.md
