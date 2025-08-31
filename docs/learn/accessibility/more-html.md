@@ -1,114 +1,90 @@
 ---
-title: 'The Document'
-authors:
-    - cariefisher
-description: >
-    Additional HTML elements to consider when building accessible websites and web apps.
-
-date: 2022-10-31
-tags:
-    - accessibility
+description: Дополнительные HTML элементы для рассмотрения при создании доступных веб-сайтов и веб-приложений.
 ---
 
-Along with structure, there are many supporting HTML elements to consider when building and designing for digital accessibility. Throughout the Learn Accessibility course, we cover a lot of elements.
+# Документ
 
-This module focuses on very specific elements that don't quite fit into any of the other modules but are useful to understand.
+<big>
+Наряду со структурой, существует множество вспомогательных HTML элементов, которые следует учитывать при создании и проектировании для цифровой доступности. На протяжении всего курса "Изучение доступности" мы рассматриваем множество элементов.
 
-{% Aside %} Our [Learn HTML course](../html5/index.md) covers the basics of HTML and semantic structure in great detail. As such, this module builds off of that course material and is focused specifically on digital accessibility. Likewise, be sure to review the [ARIA and HTML module](aria-html.md) in this course before diving into this module. {% endAside %}
+Этот модуль фокусируется на очень специфических элементах, которые не совсем подходят ни к одному из других модулей, но полезны для понимания.
+</big>
 
-## Page title
+!!!note ""
 
-The HTML [`<title>`](https://developer.mozilla.org/docs/Web/HTML/Element/title) element defines the content of the page or screen a user is about to experience. It's found in the [`<head>`](https://developer.mozilla.org/docs/Web/HTML/Element/head) section of an HTML document and is equivalent to the `<h1>` or main topic of the page. The title content is displayed in the browser tab and helps users understand which page they are visiting, but it is not displayed on the website or app itself.
+	Наш [курс "Изучение HTML"](../html5/index.md) подробно рассматривает основы HTML и семантической структуры. Таким образом, этот модуль основывается на материалах того курса и специально ориентирован на цифровую доступность. Аналогично, обязательно изучите [модуль "ARIA и HTML"](aria-html.md) в этом курсе перед углублением в данный модуль.
 
-In a [single-page app](https://developer.mozilla.org/docs/Glossary/SPA) (SPA), the `<title>` is handled in a slightly different way, as users don't navigate between pages as they do on multi-page websites. For SPAs, the value of the [`document.title`](https://developer.mozilla.org/docs/Web/API/Document/title) property can be added manually or by a helper package, depending on the JavaScript framework. Announcing the [updated page titles](https://hidde.blog/accessible-page-titles-in-a-single-page-app/) to a screen reader user may take some additional work.
+## Заголовок страницы
 
-Descriptive page titles are good for both users and [search engine optimization (SEO)](https://developer.mozilla.org/docs/Web/HTML/Element/title#page_titles_and_seo)—but don't go overboard and add lots of keywords. Since the title is the first thing announced when an AT user visits a page, it must be accurate, unique, and descriptive, but also concise.
+HTML элемент [`<title>`](https://developer.mozilla.org/docs/Web/HTML/Element/title) определяет содержимое страницы или экрана, который пользователь собирается испытать. Он находится в секции [`<head>`](https://developer.mozilla.org/docs/Web/HTML/Element/head) HTML документа и эквивалентен `<h1>` или основной теме страницы. Содержимое заголовка отображается во вкладке браузера и помогает пользователям понять, какую страницу они посещают, но не отображается на самом веб-сайте или приложении.
 
-When writing page titles, it is also best practice to "front load" the interior page or important content first, then add any preceding pages or information after. This way, AT users don't have to sit through the information they have already heard.
+В [одностраничном приложении](https://developer.mozilla.org/docs/Glossary/SPA) (SPA) `<title>` обрабатывается немного по-другому, поскольку пользователи не переходят между страницами, как на многостраничных веб-сайтах. Для SPA значение свойства [`document.title`](https://developer.mozilla.org/docs/Web/API/Document/title) может быть добавлено вручную или с помощью вспомогательного пакета, в зависимости от JavaScript фреймворка. Объявление [обновленных заголовков страниц](https://hidde.blog/accessible-page-titles-in-a-single-page-app/) пользователю программы чтения с экрана может потребовать дополнительной работы.
 
-<div class="switcher">
-{% Compare 'worse' %}
-```html
+Описательные заголовки страниц хороши как для пользователей, так и для [оптимизации поисковых систем (SEO)](https://developer.mozilla.org/docs/Web/HTML/Element/title#page_titles_and_seo) — но не переусердствуйте и не добавляйте много ключевых слов. Поскольку заголовок является первым, что объявляется, когда пользователь с AT посещает страницу, он должен быть точным, уникальным и описательным, но также лаконичным.
+
+При написании заголовков страниц также рекомендуется "загружать в начало" внутреннюю страницу или важный контент первым, а затем добавлять любые предшествующие страницы или информацию после. Таким образом, пользователи с AT не должны просиживать через информацию, которую они уже слышали.
+
+```html title="Плохо"
 <title>The Food Channel | Outrageous Pumpkins | Season 3 </title>
 ```
-{% endCompare %}
 
-{% Compare 'better' %}
+---
 
-```html
+```html title="Лучше"
 <title>
     Season 3 | Outrageous Pumpkins | The Food Channel
 </title>
 ```
 
-{% endCompare %}
+!!!note "Важно"
 
-</div>
+	Поисковые системы обычно отображают только первые 55–60 символов заголовка страницы, поэтому обязательно ограничьте общее количество символов заголовка страницы.
 
-{% Aside 'important' %} Search engines typically display only the first 55–60 characters of a page title, so be sure to limit your total page title characters. {% endAside %}
+## Язык
 
-## Language
+### Язык страницы
 
-### Page language
+Атрибут языка страницы ([`lang`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/lang)) устанавливает язык по умолчанию для всей страницы. Этот атрибут добавляется к тегу [`<html>`](https://developer.mozilla.org/docs/Web/HTML/Element/html). Валидный атрибут языка должен быть добавлен к каждой странице, поскольку он сигнализирует AT, на каком языке он должен использовать.
 
-The page language attribute ([`lang`](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/lang)) sets the default language for the entire page. This attribute is added to the [`<html>`](https://developer.mozilla.org/docs/Web/HTML/Element/html) tag. A valid language attribute should be added to every page as it signals the AT to which language it should use.
+Рекомендуется использовать двухсимвольные [коды языков ISO](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) для большего покрытия AT, поскольку многие из них не поддерживают [расширенные коды языков](https://webaim.org/techniques/language/).
 
-It's recommended that you use two-character [ISO language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for greater AT coverage, as many of them do not support [extended language codes](https://webaim.org/techniques/language/).
+Когда атрибут языка полностью отсутствует, AT будет использовать язык по умолчанию, запрограммированный пользователем. Например, если AT был настроен на испанский, но пользователь посетил английский веб-сайт или приложение, AT попытается прочитать английский текст с испанскими акцентами и ритмом. Такая комбинация приводит к непригодному цифровому продукту и разочарованному пользователю.
 
-When a language attribute is completely missing, the AT will default to the user's programmed language. For example, if an AT was set to Spanish, but a user visited an English website or app, the AT would try to read the English text with Spanish accents and cadence. This combination results in an unusable digital product and a frustrated user.
-
-<div class="switcher">
-{% Compare 'worse' %}
-```html
+```html title="Плохо"
 <html>...</html>
 ```
-{% endCompare %}
 
-{% Compare 'better' %}
+---
 
-```html
+```html title="Лучше"
 <html lang="en">
     ...
 </html>
 ```
 
-{% endCompare %}
+Атрибут lang может иметь только один язык, связанный с ним. Это означает, что атрибут `<html>` может иметь только один язык, даже если на странице несколько языков. Установите `lang` на основной язык страницы.
 
-</div>
-
-The lang attribute can only have one language associated with it. This means the `<html>` attribute can only have one language, even if there are multiple languages on the page. Set `lang` to the primary language of the page.
-
-<div class="switcher">
-{% Compare 'worse' %}
-```html
+```html title="Плохо"
 <html lang="ar,en,fr,pt">...</html>
 ```
 
-{% CompareCaption %} Multiple languages are not supported. {% endCompareCaption %} {% endCompare %}
+---
 
-{% Compare 'better' %}
-
-```html
+```html title="Лучше"
 <html lang="ar">
     ...
 </html>
 ```
 
-{% CompareCaption %} Set only the page's primary language. In this case, the language is Arabic. {% endCompareCaption %} {% endCompare %}
+### Язык секции
 
-</div>
+Вы также можете использовать атрибут языка ([lang](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/lang)) для переключения языков в самом контенте. Те же основные правила применяются, что и для атрибута языка всей страницы, за исключением того, что вы добавляете его к соответствующему элементу на странице вместо тега `<html>`.
 
-### Section language
+Помните, что язык, который вы добавляете к элементу `<html>`, каскадно передается всем содержащимся элементам, поэтому всегда сначала устанавливайте основной язык страницы в атрибуте `lang` верхнего уровня.
 
-You can also use the language attribute ([lang](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/lang)) for language switches in the content itself. The same basic rules apply as the full-page language attribute, except you add it to the appropriate in-page element instead of on the `<html>` tag.
+Для любых элементов на странице, написанных на другом языке, добавьте этот атрибут `lang` к соответствующему элементу-обертке. Это переопределит настройку языка верхнего уровня до тех пор, пока этот элемент не будет закрыт.
 
-Remember that the language you add to the `<html>` element cascades down to all the contained elements, so always set the primary language of the page top-level `lang` attribute first.
-
-For any in-page elements written in a different language, add that `lang` attribute to the appropriate wrapper element. This will override the top-level language setting until that element is closed.
-
-<div class="switcher">
-{% Compare 'worse' %}
-```html
+```html title="Плохо"
 <html lang="en">
   <body>...
     <div>
@@ -118,11 +94,10 @@ For any in-page elements written in a different language, add that `lang` attrib
   </body>
 </html>
 ```
-{% endCompare %}
 
-{% Compare 'better' %}
+---
 
-```html
+```html title="Лучше"
 <html lang="en">
     <body>
         ...
@@ -140,28 +115,21 @@ For any in-page elements written in a different language, add that `lang` attrib
 </html>
 ```
 
-{% endCompare %}
-
-</div>
-
 ## iFrames
 
-The iFrame element ([`<iframe>`](https://developer.mozilla.org/docs/Web/HTML/Element/iframe)) is used to host another HTML page or a third party's content within the page. It essentially puts another webpage within the parent page. iFrames are commonly used for advertisements, embedded videos, web analytics, and interactive content.
+Элемент iFrame ([`<iframe>`](https://developer.mozilla.org/docs/Web/HTML/Element/iframe)) используется для размещения другой HTML страницы или контента третьей стороны на странице. По сути, он помещает другую веб-страницу внутри родительской страницы. iFrames обычно используются для рекламы, встроенных видео, веб-аналитики и интерактивного контента.
 
-To make your `<iframe>` accessible, there are a couple of aspects to consider. First, each `<iframe>` with distinct content should include a title element inside the parent tag. This title supplies AT users with more information about the content inside the `<iframe>`.
+Чтобы сделать ваш `<iframe>` доступным, есть несколько аспектов для рассмотрения. Во-первых, каждый `<iframe>` с отличным контентом должен включать элемент title внутри родительского тега. Этот заголовок предоставляет пользователям с AT больше информации о содержимом внутри `<iframe>`.
 
-Second, as a best practice, it is good to set the scrolling to "auto" or "yes" in the `<iframe>` tag settings. This allows people with low vision to be able to scroll into content within the `<iframe>` that they might not otherwise be able to see. Ideally, the `<iframe>` container would also be flexible in its height and width.
+Во-вторых, как лучшая практика, хорошо установить прокрутку на "auto" или "yes" в настройках тега `<iframe>`. Это позволяет людям с низким зрением прокручивать контент внутри `<iframe>`, который они иначе могли бы не увидеть. В идеале контейнер `<iframe>` также должен быть гибким по высоте и ширине.
 
-<div class="switcher">
-{% Compare 'worse' %}
-```html
+```html title="Плохо"
 <iframe src="https://www.youtube.com/embed/3obixhGZ5ds"></iframe>
 ```
-{% endCompare %}
 
-{% Compare 'better' %}
+---
 
-```html
+```html title="Лучше"
 <iframe
     title="Google Pixel - Lizzo in Real Tone"
     src="https://www.youtube.com/embed/3obixhGZ5ds"
@@ -170,8 +138,4 @@ Second, as a best practice, it is good to set the scrolling to "auto" or "yes" i
 </iframe>
 ```
 
-{% endCompare %}
-
-</div>
-
-{% Assessment 'document' %}
+<small>:material-information-outline: Источник &mdash; <https://web.dev/learn/accessibility/more-html></small>

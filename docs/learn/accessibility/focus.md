@@ -1,182 +1,158 @@
 ---
-title: 'Keyboard focus'
-authors:
-    - cariefisher
-description: >
-    Understand and enhance keyboard navigation order and style.
-
-date: 2022-10-31
-tags:
-    - accessibility
+description: Понимание и улучшение порядка навигации с клавиатуры и стилизации.
 ---
 
-Many people use a keyboard—or other software/hardware that mimics the functionality of a keyboard, such as a switch device—as their primary means of navigation. People with temporary physical limitations such as sprained wrist or fine motor disabilities like carpal tunnel, as well as some people without disabilities, may choose to use a keyboard to navigate a page due to personal preference, efficiency, or broken hardware.
+# Фокус клавиатуры
 
-Low-vision or blind users may use a keyboard for navigation combined with their magnification or screen reader software. However, they may use different keyboard shortcut commands to navigate a screen than a sighted user would.
+<big>
+Многие люди используют клавиатуру — или другое программное/аппаратное обеспечение, которое имитирует функциональность клавиатуры, такое как устройство-переключатель — как основной способ навигации. Люди с временными физическими ограничениями, такими как растяжение запястья или нарушения мелкой моторики, как синдром запястного канала, а также некоторые люди без инвалидности, могут выбрать использование клавиатуры для навигации по странице из-за личных предпочтений, эффективности или неисправного оборудования.
 
-Keyboard support for all of these disabilities and circumstances is critical. A large part of keyboard accessibility is centered around [focus](https://web.dev/articles/focus). Focus refers to which element on the screen currently receives input from the keyboard.
+Пользователи с ослабленным зрением или слепые могут использовать клавиатуру для навигации в сочетании с их программным обеспечением для увеличения или чтения с экрана. Однако они могут использовать различные команды быстрых клавиш для навигации по экрану, чем зрячий пользователь.
 
-In this module, we concentrate on HTML structure and CSS styling for keyboard and focusable elements. The [JavaScript module](javascript.md) includes more information on focus management and keystrokes for interactive elements.
+Поддержка клавиатуры для всех этих инвалидностей и обстоятельств критически важна. Большая часть доступности клавиатуры сосредоточена вокруг [фокуса](https://web.dev/articles/focus). Фокус относится к тому, какой элемент на экране в настоящее время получает ввод с клавиатуры.
 
-## Focus order
+В этом модуле мы сосредотачиваемся на HTML-структуре и CSS-стилизации для клавиатуры и фокусируемых элементов. [Модуль JavaScript](./javascript.md) включает дополнительную информацию об управлении фокусом и нажатиях клавиш для интерактивных элементов.
+</big>
 
-The elements that a keyboard user can navigate to are called focusable elements. [Focus order](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html), also called tab or navigation order, is the order in which elements receive focus. The default focus order must be logical, intuitive, and match the visual order of a page.
+## Порядок фокуса
 
-For most languages, the focus order starts at the top of the page and ends at the bottom, traveling from left to right. However, some languages are read right to left, so the primary language of the page may warrant a different focus order.
+Элементы, к которым может переходить пользователь клавиатуры, называются фокусируемыми элементами. [Порядок фокуса](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html), также называемый порядком табуляции или навигации, — это порядок, в котором элементы получают фокус. Порядок фокуса по умолчанию должен быть логичным, интуитивным и соответствовать визуальному порядку страницы.
 
-By default, focus order includes naturally focusable HTML elements, such as links, checkboxes, and text inputs. Naturally focusable HTML elements include built-in tab order support and basic keyboard event handling.
+Для большинства языков порядок фокуса начинается с верха страницы и заканчивается внизу, перемещаясь слева направо. Однако некоторые языки читаются справа налево, поэтому основной язык страницы может требовать другого порядка фокуса.
 
-You can update the focus order to include any elements that don't normally receive focus, such as non-interactive HTML elements, custom components, or elements with [ARIA](glossary.md#aria) that overrides the natural focus semantics.
+По умолчанию порядок фокуса включает естественно фокусируемые HTML-элементы, такие как ссылки, флажки и текстовые поля ввода. Естественно фокусируемые HTML-элементы включают встроенную поддержку порядка табуляции и базовую обработку событий клавиатуры.
 
-{% Aside %} Your `tab` key moves the keyboard focus up the [DOM](https://developer.mozilla.org/docs/Glossary/DOM). `shift + tab` moves the focus down the DOM. {% endAside %}
+Вы можете обновить порядок фокуса, чтобы включить любые элементы, которые обычно не получают фокус, такие как неинтерактивные HTML-элементы, пользовательские компоненты или элементы с [ARIA](./glossary.md#aria), которые переопределяют естественную семантику фокуса.
+
+!!!note ""
+
+	Ваша клавиша ++tab++ перемещает фокус клавиатуры вверх по [DOM](https://developer.mozilla.org/docs/Glossary/DOM). ++shift+tab++ перемещает фокус вниз по DOM.
 
 ### Tabindex
 
-The focus order begins with elements that have a positive [tabindex](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/tabindex) attribute (if there are any) and moves from the smallest positive number to the largest (such as 1, 2, 3). It then proceeds through elements with a tabindex of zero according to their order in the DOM. Any elements with a negative tabindex are removed from the natural focus order.
+Порядок фокуса начинается с элементов, которые имеют положительный атрибут [tabindex](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/tabindex) (если они есть), и перемещается от наименьшего положительного числа к наибольшему (например, 1, 2, 3). Затем он проходит через элементы с tabindex равным нулю согласно их порядку в DOM. Любые элементы с отрицательным tabindex удаляются из естественного порядка фокуса.
 
-When a [tabindex](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/tabindex) of zero (`tabindex="0"`) is applied to normally unfocusable elements, they are added into the natural focus order of the page according to the way they appear in the DOM. However, unlike naturally focusable HTML elements, you must [provide additional keyboard support](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/) for them to be fully accessible.
+Когда [tabindex](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/tabindex) равный нулю (`tabindex="0"`) применяется к обычно не фокусируемым элементам, они добавляются в естественный порядок фокуса страницы согласно тому, как они появляются в DOM. Однако, в отличие от естественно фокусируемых HTML-элементов, вы должны [предоставить дополнительную поддержку клавиатуры](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/) для их полной доступности.
 
-Similarly, if you have an element that normally is focusable but is inactive—such as a button that is inoperative until an input field is filled in—you should add a negative tabindex (`tabindex="-1"`) to this element. Adding a negative tabindex signals to assistive technologies and keyboards that this button should be removed from the natural focus order. But don't worry—you can use JavaScript to add the focus back to the element when needed.
+Аналогично, если у вас есть элемент, который обычно фокусируем, но неактивен — например, кнопка, которая не работает, пока поле ввода не заполнено — вы должны добавить отрицательный tabindex (`tabindex="-1"`) к этому элементу. Добавление отрицательного tabindex сигнализирует технологиям помощи и клавиатурам, что эта кнопка должна быть удалена из естественного порядка фокуса. Но не беспокойтесь — вы можете использовать JavaScript, чтобы вернуть фокус к элементу, когда это необходимо.
 
-In this example, a `tabindex` attribute was added to elements that do not naturally receive focus. The order of the elements was manipulated using `tabindex` to illustrate the power it can have on focus order. This is an example of what not to do!
+В этом примере атрибут `tabindex` был добавлен к элементам, которые естественно не получают фокус. Порядок элементов был изменен с помощью `tabindex`, чтобы проиллюстрировать силу, которую он может иметь на порядок фокуса. Это пример того, чего не следует делать!
 
-<div class="switcher">
-<figure>
-
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'QWxWwNM',
- height: 300,
- theme: 'dark',
- tab: 'html'
-} %}
-
-</figure>
-
-<figure>
-  {% Img
-    src="image/VbsHyyQopiec0718rMq2kTE1hke2/CMwbHhLmPO3aO0AB4KBy.gif", alt="New focus order reflects the HTML.", width="800", height="450"
-   %}
-   <figcaption>
-     Watch as a keyboard user tabs through the CodePen HTML.
-   </figcaption>
-</figure>
-</div>
-
-{% Aside 'caution' %} As a general rule, you should avoid positive tabindexes. Giving focus to non-interactive elements and disrupting the normal focus order may confuse and frustrate your users. It should be rare that a circumstance warrants adding a positive tabindex (`tabindex= "1"`) to a non-focusable element. {% endAside %}
-
-### Skip links
-
-Most websites today have a long list of menu links in the page's main header consistent from page to page. This is great for general navigation but can make it difficult for keyboard-only users to easily get to the website's main content without having to tab multiple times.
-
-One way to jump over redundant or unuseful groups of links is to add a [skip link](https://webaim.org/techniques/skipnav/). Skip links are anchor links that jump to a different section of the same page, using that section's ID, instead of sending the user to another page on the website or an external resource. Skip links are typically added as the first focusable element a user will encounter when arriving at a website and can be visible or visually hidden until a user tabs to it, depending on what the design calls for.
-
-When a user presses the tab key, and an active skip link is in place, it sends the keyboard focus to the skip link. The user can click the skip link and jump past the header section and main navigation. If they choose not to click the skip link and continue to tab down the DOM, they'll be sent to the next focusable element.
-
-Like all links, it’s important that the skip link includes context about the link's purpose. Adding the phrase "Skip to main content," lets the user know where the link is taking them. There are many code options to choose from when providing additional context to your links, such as [aria-labelledby](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA7), [aria-label](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA8), or adding it to the text content of the `<a>` element, as demonstrated in the example.
-
-<div class="switcher">
-  <figure>
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'LYrYEGo',
- height: 350,
- theme: 'dark',
- tab: 'html'
-} %}
-</figure>
-<figure>
-{% Img
-  src="image/VbsHyyQopiec0718rMq2kTE1hke2/zQ9dGirSD5Tkg4NRdHDQ.gif", alt="Preview CodePen with keyboard focus.", width="800", height="450"
-%}
-<figcaption>Watch a keyboard user navigate with and without a skip link.</figcaption>
-</figure>
-</div>
-
-## Focus indicator
-
-As you just learned, focus order is an important aspect of keyboard accessibility. It's also important to decide how that focus is styled. Because even if the focus order is excellent, how could a user know where they are on the page without the proper styling?
-
-A [visible focus indicator](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible) is a vital tool in informing a user about where they are at all times on the page. It's especially important for your sighted keyboard-only users.
-
-{% Aside %} WCAG 2.2's new success criterion, [Focus Not Obscured (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html), will ensure that the focus indicator is not hidden beneath other components. {% endAside %}
-
-### Browser default styling
-
-Today, every modern web browser has a different default visual styling that applies to focusable elements on your website or app—some more easily visible than others. As a user tabs through the page, this styling is applied as the element receives keyboard focus.
-
-If you allow the browser to handle the focus styling, it's important to review your code to confirm that your theme won't override the browser's default styling. An override is often written as `"outline: 0"` or `"outline: none"` in your stylesheet. This tiny piece of code can remove the browser's default focus indicator styling, which makes it very difficult for users to navigate your website or app.
-
-<div class="switcher">
-{% Compare 'worse' %}
-```css
-a:focus {
-  outline: none; /* don't do this! */
-}
+```html title="Плохо"
+<a href="#" tabindex="1">Ссылка 1</a>
+<div tabindex="2">Div 2</div>
+<button tabindex="3">Кнопка 3</button>
 ```
-{% endCompare %}
 
-{% Compare 'better' %}
+---
 
-```css
+```html title="Лучше"
+<a href="#">Ссылка 1</a>
+<div>Div 2</div>
+<button>Кнопка 3</button>
+```
+
+!!!note "Осторожно"
+
+	Как общее правило, вы должны избегать положительных `tabindex`. Предоставление фокуса неинтерактивным элементам и нарушение нормального порядка фокуса может запутать и расстроить ваших пользователей. Должно быть редкостью, когда обстоятельства требуют добавления положительного tabindex (`tabindex="1"`) к не фокусируемому элементу.
+
+### Пропускные ссылки
+
+Большинство веб-сайтов сегодня имеют длинный список ссылок меню в основном заголовке страницы, который остается неизменным от страницы к странице. Это отлично для общей навигации, но может затруднить пользователям только с клавиатурой легко попасть к основному содержимому веб-сайта без необходимости многократно нажимать ++tab++.
+
+Один из способов перепрыгнуть через избыточные или бесполезные группы ссылок — добавить [пропускную ссылку](https://webaim.org/techniques/skipnav/). Пропускные ссылки — это якорные ссылки, которые перепрыгивают к другому разделу той же страницы, используя ID этого раздела, вместо отправки пользователя на другую страницу веб-сайта или внешний ресурс. Пропускные ссылки обычно добавляются как первый фокусируемый элемент, с которым столкнется пользователь при посещении веб-сайта, и могут быть видимыми или визуально скрытыми, пока пользователь не нажмет ++tab++ на них, в зависимости от того, что требует дизайн.
+
+Когда пользователь нажимает клавишу ++tab++, и активная пропускная ссылка на месте, она отправляет фокус клавиатуры на пропускную ссылку. Пользователь может нажать на пропускную ссылку и перепрыгнуть мимо раздела заголовка и основной навигации. Если они выберут не нажимать на пропускную ссылку и продолжат нажимать ++tab++ вниз по DOM, они будут отправлены к следующему фокусируемому элементу.
+
+Как и все ссылки, важно, чтобы пропускная ссылка включала контекст о назначении ссылки. Добавление фразы "Перейти к основному содержимому" позволяет пользователю знать, куда ведет ссылка. Есть много вариантов кода на выбор при предоставлении дополнительного контекста вашим ссылкам, таких как [aria-labelledby](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA7), [aria-label](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA8) или добавление его к текстовому содержимому элемента `<a>`, как показано в примере.
+
+```html title="Пропускная ссылка"
+<a href="#main-content" class="skip-link">
+  Перейти к основному содержимому
+</a>
+
+<header>
+  <!-- Навигация -->
+</header>
+
+<main id="main-content">
+  <!-- Основное содержимое -->
+</main>
+```
+
+## Индикатор фокуса
+
+Как вы только что узнали, порядок фокуса является важным аспектом доступности клавиатуры. Также важно решить, как стилизовать этот фокус. Потому что даже если порядок фокуса отличный, как пользователь может знать, где он находится на странице без правильной стилизации?
+
+[Видимый индикатор фокуса](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible) — это жизненно важный инструмент для информирования пользователя о том, где он находится в любое время на странице. Это особенно важно для ваших зрячих пользователей только с клавиатурой.
+
+!!!note ""
+
+	Новый критерий успеха WCAG 2.2, [Фокус не скрыт (Минимум)](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html), обеспечит, чтобы индикатор фокуса не был скрыт под другими компонентами.
+
+### Стилизация браузера по умолчанию
+
+Сегодня каждый современный веб-браузер имеет различную стилизацию по умолчанию, которая применяется к фокусируемым элементам на вашем веб-сайте или приложении — некоторые более легко видимы, чем другие. Когда пользователь нажимает tab по странице, эта стилизация применяется, когда элемент получает фокус клавиатуры.
+
+Если вы позволяете браузеру обрабатывать стилизацию фокуса, важно просмотреть ваш код, чтобы подтвердить, что ваша тема не переопределит стилизацию браузера по умолчанию. Переопределение часто записывается как `"outline: 0"` или `"outline: none"` в вашей таблице стилей. Этот крошечный кусок кода может удалить стилизацию индикатора фокуса браузера по умолчанию, что делает очень трудным для пользователей навигацию по вашему веб-сайту или приложению.
+
+```css title="Плохо"
 a:focus {
-    outline: auto 5px Highlight; /* for non-webkit browsers */
-    outline: auto 5px -webkit-focus-ring-color; /* for webkit browsers */
+  outline: none; /* не делайте этого! */
 }
 ```
 
-{% endCompare %}
+---
 
-</div>
+```css title="Лучше"
+a:focus {
+    outline: auto 5px Highlight; /* для не-webkit браузеров */
+    outline: auto 5px -webkit-focus-ring-color; /* для webkit браузеров */
+}
+```
 
-### Custom styles
+### Пользовательские стили
 
-Of course, you can go beyond the default browser style and create a custom focus indicator that complements your theme. When creating a custom focus indicator, you have a lot of freedom to be creative!
+Конечно, вы можете выйти за рамки стиля браузера по умолчанию и создать пользовательский индикатор фокуса, который дополняет вашу тему. При создании пользовательского индикатора фокуса у вас есть много свободы для творчества!
 
-A focus indicator shape can take on many forms, be it an outline, a border, an underline, a box, a background change, or some other obvious stylistic change that does not rely on color alone to indicate the keyboard's focus is active on that element.
+Форма индикатора фокуса может принимать множество форм, будь то контур, граница, подчеркивание, рамка, изменение фона или какое-то другое очевидное стилистическое изменение, которое не полагается только на цвет, чтобы указать, что фокус клавиатуры активен на этом элементе.
 
-You could change a focus indicator style to ensure it isn’t lost in the background. For example, when a page has a white background, you could set the button focus indicator to a blue background. When the page has a blue background, you could set that same button focus style to a white background.
+Вы можете изменить стиль индикатора фокуса, чтобы убедиться, что он не теряется на фоне. Например, когда страница имеет белый фон, вы можете установить индикатор фокуса кнопки на синий фон. Когда страница имеет синий фон, вы можете установить тот же стиль фокуса кнопки на белый фон.
 
-You could change the focus element style based on element type. For example, you could use a dotted underline for body links but choose a rounded border for a button element.
+Вы можете изменить стиль элемента фокуса на основе типа элемента. Например, вы можете использовать пунктирное подчеркивание для ссылок в теле, но выбрать скругленную границу для элемента кнопки.
 
-{% Aside %}
+!!!note ""
 
-<p>Depending on how the focus indicator is styled, it may also need to meet the
-[minimum color contrast](https://www.w3.org/WAI/WCAG21/Techniques/general/G195)
-requirements against the background.</p>
-<p>We recommend adhering to a 3:1 color contrast ratio for all focus
-indicators. This will meet WCAG 2.2's
-[Focus Appearance (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-minimum).</p>
-{% endAside %}
+	В зависимости от того, как стилизован индикатор фокуса, он также может нуждаться в соответствии требованиям [минимального цветового контраста](https://www.w3.org/WAI/WCAG21/Techniques/general/G195) против фона.
+	
+	Мы рекомендуем придерживаться соотношения цветового контраста 3:1 для всех индикаторов фокуса. Это будет соответствовать [Внешнему виду фокуса (Минимум)](https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-minimum) WCAG 2.2.
 
-<div class="switcher">
-<figure>
+```css title="Пользовательские стили фокуса"
+/* Стиль для ссылок */
+a:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'PoaowNz',
- height: 300,
- theme: 'dark',
- tab: 'css'
-} %}
+/* Стиль для кнопок */
+button:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
 
-</figure>
+/* Стиль для полей ввода */
+input:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+  border-color: #0066cc;
+}
+```
 
-<figure>
-  {% Img
-    src="image/VbsHyyQopiec0718rMq2kTE1hke2/IXSs4AMZF8AePoCjkf0h.gif",
-    alt="Focus style as demonstrated in CSS.", width="800", height="450"
-    %}
-    <figcaption>
-      Watch what happens as a keyboard user tabs through each styled focus element.
-    </figcaption>
-</figure>
-</div>
+Нет правила о том, сколько стилей индикатора фокуса у вас может быть на одной странице — но обязательно держите это в разумном количестве, чтобы избежать ненужной путаницы.
 
-There is no rule about how many focus indicator styles you have on one page&mdash;but be sure to keep it to a reasonable number to avoid unnecessary confusion.
+## Заключение
 
-## Wrap-up
+Для того чтобы веб-сайт или приложение считались доступными, все, что можно получить доступ с помощью мыши, также должно быть доступно с помощью клавиатуры. Этот модуль сосредоточился на визуальном аспекте доступности клавиатуры, в частности, на порядке фокуса и индикаторах фокуса.
 
-For a website or app to be considered accessible, everything that can be accessed with a mouse must also be accessed with a keyboard. This module focused on the visual aspect of keyboard accessibility, in particular, focus order and focus indicators.
-
-{% Assessment 'focus' %}
+<small>:material-information-outline: Источник &mdash; <https://web.dev/learn/accessibility/focus></small>

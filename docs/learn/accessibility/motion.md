@@ -1,118 +1,90 @@
 ---
-title: 'Animation and motion'
-authors:
-    - cariefisher
-description: >
-    Support people with all types of movement-triggered disorders.  
-
-date: 2022-09-30
-tags:
-    - accessibility
+description: Поддержка людей с различными типами расстройств, вызванных движением.
 ---
 
-Have you ever been riding in a car, boat, or plane and suddenly felt the world spin? Or had a migraine so bad that animations on your phone or tablet, created to "delight" you, suddenly make you sick? Or perhaps you've always been sensitive to all types of motion? These are examples of different types of vestibular disorders.
+# Анимация и движение
 
-By age 40, over 35% of adults will have experienced some form of [vestibular dysfunction](https://vestibular.org/article/what-is-vestibular/about-vestibular-disorders/). This may lead to a temporary dizzy spell, migraine-induced vertigo, or a more permanent vestibular disability.
+<big>
+Испытывали ли вы когда-нибудь, находясь в машине, лодке или самолете, внезапное ощущение того, что мир вращается? Или была ли у вас такая сильная мигрень, что анимации на вашем телефоне или планшете, созданные для того, чтобы "порадовать" вас, внезапно вызывали тошноту? А может быть, вы всегда были чувствительны к любым типам движения? Это примеры различных типов вестибулярных расстройств.
 
-Beyond triggering vertigo, many people find moving, blinking, or scrolling content distracting. People with [ADHD](https://www.nimh.nih.gov/health/publications/attention-deficit-hyperactivity-disorder-in-children-and-teens-what-you-need-to-know) and other attention deficit disorders might be so distracted by your animated elements that they forget why they even went to your website or app in the first place.
+К 40 годам более 35% взрослых испытают какую-либо форму [вестибулярной дисфункции](https://vestibular.org/article/what-is-vestibular/about-vestibular-disorders/). Это может привести к временному головокружению, вертиго, вызванному мигренью, или более постоянной вестибулярной инвалидности.
 
-In this module, we'll look at some of the ways to help better support people with all types of movement-triggered disorders.
+Помимо провоцирования вертиго, многие люди находят движущийся, мигающий или прокручивающийся контент отвлекающим. Люди с [СДВГ](https://www.nimh.nih.gov/health/publications/attention-deficit-hyperactivity-disorder-in-children-and-teens-what-you-need-to-know) и другими расстройствами дефицита внимания могут быть настолько отвлечены вашими анимированными элементами, что забудут, зачем вообще пришли на ваш веб-сайт или в приложение.
 
-## Flashing and moving content
+В этом модуле мы рассмотрим некоторые способы лучшей поддержки людей с различными типами расстройств, вызванных движением.
+</big>
 
-When building animation and motion, you should ask yourself whether the element's movement is excessive. For example, colors flickering from dark to light or quick movements on the screen, can cause seizures in people with photosensitive epilepsy. It is estimated that [3% of people with epilepsy](https://www.epilepsy.com/what-is-epilepsy/seizure-triggers/photosensitivity) suffer from photosensitivity, and it's more common in women and younger people.
+## Мигающий и движущийся контент
 
-The WCAG's [guidelines on flashing](https://www.w3.org/TR/WCAG21/#three-flashes-or-below-threshold) recommend against the following:
+При создании анимации и движения вы должны спросить себя, является ли движение элемента чрезмерным. Например, цвета, мигающие от темного к светлому, или быстрые движения на экране могут вызвать судороги у людей с фотосенситивной эпилепсией. По оценкам, [3% людей с эпилепсией](https://www.epilepsy.com/what-is-epilepsy/seizure-triggers/photosensitivity) страдают от фотосенситивности, и это чаще встречается у женщин и молодых людей.
 
--   Flashes for more than three times in any one second
--   Flashes below the [general flash and red flash threshold](https://www.w3.org/TR/WCAG21/#dfn-general-flash-and-red-flash-thresholds).
+[Рекомендации WCAG по миганию](https://www.w3.org/TR/WCAG21/#three-flashes-or-below-threshold) советуют избегать следующего:
 
-These flashes may, at best, cause an inability to use a webpage or, at worst, lead to illness.
+-   Мигание более трех раз в любую одну секунду
+-   Мигание ниже [общего порога мигания и красного мигания](https://www.w3.org/TR/WCAG21/#dfn-general-flash-and-red-flash-thresholds).
 
-For any extreme movement, it is imperative that you test it using the [Photosensitive Epilepsy Analysis Tool (PEAT)](https://trace.umd.edu/peat/). PEAT is a free tool to identify if the screen's content, video, or animations are likely to cause seizures. Not all content needs to be evaluated by PEAT, but content that contains flashing or rapid transitions between light and dark background colors should be evaluated, just to be safe.
+Такое мигание может, в лучшем случае, вызвать невозможность использования веб-страницы или, в худшем случае, привести к заболеванию.
 
-Another question you should ask yourself about animation and motion is whether the element's movement is essential to understanding the content or actions on the screen. If it is not essential, consider removing all movement—even micro-movements—from the element you are building or designing.
+Для любого экстремального движения крайне важно протестировать его с помощью [Инструмента анализа фотосенситивной эпилепсии (PEAT)](https://trace.umd.edu/peat/). PEAT — это бесплатный инструмент для определения того, могут ли содержимое экрана, видео или анимации вызвать судороги. Не весь контент нужно оценивать с помощью PEAT, но контент, который содержит мигание или быстрые переходы между светлыми и темными фоновыми цветами, следует оценить для безопасности.
 
-Suppose you believe the element's movement is not essential but could enhance the user's overall experience, or you cannot remove the movement for another reason. In that case, you should follow WCAG's [guidelines on motion](https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html). The guidelines state that you must build an option for users to pause, stop or hide movement for: non-essential moving, blinking, or scrolling elements that start automatically, last more than five seconds, and are part of other page elements.
+Еще один вопрос, который вы должны задать себе об анимации и движении, — является ли движение элемента существенным для понимания контента или действий на экране. Если оно не является существенным, рассмотрите возможность удаления всего движения — даже микро-движений — из элемента, который вы создаете или проектируете.
 
-## Pause, stop, or hide movement {: #pause-stop-hide}
+Предположим, вы считаете, что движение элемента не является существенным, но может улучшить общий опыт пользователя, или вы не можете убрать движение по другой причине. В этом случае вы должны следовать [рекомендациям WCAG по движению](https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html). Рекомендации гласят, что вы должны создать опцию для пользователей приостанавливать, останавливать или скрывать движение для: несущественных движущихся, мигающих или прокручивающихся элементов, которые запускаются автоматически, длятся более пяти секунд и являются частью других элементов страницы.
 
-Add a [pause, stop, or hide](https://css-tricks.com/accessible-web-animation-the-wcag-on-animation-explained/#aa-pause-stop-hide) mechanism to your page to allows users to turn off potentially problematic motion animation. You can do this on the screen level or element level.
+## Приостановка, остановка или скрытие движения { #pause-stop-hide }
 
-For example, suppose your digital product includes a lot of animations. Consider adding an [accessible JavaScript toggle](https://css-irl.info/accessible-toggles/) to allow users to control their experience. When the button is toggled to "motion off," all animations are frozen on that screen and all others.
+Добавьте механизм [приостановки, остановки или скрытия](https://css-tricks.com/accessible-web-animation-the-wcag-on-animation-explained/#aa-pause-stop-hide) на вашу страницу, который позволяет пользователям отключать потенциально проблематичную анимацию движения. Вы можете сделать это на уровне экрана или на уровне элемента.
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'xxjpBGE',
- height: 450,
- theme: 'auto',
- tab: 'js,result'
-} %}
+Например, предположим, что ваш цифровой продукт включает много анимаций. Рассмотрите возможность добавления [доступного JavaScript-переключателя](https://css-irl.info/accessible-toggles/), чтобы позволить пользователям контролировать свой опыт. Когда кнопка переключена в состояние "движение выключено", все анимации замораживаются на этом экране и на всех остальных.
 
-## Use media queries
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/xxjpBGE?height=450&amp;theme-id=auto&amp;default-tab=js%2Cresult&amp;editable=true" style="height: 550px; width: 100%; border: 0;" data-title="Pen xxjpBGE by web-dev-codepen-external on Codepen"></iframe>
 
-In addition to being selective about your animations, giving your users options to pause, stop, hide movement, and avoiding infinite animation loops, you can also consider adding a movement-focused media query. This gives your users even more choice when it comes to what is displayed on the screen.
+## Использование медиа-запросов
 
-### `@prefers-reduced-motion` {: #prefers-reduced-motion}
+В дополнение к избирательному подходу к анимациям, предоставлению пользователям опций для приостановки, остановки, скрытия движения и избеганию бесконечных циклов анимации, вы также можете рассмотреть добавление медиа-запроса, ориентированного на движение. Это дает вашим пользователям еще больше выбора в том, что отображается на экране.
 
-Similar to the color-focused media queries in the [color module](color-contrast.md), the @prefers-reduced-motion media query checks the [user's OS settings](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-motion#user_preferences) related to animation.
+### `@prefers-reduced-motion` { #prefers-reduced-motion }
 
-<figure>
-  {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/THGrOrf3wJxPZWDJAcZx.png", alt="MacOS Display settings UI, where Reduce motion is turned on.", width="800", height="580" %}
-</figure>
+Подобно медиа-запросам, ориентированным на цвет в [модуле цвета](color-contrast.md), медиа-запрос @prefers-reduced-motion проверяет [настройки ОС пользователя](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-motion#user_preferences), связанные с анимацией.
 
-A user may set display preferences to reduce motion. These settings are different across operating systems, and may be framed positively or negatively. With [@prefers-reduced-motion](https://web.dev/articles/prefers-reduced-motion), you can design a site which respects these preferences.
+![MacOS Display settings UI, where Reduce motion is turned on](./motion-1.png)
 
-{% BrowserCompat 'css.at-rules.media.prefers-reduced-motion' %}
+Пользователь может установить предпочтения дисплея для уменьшения движения. Эти настройки различаются между операционными системами и могут быть сформулированы положительно или отрицательно. С [@prefers-reduced-motion](https://web.dev/articles/prefers-reduced-motion) вы можете спроектировать сайт, который уважает эти предпочтения.
 
-On MacOS and Android, the user turns the setting on to reduce motion. On MacOS, a user can set **Reduce motion** in Settings > Accessibility > Display. Android's setting is **Remove animations**. On Windows, the setting is framed positively as **Show animations**, which is on by default. A user must turn this setting off to reduce motion.
+На MacOS и Android пользователь включает настройку для уменьшения движения. На MacOS пользователь может установить **Reduce motion** в Настройки > Доступность > Дисплей. Настройка Android — **Remove animations**. На Windows настройка формулируется положительно как **Show animations**, которая включена по умолчанию. Пользователь должен отключить эту настройку, чтобы уменьшить движение.
 
-{% Aside %} As each UI uses different language, consider still allowing users to choose for themselves, rather than guessing how much animation is too much. This may differ on a situation-by-situation basis. {% endAside %}
+!!!note ""
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'VwxyReM',
- height: 350,
- theme: 'auto',
- tab: 'css,result'
-} %}
+	Поскольку каждый интерфейс использует разный язык, рассмотрите возможность по-прежнему позволять пользователям выбирать самостоятельно, а не угадывать, сколько анимации слишком много. Это может различаться в зависимости от ситуации.
 
-Alternatively, as shown in the next set of examples, you can code all your animations to stop moving within five seconds or less instead of playing on an infinite loop.
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/VwxyReM?height=350&amp;theme-id=auto&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 450px; width: 100%; border: 0;" data-title="Pen VwxyReM by web-dev-codepen-external on Codepen"></iframe>
 
-### Progressive enhancement for movement
+Альтернативно, как показано в следующем наборе примеров, вы можете кодировать все ваши анимации так, чтобы они останавливались в течение пяти секунд или менее, вместо воспроизведения в бесконечном цикле.
 
-As designers and developers, we have a lot of choices to make, including default movement states and how much movement to display. Let's take another look at the last example on motion.
+### Прогрессивное улучшение для движения
 
-Suppose we decide the animation is unnecessary for understanding the content on the screen. In that case, we can choose to set the default state to the reduced motion animation instead of the full motion version. Unless users specifically ask for animations, the animations are turned off.
+Как дизайнеры и разработчики, мы должны сделать много выборов, включая состояния движения по умолчанию и количество движения для отображения. Давайте еще раз взглянем на последний пример о движении.
 
-{% Aside %} The motion preferences available are dependent on the operating system. Some allow you to opt-in to animations, while others require you to opt out of the animations. {% endAside %}
+Предположим, мы решаем, что анимация не нужна для понимания контента на экране. В этом случае мы можем выбрать установку состояния по умолчанию на анимацию с уменьшенным движением вместо полной версии движения. Если пользователи специально не просят анимации, анимации отключены.
 
-We cannot predict what level of movement will cause issues for people with seizure, vestibular, and other visual disorders. Even a small amount of motion on the screen can trigger dizziness, blurred vision, or worse. So, in the following example, we default to no animation.
+!!!note ""
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'qBYpvam',
- height: 350,
- theme: 'auto',
- tab: 'css,result'
-} %}
+	Доступные предпочтения движения зависят от операционной системы. Некоторые позволяют вам включить анимации, в то время как другие требуют отключения анимаций.
 
-### Layered media queries
+Мы не можем предсказать, какой уровень движения вызовет проблемы у людей с судорогами, вестибулярными и другими визуальными расстройствами. Даже небольшое количество движения на экране может вызвать головокружение, размытое зрение или хуже. Поэтому в следующем примере мы по умолчанию устанавливаем отсутствие анимации.
 
-You can use multiple media queries to give your users even more choices. Let's use `@prefers-color-scheme`, `@prefers-contrast`, and `@prefers-reduced-motion` all together.
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/qBYpvam?height=350&amp;theme-id=auto&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 450px; width: 100%; border: 0;" data-title="Pen qBYpvam by web-dev-codepen-external on Codepen"></iframe>
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'wvjpOzR',
- height: 400,
- theme: 'auto',
- tab: 'css,result'
-} %}
+### Многослойные медиа-запросы
 
-## Allow your users to choose {: #allow-user-choice}
+Вы можете использовать несколько медиа-запросов, чтобы дать вашим пользователям еще больше выборов. Давайте используем `@prefers-color-scheme`, `@prefers-contrast` и `@prefers-reduced-motion` все вместе.
 
-While it can be fun to build animation into our digital products to delight users, it's critical we remember some people will be affected by these designs. Motion sensitivity can affect anyone, from feeling slight discomfort to causing a debilitating illness or seizure.
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/wvjpOzR?height=400&amp;theme-id=auto&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen wvjpOzR by web-dev-codepen-external on Codepen"></iframe>
 
-You can use a number of different tools to allow the user to decide what's best for them, rather than guessing how much motion is too much. For example, add a toggle to turn on or off animation within your site or web app. Consider defaulting such a toggle to **off**.
+## Позвольте пользователям выбирать {: #allow-user-choice}
 
-{% Assessment 'motion' %}
+Хотя может быть весело встраивать анимацию в наши цифровые продукты, чтобы радовать пользователей, критически важно помнить, что некоторые люди будут затронуты этими дизайнами. Чувствительность к движению может затронуть любого, от ощущения легкого дискомфорта до вызывания изнурительной болезни или судорог.
+
+Вы можете использовать ряд различных инструментов, чтобы позволить пользователю решить, что лучше для них, а не угадывать, сколько движения слишком много. Например, добавьте переключатель для включения или отключения анимации на вашем сайте или веб-приложении. Рассмотрите возможность установки такого переключателя по умолчанию в положение **выключено**.
+
+<small>:material-information-outline: Источник &mdash; <https://web.dev/learn/accessibility/motion></small>

@@ -1,191 +1,97 @@
 ---
-title: 'Patterns, components, and design systems'
-authors:
-  - cariefisher
-description: >
-  Evaluate patterns, components, and design systems for accessibility.
-date: 2022-12-05
-tags:
-  - accessibility
+description: Оценка паттернов, компонентов и дизайн-систем с точки зрения доступности.
 ---
 
-Many people use component-driven development using pattern style guides, component libraries, or full design systems in their
-development workflow process. Even if you have not used these tools formally, it's likely you use a similar process to break up a
-large design for a website, app, or other digital product into manageable pieces.
+# Паттерны, компоненты и дизайн-системы
 
-Like building a physical structure, it's important to build one piece at a time. First, the foundation, the structure, walls,
-windows, roof, and everything in between. Component-driven development tools allow us to do this for websites, apps, and other digital products.
+Многие люди используют компонентно-ориентированную разработку с помощью руководств по стилям паттернов, библиотек компонентов или полных дизайн-систем в своем рабочем процессе разработки. Даже если вы не использовали эти инструменты формально, вероятно, вы используете аналогичный процесс для разбивки большого дизайна веб-сайта, приложения или другого цифрового продукта на управляемые части.
 
-Some perks to component-driven development include breaking things down into
-manageable pieces, so there is less development time with these reusable
-components. It allows designers, frontend and backend developers, and QA to
-work simultaneously. And clients, designers, PMs, and more, like it because
-they can preview the build process and use a living style guide as a reference
-after the website has launched.
+Как при строительстве физической структуры, важно строить по одной части за раз. Сначала фундамент, структура, стены, окна, крыша и всё что между ними. Инструменты компонентно-ориентированной разработки позволяют нам делать это для веб-сайтов, приложений и других цифровых продуктов.
 
-However, when we look at patterns, components, and design systems with accessibility in mind, some questions arise. How do you know
-which patterns are best when it comes to accessibility? Should you use an established pattern/library or create new ones? How do
-you know if these patterns will actually help your users?
+Некоторые преимущества компонентно-ориентированной разработки включают разбивку на управляемые части, что сокращает время разработки благодаря этим повторно используемым компонентам. Это позволяет дизайнерам, фронтенд- и бэкенд-разработчикам, а также QA работать одновременно. Клиентам, дизайнерам, менеджерам проектов и другим это нравится, потому что они могут предварительно просматривать процесс сборки и использовать живое руководство по стилям в качестве справочника после запуска веб-сайта.
 
-With the myriad of choices available, it's easy to quickly become confused about this topic. This module aims to give you general
-information on how to evaluate patterns, components, and design systems for accessibility and gives you a starting point to help you make
-more accessible choices.
+Однако, когда мы рассматриваем паттерны, компоненты и дизайн-системы с учетом доступности, возникают некоторые вопросы. Как узнать, какие паттерны лучше всего с точки зрения доступности? Стоит ли использовать готовую библиотеку паттернов или создавать новые? Как узнать, действительно ли эти паттерны помогут вашим пользователям?
 
-## Think critically
+При множестве доступных вариантов легко быстро запутаться в этой теме. Этот модуль призван дать вам общую информацию о том, как оценивать паттерны, компоненты и дизайн-системы с точки зрения доступности, и предоставляет отправную точку, которая поможет вам делать более доступные выборы.
 
-Choosing an accessible pattern, component, or design system is not rocket
-science, but it does take time and critical thinking. In fact, there's no such thing as "one perfect pattern," but there may potentially be many options that could work. It's about learning to choose the best option for your unique situation.
+## Мыслите критически
 
-In the subsequent testing modules, you will learn more about the techniques and methods on how to evaluate patterns, components, and
-design systems for accessibility. But before that stage, you need to step back and ask yourself some fundamental questions, such as:
+Выбор доступного паттерна, компонента или дизайн-системы — это не ракетостроение, но это требует времени и критического мышления. На самом деле, не существует такого понятия как "один идеальный паттерн", но потенциально может быть много вариантов, которые могли бы работать. Речь идет о том, чтобы научиться выбирать лучший вариант для вашей уникальной ситуации.
 
-* Does an established accessible pattern, component, or design system already exist?
-* What browsers and assistive technology (AT) am I supporting?
-* Are there any code/framework limitations or other integrations/factors/user needs I need to consider?
+В последующих модулях тестирования вы узнаете больше о техниках и методах оценки паттернов, компонентов и дизайн-систем с точки зрения доступности. Но перед этим этапом вам нужно сделать шаг назад и задать себе несколько фундаментальных вопросов, таких как:
 
-Depending on your dev environment and user needs, you may have additional or different questions from these. Consider
-these questions as your starting point in your accessibility evaluation.
+*   Существует ли уже готовый доступный паттерн, компонент или дизайн-система?
+*   Какие браузеры и вспомогательные технологии (AT) я поддерживаю?
+*   Есть ли какие-либо ограничения кода/фреймворка или другие интеграции/факторы/потребности пользователей, которые мне нужно учитывать?
 
-## Established resources
+В зависимости от вашей среды разработки и потребностей пользователей, у вас могут быть дополнительные или отличающиеся от этих вопросы. Рассматривайте эти вопросы как отправную точку в вашей оценке доступности.
 
-Before building something brand new, do your due diligence and review what already exists in terms of accessible patterns,
-components, and design systems. With just a little research, you might be surprised to find a solution—or multiple—that fits your needs.
+## Готовые ресурсы
 
-Some great resources for accessible patterns, components, and design systems include:
+Прежде чем создавать что-то совершенно новое, проявите должную осмотрительность и изучите то, что уже существует в плане доступных паттернов, компонентов и дизайн-систем. Проведя немного исследований, вы можете быть удивлены, обнаружив решение (или несколько), которое подходит вашим потребностям.
 
-* [Accessible Components](https://github.com/scottaohara/accessible_components)
-* [Deque University ARIA library](https://dequeuniversity.com/library)
-* [Gov.UK Design System](https://design-system.service.gov.uk/components/)
-* [Inclusive Components](https://inclusive-components.design/)
-* [MagentaA11y](https://www.magentaa11y.com/)
-* [U.S. Web Design System (USWDS)](https://designsystem.digital.gov/components/overview/), created for the U.S. federal government
-* [List of accessible patterns from Smashing Magazine](https://www.smashingmagazine.com/the-smashing-newsletter/smashing-newsletter-issue-289/)
+Некоторые отличные ресурсы для доступных паттернов, компонентов и дизайн-систем включают:
 
-For JavaScript frameworks, the following resources are fairly accessible out of
-the box or are easy to customize for accessibility:
+*   [Accessible Components](https://github.com/scottaohara/accessible_components)
+*   [Deque University ARIA library](https://dequeuniversity.com/library)
+*   [Gov.UK Design System](https://design-system.service.gov.uk/components/)
+*   [Inclusive Components](https://inclusive-components.design/)
+*   [MagentaA11y](https://www.magentaa11y.com/)
+*   [U.S. Web Design System (USWDS)](https://designsystem.digital.gov/components/overview/), созданная для федерального правительства США
+*   [Список доступных паттернов от Smashing Magazine](https://www.smashingmagazine.com/the-smashing-newsletter/smashing-newsletter-issue-289/)
 
-* [When CSS Isn't Enough: JavaScript Requirements For Accessible Components](https://www.smashingmagazine.com/2021/06/css-javascript-requirements-accessible-components/)
-* React
-  * [ReachUI](https://reach.tech/)
-  * [Reakit](https://reakit.io/)
-  * [Chakra](https://chakra-ui.com/)
-* Angular: [Material library](https://material.angular.io/cdk/a11y/overview)
-* Vue: [Vuetensils](https://vuetensils.com/)
+Для JavaScript-фреймворков следующие ресурсы достаточно доступны из коробки или легко настраиваются для обеспечения доступности:
 
-However—and this cannot be stressed enough—you should never just copy/paste
-code and assume it will fit within your environment and automatically meet your
-user needs. This is true of all patterns, components, and design systems, even
-if labeled as fully accessible.
+*   [When CSS Isn't Enough: JavaScript Requirements For Accessible Components](https://www.smashingmagazine.com/2021/06/css-javascript-requirements-accessible-components/)
+*   React
+    *   [ReachUI](https://reach.tech/)
+    *   [Reakit](https://reakit.io/)
+    *   [Chakra](https://chakra-ui.com/)
+*   Angular: [Material library](https://material.angular.io/cdk/a11y/overview)
+*   Vue: [Vuetensils](https://vuetensils.com/)
 
-All resources should be seen as a starting point. Be sure to test everything!
+Однако — и это нельзя переоценить — вы никогда не должны просто копировать и вставлять код и предполагать, что он подойдет для вашей среды и автоматически удовлетворит потребности ваших пользователей. Это верно для всех паттернов, компонентов и дизайн-систем, даже если они помечены как полностью доступные.
 
-## Browsers and assistive technology (AT) support
+Все ресурсы должны рассматриваться как отправная точка. Обязательно тестируйте всё!
 
-After researching a few base patterns, components, or a full design system that
-might work for your dev environment, you can move on to assistive technology
-support. One major type of AT you will want to focus on when evaluating
-patterns, components, and design systems is screen readers.
+## Поддержка браузеров и вспомогательных технологий (AT)
 
-Screen readers were built with specific browsers in mind and will work best
-when paired with these browsers. We'll go into this topic in much more detail
-in the module on AT testing, but for pattern evaluation purposes, it is helpful
-to understand these combinations exist, so you know what you need in terms of
-support.
+После исследования нескольких базовых паттернов, компонентов или полной дизайн-системы, которые могут подойти для вашей среды разработки, вы можете перейти к поддержке вспомогательных технологий. Один из основных типов AT, на котором вы захотите сосредоточиться при оценке паттернов, компонентов и дизайн-систем — это программы чтения с экрана.
 
-<div class="table-wrapper with-heading-tint">
-<table>
-<thead>
-  <tr>
-    <th>Screen reader</th>
-    <th>OS</th>
-    <th>Browser compatibility</th>
-    <th>Cost</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>Job Access with Speech (JAWS)</td>
-    <td>Windows</td>
-    <td>Chrome, Firefox, Edge</td>
-    <td>License require (a free 40-min version exists)</td>
-  </tr>
-  <tr>
-    <td>Non-Visual Desktop Access (NVDA)</td>
-    <td>Windows</td>
-    <td>Chrome and Firefox</td>
-    <td>Free (requires download)</td>
-  </tr>
-  <tr>
-    <td>Narrator</td>
-    <td>Windows</td>
-    <td>Edge</td>
-    <td>Free (built into Windows machines)</td>
-  </tr>
-  <tr>
-    <td>VoiceOver</td>
-    <td>macOS</td>
-    <td>Safari</td>
-    <td>Free (built into macOS machines)</td>
-  </tr>
-  <tr>
-    <td>Orca</td>
-    <td>Linus</td>
-    <td>Firefox</td>
-    <td>Free (built into Gnome-based distributions)</td>
-  </tr>
-  <tr>
-    <td>TalkBack</td>
-    <td>Android</td>
-    <td>Chrome and Firefox</td>
-    <td>Free (built into certain versions of Android OS)</td>
-  </tr>
-  <tr>
-    <td>VoiceOver</td>
-    <td>iOS</td>
-    <td>Safari</td>
-    <td>Free (built into iOS devices)</td>
-  </tr>
-</tbody>
-</table>
-</div>
+Программы чтения с экрана были созданы с учетом конкретных браузеров и будут работать лучше всего в паре с этими браузерами. Мы рассмотрим эту тему гораздо подробнее в модуле о тестировании AT, но для целей оценки паттернов полезно понимать, что эти комбинации существуют, чтобы вы знали, что вам нужно в плане поддержки.
 
-Browser support is generally complicated, and things get even trickier when you add AT devices and ARIA specifications to the mix.
+| Программа чтения с экрана | ОС | Совместимость с браузерами | Стоимость |
+|---------------------------|----|-----------------------------|-----------|
+| Job Access with Speech (JAWS) | Windows | Chrome, Firefox, Edge | Требуется лицензия (существует бесплатная 40-минутная версия) |
+| Non-Visual Desktop Access (NVDA) | Windows | Chrome и Firefox | Бесплатно (требует загрузки) |
+| Narrator | Windows | Edge | Бесплатно (встроено в машины Windows) |
+| VoiceOver | macOS | Safari | Бесплатно (встроено в машины macOS) |
+| Orca | Linux | Firefox | Бесплатно (встроено в дистрибутивы на основе Gnome) |
+| TalkBack | Android | Chrome и Firefox | Бесплатно (встроено в определенные версии Android OS) |
+| VoiceOver | iOS | Safari | Бесплатно (встроено в iOS-устройства) |
 
-But it's not all bad news. Thankfully, great resources such as [HTML5 Accessibility](https://stevefaulkner.github.io/HTML5accessibility),
-[Accessibility Support](https://a11ysupport.io), and WCAG's [Custom Control Accessible Development Checklist](https://w3c.github.io/using-aria/#checklist)
-help us to better understand current browser and AT device support, and even when to use ARIA in the first place.
+Поддержка браузеров в целом сложна, и всё становится еще сложнее, когда вы добавляете AT-устройства и спецификации ARIA в микс.
 
-These resources outline the different HTML and ARIA pattern sub-elements available, including open-source community tests.
-You can also review some pattern examples—for both desktop and mobile browsers/AT devices. As such, these resources can help
-you make a more accessible decision regarding patterns, components, and design systems that you may want to use.
+Но это не все плохие новости. К счастью, отличные ресурсы, такие как [HTML5 Accessibility](https://stevefaulkner.github.io/HTML5accessibility), [Accessibility Support](https://a11ysupport.io) и [Чек-лист доступной разработки пользовательских элементов управления](https://w3c.github.io/using-aria/#checklist) от WCAG помогают нам лучше понять текущую поддержку браузеров и AT-устройств, и даже когда использовать ARIA в первую очередь.
 
-### Other considerations
+Эти ресурсы описывают различные доступные HTML и ARIA паттерн-подэлементы, включая тесты сообщества с открытым исходным кодом. Вы также можете просмотреть некоторые примеры паттернов — как для настольных, так и для мобильных браузеров/AT-устройств. Таким образом, эти ресурсы могут помочь вам принять более доступное решение относительно паттернов, компонентов и дизайн-систем, которые вы, возможно, захотите использовать.
 
-Once you have chosen a few accessible base patterns or components, and factored
-in browser and AT device support, you can move on to more specific contextual
-questions about the pattern, component, design system, and dev environment.
+### Другие соображения
 
-For example, if you are working in a management system (CMS) or have legacy
-code, there may be some limitations to which patterns you can use. Upon review,
-several pattern choices may quickly be cut to one or two options.
+После того как вы выбрали несколько доступных базовых паттернов или компонентов и учли поддержку браузеров и AT-устройств, вы можете перейти к более конкретным контекстуальным вопросам о паттерне, компоненте, дизайн-системе и среде разработки.
 
-Many JavaScript frameworks allow developers to use almost any pattern they
-choose. In cases like these, you may have fewer restrictions and can choose the
-most accessible pattern option.
+Например, если вы работаете в системе управления контентом (CMS) или имеете устаревший код, могут быть некоторые ограничения на то, какие паттерны вы можете использовать. При рассмотрении несколько вариантов паттернов могут быстро сократиться до одного или двух вариантов.
 
-There are additional considerations to weigh when choosing a pattern,
-component, or design system, such as:
+Многие JavaScript-фреймворки позволяют разработчикам использовать практически любой паттерн, который они выбирают. В таких случаях у вас может быть меньше ограничений, и вы можете выбрать наиболее доступный вариант паттерна.
 
-* Performance
-* Security
-* Search engine optimization
-* Language translation support
-* Third-party integrations
+Существуют дополнительные соображения, которые нужно взвесить при выборе паттерна, компонента или дизайн-системы, такие как:
 
-These factors will undoubtedly play into your pattern choice, but you should
-also consider the people creating the content and code itself. The pattern you
-choose must be robust enough to handle any potential limitations around
-editor-generated or user-generated content, plus be built in a way that
-developers of all accessibility knowledge can use.
+*   Производительность
+*   Безопасность
+*   Поисковая оптимизация
+*   Поддержка языкового перевода
+*   Интеграции с третьими сторонами
 
-{% Assessment 'patterns' %}
+Эти факторы несомненно повлияют на ваш выбор паттерна, но вы также должны учитывать людей, создающих сам контент и код. Паттерн, который вы выбираете, должен быть достаточно надежным, чтобы справиться с любыми потенциальными ограничениями контента, созданного редактором или пользователем, а также быть построенным таким образом, чтобы разработчики с любым уровнем знаний о доступности могли его использовать.
+
+<small>:material-information-outline: Источник &mdash; <https://web.dev/learn/accessibility/patterns></small>

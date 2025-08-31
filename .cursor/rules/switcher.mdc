@@ -1,0 +1,46 @@
+---
+description: switcher
+globs:
+alwaysApply: true
+---
+
+При переводе документации на русский язык тег `<div class="switcher">` и его содержимое нужно отформатировать по следующим правилам:
+
+- оставляем только контент между тегами `{% Compare %}` и `{% endCompare %}`, всю остальную разметку удаляем
+- дополнительное значение в кавычках из тега `{% Compare %}` нужно перевести на русский язык, сделать первую букву заглавной и вставить как значение атрибута `title` соответствующему блоку кода. Например, из тега `{% Compare 'worse' %}` получится разметка блока кода `html title="Плохо"`
+- если два блока кода в новом отформатированном виде идут подряд, их нужно разделить пустой строкой, затем новой строкой с тремя дефисами, затем снова пустой строкой
+
+Например, исходная разметка
+
+<div class="switcher">
+{% Compare 'worse' %}
+```html
+<title>The Food Channel | Outrageous Pumpkins | Season 3 </title>
+```
+{% endCompare %}
+
+{% Compare 'better' %}
+
+```html
+<title>
+    Season 3 | Outrageous Pumpkins | The Food Channel
+</title>
+```
+
+{% endCompare %}
+
+</div>
+
+должна стать такой разметкой:
+
+```html title="Плохо"
+<title>The Food Channel | Outrageous Pumpkins | Season 3 </title>
+```
+
+---
+
+```html title="Лучше"
+<title>
+    Season 3 | Outrageous Pumpkins | The Food Channel
+</title>
+```

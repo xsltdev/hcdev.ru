@@ -1,237 +1,170 @@
 ---
-title: 'Images'
-authors:
-    - cariefisher
-description: Create accessible images.
-date: 2022-09-30
-tags:
-    - accessibility
+description: Создание доступных изображений.
 ---
 
-Accessible images may seem like a simple topic at first glance&mdash;you add some "alt text" to an image, and you are done. But, the topic is more nuanced than some people think. In this section, we'll review:
+# Изображения
 
--   How to update the code to make images accessible.
--   What information should be shared with users and where to share it.
--   Additional ways to improve your images to support people with disabilities.
+<big>
 
-## Image purpose and context
+Доступные изображения могут показаться простой темой на первый взгляд &mdash; вы добавляете «альтернативный текст» к изображению, и всё готово. Но эта тема более многогранна, чем думают некоторые люди. В этом разделе мы рассмотрим:
 
-Before even one line of code is written, you must first think about the point of the image and how it will be used. Asking yourself questions about the purpose and context of the image can help you determine how best to convey the information to a person using [assistive technology (AT)](https://www.nichd.nih.gov/health/topics/rehabtech/conditioninfo/device) such as screen readers.
+-   Как обновить код, чтобы сделать изображения доступными.
+-   Какую информацию следует предоставлять пользователям и где её размещать.
+-   Дополнительные способы улучшения изображений для поддержки людей с ограниченными возможностями.
 
-You may ask yourself:
+</big>
 
--   _Is the image essential to understanding the context of the feature or page?_
--   _What type of information is the image trying to convey?_
--   _Is the image simple or complex?_
--   _Does the image elicit emotion or prompt the user to act?_
--   _Or is the image just visual "eye candy" with no real purpose?_
+## Назначение и контекст изображения
 
-A visual flowchart, such as an [image decision tree](https://www.w3.org/WAI/tutorials/images/decision-tree/), can help you decide which category your image belongs to.
+Прежде чем будет написана хотя бы одна строка кода, вы должны сначала подумать о назначении изображения и о том, как оно будет использоваться. Задавая себе вопросы о назначении и контексте изображения, вы сможете определить, как лучше всего передать информацию человеку, использующему [вспомогательные технологии (AT)](https://www.nichd.nih.gov/health/topics/rehabtech/conditioninfo/device), такие как программы чтения с экрана.
 
-Try hiding the images on your site or web app using a browser extension or other methods. Then ask yourself: "Do I understand the content that remains?" If the answer is yes, it is most likely a decorative image. If not, the image is instead informative in some way and contextually necessary. Once you determine the image's purpose, you can determine the most accurate way to code for it.
+Вы можете спросить себя:
 
-{% Img
-  src="image/VbsHyyQopiec0718rMq2kTE1hke2/cnUw9wOPYGvEpO69nqFe.png", alt="Example image decision tree.", width="632", height="598"
-%}
+-   _Является ли изображение необходимым для понимания контекста функции или страницы?_
+-   _Какой тип информации пытается передать изображение?_
+-   _Изображение простое или сложное?_
+-   _Вызывает ли изображение эмоции или побуждает пользователя к действию?_
+-   _Или изображение — это просто визуальная «конфетка для глаз» без реальной цели?_
 
-### Decorative images
+Визуальная блок-схема, такая как [дерево решений для изображений](https://www.w3.org/WAI/tutorials/images/decision-tree/), может помочь вам определить, к какой категории относится ваше изображение.
 
-A [decorative image](https://www.w3.org/WAI/tutorials/images/decorative/) is a visual element that doesn't add additional context or information that allows the user to better understand the context. Decorative images are supplemental and may provide style rather than substance.
+Попробуйте скрыть изображения на вашем сайте или веб-приложении с помощью расширения браузера или других методов. Затем спросите себя: «Понимаю ли я контент, который остался?» Если ответ положительный, скорее всего, это декоративное изображение. Если нет, то изображение каким-то образом информативно и контекстуально необходимо. После того как вы определите назначение изображения, вы сможете определить наиболее точный способ его кодирования.
 
-If you decide an image is decorative, the image must be programmatically hidden from ATs. When you program an image to be hidden, it signals to the AT that the image is not needed to understand the page's content, context, or action. There are many ways to hide images, including using an empty/null text alternative, [applying ARIA](https://developer.mozilla.org/docs/Web/Accessibility/ARIA), or adding the image as a CSS background. Below are a few examples of how to hide a decorative image from users.
+![Пример дерева решений для изображений.](./images-1.png)
 
-{% Aside 'caution' %}
+### Декоративные изображения
 
-<p>Be mindful when making this choice, as
-"[decorative](https://www.smashingmagazine.com/2021/06/img-alt-attribute-alternate-description-decorative/)"
-can mean different things to different users. Some AT users want to hear
-descriptions for every visual on the screen.</p>
-<p>Users can choose to skip over your image descriptions if and when they deem
-  them redundant or verbose, but they cannot imagine descriptions that don't
-  exist. When in doubt, add descriptions to your images.</p>
-{% endAside %}
+[Декоративное изображение](https://www.w3.org/WAI/tutorials/images/decorative/) — это визуальный элемент, который не добавляет дополнительного контекста или информации, позволяющей пользователю лучше понять контекст. Декоративные изображения являются дополнительными и могут обеспечивать стиль, а не содержание.
 
-#### Empty or null `alt`
+Если вы решили, что изображение является декоративным, оно должно быть программно скрыто от AT. Когда вы программируете изображение как скрытое, это сигнализирует AT, что изображение не нужно для понимания содержания, контекста или действия страницы. Существует множество способов скрыть изображения, включая использование пустой/нулевой текстовой альтернативы, [применение ARIA](https://developer.mozilla.org/docs/Web/Accessibility/ARIA) или добавление изображения в качестве CSS-фона. Ниже приведены несколько примеров того, как скрыть декоративное изображение от пользователей.
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'QWrMgxg',
- height: 300,
- theme: 'auto',
- tab: 'html,css,result'
-} %}
+!!!note "Осторожно"
 
-An empty/null alternative text attribute differs from a missing alternative text attribute. If the alternative text attribute is missing, the AT might read out the file name or surrounding content to give the user more information about the image.
+	Будьте внимательны при принятии этого решения, поскольку «[декоративность](https://www.smashingmagazine.com/2021/06/img-alt-attribute-alternate-description-decorative/)» может означать разные вещи для разных пользователей. Некоторые пользователи AT хотят слышать описания каждого визуального элемента на экране.
 
-#### Role set to `presentation` or `none`
+	Пользователи могут выбрать пропустить ваши описания изображений, если и когда они сочтут их избыточными или многословными, но они не могут представить описания, которых не существует. В случае сомнений добавляйте описания к вашим изображениям.
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'mdLMwje',
- height: 350,
- theme: 'auto',
- tab: 'html,result'
-} %}
+#### Пустой или нулевой `alt`
 
-A role set to [`presentation` or `none`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/presentation_role) removes an element's semantics from exposure to the accessibility tree. Meanwhile, [`aria-hidden= "true"`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-hidden) will remove the entire element&mdash;and all of its children&mdash;from the accessibility API.
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/QWrMgxg?height=300&amp;theme-id=auto&amp;default-tab=html%2Ccss%2Cresult&amp;editable=true" style="height: 400px; width: 100%; border: 0;" data-title="Pen QWrMgxg by web-dev-codepen-external on Codepen"></iframe>
+
+Пустой/нулевой атрибут альтернативного текста отличается от отсутствующего атрибута альтернативного текста. Если атрибут альтернативного текста отсутствует, AT может прочитать имя файла или окружающий контент, чтобы предоставить пользователю больше информации об изображении.
+
+#### Роль установлена на `presentation` или `none`
+
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/mdLMwje?height=350&amp;theme-id=auto&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 450px; width: 100%; border: 0;" data-title="Pen mdLMwje by web-dev-codepen-external on Codepen"></iframe>
+
+Роль, установленная на [`presentation` или `none`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/presentation_role), удаляет семантику элемента из дерева доступности. В то время как [`aria-hidden="true"`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-hidden) удалит весь элемент &mdash; и всех его дочерних элементов &mdash; из API доступности.
 
 ```html
-<!-- All of these choices lead to the same result. -->
+<!-- Все эти варианты приводят к одному и тому же результату. -->
 <img src="../Ladybug.jpg" role="presentation" />
 <img src="../Ladybug.jpg" role="none" />
 <img src="../Ladybug.jpg" aria-hidden="true" />
 ```
 
-Use `aria-hidden` with caution as it may hide elements that you do not wish to hide.
+Используйте `aria-hidden` с осторожностью, поскольку он может скрыть элементы, которые вы не хотите скрывать.
 
-#### Images in CSS
+#### Изображения в CSS
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'GRdvEYo',
- height: 350,
- theme: 'auto',
- tab: 'css,result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/GRdvEYo?height=350&amp;theme-id=auto&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 450px; width: 100%; border: 0;" data-title="Pen GRdvEYo by web-dev-codepen-external on Codepen"></iframe>
 
-When you add a background image with CSS, a screen reader will not detect the image file. Be sure you want the image to be hidden before applying this method.
+Когда вы добавляете фоновое изображение с помощью CSS, программа чтения с экрана не обнаружит файл изображения. Убедитесь, что вы хотите, чтобы изображение было скрыто, прежде чем применять этот метод.
 
-### Informative images
+### Информативные изображения
 
-An [informative image](https://www.w3.org/WAI/tutorials/images/informative/) is an image that conveys a simple concept, idea, or emotion. Types of informative images include photos of real-world objects, essential icons, simple drawings, and [images of text](https://www.w3.org/WAI/WCAG22/Understanding/images-of-text.html).
+[Информативное изображение](https://www.w3.org/WAI/tutorials/images/informative/) — это изображение, которое передает простую концепцию, идею или эмоцию. Типы информативных изображений включают фотографии реальных объектов, основные иконки, простые рисунки и [изображения текста](https://www.w3.org/WAI/WCAG22/Understanding/images-of-text.html).
 
-If your image is informative, you should include [programmatic alternative text](https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html) describing the purpose of the image. Alternative image descriptions&mdash;often abbreviated as "alt text"&mdash;give AT users more context about an image and help them better understand an image's message or intent.
+Если ваше изображение является информативным, вы должны включить [программный альтернативный текст](https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html), описывающий назначение изображения. Альтернативные описания изображений &mdash; часто сокращаемые как «alt text» &mdash; дают пользователям AT больше контекста об изображении и помогают им лучше понять сообщение или намерение изображения.
 
-Simple alternative descriptions using [`<img>` elements](https://developer.mozilla.org/docs/Web/HTML/Element/img#attr-alt) are achieved by including the `alt` attribute, regardless of the file type it points to, such as `.jpg`, `.png`, `.svg`, and others.
+Простые альтернативные описания с использованием [элементов `<img>`](https://developer.mozilla.org/docs/Web/HTML/Element/img#attr-alt) достигаются путем включения атрибута `alt`, независимо от типа файла, на который он указывает, такого как `.jpg`, `.png`, `.svg` и других.
 
 ```html
 <img
     src="../Ladybug_Swarm.jpg"
-    alt="A swarm of red ladybugs are eating the leaves of my prize rose bush."
+    alt="Рой красных божьих коровок поедает листья моего призового розового куста."
 />
 ```
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'yLjoXrj',
- height: 350,
- theme: 'auto',
- tab: 'html,result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/yLjoXrj?height=350&amp;theme-id=auto&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 450px; width: 100%; border: 0;" data-title="Pen yLjoXrj by web-dev-codepen-external on Codepen"></iframe>
 
-When you use `<svg>` elements inline, however, you need to pay attention to accessibility.
+Однако при использовании элементов `<svg>` в строке необходимо обращать внимание на доступность.
 
-First, since SVGs are semantically coded, AT will skip over them by default. If you have a decorative image, this is not an issue&mdash;the AT will ignore it as intended. But if you have an informative image, an ARIA `role="img"` needs to be added to the pattern for the AT to recognize it as an image.
+Во-первых, поскольку SVG семантически кодированы, AT по умолчанию будет пропускать их. Если у вас есть декоративное изображение, это не проблема &mdash; AT будет игнорировать его как предполагается. Но если у вас есть информативное изображение, необходимо добавить ARIA `role="img"` к шаблону, чтобы AT распознал его как изображение.
 
-Second, `<svg>` elements do not use the `alt` attribute, so [different coding methods](https://codepen.io/web-dot-dev/pen/dyezRBP) must be used instead to add alternative descriptions to your informative images.
+Во-вторых, элементы `<svg>` не используют атрибут `alt`, поэтому [различные методы кодирования](https://codepen.io/web-dot-dev/pen/dyezRBP) должны использоваться вместо этого для добавления альтернативных описаний к вашим информативным изображениям.
 
 ```html
-<svg role="img" ...>
+<svg role="img">
     <title>
-        Cartoon drawing of a red, black, and gray ladybug.
+        Мультяшный рисунок красной, черной и серой божьей коровки.
     </title>
 </svg>
 ```
 
-### Functional images
+### Функциональные изображения
 
-A [functional image](https://www.w3.org/WAI/tutorials/images/functional/) is connected to an action. An example of a functional image is a logo that links to the home page, a magnifying glass used as a search button, or a social media icon that directs you to a different website or app.
+[Функциональное изображение](https://www.w3.org/WAI/tutorials/images/functional/) связано с действием. Примером функционального изображения является логотип, который ссылается на главную страницу, увеличительное стекло, используемое как кнопка поиска, или иконка социальной сети, которая направляет вас на другой веб-сайт или приложение.
 
-Like informative images, functional images must include an alternative description to inform all users of their purpose. Unlike an informative image, each functional image needs to describe the image's action&mdash;not the visual aspects.
+Как и информативные изображения, функциональные изображения должны включать альтернативное описание, чтобы информировать всех пользователей об их назначении. В отличие от информативного изображения, каждое функциональное изображение должно описывать действие изображения &mdash; а не визуальные аспекты.
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'YzLxxPw',
- height: 350,
- theme: 'auto',
- tab: 'html,result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/YzLxxPw?height=350&amp;theme-id=auto&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 450px; width: 100%; border: 0;" data-title="Pen YzLxxPw by web-dev-codepen-external on Codepen"></iframe>
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'gOzxxbg',
- height: 350,
- theme: 'auto',
- tab: 'html,result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/gOzxxbg?height=350&amp;theme-id=auto&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 450px; width: 100%; border: 0;" data-title="Pen gOzxxbg by web-dev-codepen-external on Codepen"></iframe>
 
-In the logo example, the image is both informative and actionable as it is both an image that conveys information and behaves as a link. In cases like these, you can add alternative descriptions to each element&mdash;but it is not a requirement.
+В примере с логотипом изображение является одновременно информативным и действующим, поскольку это изображение, которое передает информацию и ведет себя как ссылка. В таких случаях вы можете добавить альтернативные описания к каждому элементу &mdash; но это не является требованием.
 
-One way to add alternative descriptions to images is through visually hidden text. When you use this method, the text will be read by screen readers because it is in the DOM, but it is visually hidden with the help of custom CSS.
+Один из способов добавить альтернативные описания к изображениям — через визуально скрытый текст. При использовании этого метода текст будет прочитан программами чтения с экрана, поскольку он находится в DOM, но визуально скрыт с помощью пользовательского CSS.
 
-You can see from the code snippet that "Navigate to the homepage" is the wrapper title, and the image alternative text is "Lovely Ladybugs for your Lawn." When you listen to the logo code with a screen reader, you hear both the visual and the action conveyed in one image.
+Из фрагмента кода видно, что «Navigate to the homepage» — это заголовок обертки, а альтернативный текст изображения — «Lovely Ladybugs for your Lawn». Когда вы слушаете код логотипа с помощью программы чтения с экрана, вы слышите как визуальную, так и действующую составляющую, переданные в одном изображении.
 
 ```html
-<div title="Navigate to the homepage">
+<div title="Перейти на главную страницу">
    <a href="/">
-      <img src="../Ladybug_Logo.png" alt="Lovely Ladybugs for your Lawn"></img>
+      <img src="../Ladybug_Logo.png" alt="Прекрасные божьи коровки для вашего газона"></img>
    </a>
 </div>
 ```
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'qBYXXdW',
- height: 350,
- theme: 'auto',
- tab: 'html,result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/qBYXXdW?height=350&amp;theme-id=auto&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 450px; width: 100%; border: 0;" data-title="Pen qBYXXdW by web-dev-codepen-external on Codepen"></iframe>
 
-### Complex images
+### Сложные изображения
 
-A [complex image](https://www.w3.org/WAI/tutorials/images/complex/) often requires more explanation than a decorative, informational, or functional image. It requires both a short and a long alternative description to convey the full message. Complex images include infographics, maps, graphs/charts, and complex illustrations. As with the other image types, there are different methods you can use to add alternative descriptions to your complex images.
+[Сложное изображение](https://www.w3.org/WAI/tutorials/images/complex/) часто требует больше объяснений, чем декоративное, информационное или функциональное изображение. Оно требует как краткого, так и подробного альтернативного описания для передачи полного сообщения. Сложные изображения включают инфографику, карты, графики/диаграммы и сложные иллюстрации. Как и в случае с другими типами изображений, существуют различные методы, которые вы можете использовать для добавления альтернативных описаний к вашим сложным изображениям.
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'NWMvvqw',
- height: 400,
- theme: 'auto',
- tab: 'html,result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/NWMvvqw?height=400&amp;theme-id=auto&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen NWMvvqw by web-dev-codepen-external on Codepen"></iframe>
 
 ```html
 <img
     src="../Ladybug_Anatomy.svg"
-    alt="Diagram of the anatomy of a ladybug."
+    alt="Диаграмма анатомии божьей коровки."
 /><a href="ladybug-science.html"
-    >Learn more about the anatomy of a ladybug</a
+    >Узнать больше об анатомии божьей коровки</a
 >
 ```
 
-One way to add additional explanation to an image is to link out to a resource or provide a jump link to a longer explanation later on the page. This method is a good choice, not only for AT users but also helps people with disabilities&mdash;such as cognitive, learning, and reading disabilities&mdash;who might benefit from having this additional image information readily available on the screen instead of buried in the code.
+Один из способов добавить дополнительное объяснение к изображению — это ссылка на ресурс или предоставление ссылки-перехода к более подробному объяснению далее на странице. Этот метод является хорошим выбором не только для пользователей AT, но также помогает людям с ограниченными возможностями &mdash; такими как когнитивные, учебные расстройства и расстройства чтения &mdash; которые могут получить пользу от наличия этой дополнительной информации об изображении легко доступной на экране, а не скрытой в коде.
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'OJZjxGK',
- height: 400,
- theme: 'auto',
- tab: 'html,result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/OJZjxGK?height=400&amp;theme-id=auto&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen OJZjxGK by web-dev-codepen-external on Codepen"></iframe>
 
-Another method you can use is to append the `aria-describedby` attribute to the `<img>` element. You can programmatically link the image to an ID containing a longer description. This method creates a strong association between the image and the full description. The extended description can be displayed on the screen or visually hidden&mdash;but consider keeping it visible to support even more people.
+Другой метод, который вы можете использовать, — это добавление атрибута `aria-describedby` к элементу `<img>`. Вы можете программно связать изображение с ID, содержащим более длинное описание. Этот метод создает сильную связь между изображением и полным описанием. Расширенное описание может отображаться на экране или быть визуально скрыто &mdash; но рассмотрите возможность сохранения его видимым для поддержки еще большего количества людей.
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'MWGvEdJ',
- height: 450,
- theme: 'auto',
- tab: 'html,result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/MWGvEdJ?height=450&amp;theme-id=auto&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 550px; width: 100%; border: 0;" data-title="Pen MWGvEdJ by web-dev-codepen-external on Codepen"></iframe>
 
-One other way to group short alternative descriptions with a longer one is to use the HTML5 `<figure>` and `<figcaption>` elements. These elements act similarly to `aria-describedby` in that it semantically groups elements, forming a stronger association between the image and its description. Adding ARIA `role="group"` ensures backward compatibility with older web browsers that don't support the native semantics of the `<figure>` element.
+Еще один способ группировать краткие альтернативные описания с более подробными — это использование элементов HTML5 `<figure>` и `<figcaption>`. Эти элементы действуют аналогично `aria-describedby` в том, что они семантически группируют элементы, формируя более сильную связь между изображением и его описанием. Добавление ARIA `role="group"` обеспечивает обратную совместимость со старыми веб-браузерами, которые не поддерживают нативную семантику элемента `<figure>`.
 
-### Alternative text best practices
+### Лучшие практики альтернативного текста
 
-Of course, including alternate text is not enough. The text should also be meaningful. For example, if your image is about a swarm of ladybugs chewing the leaves of your prize rose bush, but your alternative text reads "bugs," would that convey the full message and intent of the image? Definitely not.
+Конечно, включения альтернативного текста недостаточно. Текст также должен быть содержательным. Например, если ваше изображение о рое божьих коровок, поедающих листья вашего призового розового куста, но ваш альтернативный текст гласит «жуки», передаст ли это полное сообщение и намерение изображения? Определенно нет.
 
-Alternative descriptions need to capture as much relevant visual information as possible and be succinct. While there is no limit to the number of characters a screen reader can read, it is usually advised to cap your alternative text to 150 characters or less to avoid reader fatigue. If you need to add additional context to the image, you can use one of the complex image patterns, add caption text, or further describe the image in the main copy.
+Альтернативные описания должны захватывать как можно больше релевантной визуальной информации и быть лаконичными. Хотя нет ограничения на количество символов, которые может прочитать программа чтения с экрана, обычно рекомендуется ограничивать альтернативный текст 150 символами или меньше, чтобы избежать усталости читателя. Если вам нужно добавить дополнительный контекст к изображению, вы можете использовать один из шаблонов сложного изображения, добавить текст подписи или дополнительно описать изображение в основной копии.
 
-Some additional [alternative text best practices](https://www.w3.org/WAI/tutorials/images/tips/) include:
+Некоторые дополнительные [лучшие практики альтернативного текста](https://www.w3.org/WAI/tutorials/images/tips/) включают:
 
--   Avoid using words like "image of" or "photo of" in the description, as the screen reader will identify these file types for you.
--   When naming your images, be as consistent and accurate as possible. Image names are a fallback when the alternative text is missing or ignored.
--   Avoid using non-alpha characters (for example, #, 9, &) and use dashes between words rather than underscores in your image names or alternative text.
--   Use proper punctuation whenever possible. Without it, the image descriptions will sound like one long, never-ending, run-on sentence.
--   Write alternative text like a human and not a robot. Keyword stuffing does not benefit anyone&mdash;people using screen readers will be annoyed, and search engine algorithms will penalize you.
+-   Избегайте использования слов как «изображение» или «фото» в описании, поскольку программа чтения с экрана определит эти типы файлов за вас.
+-   При именовании ваших изображений будьте как можно более последовательными и точными. Имена изображений являются запасным вариантом, когда альтернативный текст отсутствует или игнорируется.
+-   Избегайте использования не-буквенных символов (например, `#`, `9`, `&`) и используйте дефисы между словами, а не подчеркивания в именах ваших изображений или альтернативном тексте.
+-   Используйте правильную пунктуацию, когда это возможно. Без неё описания изображений будут звучать как одно длинное, бесконечное предложение.
+-   Пишите альтернативный текст как человек, а не как робот. Набивание ключевыми словами никому не приносит пользы &mdash; люди, использующие программы чтения с экрана, будут раздражены, а алгоритмы поисковых систем будут штрафовать вас.
 
-{% Assessment 'images' %}
+<small>:material-information-outline: Источник &mdash; <https://web.dev/learn/accessibility/images></small>

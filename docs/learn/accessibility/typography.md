@@ -1,153 +1,116 @@
 ---
-title: 'Typography'
-authors:
-    - cariefisher
-description: >
-    Pick the right typefaces, font sizes, and structure your copy with an accessible layout.
-
-date: 2022-09-30
-tags:
-    - accessibility
+description: Выберите правильные шрифты, размеры шрифтов и структурируйте текст с доступным макетом.
 ---
 
-Creating and designing accessible content is more than just choosing an easy-to-read font. Even with accessible font families, people with low vision, cognitive, language, and learning disabilities may struggle to process the text due to other elements such as font variations, size, spacing, and kerning—to name a few. This module will look into basic design considerations to make your content more inclusive and reach even more people.
+# Типографика
 
-{% Aside %} To learn specific implementation of typography, check out the [Learn CSS Typography module](../design/typography.md). {% endAside %}
+<big>
+Создание и разработка доступного контента — это не только выбор легко читаемого шрифта. Даже с доступными семействами шрифтов люди с низким зрением, когнитивными, языковыми и учебными нарушениями могут испытывать трудности с обработкой текста из-за других элементов, таких как вариации шрифта, размер, интервалы и кернинг — и это лишь некоторые из них. Данный модуль рассмотрит основные соображения по дизайну, чтобы сделать ваш контент более инклюзивным и охватить еще больше людей.
+</big>
 
-## Typeface
+!!!note ""
 
-A major factor that can strongly impact copy accessibility is the typeface. Your choice of typeface and styling can make or break any page design.
+	Чтобы изучить конкретную реализацию типографики, ознакомьтесь с [модулем типографики в Learn CSS](../design/typography.md).
 
-People with reading, learning, and attention disorders like dyslexia and attention-deficit hyperactivity disorder (ADHD), as well as people with low vision, can all benefit when you use accessible typefaces.
+## Шрифт
 
-Choose common typefaces The quickest way to create an accessible design is to choose a common typeface (for example, Arial, Times New Roman, Calibri, Verdana, and many others).
+Основным фактором, который может сильно повлиять на доступность текста, является шрифт. Ваш выбор шрифта и стилизации может как улучшить, так и испортить любой дизайн страницы.
 
-Many [typeface studies](http://dyslexiahelp.umich.edu/sites/default/files/good_fonts_for_dyslexia_study.pdf) testing people with disabilities show that common typefaces lead to faster reading speeds and a deeper comprehension level when compared to uncommon typefaces. While these common typefaces are not inherently more accessible than other typefaces, some people with disabilities have an easier time reading them because they have had a lot of experience working with (or around) these typefaces.
+Люди с нарушениями чтения, обучения и внимания, такими как дислексия и синдром дефицита внимания и гиперактивности (СДВГ), а также люди с низким зрением, могут получить пользу, когда вы используете доступные шрифты.
 
-In addition to choosing a common typeface, be sure to avoid ornate or handwritten typefaces, as well as ones with only one character case available (for example, only uppercase characters). These specialty typefaces with cursive designs, quirky shapes, or artistic features like thin lines may look nice, but they are much harder for some people with disabilities to read than common typefaces.
+Выбирайте распространенные шрифты. Самый быстрый способ создать доступный дизайн — это выбрать распространенный шрифт (например, Arial, Times New Roman, Calibri, Verdana и многие другие).
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'ExLvWOV',
- height: 350,
- theme: 'auto',
- tab: 'css,result'
-} %}
+Многие [исследования шрифтов](http://dyslexiahelp.umich.edu/sites/default/files/good_fonts_for_dyslexia_study.pdf), тестирующие людей с инвалидностью, показывают, что распространенные шрифты приводят к более быстрой скорости чтения и более глубокому уровню понимания по сравнению с необычными шрифтами. Хотя эти распространенные шрифты не являются по своей природе более доступными, чем другие шрифты, некоторым людям с инвалидностью легче их читать, потому что у них есть большой опыт работы с этими шрифтами (или их использования).
 
-### Letter characteristics and kerning
+В дополнение к выбору распространенного шрифта обязательно избегайте витиеватых или рукописных шрифтов, а также тех, которые имеют только один регистр символов (например, только заглавные буквы). Эти специальные шрифты с курсивными дизайнами, причудливыми формами или художественными особенностями, такими как тонкие линии, могут выглядеть красиво, но их гораздо труднее читать некоторым людям с инвалидностью, чем распространенные шрифты.
 
-The research on whether [serif or sans serif typefaces are easier to read](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4612630/) is inconclusive, but certain numbers, letters, or combinations can confuse [people with language-based learning and cognitive disabilities](https://www.ncld.org/news/newsroom/the-state-of-ld-understanding-the-1-in-5/). For people with these types of disabilities, every letter and number must be clearly defined and have unique characteristics, so letters are not confused with a numbers.
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/ExLvWOV?height=350&amp;theme-id=auto&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 450px; width: 100%; border: 0;" data-title="Pen ExLvWOV by web-dev-codepen-external on Codepen"></iframe>
 
-Common readability offenders are the uppercase "I" (India), lowercase "l" (lettuce), and the number "1". Likewise, letter pairs like b/d, p/q, f/t, i/j, m/w, and n/u can sometimes flip either left-right or up-down for some readers.
+### Характеристики букв и кернинг
 
-The copy's readability also decreases when the letter spacing or kerning is too tight. Pay special attention to kerning, especially between the problematic letter pair r/n. Otherwise, words like "yarn" could change to "yam" or "stern" to "stem," entirely changing the meaning of the copy.
+Исследования того, [легче ли читать шрифты с засечками или без засечек](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4612630/), не дают однозначного ответа, но определенные цифры, буквы или комбинации могут запутать [людей с языковыми нарушениями обучения и когнитивными расстройствами](https://www.ncld.org/news/newsroom/the-state-of-ld-understanding-the-1-in-5/). Для людей с такими типами нарушений каждая буква и цифра должны быть четко определены и иметь уникальные характеристики, чтобы буквы не путались с цифрами.
 
-Open source typeface collections like [Google Fonts](https://fonts.google.com) can aid you in selecting the most inclusive typeface for your next design. If you use Adobe products, you can embed accessible font families from foundry partners directly into your designs&mdash;this includes select [Google Fonts](https://fonts.adobe.com/foundries/google).
+Распространенными нарушителями читаемости являются заглавная "`I`" (India), строчная "`l`" (lettuce) и цифра "`1`". Аналогично пары букв, такие как `b`/`d`, `p`/`q`, `f`/`t`, `i`/`j`, `m`/`w` и `n`/`u`, иногда могут переворачиваться либо слева направо, либо сверху вниз для некоторых читателей.
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'BaxdWvV',
- height: 350,
- theme: 'auto',
- tab: 'css,result'
-} %}
+Читаемость текста также снижается, когда межбуквенный интервал или кернинг слишком плотный. Обратите особое внимание на кернинг, особенно между проблематичной парой букв `r`/`n`. В противном случае такие слова, как "yarn", могут превратиться в "yam" или "stern" в "stem", полностью изменив смысл текста.
 
-When you are looking for your next typeface, pay particular attention to the following:
+Коллекции шрифтов с открытым исходным кодом, такие как [Google Fonts](https://fonts.google.com), могут помочь вам в выборе наиболее инклюзивного шрифта для вашего следующего дизайна. Если вы используете продукты Adobe, вы можете встраивать доступные семейства шрифтов от партнеров-литейщиков непосредственно в ваши дизайны — это включает избранные [Google Fonts](https://fonts.adobe.com/foundries/google).
 
--   Use common fonts whenever possible.
--   Avoid using elaborate or handwritten fonts and those with only one character case.
--   Pick a typeface with unique characteristics—paying special attention to the uppercase I, lowercase l, and 1.
--   Review certain letter combinations to be sure they are not an exact mirror image of one another.
--   Check the kerning, especially between the r/n letter pair.
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/BaxdWvV?height=350&amp;theme-id=auto&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 450px; width: 100%; border: 0;" data-title="Pen BaxdWvV by web-dev-codepen-external on Codepen"></iframe>
 
-### Font size and typographic styling
+При поиске следующего шрифта обратите особое внимание на следующее:
 
-People often assume that picking out an accessible font family is all there is to creating inclusive content, but it is also important to consider the [font size](https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html) and how the text is styled on a page.
+-   Используйте распространенные шрифты, когда это возможно.
+-   Избегайте использования сложных или рукописных шрифтов и тех, которые имеют только один регистр символов.
+-   Выберите шрифт с уникальными характеристиками — обращая особое внимание на заглавную `I`, строчную `l` и цифру `1`.
+-   Проверьте определенные комбинации букв, чтобы убедиться, что они не являются точным зеркальным отражением друг друга.
+-   Проверьте кернинг, особенно между парой букв `r`/`n`.
 
-For example, people with low vision or color blindness may be unable to read some of the copy if it is too small, using an AT—like browser zoom—to read the copy. While other users, such as those with dyslexia or reading disorders, may have trouble reading italic text. Screen readers often ignore styling methods, such as bold and italics, so the intent of these styles is not conveyed to blind or low-vision users.
+### Размер шрифта и типографское оформление
 
-<div class="switcher">
-{% Compare 'worse' %}
-```text
+Люди часто предполагают, что выбор доступного семейства шрифтов — это все, что нужно для создания инклюзивного контента, но также важно учитывать [размер шрифта](https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html) и то, как текст оформлен на странице.
+
+Например, люди с низким зрением или дальтонизмом могут быть не в состоянии прочитать часть текста, если он слишком мал, используя вспомогательные технологии — такие как увеличение браузера — для чтения текста. В то время как другие пользователи, такие как те, кто страдает дислексией или нарушениями чтения, могут испытывать трудности с чтением курсивного текста. Программы чтения с экрана часто игнорируют методы стилизации, такие как жирный шрифт и курсив, поэтому намерение этих стилей не передается слепым пользователям или пользователям с низким зрением.
+
+```text title="Плохо"
 h2 {font-size: 16px;}
 ```
-{% endCompare %}
 
-{% Compare 'better' %}
+---
 
-```text
+```text title="Лучше"
 h2 {font-size: 1rem;}
 ```
 
-{% endCompare %}
+Поскольку вы не можете предсказать потребности каждого пользователя, при добавлении шрифтов в ваши цифровые продукты обязательно учитывайте следующие рекомендации:
 
-</div>
+-   Базовые размеры шрифтов должны быть определены с относительным значением (`%`, `rem` или `em`), чтобы обеспечить легкое изменение размера.
+-   Ограничьте количество вариаций шрифта, таких как цвет, **жирный**, ВСЕ ЗАГЛАВНЫЕ и _курсив_, чтобы повысить читаемость. Вместо этого используйте методы для выделения слов в вашем тексте, такие как звездочки, тире или выделение отдельного слова.
+-   По возможности используйте разметку вместо текста на изображениях. Программы чтения с экрана не могут читать встроенный текст на изображениях (без добавления дополнительного кода), а встроенный текст также может стать пикселизированным при увеличении пользователями с низким зрением.
 
-Since you cannot predict what every user's needs are, when adding fonts to your digital products, be sure to consider the following guidelines:
+## Структура и макет
 
--   Base font sizes should be defined with a relative value (%, rem, or em) to allow easy resizing.
--   Limit the number of typeface variations like color, **bold**, ALL CAPS, and _italics_ to increase readability. Instead, use methods to emphasize words in your copy, such as asterisks, dashes, or highlighting an individual word.
--   Use markup instead of text on images whenever possible. Screen readers cannot read embedded text on images (without extra code added), and embedded text can also become pixelated when magnified by low-vision users.
+Хотя шрифт, размер шрифта и типографское оформление важны для доступной типографики, [структура](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html) и [макет](https://www.w3.org/WAI/WCAG21/Understanding/reflow) текста на странице могут быть не менее важными для понимания пользователем.
 
-## Structure and layout
+Сложные макеты могут стать настоящим барьером для людей с низким зрением, нарушениями чтения и [6,1 миллиона человек в США с СДВГ](https://www.cdc.gov/ncbddd/adhd/data.html). Эти типы нарушений затрудняют для людей сохранение своего места и следование потоку текста из-за отсутствия четких линейных путей, отсутствующих заголовков и несгруппированных элементов.
 
-While typeface, font size, and typographic styling are important to accessible typography, the [structure](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html) and [layout](https://www.w3.org/WAI/WCAG21/Understanding/reflow) of copy on a page can be equally important to a user's understanding.
+Важным аспектом доступного дизайна макета является выделение критически важных элементов друг от друга и группировка похожих элементов вместе. Если элементы расположены слишком близко, может быть трудно определить, где один элемент начинается, а другой заканчивается, особенно если у них похожее оформление.
 
-Complex layouts can be a real barrier for people with low vision, reading disabilities, and the [6.1 million people in the US with ADHD](https://www.cdc.gov/ncbddd/adhd/data.html). These types of disabilities make it more difficult for people to keep their place and follow the flow of the copy due to the lack of clear linear pathways, missing headings, and ungrouped elements.
+Думайте о своем тексте как о коллекции отдельных пунктов в плане. Это поможет вам спланировать общую структуру страницы и позволит использовать заголовки, подзаголовки и списки, когда это уместно.
 
-An important aspect of accessible layout designs is making critical elements distinct from one another and grouping similar elements together. If the elements are too close, it can be difficult to tell where one element begins and ends, especially if they have similar styling.
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/poVreqB?height=450&amp;theme-id=auto&amp;default-tab=result&amp;editable=true" style="height: 550px; width: 100%; border: 0;" data-title="Pen poVreqB by web-dev-codepen-external on Codepen"></iframe>
 
-Think about your copy as a collection of individual bullet points on an outline. This will help you plan out the overall page structure and enable you to use headings, subheadings, and lists whenever appropriate.
+### Интервалы
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'poVreqB',
- height: 450,
- theme: 'auto',
- tab: 'result'
-} %}
+[Интервалы между абзацами, предложениями и словами](https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html) также важны, поскольку они помогают читателям сохранять фокус на тексте и добавляют к общему визуальному пониманию страницы. Длинные строки текста могут стать барьером для читателей с нарушениями, поскольку им трудно сохранять свое место и следовать потоку текста. Узкий блок текста облегчает читателям переход к следующей строке.
 
-### Spacing
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/ExLvWrP?height=350&amp;theme-id=auto&amp;default-tab=result&amp;editable=true" style="height: 450px; width: 100%; border: 0;" data-title="Pen ExLvWrP by web-dev-codepen-external on Codepen"></iframe>
 
-[Paragraph, sentence, and word spacing](https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html) is also important as it helps readers retain their focus on the copy and adds to the page's overall visual understanding. Long lines of copy can be a barrier for readers with disabilities, as they have trouble keeping their place and following the flow of the copy. A narrow block of copy makes it easier for readers to continue to the next line.
+### Выравнивание контента
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'ExLvWrP',
- height: 350,
- theme: 'auto',
- tab: 'result'
-} %}
+Еще одной проблемой для многих людей с нарушениями является чтение выровненного по ширине текста. Неровные интервалы между словами в выровненном тексте могут привести к образованию "рек пространства" вниз по странице, что затрудняет чтение текста.
 
-### Content alignment
+Выравнивание текста по ширине также может привести к тому, что слова либо сбиваются в кучу, либо растягиваются неестественным образом, поэтому читателям может быть трудно определить границы слов.
 
-Another frustration for many people with disabilities is reading justified copy. The uneven spacing between words in justified copy can cause "rivers of space" to form down the page, making the copy difficult to read.
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/OJZjpdE?height=350&amp;theme-id=auto&amp;default-tab=result&amp;editable=true" style="height: 450px; width: 100%; border: 0;" data-title="Pen OJZjpdE by web-dev-codepen-external on Codepen"></iframe>
 
-Text justification can also cause words to be either bunched together or stretched in unnatural ways, so readers can find it difficult to locate word boundaries.
+К счастью, существуют четкие руководящие принципы по интервалам и инструменты, такие как [Good Line-Height](http://thegoodlineheight.com) и [Golden Ratio Calculator](https://grtcalculator.com/), которые помогают сделать наш текст более доступным. Включение этих руководящих принципов помогает людям с расстройствами дефицита внимания, нарушениями чтения и зрения сосредоточиться больше на тексте и меньше на макете.
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'OJZjpdE',
- height: 350,
- theme: 'auto',
- tab: 'result'
-} %}
+### Лучшие практики для структуры и макета
 
-Thankfully, there are clear guidelines on spacing and tools such as [Good Line-Height](http://thegoodlineheight.com) and the [Golden Ratio Calculator](https://grtcalculator.com/) to help make our copy more accessible. Incorporating these guidelines helps people with attention-deficit disorders, reading, and vision-based disabilities focus more on the copy and less on the layout.
+При рассмотрении структуры и макета обязательно:
 
-### Best practices for structure and layout
+-   Используйте элементы, такие как заголовки, подзаголовки, списки, числа, блоки цитат и другие визуальные группировки, чтобы разбить страницу на разделы.
+-   Используйте четко определенные интервалы между абзацами, предложениями и словами.
+-   Создавайте колонки текста, которые не превышают 80 символов в ширину (40 символов для логограмм).
+-   Избегайте выравнивания абзацев по ширине, которое создает "реки пространства" внутри текста.
 
-When considering structure and layout, be sure to:
+## Выводы по доступной типографике
 
--   Use elements like headings, subheadings, lists, numbers, quote blocks, and other visual groupings to break the page into sections.
--   Use clearly defined paragraphs, sentences, and word spacing.
--   Build columns of copy that do not exceed 80 characters in width (40 characters for logograms).
--   Avoid justified paragraph alignment, which creates "rivers of space" within the copy.
+Доступная типографика может быть сведена к разумным дизайнерским решениям, основанным на ваших знаниях о потребностях ваших пользователей. Помня об этом модуле при разработке и создании вашего контента, вы значительно поможете себе четко общаться с наибольшим количеством людей.
 
-## Accessible typography takeaways
+!!!note ""
 
-Accessible typography can be boiled down to common-sense design choices based on your knowledge of your users' needs. Keeping this module in mind as you design and build out your content will go a long way toward helping you communicate clearly with the greatest number of people.
+	Обратитесь к [модулю типографики для Learn CSS](../design/typography.md), чтобы узнать, как реализовать определенные правила и стили.
 
-{% Aside %} Refer to the [Typography module for Learn CSS](../design/typography.md) to learn how to implement certain rules and styles. {% endAside %}
-
-{% Assessment 'typography' %}
+<small>:material-information-outline: Источник &mdash; <https://web.dev/learn/accessibility/typography></small>

@@ -1,165 +1,135 @@
 ---
-title: 'Forms'
-authors:
-    - cariefisher
-description: Create accessible forms.
-date: 2023-01-10
-tags:
-    - accessibility
+description: Создание доступных форм.
 ---
 
-A form is an element that allows a user to provide data into a field or a group of fields. Forms can be as simple as a single field or as complicated as a multi-step form element with multiple fields per page, input validation, and sometimes a CAPTCHA.
+# Формы
 
-Forms are considered one of the most difficult elements to get right from an accessibility perspective, as they require knowledge of all the elements we have already covered, as well as additional rules specific just to forms. With some understanding and time, you can make an accessible form to suit you and your users.
+<big>
 
-Forms is the last component-specific module in this course. This module will focus on the form-specific guidelines, but all other guidelines you learned about in the earlier modules, such as [content structure](structure.md), [keyboard focus](focus.md), and [color contrast](color-contrast.md), also apply to form elements.
+Форма — это элемент, который позволяет пользователю предоставлять данные в поле или группу полей. Формы могут быть как простыми с одним полем, так и сложными многошаговыми элементами с несколькими полями на странице, проверкой ввода и иногда CAPTCHA.
 
-{% Aside %} Review our [Learn Forms](../forms/index.md) course to learn how to create better forms. There is a [form accessibility](../forms/accessibility.md) module in that course with additional accessibility-specific form content. {% endAside %}
+Формы считаются одними из самых сложных элементов для правильной реализации с точки зрения доступности, поскольку они требуют знания всех элементов, которые мы уже рассмотрели, а также дополнительных правил, специфичных именно для форм. При некотором понимании и времени вы можете создать доступную форму, подходящую вам и вашим пользователям.
 
-## Fields
+Формы — это последний модуль, посвященный конкретным компонентам в этом курсе. Этот модуль будет сосредоточен на рекомендациях, специфичных для форм, но все остальные рекомендации, которые вы изучили в предыдущих модулях, такие как [структура контента](./structure.md), [фокус клавиатуры](./focus.md) и [цветовой контраст](./color-contrast.md), также применимы к элементам формы.
 
-The backbone of forms is fields. Fields are small interactive patterns, such as an input or radio button element, that allow users to enter content or make a choice. There is a [wide variety of form fields](../forms/fields.md) to choose from.
+</big>
 
-The default recommendation is to use established HTML patterns instead of building something custom with ARIA, as certain features and functionalities—such as field states, properties, and values—are inherently built into the HTML elements, while you have to add custom ARIA manually.
+!!!note ""
 
-{% Aside %}
+	Ознакомьтесь с нашим курсом [Изучение форм](../forms/index.md), чтобы узнать, как создавать лучшие формы. В этом курсе есть модуль [доступность форм](../forms/accessibility.md) с дополнительным контентом, специфичным для доступности.
 
-If the situation requires you to build custom form fields, be sure to review the [ARIA and HTML](aria-html.md), [Keyboard focus](focus.md), and [JavaScript](javascript.md) modules to understand how to make these custom form fields as accessible as possible.
+## Поля
 
-{% endAside %}
+Основой форм являются поля. Поля — это небольшие интерактивные паттерны, такие как элемент input или радиокнопка, которые позволяют пользователям вводить контент или делать выбор. Существует [широкое разнообразие полей форм](../forms/fields.md) на выбор.
 
-<div class="switcher">
-<figure>
-<h4>ARIA</h4>
+Рекомендацией по умолчанию является использование устоявшихся HTML-паттернов вместо создания чего-то пользовательского с ARIA, поскольку определенные функции и возможности — такие как состояния полей, свойства и значения — изначально встроены в HTML-элементы, в то время как пользовательские ARIA вам нужно добавлять вручную.
 
-```html
+!!!note ""
+
+	Если ситуация требует от вас создания пользовательских полей формы, обязательно изучите модули [ARIA и HTML](./aria-html.md), [Фокус клавиатуры](focus.md) и [JavaScript](./javascript.md), чтобы понять, как сделать эти пользовательские поля формы максимально доступными.
+
+```html title="Не рекомендовано, HTML + ARIA"
 <div role="form" id="sundae-order-form">
-    <!-- form content -->
+    <!-- содержимое формы -->
 </div>
 ```
 
-</figure>
+---
 
-<figure>
-<h4>HTML</h4>
-
-```html
+```html title="Рекомендовано, стандартный HTML"
 <form id="sundae-order-form">
-    <!-- form content -->
+    <!-- содержимое формы -->
 </form>
 ```
 
-</figure>
-</div>
+В дополнение к выбору наиболее доступных паттернов полей формы, где это применимо, вы также должны добавлять [атрибуты автозаполнения HTML](https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete) к вашим полям. Добавление атрибутов автозаполнения позволяет более детально [определить или идентифицировать назначение](https://www.w3.org/TR/WCAG21/#input-purposes) для пользовательских агентов и вспомогательных технологий (AT).
 
-In addition to choosing the most accessible form field patterns, where applicable, you should also add [HTML autocomplete attributes](https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete) to your fields. Adding autocomplete attributes allows a more fine-grained [definition or identification of purpose](https://www.w3.org/TR/WCAG21/#input-purposes) to user agents and assistive technologies (AT).
-
-Autocomplete attributes allow users to personalize visual presentations, such as showing a birthday cake icon in a field with the birthday autocomplete attribute (`bday`) assigned to it. More generally, autocomplete attributes make filling out forms easier and quicker. This is especially helpful for people with cognitive and reading disorders and those using ATs, such as screen readers.
+Атрибуты автозаполнения позволяют пользователям персонализировать визуальное представление, например, показывать значок торта ко дню рождения в поле с атрибутом автозаполнения дня рождения (`bday`), назначенным ему. В более общем смысле, атрибуты автозаполнения делают заполнение форм проще и быстрее. Это особенно полезно для людей с когнитивными нарушениями и нарушениями чтения, а также для тех, кто использует AT, такие как программы чтения с экрана.
 
 ```html
 <form id="sundae-order-form">
-    <p>Name: <input type="name" autocomplete="name" /></p>
+    <p>Имя: <input type="name" autocomplete="name" /></p>
     <p>
-        Telephone: <input type="tel" autocomplete="tel" />
+        Телефон: <input type="tel" autocomplete="tel" />
     </p>
     <p>
-        Email address:
+        Адрес электронной почты:
         <input type="email" autocomplete="email" />
     </p>
 </form>
 ```
 
-Lastly, form fields should not produce contextual changes when they receive focus or user input unless the user has been warned about the behavior before using the component. For example, a form should not be automatically submitted when a field receives focus or once a user adds content to the field.
+Наконец, поля формы не должны производить контекстные изменения, когда они получают фокус или пользовательский ввод, если только пользователь не был предупрежден о поведении перед использованием компонента. Например, форма не должна автоматически отправляться, когда поле получает фокус или когда пользователь добавляет контент в поле.
 
-## Labels
+## Метки
 
-Labels inform a user about the purpose of a field, if the field is required, and can also provide information about the field requirements, such as input format. Labels must be visible at all times and accurately describe the form field to users.
+Метки информируют пользователя о назначении поля, является ли поле обязательным, а также могут предоставлять информацию о требованиях к полю, таких как формат ввода. Метки должны быть видимы в любое время и точно описывать поле формы пользователям.
 
-One of the foundational tenets of accessible forms is establishing a clear and accurate connection between a field and its label. This is true both visually and programmatically. Without this context, a user might not understand how to fill out the fields in the form.
+Одним из основополагающих принципов доступных форм является установление четкой и точной связи между полем и его меткой. Это справедливо как визуально, так и программно. Без этого контекста пользователь может не понять, как заполнить поля в форме.
 
 ```html
 <form id="sundae-order-form">
     <p>
         <label
-            >Name (required):
+            >Имя (обязательно):
             <input type="name" autocomplete="name" required
         /></label>
     </p>
     <p>
         <label
-            >Telephone (required):
+            >Телефон (обязательно):
             <input type="tel" autocomplete="tel" required
         /></label>
     </p>
     <p>
         <label
-            >Email address:
+            >Адрес электронной почты:
             <input type="email" autocomplete="email"
         /></label>
     </p>
 </form>
 ```
 
-Additionally, related form fields, such as a mailing address, need to be programmatically and visually grouped. One method is to use the fieldset/legend pattern to group elements that are similar.
+Кроме того, связанные поля формы, такие как почтовый адрес, должны быть программно и визуально сгруппированы. Одним из методов является использование паттерна `fieldset`/`legend` для группировки похожих элементов.
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'zYLqwwQ',
- height: 400,
- theme: 'auto',
- tab: 'html, result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/zYLqwwQ?height=400&amp;theme-id=auto&amp;default-tab=html%2C%20result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen zYLqwwQ by web-dev-codepen-external on Codepen"></iframe>
 
-## Descriptions
+## Описания
 
-Field descriptions are similar to labels in purpose in that they are used to give more context to the field and requirements. Field descriptions are not required for accessibility if the labels or form instructions are descriptive enough.
+Описания полей похожи на метки по назначению в том, что они используются для предоставления дополнительного контекста к полю и требованиям. Описания полей не требуются для доступности, если метки или инструкции формы достаточно описательны.
 
-However, there are situations in which adding additional information is useful to avoid form errors, such as relaying information about the minimum length of input for a password field or telling a user which calendar format to use (such as MM-DD-YYYY).
+Однако есть ситуации, в которых добавление дополнительной информации полезно для избежания ошибок формы, например, передача информации о минимальной длине ввода для поля пароля или указание пользователю, какой формат календаря использовать (например, ДД-ММ-ГГГГ).
 
-There are many different methods you can use to add field descriptions to your forms. One of the best methods is to add an [aria-describedby](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) attribute to the form element, in addition to a `<label>` element. The screen reader will read both the description and the label.
+Существует множество различных методов, которые вы можете использовать для добавления описаний полей к вашим формам. Одним из лучших методов является добавление атрибута [`aria-describedby`](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) к элементу формы, в дополнение к элементу `<label>`. Программа чтения с экрана прочитает как описание, так и метку.
 
-If you add the [aria-labelledby](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) attribute to your element, the attribute value overrides the text within your `<label>`. As always, be sure to test the final code with all of the ATs you plan to support.
+Если вы добавите атрибут [aria-labelledby](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) к вашему элементу, значение атрибута переопределит текст внутри вашего `<label>`. Как всегда, обязательно протестируйте финальный код со всеми AT, которые вы планируете поддерживать.
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'ExpKmXq',
- height: 400,
- theme: 'auto',
- tab: 'html, result'
-} %}
+<iframe loading="lazy" allow="clipboard-read; clipboard-write; encrypted-media;" src="https://codepen.io/web-dev-codepen-external/embed/ExpKmXq?height=400&amp;theme-id=auto&amp;default-tab=html%2C%20result&amp;editable=true" style="height: 500px; width: 100%; border: 0;"></iframe>
 
-## Errors
+## Ошибки
 
-When creating accessible forms, there's a lot you can do to prevent users from making form errors. Earlier in this module, we covered clearly marking-up fields, creating identifying labels, and adding detailed descriptions whenever possible. But no matter how clear you think your form is, eventually, a user will make a mistake.
+При создании доступных форм есть много вещей, которые вы можете сделать, чтобы предотвратить ошибки пользователей в формах. Ранее в этом модуле мы рассмотрели четкую разметку полей, создание идентифицирующих меток и добавление подробных описаний, когда это возможно. Но независимо от того, насколько четкой вы считаете свою форму, в конечном итоге пользователь совершит ошибку.
 
-When a user encounters a form error, the first step is to [make the error known](https://www.w3.org/WAI/tutorials/forms/notifications). The field where the error occurred must be clearly identified, and the error itself must be described to the user in text.
+Когда пользователь сталкивается с ошибкой формы, первым шагом является [сделать ошибку известной](https://www.w3.org/WAI/tutorials/forms/notifications). Поле, где произошла ошибка, должно быть четко идентифицировано, а сама ошибка должна быть описана пользователю в тексте.
 
-There are different methods for [displaying error messages](https://webaim.org/techniques/formvalidation/#error), such as:
+Существуют различные методы для [отображения сообщений об ошибках](https://webaim.org/techniques/formvalidation/#error), такие как:
 
--   A pop-up modal, inline near where the error occurred
--   A collection of errors grouped in one larger message at the top of the page
+-   Всплывающее модальное окно, встроенное рядом с местом, где произошла ошибка
+-   Коллекция ошибок, сгруппированная в одном большом сообщении в верхней части страницы
 
-Be sure to pay attention to the [keyboard focus](focus.md) and [ARIA live region options](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) when announcing errors.
+Обязательно обратите внимание на [фокус клавиатуры](./focus.md) и [опции ARIA live region](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) при объявлении ошибок.
 
-Whenever possible, offer the user a detailed suggestion on how to fix the error. There are two attributes available to notify users of errors.
+Когда это возможно, предложите пользователю подробное предложение о том, как исправить ошибку. Есть два атрибута, доступных для уведомления пользователей об ошибках.
 
--   You can use the HTML [required](https://developer.mozilla.org/docs/Web/HTML/Attributes/required) attribute. The browser will supply a generic error message based on the filed validation parameters.
--   Or you can use the [aria-required](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-required) attribute to share a customized error message to ATs. Only ATs will receive the message unless you add additional code to make the message visible to all users.
+-   Вы можете использовать HTML-атрибут [required](https://developer.mozilla.org/docs/Web/HTML/Attributes/required). Браузер предоставит общее сообщение об ошибке на основе параметров проверки поля.
+-   Или вы можете использовать атрибут [aria-required](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-required) для передачи настроенного сообщения об ошибке в AT. Только AT получат сообщение, если вы не добавите дополнительный код, чтобы сделать сообщение видимым для всех пользователей.
 
-Once a user thinks all of the errors have been resolved, allow them to resubmit the form and provide feedback about the results of their submission. An error message tells a user they have more updates to make, while a success message confirms that they have resolved all errors and successfully submitted the form.
+Как только пользователь думает, что все ошибки были решены, позвольте ему повторно отправить форму и предоставьте обратную связь о результатах их отправки. Сообщение об ошибке говорит пользователю, что у него есть еще обновления для внесения, в то время как сообщение об успехе подтверждает, что он решил все ошибки и успешно отправил форму.
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'abjJYWR',
- height: 400,
- theme: 'auto',
- tab: 'html, result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/abjJYWR?height=400&amp;theme-id=auto&amp;default-tab=html%2C%20result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen abjJYWR by web-dev-codepen-external on Codepen"></iframe>
 
-{% Aside %}
+!!!note ""
 
-While WCAG 2.2 is still under development, there are several proposed success criteria that will focus on more accessible form experiences, such as [Target Size (Minimum)](https://www.w3.org/TR/WCAG22/#target-size-minimum), [Consistent Help](https://www.w3.org/TR/WCAG22/#consistent-help), [Accessible Authentication](https://www.w3.org/TR/WCAG22/#accessible-authentication), and [Redundant Entry](https://www.w3.org/TR/WCAG22/#redundant-entry) to be aware of for future projects.
+	Хотя WCAG 2.2 все еще находится в разработке, существует несколько предлагаемых критериев успеха, которые будут сосредоточены на более доступном опыте форм, таких как [Минимальный размер цели](https://www.w3.org/TR/WCAG22/#target-size-minimum), [Последовательная помощь](https://www.w3.org/TR/WCAG22/#consistent-help), [Доступная аутентификация](https://www.w3.org/TR/WCAG22/#accessible-authentication) и [Избыточный ввод](https://www.w3.org/TR/WCAG22/#redundant-entry), о которых следует знать для будущих проектов.
 
-{% endAside %}
-
-{% Assessment 'forms' %}
+<small>:material-information-outline: Источник &mdash; <https://web.dev/learn/accessibility/forms></small>

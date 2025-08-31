@@ -5,16 +5,16 @@ nav:
     - measure.md
     - aria-html.md
     - structure.md
-    #- more-html.md
-    #- focus.md
-    #- javascript.md
-    #- images.md
-    #- color-contrast.md
-    #- motion.md
-    #- typography.md
-    #- video-audio.md
-    #- forms.md
-    #- patterns.md
+    - more-html.md
+    - focus.md
+    - javascript.md
+    - images.md
+    - color-contrast.md
+    - motion.md
+    - typography.md
+    - video-audio.md
+    - forms.md
+    - patterns.md
     #- design-ux.md
     #- test-automated.md
     #- test-manual.md

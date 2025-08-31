@@ -1,294 +1,219 @@
 ---
-title: 'Color and contrast'
-authors:
-    - cariefisher
-description: >
-    Build accessible color palettes with appropriate contrast.
-
-date: 2022-09-30
-tags:
-    - accessibility
+description: Создание доступных цветовых палитр с соответствующим контрастом.
 ---
 
-Have you ever tried to read text on a screen and found it difficult to read due to the color scheme or struggled to see the screen in a very bright or low-light environment? Or maybe you are someone with a more permanent color vision issue, like the estimated [300 million people with color blindness](https://www.colourblindawareness.org/colour-blindness/) or the [253 million people with low vision](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5820628/)?
+# Цвет и контраст
 
-As a designer or developer, you need to understand how people perceive color and contrast, whether temporary, situationally, or permanently. This will help you best support their visual needs.
+<big>
+Приходилось ли вам когда-нибудь пытаться читать текст на экране и обнаруживать, что его трудно читать из-за цветовой схемы, или бороться с тем, чтобы увидеть экран в очень яркой или тусклой среде? Или, возможно, вы человек с более постоянными проблемами цветового зрения, как приблизительно [300 миллионов людей с дальтонизмом](https://www.colourblindawareness.org/colour-blindness/) или [253 миллиона людей с ослабленным зрением](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5820628/)?
 
-This module will introduce you to some accessible color and contrast fundamentals.
+Как дизайнер или разработчик, вы должны понимать, как люди воспринимают цвет и контраст, будь то временно, ситуационно или постоянно. Это поможет вам наилучшим образом поддержать их визуальные потребности.
 
-## Perceiving color
+Этот модуль познакомит вас с некоторыми основами доступного цвета и контраста.
+</big>
 
-Did you know that objects do not possess color but reflect wavelengths of light? When you see color, your eyes receive and process those wavelengths and convert them to colors.
+## Восприятие цвета
 
-<figure>
-{% Img
-  src="image/VbsHyyQopiec0718rMq2kTE1hke2/cXQwXdc8J77KegJZtDD6.png", alt="An eye viewing the color wheel.", width="600", height="350"
-%}
-</figure>
+Знаете ли вы, что объекты не обладают цветом, а отражают длины волн света? Когда вы видите цвет, ваши глаза принимают и обрабатывают эти длины волн и преобразуют их в цвета.
 
-When it comes to digital accessibility, we talk about these wavelengths in terms of hue, saturation, and lightness (HSL). The HSL model was created as an alternative to the RGB color model and more closely aligns with how a human perceives color.
+![Глаз, смотрящий на цветовое колесо.](./color-contrast-1.png)
 
-{% Aside %} In CSS, a color can be specified in many ways, such as using color names, RGB, RGBa, HEX, HSL, HSLa, HSV, or HSVa values. HSLa is similar to HSL, only an alpha value has been added. Alpha is a measurement of opacity and is defined as a number between 0.0 (fully transparent) and 1.0 (fully opaque). {% endAside %}
+Когда речь идет о цифровой доступности, мы говорим об этих длинах волн в терминах оттенка, насыщенности и яркости (HSL). Модель HSL была создана как альтернатива цветовой модели RGB и более тесно соответствует тому, как человек воспринимает цвет.
 
-_Hue_ is a qualitative way to describe a color, such as red, green, or blue, where each hue has a specific spot on the color spectrum with values ranging from 0 to 360, with red at 0, green at 120, and blue at 240.
+!!!note ""
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'eYrEZqE',
- height: 350,
- theme: 'auto',
- tab: 'result',
- allow: ['geolocation']
-} %}
+	В CSS цвет может быть указан множеством способов, например, с использованием названий цветов, значений RGB, RGBa, HEX, HSL, HSLa, HSV или HSVa. HSLa похож на HSL, только добавлено альфа-значение. Альфа — это мера прозрачности и определяется как число от 0.0 (полностью прозрачный) до 1.0 (полностью непрозрачный).
 
-Saturation is the intensity of a color, measured in percentages ranging from 0% to 100%. A color with full saturation (100%) would be very vivid, while a color with no saturation (0%) would be grayscale or black and white.
+**Оттенок** — это качественный способ описания цвета, такого как красный, зеленый или синий, где каждый оттенок имеет определенное место на цветовом спектре со значениями от 0 до 360, с красным в 0, зеленым в 120 и синим в 240.
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'vYjJKBP',
- height: 350,
- theme: 'auto',
- tab: 'result',
- allow: ['geolocation']
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/eYrEZqE?height=350&amp;theme-id=auto&amp;default-tab=result&amp;editable=true" style="height: 450px; width: 100%; border: 0;" data-title="Pen eYrEZqE by web-dev-codepen-external on Codepen"></iframe>
 
-Lightness is a color's light or dark character, measured in percentages ranging from 0% (black) to 100% (white).
+**Насыщенность** — это интенсивность цвета, измеряемая в процентах от 0% до 100%. Цвет с полной насыщенностью (100%) будет очень ярким, в то время как цвет без насыщенности (0%) будет в оттенках серого или черно-белым.
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'poVrboR',
- height: 350,
- theme: 'auto',
- tab: 'result',
- allow: ['geolocation']
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/vYjJKBP?height=350&amp;theme-id=auto&amp;default-tab=result&amp;editable=true" style="height: 450px; width: 100%; border: 0;" data-title="Pen vYjJKBP by web-dev-codepen-external on Codepen"></iframe>
 
-## Measuring color contrast
+**Яркость** — это светлый или темный характер цвета, измеряемый в процентах от 0% (черный) до 100% (белый).
 
-To help support people with various visual disabilities, the WAI group created a [color contrast formula](https://www.w3.org/TR/WCAG21/#dfn-contrast-ratio) to ensure [enough contrast exists](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) between the text and its background. When these color contrast ratios are followed, people with moderately low vision can read text on the background without needing contrast-enhancing assistive technology.
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/poVrboR?height=350&amp;theme-id=auto&amp;default-tab=result&amp;editable=true" style="height: 450px; width: 100%; border: 0;" data-title="Pen poVrboR by web-dev-codepen-external on Codepen"></iframe>
 
-Let's look at images with a vibrant color palette and compare how that image would appear to those with specific forms of color blindness.
+## Измерение цветового контраста
 
-<div class="switcher">
-<figure>
-  {% Img
-    src="image/VbsHyyQopiec0718rMq2kTE1hke2/Tan7yQpVFXDwUFxta05Z.jpg", alt="Original rainbow sand.", width="640", height="427"
-    %}
-    <figcaption>
-      Photo by Alexander Grey on <a href="https://unsplash.com/photos/QGQz-IBBl5w">Unsplash</a>.
-    </figcaption>
-</figure>
-<figure>
-    {% Img
-      src="image/VbsHyyQopiec0718rMq2kTE1hke2/3T6ZA4XYZA4sdCUZluNT.jpg", alt="Original rainbow pattern.", width="640", height="427"
-      %}
-      <figcaption>        
-        Photo by Clark Van Der Beken on <a href="https://unsplash.com/photos/xFdrt8YIoJc">Unsplash</a>.
-      </figcaption>
-</figure>
+Чтобы поддержать людей с различными нарушениями зрения, группа WAI создала [формулу цветового контраста](https://www.w3.org/TR/WCAG21/#dfn-contrast-ratio) для обеспечения [достаточного контраста](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) между текстом и его фоном. Когда эти соотношения цветового контраста соблюдаются, люди с умеренно ослабленным зрением могут читать текст на фоне без необходимости в вспомогательных технологиях, усиливающих контраст.
+
+Давайте посмотрим на изображения с яркой цветовой палитрой и сравним, как это изображение будет выглядеть для людей с определенными формами дальтонизма.
+
+<div class="grid cards" markdown>
+
+-   ![Оригинальный радужный песок.](./color-contrast-2.jpg)
+
+	<small>Оригинальный радужный песок</small>
+
+-   ![Оригинальный радужный узор.](./color-contrast-3.jpg)
+
+	<small>Оригинальный радужный узор</small>
+
 </div>
 
-On the left, the image shows rainbow sand with purple, red, orange, yellow, aqua green, light blue, and dark blue colors. On the right is a brighter, multicolored rainbow pattern.
+Слева изображение показывает радужный песок с пурпурными, красными, оранжевыми, желтыми, аква-зелеными, голубыми и темно-синими цветами. Справа — более яркий, многоцветный радужный узор.
 
-### Deuteranopia
+### Дейтеранопия
 
-<div class="switcher">
-<figure>
-  {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/MmstWzPwC5oEZiy3ltXJ.jpg", alt="Rainbow sand, as seen by a person with deuteranopia.", width="450", height="300" %}
-</figure>
-<figure>
-     {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/i9uQOQaWkyjUv0p2EqTI.jpg", alt="Rainbow pattern, as seen by a person with deuteranopia.", width="450", height="300" %}
-</figure>
+<div class="grid cards" markdown>
+
+-   ![Радужный песок, как его видит человек с дейтеранопией.](./color-contrast-4.jpg)
+
+	<small>Радужный песок, как его видит человек с дейтеранопией</small>
+
+-   ![Радужный узор, как его видит человек с дейтеранопией](./color-contrast-5.jpg)
+
+	<small>Радужный узор, как его видит человек с дейтеранопией</small>
+
 </div>
 
-[Deuteranopia](https://www.color-blindness.com/deuteranopia-red-green-color-blindness/) (commonly known as green blind) occurs in 1% to 5% of males, 0.35% to 0.1% of females.
+[Дейтеранопия](https://www.color-blindness.com/deuteranopia-red-green-color-blindness/) (обычно известная как зеленая слепота) встречается у 1%-5% мужчин, 0,35%-0,1% женщин.
 
-People with Deuteranopia have a reduced sensitivity to green light. This color blindness filter simulates what this type of color blindness might look like.
+Люди с дейтеранопией имеют пониженную чувствительность к зеленому свету. Этот фильтр дальтонизма имитирует то, как может выглядеть этот тип дальтонизма.
 
-### Protanopia
+### Протанопия
 
-<div class="switcher">
-<figure>
-  {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/hj9QDGzaCx7Fd9g5oJBr.jpg", alt="Rainbow sand, as seen by a person with protanopia.", width="450", height="300" %}  
-</figure>
-<figure>
-     {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/o2Tu1YwNNgX3FYnCSocq.jpg", alt="Rainbow pattern, as seen by a person with protanopia.", width="450", height="300" %}
-</figure>
+<div class="grid cards" markdown>
+
+-   ![Радужный песок, как его видит человек с протанопией](./color-contrast-6.jpg)
+
+	<small>Радужный песок, как его видит человек с протанопией</small>
+
+-   ![Радужный узор, как его видит человек с протанопией](./color-contrast-7.jpg)
+
+	<small>Радужный узор, как его видит человек с протанопией</small>
+
 </div>
 
-[Protanopia](https://www.color-blindness.com/protanopia-red-green-color-blindness/) (commonly known as red blind) occurs in 1.01% to 1.08% of males and 0.02% of 0.03% of females.
+[Протанопия](https://www.color-blindness.com/protanopia-red-green-color-blindness/) (обычно известная как красная слепота) встречается у 1,01%-1,08% мужчин и 0,02%-0,03% женщин.
 
-People with Protanopia have a reduced sensitivity to red light. This color blindness filter simulates what this type of color blindness might look like.
+Люди с протанопией имеют пониженную чувствительность к красному свету. Этот фильтр дальтонизма имитирует то, как может выглядеть этот тип дальтонизма.
 
-### Achromatopsia or Monochromatism
+### Ахроматопсия или монохроматизм
 
-<div class="switcher">
-<figure>
-  {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/R372C4rw8c4bb3PKialX.jpg", alt="Rainbow sand, as seen by a person with achromatopsia.", width="450", height="300"  %}
-</figure>
-<figure>
-  {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/41D6WgI6mnv2tgYhtLzt.jpg", alt="Rainbow pattern, as seen by a person with achromatopsia.", width="450", height="300"  %}
-</figure>
+<div class="grid cards" markdown>
+
+-   ![Радужный песок, как его видит человек с ахроматопсией](./color-contrast-8.jpg)
+
+	<small>Радужный песок, как его видит человек с ахроматопсией</small>
+
+-   ![Радужный узор, как его видит человек с ахроматопсией](./color-contrast-9.jpg)
+
+	<small>Радужный узор, как его видит человек с ахроматопсией</small>
+
 </div>
 
-[Achromatopsia or Monochromatism](https://www.color-blindness.com/2007/07/20/monochromacy-complete-color-blindness/) (or complete color blindness) occurs very, very rarely.
+[Ахроматопсия или монохроматизм](https://www.color-blindness.com/2007/07/20/monochromacy-complete-color-blindness/) (или полная цветовая слепота) встречается очень, очень редко.
 
-People with Achromatopsia or Monochromatism have almost no perception of red, green, or blue light. This color blindness filter simulates what this type of color blindness might look like.
+Люди с ахроматопсией или монохроматизмом практически не воспринимают красный, зеленый или синий свет. Этот фильтр дальтонизма имитирует то, как может выглядеть этот тип дальтонизма.
 
-### Calculate color contrast
+### Вычисление цветового контраста
 
-The color contrast formula uses the [relative luminance](https://www.w3.org/TR/WCAG/#dfn-relative-luminance) of colors to help determine contrast, which can range from 1 to 21. This formula is often shortened to `[color value]:1`. For example, pure black against pure white has the largest color contrast ratio at `21:1`.
+Формула цветового контраста использует [относительную яркость](https://www.w3.org/TR/WCAG/#dfn-relative-luminance) цветов для определения контраста, который может варьироваться от 1 до 21. Эта формула часто сокращается до `[значение цвета]:1`. Например, чистый черный на чистом белом имеет наибольшее соотношение цветового контраста `21:1`.
 
 ```text
 (L1 + 0.05) / (L2 + 0.05)
-L1 is the relative luminance of the lighter color
-L2 is the relative luminance of the darker colors
+L1 — это относительная яркость более светлого цвета
+L2 — это относительная яркость более темного цвета
 ```
 
-Regular-sized text, including images of text, must have a color contrast ratio of `4.5:1` to pass the [minimum WCAG requirements for color](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html). Large-sized text and essential icons must have a color contrast ratio of `3:1`. Large-sized text is characterized by being at least 18pt / 24px or 14pt / 18.5px bolded. Logos and decorative elements are exempt from these color contrast requirements.
+Текст обычного размера, включая изображения текста, должен иметь соотношение цветового контраста `4.5:1` для соответствия [минимальным требованиям WCAG для цвета](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html). Крупный текст и важные иконки должны иметь соотношение цветового контраста `3:1`. Крупный текст характеризуется размером не менее 18pt/24px или 14pt/18.5px жирным. Логотипы и декоративные элементы освобождены от этих требований к цветовому контрасту.
 
-Thankfully, no advanced math is required as there are a lot of tools that will do the color contrast calculations for you. Tools like [Adobe Color](https://color.adobe.com/create/color-accessibility), [Color Contrast Analyzer](https://www.tpgi.com/color-contrast-checker/), [Leonardo](https://leonardocolor.io/), and [Chrome's DevTools color picker](https://developer.chrome.com/docs/devtools/accessibility/reference/#contrast) can quickly tell you the color contrast ratios and offer suggestions to help create the most inclusive color pairs and palettes.
+К счастью, продвинутая математика не требуется, поскольку существует множество инструментов, которые выполнят расчеты цветового контраста за вас. Такие инструменты, как [Adobe Color](https://color.adobe.com/create/color-accessibility), [Color Contrast Analyzer](https://www.tpgi.com/color-contrast-checker/), [Leonardo](https://leonardocolor.io/) и [цветовая палитра Chrome DevTools](https://developer.chrome.com/docs/devtools/accessibility/reference/#contrast), могут быстро сообщить вам соотношения цветового контраста и предложить рекомендации для создания наиболее инклюзивных цветовых пар и палитр.
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'PoeKzWq',
- height: 450,
- theme: 'auto',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/PoeKzWq?height=450&amp;theme-id=auto&amp;default-tab=result&amp;editable=true" style="height: 550px; width: 100%; border: 0;" data-title="Pen PoeKzWq by web-dev-codepen-external on Codepen"></iframe>
 
-## Using color
+## Использование цвета
 
-Without good color contrast levels in place, words, icons, and other graphical elements are [hard to discover](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html), and the design can quickly become inaccessible. But it's also important to pay attention to [how the color is used](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html) on the screen, as you cannot use color alone to convey information, actions, or distinguish a visual element.
+Без хороших уровней цветового контраста слова, иконки и другие графические элементы [трудно обнаружить](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html), и дизайн может быстро стать недоступным. Но также важно обращать внимание на [то, как цвет используется](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html) на экране, поскольку нельзя использовать только цвет для передачи информации, действий или различения визуального элемента.
 
-For example, if you say, "[click the green button to continue](https://www.w3.org/WAI/WCAG22/Understanding/sensory-characteristics.html)," but omit any additional content or identifiers to the button, it would be difficult for people with certain types of colorblindness to know which button to click. Similarly, many graphs, charts, and tables use color alone to convey information. Adding another identifier, like a pattern, text, or icon, is crucial to help people understand the content.
+Например, если вы говорите: "[нажмите зеленую кнопку, чтобы продолжить](https://www.w3.org/WAI/WCAG22/Understanding/sensory-characteristics.html)", но не указываете никакого дополнительного содержимого или идентификаторов для кнопки, людям с определенными типами дальтонизма будет трудно понять, какую кнопку нажать. Аналогично, многие графики, диаграммы и таблицы используют только цвет для передачи информации. Добавление другого идентификатора, такого как паттерн, текст или иконка, имеет решающее значение для помощи людям в понимании содержимого.
 
-Reviewing your digital products in grayscale is a good way to detect potential color issues quickly.
+Просмотр ваших цифровых продуктов в оттенках серого — хороший способ быстро обнаружить потенциальные проблемы с цветом.
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'rNvzLmd',
- height: 500,
- theme: 'auto',
- tab: 'result'
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/rNvzLmd?height=500&amp;theme-id=auto&amp;default-tab=result&amp;editable=true" style="height: 600px; width: 100%; border: 0;" data-title="Pen rNvzLmd by web-dev-codepen-external on Codepen"></iframe>
 
-## Color-focused media queries
+## Медиа-запросы, ориентированные на цвет
 
-Beyond checking for color contrast ratios and the use of color on your screen, you should consider applying the increasingly popular and supported [media queries](../design/media-features.md#preferences) that offer the users more control over what is displayed on the screen.
+Помимо проверки соотношений цветового контраста и использования цвета на вашем экране, вы должны рассмотреть применение все более популярных и поддерживаемых [медиа-запросов](../design/media-features.md#preferences), которые предлагают пользователям больше контроля над тем, что отображается на экране.
 
-For example, using the [`@prefers-color-scheme`](https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme) media query, you can create a dark theme, which can be helpful to people with [photophobia](https://w3c.github.io/low-vision-a11y-tf/requirements.html#light-and-glare-sensitivity) or light sensitivity. You could also build a high contrast theme with [`@prefers-contrast`](https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-contrast), which supports people with color deficiencies and [contrast sensitivity](https://w3c.github.io/low-vision-a11y-tf/requirements.html#contrast-sensitivity).
+Например, используя медиа-запрос [`@prefers-color-scheme`](https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-scheme), вы можете создать темную тему, которая может быть полезна людям с [фотофобией](https://w3c.github.io/low-vision-a11y-tf/requirements.html#light-and-glare-sensitivity) или светочувствительностью. Вы также можете создать тему с высоким контрастом с помощью [`@prefers-contrast`](https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-contrast), которая поддерживает людей с цветовыми нарушениями и [чувствительностью к контрасту](https://w3c.github.io/low-vision-a11y-tf/requirements.html#contrast-sensitivity).
 
-{% Aside %} There are additional media queries and OS settings to consider for color accessibility, but they are far less supported than the two listed in this module. See the article [Operating System and Browser Accessibility Display Modes](https://www.a11yproject.com/posts/operating-system-and-browser-accessibility-display-modes/) for more information on the various OS accessibility settings. {% endAside %}
+!!!note ""
 
-### Prefers color scheme
+	Существуют дополнительные медиа-запросы и настройки ОС для рассмотрения цветовой доступности, но они гораздо менее поддерживаются, чем два перечисленных в этом модуле. См. статью [Режимы отображения доступности операционной системы и браузера](https://www.a11yproject.com/posts/operating-system-and-browser-accessibility-display-modes/) для получения дополнительной информации о различных настройках доступности ОС.
 
-{% BrowserCompat 'css.at-rules.media.prefers-color-scheme' %}
+### Предпочтения цветовой схемы
 
-The media query `@prefers-color-scheme` allows users to choose a light or dark-themed version of the website or app they are visiting. You can see this theme change in action by changing your light/dark preference settings and navigating to a browser that supports this media query. Review the [Mac](https://support.apple.com/en-us/HT208976) and [Windows](https://blogs.windows.com/windowsexperience/2016/08/08/windows-10-tip-personalize-your-pc-by-enabling-the-dark-theme/) instructions for dark mode.
+Медиа-запрос `@prefers-color-scheme` позволяет пользователям выбирать светлую или темную тематическую версию веб-сайта или приложения, которое они посещают. Вы можете увидеть это изменение темы в действии, изменив настройки предпочтений светлого/темного режима и перейдя в браузер, который поддерживает этот медиа-запрос. Ознакомьтесь с инструкциями по темному режиму для [Mac](https://support.apple.com/en-us/HT208976) и [Windows](https://blogs.windows.com/windowsexperience/2016/08/08/windows-10-tip-personalize-your-pc-by-enabling-the-dark-theme/).
 
-<figure>
-{% Img
-  src="image/VbsHyyQopiec0718rMq2kTE1hke2/Xl1Rw2thm1lf0aVDFYmv.png",
-  alt="Mac settings UI",
-  width="800", height="336"
-%}
-<figcaption>macOS general settings for appearance.</figcaption>
-</figure>
+![Интерфейс настроек Mac](./color-contrast-10.png)
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'ExLvNOw',
- height: 300,
- theme: 'auto',
- tab: 'css,result',
- allow: ['geolocation']
-} %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/ExLvNOw?height=300&amp;theme-id=auto&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 400px; width: 100%; border: 0;" data-title="Pen ExLvNOw by web-dev-codepen-external on Codepen"></iframe>
 
-{% Details %}
+**Сравните светлый и темный режимы**
 
-{% DetailsSummary %} Compare light and dark mode. {% endDetailsSummary %}
+<div class="grid cards" markdown>
 
-<div class="switcher">
-  <figure>
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/wDeiH1l9XfzJZz1wxBZg.png", alt="Code example in light mode.", width="600", height="186" %}
-    <figcaption>Light mode.</figcaption>
-  </figure>
-  <figure>
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/6F0bSF5fQyxkkqEcRF4q.png", alt="Code example in dark mode.", width="600", height="186" %}
-    <figcaption>Dark mode.</figcaption>
-  </figure>
+-   ![Пример кода в светлом режиме](./color-contrast-11.png)
+
+	<small>Светлый режим</small>
+
+-   ![Пример кода в темном режиме](./color-contrast-12.png)
+
+	<small>Темный режим</small>
+
 </div>
 
-{% endDetails %}
+### Предпочтения контраста
 
-### Prefers contrast
+Медиа-запрос [`@prefers-contrast`](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-contrast) проверяет настройки ОС пользователя, чтобы увидеть, включен ли высокий контраст или отключен. Вы можете увидеть это изменение темы в действии, изменив настройки предпочтений контраста и перейдя в браузер, который поддерживает этот медиа-запрос (настройки режима контраста для [Mac](https://support.apple.com/lv-lv/guide/mac-help/unac089/mac) и [Windows](https://support.microsoft.com/windows/change-color-contrast-in-windows-fedc744c-90ac-69df-aed5-c8a90125e696)).
 
-{% BrowserCompat 'css.at-rules.media.prefers-contrast' %}
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/bGMrgNV?height=300&amp;theme-id=auto&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 400px; width: 100%; border: 0;" data-title="Pen bGMrgNV by web-dev-codepen-external on Codepen"></iframe>
 
-The [`@prefers-contrast`](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-contrast) media query checks the user's OS settings to see if high contrast is toggled on or off. You can see this theme change in action by changing your contrast preference settings and navigating to a browser that supports this media query ([Mac](https://support.apple.com/lv-lv/guide/mac-help/unac089/mac) and [Windows](https://support.microsoft.com/windows/change-color-contrast-in-windows-fedc744c-90ac-69df-aed5-c8a90125e696) contrast mode settings).
+**Сравните обычный и высокий контраст**
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'bGMrgNV',
- height: 300,
- theme: 'auto',
- tab: 'css,result',
- allow: ['geolocation']
-} %}
+<div class="grid cards" markdown>
 
-{% Details %} {% DetailsSummary %} Compare regular and high contrast. {% endDetailsSummary %}
+-   ![Пример кода в светлом режиме](./color-contrast-13.png)
 
-<div class="switcher">
-  <figure>
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/wDeiH1l9XfzJZz1wxBZg.png", alt="Code example in light mode with no contrast preference.", width="600", height="186" %}
-    <figcaption>Light mode, no contrast preference.</figcaption>
-  </figure>
-  <figure>
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/vKrSleRSunOTlwLlZMbR.png", alt="Code example in dark mode with high contrast preference.", width="600", height="186" %}
-    <figcaption>Dark mode, high contrast preference.</figcaption>
-  </figure>
+	<small>Светлый режим</small>
+
+-   ![Пример кода в темном режиме](./color-contrast-14.png)
+
+	<small>Темный режим</small>
+
 </div>
 
-{% endDetails %}
+### Наслоение медиа-запросов
 
-### Layering media queries
+Вы можете использовать несколько медиа-запросов, ориентированных на цвет, чтобы предоставить вашим пользователям еще больше выбора. В этом примере мы сложили `@prefers-color-scheme` и `@prefers-contrast` вместе.
 
-You can use multiple color-focused media queries to give your users even more choices. In this example, we stacked `@prefers-color-scheme` and `@prefers-contrast` together.
+<iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/wvjqgaK?height=300&amp;theme-id=auto&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 400px; width: 100%; border: 0;" data-title="Pen wvjqgaK by web-dev-codepen-external on Codepen"></iframe>
 
-{% Codepen {
- user: 'web-dev-codepen-external',
- id: 'wvjqgaK',
- height: 300,
- theme: 'auto',
- tab: 'css,result',
- allow: ['geolocation']
-} %}
+**Сравните цвет и контраст**
 
-{% Details %} {% DetailsSummary %} Compare both color and contrast. {% endDetailsSummary %}
+<div class="grid cards" markdown>
 
-<div class="switcher">
-  <figure>
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/wDeiH1l9XfzJZz1wxBZg.png", alt="Light mode, regular contrast.", width="600", height="186" %}
-    <figcaption>Light mode, no contrast preference.</figcaption>
-  </figure>
-  <figure>
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/6F0bSF5fQyxkkqEcRF4q.png", alt="Dark mode, regular contrast.", width="600", height="186" %}
-    <figcaption>Dark mode, no contrast preference.</figcaption>
-  </figure>
+-   ![Светлый режим, обычный контраст](./color-contrast-15.png)
+
+	<small>Светлый режим, без предпочтений контраста</small>
+
+-   ![Темный режим, обычный контраст](./color-contrast-16.png)
+
+	<small>Темный режим, без предпочтений контраста</small>
+
+-   ![Светлый режим, высокий контраст](./color-contrast-17.png)
+
+	<small>Светлый режим, предпочтение высокого контраста</small>
+
+-   ![Темный режим, высокий контраст](./color-contrast-18.png)
+
+	<small>Темный режим, предпочтение высокого контраста</small>
+
 </div>
 
-<div class="switcher">
-  <figure>
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/vn8QJND0mRMg9rrn1JrK.png", alt="Light mode, high contrast.", width="600", height="186" %}
-    <figcaption>Light mode, high contrast preference.</figcaption>
-  </figure>
-  <figure>
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/vKrSleRSunOTlwLlZMbR.png", alt="Dark mode, high contrast.", width="600", height="186" %}
-    <figcaption>Dark mode, high contrast preference.</figcaption>
-  </figure>
-</div>
-
-{% endDetails %}
-
-{% Assessment 'color' %}
+<small>:material-information-outline: Источник &mdash; <https://web.dev/learn/accessibility/color-contrast></small>
