@@ -1,0 +1,112 @@
+---
+description: grid cards transformation
+globs:
+alwaysApply: true
+---
+
+# Grid Cards Transformation
+
+При преобразовании блоков изображений из формата `<div class="auto-grid">` в формат карточек `<div class="grid cards" markdown>` следуй этим правилам:
+
+## Исходный формат
+
+```html
+<div class="auto-grid">
+ <figure>
+    {% Img
+    src="путь/к/изображению.png",
+    alt="Описание изображения",
+    width="350", height="232"
+    %}
+   <figcaption>
+     Подпись к изображению
+   </figcaption>
+ </figure>
+</div>
+```
+
+## Целевой формат
+
+```html
+<div class="grid cards" markdown>
+
+*   {% Img
+    src="путь/к/изображению.png",
+    alt="Описание изображения",
+    width="350", height="232"
+    %}
+
+	<small>Подпись к изображению</small>
+
+</div>
+```
+
+## Правила преобразования
+
+1.  **Контейнер**: Заменить `<div class="auto-grid">` на `<div class="grid cards" markdown>`
+1.  **Структура**: Удалить все теги `<figure>` и `<figcaption>`
+1.  **Списки**: Каждое изображение оформить как элемент маркированного списка с `*`
+1.  **Изображения**: Теги `{% Img %}` оставить без изменений со всеми атрибутами
+1.  **Подписи**: Содержимое бывшего `<figcaption>` обернуть в `<small>` с отступом табуляция
+1.  **Форматирование**: Добавить пустые строки между элементами списка и вокруг контейнера
+1.  **Маркеры**: Использовать звездочки (*), а не дефисы (-) для списков
+
+## Примеры применения
+
+### Один элемент
+
+```html
+<!-- ДО -->
+<div class="auto-grid">
+ <figure>
+    {% Img src="image.png", alt="Описание", width="350", height="232" %}
+   <figcaption>Подпись</figcaption>
+ </figure>
+</div>
+
+<!-- ПОСЛЕ -->
+<div class="grid cards" markdown>
+
+*   {% Img src="image.png", alt="Описание", width="350", height="232" %}
+
+	<small>Подпись</small>
+
+</div>
+```
+
+### Несколько элементов
+
+```html
+<!-- ДО -->
+<div class="auto-grid">
+ <figure>
+    {% Img src="image1.png", alt="Первое", width="350", height="232" %}
+   <figcaption>Первая подпись</figcaption>
+ </figure>
+ <figure>
+    {% Img src="image2.png", alt="Второе", width="350", height="232" %}
+   <figcaption>Вторая подпись</figcaption>
+ </figure>
+</div>
+
+<!-- ПОСЛЕ -->
+<div class="grid cards" markdown>
+
+*   {% Img src="image1.png", alt="Первое", width="350", height="232" %}
+
+	<small>Первая подпись</small>
+
+*   {% Img src="image2.png", alt="Второе", width="350", height="232" %}
+
+	<small>Вторая подпись</small>
+
+</div>
+```
+
+## Важные примечания
+
+-   Отступ для `<small>` должен быть **ровно одна табуляция**
+-   Сохранять все атрибуты `{% Img %}` тегов без изменений
+-   Каждый элемент списка начинается с новой строки после `*`
+-   Пустая строка обязательна после `<div class="grid cards" markdown>` и перед `</div>`
+-   Использовать только звездочки (*) для маркированных списков (требование линтера)
