@@ -1,208 +1,177 @@
 ---
-title: 'Design and user experience'
-authors:
-  - cariefisher
-description: Create accessible designs and evaluate your user's experience.
-date: 2022-12-05
-tags:
-  - accessibility
+description: Создавайте доступные дизайны и оценивайте пользовательский опыт.
 ---
 
-Think about your favorite website or app—what makes it your favorite? Now, think about a website or app you dislike—what
-do you not like about it? How users interact with your design and their experience on your website and app can vary.
+# Дизайн и пользовательский опыт
 
-That experience can change based on the time of day, the type of device used, if they've had enough sleep the night before,
-if they are unwell, if they're using assistive technology, and so much more. With close to eight billion people worldwide,
-the possibilities of how people use and experience your designs are limitless.
+Подумайте о вашем любимом сайте или приложении — что делает его любимым? Теперь вспомните сайт или приложение, которое вам не нравится — что именно вам не нравится? То, как пользователи взаимодействуют с вашим дизайном и какой опыт они получают на вашем сайте и в приложении, может сильно различаться.
 
-## Inclusive design
+Этот опыт зависит от времени суток, типа используемого устройства, того, выспался ли человек накануне, хорошо ли себя чувствует, использует ли вспомогательные технологии и от множества других факторов. При почти восьми миллиардах людей в мире способы использования и восприятия ваших дизайнов практически безграничны.
 
-How can we address all of the potential user needs at once? Enter inclusive design. Inclusive design utilizes a human-centered
-approach that weaves together inclusivity, usability, and accessibility into one.
+## Инклюзивный дизайн
+
+Как можно одновременно учесть все потенциальные потребности пользователей? Ответ — инклюзивный дизайн. Инклюзивный дизайн использует человеко-центричный подход, объединяющий инклюзивность, удобство использования и доступность в единое целое.
 
 <figure data-float="right">
 {% Img
   src="image/VbsHyyQopiec0718rMq2kTE1hke2/VqMZDtfUQpH0At8n2PF8.png",
-  alt="A venn diagram where accessibility, inclusivity, and usability all meet in the middle as inclusive design.",
+  alt="Диаграмма Венна, на которой доступность, инклюзивность и удобство использования пересекаются в центре, образуя инклюзивный дизайн.",
   width="400", height="390"
 %}
 </figure>
 
-And unlike universal design, which focuses on a single design that as many people can use as possible, inclusive design principles
-center on designing for a specific individual or use case, and then extending that design to others.
+В отличие от универсального дизайна, который стремится к единому решению, подходящему максимально большему числу людей, принципы инклюзивного дизайна сосредоточены на проектировании для конкретного человека или кейса с последующим распространением решения на других.
 
-There are seven accessibility-focused [inclusive design principles](https://inclusivedesignprinciples.org):
+Существует семь [принципов инклюзивного дизайна](https://inclusivedesignprinciples.org), ориентированных на доступность:
 
-1. *Provide comparable experience*: Ensure your interface provides an equal experience for all, so people can accomplish tasks in a way that suits their needs without undermining the quality of the content.
-1. *Consider the situation*: Make sure your interface delivers a valuable experience to people, regardless of their circumstances.
-1. *Be consistent*: Use familiar conventions and apply them in a logical manner.
-1. *Give control*: Ensure people can access and interact with content in their preferred way.
-1. *Offer choice*: Consider providing different ways for people to complete tasks, especially those that are complex or non-standard.
-1. *Prioritize content*: Help users focus on core tasks, features, and information by arranging these elements in the preferred order within the content and layout.
-1. *Add value*: Consider the purpose and significance of features and how they improve the experience for different users.
+1.  *Обеспечьте сопоставимый опыт*: интерфейс должен предоставлять равные возможности всем, чтобы люди могли выполнять задачи удобным для них способом без ухудшения качества контента.
+1.  *Учитывайте контекст*: интерфейс должен приносить пользу пользователям вне зависимости от обстоятельств.
+1.  *Будьте последовательны*: используйте знакомые шаблоны и применяйте их логично.
+1.  *Дайте контроль*: позвольте людям получать доступ к контенту и взаимодействовать с ним предпочтительным способом.
+1.  *Предлагайте выбор*: предоставляйте альтернативные способы выполнения задач, особенно сложных или нестандартных.
+1.  *Расставляйте приоритеты в контенте*: помогайте пользователям фокусироваться на основных задачах, функциях и информации, упорядочивая элементы в предпочтительном порядке в контенте и макете.
+1.  *Добавляйте ценность*: учитывайте назначение и значимость функций и то, как они улучшают опыт разных пользователей.
 
-## Personas
+## Персоны
 
-When developing a new design or feature, many teams rely on user [personas](https://www.nngroup.com/articles/persona/) to guide them through
-the process. Personas are fictitious characters that use your digital products, often based on quantitative and qualitative user research.
+При разработке нового дизайна или функции многие команды опираются на [персон](https://www.nngroup.com/articles/persona/), чтобы пройти через процесс. Персоны — это вымышленные персонажи, использующие ваши цифровые продукты, часто основанные на количественных и качественных исследованиях пользователей.
 
-Personas also offer a quick and inexpensive way to test and prioritize those features throughout the design and development process.
-They help to focus decisions surrounding site components by adding a layer of real-world consideration to the conversation to help align
-strategy and create goals focused on specific user groups.
+Персоны также позволяют быстро и недорого тестировать и расставлять приоритеты функций на протяжении всего процесса дизайна и разработки. Они помогают сфокусировать решения по компонентам сайта, добавляя слой реального контекста к обсуждению, чтобы выровнять стратегию и поставить цели, ориентированные на конкретные группы пользователей.
 
-### Incorporating disabilities
+### Учет инвалидности
 
 <figure data-float="right">
-{% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/SmtiiRRpAImfG7MI6ku4.png", alt="Disabilities may be permanent, temporary, or situational. These disabilities can affect touch, seeing, hearing, and speaking.", width="350", height="573" %}
-<figcaption>The Persona Spectrum from <a href="https://www.microsoft.com/design/inclusive/">Microsoft's Inclusive 101 Toolkit</a>.</figcaption>
+{% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/SmtiiRRpAImfG7MI6ku4.png", alt="Нарушения могут быть постоянными, временными или ситуативными. Они могут влиять на осязание, зрение, слух и речь.", width="350", height="573" %}
+<figcaption>Спектр персон из <a href="https://www.microsoft.com/design/inclusive/">набора Microsoft Inclusive 101 Toolkit</a>.</figcaption>
 </figure>
 
 <blockquote>
-  <p>"People are all different. I can only speak from my experience. When you meet one Deaf person, then you've met one Deaf person—not all of us."</p>
+  <p>«Люди все разные. Я могу говорить только со своей позиции. Когда вы встречаете одного глухого человека, вы встретили одного глухого человека — но не всех нас».</p>
   <cite>
-    Meryl Evans from the ID24 talk <a href="https://youtu.be/yrwKWtJdZ_c/">Deaf Tech: Travel Through Time from Past to Future</a>.
+    Мерил Эванс из доклада ID24 <a href="https://youtu.be/yrwKWtJdZ_c/">Deaf Tech: путешествие во времени из прошлого в будущее</a>.
   </cite>
 </blockquote>
 
-Personas can be used as an inclusive design tool when you incorporate people with disabilities into your personas. There are many different ways
-to do this. You may create [disability-specific personas](https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility),
-add disabilities to existing user personas, or even create a persona spectrum to reflect the dynamic reality of situational, temporary, and permanent disabilities.
+Персоны можно использовать как инструмент инклюзивного дизайна, если включать людей с инвалидностью в набор персон. Сделать это можно по‑разному: создать [персоны, специфичные для инвалидности](https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility), добавить характеристики инвалидности к уже существующим персонам или сформировать спектр персон, отражающий динамическую реальность ситуативных, временных и постоянных ограничений.
 
-No matter how you incorporate people with disabilities into your personas, they should not be based on real people or stereotypes. And personas are never a substitute for user testing.
+Независимо от подхода, персоны с инвалидностью не должны основываться на реальных людях или стереотипах. И персоны никогда не заменяют пользовательское тестирование.
 
 {% Details %}
 {% DetailsSummary %}
-Persona: Jane Bennet
-Check out an example of a persona that supports specific use cases.
+Персона: Джейн Беннет
+Пример персоны, поддерживающей конкретные пользовательские сценарии.
 {% endDetailsSummary %}
 
 <figure data-float="right">
-{% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/ysBmXtLrbxScFwocWF8f.png", alt="Jane Smith is tall with long dark hair, wearing a gray long sleeve shirt and jeans", width="150", height="362" %}
+{% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/ysBmXtLrbxScFwocWF8f.png", alt="Джейн Смит высокая, с длинными тёмными волосами, в серой кофте с длинным рукавом и джинсах", width="150", height="362" %}
 </figure>
 
-* **Name**: Jane Bennet
-* **Age**: 57 years old
-* **Location**: Essex, United Kingdom
-* **Occupation**: UX engineer
-* **Disability**: Hand tremor from Young Onset Parkinson's disease (YOPD)
-* **Goals**: use speech-to-text input to make adding code suggestions easier; find biking equipment online with minimal keystrokes.
-* **Frustrations**: websites lacking keyboard-only support; apps for design with small areas for touch interaction.
+*   **Имя**: Джейн Беннет
+*   **Возраст**: 57 лет
+*   **Местоположение**: Эссекс, Великобритания
+*   **Профессия**: UX‑инженер
+*   **Инвалидность**: тремор руки из‑за болезни Паркинсона с ранним началом (YOPD)
+*   **Цели**: использовать ввод речи в текст, чтобы проще добавлять предложения по коду; находить велооборудование онлайн с минимумом нажатий клавиш.
+*   **Фрустрации**: сайты без поддержки только клавиатуры; дизайнерские приложения с маленькими зонами для касаний.
 
-As a UX engineer, Jane designs and builds pages that are vital to keeping her
-company's site relevant. She supports a lot of team members throughout the day.
-She's the queen of putting out technical fires, and everyone's go-to in the
-department when anything goes down unexpectedly.
+Как UX‑инженер, Джейн проектирует и создаёт страницы, жизненно важные для актуальности сайта её компании. В течение дня она поддерживает многих членов команды. Она — королева «тушения пожаров» и человек, к которому обращаются все, когда что‑то внезапно идёт не так.
 
-Losing her fine motor skills to tremors is making it increasingly difficult for her to use a mouse. She's been steadily relying on
-the keyboard more and more to navigate the web. Jane has always been dedicated to her physical fitness. She loves road racing and BMX.
-This made it all the more of a blow when she was diagnosed with Young Onset Parkinson's disease last year.
+Утрата мелкой моторики из‑за тремора всё больше осложняет использование мыши. Она всё чаще полагается на клавиатуру для навигации в интернете. Джейн всегда уделяла внимание физической форме. Она любит шоссейные гонки и BMX. Поэтому прошлогодний диагноз — болезнь Паркинсона с ранним началом — стал особенно тяжёлым ударом.
 
 {% endDetails %}
 
-### Disability simulators
+### Симуляторы инвалидности
 
-Use extreme caution when using disability simulators to [emulate or supplement your personas](https://accessibility.blog.gov.uk/2019/02/11/using-persona-profiles-to-test-accessibility/).
+Будьте крайне осторожны при использовании симуляторов инвалидности, чтобы [эмулировать или дополнять ваши персоны](https://accessibility.blog.gov.uk/2019/02/11/using-persona-profiles-to-test-accessibility/).
 
-Disability simulators are a double-edged sword in that they can build sympathy or empathy—it can depend on the individual,
-the context in which the simulator is used, and many other uncontrollable factors. Many accessibility advocates are [against using
-disability simulator tools](https://sheribyrnehaber.medium.com/simulating-disabilities-d03986e05c1b) and recommend seeking out movies,
-demos, tutorials, and other content created by people with disabilities, and learning about their experiences first-hand.
+Симуляторы — палка о двух концах: они могут как вызывать сочувствие, так и эмпатию — это зависит от человека, контекста использования и множества других факторов. Многие специалисты по доступности [выступают против использования симуляторов](https://sheribyrnehaber.medium.com/simulating-disabilities-d03986e05c1b) и рекомендуют смотреть фильмы, демонстрации, обучающие материалы и другой контент, созданный людьми с инвалидностью, чтобы знакомиться с их опытом из первых рук.
 
 <blockquote>
-  <p>"I think we need to be completely honest that any simulation activity does not impact some of the most important understandings we want the sighted to know in their heart and their head. Blindness is not the characteristic that defines us, that the misunderstandings and low expectations about blindness are our biggest obstacle.</p><p>Those misunderstandings create artificial barriers that prevent us from fully participating, and those false limitations build into something that holds us back."</p>
+  <p>«Нам нужно честно признать, что никакая симуляция не влияет на самые важные понимания, которые мы хотим, чтобы зрячие знали сердцем и разумом. Слепота — не характеристика, которая нас определяет; наши главные препятствия — это непонимание и заниженные ожидания относительно слепоты.</p><p>Именно эти заблуждения создают искусственные барьеры, мешающие нам полноценно участвовать, и эти ложные ограничения вырастают в нечто, что нас сдерживает».</p>
   <cite>
-    <a href="https://nfb.org/sites/default/files/images/nfb/publications/bm/bm17/bm1704/bm170402.htm">Mark Riccobono</a>, President of the National Federation of the Blind
+    <a href="https://nfb.org/sites/default/files/images/nfb/publications/bm/bm17/bm1704/bm170402.htm">Марк Рикобоно</a>, президент Национальной федерации слепых
   </cite>
 </blockquote>
 
-## Accessibility heuristics
+## Эвристики доступности
 
-Consider adding [heuristics](https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/) into your workflow as you
-build your personas and designs. Heuristics are simple rules for interaction design, introduced in 1990 by Jakob Nielsen and Rolf Molich.
-These ten principles were developed based on years of experience in the field of usability engineering, and have been used in design and human-computer
-interaction programs ever since.
+Рассмотрите добавление [эвристик](https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/) в рабочий процесс при создании персон и дизайнов. Эвристики — простые правила интерактивного дизайна, предложенные в 1990 году Якобом Нильсоном и Рольфом Молихом. Эти десять принципов сформированы на основе многолетнего опыта в области инженерии удобства использования и используются в программах по дизайну и взаимодействию человек‑компьютер до сих пор.
 
-Fast-forward to 2019, and the design team at Deque created and shared a new set of [heuristics focused on digital accessibility](https://www.deque.com/blog/supporting-the-design-phase-with-accessibility-heuristics-evaluations/).
-According to their research, up to 67% of all accessibility bugs for a website or app can be avoided when accessibility is part
-of the design process. That's a huge impact that can be made before even one line of code is written.
+В 2019 году дизайн‑команда Deque создала и опубликовала новый набор [эвристик, ориентированных на цифровую доступность](https://www.deque.com/blog/supporting-the-design-phase-with-accessibility-heuristics-evaluations/). По их данным, до 67% дефектов доступности на сайте или в приложении можно избежать, если учитывать доступность уже на этапе дизайна. Это огромный эффект ещё до написания первой строки кода.
 
-Similar to the original set of heuristics, there are ten accessibility heuristics to consider when planning your design.
+Как и в исходном наборе, для планирования дизайна стоит учитывать десять эвристик доступности:
 
-1. *Interaction methods and modalities*: Users can efficiently interact with the system using the input method of their choosing (such as a mouse, keyboard, touch, etc.).
-1. *Navigation and wayfinding*: Users can easily navigate, find content, and determine where they are at all times within the system.
-1. *Structure and semantics*: Users can make sense of the structure of the content on each page and understand how to operate within the system.
-1. *Error prevention and states*: Interactive controls have persistent, meaningful instructions to help prevent mistakes, and provide users with clear error states which indicate what the problems are and how to fix them whenever errors are returned.
-1. *Contrast and legibility*: Users can easily distinguish and read text and other meaningful information.
-1. *Language and readability*: Users can easily read and understand the content.
-1. *Predictability and consistency*: Users can predict each element's purpose. It's clear how each element relates to the system as a whole.
-1. *Timing and preservation*: Users are given enough time to complete their tasks and do not lose information if their time (i.e., a session) runs out.
-1. *Movement and flashing*: Users can stop elements on the page that move, flash, or are animated. Users should not be distracted or otherwise harmed by these elements.
-1. *Visual and auditory alternatives*: Users can access text-based alternatives for any visual or auditory content which conveys information.
+1.  *Методы взаимодействия и модальности*: пользователи могут эффективно взаимодействовать с системой, используя любой выбранный способ ввода (мышь, клавиатура, касание и т. п.).
+1.  *Навигация и ориентирование*: пользователи легко перемещаются, находят контент и всегда понимают, где находятся в системе.
+1.  *Структура и семантика*: пользователи понимают структуру контента на каждой странице и то, как работать в системе.
+1.  *Предотвращение ошибок и состояния*: интерактивные элементы имеют постоянные и понятные инструкции для предотвращения ошибок, а также чёткие состояния ошибок с указанием проблемы и способов её исправления.
+1.  *Контраст и разборчивость*: пользователи легко различают и читают текст и другую значимую информацию.
+1.  *Язык и читаемость*: пользователи легко читают и понимают контент.
+1.  *Предсказуемость и согласованность*: пользователи могут предсказать назначение каждого элемента; понятно, как он соотносится с системой в целом.
+1.  *Время и сохранность*: пользователям даётся достаточно времени для выполнения задач, при этом данные не теряются при истечении времени (например, сессии).
+1.  *Движение и мигание*: пользователи могут останавливать элементы на странице, которые двигаются, мигают или анимированы; эти элементы не должны отвлекать или наносить вред.
+1.  *Визуальные и аудиальные альтернативы*: пользователи имеют доступ к текстовым альтернативам для любого визуального или звукового контента, несущего информацию.
 
-Once you have a basic understanding of these accessibility heuristics, you can
-apply it to a persona or design using the accessibility heuristics worksheet
-and by following the instructions provided. This exercise is more enlightening
-when you gather multiple perspectives.
+Освоив основы этих эвристик, примените их к персоне или дизайну, используя рабочий лист по эвристикам доступности и следуя прилагаемым инструкциям. Упражнение становится более показательным, когда вы собираете несколько точек зрения.
 
-An example accessibility heuristic review for the navigation and wayfinding
-checkpoint could look like the following:
+Пример проверки по эвристикам доступности для контрольного пункта «Навигация и ориентирование» может выглядеть так:
 
 <div class="table-wrapper scrollbar">
 <table>
 <thead>
   <tr>
-    <th>Checkpoints for navigation and wayfinding</th>
-    <th>Excels (+2 pt)</th>
-    <th>Passes (+1 pt)</th>
-    <th>Fails (-1 pt)</th>
-    <th>N/A (0 pt)</th>
+    <th>Контрольные пункты по навигации и ориентированию</th>
+    <th>Отлично (+2)</th>
+    <th>Зачёт (+1)</th>
+    <th>Провал (−1)</th>
+    <th>Н/Д (0)</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td>Is a clear, visible indicator set on all active elements as they receive focus?</td>
+    <td>Есть ли чёткий видимый индикатор на всех активных элементах при фокусе?</td>
     <td><span role="img" aria-label="yes">&#9989;</span></td>
     <td></td>
     <td></td>
     <td class="tg-0lax"></td>
   </tr>
   <tr>
-    <td>Does the page have meaningful title text, with page-specific information first?</td>
+    <td>Есть ли у страницы осмысленный заголовок title, где информация, специфичная для страницы, идёт первой?</td>
     <td></td>
     <td></td>
     <td><span role="img" aria-label="yes">&#9989;</span></td>
     <td class="tg-0lax"></td>
   </tr>
   <tr>
-    <td>Are the page title element and H1 the same or similar?</td>
+    <td>Совпадают ли элемент title страницы и H1 или хотя бы похожи?</td>
     <td></td>
     <td><span role="img" aria-label="yes">&#9989;</span></td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td>Are there meaningful headings for each major section?</td>
+    <td>Есть ли осмысленные заголовки у каждого крупного раздела?</td>
     <td></td>
     <td><span role="img" aria-label="yes">&#9989;</span></td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td>Is the links' purpose defined from the link text alone or its immediate context?</td>
+    <td>Понятна ли цель ссылки из самого текста ссылки или её ближайшего контекста?</td>
     <td></td>
     <td></td>
     <td></td>
     <td><span role="img" aria-label="yes">&#9989;</span></td>
   </tr>
   <tr>
-    <td>Is a skip link provided at the very top of the page and is it revealed on focus?</td>
+    <td>Есть ли «ссылка пропуска» в самом верху страницы и становится ли она видимой при фокусе?</td>
     <td></td>
     <td></td>
     <td><span role="img" aria-label="yes">&#9989;</span></td>
     <td></td>
   </tr>
   <tr>
-    <td>Does the organization of navigational elements facilitate wayfinding?</td>
+    <td>Помогает ли организация навигационных элементов ориентированию?</td>
     <td><span role="img" aria-label="yes">&#9989;</span></td>
     <td></td>
     <td></td>
@@ -212,76 +181,61 @@ checkpoint could look like the following:
 </table>
 </div>
 
-After everyone on the team looks at the page or component and conducts their
-accessibility heuristic review, the totals are tallied up for each checkpoint.
-At this point, you can decide how to remedy any found issues or
-correct any omissions that are paramount to supporting digital accessibility.
+После того как каждый член команды изучит страницу или компонент и проведёт свою проверку по эвристикам, подсчитайте баллы по каждому пункту. Затем решите, как устранить выявленные проблемы или исправить критические упущения, влияющие на цифровую доступность.
 
-## Accessibility annotations
+## Аннотации по доступности
 
-Before you hand off your design to the development team, you should consider
-adding [accessibility annotations](https://stephaniewalter.design/blog/a-designers-guide-to-documenting-accessibility-user-interactions/).
-Annotations, in general, are used to explain creative choices and describe
-different aspects of the design. Accessibility annotations focus on areas where
-developers can make more accessible programmatic choices with the guidance of
-the design team or an accessibility-focused specialist.
+Прежде чем передавать дизайн команде разработки, подумайте о добавлении [аннотаций по доступности](https://stephaniewalter.design/blog/a-designers-guide-to-documenting-accessibility-user-interactions/). В общем случае аннотации объясняют творческие решения и описывают разные аспекты дизайна. Аннотации по доступности фокусируются на областях, где разработчики могут принять более доступные программные решения с ориентиром от дизайн‑команды или специалиста по доступности.
 
-Accessibility annotations can be applied during any stage of the design
-process, from wireframes to high-fidelity mock-ups. They can include user
-flows, conditional states, and functionality. They often utilize symbols and
-labels to streamline the process and keep the design as the main focus.
+Аннотации можно применять на любом этапе — от вайрфреймов до высокодетализированных макетов. Они могут включать пользовательские потоки, условные состояния и функциональность. Часто применяются условные обозначения и подписи, чтобы упростить процесс и сохранить фокус на самом дизайне.
 
-The following design illustrations examples are from [Indeed.com's accessibility annotations kit](https://www.figma.com/community/file/953682768192596304) for Figma.
+Приведённые ниже примеры иллюстраций дизайна взяты из [набора аннотаций по доступности Indeed.com](https://www.figma.com/community/file/953682768192596304) для Figma.
 
 <div class="auto-grid">
  <figure>
     {% Img
     src="image/VbsHyyQopiec0718rMq2kTE1hke2/C365JZBXSoqHkSq068sy.png",
-    alt="Design illustration of visual modifications used for various possible button states.",
+    alt="Иллюстрация визуальных изменений для различных возможных состояний кнопок.",
     width="350", height="232"
     %}
    <figcaption>
-     Action button design differs based on state: default, focus, hover, active, and disabled.
+     Дизайн кнопки действия отличается в состояниях: по умолчанию, фокус, наведение, активна, отключена.
    </figcaption>
  </figure>
  <figure>
     {% Img
     src="image/VbsHyyQopiec0718rMq2kTE1hke2/sRwFc6CeeqXVbY8XT7k6.png",
-    alt="Design illustration of three different icons used on a job posting card.",
+    alt="Иллюстрация трёх разных иконок, используемых на карточке вакансии.",
     width="350", height="232"
     %}
    <figcaption>
-     Three icons have alt text highlighted. The icons for "save job" and "not interested" act as buttons, therefore the alt text is critical to understanding action. The icon next to "Apply with your Indeed resume" is purely decorative and therefore doesn't need alt text.
+     У трёх иконок выделен альтернативный текст. Иконки «сохранить вакансию» и «неинтересно» работают как кнопки, поэтому alt‑текст критичен для понимания действия. Иконка рядом с «Отклик с резюме Indeed» носит декоративный характер и не требует alt‑текста.
    </figcaption>
  </figure>
  <figure>
     {% Img
     src="image/VbsHyyQopiec0718rMq2kTE1hke2/Xvw23qkfel5KeqQoh7cE.png",
-    alt="Illustration of the relationship the form labels should have on their related inputs for month and year. ",
+    alt="Иллюстрация правильной связи подписей полей формы с соответствующими полями для месяца и года.",
     width="350", height="232"
     %}
    <figcaption>
-     Multiple input labels can be associated with each input, to help users understand context.
+     С каждым полем может быть связано несколько подписей, чтобы помочь пользователям понять контекст.
    </figcaption>
  </figure>
 </div>
 
-Depending on your design program, you should have multiple
-[accessibility annotation starter kits](https://www.figma.com/community/tag/a11y/popular)
-to choose from. Or, if you prefer, you can create your own set. In either case,
-you should decide which information needs to be communicated to
-the hand-off team and what format works best.
+В зависимости от используемого инструмента дизайна у вас, скорее всего, есть несколько [стартовых наборов аннотаций по доступности](https://www.figma.com/community/tag/a11y/popular) на выбор. Либо вы можете создать собственный набор. В любом случае определите, какую информацию нужно донести команде, принимающей работу, и какой формат будет оптимальным.
 
-Some areas to consider for accessibility annotations include:
+Вот на что стоит обратить внимание в аннотациях по доступности:
 
-* **Color**: include contrast ratios of all of the different combinations of colors in the palette.
-* **Buttons and links**: identify default, hover, active, focus, and disabled states.
-* **Skip links**: highlight the hidden/visible design aspects and where they link to on the page.
-* **Images and icons**: add alternative text recommendations for essential images/icons.
-* **Audio and video**: highlight areas/links for captions, transcripts, and audio descriptions.
-* **Headings**: add programmatic levels and include everything that looks like a heading.
-* **Landmarks**: highlight the different sections of the design with HTML or ARIA.
-* **Interactive components**: identify clickable elements, hover effects, focus area.
-* **Keyboard**: identify where the focus should start (alpha stop) and the following tab order.
-* **Forms**: add field labels, helper text, error messages, and success messages.
-* **Accessible names**: identify how assistive technology should recognize the element.
+*   **Цвет**: укажите коэффициенты контрастности для всех сочетаний цветов из палитры.
+*   **Кнопки и ссылки**: обозначьте состояния по умолчанию, наведения, активации, фокуса и отключения.
+*   **Ссылки пропуска**: выделите скрытые/видимые аспекты дизайна и точки назначения на странице.
+*   **Изображения и иконки**: дайте рекомендации по альтернативному тексту для значимых изображений/иконок.
+*   **Аудио и видео**: отметьте области/ссылки для субтитров, транскриптов и аудиоописаний.
+*   **Заголовки**: добавьте программные уровни и включите всё, что визуально похоже на заголовок.
+*   **Ориентиры**: выделите различные секции дизайна с помощью HTML или ARIA.
+*   **Интерактивные компоненты**: обозначьте кликабельные элементы, эффекты наведения и область фокуса.
+*   **Клавиатура**: укажите, где должен начинаться фокус (alpha stop) и последующий порядок табуляции.
+*   **Формы**: добавьте подписи полей, вспомогательный текст, сообщения об ошибках и об успехе.
+*   **Доступные имена**: определите, как вспомогательные технологии должны распознавать элемент.
