@@ -21,7 +21,7 @@ hide:
 
     [:octicons-arrow-right-24: MIME-типы](./html/list-mime-types.md)
 
--   :simple-css3:{ .lg .middle } **CSS**
+-   :fontawesome-brands-css3-alt:{ .lg .middle } **CSS**
 
     ***
 
