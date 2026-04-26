@@ -51,7 +51,7 @@ icon: material/security
     -   Не принуждайте к [обновлению паролей](https://web.dev/sign-up-form-best-practices/#no-forced-password-updates).
     -   Обеспечьте пользователям простоту смены или сброса паролей.
 
-## Помочь пользователям получить доступ к своим персональным данным
+## Помочь пользователям получить доступ к своим персональным данным {#help-users-access-their-personal-data}
 
 Во многих регионах действуют законы и нормативные акты, касающиеся защиты данных и конфиденциальности, в том числе [CCPA](https://en.wikipedia.org/wiki/California_Consumer_Privacy_Act) в Калифорнии и [PDPA](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3244203) в Индии. Каждый сайт, доступный в Европейском союзе (ЕС), должен соблюдать [General Data Protection Regulation](https://ru.wikipedia.org/wiki/%D0%9E%D0%B1%D1%89%D0%B8%D0%B9_%D1%80%D0%B5%D0%B3%D0%BB%D0%B0%D0%BC%D0%B5%D0%BD%D1%82_%D0%BF%D0%BE_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B5_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85) (GDPR), даже если сайт расположен не в ЕС.
 
@@ -97,7 +97,7 @@ reCAPTCHA выполняет различные проверки, чтобы в�
 
     Всегда следите за тем, чтобы средства защиты от спама были доступны. Опробуйте их с помощью программы чтения с экрана, а также используя только клавиатуру. Самая лучшая защита от спама бесполезна, если она делает форму непригодной для использования реальными людьми.
 
-### Honeypot
+### Honeypot {#a-honeypot}
 
 <iframe src="https://codepen.io/web-dot-dev/embed/c8e82763c4ce344eb23dfd3ef621b662?height=400&amp;theme-id=light&amp;default-tab=html%2Cresult&amp;editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>.
 

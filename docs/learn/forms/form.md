@@ -89,7 +89,7 @@ icon: material/form-textbox-lock
 
     Более подробную информацию можно найти в [W3C Form Timeout Guidelines](https://www.w3.org/WAI/WCAG21/Understanding/timeouts.html).
 
-## Разрешите пользователям отправлять файлы
+## Разрешите пользователям отправлять файлы {#enable-users-to-submit-files}
 
 Используйте `<input type="file">`, чтобы дать возможность пользователям загружать и отправлять файлы, если это необходимо.
 

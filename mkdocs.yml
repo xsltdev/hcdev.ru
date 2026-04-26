@@ -39,6 +39,7 @@ theme:
         - navigation.top
         - navigation.footer
         - navigation.indexes
+        - navigation.path
         - content.action.edit
         - content.code.copy
     favicon: html.svg
@@ -56,6 +57,9 @@ extra:
         - icon: fontawesome/brands/linkedin
           link: https://www.linkedin.com/in/bndby/
           name: LinkedIn
+    analytics:
+        provider: google
+        property: G-898K4P2DB8
 
 markdown_extensions:
     - admonition
@@ -105,4 +109,4 @@ extra_javascript:
     - 'https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/public/caniuse-embed.min.js'
 
 extra_css:
-    - '/assets/stylesheets/styles.css?10'
+    - '/assets/stylesheets/styles.css?11'

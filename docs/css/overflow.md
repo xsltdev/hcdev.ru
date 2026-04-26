@@ -72,7 +72,7 @@ overflow: revert-layer;
 overflow: unset;
 ```
 
-## Значения
+## Значения {#значения}
 
 `visible`
 

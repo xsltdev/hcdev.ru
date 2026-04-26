@@ -29,7 +29,7 @@ of the [Voluntary Product Accessibility Template (VPAT)](#vpat).
 
 [ACT](https://www.w3.org/WAI/standards-guidelines/act/) is commonly referred to
 as an accessibility audit. The ACT utilizes various testing methodology and
-tools: primarily automated, manual, and [assistive technology](#AT) (AT)
+tools: primarily automated, manual, and [assistive technology](#at) (AT)
 devices.
 
 ACT is first performed as a baseline metric to gauge general

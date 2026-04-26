@@ -201,7 +201,7 @@ button.back {
 
 Медиафункции также могут сообщать о том, какой механизм ввода используется для взаимодействия с сайтом: `hover`, `any-hover`, `pointer` и `any-pointer`. Более подробная информация приведена в [модуле по взаимодействию](interaction.md).
 
-## Предпочтения
+## Предпочтения {#preferences}
 
 Существует ряд медиазапросов, позволяющих реагировать на предпочтения пользователя: `prefers-color-scheme`, `prefers-contrast` и `prefers-reduced-motion`. Более подробную информацию см. в модулях [theming](theming.md) и [accessibility](accessibility.md).
 
