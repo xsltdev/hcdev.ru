@@ -51,6 +51,10 @@ accent-color: unset;
 
 -   [CSS Basic User Interface Module Level 4](https://w3c.github.io/csswg-drafts/css-ui/#widget-accent)
 
+## Поддержка браузерами
+
+<bndby-browser-compat feature="css.properties.accent-color"></bndby-browser-compat>
+
 ## Пример
 
 === "HTML"

@@ -151,3 +151,7 @@ h3 {
 	background: url('/heart.svg') left center / 16px 16px
 		no-repeat;
 }
+
+.md-typeset h1, .md-typeset h2, .md-typeset h3 {
+    font-weight: 300;
+}

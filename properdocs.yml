@@ -8,8 +8,9 @@ repo_name: 'Справочник на Github'
 repo_url: 'https://github.com/xsltdev/hcdev.ru'
 
 theme:
-    name: material
+    name: materialx
     custom_dir: overrides
+    topbar_style: primary
     palette:
         - media: '(prefers-color-scheme)'
           primary: red
@@ -107,6 +108,7 @@ plugins:
 
 extra_javascript:
     - 'https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/public/caniuse-embed.min.js'
+    - '/assets/js/bndby-browser-compat.js?1'
 
 extra_css:
     - '/assets/stylesheets/styles.css?11'
