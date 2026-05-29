@@ -24,13 +24,13 @@ pip3 install -r ./requirements.txt
 Сборка проекта:
 
 ```
-mkdocs build
+properdocs build
 ```
 
 Режим разработчика:
 
 ```
-mkdocs serve --dirtyreload
+properdocs serve -o
 ```
 
 ## Публикация
