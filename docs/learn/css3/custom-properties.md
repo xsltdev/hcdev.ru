@@ -115,7 +115,7 @@ icon: material/variable
 
 ```javascript
 const element = document.getElementById("my-button");
-getComputedStyle(element).setPropertyValue("--color", "orange");
+element.style.setProperty("--color", "orange");
 ```
 
 Этот пример обновляет атрибут style элемента `#my-button`. Если посмотреть его в инструментах разработчика, вы увидите:

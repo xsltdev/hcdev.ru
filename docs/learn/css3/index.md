@@ -7,7 +7,7 @@ hide: — toc
 
 В этом курсе основы CSS разбиты на легко усваиваемые и понятные фрагменты. В течение следующих нескольких модулей вы узнаете, как работают основные аспекты CSS и как эффективно использовать их в своих проектах.
 
-Вы познакомитесь с такими основами CSS, как блочная модель, каскад и специфика, flexbox, сетка и z-index. Наряду с этими основами вы узнаете о функциях, типах цветов, градиентах, логических свойствах и наследовании, что позволит вам стать всесторонне развитым разработчиком, готовым к работе над любым пользовательским интерфейсом.
+Вы познакомитесь с такими основами CSS, как блочная модель, каскад и специфика, flexbox, сетка и z-index. Наряду с этими основами вы узнаете о функциях, типах цветов, градиентах, логических свойствах и наследовании, а также о вложенности, пользовательских свойствах, контейнерных запросах и якорном позиционировании. Это позволит вам стать всесторонне развитым разработчиком, готовым к работе над любым пользовательским интерфейсом.
 
 Каждый модуль содержит интерактивные демонстрации. Помимо чтения и демонстраций, к каждой теме прилагается эпизод подкаста — еще один способ обучения и расширения знаний.
 
@@ -32,6 +32,14 @@ hide: — toc
     Чтобы применить CSS к элементу, необходимо его выбрать. CSS предоставляет несколько различных способов сделать это, и в этом модуле вы можете изучить их
 
     [:octicons-arrow-right-24: Селекторы](selectors.md)
+
+-   :material-code-braces:{ .lg .middle } **Вложенность**
+
+    ***
+
+    Вложенность правил CSS делает таблицы стилей организованнее, удобнее для чтения и проще в сопровождении.
+
+    [:octicons-arrow-right-24: Вложенность](nesting.md)
 
 -   :material-card-bulleted:{ .lg .middle } **Каскад**
 
@@ -105,6 +113,14 @@ hide: — toc
 
     [:octicons-arrow-right-24: Логические свойства](logical-properties.md)
 
+-   :material-variable:{ .lg .middle } **Пользовательские свойства**
+
+    ***
+
+    Пользовательские свойства, или CSS-переменные, помогают организовать и переиспользовать значения, чтобы стили были гибче и понятнее.
+
+    [:octicons-arrow-right-24: Пользовательские свойства](custom-properties.md)
+
 -   :material-format-paragraph-spacing:{ .lg .middle } **Интервалы**
 
     ***
@@ -153,6 +169,14 @@ hide: — toc
 
     [:octicons-arrow-right-24: Фокус](focus.md)
 
+-   :material-cursor-default:{ .lg .middle } **Курсоры и указатели**
+
+    ***
+
+    Курсор подсказывает, с чем пользователь взаимодействует. В этом модуле — как менять курсор в конкретных случаях.
+
+    [:octicons-arrow-right-24: Курсоры и указатели](cursors-and-pointers.md)
+
 -   :material-layers:{ .lg .middle } **Z-индекс**
 
     ***
@@ -161,6 +185,22 @@ hide: — toc
 
     [:octicons-arrow-right-24: Z-индекс](z-index.md)
 
+-   :material-anchor:{ .lg .middle } **Якорное позиционирование**
+
+    ***
+
+    Якорное позиционирование декларативно размещает элемент относительно другого элемента.
+
+    [:octicons-arrow-right-24: Якорное позиционирование](anchor-positioning.md)
+
+-   :material-message-outline:{ .lg .middle } **Popover и dialog**
+
+    ***
+
+    Popover — любой элемент с атрибутом `popover`. Он подходит для подсказок, предупреждений, тостов и других интерактивных паттернов.
+
+    [:octicons-arrow-right-24: Popover и dialog](popover-and-dialog.md)
+
 -   :material-function-variant:{ .lg .middle } **Функции**
 
     ***
@@ -168,6 +208,14 @@ hide: — toc
     CSS обладает целым рядом встроенных функций. В этом модуле вы узнаете о некоторых ключевых функциях и о том, как их использовать.
 
     [:octicons-arrow-right-24: Функции](functions.md)
+
+-   :material-vector-polyline:{ .lg .middle } **Контуры, фигуры, обтравка и маски**
+
+    ***
+
+    Контуры, фигуры, обтравка и маски позволяют строить в CSS сложные формы и запоминающиеся визуальные эффекты.
+
+    [:octicons-arrow-right-24: Контуры, фигуры, обтравка и маски](paths-shapes-clipping-masking.md)
 
 -   :material-gradient-vertical:{ .lg .middle } **Градиенты**
 
@@ -209,6 +257,14 @@ hide: — toc
 
     [:octicons-arrow-right-24: Списки](lists.md)
 
+-   :material-format-list-numbered:{ .lg .middle } **Счётчики**
+
+    ***
+
+    В CSS есть несколько способов управлять счётчиками списка. В этом модуле — как задавать их значения под разные задачи.
+
+    [:octicons-arrow-right-24: Счётчики](counters.md)
+
 -   :material-transition:{ .lg .middle } **Переходы**
 
     ***
@@ -216,6 +272,14 @@ hide: — toc
     В этом модуле вы узнаете, как определить переходы между состояниями элемента. Использование переходов позволяет повысить удобство работы пользователя, обеспечивая визуальную обратную связь при взаимодействии с ним.
 
     [:octicons-arrow-right-24: Переходы](transitions.md)
+
+-   :material-animation:{ .lg .middle } **View Transitions для SPA**
+
+    ***
+
+    View Transitions показывают непрерывность и контекст при переходе между страницами одностраничного приложения.
+
+    [:octicons-arrow-right-24: View Transitions для SPA](view-transitions-spas.md)
 
 -   :material-format-text-wrapping-overflow:{ .lg .middle } **Переполнение**
 
@@ -241,11 +305,27 @@ hide: — toc
 
     [:octicons-arrow-right-24: Текст и типографика](typography.md)
 
+-   :material-resize:{ .lg .middle } **Контейнерные запросы**
+
+    ***
+
+    В отличие от медиазапросов, контейнерные запросы подстраивают элемент под размер и состояние предка, а не области просмотра.
+
+    [:octicons-arrow-right-24: Контейнерные запросы](container-queries.md)
+
+-   :material-flag-checkered:{ .lg .middle } **Заключение**
+
+    ***
+
+    Дополнительные материалы, чтобы продолжить изучение CSS.
+
+    [:octicons-arrow-right-24: Заключение и следующие шаги](conclusion.md)
+
 </div>
 
 !!!note "Авторы"
 
-    Этот курс написан и отредактирован экспертами сообщества CSS: [Andy Bell](https://twitter.com/piccalilli_), [Rachel Andrew](https://twitter.com/rachelandrew), [Una Kravets](https://twitter.com/Una), [Adam Argyle](https://twitter.com/argyleink), [Emma Twersky](https://twitter.com/twerske), [Camden Bickel](https://twitter.com/camdenbickel), и [Kevin Lozandier](https://twitter.com/KevinLozandier). [Rob Dodson](https://twitter.com/rob_dodson) и [Jiwoong Lee](https://twitter.com/jiwoong) руководили UX и производственной сборкой, а также помогали [Ewa Gasperowicz](https://twitter.com/devnook) и [Kayce Basques](https://twitter.com/kaycebasques).
+    Этот курс написан и отредактирован экспертами сообщества CSS: [Andy Bell](https://twitter.com/piccalilli_), [Rachel Andrew](https://twitter.com/rachelandrew), [Una Kravets](https://twitter.com/Una), [Adam Argyle](https://twitter.com/argyleink), [Emma Twersky](https://twitter.com/twerske), [Camden Bickel](https://twitter.com/camdenbickel), и [Kevin Lozandier](https://twitter.com/KevinLozandier). [Rob Dodson](https://twitter.com/rob_dodson) и [Jiwoong Lee](https://twitter.com/jiwoong) руководили UX и производственной сборкой, а также помогали [Ewa Gasperowicz](https://twitter.com/devnook) и [Kayce Basques](https://twitter.com/kaycebasques). Обновления и новые модули 2025 года написала команда Oddbird, редактура и подготовка — Jeremy Wagner.
 
 !!!danger "Перевод"
 

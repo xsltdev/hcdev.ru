@@ -183,6 +183,119 @@ h1 {
 
 Подробнее о функциях `min()`, `max()` и `clamp`() можно узнать в [этой статье](https://web.dev/min-max-clamp/).
 
+## Тригонометрические функции
+
+Тригонометрические функции находят точку на окружности по углу, описывают циклы вроде звуковой волны, орбиты и многое другое. В CSS ими задают свойства от угла поворота, анимации по времени и поворот элемента относительно точки.
+
+Подробности и примеры — в [статье о тригонометрических функциях](https://web.dev/articles/css-trig-functions).
+
+### `sin()`, `cos()` и `tan()`
+
+[`sin()`](https://developer.mozilla.org/docs/Web/CSS/sin), [`cos()`](https://developer.mozilla.org/docs/Web/CSS/cos) и [`tan()`](https://developer.mozilla.org/docs/Web/CSS/tan) принимают угол и возвращают синус, косинус и тангенс. `sin()` и `cos()` дают число от `-1` до `1`. `tan()` — от `-Infinity` до `+Infinity`. Угол можно задать любой поддерживаемой единицей.
+
+```css
+:root {
+    --sine-degrees: sin(45deg); /* 0.7071 */
+    --sine-radians: sin(0.7853rad); /* 0.7071 */
+}
+```
+
+Здесь `--sine-degrees` и `--sine-radians` совпадают: оба равны `0.7071`.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/jEPwVJr?height=500&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+В демонстрации `sin()` и `cos()` строят колебания по осям `x` и `y`: результат умножают на радиус. Вместе функции дают орбиту. Угол для всех вызовов плавно меняет [пользовательское свойство](custom-properties.md) `--angle`.
+
+### `asin()`, `acos()` и `atan()`
+
+[`asin()`](https://developer.mozilla.org/docs/Web/CSS/asin), [`acos()`](https://developer.mozilla.org/docs/Web/CSS/acos) и [`atan()`](https://developer.mozilla.org/docs/Web/CSS/atan) — обратные функции. Они принимают число и возвращают угол от `-90deg` до `90deg`. `asin()` и `acos()` принимают число от `-1` до `1`, `atan()` — от `-Infinity` до `+Infinity`.
+
+```css
+:root {
+    --degrees: asin(0.7071); /* 45deg */
+}
+```
+
+### `atan2()`
+
+[`atan2()`](https://developer.mozilla.org/docs/Web/CSS/atan2) принимает две координаты точки относительно начала и возвращает угол направления на эту точку. Так элемент поворачивают к нужной точке. Аргументы могут быть числами, размерами или процентами, но оба должны быть одного вида.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/EajXNMo?height=500&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+В примере `atan2()` считает угол между центром области просмотра и курсором. Первым аргументом идёт `y`, вторым — `x`. Угол ставит «зрачки» относительно центра «глаз», и они следят за указателем.
+
+### `hypot()`
+
+[`hypot()`](https://developer.mozilla.org/docs/Web/CSS/hypot) принимает две длины катетов прямоугольного треугольника и возвращает гипотенузу. Это короче, чем считать то же самое через степени. Оба аргумента должны быть в одних единицах, и результат будет в них же.
+
+```css
+:root {
+    --use-ems: hypot(3em, 4em); /* 5em */
+    --use-px: hypot(30px, 40px); /* 50px */
+}
+```
+
+## Показательные функции
+
+### `pow()` и `exp()`
+
+[`pow()`](https://developer.mozilla.org/docs/Web/CSS/pow) принимает основание и показатель и возводит основание в эту степень. Оба аргумента — числа без единиц. [`exp()`](https://developer.mozilla.org/docs/Web/CSS/exp) принимает один аргумент и совпадает с `pow()` при основании [*e*](https://en.wikipedia.org/wiki/E_(mathematical_constant)).
+
+```css
+.my-element {
+    width: calc(10px * pow(4, 2)); /* 10px * (4 * 4) == 160px */
+}
+```
+
+### `sqrt()`
+
+[`sqrt()`](https://developer.mozilla.org/docs/Web/CSS/sqrt) возвращает квадратный корень числа. У аргумента не должно быть единиц.
+
+```css
+:root {
+    --root: sqrt(25); /* 5 */
+}
+```
+
+### `log()`
+
+[`log()`](https://developer.mozilla.org/docs/Web/CSS/log) возвращает [логарифм](https://en.wikipedia.org/wiki/Logarithm) числа. С одним аргументом это [натуральный логарифм](https://en.wikipedia.org/wiki/Natural_logarithm). Второй аргумент задаёт основание.
+
+```css
+:root {
+    --log2: log(16, 2); /* 4 */
+    --logn: log(16); /* 2.7725 */
+}
+```
+
+## Функции знака
+
+### `abs()`
+
+[`abs()`](https://developer.mozilla.org/docs/Web/CSS/abs) возвращает абсолютное, то есть неотрицательное, значение аргумента.
+
+```css
+.my-element {
+    color: rgba(0, 0, 0, abs(-1));
+}
+```
+
+Альфа `-1` сделала бы текст прозрачным, а `abs()` возвращает `1`, и текст становится полностью непрозрачным.
+
+### `sign()`
+
+[`sign()`](https://developer.mozilla.org/docs/Web/CSS/sign) возвращает знак числа: `1` для положительного, `-1` для отрицательного и `0` для нуля.
+
+```css
+.my-element {
+    top: calc(50vh + 25vh * sign(var(--value)));
+}
+```
+
+<iframe src="https://codepen.io/web-dot-dev/embed/LEVLbaB?height=500&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Если `--value` положительное, `top` станет `75vh`. Если отрицательное — `25vh`. Если ноль — `50vh`.
+
 ## Фигуры
 
 CSS-свойства [`clip-path`](../../css/clip-path.md), [`offset-path`](../../css/offset-path.md) и [`shape-outside`](../../css/shape-outside.md) используют фигуры для визуальной фиксации блока или создания формы для обтекания содержимого.

@@ -186,6 +186,14 @@ hide:
 
     [:octicons-arrow-right-24: Dialog](dialog.md)
 
+-   :material-flag-checkered:{ .lg .middle } **Заключение**
+
+    ***
+
+    Дополнительные материалы после курса HTML.
+
+    [:octicons-arrow-right-24: Заключение и следующие шаги](conclusion.md)
+
 </div>
 
 !!!note "Авторы курса"

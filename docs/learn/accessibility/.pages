@@ -15,8 +15,9 @@ nav:
     - video-audio.md
     - forms.md
     - patterns.md
-    #- design-ux.md
-    #- test-automated.md
-    #- test-manual.md
-    #- test-assistive-technology.md
-    #- glossary.md
+    - design-ux.md
+    - test-automated.md
+    - test-manual.md
+    - test-assistive-technology.md
+    - glossary.md
+    - conclusion.md

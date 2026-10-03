@@ -254,6 +254,14 @@ hide:
 
     [:octicons-arrow-right-24: Формы адреса](address.md)
 
+-   :material-flag-checkered:{ .lg .middle } **Заключение**
+
+    ***
+
+    Дополнительные материалы, чтобы продолжить работу с формами.
+
+    [:octicons-arrow-right-24: Заключение и следующие шаги](conclusion.md)
+
 </div>
 
 !!!note "Авторы"

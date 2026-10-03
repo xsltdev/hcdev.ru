@@ -219,14 +219,62 @@ button.back {
 }
 ```
 
-## Другие медиа-функции
+## Предпочтения контраста
 
-В ближайшее время появятся новые медиа-функции.
+Кому-то удобнее читать с высоким или низким контрастом, и система может подменять тему сайта. Задача автора — чтобы сайт оставался рабочим и с этими настройками.
 
-Функции [`forced-colors`](https://developer.mozilla.org/docs/Web/CSS/@media/forced-colors) и [`inverted-colors`](https://developer.mozilla.org/docs/Web/CSS/@media/inverted-colors) будут сообщать, используется ли на устройстве ограниченная или инвертированная цветовая палитра.
+В модуле [каскада](../css3/the-cascade.md) локальные пользовательские стили с `!important` перекрывают стили страницы. Так человек оставляет оформление, которое ему подходит.
 
-Медиафункция [`scripting`](https://developer.mozilla.org/docs/Web/CSS/@media/scripting) позволяет корректировать CSS в зависимости от наличия JavaScript.
+### Принудительные цвета
 
-Медиафункция [`prefers-reduced-data`](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-data) позволит пользователям указывать, что они находятся на дозированном соединении, и отправлять меньший объем ресурсов.
+В Windows есть «контрастные темы»: они заменяют цвета сайта и часто дают высокий контраст в светлом или тёмном режиме. В CSS это режим принудительных цветов. Кнопки, ссылки, поля и остальной контент обычно берут цвета темы сами.
 
-Другие предложения пока находятся в стадии разработки. В следующем, заключительном модуле вы узнаете о предложении по созданию функции мультимедиа для работы с различными конфигурациями экранов.
+Иногда стили всё же нужно поправить, например если элементы используются нестандартно. Запрос `@media (forced-colors: active)` применяет стили, когда режим включён.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/KwdRvym?height=500&theme-id=dark&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Если цвет сам является содержанием — палитра или график с легендой — элемент можно вывести из режима: `forced-color-adjust: none`. Отключайте режим только у конкретных элементов и проверяйте, что содержимое остаётся доступным.
+
+### Высокий контраст
+
+Запрос `prefers-contrast: more` отвечает на просьбу системы увеличить контраст.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/emprEeV?height=500&theme-id=dark&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+!!!note ""
+
+    Принудительные цвета заменяют палитру страницы, но сами по себе не означают запрос высокого контраста. Когда они включены, `prefers-contrast` будет `more` для высококонтрастных тем, `less` для низкоконтрастных и `custom`, если система не может определить уровень. Чтобы попасть к тем, кто просит высокий контраст, но не включает принудительные цвета, используйте `@media (prefers-contrast: more) and (forced-colors: none)`.
+
+## Уменьшенное движение
+
+`prefers-reduced-motion` отвечает на просьбу уменьшить движение. Так заменяют анимации с крупными смещениями, которые опасны при эпилепсии, вестибулярных нарушениях и чувствительности к мигрени. Подробнее — в [особенностях работы с анимацией](../css3/animations.md).
+
+<iframe src="https://codepen.io/web-dot-dev/embed/myeLMpd?height=500&theme-id=dark&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+## Скрипты
+
+Если JavaScript выключен, медиафункция [`scripting`](https://developer.mozilla.org/docs/Web/CSS/@media/scripting) помогает оставить содержимое доступным.
+
+```css
+@media (scripting: none) {
+    /* стили, когда JavaScript выключен */
+}
+
+@media (scripting: initial-only) {
+    /* стили, когда JavaScript доступен только при первой отрисовке, например при печати или на сервере */
+}
+
+@media (scripting: enabled) {
+    /* стили, когда JavaScript включён */
+}
+```
+
+<iframe src="https://codepen.io/web-dot-dev/embed/KwdRvZq?height=500&theme-id=dark&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+## Другие медиафункции
+
+[`inverted-colors`](https://developer.mozilla.org/docs/Web/CSS/@media/inverted-colors) сообщает, инвертирована ли палитра устройства.
+
+[`prefers-reduced-data`](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-data) позволяет указать дозированное соединение и отдавать меньше ресурсов. Поддержка пока не повсеместная.
+
+В следующем модуле — конфигурации экрана.
