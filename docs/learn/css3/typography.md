@@ -27,7 +27,88 @@ icon: material/text-box-outline
 
 <iframe src="https://codepen.io/web-dot-dev/embed/WNEJWGy?height=590&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 600px; width: 100%; border: 0;" loading="lazy"></iframe>
 
-В этом модуле мы сначала рассмотрим некоторые фундаментальные свойства шрифтов CSS, такие как `font-family`, `font-style`, `font-weight` и `font-size`. Затем мы рассмотрим свойства, влияющие на абзацы текста, такие как `text-indent` и `word-spacing`. В завершение модуля мы рассмотрим некоторые более сложные темы, такие как переменные шрифты и псевдоэлементы.
+В этом модуле мы сначала рассмотрим правило `@font-face` и фундаментальные свойства шрифтов CSS, такие как `font-family`, `font-style`, `font-weight` и `font-size`. Затем мы рассмотрим свойства, влияющие на абзацы текста, такие как `text-indent` и `word-spacing`. В завершение модуля мы рассмотрим некоторые более сложные темы, такие как переменные шрифты и псевдоэлементы.
+
+## Правило `@font-face`
+
+Правило [`@font-face`](https://developer.mozilla.org/docs/Web/CSS/@font-face) подключает собственные шрифты. Источником может быть файл на сервере или шрифт, уже установленный у пользователя.
+
+### Синтаксис
+
+```css
+@font-face {
+    font-family: "Trickster";
+    src:
+        local("Trickster"),
+        url("trickster-COLRv1.otf") format("opentype") tech(color-COLRv1),
+        url("trickster-outline.otf") format("opentype"),
+        url("trickster-outline.woff") format("woff");
+}
+```
+
+### Дескрипторы
+
+-   [`ascent-override`](https://developer.mozilla.org/docs/Web/CSS/@font-face/ascent-override) меняет метрику верхнего выноса и пространство над базовой линией.
+-   [`descent-override`](https://developer.mozilla.org/docs/Web/CSS/@font-face/descent-override) меняет нижний вынос и пространство под базовой линией.
+-   [`font-display`](https://developer.mozilla.org/docs/Web/CSS/@font-face/font-display) управляет показом шрифта в зависимости от статуса загрузки.
+-   [`font-family`](../../css/font-family.md) даёт шрифту имя для свойств шрифта.
+-   [`font-stretch`](https://developer.mozilla.org/docs/Web/CSS/font-stretch) задаёт допустимое горизонтальное растяжение одним значением или диапазоном.
+-   [`font-style`](../../css/font-style.md) задаёт начертание, для наклонных стилей — диапазон углов.
+-   [`font-weight`](../../css/font-weight.md) задаёт насыщенность или диапазон насыщенностей.
+-   [`font-feature-settings`](https://developer.mozilla.org/docs/Web/CSS/font-feature-settings) открывает возможности OpenType.
+-   [`font-variation-settings`](https://developer.mozilla.org/docs/Web/CSS/font-variation-settings) тонко настраивает вариативные шрифты.
+-   [`line-gap-override`](https://developer.mozilla.org/docs/Web/CSS/@font-face/line-gap-override) заменяет стандартный межстрочный зазор шрифта.
+-   [`size-adjust`](https://developer.mozilla.org/docs/Web/CSS/@font-face/size-adjust) масштабирует контур и метрики.
+-   [`src`](https://developer.mozilla.org/docs/Web/CSS/@font-face/src) указывает источник, локальный или удалённый. Для правила он обязателен. Связка `url()` и `local()` — обычный приём: сначала локальный шрифт, затем файл как запасной вариант. Браузер идёт по порядку объявления, поэтому `local()` обычно ставят перед `url()`.
+-   [`unicode-range`](https://developer.mozilla.org/docs/Web/CSS/@font-face/unicode-range) ограничивает набор символов, для которых используется этот шрифт.
+
+### Описание
+
+`@font-face` снимает ограничение «безопасными для веба» шрифтами. `local()` ищет шрифт на устройстве пользователя, и страница не обязательно зависит от сети.
+
+!!!note ""
+
+    Стратегии совместимости со старыми браузерами описаны в документации дескриптора `src`. `@font-face` также можно вкладывать в условные групповые правила CSS.
+
+### MIME-типы шрифтов
+
+| Формат | MIME-тип |
+| --- | --- |
+| TrueType | `font/ttf` |
+| OpenType | `font/otf` |
+| Web Open Font Format | `font/woff` |
+| Web Open Font Format 2 | `font/woff2` |
+
+!!!note ""
+
+    Веб-шрифты подчиняются политике одного источника. Для загрузки с другого источника настраивают HTTP-заголовки доступа.
+
+!!!note ""
+
+    `@font-face` нельзя объявлять внутри блока селектора.
+
+### Чем `@font-face` отличается от `font-family`
+
+Правила часто путают, хотя задачи у них разные.
+
+`@font-face` объявляет собственный шрифт: откуда его скачать, как показывать во время загрузки (`font-display`) и какой набор символов загружать (`unicode-range`).
+
+`font-family` — свойство внутри правила. Оно назначает элементу шрифт или список шрифтов: системный, «безопасный для веба» или объявленный через `@font-face`.
+
+Коротко: `@font-face` объявляет шрифт и даёт ему имя, а `font-family` применяет это имя к элементам.
+
+```css
+@font-face {
+    font-family: "CustomFont";
+    src: url("customfont.woff2") format("woff2");
+}
+
+body {
+    font-family: "CustomFont", Arial, sans-serif;
+}
+```
+
+Здесь `@font-face` описывает `CustomFont` и говорит браузеру, где его взять. `font-family` применяет его к `body`, а если файла нет, запасным будет Arial.
 
 ## Изменение шрифта {#font-family}
 

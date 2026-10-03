@@ -158,6 +158,14 @@ hide:
 
     [:octicons-arrow-right-24: Сети доставки контента изображений](cdn.md)
 
+-   :material-flag-checkered:{ .lg .middle } **Заключение**
+
+    ***
+
+    Дополнительные материалы по изображениям в вебе.
+
+    [:octicons-arrow-right-24: Заключение](conclusion.md)
+
 </div>
 
 !!!note "Авторы"

@@ -3,6 +3,7 @@ nav:
     - index.md
     - box-model.md
     - selectors.md
+    - nesting.md
     - the-cascade.md
     - specificity.md
     - inheritance.md
@@ -12,20 +13,29 @@ nav:
     - flexbox.md
     - grid.md
     - logical-properties.md
+    - custom-properties.md
     - spacing.md
     - pseudo-elements.md
     - pseudo-classes.md
     - borders.md
     - shadows.md
     - focus.md
+    - cursors-and-pointers.md
     - z-index.md
+    - anchor-positioning.md
+    - popover-and-dialog.md
     - functions.md
+    - paths-shapes-clipping-masking.md
     - gradients.md
     - animations.md
     - filters.md
     - blend-modes.md
     - lists.md
+    - counters.md
     - transitions.md
+    - view-transitions-spas.md
     - overflow.md
     - backgrounds.md
     - typography.md
+    - container-queries.md
+    - conclusion.md

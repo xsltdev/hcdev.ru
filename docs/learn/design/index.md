@@ -27,6 +27,7 @@ description: Курс, изучающий все аспекты адаптивн
 -   [Шаблоны UI](ui-patterns.md)
 -   [Мультимедийные возможности](media-features.md)
 -   [Конфигурации экрана](screen-configurations.md)
+-   [Заключение](conclusion.md)
 
 !!!note "Авторы"
 

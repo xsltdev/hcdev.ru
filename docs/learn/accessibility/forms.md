@@ -128,8 +128,13 @@ description: Создание доступных форм.
 
 <iframe allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;" loading="lazy" src="https://codepen.io/web-dev-codepen-external/embed/abjJYWR?height=400&amp;theme-id=auto&amp;default-tab=html%2C%20result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" data-title="Pen abjJYWR by web-dev-codepen-external on Codepen"></iframe>
 
-!!!note ""
+## Дополнительные критерии успеха
 
-	Хотя WCAG 2.2 все еще находится в разработке, существует несколько предлагаемых критериев успеха, которые будут сосредоточены на более доступном опыте форм, таких как [Минимальный размер цели](https://www.w3.org/TR/WCAG22/#target-size-minimum), [Последовательная помощь](https://www.w3.org/TR/WCAG22/#consistent-help), [Доступная аутентификация](https://www.w3.org/TR/WCAG22/#accessible-authentication) и [Избыточный ввод](https://www.w3.org/TR/WCAG22/#redundant-entry), о которых следует знать для будущих проектов.
+В WCAG 2.2 появились критерии, которые делают формы доступнее:
+
+-   [Минимальный размер цели](https://www.w3.org/TR/WCAG22/#target-size-minimum)
+-   [Последовательная помощь](https://www.w3.org/TR/WCAG22/#consistent-help)
+-   [Доступная аутентификация](https://www.w3.org/TR/WCAG22/#accessible-authentication)
+-   [Избыточный ввод](https://www.w3.org/TR/WCAG22/#redundant-entry)
 
 <small>:material-information-outline: Источник &mdash; <https://web.dev/learn/accessibility/forms></small>

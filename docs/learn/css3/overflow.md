@@ -176,6 +176,50 @@ overflow: hidden scroll;
 
 <iframe src="https://codepen.io/web-dot-dev/embed/powqJQe?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
+## Привязка прокрутки
+
+<iframe src="https://web.dev/frame/learn/css/overflow/index_7ac617eeaababdec90eeee4f848d7686b3b504b2acab87841d9fe2c592d6dd9f.frame" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Обычная прокрутка плавная: содержимое можно остановить в любом месте [порта прокрутки](https://developer.mozilla.org/docs/Glossary/Scroll_container#scrollport). Для галерей и макетов, которые ведут себя как страницы или слайды, содержимое удобнее привязывать к границам порта.
+
+### Настройка контейнера прокрутки
+
+Привязку включает [`scroll-snap-type`](../../css/scroll-snap-type.md) на контейнере. Сначала задают ось: логическую (`block` или `inline`), физическую (`x` или `y`) либо `both`.
+
+Затем — насколько жёстко привязывать. По умолчанию `proximity`: контейнер привязывается, если это возможно. `mandatory` заставляет привязываться всегда.
+
+```css
+.scroll-container {
+    scroll-snap-type: block mandatory;
+}
+```
+
+!!!note ""
+
+    При строгости `mandatory` между точками привязки можно получить недоступное содержимое. Проверяйте страницу на разных размерах экрана.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/vENRqwb?height=500&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Привязка выравнивает элемент по всей области контейнера. Если часть контейнера перекрыта, например фиксированной шапкой, `scroll-padding` сдвигает выравнивание к видимой части.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/PwPRrvM?height=500&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+### Управление привязываемыми элементами
+
+Чтобы элемент участвовал в привязке, задайте [`scroll-snap-align`](../../css/scroll-snap-align.md): `start`, `end` или `center`. Если направление `both`, можно указать два значения. Свойство решает, какой край элемента совпадёт с краем порта или будет ли элемент по центру.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/wBKmLLB?height=500&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Отступы вокруг привязанного элемента задаёт `scroll-margin`:
+
+<iframe src="https://codepen.io/web-dot-dev/embed/pvjLXXN?height=500&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+`scroll-margin` также задаёт отступ при прокрутке к элементу:
+
+<iframe src="https://codepen.io/web-dot-dev/embed/azvYggq?height=500&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+`scroll-snap-stop: always` делает остановку липче. Свойство не запрещает проскочить несколько элементов одним жестом. Если прокрутка продолжилась бы по инерции, она остановится на следующей точке привязки.
+
 ## Ресурсы
 
 [Переполнение и потеря данных в CSS из Smashing Magazine](https://www.smashingmagazine.com/2019/09/overflow-data-loss-css/)

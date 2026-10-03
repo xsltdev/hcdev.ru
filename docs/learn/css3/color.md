@@ -137,6 +137,182 @@ HSL расшифровывается как hue, saturation и lightness. **От
 
     Все ключевые слова цвета не чувствительны к регистру, однако часто можно встретить системные цвета с заглавной буквы, чтобы отличить их от стандартных ключевых слов цвета.
 
+## Цвета высокой чёткости
+
+RGB и HSL описывают цвета в гамме sRGB. Новые мониторы показывают гораздо больше цветов, чем умещают эти форматы. Такие цвета задают отдельными функциями CSS.
+
+!!!note ""
+
+    Гамму можно считать множеством всех задаваемых цветов, а цветовое пространство — способом выбрать цвет. Подробнее — в [руководстве по цветам высокой чёткости CSS](https://developer.chrome.com/articles/high-definition-css-color-guide/).
+
+### Функция `color()`
+
+```css
+h1 {
+    color: color(srgb 0.9 0.2 0.4);
+}
+```
+
+Функция [`color()`](https://developer.mozilla.org/docs/Web/CSS/color_value/color) выбирает цвет в конкретном цветовом пространстве. Первый аргумент — пространство, оно определяет смысл следующих каналов. Как и в `rgb()`, альфа задаётся числом от `0` до `1` или процентом после `/`.
+
+<iframe src="https://web.dev/frame/learn/css/color/index_4b62f57a3adc861fc0a1ef598eb90a851f65fa13cb9064f0fbe33f3fdd519ea9.frame" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Тёмно-красный из предыдущих примеров, `rgb(183 21 64)`, в процентах — `rgb(72% 8% 25%)`. Тот же цвет через `color()` и ключевое слово `srgb`: `color(srgb .72 .08 .25)`.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/jEPpydZ?height=500&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+`srgb` задаёт пространство и сообщает, что следующие три аргумента — красный, зелёный и синий. Значения идут от `0` до `1`, а не от `0` до `255`.
+
+Альфа задаётся так же, как в `rgb()`: через `/` и процент или десятичную дробь от `0` до `1`.
+
+У `color()` много цветовых пространств, у каждого свои сильные стороны.
+
+!!!note ""
+
+    Сейчас у всех определённых пространств три канала плюс альфа. В будущем в CSS могут появиться пространства с другим числом каналов, например CMYK.
+
+### Display P3
+
+```css
+h1 {
+    color: color(display-p3 0.9 0.2 0.4);
+}
+```
+
+Гамма Display P3 содержит примерно на 50% больше цветов, чем sRGB. Все цвета этой гаммы задаются пространством Display P3 в функции `color()`.
+
+Чёрный в Display P3 — `color(display-p3 0 0 0)`. После `display-p3` идут те же три канала, красный, зелёный и синий, что и у `color(srgb)`. Но это координаты более широкого пространства, поэтому одинаковые числа означают разные цвета.
+
+`color(srgb 1 .5 0)` — оранжевый, эквивалентный `color(display-p3 0.93596 0.52724 0.1983)`. Его можно сделать насыщеннее, выйдя за sRGB: `color(display-p3 1 .5 0)`.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/ZYGjLgm?height=500&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+### Oklab
+
+Oklab задаётся функцией `oklab()` с каналами светлоты, `a` и `b`. Пространство удобно для плавных градиентов и для изменения насыщенности без сдвига оттенка и светлоты.
+
+```css
+h1 {
+    color: oklab(75% 0.1 0.1);
+}
+```
+
+<iframe src="https://web.dev/frame/learn/css/color/index_192bfe4cf67662b12d9ab47c0bf0bc9377db78174687f956836b4acc6d7d006c.frame" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Канал светлоты идёт от `0` до `1` или от `0%` до `100%`. Светлота `0` всегда даёт чёрный.
+
+Канал `a` идёт от `-0.4` до `0.4` или от `0%` до `100%`. Меньшие значения зеленее, большие — краснее.
+
+Канал `b` идёт от `-0.4` до `0.4` или от `0%` до `100%`. Меньшие значения синее, большие — желтее.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/bNdjqNa?height=500&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+### OkLCh
+
+OkLCh — полярная, цилиндрическая форма OKLab. Каналы: светлота, хроматичность и оттенок. Пространство удобно, когда цвет нужно менять предсказуемо для глаза: сдвиг оттенка не меняет воспринимаемую светлоту и насыщенность.
+
+```css
+h1 {
+    color: oklch(80% 0.1 200);
+}
+```
+
+<iframe src="https://web.dev/frame/learn/css/color/index_192bfe4cf67662b12d9ab47c0bf0bc9377db78174687f956836b4acc6d7d006c.frame" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Светлота и оттенок уже знакомы по HSL, а хроматичность близка к насыщенности. Чёрный — `oklch(0 0 0)`, белый — `oklch(1 0 0)`.
+
+Светлота идёт от `0` до `1` или от `0%` до `100%`. Светлота `0` всегда чёрная.
+
+Хроматичность задаёт яркость цвета: `0` или `0%` — ненасыщенный цвет, большие значения — более цветной. `100%` совпадает с `.4`, но значения около `.4` быстро выходят за гамму.
+
+Оттенок задаётся в градусах, как в `hsl()`.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/ByNPWjm?height=500&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+OkLCh не ограничен гаммой вроде Display P3, поэтому нужно проверять, что цвет вообще можно показать. `oklch(80% 50% 200)` выглядит как яркий синий и на числах кажется разумным, но лежит вне гаммы Display P3.
+
+### Другие пространства
+
+Способов задать цвет в CSS много, и все учить не нужно. `rgb()` и hex часто встречаются в инструментах дизайна и в существующем коде. Полезно также знать формат, которым можно предсказуемо управлять: значения `hsl` или `oklch` можно менять напрямую и представлять, какой цвет получится.
+
+Подробнее — в статье [Access more colors and new spaces](https://developer.chrome.com/docs/css-ui/access-colors-spaces#choosing_a_color_space).
+
+## Преобразование цветов
+
+Даже при готовой палитре нужны варианты для наведения, рамок и других элементов интерфейса. Каждый цвет можно задать вручную, но CSS умеет получать варианты преобразованием.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/ByNPWjm?height=500&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+### `color-mix()`
+
+<iframe src="https://web.dev/frame/learn/css/color/index_0ecfc23fade74112d405fcaf57766dfdee6e8b72e854940abd3501b3de841b6e.frame" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+[`color-mix()`](https://developer.mozilla.org/docs/Web/CSS/color_value/color-mix) смешивает два цвета. Так удобно получать более светлый или тёмный вариант, смешивая цвет с белым или чёрным.
+
+Нужно указать два цвета, способ смешивания (метод интерполяции) и долю каждого цвета.
+
+!!!note ""
+
+    Один и тот же цвет можно записать по-разному, например `rgb(100% 66% 76%)` и `oklch(82.425% 0.10622 0.56816)`. Среднее двух цветов зависит от пространства, в котором считается смесь.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/MYwBpoR?height=500&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Если у пространства есть оттенок, можно выбрать направление по цветовому кругу. По умолчанию берётся более короткий путь `shorter`, также доступны `longer`, `increasing` и `decreasing`.
+
+Пространство и направление вместе составляют метод интерполяции. Долю каждого цвета тоже можно задать явно.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/JodBWyG?height=700&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+!!!note ""
+
+    Когда цвета собираются динамически, следите, чтобы сочетания не теряли достаточный контраст.
+
+### Относительный синтаксис цвета
+
+<iframe src="https://web.dev/frame/learn/css/color/index_330d6ee70726677e6753067030ea3d872a6b0feee28395fb89eeb81677893be3.frame" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Относительный синтаксис цвета берёт любой цвет и считает по его каналам новый.
+
+```css
+h1 {
+    color: oklch(from red l c h);
+}
+```
+
+`oklch()` даёт каналы светлоты, хроматичности и оттенка. После `from` можно указать цвет в любом синтаксисе, а затем использовать буквы каналов. Этот пример даёт красный без изменений.
+
+Каналы меняют через `calc()` или заменяют целиком. Тот же красный в числах — `oklch(62% 0.25 29)`.
+
+```css
+h1 {
+    color: oklch(from oklch(62% 0.25 29) calc(l / 2) c 180);
+}
+```
+
+Светлота становится `62% / 2`, то есть `31%`. Хроматичность не меняется и остаётся `0.25`. Оттенок — `180`. Получается `oklch(31% 0.25 180)`, тёмно-зелёный.
+
+Исходный цвет часто хранят в пользовательском свойстве, чтобы варианты собирались динамически.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/ZYGjeXN?height=600&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Так можно работать с любой цветовой функцией. Удобнее та, чьи каналы описывают нужное изменение. Чтобы менять светлоту, берите `oklch` или `hsl`: у них есть отдельный канал светлоты.
+
+```css
+h1 {
+    color: oklch(from var(--primary-color) calc(l * 0.9) c h);
+}
+```
+
+Относительным синтаксисом собирают палитру для всего сайта.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/jEPpBaQ?height=800&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+## Цвета вне гаммы
+
+Контент показывается на разных экранах, и не все поддерживают широкую гамму. Если заданный цвет экран показать не может, браузер подбирает близкий отображаемый цвет — это отображение гаммы. Конкретные запасные цвета задают медиазапросом `color-gamut`.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/azOjJEv?height=600&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
 ## Где использовать цвет в правилах CSS
 
 Если свойство CSS принимает в качестве значения тип данных [`<color>`](https://developer.mozilla.org/docs/Web/CSS/color_value), то оно будет принимать любой из перечисленных выше способов выражения цвета. Для стилизации текста используются свойства `color`, `text-shadow` и `text-decoration-color`, которые принимают цвет в качестве значения или как часть значения.

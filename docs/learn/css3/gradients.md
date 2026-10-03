@@ -147,6 +147,46 @@ icon: material/gradient-vertical
 
 <iframe src="https://codepen.io/web-dot-dev/embed/ExZqGxP?height=400&amp;theme-id=light&amp;default-tab=css%2Cresult&amp;editable=true" style="height: 500px; width: 100%; border: 0;" loading="lazy"></iframe>
 
+## Интерполяция и цветовые пространства
+
+Каждый тип градиента умеет интерполировать цвета в разных [цветовых пространствах](https://developer.chrome.com/docs/css-ui/access-colors-spaces) через ключевое слово `in`. Так [настраивают переход между двумя цветовыми остановками](https://developer.chrome.com/docs/css-ui/access-colors-spaces#control_interpolation).
+
+Пространство `oklab` обычно убирает блёклые промежуточные цвета и даёт более насыщенный градиент.
+
+```css
+.my-element {
+    background: linear-gradient(in oklch, deeppink, yellow);
+}
+```
+
+В демонстрации один и тот же градиент сравнивается с интерполяцией по умолчанию и с заданным пространством. Поменяйте пространство или сами цвета и посмотрите, как меняется переход.
+
+<iframe src="https://codepen.io/web-dot-dev/embed/QwbBvdL?height=400&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+У цилиндрических пространств ключевые слова `increasing` и `decreasing` задают направление угла оттенка. Угол всегда идёт в выбранную сторону, независимо от того, короче этот путь или длиннее.
+
+```css
+.my-element.increasing {
+    background: linear-gradient(in oklch increasing hue, deeppink, yellow);
+}
+
+.my-element.decreasing {
+    background: linear-gradient(in oklch decreasing hue, deeppink, yellow);
+}
+```
+
+<iframe src="https://codepen.io/web-dot-dev/embed/JodBNEy?height=400&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
+Цилиндрические пространства (HSL, HWB, LCH и OKLCH) также принимают `shorter` (значение по умолчанию) и `longer`: градиент идёт по цветовому кругу коротким или длинным путём.
+
+```css
+.my-element {
+    background: linear-gradient(in oklch longer hue, deeppink, yellow);
+}
+```
+
+<iframe src="https://codepen.io/web-dot-dev/embed/vEBZyvz?height=400&theme-id=light&default-tab=result&editable=true" style="height: 400px; width: 100%; border: 0;" loading="lazy"></iframe>
+
 ## Ресурсы
 
 -   [Conic.css](https://www.conic.style/) — полезная коллекция конических градиентов
