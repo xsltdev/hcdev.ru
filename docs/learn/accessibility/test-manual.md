@@ -1,190 +1,131 @@
 ---
-title: 'Manual accessibility testing'
-authors:
-    - cariefisher
-description: How to manually test for accessibility.
-date: 2023-01-12
-tags:
-    - accessibility
+description: Как вручную проверять доступность.
 ---
 
-{% Aside %} This module on manual accessibility testing is a continuation of the previous module, [automated accessibility testing](test-automated.md). If you have not yet completed the exercises in that module, we encourage you to do so. This module starts where the previous one left off, focusing on manual accessibility testing tools and techniques. {% endAside %}
+# Ручное тестирование доступности
 
-## Manual testing basics
+!!!note ""
 
-Manual accessibility testing uses keyboard, visual, and cognitive tests, tools, and techniques to find issues that automated tooling cannot. As automated tooling does not cover all of the success criteria identified in WCAG, it's _vital_ that you do not run automated accessibility tests and then stop testing!
+    Этот модуль о ручном тестировании доступности продолжает предыдущий модуль, [автоматизированное тестирование доступности](test-automated.md). Если вы ещё не выполнили упражнения из того модуля, рекомендуем сделать это. Этот модуль начинается там, где закончился предыдущий, и посвящён инструментам и приёмам ручного тестирования доступности.
 
-As technology advances, [more tests could be covered by automated tooling alone](https://a11y-automation.dev/violations), but today, both manual and assistive technology checks need to be added to your testing protocols to cover all of the applicable WCAG checkpoints.
+## Основы ручного тестирования
 
-{% Aside %} Each automated testing tool can have distinct accessibility rulesets and use them in different ways. The actual percentage of WCAG checkpoints covered will vary by tool and the content being tested. {% endAside %}
+Ручное тестирование доступности использует клавиатуру, визуальные и когнитивные проверки, инструменты и приёмы, чтобы найти проблемы, которые автоматические средства не видят. Автоматические инструменты не покрывают все критерии успеха WCAG, поэтому останавливаться после автотестов нельзя.
 
-Pros of manual accessibility tests:
+По мере развития технологий [всё больше проверок можно будет закрыть только автоматическими средствами](https://a11y-automation.dev/violations), но сегодня в протокол тестирования нужно добавлять и ручные проверки, и проверки вспомогательными технологиями, чтобы покрыть все применимые контрольные точки WCAG.
 
--   Reasonably straightforward and quick to run
--   Catch a higher percentage of issues than automated tests alone
--   Little tooling and expertise needed for success
+!!!note ""
 
-Cons of manual accessibility tests:
+    У каждого автоматического инструмента свой набор правил доступности, и применяют их по-разному. Доля покрытых контрольных точек WCAG зависит от инструмента и проверяемого содержимого.
 
--   More complex and time-consuming than automated tests
--   May be difficult to repeat at scale
--   Require more accessibility expertise to run tests and interpret the results
+Плюсы ручных тестов доступности:
 
-Let's compare what accessibility elements and details can currently be detected by an automated tool, versus those that won't be detected.
+-   Их относительно просто и быстро провести
+-   Они находят больше проблем, чем одни только автотесты
+-   Для успеха нужно немного инструментов и экспертизы
 
-<div class="table-wrapper scrollbar">
-  <table data-alignment="top" >
-    <thead>
-      <tr>
-        <th>Can be automated</th>
-        <th>Can't be automated</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Color contrast of text on solid backgrounds</td>
-        <td><a href="/learn/accessibility/color-contrast">Color contrast</a> of text on gradients/images</td>
-      </tr>
-      <tr>
-        <td>Image alternative text exists</td>
-        <td><a href="/learn/accessibility/images">Image alternative text is accurate and is properly assigned</td>
-      </tr>
-      <tr>
-        <td>Headings, lists, and landmarks exist</td>
-        <td><a href="/learn/accessibility/structure">Headings, lists, and landmarks</a> are correctly marked-up and all elements are accounted for</td>
-      </tr>
-      <tr>
-        <td>ARIA is present</td>
-        <td><a href="/learn/accessibility/aria-html/">ARIA</a> is being used appropriately and applied to the correct element(s)</td>
-      </tr>
-      <tr>
-        <td>Identifying keyboard-focusable elements</td>
-        <td>Which elements are missing <a href="/learn/accessibility/focus/">keyboard focus</a>, the focus order makes logical sense, and the focus indicator is visible</td>
-      </tr>
-      <tr>
-        <td>iFrame title detection</td>
-        <td><a href="learn/accessibility/more-html/">iFrame</a>, the focus order makes logical sense, and the focus indicator is visible </td>
-      </tr>
-      <tr>
-        <td>Video element is present</td>
-        <td>Video element has appropriate <a href="/learn/accessibility/motion/">alternative media</a> present (such as captions and transcripts)</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<br>
+Минусы ручных тестов доступности:
 
-## Types of manual tests
+-   Они сложнее и дольше автоматических
+-   Их трудно повторять в масштабе
+-   Чтобы провести тесты и истолковать результаты, нужно больше знаний о доступности
 
-There are many manual tools and techniques to consider when looking at your web page or app for digital accessibility. The three biggest focus areas in manual testing are keyboard functionality, visually-focused reviews, and general content checks.
+Сравним, какие элементы и подробности доступности автоматический инструмент может обнаружить сейчас, а какие — нет.
 
-We will cover each of these topics at a high level in this module, but the following tests are not meant to be an exhaustive list of all the manual tests you can or should run. We encourage you to start with a [manual accessibility checklist](https://www.ibm.com/able/toolkit/verify/manual) from a reputable source and develop your own focused manual testing checklist for your specific digital product and team needs.
+| Можно автоматизировать | Нельзя автоматизировать |
+|----|----|
+| Контраст цвета текста на сплошном фоне | [Контраст цвета](color-contrast.md) текста на градиентах и изображениях |
+| Наличие альтернативного текста у изображения | [Альтернативный текст изображения](images.md) точен и назначен правильно |
+| Наличие заголовков, списков и ориентиров | [Заголовки, списки и ориентиры](structure.md) размечены правильно, и все элементы учтены |
+| Наличие ARIA | [ARIA](aria-html.md) используется уместно и применена к нужным элементам |
+| Выявление элементов, доступных для фокуса с клавиатуры | Какие элементы лишены [фокуса с клавиатуры](focus.md), логичен ли порядок фокуса и виден ли индикатор фокуса |
+| Обнаружение заголовка iFrame | [iFrame](more-html.md), порядок фокуса логичен, а индикатор фокуса виден |
+| Наличие элемента video | У элемента video есть подходящие [альтернативные медиа](motion.md) (например, субтитры и транскрипты) |
 
-{% Aside %} Some organizations consider assistive technology (AT) checks to be part of the manual testing process as there are a lot of overlaps. In this course, we break AT testing into a separate module, as it's more advanced than other manual tests and deserves a deeper and separate focus. {% endAside %}
+## Виды ручных тестов
 
-### Keyboard checks
+Когда вы смотрите на веб-страницу или приложение с точки зрения цифровой доступности, ручных инструментов и приёмов много. Три главные области ручного тестирования — работа с клавиатуры, визуальный разбор и общая проверка содержания.
 
-It's estimated that about 25% of all digital accessibility issues are related to a lack of keyboard support. As we learned in the [keyboard focus](focus.md) module, this affects all types of users, including sighted keyboard-only users, low-vision/blind screen reader users, and people using voice recognition software that uses technology that relies on content being keyboard accessible as well.
+В этом модуле каждая тема разобрана обзорно. Список ниже — не полный перечень всех ручных тестов, которые можно или нужно провести. Начните с [контрольного списка ручной проверки доступности](https://www.ibm.com/able/toolkit/verify/manual) из надёжного источника и соберите свой список под конкретный цифровой продукт и команду.
 
-Keyboard tests answer questions such as:
+!!!note ""
 
--   Does the web page or feature require a mouse to function?
--   Is the tabbing order logical and intuitive?
--   Is the keyboard focus indicator always visible?
--   Can you get stuck in an element that shouldn't trap focus?
--   Can you navigate behind or around an element that should be trapping focus?
--   When closing an element that received focus, did the focus indicator return to a logical place?
+    Некоторые организации считают проверки вспомогательными технологиями (AT) частью ручного тестирования: пересечений много. В этом курсе тестирование AT вынесено в отдельный модуль: оно сложнее остальных ручных проверок и заслуживает отдельного внимания.
 
-While the impact of keyboard functionality is huge, the testing procedure is quite simple. All you need to do is set aside your mouse or install a [small JavaScript package](https://github.com/marcysutton/no-mouse-days) and test your website using only your keyboard. The following commands are essential for keyboard testing.
+### Проверки с клавиатуры
 
-<div class="table-wrapper scrollbar">
-  <table data-alignment="top" >
-    <thead>
-      <tr>
-        <th>Key</th>
-        <th>Result</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Tab</td>
-        <td>Moves forward one active element to another</td>
-      </tr>
-      <tr>
-        <td>Shift + Tab</td>
-        <td>Moves backward one active element to another</td>
-      </tr>
-      <tr>
-        <td>Arrows</td>
-        <td>Cycle through related controls</td>
-      </tr>
-      <tr>
-        <td>Spacebar</td>
-        <td>Toggles states and moves down the page</td>
-      </tr>
-      <tr>
-        <td>Shift + Spacebar</td>
-        <td>Moves up the page</td>
-      </tr>
-      <tr>
-        <td>Enter</td>
-        <td>Triggers specific controls</td>
-      </tr>
-      <tr>
-        <td>Escape</td>
-        <td>Dismisses dynamically displayed objects</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+Около 25% всех проблем цифровой доступности связаны с отсутствием поддержки клавиатуры. Как сказано в модуле [фокуса с клавиатуры](focus.md), это затрагивает всех: зрячих пользователей, которые работают только с клавиатуры, пользователей программ чтения с экрана со слабым зрением или без зрения и людей, которые пользуются программами распознавания речи. Такие программы тоже опираются на то, что содержимое доступно с клавиатуры.
 
-### Visual checks
+Тесты с клавиатуры отвечают на вопросы:
 
-Visual checks focus on visual elements of the page and utilize tools such as screen magnification or browser zoom to review the website or app for accessibility.
+-   Нужна ли мышь, чтобы страница или функция работали?
+-   Логичен и понятен ли порядок Tab?
+-   Всегда ли виден индикатор фокуса с клавиатуры?
+-   Можно ли застрять в элементе, который не должен удерживать фокус?
+-   Можно ли уйти за элемент или обойти элемент, который должен удерживать фокус?
+-   Когда элемент, получивший фокус, закрывают, возвращается ли индикатор фокуса в логичное место?
 
-Visual checks can tell you:
+Влияние клавиатуры велико, а сама проверка проста. Отложите мышь или установите [небольшой пакет JavaScript](https://github.com/marcysutton/no-mouse-days) и пройдите сайт только с клавиатуры. Для проверки нужны такие команды.
 
--   Are there color contrast issues that an automated tool could not pick up, such as text on top of a gradient or image?
--   Are there any elements that look like headings, lists, and other structural elements but are not coded as such?
--   Are navigation links and form inputs consistent throughout the website or app?
--   Is there any flashing, strobing, or animation that exceeds the recommendations?
--   Does the content have proper spacing? For letters, words, lines, and paragraphs?
--   Can you see all the content using a screen magnifier or browser zoom?
+| Клавиша | Результат |
+|----|----|
+| Tab | Переходит вперёд от одного активного элемента к другому |
+| Shift + Tab | Переходит назад от одного активного элемента к другому |
+| Arrows | Переключает связанные элементы управления |
+| Spacebar | Переключает состояния и прокручивает страницу вниз |
+| Shift + Spacebar | Прокручивает страницу вверх |
+| Enter | Активирует конкретные элементы управления |
+| Escape | Закрывает динамически показанные объекты |
 
-{% Aside %} Sometimes, you can't observe the accessibility of a visual element without additional help. You'll read more about that in our next module on [assistive technology testing](test-assistive-technology.md). {% endAside %}
+### Визуальные проверки
 
-### Content checks
+Визуальные проверки смотрят на зрительные элементы страницы. Для разбора сайта или приложения используют экранную лупу или масштаб браузера.
 
-Unlike visual tests that focus on layouts, movement, and colors, content checks focus on the words on the page. Not only should you be looking at the copy itself, but you should review the context to be sure it makes sense to others.
+Визуальные проверки показывают:
 
-Content checks answer questions such as:
+-   Есть ли проблемы контраста, которые автоматический инструмент не поймал, например текст поверх градиента или изображения?
+-   Есть ли элементы, которые выглядят как заголовки, списки и другие структурные элементы, но так не размечены?
+-   Одинаковы ли навигационные ссылки и поля форм по всему сайту или приложению?
+-   Есть ли мигание, стробоскоп или анимация сверх рекомендаций?
+-   Достаточно ли интервалов у содержания: у букв, слов, строк и абзацев?
+-   Видно ли всё содержимое через экранную лупу или масштаб браузера?
 
--   Are page titles, headings, and form labels clear and descriptive?
--   Are image alternatives concise, accurate, and useful?
--   Is color alone used as the only way of conveying meaning or information?
--   Are links descriptive or do you use generic text such as “read more” or “click here?”
--   Are there any changes to the language within a page?
--   Is [plain language](https://www.w3.org/WAI/GL/WCAG3/2021/how-tos/clear-words/) being used and are all acronyms spelled out when first referenced?
+!!!note ""
 
-Some content checks can be automated, in part. For example, you could write a JavaScript linter that checks for "Click here" and suggests you make a change. However, these custom solutions often still need a human to change the copy to something contextual.
+    Иногда доступность визуального элемента нельзя оценить без дополнительной помощи. Об этом — в следующем модуле, [тестирование вспомогательными технологиями](test-assistive-technology.md).
 
-## Demo: Manual test
+### Проверки содержания
 
-So far, we have run automated tests on our demo web page and found and remediated eight different issue types. We are now ready to run manual checks to see if we can discover even more accessibility issues.
+Визуальные тесты смотрят на макет, движение и цвета. Проверки содержания смотрят на слова на странице. Нужно читать не только сам текст, но и контекст: понятен ли он другим людям.
 
-### Step 1
+Проверки содержания отвечают на вопросы:
 
-Our updated [CodePen demo](https://codepen.io/web-dot-dev/pen/NWBaMzb) has all of the automated accessibility updates applied.
+-   Ясны и описательны ли заголовки страниц, заголовки разделов и подписи полей форм?
+-   Кратки, точны и полезны ли альтернативы изображений?
+-   Цвет — единственный способ передать смысл или информацию?
+-   Описательны ли ссылки или в них общий текст вроде «читать дальше» и «нажмите здесь»?
+-   Меняется ли язык внутри страницы?
+-   Используется ли [простой язык](https://www.w3.org/WAI/GL/WCAG3/2021/how-tos/clear-words/), и расшифрованы ли все аббревиатуры при первом упоминании?
 
-View it in [debug mode](https://cdpn.io/pen/debug/NWBaMzb) to proceed with the next tests. This is important, as it removes the `<iframe>` which surrounds the demo web page, which may interfere with some testing tools. Learn more about [CodePen's debug mode](https://blog.codepen.io/documentation/debug-view/#getting-to-debug-view-3).
+Часть проверок содержания можно автоматизировать частично. Например, можно написать линтер на JavaScript, который ищет «Click here» и предлагает изменить текст. Но такие решения всё равно обычно требуют человека, который заменит текст на уместный по контексту.
 
-### Step 2
+## Демонстрация: ручной тест
 
-Start your manual testing process by setting your mouse or trackpad aside and navigate up and down the DOM using only your keyboard.
+Мы уже прогнали автоматические тесты демо-страницы, нашли и исправили восемь типов проблем. Теперь можно провести ручные проверки и поискать ещё проблемы доступности.
 
-#### Issue 1: Visible focus indicator {: #visible-focus-indicator}
+### Шаг 1
 
-You should see the first keyboard issue right away—or rather, you shouldn't see it—as the visible focus indicator has been removed. When you scan the CSS in the demo, you should find the dreaded “outline: none” added to the codebase.
+В обновлённой [демонстрации CodePen](https://codepen.io/web-dot-dev/pen/NWBaMzb) уже применены все автоматические исправления доступности.
+
+Откройте её в [режиме отладки](https://cdpn.io/pen/debug/NWBaMzb), чтобы перейти к следующим тестам. Это важно: так убирается `<iframe>`, который окружает демо-страницу и может мешать некоторым инструментам. Подробнее — в описании [режима отладки CodePen](https://blog.codepen.io/documentation/debug-view/#getting-to-debug-view-3).
+
+### Шаг 2
+
+Начните ручное тестирование: отложите мышь или трекпад и перемещайтесь по DOM вверх и вниз только с клавиатуры.
+
+#### Проблема 1: видимый индикатор фокуса {#visible-focus-indicator}
+
+Первую проблему с клавиатуры вы увидите сразу — точнее, не увидите: видимый индикатор фокуса убран. Если просмотреть CSS демонстрации, в коде найдётся печально известное `outline: none`.
 
 ```css
 :focus {
@@ -194,11 +135,11 @@ You should see the first keyboard issue right away—or rather, you shouldn't se
 
 <span class="solution" id="issue-1-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-As you learned in the [Keyboard focus module](focus.md#focus-indicator), you need to remove this line of code to allow web browsers to add a visible focus for users. You can go one step further and create a focus indicator styled to meet the aesthetics of your digital product.
+Как сказано в [модуле о фокусе с клавиатуры](focus.md#focus-indicator), эту строку нужно убрать, чтобы браузеры показывали видимый фокус. Можно пойти дальше и нарисовать индикатор фокуса в эстетике вашего цифрового продукта.
 
 ```css
 :focus {
@@ -206,9 +147,9 @@ As you learned in the [Keyboard focus module](focus.md#focus-indicator), you nee
 }
 ```
 
-#### Issue 2: Focus order {: #focus-order}
+#### Проблема 2: порядок фокуса {#focus-order}
 
-Once you have modified the focus indicator and it's visible, be sure to tab through the page. As you do so, you should notice that the form input field used to subscribe to the newsletter does not receive focus. It has been removed from the natural focus order by a negative tabindex.
+Когда индикатор фокуса изменён и виден, пройдите страницу клавишей Tab. Поле ввода для подписки на рассылку фокус не получает. Его вывели из естественного порядка фокуса отрицательным tabindex.
 
 ```html
 <input
@@ -222,11 +163,11 @@ Once you have modified the focus indicator and it's visible, be sure to tab thro
 
 <span class="solution" id="issue-2-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-Since we would like people to use this field to sign-up for our newsletter, all we need to do is remove the negative tabindex or set it to zero to allow the input to become keyboard focusable again.
+Люди должны пользоваться этим полем, чтобы подписаться на рассылку. Достаточно убрать отрицательный tabindex или поставить ноль, и поле снова сможет получать фокус с клавиатуры.
 
 ```html
 <input
@@ -237,71 +178,69 @@ Since we would like people to use this field to sign-up for our newsletter, all 
 />
 ```
 
-### Step 3
+### Шаг 3
 
-Once keyboard focus has been checked, we move on to visual and content checks.
+Когда фокус с клавиатуры проверен, переходим к визуальным проверкам и проверкам содержания.
 
-#### Issue 3: Link color contrast {: #link-color-contrast}
+#### Проблема 3: контраст цвета ссылок {#link-color-contrast}
 
-As you went through the keyboard tests by tabbing up and down the demo page, you probably noticed the keyboard focused on three visually hidden links in the paragraphs about the different medical conditions.
+Пока вы ходили по демо-странице клавишей Tab, фокус, скорее всего, попадал на три визуально скрытые ссылки в абзацах о разных медицинских состояниях.
 
-For our page to be accessible, links must stand out from the surrounding text and include a non-color style change on mouse hover and keyboard focus.
+Чтобы страница была доступной, ссылки должны отличаться от окружающего текста и менять не только цвет при наведении мыши и фокусе с клавиатуры.
 
 <span class="solution" id="issue-3-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-A quick solution is to add an underline to the links inside the paragraphs to make them stand out. This would solve the accessibility issue, but it might not suit the overall design aesthetics you hope to achieve.
+Быстрое решение — подчеркнуть ссылки внутри абзацев, чтобы они выделялись. Проблема доступности исчезнет, но это может не совпасть с эстетикой макета, к которой вы стремитесь.
 
-If you choose not to add an underline, you will need to modify the colors in such a way as to meet the requirements for both the background and copy.
+Если подчёркивание не добавлять, цвета нужно изменить так, чтобы выполнить требования и к фону, и к тексту.
 
-When looking at the demo using a [link contrast checker tool](https://webaim.org/resources/linkcontrastchecker), you will see that the link color meets the 4.5:1 color contrast requirement between regular-sized text and the background. However, non-underlined links must also meet a 3:1 color contrast requirement against the surrounding text.
+Если посмотреть демонстрацию в [инструменте проверки контраста ссылок](https://webaim.org/resources/linkcontrastchecker), цвет ссылки проходит требование 4.5:1 между обычным текстом и фоном. Но ссылки без подчёркивания должны ещё иметь контраст 3:1 с окружающим текстом.
 
-One option is to change the link color to match the other elements on the page. But if you change the link color to green, the body copy must also be modified to meet the overall color contrast requirements between all three elements: links, background, and surrounding text.
+Один вариант — сделать цвет ссылки таким же, как у других элементов страницы. Если ссылка станет зелёной, основной текст тоже придётся изменить, чтобы контраст соблюдался между всеми тремя элементами: ссылками, фоном и окружающим текстом.
 
 <div class="switcher">
 <figure class="screenshot">
-{% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/DaRljFteyjHtmNuui4u1.png", alt="Screenshot of WebAIM for link text shows that the link to body text fails WCAG A level.", width="724", height="503" %}
+{% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/DaRljFteyjHtmNuui4u1.png", alt="Скриншот WebAIM для текста ссылки: ссылка относительно основного текста не проходит уровень WCAG A.", width="724", height="503" %}
 <figcaption>
-  When the link and body text is the same, the test fails.
+  Когда цвет ссылки и основного текста совпадает, тест не проходит.
 </figcaption>
 </figure>
 <figure class="screenshot">
-{% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/YWk49YgsMcwT8ynusu7b.png", alt="Screenshot of WebAIM shows that all tests pass when the link color is green.", width="724", height="503" %}
+{% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/YWk49YgsMcwT8ynusu7b.png", alt="Скриншот WebAIM: все тесты проходят, когда цвет ссылки зелёный.", width="724", height="503" %}
 <figcaption>
-  When the link and body text is different, the test passes.
+  Когда цвет ссылки и основного текста различается, тест проходит.
 </figcaption>
 </figure>
 </div>
 
-#### Issue 4: Icon color contrast {: #icon-color-contrast}
+#### Проблема 4: контраст цвета значков {#icon-color-contrast}
 
-Another missed color contrast issue is the social media icons. In the [color and contrast](color-contrast.md#calculate-color-contrast) module, you learned that essential icons need to meet a 3:1 color contrast against the background. However, in the demo, the social media icons have a contrast ratio of 1.3:1.
+Ещё одна пропущенная проблема контраста — значки социальных сетей. В модуле [цвета и контраста](color-contrast.md#calculate-color-contrast) сказано, что важным значкам нужен контраст 3:1 с фоном. В демонстрации у значков социальных сетей контраст 1.3:1.
 
 <span class="solution" id="issue-4-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-To meet the 3:1 color contrast requirements, the social media icons are changed to a darker gray.
+Чтобы выполнить требование 3:1, значки социальных сетей делают более тёмно-серыми.
 
 <figure class="screenshot">
-  {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/E02bbVtKS9QCkQi8PvCc.png", alt="A screenshot of the demo with the color analyzer showing failing icon color contrast.", width="800", height="570"
+  {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/E02bbVtKS9QCkQi8PvCc.png", alt="Скриншот демонстрации с анализатором цвета: контраст значков не проходит проверку.", width="800", height="570"
   %}
 </figure>
 
-{% Aside %}
+!!!note ""
 
-You may notice that the border around the text input doesn't meet the 3:1 color contrast requirement against the background. However, this input has placeholder text which meets the required color contrast requirements for its size, according to the [non-text contrast](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) overview page.
+    Рамка вокруг текстового поля может не давать контраст 3:1 с фоном. Но у этого поля есть текст-заполнитель, и он выполняет требование контраста для своего размера, как сказано на странице обзора [контраста нетекстовых элементов](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html).
 
-{% endAside %}
+#### Проблема 5: вёрстка содержания {#content-layout}
 
-#### Issue 5: Content layout {: #content-layout}
-
-If you look at the layout of the paragraph content, the text is fully justified. As you learned in the [Typography module](typography.md#structure-and-layout), this creates "rivers of space," which may make the text difficult for some users to read.
+Если посмотреть на вёрстку абзацев, текст выровнен по ширине. Как сказано в [модуле о типографике](typography.md#structure-and-layout), так появляются «реки пробелов», и некоторым людям текст читать труднее.
 
 ```css
 p.bullet {
@@ -311,11 +250,11 @@ p.bullet {
 
 <span class="solution" id="issue-5-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-To reset the text alignment in the demo, you can update the code to `text-align: left;` or remove that line entirely from the CSS, as left is the default alignment for browsers. Be sure to test the code, in case other inherited styles remove the default text alignment.
+Чтобы вернуть выравнивание в демонстрации, замените значение на `text-align: left;` или уберите эту строку из CSS: для браузеров выравнивание влево — значение по умолчанию. Проверьте код: другие унаследованные стили могут снимать выравнивание по умолчанию.
 
 ```css
 p.bullet {
@@ -323,23 +262,23 @@ p.bullet {
 }
 ```
 
-### Step 4
+### Шаг 4
 
 <figure class="screenshot">
-{% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/9O3rKmEIy3u1gqn3HfYT.png", alt="Screenshot of the Medical Mysteries Club demo site.", width="800", height="570" %}
+{% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/9O3rKmEIy3u1gqn3HfYT.png", alt="Скриншот демо-сайта Medical Mysteries Club.", width="800", height="570" %}
 <figcaption>
-  All manual issues have now been addressed in the demo, as shown in this image.
+  Все ручные проблемы в демонстрации теперь устранены, как на этом изображении.
 </figcaption>
 </figure>
 
-Once you've identified and fixed all the manual accessibility issues outlined in the previous steps, your page should look similar to our screenshot.
+Когда вы найдёте и исправите все ручные проблемы доступности из предыдущих шагов, страница должна выглядеть похоже на наш скриншот.
 
-It's possible that you'll find more accessibility issues in your manual checks than we covered in this module. We'll discover many of these issues in the next module.
+В ручных проверках можно найти больше проблем доступности, чем разобрано в этом модуле. Многие из них мы найдём в следующем модуле.
 
-## Next step
+## Следующий шаг
 
-Way to go! You have completed the automated and manual testing modules. You can view our [updated CodePen](https://codepen.io/web-dot-dev/pen/eYjZdve), which has all the automated and manual accessibility fixes applied.
+Модули автоматизированного и ручного тестирования пройдены. Посмотрите [обновлённый CodePen](https://codepen.io/web-dot-dev/pen/eYjZdve): в нём применены все автоматические и ручные исправления доступности.
 
-Now, head over to the last testing module focused on [assistive technology testing](test-assistive-technology.md).
+Дальше — последний модуль о тестировании, [тестирование вспомогательными технологиями](test-assistive-technology.md).
 
-{% Assessment 'manual' %}
+:material-information-outline: Источник &mdash; [Manual accessibility testing](https://web.dev/learn/accessibility/test-manual)

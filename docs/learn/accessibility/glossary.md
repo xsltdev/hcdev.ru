@@ -1,114 +1,73 @@
 ---
-title: 'Glossary'
-authors:
-  - cariefisher
-description: Learn common accessibility terms and concepts.
-date: 2022-09-30
-tags:
-  - accessibility
+description: Основные термины и понятия цифровой доступности.
 ---
 
-In this document, you'll find common terms and concepts related to accessibility.
+# Глоссарий
 
-## A11y
+В этом документе собраны распространённые термины и понятия, связанные с доступностью.
 
-[A11y](https://www.a11yproject.com/posts/a11y-and-other-numeronyms/) is 
-numeronym for accessibility (a + 11 letters + y). Typically pronounced as 
-"ally" as in "a person or group that provides assistance and support in an 
-ongoing effort, activity, or struggle," giving the term "a11y" multiple 
-meanings.
+## A11y {#a11y}
 
-## Accessibility Conformance Report (ACR) {: #acr} 
+[A11y](https://www.a11yproject.com/posts/a11y-and-other-numeronyms/) — нумероним слова accessibility (a + 11 букв + y). Обычно его произносят как «ally»: «союзник, человек или группа, которые помогают и поддерживают в продолжающемся деле, деятельности или борьбе». Поэтому у термина «a11y» несколько значений.
 
-The [ACR](https://tetralogical.com/blog/2021/10/15/introduction-to-accessibility-conformance-reports/)
-is the final report presented to a client once a full ACT has been performed.
-If you need a legally binding version of the ACR, you would utilize a version
-of the [Voluntary Product Accessibility Template (VPAT)](#vpat).
+## Отчёт о соответствии требованиям доступности (ACR) {#acr}
 
-## Accessibility Conformance Testing (ACT) {: #act}
+[ACR](https://tetralogical.com/blog/2021/10/15/introduction-to-accessibility-conformance-reports/) — итоговый отчёт, который представляют клиенту после полного ACT. Если нужна юридически обязывающая версия ACR, используют вариант [Voluntary Product Accessibility Template (VPAT)](#vpat).
 
-[ACT](https://www.w3.org/WAI/standards-guidelines/act/) is commonly referred to
-as an accessibility audit. The ACT utilizes various testing methodology and
-tools: primarily automated, manual, and [assistive technology](#at) (AT)
-devices.
+## Тестирование на соответствие требованиям доступности (ACT) {#act}
 
-ACT is first performed as a baseline metric to gauge general
-accessibility compliance of a digital product. It's often run multiple times
-throughout the software product lifecycle to check for changes in the level of
-conformance against a set of pre-determined accessibility checkpoints or 
-guidelines. 
+[ACT](https://www.w3.org/WAI/standards-guidelines/act/) обычно называют аудитом доступности. В ACT используют разные методики и инструменты тестирования: в первую очередь автоматизированные, ручные и устройства [вспомогательных технологий](#at) (AT).
 
-## ARIA
+Сначала ACT проводят как базовый замер, чтобы оценить общее соответствие цифрового продукта требованиям доступности. Его часто повторяют в течение жизненного цикла продукта и проверяют, как меняется уровень соответствия заранее определённым контрольным точкам или рекомендациям.
 
-[ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) is an acronym for
-Accessible Rich Internet Applications (formally known as WAI-ARIA—Web
-Accessibility Initiative Accessible Rich Internet Applications). ARIA is a
-specification written by the W3C, defining a set of attributes that you can add
-to HTML elements to support accessibility. These attributes communicate role,
-state, and property to assistive technologies via accessibility APIs
-implemented in the accessibility tree in modern browsers.
+## ARIA {#aria}
 
-## Assitive technology (AT) {: #at}
+[ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) — аббревиатура Accessible Rich Internet Applications (формально WAI-ARIA — Web Accessibility Initiative Accessible Rich Internet Applications). ARIA — спецификация W3C. Она задаёт набор атрибутов, которые можно добавить к HTML-элементам, чтобы поддержать доступность. Эти атрибуты сообщают роль, состояние и свойство вспомогательным технологиям через API доступности, реализованные в дереве доступности современных браузеров.
 
-[AT](https://en.wikipedia.org/wiki/Assistive_technology) is hardware and
-software that can be no-tech (such as a mouthstick), low-tech (such as a 
-keyboard), or high-tech (such as a screen reader). AT is used to help increase, 
-maintain, or improve the capabilities of performing a task for a person with 
-disabilities. AT includes braille keyboards, audio browsers, screen magnifiers, 
-and alternative pointing devices.
+## Вспомогательные технологии (AT) {#at}
 
-## Digital accessibility
+[AT](https://en.wikipedia.org/wiki/Assistive_technology) — оборудование и программы, которые бывают без технологий (например, мундштук-указка), низкотехнологичными (например, клавиатура) или высокотехнологичными (например, программа чтения с экрана). AT помогают человеку с инвалидностью повысить, сохранить или улучшить возможность выполнять задачу. К AT относятся брайлевские клавиатуры, аудиобраузеры, экранные лупы и альтернативные указательные устройства.
 
-[Digital accessibility](https://www.w3.org/WAI/fundamentals/accessibility-intro/) is the 
-practice of building digital products in a way that all users, regardless of 
-their disability, will have equal access to the content or functionality of the 
-product.
+## Субтитры: закрытые и открытые {#captions}
 
-## POUR
+Субтитры — это слова, которые описывают звуковую часть передачи или видео. В них входят реплики, указание, кто говорит, и неречевая информация, которую передаёт звук, включая значимые звуковые эффекты. Субтитры нужно добавлять к [заранее записанному контенту](https://www.w3.org/WAI/WCAG21/Understanding/captions-prerecorded.html) и [прямым трансляциям](https://www.w3.org/WAI/WCAG21/Understanding/captions-live), чтобы люди, которые глухие, слабослышащие или имеют другие нарушения обработки слуховой информации, получали равный доступ к мультимедийному контенту.
 
-[POUR](https://www.w3.org/WAI/fundamentals/accessibility-principles/) is 
-shorthand for Perceivable, Operable, Understandable, and Robust, which are the 
-foundational human-focused principles of WCAG.
+Субтитры бывают двух видов. Закрытые субтитры зритель может включить и выключить, а открытые субтитры (иногда их называют подписями) выключить нельзя.
 
-## Screen reader
+## Цифровая доступность {#digital_accessibility}
 
-A [screen reader](https://www.afb.org/blindness-and-low-vision/using-technology/assistive-technology-products/screen-readers)
-is a high-tech assistive technology that uses synthetic language to read and 
-navigate digital documents for people with low or no vision, cognitive issues, 
-and other disabilities.
+[Цифровая доступность](https://www.w3.org/WAI/fundamentals/accessibility-intro/) — практика создания цифровых продуктов так, чтобы все пользователи, независимо от инвалидности, имели равный доступ к содержанию и функциям продукта.
 
-* Desktop
-    * [ChromeVox](https://support.google.com/chromebook/answer/7031755) (ChromeOS)
-    * [JAWS](https://www.freedomscientific.com/Products/software/JAWS/) (Windows)
-    * [Narrator](https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1) (Windows)
-    * [NVDA](https://www.nvaccess.org/) (Windows)
-    * [Orca](https://wiki.gnome.org/Projects/Orca) (Linux)
-    * [VoiceOver](https://www.apple.com/accessibility/vision/) (macOS)
-* Mobile
-    * [TalkBack](https://support.google.com/accessibility/android/answer/6283677?hl=en) (Android)
-    * [VoiceOver](https://www.apple.com/accessibility/vision/) (iOS)
-* [Screen Reader Keyboard Shortcuts and Gestures](https://dequeuniversity.com/screenreaders/)
+## POUR {#pour}
 
-## VPAT
+[POUR](https://www.w3.org/WAI/fundamentals/accessibility-principles/) — сокращение от Perceivable, Operable, Understandable и Robust (воспринимаемый, управляемый, понятный и надёжный). Это базовые принципы WCAG, ориентированные на человека.
 
-[VPAT](https://en.wikipedia.org/wiki/Voluntary_Product_Accessibility_Template) 
-is shorthand for Voluntary Product Accessibility Template. A VPAT is a template 
-to draft an [Accessibility Conformance Report](#acr) (ACR). An ACR clearly 
-states which accessibility standards a product or service meets and warns users 
-about any "accessibility blockers" they may encounter. A VPAT does not mean 
-that a digital product is 100% accessible: it is just a report of the state 
-of a product from an accessibility conformance perspective.
+## Программа чтения с экрана {#screen_reader}
 
-## Web Accessibility Initiative (WAI)
+[Программа чтения с экрана](https://www.afb.org/blindness-and-low-vision/using-technology/assistive-technology-products/screen-readers) — высокотехнологичная вспомогательная технология. Она синтезирует речь и с её помощью читает и помогает перемещаться по цифровым документам людям со слабым зрением или без зрения, с когнитивными особенностями и другими формами инвалидности.
 
-The [Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/) is a 
-sub-group of the W3C focuses only on digital accessibility. 
+-   Настольные
+    -   [ChromeVox](https://support.google.com/chromebook/answer/7031755) (ChromeOS)
+    -   [JAWS](https://www.freedomscientific.com/Products/software/JAWS/) (Windows)
+    -   [Narrator](https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1) (Windows)
+    -   [NVDA](https://www.nvaccess.org/) (Windows)
+    -   [Orca](https://wiki.gnome.org/Projects/Orca) (Linux)
+    -   [VoiceOver](https://www.apple.com/accessibility/vision/) (macOS)
+-   Мобильные
+    -   [TalkBack](https://support.google.com/accessibility/android/answer/6283677?hl=en) (Android)
+    -   [VoiceOver](https://www.apple.com/accessibility/vision/) (iOS)
+-   [Сочетания клавиш и жесты программ чтения с экрана](https://dequeuniversity.com/screenreaders/)
 
-## Web Content Accessibility Guidelines (WCAG) {: #wcag}
+## VPAT {#vpat}
 
-Web Content Accessibility Guidelines (commonly referred to as ]=
-[WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)) is an international 
-set of accessibility standards developed through the W3C in cooperation with 
-individuals and organizations. The goal of WCAG is to provide a single shared 
-standard for digital accessibility that meets the needs of individuals, 
-organizations, and governments worldwide.
+[VPAT](https://en.wikipedia.org/wiki/Voluntary_Product_Accessibility_Template) — сокращение от Voluntary Product Accessibility Template. VPAT — шаблон для черновика [отчёта о соответствии требованиям доступности](#acr) (ACR). В ACR ясно указано, каким стандартам доступности соответствует продукт или услуга, и предупреждают о «блокерах доступности», с которыми может столкнуться пользователь. Наличие VPAT не означает, что цифровой продукт доступен на 100%: это отчёт о состоянии продукта с точки зрения соответствия требованиям доступности.
+
+## Инициатива по обеспечению доступности веб-контента (WAI) {#web_accessibility_initiative_wai}
+
+[Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/) — подгруппа W3C, которая занимается только цифровой доступностью.
+
+## Руководство по обеспечению доступности веб-контента (WCAG) {#wcag}
+
+Руководство по обеспечению доступности веб-контента (обычно его называют [WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)) — международный набор стандартов доступности. Его разрабатывают в W3C вместе с людьми и организациями. Цель WCAG — дать один общий стандарт цифровой доступности, который отвечает потребностям людей, организаций и государств по всему миру.
+
+:material-information-outline: Источник &mdash; [Glossary](https://web.dev/learn/accessibility/glossary)

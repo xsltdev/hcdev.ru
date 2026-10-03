@@ -1,120 +1,114 @@
 ---
-title: 'Automated accessibility testing'
-authors:
-    - cariefisher
-description: How to perform automated accessibility testing.
-date: 2023-01-12
-tags:
-    - accessibility
+description: Как проводить автоматизированное тестирование доступности.
 ---
 
-So far in this course, you have learned about the individual, business, and legal aspects of digital accessibility, and the basics of digital accessibility conformance. You have explored specific topics related to inclusive design and coding, including when to use ARIA versus HTML, how to measure color contrast, when JavaScript is essential, amongst other topics.
+# Автоматизированное тестирование доступности
 
-In the remaining modules, we shift gears from designing and building to testing for accessibility. We'll utilize a three-step testing process that includes automated, manual, and assistive technology testing tools and techniques. We'll use the same demo throughout these testing modules to progress the web page from inaccessible to accessible.
+До этого момента в курсе речь шла об индивидуальных, деловых и правовых сторонах цифровой доступности и об основах соответствия требованиям. Вы разобрали отдельные темы инклюзивного дизайна и кода: когда использовать ARIA, а когда HTML, как измерять контраст цвета, когда необходим JavaScript и другие вопросы.
 
-Each test—automated, manual, and assistive tech—is critical to achieving the most accessible product possible.
+В оставшихся модулях мы переходим от проектирования и разработки к тестированию доступности. Мы будем использовать процесс из трёх шагов: автоматизированные проверки, ручные проверки и проверки вспомогательными технологиями. Во всех модулях о тестировании одна и та же демонстрация: страница постепенно становится из недоступной доступной.
 
-Our tests rely on the Web Content Accessibility Guidelines (WCAG) 2.1 [conformance level A and AA](https://www.w3.org/TR/WCAG21/#cc1) as our standards. Remember that your industry, product type, local/country laws and policies, or overall accessibility goals will dictate which guidelines to follow and levels to meet. If you don't require a specific standard for your project, the recommendation is to follow the latest version of WCAG. Refer back to "[How is digital accessibility measured?](measure.md)" for general information on accessibility audits, conformance types/levels, [WCAG](glossary.md#wcag), and [POUR](glossary.md#pour).
+Каждая проверка — автоматизированная, ручная и с вспомогательными технологиями — нужна, чтобы получить максимально доступный продукт.
 
-As you now know, accessibility conformance is _not_ the full story when it comes to supporting people with disabilities. But, it's a good starting point as it provides a metric you can test against. We encourage you to take additional actions outside of accessibility conformance testing, such as running usability tests with people with disabilities, hiring people with disabilities to work on your team, or consulting an individual or company with digital accessibility expertise to help you build more inclusive products.
+За эталон мы берём [уровни соответствия A и AA](https://www.w3.org/TR/WCAG21/#cc1) Web Content Accessibility Guidelines (WCAG) 2.1. Отрасль, тип продукта, местные и национальные законы и политики, а также общие цели по доступности определяют, каким рекомендациям следовать и какой уровень закрывать. Если для проекта не задан конкретный стандарт, рекомендуется последняя версия WCAG. Общие сведения об аудите доступности, типах и уровнях соответствия, [WCAG](glossary.md#wcag) и [POUR](glossary.md#pour) — в модуле «[Как измеряют цифровую доступность?](measure.md)».
 
-## Automated testing basics
+Соответствие требованиям доступности — ещё не вся поддержка людей с инвалидностью. Но это хорошая отправная точка: появляется метрика, по которой можно проверять продукт. Помимо тестов на соответствие, стоит проводить юзабилити-тесты с людьми с инвалидностью, нанимать таких людей в команду или консультироваться с человеком либо компанией, которые разбираются в цифровой доступности, чтобы продукты становились инклюзивнее.
 
-Automated accessibility testing uses software to scan your digital product for accessibility issues against pre-defined accessibility conformance standards.
+## Основы автоматизированного тестирования
 
-Pros of automated accessibility tests:
+Автоматизированное тестирование доступности — это проверка цифрового продукта программой на заранее заданные стандарты соответствия.
 
--   Easy to repeat tests at different stages of the product lifecycle
--   Just a few steps to run and very quick results
--   Little accessibility knowledge is required to run the tests or understand the results
+Плюсы автоматизированных тестов доступности:
 
-Cons of automated accessibility tests:
+-   Тесты легко повторять на разных этапах жизненного цикла продукта
+-   Запуск занимает несколько шагов, а результат приходит быстро
+-   Чтобы запустить тесты и понять отчёт, нужно немного знаний о доступности
 
--   Automated tools don't catch all of the accessibility errors in your product
--   Reported false positives (an issue is reported that isn't a true WCAG violation)
--   Multiple tools may be needed for different product types and roles
+Минусы автоматизированных тестов доступности:
 
-Automated testing is a great first step to check your website or app for accessibility, but not all checks can be automated. We'll go into more detail on how to check the accessibility of elements that cannot be automated in the [manual accessibility testing](test-manual.md) module.
+-   Автоматические инструменты не находят все ошибки доступности в продукте
+-   Бывают ложные срабатывания: инструмент сообщает о проблеме, которая не является нарушением WCAG
+-   Для разных типов продуктов и ролей могут понадобиться разные инструменты
 
-## Types of automated tools
+Автоматизированная проверка — хороший первый шаг для сайта или приложения, но автоматизировать можно не всё. Как проверять то, что не покрывают автотесты, разобрано в модуле [ручного тестирования доступности](test-manual.md).
 
-One of the first online automated accessibility testing tools was developed in 1996 by the Center for Applied Special Technology (CAST), called "[The Bobby Report](https://jimthatcher.com/bobbyeval.htm)." Today, there are [over 100 automated testing tools](https://www.w3.org/WAI/ER/tools/) to choose from!
+## Виды автоматических инструментов
 
-Automated tool implementation varies from accessibility browser extensions to code linters, desktop and mobile applications, online dashboards, and even open-source APIs you can use to build your own automated tooling.
+Один из первых онлайн-инструментов автоматизированного тестирования доступности появился в 1996 году в Center for Applied Special Technology (CAST) и назывался «[The Bobby Report](https://jimthatcher.com/bobbyeval.htm)». Сегодня на выбор есть [больше 100 автоматических инструментов](https://www.w3.org/WAI/ER/tools/).
 
-Which automated tool you decide to use can depend on many factors, including:
+Реализация бывает разной: расширения браузера, линтеры кода, настольные и мобильные приложения, онлайн-панели и даже открытые API, на которых можно собрать собственный инструмент.
 
--   Which conformance standards and levels are you testing against? This may include WCAG 2.1, WCAG 2.0, [U.S. Section 508](https://www.section508.gov/), or a modified list of accessibility rules.
--   What type of digital product are you testing? This could be a website, web app, native mobile app, PDF, kiosk, or other product.
--   What part of the software development life cycle are you testing your product?
--   How much time does it take to set up and use the tool? For an individual, team, or company?
--   Who is conducting the test: designers, developers, QA, etc.?
--   How often do you want the accessibility to be checked? What details should be included in the report? Should issues be directly linked to a ticketing system?
--   Which tools work best in your environment? For your team?
+Какой инструмент выбрать, зависит от многих факторов:
 
-There are many additional factors to consider as well. Check out WAI's article on "[Selecting Web Accessibility Evaluation Tools](https://www.w3.org/WAI/test-evaluate/tools/selecting/)" for more information on how to select the best tool for you and your team.
+-   По каким стандартам и уровням соответствия вы проверяете? Это могут быть WCAG 2.1, WCAG 2.0, [U.S. Section 508](https://www.section508.gov/) или изменённый список правил доступности.
+-   Какой цифровой продукт вы проверяете? Сайт, веб-приложение, нативное мобильное приложение, PDF, киоск или что-то ещё.
+-   На каком этапе жизненного цикла разработки вы тестируете продукт?
+-   Сколько времени уходит на настройку и использование инструмента? Для одного человека, команды или компании?
+-   Кто проводит тест: дизайнеры, разработчики, QA и так далее?
+-   Как часто нужно проверять доступность? Какие подробности должны быть в отчёте? Нужно ли сразу связывать проблемы с системой задач?
+-   Какие инструменты лучше работают в вашей среде и у вашей команды?
 
-## Demo: Automated test
+Есть и другие соображения. Подробнее о выборе — в статье WAI «[Selecting Web Accessibility Evaluation Tools](https://www.w3.org/WAI/test-evaluate/tools/selecting/)».
 
-For the automated accessibility testing demo, we'll be using Chrome's [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/). Lighthouse is an open-source, automated tool created to improve the quality of web pages through different types of audits, such as performance, SEO, and accessibility.
+## Демонстрация: автоматизированный тест
 
-Our demo is a website built for a made-up organization, the Medical Mysteries Club. This site is intentionally made inaccessible for the demo. Some of this inaccessibility may be visible to you, and some (but not all) will be caught in our automated test.
+Для демонстрации автоматизированного тестирования доступности мы используем [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) в Chrome. Lighthouse — открытый автоматический инструмент. Он помогает улучшать качество веб-страниц аудитами разных типов: производительность, SEO и доступность.
 
-### Step 1
+Демонстрация — сайт вымышленной организации Medical Mysteries Club. Страница намеренно сделана недоступной. Часть проблем видна сразу, часть (но не все) поймает автоматический тест.
 
-Using your Chrome browser, install the [Lighthouse extension](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk).
+### Шаг 1
 
-There are [many ways to integrate Lighthouse](https://github.com/GoogleChrome/lighthouse) into your testing workflow. We'll use the Chrome extension for this demo.
+В браузере Chrome установите [расширение Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk).
 
-### Step 2
+[Встроить Lighthouse в процесс тестирования](https://github.com/GoogleChrome/lighthouse) можно по-разному. В этой демонстрации мы используем расширение Chrome.
+
+### Шаг 2
 
 <figure class="screenshot" data-float="right">
-{% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/amnpKDgfwnlIa02HYMU1.png", alt="Medical Mystery Club website, outside of the iframe.", width="400", height="283" %}
+{% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/amnpKDgfwnlIa02HYMU1.png", alt="Сайт Medical Mysteries Club вне iframe.", width="400", height="283" %}
 </figure>
 
-We have built a [demo in CodePen](https://codepen.io/web-dot-dev/pen/yLqOaEP). View it in [debug mode](https://cdpn.io/pen/debug/yLqOaEP) to proceed with the next tests. This is important, as it removes the `<iframe>` which surrounds the demo web page, which may interfere with some testing tools. Learn more about [CodePen's debug mode](https://blog.codepen.io/documentation/debug-view/#getting-to-debug-view-3).
+Мы собрали [демонстрацию в CodePen](https://codepen.io/web-dot-dev/pen/yLqOaEP). Откройте её в [режиме отладки](https://cdpn.io/pen/debug/yLqOaEP), чтобы перейти к следующим тестам. Это важно: так убирается `<iframe>`, который окружает демо-страницу и может мешать некоторым инструментам. Подробнее — в описании [режима отладки CodePen](https://blog.codepen.io/documentation/debug-view/#getting-to-debug-view-3).
 
-### Step 3
+### Шаг 3
 
-[Open Chrome DevTools](https://developer.chrome.com/docs/devtools/open/) and navigate to the Lighthouse tab. Uncheck all of the category options except for "Accessibility." Keep the mode as the default and choose the device type you're running the tests on.
+[Откройте Chrome DevTools](https://developer.chrome.com/docs/devtools/open/) и перейдите на вкладку Lighthouse. Снимите все категории, кроме «Accessibility». Режим оставьте по умолчанию и выберите тип устройства, на котором запускаете тесты.
 
 <figure class="screenshot">
   {% Img
     src="image/VbsHyyQopiec0718rMq2kTE1hke2/yv8fIyUnFaW0yPGJgohj.png",
-    alt="Medical Mystery Club website, with the Lighthouse report DevTools panel open.", width="800", height="421"
+    alt="Сайт Medical Mysteries Club с открытой панелью отчёта Lighthouse в DevTools.", width="800", height="421"
   %}
 </figure>
 
-### Step 4
+### Шаг 4
 
-Click the "Analyze page load" button and give Lighthouse time to run its tests.
+Нажмите кнопку «Analyze page load» и дайте Lighthouse время выполнить проверки.
 
-Once the tests are complete, Lighthouse displays a score that measures how accessible the product you're testing is. The [Lighthouse score](https://developer.chrome.com/docs/lighthouse/accessibility/scoring) is calculated by the number of issues, issue types, and the impact on users of the issues detected.
+Когда тесты закончатся, Lighthouse покажет оценку того, насколько доступен проверяемый продукт. [Оценка Lighthouse](https://developer.chrome.com/docs/lighthouse/accessibility/scoring) считается по числу проблем, их типам и влиянию найденных проблем на пользователей.
 
-Beyond a score, the Lighthouse report includes detailed information about what issues it has detected and links to resources to learn more about remedying them. The report also includes tests that are passed or not applicable and a list of additional items to check manually.
+Кроме оценки, отчёт Lighthouse подробно описывает найденные проблемы и даёт ссылки, где узнать, как их исправить. В отчёте также есть пройденные и неприменимые проверки и список пунктов, которые нужно проверить вручную.
 
-{% Aside %}
+!!!note ""
 
-The automated Lighthouse tests were run in December 2022. Due to changes in the codebase, browsers, assistive technology, accessibility standards, and/or rulesets, your test results may vary.
-
-{% endAside %}
+    Автоматические тесты Lighthouse запускались в декабре 2022 года. Из-за изменений в коде, браузерах, вспомогательных технологиях, стандартах доступности и наборах правил ваши результаты могут отличаться.
 
 <figure class="screenshot">
   {% Img
     src="image/VbsHyyQopiec0718rMq2kTE1hke2/5SUhDMXiDYw43kt5ss3J.png",
-    alt="The Medical Mysteries Club website received a 62 for the Lighthouse score in our December 2022 test.", width="800", height="421"
+    alt="В тесте декабря 2022 года сайт Medical Mysteries Club получил оценку Lighthouse 62.", width="800", height="421"
   %}
 </figure>
 
-### Step 5
+### Шаг 5
 
-Now, let's go through an example of each automated accessibility issue discovered and fix the relevant styles and markup.
+Разберём по одному примеру каждой найденной автоматической проблемы доступности и исправим соответствующие стили и разметку.
 
-#### Issue 1: ARIA roles {: #aria-roles}
+#### Проблема 1: роли ARIA {#aria-roles}
 
-The first issue states: "Elements with an ARIA [role] that require children to contain a specific [role] are missing some or all of those required children. Some ARIA parent roles must contain specific child roles to perform their intended accessibility functions." [Learn more about ARIA role rules](https://dequeuniversity.com/rules/axe/4.4/aria-required-children).
+Первая проблема звучит так: «У элементов с ролью ARIA [role], которым нужны дочерние элементы с определённой ролью [role], нет части или всех таких дочерних элементов. Некоторым родительским ролям ARIA нужны конкретные дочерние роли, чтобы выполнять задуманную функцию доступности». [Подробнее о правилах ролей ARIA](https://dequeuniversity.com/rules/axe/4.4/aria-required-children).
 
-In our demo, the newsletter subscribe button fails:
+В демонстрации не проходит кнопка подписки на рассылку:
 
 ```html
 <button role="list" type="submit" tabindex="1">
@@ -124,19 +118,19 @@ In our demo, the newsletter subscribe button fails:
 
 <span class="solution" id="issue-1-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-The "subscribe" button next to the input field has an incorrect ARIA role applied to it. In this case, the role can be removed completely.
+У кнопки «Subscribe» рядом с полем ввода задана неверная роль ARIA. В этом случае роль можно убрать полностью.
 
 ```html
 <button type="submit" tabindex="1">Subscribe</button>
 ```
 
-#### Issue 2: ARIA hidden {: #aria-hidden}
+#### Проблема 2: `aria-hidden` {#aria-hidden}
 
-`"[aria-hidden="true"]` elements contain focusable descendants. Focusable descendants within an `[aria-hidden="true"]` element prevent those interactive elements from being available to users of assistive technologies like screen readers. [Learn more about `aria-hidden` rules](https://dequeuniversity.com/rules/axe/4.4/aria-hidden-focus).
+Элементы `[aria-hidden="true"]` содержат фокусируемых потомков. Фокусируемые потомки внутри элемента с `[aria-hidden="true"]` делают эти интерактивные элементы недоступными для пользователей вспомогательных технологий, например программ чтения с экрана. [Подробнее о правилах `aria-hidden`](https://dequeuniversity.com/rules/axe/4.4/aria-hidden-focus).
 
 ```html
 <input
@@ -150,11 +144,11 @@ The "subscribe" button next to the input field has an incorrect ARIA role applie
 
 <span class="solution" id="issue-2-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-The input field had an `aria-hidden="true"` attribute applied to it. Adding this attribute hides the element (and everything nested under it) from assistive tech.
+У поля ввода стоял атрибут `aria-hidden="true"`. Он скрывает элемент и всё, что в него вложено, от вспомогательных технологий.
 
 ```html
 <input
@@ -165,11 +159,11 @@ The input field had an `aria-hidden="true"` attribute applied to it. Adding this
 />
 ```
 
-In this case, you should remove this attribute from the input to allow people using assistive technology to access and enter information into the form field.
+В этом случае атрибут нужно убрать с поля, чтобы люди со вспомогательными технологиями могли попасть в поле и ввести данные.
 
-#### Issue 3: Button name {: #button-name}
+#### Проблема 3: имя кнопки {#button-name}
 
-Buttons do not have an accessible name. When a button doesn't have an accessible name, screen readers announce it as "button," making it unusable for users who rely on screen readers. [Learn more about button name rules](https://dequeuniversity.com/rules/axe/4.4/button-name).
+У кнопок нет доступного имени. Если у кнопки нет доступного имени, программа чтения с экрана объявляет её просто как «button», и пользоваться ею нельзя. [Подробнее о правилах имени кнопки](https://dequeuniversity.com/rules/axe/4.4/button-name).
 
 ```html
 <button role="list" type="submit" tabindex="1">
@@ -179,19 +173,19 @@ Buttons do not have an accessible name. When a button doesn't have an accessible
 
 <span class="solution" id="issue-3-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-When you remove the inaccurate ARIA role from the button element in [issue 1](#aria-roles), the word "Subscribe" becomes the accessible button name. This functionality is built into the semantic HTML button element. There are additional pattern options to consider for more complex situations.
+Когда в [проблеме 1](#aria-roles) с кнопки снимают неверную роль ARIA, слово «Subscribe» становится доступным именем кнопки. Так устроен семантический HTML-элемент кнопки. Для более сложных случаев есть и другие шаблоны.
 
 ```html
 <button type="submit" tabindex="1">Subscribe</button>
 ```
 
-#### Issue 4: Image alt attributes {: #image-alt-attributes}
+#### Проблема 4: атрибуты `alt` у изображений {#image-alt-attributes}
 
-Image elements are missing `[alt]` attributes. Informative elements should aim for short, descriptive alternate text. Decorative elements can be ignored with an empty alt attribute. [Learn more about image alternative text rules](https://dequeuniversity.com/rules/axe/4.4/image-alt).
+У элементов изображений нет атрибутов `[alt]`. У информативных элементов должен быть короткий описательный альтернативный текст. Декоративные элементы можно пропустить пустым атрибутом alt. [Подробнее о правилах альтернативного текста изображений](https://dequeuniversity.com/rules/axe/4.4/image-alt).
 
 ```html
 <a href="index.html">
@@ -203,11 +197,11 @@ Image elements are missing `[alt]` attributes. Informative elements should aim f
 
 <span class="solution" id="issue-4-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-Since the logo image is also a link, you know from the [image module](images.md) that it is called an actionable image and requires alternative text information about the purpose of the image. Normally, the first image on the page is a logo, so you can reasonably assume your AT users will know this, and you may decide not to add this additional contextual information to your image description.
+Логотип одновременно является ссылкой. Из [модуля об изображениях](images.md) известно, что это действенное изображение, и альтернативный текст должен сообщать о назначении изображения. Обычно первое изображение на странице — логотип, поэтому можно разумно предположить, что пользователи AT это поймут, и не добавлять этот контекст в описание.
 
 ```html
 <a href="index.html">
@@ -218,9 +212,9 @@ Since the logo image is also a link, you know from the [image module](images.md)
 </a>
 ```
 
-#### Issue 5: Link text {: #link-text}
+#### Проблема 5: текст ссылки {#link-text}
 
-Links do not have a discernible name. Link text (and alternate text for images, when used as links) that is discernible, unique, and focusable improves the navigation experience for screen reader users. [Learn more about link text rules](https://dequeuniversity.com/rules/axe/4.4/link-name).
+У ссылок нет различимого имени. Различимый, уникальный и доступный для фокуса текст ссылки (и альтернативный текст изображений, если они используются как ссылки) улучшает навигацию для пользователей программ чтения с экрана. [Подробнее о правилах текста ссылки](https://dequeuniversity.com/rules/axe/4.4/link-name).
 
 ```html
 <a href="#!"
@@ -230,13 +224,13 @@ Links do not have a discernible name. Link text (and alternate text for images, 
 
 <span class="solution" id="issue-5-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-All of the actionable images on the page must include information about where the link will send users. One method to remedy this issue is to add alternative text to the image about the purpose, as you did on the logo image in the example above. This works great for an image using a `<img>` tag, but `<svg>` tags cannot use this method.
+Все действенные изображения на странице должны сообщать, куда ссылка отправит пользователя. Один способ — добавить к изображению альтернативный текст о назначении, как у логотипа в примере выше. Для тега `<img>` это работает хорошо, а для тегов `<svg>` — нет.
 
-For the social media icons, which use `<svg>` tags, you can use a [different alternative description pattern](https://codepen.io/web-dot-dev/pen/poZyEZd) targeting SVGs, add the information between the `<a>` and `<svg>` tags and then hide it visually from users, add a supported ARIA, or other options. Depending on your environment and code restrictions, one method might be preferable over another. Let's use the simplest pattern option with the most assistive technology coverage, which is adding a `role="img"` to the `<svg>` tag and including a `<title>` element.
+Для значков социальных сетей на `<svg>` можно взять [другой шаблон альтернативного описания](https://codepen.io/web-dot-dev/pen/poZyEZd) для SVG: поместить сведения между тегами `<a>` и `<svg>` и визуально скрыть их, добавить поддерживаемую ARIA или выбрать другой вариант. В зависимости от среды и ограничений кода один способ может быть удобнее другого. Возьмём самый простой шаблон с наилучшим покрытием вспомогательных технологий: `role="img"` на теге `<svg>` и элемент `<title>`.
 
 ```html
 <a href="#!">
@@ -247,77 +241,77 @@ For the social media icons, which use `<svg>` tags, you can use a [different alt
 </a>
 ```
 
-#### Issue 6: Color contrast {: #color-contrast }
+#### Проблема 6: контраст цвета {#color-contrast}
 
-Background and foreground colors don't have a sufficient contrast ratio. Low-contrast text is difficult or impossible for many users to read. [Learn more about color contrast rules](https://dequeuniversity.com/rules/axe/4.4/color-contrast).
+У цветов фона и переднего плана недостаточный коэффициент контраста. Текст с низким контрастом многим пользователям трудно или невозможно прочитать. [Подробнее о правилах контраста цвета](https://dequeuniversity.com/rules/axe/4.4/color-contrast).
 
-Two examples were reported.
+Сообщено о двух примерах.
 
 <div class="switcher">
   <figure class="screenshot">
-    <a href="https://web-dev.imgix.net/image/VbsHyyQopiec0718rMq2kTE1hke2/3Aeg1osulNGB1EVtGu8r.png" alt="View full size screenshot.">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/3Aeg1osulNGB1EVtGu8r.png", alt="Lighthouse score for reported club name. The teal value contrast ratio is too low.", width="320", height="228" %}
+    <a href="https://web-dev.imgix.net/image/VbsHyyQopiec0718rMq2kTE1hke2/3Aeg1osulNGB1EVtGu8r.png" alt="Открыть скриншот в полном размере.">
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/3Aeg1osulNGB1EVtGu8r.png", alt="Оценка Lighthouse для названия клуба. Контраст бирюзового значения слишком низкий.", width="320", height="228" %}
   </a>
 
   <figcaption>
-   The club name, <code><div class="club-name">Medical Mysteries Club</div></code> , has a color hex value of <code>#01aa9d</code> and the background hex value is <code>#ffffff</code>. The color contrast ratio is 2.9:1.
+   Название клуба, <code><div class="club-name">Medical Mysteries Club</div></code>, имеет шестнадцатеричный цвет <code>#01aa9d</code>, а фон — <code>#ffffff</code>. Коэффициент контраста цвета — 2.9:1.
 
-<a href="https://web-dev.imgix.net/image/VbsHyyQopiec0718rMq2kTE1hke2/3Aeg1osulNGB1EVtGu8r.png">View full size screenshot</a>.
+<a href="https://web-dev.imgix.net/image/VbsHyyQopiec0718rMq2kTE1hke2/3Aeg1osulNGB1EVtGu8r.png">Открыть скриншот в полном размере</a>.
 
   </figcaption>
   </figure>
-  
+
   <figure class="screenshot">
-    <a href="https://web-dev.imgix.net/image/VbsHyyQopiec0718rMq2kTE1hke2/86Iongt2UcohbzEar4Pm.png" alt="View full size screenshot.">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/86Iongt2UcohbzEar4Pm.png", alt="Lighthouse score for mermaid syndrome copy. The grey value contrast ratio is too low.", width="320", height="228" %}
+    <a href="https://web-dev.imgix.net/image/VbsHyyQopiec0718rMq2kTE1hke2/86Iongt2UcohbzEar4Pm.png" alt="Открыть скриншот в полном размере.">
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/86Iongt2UcohbzEar4Pm.png", alt="Оценка Lighthouse для текста о синдроме русалки. Контраст серого значения слишком низкий.", width="320", height="228" %}
     </a>
     <figcaption>
-      <code><b>Mermaid syndrome</b></code> has a text hex value of <code>#7c7c7c</code>, while the background's hex color is <code>#ffffff</code>. The color contrast ratio is 4.2:1.
-      <a href="https://web-dev.imgix.net/image/VbsHyyQopiec0718rMq2kTE1hke2/86Iongt2UcohbzEar4Pm.png">View full size screenshot</a>.
+      У <code><b>Mermaid syndrome</b></code> шестнадцатеричный цвет текста <code>#7c7c7c</code>, а у фона — <code>#ffffff</code>. Коэффициент контраста цвета — 4.2:1.
+      <a href="https://web-dev.imgix.net/image/VbsHyyQopiec0718rMq2kTE1hke2/86Iongt2UcohbzEar4Pm.png">Открыть скриншот в полном размере</a>.
     </figcaption>
   </figure>
 </div>
 
 <span class="solution" id="issue-6-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-There are many color contrast issues detected on the web page. As you learned in the [color and contrast](color-contrast.md) module, regular-sized text (less than 18pt / 24px) has a color contrast requirement of 4.5:1, while large-sized text (at least 18pt / 24px or 14pt / 18.5px bold) and essential icons must meet the 3:1 requirement.
+На странице много проблем с контрастом цвета. Как сказано в модуле [цвета и контраста](color-contrast.md), обычный текст (меньше 18pt / 24px) должен иметь контраст 4.5:1, а крупный текст (не меньше 18pt / 24px или 14pt / 18.5px полужирного) и важные значки — 3:1.
 
-For the page title, the teal-colored text needs to meet the 3:1 color contrast requirement since it is large-sized text at 24px. However, the teal buttons are considered regular-sized text at 16px bold, so they must meet the 4.5:1 color contrast requirement.
+Заголовок страницы набран бирюзовым цветом размером 24px, это крупный текст, поэтому ему достаточно контраста 3:1. Бирюзовые кнопки — обычный текст 16px полужирного начертания, поэтому им нужен контраст 4.5:1.
 
-In this case, we could find a teal color that was dark enough to meet 4.5:1, or we could increase the size of the button text to 18.5px bold and change the teal color value slightly. Either method will stay in line with the design aesthetics.
+Можно найти достаточно тёмный бирюзовый цвет под 4.5:1 или увеличить текст кнопки до 18.5px полужирного и слегка изменить бирюзовый. Оба способа остаются в рамках эстетики макета.
 
-All the gray text on the white background also fails for color contrast, except for the two largest headings on the page. This text must be darkened to meet the 4.5:1 color contrast requirements.
+Весь серый текст на белом фоне тоже не проходит по контрасту, кроме двух самых крупных заголовков страницы. Этот текст нужно затемнить до контраста 4.5:1.
 
 <div class="switcher">
   <figure class="screenshot">
-    <a href="https://web-dev.imgix.net/image/VbsHyyQopiec0718rMq2kTE1hke2/2JyEvvfRBNFr7YdPipLf.png" alt="View full size screenshot.">
-      {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/2JyEvvfRBNFr7YdPipLf.png", alt="The teal has been fixed and no longer fails.", width="320", height="228" %}
+    <a href="https://web-dev.imgix.net/image/VbsHyyQopiec0718rMq2kTE1hke2/2JyEvvfRBNFr7YdPipLf.png" alt="Открыть скриншот в полном размере.">
+      {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/2JyEvvfRBNFr7YdPipLf.png", alt="Бирюзовый цвет исправлен и больше не проваливает проверку.", width="320", height="228" %}
   </a>
   <figcaption>
-    The club name, <code><div class="club-name">Medical Mysteries Club</div></code> , has been given a color value of <code>#008576</code> and the background remains <code>#ffffff</code>. The updated color contrast ratio is 4.5:1.
-    <a href="https://web-dev.imgix.net/image/VbsHyyQopiec0718rMq2kTE1hke2/2JyEvvfRBNFr7YdPipLf.png">View full size screenshot</a>.
+    Названию клуба, <code><div class="club-name">Medical Mysteries Club</div></code>, задан цвет <code>#008576</code>, фон по-прежнему <code>#ffffff</code>. Обновлённый коэффициент контраста — 4.5:1.
+    <a href="https://web-dev.imgix.net/image/VbsHyyQopiec0718rMq2kTE1hke2/2JyEvvfRBNFr7YdPipLf.png">Открыть скриншот в полном размере</a>.
   </figcaption>
   </figure>
   <figure class="screenshot">
-    <a href="https://web-dev.imgix.net/image/VbsHyyQopiec0718rMq2kTE1hke2/3DgVWG6oIRRVTGYmZP3c.png" alt="View full size screenshot.">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/3DgVWG6oIRRVTGYmZP3c.png", alt="The grey has been fixed and no longer fails.", width="320", height="228" %}
+    <a href="https://web-dev.imgix.net/image/VbsHyyQopiec0718rMq2kTE1hke2/3DgVWG6oIRRVTGYmZP3c.png" alt="Открыть скриншот в полном размере.">
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/3DgVWG6oIRRVTGYmZP3c.png", alt="Серый цвет исправлен и больше не проваливает проверку.", width="320", height="228" %}
     </a>
     <figcaption>
-      <code><b>Mermaid syndrome</b></code> now has a color value of <code>#767676</code> and the background remains <code>#ffffff</code>. The color contrast ratio is 4.5:1.
-      <a href="https://web-dev.imgix.net/image/VbsHyyQopiec0718rMq2kTE1hke2/3DgVWG6oIRRVTGYmZP3c.png">View full size screenshot</a>.
+      У <code><b>Mermaid syndrome</b></code> теперь цвет <code>#767676</code>, фон по-прежнему <code>#ffffff</code>. Коэффициент контраста цвета — 4.5:1.
+      <a href="https://web-dev.imgix.net/image/VbsHyyQopiec0718rMq2kTE1hke2/3DgVWG6oIRRVTGYmZP3c.png">Открыть скриншот в полном размере</a>.
     </figcaption>
   </figure>
 </div>
 
-#### Issue #7 - list structure {: #list-structure }
+#### Проблема 7: структура списка {#list-structure}
 
-List items (`<li>`) are not contained within `<ul>` or `<ol>` parent elements. Screen readers require list items (`<li>`) to be contained within a parent `<ul>` or `<ol>` to be announced properly.
+Элементы списка (`<li>`) не вложены в родительские элементы `<ul>` или `<ol>`. Программам чтения с экрана нужно, чтобы элементы списка (`<li>`) находились внутри родительского `<ul>` или `<ol>`, иначе они объявляются неправильно.
 
-[Learn more about list rules](https://dequeuniversity.com/rules/axe/4.4/listitem).
+[Подробнее о правилах списков](https://dequeuniversity.com/rules/axe/4.4/listitem).
 
 ```html
 <div class="ul">
@@ -331,11 +325,11 @@ List items (`<li>`) are not contained within `<ul>` or `<ol>` parent elements. S
 
 <span class="solution" id="issue-7-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-We used a CSS class in this demo to simulate the unordered list instead of using a `<ul>` tag. When we wrote this code improperly, we removed the inherent semantic HTML features built into this tag. By replacing the class with a real `<ul>` tag and modifying the related CSS, we resolve this accessibility issue.
+В демонстрации неупорядоченный список имитировали классом CSS, а не тегом `<ul>`. Из-за такой разметки пропали встроенные семантические возможности HTML этого тега. Замена класса настоящим тегом `<ul>` и правка связанного CSS устраняют проблему доступности.
 
 ```html
 <ul>
@@ -347,9 +341,9 @@ We used a CSS class in this demo to simulate the unordered list instead of using
 </ul>
 ```
 
-#### Issue #8 - tabindex {: #tabindex }
+#### Проблема 8: `tabindex` {#tabindex}
 
-Some elements have a [tabindex] value greater than 0. A value greater than 0 implies an explicit navigation ordering. Although technically valid, this often creates frustrating experiences for users who rely on assistive technologies. [Learn more about tabindex rules](https://dequeuniversity.com/rules/axe/4.4/tabindex).
+У некоторых элементов значение [tabindex] больше 0. Значение больше 0 задаёт явный порядок навигации. Формально это допустимо, но часто создаёт неудобный опыт для людей, которые пользуются вспомогательными технологиями. [Подробнее о правилах tabindex](https://dequeuniversity.com/rules/axe/4.4/tabindex).
 
 ```html
 <button type="submit" tabindex="1">Subscribe</button>
@@ -357,30 +351,30 @@ Some elements have a [tabindex] value greater than 0. A value greater than 0 imp
 
 <span class="solution" id="issue-8-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-Unless there is a specific reason to disrupt the natural tabbing order on a web page, there is no need to have a positive integer on a tabindex attribute. To keep the natural tabbing order, we can either change the tabindex to `0` or remove the attribute altogether.
+Если нет особой причины ломать естественный порядок Tab на странице, положительное целое у атрибута tabindex не нужно. Чтобы сохранить естественный порядок, можно задать tabindex `0` или убрать атрибут совсем.
 
 ```html
 <button type="submit">Subscribe</button>
 ```
 
-### Step 6
+### Шаг 6
 
-Now that you've fixed all the automated accessibility issues, open up a new debug mode page. Run the Lighthouse accessibility audit again. Your score should be much better than on the first run.
+Когда все автоматические проблемы доступности исправлены, откройте новую страницу в режиме отладки. Запустите аудит доступности Lighthouse ещё раз. Оценка должна быть заметно выше, чем при первом запуске.
 
 <figure class="screenshot">
 {% Img
-  src="image/VbsHyyQopiec0718rMq2kTE1hke2/gcjuv10swXP62s1oT37d.png", alt="The lighthouse score is now 100, which means you addressed all Lighthouse issues.", width="800", height="421"
+  src="image/VbsHyyQopiec0718rMq2kTE1hke2/gcjuv10swXP62s1oT37d.png", alt="Оценка Lighthouse теперь 100: все проблемы Lighthouse устранены.", width="800", height="421"
 %}
 </figure>
 
-We've applied all of these automated accessibility updates to a new [CodePen](https://codepen.io/web-dot-dev/pen/PoBZgrW).
+Все эти автоматические исправления доступности собраны в новом [CodePen](https://codepen.io/web-dot-dev/pen/PoBZgrW).
 
-## Next step
+## Следующий шаг
 
-Great job. You have accomplished a lot already, but we haven't finished yet! Next, we'll move on to manual checks, as detailed in the [manual accessibility testing](test-manual.md) module.
+Вы уже многое сделали, но это ещё не конец. Дальше — ручные проверки, как описано в модуле [ручного тестирования доступности](test-manual.md).
 
-{% Assessment 'automated' %}
+:material-information-outline: Источник &mdash; [Automated accessibility testing](https://web.dev/learn/accessibility/test-automated)

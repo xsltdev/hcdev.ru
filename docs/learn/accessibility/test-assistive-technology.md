@@ -1,295 +1,137 @@
 ---
-title: 'Assistive Technology testing'
-authors:
-    - cariefisher
-description: How to test with Assistive Technology (AT).
-date: 2023-01-12
-tags:
-    - accessibility
+description: Как тестировать вспомогательными технологиями (AT).
 ---
 
-{% Aside %} This module is a continuation of the previous two testing modules, [automated accessibility testing](test-automated.md) and [manual accessibility testing](test-manual.md). If you have not gone through the exercises in those modules yet, we encourage you to do so, as this module starts where they left off. {% endAside %}
+# Тестирование вспомогательными технологиями
 
-This module focuses on using assistive technology (AT) for accessibility testing. A person with disabilities can use AT to help increase, maintain, or improve the capabilities of performing a task.
+!!!note ""
 
-In the digital space, ATs can be:
+    Этот модуль продолжает два предыдущих модуля о тестировании: [автоматизированное тестирование доступности](test-automated.md) и [ручное тестирование доступности](test-manual.md). Если вы ещё не прошли упражнения в тех модулях, рекомендуем сделать это: этот модуль начинается там, где они закончились.
 
--   No/Low-tech: head/mouth sticks, hand-held magnifiers, devices with large buttons
--   High-tech: voice-activated devices, eye-tracking devices, adaptive keyboards/mice
--   Hardware: switch buttons, ergonomic keyboards, auto-refreshing Braille device
--   Software: text-to-speech programs, live captions, screen readers
+Этот модуль о том, как использовать вспомогательные технологии (AT) для тестирования доступности. Человек с инвалидностью может пользоваться AT, чтобы повысить, сохранить или улучшить возможность выполнять задачу.
 
-We encourage you to use multiple types of ATs in your overall testing workflow.
+В цифровой среде AT бывают такими:
 
-## Screen reader testing basics
+-   Без технологий или низкотехнологичные: указки для головы и рта, ручные лупы, устройства с крупными кнопками
+-   Высокотехнологичные: устройства с голосовым управлением, айтрекеры, адаптивные клавиатуры и мыши
+-   Аппаратные: кнопки-переключатели, эргономичные клавиатуры, брайлевские дисплеи с автообновлением
+-   Программные: программы синтеза речи, живые субтитры, программы чтения с экрана
 
-In this module, we focus on one of the most popular digital ATs, screen readers. A screen reader is a piece of software that reads the underlying code of a website or app. It then converts that information into speech or Braille output for the user.
+В общем процессе тестирования лучше использовать несколько видов AT.
 
-Screen readers are essential for people who are blind and deafblind, but they also could benefit people with low vision, reading disorders, or cognitive disabilities.
+## Основы тестирования программой чтения с экрана
 
-### Browser compatibility
+В этом модуле мы разбираем одну из самых распространённых цифровых AT — программу чтения с экрана. Это программа, которая читает код сайта или приложения и превращает сведения в речь или брайлевский вывод.
 
-There are multiple screen reader options available. The [most popular screen readers](https://webaim.org/projects/screenreadersurvey9) today are JAWS, NVDA, and VoiceOver for desktop computers and VoiceOver and Talkback for mobile devices.
+Программы чтения с экрана необходимы людям, которые слепые и слепоглухие. Они также могут помочь людям со слабым зрением, нарушениями чтения и когнитивными особенностями.
 
-Depending on your operating system (OS), favorite browser, and the device that you use, one screen reader may stand out as the best option. Most screen readers are built with specific hardware and web browsers in mind. When you use a screen reader with a browser it was not calibrated for, you may encounter more "bugs" or unexpected behavior. Screen readers work best when used in the following combinations.
+### Совместимость с браузерами
 
-<div class="table-wrapper scrollbar">
-  <table>
-    <thead>
-          <tr>
-        <th>Screen reader</th>
-        <th>OS</th>
-        <th>Browser compatibility</th>
-          </tr>
-    </thead>
-    <tbody>
-          <tr>
-             <td><a href="https://www.freedomscientific.com/products/software/jaws">Job Access With Speech (JAWS)</a></td>
-             <td>Windows</td>
-             <td>Chrome, Firefox, Edge</td>
-          </tr>
-          <tr>
-             <td><a href="https://www.nvaccess.org">Non-Visual Desktop Access (NVDA)</a></td>
-             <td>Windows</td>
-             <td>Chrome and Firefox</td>
-          </tr>
-          <tr>
-             <td><a href="https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1">Narrator</a></td>
-             <td>Windows</td>
-             <td>Edge</td>
-          </tr>
-          <tr>
-             <td><a href="https://support.apple.com/guide/voiceover-guide/welcome/web">VoiceOver</a></td>
-             <td>macOS</td>
-             <td>Safari</td>
-          </tr>
-          <tr>
-             <td><a href="https://help.gnome.org/users/orca/stable/index.html.en">Orca</a></td>
-             <td>Linux</td>
-             <td>Firefox</td>
-          </tr>
-          <tr>
-             <td><a href="https://support.google.com/accessibility/android/answer/6283677">TalkBack</a></td>
-             <td>Android</td>
-             <td>Chrome and Firefox</td>
-          </tr>
-          <tr>
-             <td><a href="https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios">VoiceOver (for mobile)</a></td>
-             <td>iOS</td>
-             <td>Safari</td>
-          </tr>
-          <tr>
-             <td><a href="https://support.google.com/chromebook/answer/7031755">ChromeVox</a></td>
-             <td>ChromeOS</td>
-             <td>Chrome</td>
-          </tr>
-    </tbody>
-  </table>
-</div>
+Программ чтения с экрана несколько. Сегодня [самые распространённые](https://webaim.org/projects/screenreadersurvey9) на настольных компьютерах — JAWS, NVDA и VoiceOver, на мобильных устройствах — VoiceOver и TalkBack.
 
-### Screen reader commands
+Какая программа подойдёт лучше, зависит от операционной системы, любимого браузера и устройства. Большинство программ чтения с экрана рассчитаны на конкретное оборудование и браузеры. Если использовать программу с браузером, под который она не настроена, можно столкнуться с большим числом «багов» и неожиданным поведением. Лучше всего программы чтения с экрана работают в таких сочетаниях.
 
-Once you have the proper set-up for your screen reader software for your desktop or mobile device, you should look at the screen reader documentation (linked in the preceding table) and run through some [essential screen reader commands](https://dequeuniversity.com/screenreaders) to familiarize yourself with the technology. If you have used a screen reader before, consider trying out a new one!
+| Программа чтения с экрана | ОС | Совместимость с браузерами |
+|----|----|----|
+| [Job Access With Speech (JAWS)](https://www.freedomscientific.com/products/software/jaws) | Windows | Chrome, Firefox, Edge |
+| [Non-Visual Desktop Access (NVDA)](https://www.nvaccess.org) | Windows | Chrome и Firefox |
+| [Narrator](https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1) | Windows | Edge |
+| [VoiceOver](https://support.apple.com/guide/voiceover-guide/welcome/web) | macOS | Safari |
+| [Orca](https://help.gnome.org/users/orca/stable/index.html.en) | Linux | Firefox |
+| [TalkBack](https://support.google.com/accessibility/android/answer/6283677) | Android | Chrome и Firefox |
+| [VoiceOver (для мобильных устройств)](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios) | iOS | Safari |
+| [ChromeVox](https://support.google.com/chromebook/answer/7031755) | ChromeOS | Chrome |
 
-When using a screen reader for accessibility testing, your goal is to detect problems in your code that interfere with the usage of your website or app, not to emulate the experience of a screen reader user. As such, there is a lot you can do with some foundational knowledge, a few screen reader commands, and a bit—or a lot—of practice.
+### Команды программы чтения с экрана
 
-If you need to further understand the user experience of people using screen readers and other ATs, you can engage with many organizations and individuals to gain this valuable insight. Remember that using an AT to test code against a set of rules and asking users about their experience often yields different results. Both are important aspects to create fully inclusive products.
+Когда программа чтения с экрана настроена на настольном компьютере или мобильном устройстве, откройте её документацию (ссылки в таблице выше) и пройдите [основные команды](https://dequeuniversity.com/screenreaders), чтобы освоиться. Если вы уже пользовались программой чтения с экрана, попробуйте другую.
 
-#### Key commands for desktop screen readers
+Цель теста доступности с программой чтения с экрана — найти в коде проблемы, которые мешают пользоваться сайтом или приложением, а не воспроизвести опыт пользователя такой программы. Для этого хватает базовых знаний, нескольких команд и практики — небольшой или большой.
 
-<div class="table-wrapper scrollbar">
-  <table>
-    <thead>
-      <tr>
-        <th>Element</th>
-        <th>NVDA (Windows)</th>
-        <th>VoiceOver (macOS)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-         <td>Command</td>
-        <td>Insert (NVDA key)</td>
-        <td>Control + Option (VO key)</td>
-      </tr>
-      <tr>
-        <td>Stop audio</td>
-        <td>Control</td>
-        <td>Control</td>
-      </tr>
-      <tr>
-        <td>Read next/prev
-</td>
-        <td>↓ or ↑
-</td>
-        <td>VO + → or ←
-</td>
-      </tr>
-      <tr>
-        <td>Start reading
-</td>
-        <td>NDVA + ↓
-</td>
-        <td>VO + A
-</td>
-      </tr>
-      <tr>
-        <td>Element List/Rotor
-</td>
-        <td>NVDA + F7
-</td>
-        <td>VO + U
-</td>
-      </tr>
-      <tr>
-        <td>Landmarks
-</td>
-        <td>D
-</td>
-        <td>VO + U
-</td>
-      </tr>
-      <tr>
-        <td>Headings
-</td>
-        <td>H
-</td>
-        <td>VO + Command + H
-</td>
-      </tr>
-      <tr>
-        <td>Links
-</td>
-        <td>K
-</td>
-        <td>VO + Command + L
-</td>
-      </tr>
-      <tr>
-        <td>Form controls
-</td>
-        <td>F
-</td>
-        <td>VO + Command + J
-</td>
-      </tr>
-      <tr>
-        <td>Tables
-</td>
-        <td>T
-</td>
-        <td>VO + Command + T
-</td>
-      </tr>
-      <tr>
-        <td>Within Tables
-</td>
-        <td>NDVA + Alt + ↓ ↑ ← →
-</td>
-        <td>VO + ↓ ↑ ← →
-</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+Чтобы лучше понять опыт людей, которые пользуются программами чтения с экрана и другими AT, можно обратиться к организациям и отдельным людям. Помните: проверка кода AT по набору правил и разговор с пользователями об их опыте часто дают разные результаты. Для по-настоящему инклюзивных продуктов важны оба подхода.
 
-#### Key commands for mobile screen readers
+#### Основные команды настольных программ чтения с экрана
 
-<div class="table-wrapper scrollbar">
-  <table>
-    <thead>
-          <tr>
-        <th>Element</th>
-        <th>TalkBack (Android)</th>
-        <th>VoiceOver (iOS)</th>
-          </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Explore</td>
-        <td>Drag one finger around the screen</td>
-        <td>Drag one finger around the screen</td>
-      </tr>
-      <tr>
-        <td>Select or activate</td>
-        <td>Double tap</td>
-        <td>Double tap</td>
-      </tr>
-      <tr>
-        <td>Move up/down</td>
-        <td>Swipe up or down with two fingers</td>
-        <td>Swipe up or down with three fingers</td>
-      </tr>
-      <tr>
-        <td>Change pages</td>
-        <td>Swipe left or right with two fingers</td>
-        <td>Swipe left/right with three fingers</td>
-      </tr>
-      <tr>
-        <td>Next/previous</td>
-        <td>Swipe left/right with one finger</td>
-        <td>Swipe left/right with one finger</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+| Элемент | NVDA (Windows) | VoiceOver (macOS) |
+|----|----|----|
+| Команда | Insert (клавиша NVDA) | Control + Option (клавиша VO) |
+| Остановить речь | Control | Control |
+| Читать следующий или предыдущий | ↓ или ↑ | VO + → или ← |
+| Начать чтение | NVDA + ↓ | VO + A |
+| Список элементов / Rotor | NVDA + F7 | VO + U |
+| Ориентиры | D | VO + U |
+| Заголовки | H | VO + Command + H |
+| Ссылки | K | VO + Command + L |
+| Элементы форм | F | VO + Command + J |
+| Таблицы | T | VO + Command + T |
+| Внутри таблиц | NVDA + Alt + ↓ ↑ ← → | VO + ↓ ↑ ← → |
 
-## Screen reader testing demo
+#### Основные команды мобильных программ чтения с экрана
 
-To test our demo, we used a Safari on a laptop running MacOS and capture sound. You can walk through these steps using any screen reader, but the way you encounter some errors may be different from how its described in this module.
+| Элемент | TalkBack (Android) | VoiceOver (iOS) |
+|----|----|----|
+| Обзор | Провести одним пальцем по экрану | Провести одним пальцем по экрану |
+| Выбрать или активировать | Двойное касание | Двойное касание |
+| Переместиться вверх или вниз | Смахнуть вверх или вниз двумя пальцами | Смахнуть вверх или вниз тремя пальцами |
+| Сменить страницу | Смахнуть влево или вправо двумя пальцами | Смахнуть влево или вправо тремя пальцами |
+| Следующий или предыдущий | Смахнуть влево или вправо одним пальцем | Смахнуть влево или вправо одним пальцем |
 
-### Step 1
+## Демонстрация тестирования программой чтения с экрана
 
-Visit the updated [CodePen](https://codepen.io/web-dot-dev/pen/eYjZdve), which has all the automated and manual accessibility updates applied.
+Для теста демонстрации мы использовали Safari на ноутбуке с macOS и записывали звук. Эти шаги можно пройти с любой программой чтения с экрана, но часть ошибок может встретиться иначе, чем описано в модуле.
 
-View it in [debug mode](https://cdpn.io/pen/debug/eYjZdve) to proceed with the next tests. This is important, as it removes the `<iframe>` which surrounds the demo webpage, which may interfere with some testing tools. Learn more about [CodePen's debug mode](https://blog.codepen.io/documentation/debug-view/#getting-to-debug-view-3).
+### Шаг 1
 
-### Step 2
+Откройте обновлённый [CodePen](https://codepen.io/web-dot-dev/pen/eYjZdve): в нём уже применены все автоматические и ручные исправления доступности.
 
-Activate the screen reader of your choice and go to the demo page. You may consider navigating through the entire page from top to bottom before focusing on specific issues.
+Откройте его в [режиме отладки](https://cdpn.io/pen/debug/eYjZdve), чтобы перейти к следующим тестам. Это важно: так убирается `<iframe>`, который окружает демо-страницу и может мешать некоторым инструментам. Подробнее — в описании [режима отладки CodePen](https://blog.codepen.io/documentation/debug-view/#getting-to-debug-view-3).
 
-We've recorded the our screen reader for each issue, before and after the fixes are applied to the demo. We encourage you to run through the demo with your own screen reader.
+### Шаг 2
 
-#### Issue 1: Content structure {: #content-structure}
+Включите выбранную программу чтения с экрана и перейдите на демо-страницу. Имеет смысл сначала пройти всю страницу сверху вниз, а потом разбирать отдельные проблемы.
 
-Headings and landmarks are one of the primary ways people navigate using screen readers. If these are not present, a screen reader user has to read the entire page to understand the context. This can take a lot of time and cause frustration. If you try to navigate by either element in the demo, you will quickly discover that they do not exist.
+Мы записали программу чтения с экрана для каждой проблемы — до исправления и после. Пройдите демонстрацию своей программой чтения с экрана.
 
--   Landmark example: `<div class="main">...</div>`
--   Heading example: `<p class="h1">Join the Club</p>`
+#### Проблема 1: структура содержания {#content-structure}
 
-If you have updated everything correctly, there should not be any visual changes, but your screen reader experience will have dramatically improved.
+Заголовки и ориентиры — один из главных способов навигации для людей, которые пользуются программой чтения с экрана. Если их нет, приходится читать всю страницу, чтобы понять контекст. Это занимает много времени и раздражает. Если попробовать перейти по любому из этих элементов в демонстрации, быстро станет ясно, что их нет.
+
+-   Пример ориентира: `<div class="main">...</div>`
+-   Пример заголовка: `<p class="h1">Join the Club</p>`
+
+Если всё обновлено правильно, визуально ничего не изменится, а опыт с программой чтения с экрана станет заметно лучше.
 
 <figure>
-  {% YouTube "o8gWVi97cMg" %}
-  <figcaption>Listen to the screen reader navigate through this issue.</figcaption>
+  ![type:video](https://www.youtube.com/embed/o8gWVi97cMg)
+  <figcaption>Послушайте, как программа чтения с экрана проходит эту проблему.</figcaption>
 </figure>
 
 <span class="solution" id="issue-1-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-Some inaccessible elements can't be observed by just looking at the site. You may remember the importance of heading levels and semantic HTML from the [Content structure](structure.md) module. A piece of content may look like a heading, but the content is actually wrapped in a stylized `<div>`.
+Некоторые недоступные элементы нельзя заметить, просто глядя на сайт. В модуле [структуры содержания](structure.md) говорилось, насколько важны уровни заголовков и семантический HTML. Фрагмент может выглядеть как заголовок, а на самом деле лежать в стилизованном `<div>`.
 
-To fix the issue with headings and landmarks, you must first identify each element that should be marked up as such and update the related HTML. Be sure to update the related CSS as well.
+Чтобы исправить заголовки и ориентиры, сначала найдите каждый элемент, который должен быть так размечен, и обновите HTML. Не забудьте обновить и связанный CSS.
 
-Landmark example: `<main>...</main>`
+Пример ориентира: `<main>...</main>`
 
-Heading example: `<h1>Join the Club</h1>`
+Пример заголовка: `<h1>Join the Club</h1>`
 
-If you have updated everything correctly, there should not be any visual changes, but your screen reader experience will have dramatically improved.
+Если всё обновлено правильно, визуально ничего не изменится, а опыт с программой чтения с экрана станет заметно лучше.
 
 <figure>
-  {% YouTube "FfM3qvEWHjk" %}
-  <figcaption>Now that we've fixed the content structure, listen to the screen reader navigate through the demo again.</figcaption>
+  ![type:video](https://www.youtube.com/embed/FfM3qvEWHjk)
+  <figcaption>Структура содержания исправлена. Послушайте, как программа чтения с экрана снова проходит демонстрацию.</figcaption>
 </figure>
 
-## Issue 2: Link context {: #link-context}
+## Проблема 2: контекст ссылки {#link-context}
 
-It's important to give content to screen reader users about the purpose of a link and if the link is redirecting them to a new location outside of the website or app.
+Пользователям программы чтения с экрана важно сообщить, зачем нужна ссылка и уводит ли она в новое место за пределами сайта или приложения.
 
-In our demo, we fixed most of the links when we updated the active image alternative text, but there are a few additional links about the various rare diseases that could benefit from additional context—especially since they redirect to a new location.
+В демонстрации большинство ссылок мы исправили, когда обновили альтернативный текст действенных изображений. Нескольким ссылкам о редких заболеваниях всё ещё полезен дополнительный контекст — тем более что они ведут на другой сайт.
 
 ```html
 <a
@@ -300,19 +142,19 @@ In our demo, we fixed most of the links when we updated the active image alterna
 ```
 
 <figure>
-  {% YouTube "kk7LNdtfYMM" %}
-  <figcaption>Listen to the screen reader navigate through this issue.</figcaption>
+  ![type:video](https://www.youtube.com/embed/kk7LNdtfYMM)
+  <figcaption>Послушайте, как программа чтения с экрана проходит эту проблему.</figcaption>
 </figure>
 
 <span class="solution" id="issue-2-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-To fix this issue for screen reader users, we update the code to add more information, without affecting the visuals element. Or, to help even more people such as those with reading and cognitive disorders, we may choose to add additional visual text instead.
+Чтобы исправить это для пользователей программ чтения с экрана, мы добавляем в код больше сведений и не меняем внешний вид. Чтобы помочь ещё и людям с нарушениями чтения и когнитивными особенностями, можно вместо этого добавить видимый текст.
 
-There are many different patterns we may consider to add additional link information. Based on our simple environment that supports just one language, an ARIA label is a straightforward option in this situation. You may notice that the ARIA label overrides the original link text, so make sure to include that information in your update.
+Дополнительные сведения о ссылке можно добавить разными шаблонами. В простой среде с одним языком для этой ситуации подходит подпись ARIA. Подпись ARIA заменяет исходный текст ссылки, поэтому включите эти сведения в обновление.
 
 ```html
 <a
@@ -324,13 +166,13 @@ There are many different patterns we may consider to add additional link informa
 ```
 
 <figure>
-  {% YouTube "Ezr7cMdCQlE" %}
-  <figcaption>Now that we've fixed the link context, listen to the screen reader navigate through the demo again.</figcaption>
+  ![type:video](https://www.youtube.com/embed/Ezr7cMdCQlE)
+  <figcaption>Контекст ссылки исправлен. Послушайте, как программа чтения с экрана снова проходит демонстрацию.</figcaption>
 </figure>
 
-## Issue 3: Decorative image
+## Проблема 3: декоративное изображение
 
-In our automated testing module, Lighthouse was unable to pick up on the inline SVG that acts as the main splash image on our demo page—but the screen reader finds it and announces it as "image" without additional information. This is true, even without explicitly adding the `role="img"` attribute to the SVG.
+В модуле автоматизированного тестирования Lighthouse не заметил встроенный SVG, который служит главным иллюстративным изображением демо-страницы. Программа чтения с экрана его находит и объявляет как «image» без дополнительных сведений. Так происходит даже без явного атрибута `role="img"` у SVG.
 
 ```html
 <div class="section-right">
@@ -339,19 +181,19 @@ In our automated testing module, Lighthouse was unable to pick up on the inline 
 ```
 
 <figure>
-  {% YouTube "TKHHTGghrHs" %}
-  <figcaption>Listen to the screen reader navigate through this issue.</figcaption>
+  ![type:video](https://www.youtube.com/embed/TKHHTGghrHs)
+  <figcaption>Послушайте, как программа чтения с экрана проходит эту проблему.</figcaption>
 </figure>
 
 <span class="solution" id="issue-3-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-To fix this issue, we first need to decide if the image is [informative](images.md#informative-images) or [decorative](images.md#decorative-images). Based on that decision, we need to add the appropriate image alternative text (informative image) or hide the image from screen reader users (decorative).
+Сначала решите, изображение [информативное](images.md#informative-images) или [декоративное](images.md#decorative-images). От этого зависит, нужен ли подходящий альтернативный текст (информативное изображение) или изображение нужно скрыть от пользователей программ чтения с экрана (декоративное).
 
-We weighed the pros and cons of how best to categorize the image and decided it was decorative, which means we want to add or modify the code to hide the image. A quick method is to add a `role="presentation"` to the SVG image directly. This sends a signal to the screen reader to skip over this image and not list it in the images group.
+Мы взвесили плюсы и минусы и решили, что изображение декоративное: код нужно добавить или изменить так, чтобы скрыть его. Быстрый способ — поставить `role="presentation"` прямо на SVG. Это сигнал программе чтения с экрана пропустить изображение и не включать его в группу изображений.
 
 ```html
 <div class="section-right">
@@ -360,40 +202,40 @@ We weighed the pros and cons of how best to categorize the image and decided it 
 ```
 
 <figure>
-  {% YouTube "KqTf8Pl2lMU" %}
-  <figcaption>Now that we've fixed the decorative image, listen to the screen reader navigate through the demo.</figcaption>
+  ![type:video](https://www.youtube.com/embed/KqTf8Pl2lMU)
+  <figcaption>Декоративное изображение исправлено. Послушайте, как программа чтения с экрана проходит демонстрацию.</figcaption>
 </figure>
 
-### Issue 4: Bullet decoration {: #bullet-decoration}
+### Проблема 4: декоративный маркер {#bullet-decoration}
 
-You may have noticed that the screen reader reads the CSS bullet image under the rare diseases sections. While not the traditional type of image we discussed in the Images module, the image still must be modified as it disrupts the flow of the content and could distract or confuse a screen reader user.
+Возможно, вы заметили, что программа чтения с экрана читает CSS-изображение маркера в разделах о редких заболеваниях. Это не тот тип изображения, о котором шла речь в модуле об изображениях, но его всё равно нужно изменить: оно сбивает поток содержания и может отвлекать или путать пользователя программы чтения с экрана.
 
 ```html
 <p class="bullet">...</p>
 ```
 
 <figure>
-  {% YouTube "sDR2w-HGHOo" %}
-  <figcaption>Listen to the screen reader navigate through this issue.</figcaption>
+  ![type:video](https://www.youtube.com/embed/sDR2w-HGHOo)
+  <figcaption>Послушайте, как программа чтения с экрана проходит эту проблему.</figcaption>
 </figure>
 
 <span class="solution" id="issue-4-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-Much like the decorative image example discussed earlier, you can add a `role="presentation"` to the HTML with the bullet class to hide it from the screen reader. Similarly, a `role="none"` would work. Just be sure not to use `aria-hidden: true` or you will hide all of the paragraph information from screen reader users.
+Как и в примере с декоративным изображением выше, к HTML с классом маркера можно добавить `role="presentation"`, чтобы скрыть его от программы чтения с экрана. Так же сработает `role="none"`. Не используйте `aria-hidden: true`: иначе от пользователей программ чтения с экрана скроется и весь текст абзаца.
 
 ```html
 <p class="bullet" role="none">...</p>
 ```
 
-### Issue 5: Form field
+### Проблема 5: поле формы
 
-In the [Forms](forms.md) module, we learned that all form fields must also have a visual and programmatic label. This label must remain visible at all times.
+В модуле [форм](forms.md) сказано, что у каждого поля формы должна быть и визуальная, и программная подпись. Эта подпись должна оставаться видимой всегда.
 
-In our demo, we're missing both a visual and programmatic label on our newsletter sign-up email field. There is a text placeholder element, but this does not replace the label as it's not visually persistent and is not fully compatible with all screen readers.
+В демонстрации у поля электронной почты для подписки на рассылку нет ни визуальной, ни программной подписи. Есть текст-заполнитель, но он не заменяет подпись: он не остаётся видимым и не полностью совместим со всеми программами чтения с экрана.
 
 ```html
 <form>
@@ -409,17 +251,17 @@ In our demo, we're missing both a visual and programmatic label on our newslette
 ```
 
 <figure>
-  {% YouTube "7hncAhi4UUk" %}
-  <figcaption>Listen to the screen reader navigate through this issue.</figcaption>
+  ![type:video](https://www.youtube.com/embed/7hncAhi4UUk)
+  <figcaption>Послушайте, как программа чтения с экрана проходит эту проблему.</figcaption>
 </figure>
 
 <span class="solution" id="issue-5-solution" style="display:block;font-weight:strong; margin-top: var(--flow-space, 1em);">
   <figure data-float="left">
-    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28"%}
-  </figure> <strong>Let's fix it.</strong>
+    {% Img src="image/VbsHyyQopiec0718rMq2kTE1hke2/dNzbda0Lx1XUeCadVLMH.svg", alt="", width="28", height="28" %}
+  </figure> <strong>Исправим это.</strong>
 </span>
 
-To fix this issue, replace the text placeholder with a look-alike label element. That label element is programmatically connected to the form field and movement was added with JavaScript to keep the label visible even when content is added to the field.
+Чтобы исправить это, замените текст-заполнитель похожим на него элементом подписи. Подпись программно связана с полем, а JavaScript двигает её так, чтобы она оставалась видимой, даже когда в поле уже есть содержимое.
 
 ```html
 <form>
@@ -445,16 +287,16 @@ To fix this issue, replace the text placeholder with a look-alike label element.
 ```
 
 <figure>
-  {% YouTube "hNbDfcmdi_A" %}
-  <figcaption>Now that we've fixed the form, listen to the screen reader navigate through the demo.</figcaption>
+  ![type:video](https://www.youtube.com/embed/hNbDfcmdi_A)
+  <figcaption>Форма исправлена. Послушайте, как программа чтения с экрана проходит демонстрацию.</figcaption>
 </figure>
 
-## Wrap up
+## Итог
 
-Congratulations! You have completed all of the testing for this demo. You can look at all of these changes in the [updated Codepen for this demo](https://codepen.io/web-dot-dev/pen/PoBZgrW).
+Все проверки этой демонстрации пройдены. Все изменения можно посмотреть в [обновлённом CodePen для этой демонстрации](https://codepen.io/web-dot-dev/pen/PoBZgrW).
 
-Now, you can use what you've learned to review the accessibility of your own websites and apps.
+Теперь этими приёмами можно проверять доступность собственных сайтов и приложений.
 
-The goal of all of this accessibility testing is to address as many possible issues that a user may potentially encounter. However, this does not mean that your website or app will be perfectly accessible when you're finished. You'll find the most success by designing your website or app with accessibility throughout the process, and incorporating these tests with your other pre-launch testing.
+Цель всего тестирования доступности — закрыть как можно больше проблем, с которыми может столкнуться пользователь. Это не значит, что по окончании работы сайт или приложение станут идеально доступными. Лучший результат даёт доступность на всём пути — от проектирования — и включение этих проверок в остальные тесты перед запуском.
 
-{% Assessment 'at' %}
+:material-information-outline: Источник &mdash; [Assistive Technology testing](https://web.dev/learn/accessibility/test-assistive-technology)
